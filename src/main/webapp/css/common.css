@@ -34,14 +34,18 @@ body > .container {
 }
 
 #content {
-  margin-left: 190px;
+  margin-left: 250px;
   min-height: 400px;
   /* border: 1px solid red; */
 }
 
-#footer {
-  background-color:gray; 
-  height:20px; 
+#wrapper {
+	border: 1px solid red;
+	margin: 0 auto;
+	padding: 0px;
+	width: 400px;
+	height: -10px;
+	
 }
 
 
