@@ -8,24 +8,16 @@
 
 <style>
 
-.container {
-	background:url(../image/bg_con.png) no-repeat right top;
-	background-attackment: fixed;
-}
 
-
-#content {
-	<!--border: 1px solid black;-->
-	margin-left: 240px; 
-	margin-top: 30px;
-	width: 720px;
+.navi {
+	border: 1px;
+	height: 50px;
 }
 
 .navi-first {
 	position: relative;
 	font-size: 17.5px; 
 	margin-right: 23px;
-	margin-left: -40px;
 }
 
 .navi ul li {
@@ -45,12 +37,13 @@ li > a {
 }
 
 .navi hr {
-	border-color: rgb(190, 190, 190);
-	display: relative;
-	margin-top: -5px;
+	position: relative;
+	margin-top: 5px;
+	border: 0;
+	border: 1px solid rgb(190, 190, 190);
 }
 
-.wrap {
+.event-btn {
 	margin-bottom: 20px;
 }
 
@@ -60,6 +53,7 @@ li > a {
 	font-size: 11px;
 	margin-left: 5px;
 	padding-left: 5px;
+	border: 1px solid gray;
 }
 
 #add-event {
@@ -135,8 +129,10 @@ li > a {
 
  
 .one-event hr {
-	border-color: rgb(224, 224, 224);
+	position: relative;
 	margin-top: 15px;
+	border: 0;
+	border: 1px solid rgb(224, 224, 224);
 }
 
 
@@ -201,8 +197,8 @@ ul.pagination li a:hover:not(.active) {
 			
 			
 			
-			<div class='wrap'>
-				<input id='search-event' placeholder='검색어 입력'>
+			<div class='event-btn'>
+				<input id='search-event' type='text' placeholder='검색어 입력'>
 				<button id='add-event' type='button'>이벤트등록</button>
 			</div>
 			
