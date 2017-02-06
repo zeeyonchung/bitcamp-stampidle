@@ -6,9 +6,34 @@
 /*************************************************
                                     common                     
 *************************************************/
-* {font-family:"malgun gothic","san-serif";}
+* {
+	font-family: "malgun gothic", "san-serif";
+}
+
+body {
+	color: #666;
+	word-break: break-all;
+	overflow-x: hidden;
+}
+
+a {
+	color: #222;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+
+
+
+/*************************************************
+                                    layout                     
+*************************************************/
 
 .container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     min-height: 100%;
     background: url(../image/bg_con.png) no-repeat right top;
     background-attachment: fixed;
@@ -18,20 +43,20 @@
 }
 
 #sidebar {
+	min-width: 800px;
 }
 
 #content {
-    max-width:960px!important;
-    width:960px;
+	margin-top: 70px;
+    width:100% !important;
+    padding: 30px 20px;
 }
 
-
-/************ 임시 로그인 스타일 ************/
-
-
-
-
-
-
+#content .con {
+	margin: auto;
+	min-height: 700px;
+    min-width: 800px;
+    max-width: 960px;	
+}
 
 
