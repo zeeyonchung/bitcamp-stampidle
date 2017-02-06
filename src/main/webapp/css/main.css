@@ -1,18 +1,30 @@
 @CHARSET "UTF-8";
 
-@import url("default.css");
-@import url("frame.css");
-
-
-* {font-family:"malgun gothic","san-serif";}
-
-.mainDetail .top .search {
-    position: relative;
-    float: left;
-    margin-left: 15px;
+#content {
+	margin-left: 50px;
+	margin-top: 100px;
+	padding-top: 1px;
+	padding-left: 10px;
+  min-height: 400px;
+	background-image: url('../image/bg_mainCon.png');
+	background-repeat: no-repeat;
 }
 
-.mainDetail .top .search .inputArea {
+.con .text {
+	font-size: 1em;
+	margin: 20px auto 10px;
+	width: 500px;
+} 
+
+.mainDetail .search {
+    position: relative;
+    margin: auto;
+    margin-bottom: 40px;
+    width: 400px;
+    height: 70px;
+}
+
+.mainDetail .search .inputArea {
     position: absolute;
     width: 290px;
     min-height: 40px;
@@ -20,70 +32,114 @@
     border: 1px solid #b2b2b2;
     border-radius: 20px;
     background: #fff;
+    background-color: rgb(255,89,72);
 }
 
-.mainDetail .top .search .inputArea .srchBar {
+.mainDetail .search .inputArea .srchBar {
     float: left;
+    color: white;
     width: 200px;
-    padding: 8px 20px 9px 20px;
     font-size: 16px;
-    color: #555;
-    background: transparent;
+    padding-left: 20px;
+    padding-top: 10px;
+    background-color: rgba(255,89,72,0);
+    
 }
 
-.mainDetail .top .search .inputArea .btn_srch {
-    float: left;
+.srchBar::-webkit-input-placeholder{
+	color: white;
+}
+
+.mainDetail .search .inputArea .btn_srch {
+    float: right;
     width: 40px;
     height: 38px;
     background: url(../image/btn_searchB.png) no-repeat center center;
     font-size: 0;
 }
 
-.mainDetail .top .search .inputArea .srchList {
+.mainDetail .search .inputArea .srchList {
     display: none;
     clear: both;
     padding-bottom: 15px;
 }
 
-.mainDetail .top .search .inputArea:hover .srchList {
+.mainDetail .search .inputArea:hover .srchList {
     display: block;
 }
 
-.mainDetail .top .search .inputArea:hover .srchList li {
+.mainDetail .search .inputArea:hover .srchList li {
     border-top: 1px solid #e4e4e4;
     padding: 10px 20px 12px 20px;
     font-size: 15px;
     color: #555;
 }
 
-.mainDetail .top .search .inputArea:hover .srchList li:hover {
+.mainDetail .search .inputArea:hover .srchList li:hover {
     background: #f6f6f6;
 }
 
-.mainDetail .top .search .inputArea:hover .srchList .cstmrNm {
+.mainDetail .search .inputArea:hover .srchList .cstmrNm {
     display: inline-block;
     width: 80px;
 }
 
-.mainDetail .top .search .inputArea:hover .srchList .cstmrTel {
+.mainDetail .search .inputArea:hover .srchList .cstmrTel {
     
 }
 
-.mainDetail .top .search .btn_newCstmr_top {
+.mainDetail .search .btn_newCstmr {
     position: absolute;
     left: 295px;
     width: 100px;
-    height: 40px;
-    margin-top: 20px;
+    height: 100px;
     border: 0;
-    background: #444;
-    border-radius: 20px;
-    color: #fff;
-    font-size: 15px;
+    background-color: rgba(0,0,0,0);
+    background-image: url('../image/btn_newCustomer.png');
+    
 }
 
+.today {
+	margin-top: 60px;
+	margin: auto;
+	padding-left: 30px;
+	width: 220px;
+}
 
+.dayTime {
+	margin: 10px auto 10px;
+	padding-left: 320px;
+	width: 900px;
+}
 
+.dayTime .btn_end {
+	float: right;
+	margin: 4px;
+}
+.stat1 {
+	margin: auto;
+	margin-top: 20px;
+	clear: both;
+	width: 903px;
+	height:302px;
+	border-top: 1px solid lightgray;
+	border-left: 1px solid lightgray;
+}
+
+.stat1 .stat2{
+	float: left;
+	border-right: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
+	width: 300px;
+	height: 150px;
+	text-align: center;
+	padding: 30px;
+}
+
+.btn_stat {
+	margin: 20px auto;
+	width:120px;
+}
 
 
 
