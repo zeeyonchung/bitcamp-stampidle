@@ -4,8 +4,7 @@
 <meta charset='UTF-8'>
 <title>고객 상세 정보</title>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" href="../css/common.css">
-
+<link rel="stylesheet" href="stampidle.css">
 <style>
 
 .container {
@@ -13,28 +12,9 @@
   background-attackment: fixed;
 }
 
-#content {
-  margin-left: 10px;
-  margin-top:120px;
-  float: center;
-  width:960px; 
-}
-
-#content2 {
-  width:450px; 
-  margin-left: 20px;
-  float: left;
-}
-#content3 {
-  width:450px;
-  margin-left: 0px;
-  margin-right: 20px;
-  float: right; 
-  
-}
 .img-circle {
   float:left;
-  height:70px;
+  height:50px;
 }
 #name {
   font-size:1.5em;
@@ -50,13 +30,19 @@
   font-size:1em;
 }
 
+table {
+  float:left;
+}
 hr {
   width:30px;
 }
 
+.cpnumber {
+  vertical-align:top;
+}
 
 .cpall {
-   
+  width:170px; 
   border-right:1px solid red; 
   border-left:1px solid red; 
   text-align:center;
@@ -66,8 +52,7 @@ hr {
 }
 
 .usecp {
-  border:1.5px solid gray;
-  border-radius:5px; 
+  border-radius: 5px; 
   width:40px; 
   height:30px;
   margin-left: 40px; 
@@ -83,10 +68,10 @@ hr {
   margin-top: 3px;
 }
 #current-use {
-  font-size:1em; 
+  font-size:0.8em; 
   background-color:gray; 
-  margin-top: 10px;
-  float:left;
+  float :left; 
+  margin-top: 20px;
 }
 #current-table {
   float :left; 
@@ -97,21 +82,22 @@ hr {
   float: left; 
   border:1px solid gray; 
   border-width:1px 1px; 
-  width:400px; 
+  width:340px; 
   margin-left: 10px; 
   margin-right: 10px; 
+  margin-top:50px;
 }
 #card-back {
-  height:250px; 
-  width:350px; 
-  margin-left: 25px; 
-  margin-right: 25px; 
+  height:150px; 
+  width:300px; 
+  margin-left: 20px; 
+  margin-right: auto; 
   margin-top:10px; 
   margin-bottom:10px;
 }
 .current-stamp {
   float: left; 
-  width: 400px; 
+  width: 340px; 
   border:1px solid gray;
   border-width:1px 1px; 
   margin-left: 10px; 
@@ -125,12 +111,12 @@ hr {
   padding-right:10px;
 }
 .current-table2 {
-  width:150px;
   margin-top:20px; 
   margin-bottom:20px; 
+  width=100px;
 }
 .current-save-stamp {
-  width:200px;
+  width:140px;
   font-size:0.7em; 
   border-right:1px solid gray; 
   text-align:center;
@@ -144,7 +130,7 @@ hr {
 
 .cp-question {
   float: left; 
-  width:240px; 
+  width:180px; 
   height:36px;
 }
 #cp-question-btn {
@@ -158,43 +144,36 @@ hr {
 
 <body>
 <div class ='container'>
-  <div id='header'>
+  <div id = "header" >
+  헤더
   </div>
-  <div id='sidebar'>
+  <div id = "sidebar">
+  사이드바
   </div>
   <div id = "content">
     <div class ="con">
 	    <div id = "content2">
-		    <h2><b>고객 검색</b></h2><br><br>
-		    <img src="logo2.jpg" alt="..." class="img-circle" ><br>
+		    <h2><b>고객 검색</b></h2>
+		    <img src="logo2.jpg" alt="..." class="img-circle" >
 		    <span id="name">&nbsp;&nbsp;윤봉길</span>
-		    <button class="btn btn-default btn-sm" id="send-text" type="submit" >Button</button><br>
-		    <span id="phone-number">&nbsp; &nbsp;010-0000-1111</span><br><br>
+		    <button class="btn btn-default btn-sm" id="send-text" type="submit" >Button</button></br>
+		    <span id="phone-number">&nbsp; &nbsp;010-0000-1111</span>
 		    <hr>
-		    <div style="width:200px;float:left; margin-top:30px;">
-			    <table style="width:200px;">
-					  <tr class="cpnumber">
-					    <td class="cpall">다 채운 쿠폰 카드 수<br>
-					    <span class="cpall-name"><b>3</b></span>
-					    </td>
-					    
-					  </tr>
-					</table>
-				</div>
-				<div style="width:170px;float:left; height:60px; text-align:center; margin-top:30px;">
-				  <input class="usecp" type="text" name="text" size="20" >
-				  <b>개</b>
-				</div>
-				<div style="width:77px; float:left; margin-top:30px;">
+		    <table>
+				  <tr class="cpnumber">
+				    <td class="cpall">다 채운 쿠폰 카드 수<br>
+				    <span class="cpall-name"><b>3</b></span>
+				    </td>
+				    <td>
+				      <input class="usecp" type="text" name="text" size="20" >
+	            <span style = "font-size:1.5em;"><b>개</b></span>
+				    </td>
+				  </tr>
+				</table>
 				  <button id="use-btn" class="btn btn-default btn-sm" type="submit" >사용</button>
-				</div>
-				<div style="width:77px; float:left;">  
 				  <button id="cancle-btn" class="btn btn-default btn-sm" type="submit" >취소</button>
-				</div><br>
-			<div style="float:left; height:30px; margin-top:30px;">
 	    <span id="current-use">이 고객님의 카페 이용 현황</span>
-	    </div>
-	    <table id="current-table" class="table table-condensed" style="margin-top:20px;">
+	    <table id="current-table" class="table table-condensed">
 	      <tr>
 	        <td >카페 첫 방문일</td>
 	        <td>2017-10-02</td>
@@ -233,12 +212,12 @@ hr {
 	          <button id="cp-question-btn" type="button" class="btn btn-default btn-xs" type="submit" >?
 	          </button>
 	        </div>
-	        <div style=" float: left; width: 240px; height:36px;text-align:center; font-size:0.6px;">
+	        <div style=" float: left; width: 180px; height:36px;text-align:center; font-size:0.6px;">
 			     원하시는 개수만큼<br>
 			     스탬프 영역을 클릭하신 후<br>
 			     아래 버튼을 눌러주세요<br>
 		      </div>
-		      <div style=" float: left; width: 240px; text-align:center; margin-top: 22px">
+		      <div style=" float: left; width: 180px; text-align:center; margin-top: 22px">
 		        <button type="button" class="btn btn-default btn-sm" style=" margin-right: 5px; " type="submit" >도장등록
 	          </button>
 		      </div>
@@ -250,10 +229,4 @@ hr {
 </div>
 
 </body>
-
-  <script src="../node_modules/jquery/dist/jquery.js"></script>
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="../js/bit.js"></script>
-  <script src="../js/common.js"></script>
-  <script src="main.js"></script>
 </html>
