@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Stampidle</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/manage.css">
+<link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
+<link rel="stylesheet" href="../css/calendar.css">
+
+
+</head>
+
+<body>
+	<div class='container'>
+	<div id='header'></div>
+  <div id='sidebar'></div>
+  
+  
+  <div id="content">
+    <div class='con'>
+
+	    <!-- 고객관리 메뉴 -->
+			<nav class='manage-navi'>
+					<ul>
+						<li><a href='#'>고객 관리</a></li>
+						<li class="one"><a href="#">방문 통계</a></li>
+						<span style='color: rgb(190, 190, 190);'>|</span>
+						<li class="two"><a href="#">고객리스트</a></li>
+						<span style='color: rgb(190, 190, 190);'>|</span>
+	          <li class="three"><a href="#">도장 발급 내역</a></li>
+						<hr class='underline' />
+					</ul>
+					<hr>
+			</nav>
+			
+			
+			
+			
+			<!-- 날짜 설정 -->
+				<div id="wrapper" class='calendar'>
+					<div class="demo">
+						<b>날짜 설정</b>
+			      <button id='calendar-btn' type='button'>
+			        <img class='calendar-icon' src='../image/icon_calendar.png'>
+			      </button>
+						<input id="date-range0" type='text' class='input-day'>
+						<input class='input-name' type='text' placeholder='검색어 입력'>
+						<button id='search-log-btn' class="btn btn-default" type='button'>
+						  <img class="btn-img" src="../image/btn_searchB.png">
+						</button>
+						<pre class="options">
+						{
+						  separator : ' ~ '
+						 
+						}</pre>
+					</div>
+	
+				</div>
+
+
+
+
+        <!-- 고객목록 테이블 -->
+        <div>
+					<table class="table table-hover">
+            <thead>
+              <tr>
+                <th>no.</th>
+                <th>고객명</th>
+                <th>핸드폰번호</th>
+                <th>발급 개수</th>
+                <th>발급 날짜</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+              <tr class='tr-link'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-1234-5678</td>
+                <td>3</td>
+                <td>2017-02-06</td>
+              </tr>
+            </tbody>
+					</table>
+        </div>
+
+
+
+
+
+	
+		    <!-- 다음페이지 -->
+				<div class='z'>
+					<ul class="pagination">
+						<li><a href="#">〈</a></li>
+						<li><a href="#">1</a></li>
+						<li><a class="active" href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">〉</a></li>
+					</ul>
+				</div>
+				
+				
+
+		
+      </div>
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	
+
+
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="../js/bit.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="stamplog.js"></script>
+
+
+  <script src="http://www.blueb.co.kr/SRC2/daterange/jquery-1.11.2.min.js"></script>
+  <script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
+  <script src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
+  <script src="../js/calendar.js"></script>
+  
+  
+  
+  
+	<!-- tr 태그 클릭 시 고객 상세페이지로 이동 -->
+	<script>
+	"use strict"
+	
+	$('.tr-link').click(function(event) {
+		location.href = '../stampidle_cs/customerdetail.html'
+	});
+	</script>
+	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
