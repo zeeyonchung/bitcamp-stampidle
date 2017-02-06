@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 300 100% 'Helvetica Neue', Helvetica, Arial;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+ul li {
+  display: inline;
+  text-align: center;
+}
+
+a {
+  display: inline-block;
+  width: 25%;
+  padding: .75rem 0;
+  margin: 0;
+  text-decoration: none;
+  color: #333;
+}
+
+.two:hover ~ hr.underline {
+  margin-left: 125px;
+}
+
+
+.underline {
+  height: .25rem;
+  width: 100px;
+  margin-top: -10px;
+  margin-left: 5px;
+  background: gray;
+  border: none;
+  transition: .4s ease-in-out;
+  z-index: 2;
+}
+
+.container > hr {
+  position: relative;
+  margin-top: -18px;
+  z-index: 1;
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+  <ul>
+    <li class="one"><a href="#">Uno</a></li>
+    <li class="two"><a href="#">Dos</a></li>
+    <hr class='underline'/>
+  </ul>
+  <hr>
+</div>
+</body>
+</html>
