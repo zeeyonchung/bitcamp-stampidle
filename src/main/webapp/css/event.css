@@ -26,7 +26,6 @@
 ul li:nth-of-type(2), li:nth-of-type(3) {
 	border: 1px;
   display: inline;
-  padding-left: 5px;
   font-size: 0.85em;
 }
 
@@ -39,20 +38,20 @@ ul a {
 }
 
 .two:hover ~ hr.underline {
-  width: 82px;
-  margin-left: 185px;
+  width: 79px;
+  margin-left: 178px;
 }
 
 
 .underline {
   height: .25rem;
-  width: 97px;
+  width: 96px;
   margin-top: -6px;
-  margin-left: 77px;
+  margin-left: 73px;
   background: gray;
   border: none;
   transition: .4s ease-in-out;
-  z-index: 2;
+  z-index: 99;
 }
 
 .event-navi > hr {
