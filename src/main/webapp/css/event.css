@@ -7,6 +7,7 @@
 
 .event-navi {
   border: 1px;
+  margin-top: 90px;
   margin-bottom: 30px;
 }
 
@@ -64,23 +65,39 @@ ul a {
 
 
 
-.event-btn {
+.event-btns {
   margin-bottom: 20px;
 }
 
 
-#search-event {
+.keyword-event {
   width: 130px;
   height: 25px;
-  font-size: 11px;
+  font-size: 0.8em;
   margin-left: 5px;
   padding-left: 5px;
   border: 1px solid gray;
+  vertical-align: top;
+}
+
+#search-event-btn {
+	width: 25px;
+	height: 25px;
+	font-size: 0.8em;
+}
+
+
+.btn-img {
+	position: relative;
+	margin-top: -6px;
+	margin-left: -8px;
+	width: 18px;
+	height: 18px;
 }
 
 #add-event {
   width: 120px;
-  height: 28px;
+  height: 25px;
   float: right;
   font-size: 11px;
   color: white;
@@ -88,6 +105,8 @@ ul a {
   border: 0;
   outline: 0;
   border-radius: 5px;
+  vertical-align: top;
+  text-align: center;
 }
 
 
@@ -99,7 +118,7 @@ ul a {
 
 .one-event img {
   margin-left: 5px;
-  width: 470px;
+  width: 550px;
   height: 130px;
 }
 
@@ -108,8 +127,7 @@ ul a {
   <!--border: 1px solid black;-->
   display: inline;
   float: right;
-  margin-right: 5px;
-  width: 232px;
+  width: 380px;
   height: 130px;
 }
 
