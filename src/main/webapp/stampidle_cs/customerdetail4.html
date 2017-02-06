@@ -34,7 +34,7 @@
 }
 .img-circle {
   float:left;
-  height:85px;
+  height:70px;
 }
 #name {
   font-size:1.5em;
@@ -64,13 +64,7 @@ hr {
 .cpall-name{
   font-size:2em;
 }
-.usecp-div {
-  width:170px;
-  float:left; 
-  height:60px; 
-  text-align:center; 
-  margin-top:30px;
-}
+
 .usecp {
   border:1.5px solid gray;
   border-radius:5px; 
@@ -78,25 +72,6 @@ hr {
   height:30px;
   margin-left: 40px; 
   margin-top:20px;
-}
-.use-btn-div {
-  width:77px; 
-  float:left; 
-  margin-top:30px;
-}
-.cpnumber-table {
-  width:200px;
-  float:left; 
-  margin-top:30px;
-}
-
-.cpnumber-table table {
-  width:200px;
-}
-
-.cancle-btn-div {
-  width:77px; 
-  float:left;
 }
 #use-btn {
   float :right; 
@@ -115,7 +90,7 @@ hr {
 }
 #current-table {
   float :left; 
-  font-size:0.9em; 
+  font-size:0.7em; 
   margin-top: 10px;
 }
 #imgbox {
@@ -127,7 +102,7 @@ hr {
   margin-right: 10px; 
 }
 #card-back {
-  height:270px; 
+  height:250px; 
   width:350px; 
   margin-left: 25px; 
   margin-right: 25px; 
@@ -177,24 +152,7 @@ hr {
   margin-right: 5px;
   margin-top: 10px;
 }
-.question-div {
-  float: left; 
-  width: 240px; 
-  height:36px;
-  text-align:center; 
-  font-size:0.7em;
-}
 
-.regist-stamp-div {
-  float:left; 
-  width:240px; 
-  text-align:center; 
-  margin-top:22px;
-}
-
-.regist-stamp-div button {
-  margin-right: 5px;
-}
 </style>
 </head>
 
@@ -209,12 +167,12 @@ hr {
 	    <div id = "content2">
 		    <h2><b>고객 검색</b></h2><br><br>
 		    <img src="logo2.jpg" alt="..." class="img-circle" ><br>
-		    <span id="name">&nbsp;&nbsp;홍길동</span>
+		    <span id="name">&nbsp;&nbsp;윤봉길</span>
 		    <button class="btn btn-default btn-sm" id="send-text" type="submit" >Button</button><br>
 		    <span id="phone-number">&nbsp; &nbsp;010-0000-1111</span><br><br>
 		    <hr>
-		    <div class="cpnumber-table">
-			    <table>
+		    <div style="width:200px;float:left; margin-top:30px;">
+			    <table style="width:200px;">
 					  <tr class="cpnumber">
 					    <td class="cpall">다 채운 쿠폰 카드 수<br>
 					    <span class="cpall-name"><b>3</b></span>
@@ -223,14 +181,14 @@ hr {
 					  </tr>
 					</table>
 				</div>
-				<div class="usecp-div">
+				<div style="width:170px;float:left; height:60px; text-align:center; margin-top:30px;">
 				  <input class="usecp" type="text" name="text" size="20" >
 				  <b>개</b>
 				</div>
-				<div class="use-btn-div">
+				<div style="width:77px; float:left; margin-top:30px;">
 				  <button id="use-btn" class="btn btn-default btn-sm" type="submit" >사용</button>
 				</div>
-				<div class="cancle-btn-div">  
+				<div style="width:77px; float:left;">  
 				  <button id="cancle-btn" class="btn btn-default btn-sm" type="submit" >취소</button>
 				</div><br>
 			<div style="float:left; height:30px; margin-top:30px;">
@@ -275,13 +233,13 @@ hr {
 	          <button id="cp-question-btn" type="button" class="btn btn-default btn-xs" type="submit" >?
 	          </button>
 	        </div>
-	        <div class="question-div">
+	        <div style=" float: left; width: 240px; height:36px;text-align:center; font-size:0.6px;">
 			     원하시는 개수만큼<br>
 			     스탬프 영역을 클릭하신 후<br>
 			     아래 버튼을 눌러주세요<br>
 		      </div>
-		      <div class="regist-stamp-div">
-		        <button type="button" class="btn btn-default btn-sm" type="submit" >도장등록
+		      <div style=" float: left; width: 240px; text-align:center; margin-top: 22px">
+		        <button type="button" class="btn btn-default btn-sm" style=" margin-right: 5px; " type="submit" >도장등록
 	          </button>
 		      </div>
 		      
