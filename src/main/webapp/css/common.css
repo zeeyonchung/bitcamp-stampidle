@@ -21,7 +21,8 @@
 }
 
 #content {
-
+    max-width:960px!important;
+    width:960px;
 }
 
 
