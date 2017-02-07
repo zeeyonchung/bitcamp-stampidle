@@ -109,10 +109,13 @@ ul a {
 }
 
 
+
+
 .one-event {
   border: 1px;
   margin-top: 15px;
   height: 150px;
+  width: 960px;
 }
 
 .one-event img {
