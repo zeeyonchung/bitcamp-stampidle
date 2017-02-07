@@ -4,6 +4,7 @@
 <meta charset='UTF-8'>
 <title>고객 상세 정보</title>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/default.css">
 <link rel="stylesheet" href="../css/common.css">
 
 <style>
@@ -11,13 +12,6 @@
 .container {
   background:url(../image/bg_con.png) no-repeat right top;
   background-attackment: fixed;
-}
-
-#content {
-  margin-left: 10px;
-  margin-top:120px;
-  float: center;
-  width:960px; 
 }
 
 #content2 {
@@ -199,103 +193,112 @@ hr {
 </head>
 
 <body>
-<div class ='container'>
-  <div id='header'>
-  </div>
-  <div id='sidebar'>
-  </div>
-  <div id = "content">
-    <div class ="con">
-	    <div id = "content2">
-		    <h2><b>고객 검색</b></h2><br><br>
-		    <img src="logo2.jpg" alt="..." class="img-circle" ><br>
-		    <span id="name">&nbsp;&nbsp;홍길동</span>
-		    <button class="btn btn-default btn-sm" id="send-text" type="submit" >Button</button><br>
-		    <span id="phone-number">&nbsp; &nbsp;010-0000-1111</span><br><br>
-		    <hr>
-		    <div class="cpnumber-table">
-			    <table>
-					  <tr class="cpnumber">
-					    <td class="cpall">다 채운 쿠폰 카드 수<br>
-					    <span class="cpall-name"><b>3</b></span>
-					    </td>
-					    
-					  </tr>
+	<div class='container'>
+		<div id='header'></div>
+		<div id='sidebar'></div>
+		<div id='content'>
+
+			<!-- con -->
+			<div class='con'>
+			
+				<div id="content2">
+					<h2>
+						<b>고객 검색</b>
+					</h2>
+					<br>
+					<br> <img src="logo2.jpg" alt="..." class="img-circle"><br>
+					<span id="name">&nbsp;&nbsp;홍길동</span>
+					<button class="btn btn-default btn-sm" id="send-text" type="submit">Button</button>
+					<br> <span id="phone-number">&nbsp; &nbsp;010-0000-1111</span><br>
+					<br>
+					<hr>
+					<div class="cpnumber-table">
+						<table>
+							<tr class="cpnumber">
+								<td class="cpall">다 채운 쿠폰 카드 수<br> <span
+									class="cpall-name"><b>3</b></span>
+								</td>
+
+							</tr>
+						</table>
+					</div>
+					<div class="usecp-div">
+						<input class="usecp" type="text" name="text" size="20"> <b>개</b>
+					</div>
+					<div class="use-btn-div">
+						<button id="use-btn" class="btn btn-default btn-sm" type="submit">사용</button>
+					</div>
+					<div class="cancle-btn-div">
+						<button id="cancle-btn" class="btn btn-default btn-sm"
+							type="submit">취소</button>
+					</div>
+					<br>
+					<div style="float: left; height: 30px; margin-top: 30px;">
+						<span id="current-use">이 고객님의 카페 이용 현황</span>
+					</div>
+					<table id="current-table" class="table table-condensed"
+						style="margin-top: 20px;">
+						<tr>
+							<td>카페 첫 방문일</td>
+							<td>2017-10-02</td>
+						</tr>
+						<tr>
+							<td>최근 방문일</td>
+							<td>2017-10-02</td>
+						</tr>
+						<tr>
+							<td>누적 도장 개수</td>
+							<td>8</td>
+						</tr>
+						<tr>
+							<td>다 채운 쿠폰 카드 수</td>
+							<td>2</td>
+						</tr>
 					</table>
 				</div>
-				<div class="usecp-div">
-				  <input class="usecp" type="text" name="text" size="20" >
-				  <b>개</b>
+
+				<div id="content3">
+					<div id='imgbox'>
+						<img src="logo2.jpg" id="card-back" alt="..." class="img-rounded">
+					</div>
+					<div class="current-stamp">
+						<div class="current-type">
+							<table class="current-table2">
+								<tr>
+									<td class="current-save-stamp">현재 모인 스탬프 수<br>
+									<br> <span class="cpall-name"><b>8개</b></span><br>
+										<button id="reset-btn" type="button"
+											class="btn btn-default btn-sm">카드리셋</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="cp-question">
+							<button id="cp-question-btn" type="button"
+								class="btn btn-default btn-xs" type="submit">?</button>
+						</div>
+						<div class="question-div">
+							원하시는 개수만큼<br> 스탬프 영역을 클릭하신 후<br> 아래 버튼을 눌러주세요<br>
+						</div>
+						<div class="regist-stamp-div">
+							<button type="button" class="btn btn-default btn-sm"
+								type="submit">도장등록</button>
+						</div>
+
+					</div>
 				</div>
-				<div class="use-btn-div">
-				  <button id="use-btn" class="btn btn-default btn-sm" type="submit" >사용</button>
-				</div>
-				<div class="cancle-btn-div">  
-				  <button id="cancle-btn" class="btn btn-default btn-sm" type="submit" >취소</button>
-				</div><br>
-			<div style="float:left; height:30px; margin-top:30px;">
-	    <span id="current-use">이 고객님의 카페 이용 현황</span>
-	    </div>
-	    <table id="current-table" class="table table-condensed" style="margin-top:20px;">
-	      <tr>
-	        <td >카페 첫 방문일</td>
-	        <td>2017-10-02</td>
-	      </tr>
-	      <tr>
-	        <td>최근 방문일</td>
-	        <td>2017-10-02</td>
-	      </tr>
-	      <tr>
-	        <td>누적 도장 개수</td>
-	        <td>8</td>
-	      </tr>
-	      <tr>
-	        <td>다 채운 쿠폰 카드 수</td>
-	        <td>2</td>
-	      </tr>
-	    </table>
-	    </div>
-	    
-	    <div id = "content3">
-	      <div id='imgbox'>
-	        <img src="logo2.jpg" id="card-back" alt="..." class="img-rounded">
-	      </div>
-	      <div class="current-stamp">
-	        <div class="current-type">
-		        <table class="current-table2">
-		          <tr>
-		            <td class="current-save-stamp">현재 모인 스탬프 수<br><br>
-		              <span class="cpall-name"><b>8개</b></span><br>
-		              <button id="reset-btn" type="button" class="btn btn-default btn-sm" >카드리셋</button>
-		           </td>
-		          </tr>
-	          </table>
-	        </div>
-	        <div class="cp-question">
-	          <button id="cp-question-btn" type="button" class="btn btn-default btn-xs" type="submit" >?
-	          </button>
-	        </div>
-	        <div class="question-div">
-			     원하시는 개수만큼<br>
-			     스탬프 영역을 클릭하신 후<br>
-			     아래 버튼을 눌러주세요<br>
-		      </div>
-		      <div class="regist-stamp-div">
-		        <button type="button" class="btn btn-default btn-sm" type="submit" >도장등록
-	          </button>
-		      </div>
-		      
-	      </div>
-	    </div>
-    </div>
-  </div>
-</div>
+				
+				
+			</div>
+			<!-- //con -->
+		</div>
+	</div>
+
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="../js/bit.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="main.js"></script>
 
 </body>
-
-  <script src="../node_modules/jquery/dist/jquery.js"></script>
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="../js/bit.js"></script>
-  <script src="../js/common.js"></script>
-  <script src="main.js"></script>
 </html>
