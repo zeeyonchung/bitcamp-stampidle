@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Stampidle</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/statistics.css">
+<link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
+</head>
+
+<body>
+	<div class='container'>
+		<div id='header'></div>
+		<div id='sidebar'></div>
+
+
+		<div id="content">
+			<div class='con'>
+
+				<!-- 고객관리 메뉴 -->
+				<nav class='manage-navi'>
+					<ul>
+						<li><a href='#'>고객 관리</a></li>
+						<li class="one"><a href="#">방문 통계</a></li>
+						<span style='color: rgb(190, 190, 190);'>|</span>
+						<li class="two"><a href="#">고객리스트</a></li>
+						<span style='color: rgb(190, 190, 190);'>|</span>
+						<li class="three"><a href="#">도장 발급 내역</a></li>
+						<hr class='underline' />
+					</ul>
+					<hr>
+				</nav>
+
+
+
+				<!-- 일간주간월간 -->
+				<div class='sort'>
+					<button type='button' id='oneday-btn' class="btn btn-default btn-selected radius">일간</button>
+					<button type='button' id='week-btn' class="btn btn-default radius">주간</button>
+					<button type='button' id='month-btn' class="btn btn-default radius">월간</button>
+				</div>
+
+
+
+				<!-- 날짜 선택 -->
+				<div class='stat-date'>
+
+					<button type='button' class='btn btn-default move'
+						id='pre-date-btn'>
+						<img src='../image/icon_arrow.png'>
+					</button>
+
+
+
+					<div id="wrapper" class='calendar'>
+						<div class="oneday">
+							<input id="date-range13" type='text' class='input-day' value='2017-02-07'>
+						</div>
+						
+						<div class="week">
+              <input id="date-range14" type='text' class='input-day' value='2017-02-07'>
+            </div>
+            
+            <div class="month">
+              <input id="date-range0" type='text' class='input-day' value='2017-02-07'>
+            </div>
+
+
+						<button type='button' class='btn btn-default move'
+							id='next-date-btn'>
+							<img src='../image/icon_arrow2.png'>
+						</button>
+					</div>
+
+
+
+
+				</div>
+				
+				
+				
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+
+
+		<script src="../node_modules/jquery/dist/jquery.js"></script>
+		<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="../js/bit.js"></script>
+		<script src="../js/common.js"></script></body>
+		<script src="statistics.js"></script>
+		
+		<script src="http://www.blueb.co.kr/SRC2/daterange/jquery-1.11.2.min.js"></script>
+		<script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
+		<script src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
+		<script src="../js/calendar.js"></script>
+
+
+    <!-- 일간월간주간 선택 시 달력 바뀜 -->
+    <script>
+	    "use strict"
+	    
+	    $('#oneday-btn').click(function(event) {
+	      $(.oneday).style.display = 'inline';
+	      $(.week).style.display = 'none';
+	      $(.month).style.display = 'none';
+	    });
+	    
+	    $('#week-btn').click(function(event) {
+	    	$(.oneday).style.display = 'none';
+        $(.week).style.display = 'inline';
+        $(.month).style.display = 'none';
+      });
+	    
+	    $('#month-btn').click(function(event) {
+	    	$(.oneday).style.display = 'none';
+        $(.week).style.display = 'none';
+        $(.month).style.display = 'inline';
+      });
+    </script>
+
+</html>
+
+
+
+
+
+
+
+
+

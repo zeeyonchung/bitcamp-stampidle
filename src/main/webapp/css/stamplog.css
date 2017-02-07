@@ -42,8 +42,8 @@ ul a {
 
 
 .one:hover ~ hr.underline {
-	width: 77px;
-	margin-left: 153px;
+  width: 77px;
+  margin-left: 153px;
 }
 
 
@@ -51,6 +51,13 @@ ul a {
   width: 90px;
   margin-left: 237px;
 }
+
+
+.three:hover ~ hr.underline {
+  width: 117px;
+  margin-left: 335px;
+}
+
 
 
 

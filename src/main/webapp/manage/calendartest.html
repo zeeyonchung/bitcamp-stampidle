@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Date Picker Demo</title>
     <link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
+    
+    
     <script src="http://www.blueb.co.kr/SRC2/daterange/jquery-1.11.2.min.js"></script>
     <script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
     <script src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
+    <script src="../js/calendar.js"></script>
+    
     <style>
     #wrapper
     {
@@ -28,128 +32,133 @@
   <body>
 
     <div id="wrapper">
+      
+      
+      
+      
       <div class="demo">
-        Default settings: <input id="date-range0" size="40" value=""> 
-        <pre class="options">
-{
-  separator : ' ~ '
- 
-}</pre>
+        1: <input id="date-range0" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        2: <input id="date-range1" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        3: <input id="date-range3" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        4: <input id="date-range4" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        5: <input id="date-range5" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        6: <input id="date-range6" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        7: <input id="date-range7" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+       8: <input id="date-range8" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        9: <input id="date-range9" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        10: <input id="date-range10" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        11: <input id="date-range11" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        12: <input id="date-range12" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        13: <input id="date-range13" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        14: <input id="date-range14" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        15: <input id="date-range15" size="40" value=""> 
+      </div>
+      
+      <div class="demo">
+        16: <input id="date-range16" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        17: <input id="date-range17" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        18: <input id="date-range18" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        19: <input id="date-range19" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        20: <input id="date-range20" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        21: <input id="date-range21" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        22: <input id="date-range22" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        23: <input id="date-range23" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        24: <input id="date-range24" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        25: <input id="date-range25" size="40" value=""> 
+      </div>
+      
+      
+      <div class="demo">
+        26: <input id="date-range26" size="40" value=""> 
+      </div>
+      
+      
+
       </div>
 
-      </div>
 
 
 
-
-  <script>
-  $(function()
-  {
-    $('a.show-option').click(function(evt)
-    {
-      evt.preventDefault();
-      $(this).siblings('.options').slideToggle();
-    });
-  })
-  
-  
-  
-  
-  
-  $(function()
-{
-
-  if (!window['console'])
-  {
-    window.console = {};
-    window.console.log = function(){};
-  }
-    
-  /*
-  define a new language named "custom"
-  */
-
-  $.dateRangePickerLanguages['custom'] = 
-  {
-    'selected': 'Choosed:',
-    'days': 'Days',
-    'apply': 'Close',
-    'week-1' : 'Mon',
-    'week-2' : 'Tue',
-    'week-3' : 'Wed',
-    'week-4' : 'Thu',
-    'week-5' : 'Fri',
-    'week-6' : 'Sat',
-    'week-7' : 'Sun',
-    'month-name': ['January','February','March','April','May','June','July','August','September','October','November','December'],
-    'shortcuts' : 'Shortcuts',
-    'past': 'Past',
-    '7days' : '7days',
-    '14days' : '14days',
-    '30days' : '30days',
-    'previous' : 'Previous',
-    'prev-week' : 'Week',
-    'prev-month' : 'Month',
-    'prev-quarter' : 'Quarter',
-    'prev-year' : 'Year',
-    'less-than' : 'Date range should longer than %d days',
-    'more-than' : 'Date range should less than %d days',
-    'default-more' : 'Please select a date range longer than %d days',
-    'default-less' : 'Please select a date range less than %d days',
-    'default-range' : 'Please select a date range between %d and %d days',
-    'default-default': 'This is costom language'
-  };
-  
-  $('#date-range0').dateRangePicker(
-  {
-    separator : ' ~ '
-  }).bind('datepicker-first-date-selected', function(event, obj)
-  {
-    /* This event will be triggered when first date is selected */
-    console.log('first-date-selected',obj);
-    // obj will be something like this:
-    // {
-    //    date1: (Date object of the earlier date)
-    // }
-  })
-  .bind('datepicker-change',function(event,obj)
-  {
-    /* This event will be triggered when second date is selected */
-    console.log('change',obj);
-    // obj will be something like this:
-    // {
-    //    date1: (Date object of the earlier date),
-    //    date2: (Date object of the later date),
-    //    value: "2013-06-05 to 2013-06-07"
-    // }
-  })
-  .bind('datepicker-apply',function(event,obj)
-  {
-    /* This event will be triggered when user clicks on the apply button */
-    console.log('apply',obj);
-  })
-  .bind('datepicker-close',function()
-  {
-    /* This event will be triggered before date range picker close animation */
-    console.log('before close');
-  })
-  .bind('datepicker-closed',function()
-  {
-    /* This event will be triggered after date range picker close animation */
-    console.log('after close');
-  })
-  .bind('datepicker-open',function()
-  {
-    /* This event will be triggered before date range picker open animation */
-    console.log('before open');
-  })
-  .bind('datepicker-opened',function()
-  {
-    /* This event will be triggered after date range picker open animation */
-    console.log('after open');
-  });
-});
-  </script>
 
   </body>
 </html>
