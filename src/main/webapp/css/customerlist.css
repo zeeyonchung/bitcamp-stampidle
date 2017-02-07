@@ -1,0 +1,166 @@
+@CHARSET "UTF-8";
+
+@import url("default.css");
+@import url("frame.css");
+
+
+
+
+.manage-navi {
+  border: 1px;
+  margin-top: 90px;
+  margin-bottom: 30px;
+}
+
+.manage-navi a {
+  text-decoration: none;
+}
+
+.manage-navi li:first-of-type {
+	border: 1px;
+	width: 150px;
+  display: inline-block;
+  position: relative;
+  font-size: 2em;
+}
+
+ul li:nth-of-type(2), li:nth-of-type(3), li:nth-of-type(4) {
+	border: 1px;
+  display: inline;
+  font-size: 1.2em;
+}
+
+ul a {
+  display: inline-block;
+  padding: .75rem 0;
+  margin: 0;
+  text-decoration: none;
+  color: #333;
+}
+
+
+
+
+.one:hover ~ hr.underline {
+	width: 77px;
+	margin-left: 153px;
+}
+
+
+.three:hover ~ hr.underline {
+  width: 117px;
+  margin-left: 335px;
+}
+
+
+
+
+.underline {
+  height: .25rem;
+  width: 90px;
+  margin-top: -6px;
+  margin-left: 237px;
+  background: gray;
+  border: none;
+  transition: .4s ease-in-out;
+  z-index: 99;
+}
+
+.manage-navi > hr {
+  z-index: 1;
+  border: 0;
+  border: 1px solid rgb(190, 190, 190);
+}
+
+
+
+
+
+
+
+.customer-con {
+	width: 900px;
+	margin-left: 30px;
+}
+
+
+
+
+
+#customer-number {
+	display: inline;
+	font-size: 1.25em;
+}
+
+
+#customer-select {
+	display: inline;
+	float: right;
+}
+
+
+.wrap2 {
+	margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+.z {
+  text-align: center;
+}
+
+
+ul.pagination {
+    <!--border: 1px solid black;-->
+    display: inline-block;
+    padding: 0;
+    margin-top: 20px;
+}
+
+ul.pagination li {
+  display: inline;
+}
+
+ul.pagination li a {
+	  width: 25px;
+	  height: 25px;
+    color: rgb(187, 187, 187);
+    float: left;
+    padding: 2px 8px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 2px;
+}
+
+ul.pagination li a.active {
+    background-color: rgb(94, 94, 94);
+    color: white;
+    border-radius: 5px;
+}
+
+ul.pagination li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+#wrapper
+    {
+    }
+    .demo { margin:0;}
+    .date-picker-wrapper .month-wrapper table .day.lalala { background-color:orange; }
+    .options { display:none; border-left:6px solid #8ae; padding:10px; font-size:1em; line-height:1.4; background-color:#eee; border-radius:4px;}
+    .date-picker-wrapper.date-range-picker19 .day.first-date-selected { background-color: red !important; }
+    .date-picker-wrapper.date-range-picker19 .day.last-date-selected { background-color: orange !important; }
+

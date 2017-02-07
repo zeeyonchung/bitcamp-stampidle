@@ -6,9 +6,8 @@
 <title>Stampidle</title>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/manage.css">
+<link rel="stylesheet" href="../css/customerlist.css">
 <link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
-<link rel="stylesheet" href="../css/calendar.css">
 
 
 </head>
@@ -37,29 +36,18 @@
 			</nav>
 			
 			
+			<div class='customer-con'>
 			
-			
-			<!-- 날짜 설정 -->
-				<div id="wrapper" class='calendar'>
-					<div class="demo">
-						<b>날짜 설정</b>
-			      <button id='calendar-btn' type='button'>
-			        <img class='calendar-icon' src='../image/icon_calendar.png'>
-			      </button>
-						<input id="date-range0" type='text' class='input-day'>
-						<input class='input-name' type='text' placeholder='검색어 입력'>
-						<button id='search-log-btn' class="btn btn-default" type='button'>
-						  <img class="btn-img" src="../image/btn_searchB.png">
-						</button>
-						<pre class="options">
-						{
-						  separator : ' ~ '
-						 
-						}</pre>
-					</div>
-	
-				</div>
-
+		  <!-- 이용고객수, 정렬조건 -->
+		  <div class='wrap2'>
+		    <div id='customer-number'>카드이용고객 20명</div>
+		    <select id='customer-select'>
+		      <option value='' disabled selected>정렬조건</option>
+		      <option value='regist'>등록순</option>
+		      <option value='alphabet'>가나다순</option>
+		      <option value='visit'>최근방문순</option>
+		    </select>
+		  </div>
 
 
 
@@ -205,6 +193,9 @@
 				</div>
 				
 				
+				
+				
+				</div><!-- .customer-con -->
 
 		
       </div>
