@@ -133,12 +133,17 @@ button.move img {
 }
 
 
-.input-day {
-	width: 170px;
-	text-align: center;
-	font-size: 1.8em;
-	vertical-align: middle;
+
+.calendar input {
+	width: 420px;
+  text-align: center;
+  font-size: 1.8em;
+  color: #464646;
+  vertical-align: middle;
 }
+
+
+
 
 
 .calendar-icon {
@@ -167,17 +172,6 @@ button.move img {
 .date-picker-wrapper.date-range-picker19 .day.last-date-selected { background-color: orange !important; }
 
 
-
-
-
-.week {
-	display: none;
-}
-
-
-.month {
-	display: none;
-}
 
 
 
