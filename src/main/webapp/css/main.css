@@ -122,10 +122,11 @@
 	margin: auto;
 	margin-top: 20px;
 	clear: both;
-	width: 903px;
+	width: 902px;
 	height: 302px;
 	border-top: 1px solid lightgray;
 	border-left: 1px solid lightgray;
+	background:#fff;
 }
 
 .stat1 .stat2 {

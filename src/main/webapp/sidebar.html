@@ -11,17 +11,17 @@
             <!-- navigation -->
             <ul class='slideMn'>
                 <li role="presentation" class='treeview searchCstmr active'>
-                    <a href='#'>고객검색</a>
+                    <a href='../student/main.html'>고객검색</a>
                     <ul class='treeview-menu'>
                     </ul>
                 </li>
                 <li role="presentation" class='treeview statistics'>
-                    <a href='http://naver.com'>방문통계</a>
+                    <a href=''>방문통계</a>
                     <ul class='treeview-menu'>
                     </ul>
                 </li> 
                 <li role="presentation" class='treeview event'>
-                    <a href='#'>이벤트</a>
+                    <a href=''>이벤트</a>
                     <ul class='treeview-menu'>
                     </ul>
                 </li>
@@ -36,16 +36,16 @@
         <div class='footer'>Copyright (c)<br> Stampidle</div>
     </div>
     <!-- //slide left menu area -->
+    
+    
     <script>
-  "use strict"
-  
-  $('.event').click(function(event) {
-    location.href = '../event/main.html'
-  });
-  $('.statistics').click(function(event) {
-	    location.href = '../event/main.html'
-	  });
-  $('.searchCstmr').click(function(event) {
-	    location.href = '../stampidle_cs/customerdetail.html'
-	  });
-  </script>
+    $('.searchCstmr').click(function(e) {
+        location.href = '../stampidle_cs/customerdetail.html'
+    });
+    $('.statistics').click(function(e) {
+        location.href = '../manage/stamplog.html'
+    });
+    $('.event').click(function(e) {
+        location.href = '../event/main.html'
+    });
+    </script>
