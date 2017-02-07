@@ -90,7 +90,6 @@ ul a {
 
 
 .sort {
-	border: 1px solid black;
 	float: right;
 }
 
@@ -115,7 +114,6 @@ ul a {
 
 .stat-date {
 	clear: right;
-	border: 1px solid black;
 	text-align: center;
 }
 
@@ -179,7 +177,10 @@ button.move img {
 
 
 
-
+#stat-graph, #stat-graph2 {
+	border: 1px solid #E6E6E6;
+	margin-top: 60px;
+}
 
 
 
