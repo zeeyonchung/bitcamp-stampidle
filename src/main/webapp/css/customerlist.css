@@ -107,6 +107,25 @@ ul a {
 
 
 
+th, td {
+  width: 150px;
+  text-align: center;
+}
+
+
+th:first-of-type, td:first-of-type {
+  width: 100px;
+}
+
+
+.tr-link:hover {
+  cursor:pointer;
+}
+
+
+
+
+
 
 
 .z {
