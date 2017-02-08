@@ -2,12 +2,15 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Stampidle</title>
-<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/statistics.css">
-<link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
+<link rel="stylesheet"
+	href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
 </head>
 
 <body>
@@ -37,7 +40,8 @@
 
 				<!-- 일간주간월간 -->
 				<div class='sort'>
-					<button type='button' id='oneday-btn' class="btn btn-default btn-selected radius">일간</button>
+					<button type='button' id='oneday-btn'
+						class="btn btn-default btn-selected radius">일간</button>
 					<button type='button' id='week-btn' class="btn btn-default radius">주간</button>
 					<button type='button' id='month-btn' class="btn btn-default radius">월간</button>
 				</div>
@@ -56,16 +60,19 @@
 
 					<div id="wrapper" class='calendar'>
 						<div class="oneday">
-							<input id="date-range13" type='text' value='2017-02-07' style='width:200px;'>
+							<input id="date-range13" type='text' value='2017-02-07'
+								style='width: 200px;'>
 						</div>
-						
+
 						<div class="week">
-              <input id="date-range14" type='text' value='2017-02-07 ~ 2017-02-07'>
-            </div>
-            
-            <div class="month">
-              <input id="date-range0" type='text' value='2017-02-08 ~ 2017-02-28'>
-            </div>
+							<input id="date-range14" type='text'
+								value='2017-02-07 ~ 2017-02-07'>
+						</div>
+
+						<div class="month">
+							<input id="date-range0" type='text'
+								value='2017-02-08 ~ 2017-02-28'>
+						</div>
 
 
 						<button type='button' class='btn btn-default move'
@@ -73,17 +80,19 @@
 							<img src='../image/icon_arrow2.png'>
 						</button>
 					</div>
-				</div> <!-- stat-date -->
-				
-				
+				</div>
+				<!-- stat-date -->
+
+
 				<!-- 그래프 -->
 				<div id="stat-graph"></div>
-				
+
 				<!-- 그래프2 -->
-        <div id="stat-graph2"></div>
-				
-				
-			</div> <!-- con -->
+				<div id="stat-graph2"></div>
+
+
+			</div>
+			<!-- con -->
 		</div>
 
 	</div>
@@ -92,26 +101,28 @@
 </body>
 
 
-	<script src="../node_modules/jquery/dist/jquery.js"></script>
-	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-	
-	<script src="../js/bit.js"></script>
-	<script src="../js/common.js"></script></body>
-	<script src="statistics.js"></script>
-	
-	<script src="http://www.blueb.co.kr/SRC2/daterange/jquery-1.11.2.min.js"></script>
-	<script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
-	<script src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
-	<script src="../js/calendar.js"></script>
-	
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/highcharts-3d.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<script src="../node_modules/highcharts/js/themes/grid-light.js"></script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+</body>
+<script src="statistics.js"></script>
+
+<script src="http://www.blueb.co.kr/SRC2/daterange/jquery-1.11.2.min.js"></script>
+<script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
+<script
+	src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
+<script src="../js/calendar.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="../node_modules/highcharts/js/themes/grid-light.js"></script>
 
 
-    <!-- 일간월간주간 선택 시 달력 바뀜 -->
-    <script>
+<!-- 일간월간주간 선택 시 달력 바뀜 -->
+<script>
 	    "use strict"
 	    
 	    $('#oneday-btn').click(function(event) {
@@ -139,12 +150,12 @@
 	       $('.month').hide();
 	     });
     </script>
-    
-    
-    
-    
-    <!-- 그래프 -->
-    <script>
+
+
+
+
+<!-- 그래프 -->
+<script>
     $(function () { 
         var myChart = Highcharts.chart('stat-graph', {
             chart: {
@@ -221,10 +232,10 @@
         });
     });
     </script>
-    
-    
-    <!-- 그래프2 -->
-    <script>
+
+
+<!-- 그래프2 -->
+<script>
     $(function () { 
         var myChart = Highcharts.chart('stat-graph2', {
             chart: {
