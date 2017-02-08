@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>고객 상세 정보</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="event-new.css">
+<link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
+<!--  jQuery UI CSS파일  -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
+
+</head>
+
+<body>
+<div class ='container'>
+  <div id='header'>
+  </div>
+  <div id='sidebar'>
+  </div>
+  <div id="content">
+	  <div class="con">
+      <span>매장 이벤트 등록</span>
+      <hr>
+      <div class="imgbox" id="upfile1" >
+	        <!-- 이미지 바로 등록? 
+	        <img src="../image/icon_calendar.png" id="upfile1" />
+	         -->
+	        화면을 선택해서 이미지를 등록해 주세요
+	        <input type="file" id="file1"  name="file1" style="display:none" />
+	    </div>
+	    <br>
+	    <hr>
+	    <div class="nameblock-div">
+	      <div class="pchar3">
+	        행사 이름:
+	      </div>
+		      <input type="text" class="form-control" placeholder="내용을 입력해 주세요">
+	      <!-- 날짜설정 -->
+		    <div class="setdate-div">
+			    <div class="startdiv">
+				    <div class="pchar">시작일:</div> 
+				    <input type="text" id="datepicker">
+			    </div>
+			    <div class="enddiv">
+				    <div class="pchar">종료일:</div>
+				    <input type="text" id="datepicker2">
+			    </div>
+		    </div>
+		    <!-- 날짜설정 end -->
+		    <div class="eventup-contents">
+		      <div class="pchar2">행사 내용:</div>
+		      <input type="text" class="form-contents" placeholder="내용을 입력해 주세요">
+		    </div>
+	    </div>
+	    <hr>
+	    <div class="submit-btn">
+	    <button id="cancle-btn2"class="btn btn-default">취소</button>
+	    <button class="btn btn-default btn-lg btn-block">등록하기</button>
+	    </div>
+	</div>
+  </div>
+</div>
+</body>
+ 
+
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../js/bit.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="main.js"></script>
+  
+<!--jQuery 기본 js파일 -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!--jQuery UI 라이브러리 js파일 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $("#upfile1").click(function () {
+	    $("#file1").trigger('click');
+	});
+  // 달력
+  $(function() {
+    $( "#datepicker" ).datepicker({
+        showOn: "both", 
+        buttonImage: "#", 
+        buttonImageOnly: true 
+  });
+  });
+  
+  $(function() {
+	    $( "#datepicker2" ).datepicker({
+	        showOn: "both", 
+	        buttonImage: "#", 
+	        buttonImageOnly: true 
+	  });
+	  });
+ 
+  </script>
+</html>
