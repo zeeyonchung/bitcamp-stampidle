@@ -1,0 +1,144 @@
+@CHARSET "UTF-8";
+
+
+hr {
+	border: 1px solid #ececec;
+}
+
+h4 {
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+
+.modal-dialog {
+    width: 465px;
+    margin: 30px auto;
+}
+
+.modal-header {
+	background-color: #ff5948;
+	color: white;
+}
+
+.modal-header .close span {
+	color: white;
+	font-size: 1.2em;
+}
+
+.modal-header .modal-title {
+	text-align: center;
+}
+
+.modal-header > img {
+	width: 25x;
+	float: left;
+}
+
+.modal-header > img:hover {
+  cursor: pointer;
+}
+
+
+
+
+
+
+.modal-content {
+	position: relative;
+	width: 465px;
+	min-height: 600px;
+}
+
+
+.modal-content .modal-footer {
+	border: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: inherit;
+  margin-top: 30px;
+  text-align: left;
+}
+
+
+.modal-content .modal-body {
+	position: relative;
+	padding: 0px 15px;
+}
+
+
+
+.one-msg {
+	height: 90px;
+	padding: 5px 0px;
+	margin: 5px 0px;
+}
+
+
+.one-msg .msg-left {
+	position: relative;
+	display: inline-block;
+}
+
+
+.msg-left .cstmer-img {
+	width: 75px;
+}
+
+
+.button__badge {
+    width: 20px;
+    background-color: #fa3e3e;
+    border-radius: 10px;
+    color: white;
+    padding: 1px 7px;
+    font-size: 0.7em;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.one-msg .msg-content {
+	position: relative;
+	display: inline-block;
+	float: right;
+	width: 340px;
+	height: 80px;
+}
+
+
+.msg-content .sub {
+	margin-bottom: 5px;
+}
+
+
+.msg-content .sub .cstmer-name {
+	font-size: 1.24em;
+  font-weight: bold;
+}
+
+
+.msg-content .sub .msg-date {
+	float: right;
+	font-size: 0.9em;
+	color: #b9b9b9;
+}
+
+.msg-content .pre-msg {
+	display: inline-block;
+  width: 280px;
+}
+
+
+.msg-content > img {
+	vertical-align: bottom;
+  width: 22px;
+  position: relative;
+  left: 22px;
+}
+
+.msg-content > img:hover {
+  cursor: pointer;
+}
