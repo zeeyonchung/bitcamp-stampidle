@@ -58,20 +58,33 @@
 
 
 
-					<div id="wrapper" class='calendar'>
+					<div id="cal-wrapper">
 						<div class="oneday">
-							<input id="date-range13" type='text' value='2017-02-07'
-								style='width: 200px;'>
+							<input id="date-day" type='text' value='2017-02-07'>
 						</div>
 
 						<div class="week">
-							<input id="date-range14" type='text'
-								value='2017-02-07 ~ 2017-02-07'>
+							<input id="date-week" type='text'
+								value='2017-02-07 ~ 2017-02-07'
+								style='width: 450px;'>
 						</div>
 
 						<div class="month">
-							<input id="date-range0" type='text'
-								value='2017-02-08 ~ 2017-02-28'>
+						  <input id="date-custom" type="hidden">
+							<select class="form-control">
+								<option>2016년 2월</option>
+								<option>2016년 3월</option>
+								<option>2016년 4월</option>
+								<option>2016년 5월</option>
+								<option>2016년 6월</option>
+								<option>2016년 7월</option>
+								<option>2016년 8월</option>
+								<option>2016년 9월</option>
+								<option>2016년 10월</option>
+								<option>2016년 11월</option>
+								<option>2016년 12월</option>
+								<option>2017년 1월</option>
+							</select>
 						</div>
 
 
@@ -80,8 +93,7 @@
 							<img src='../image/icon_arrow2.png'>
 						</button>
 					</div>
-				</div>
-				<!-- stat-date -->
+				</div><!-- stat-date -->
 
 
 				<!-- 그래프 -->
@@ -121,34 +133,29 @@
 <script src="../node_modules/highcharts/js/themes/grid-light.js"></script>
 
 
+
 <!-- 일간월간주간 선택 시 달력 바뀜 -->
 <script>
 	    "use strict"
 	    
 	    $('#oneday-btn').click(function(event) {
-	    	$('.oneday').show();
-	      $('.week').hide();
-	      $('.month').hide();
+	    	$('.oneday').css('display','inline');
+	      $('.week').css('display','none');
+	      $('.month').css('display','none');
 	    });
 	    
 	    $('#week-btn').click(function(event) {
-	    	$('.oneday').hide();
-        $('.week').show();
-        $('.month').hide();
+	    	$('.oneday').css('display','none');
+        $('.week').css('display','inline');
+        $('.month').css('display','none');
       });
 	    
 	    $('#month-btn').click(function(event) {
-	    	$('.oneday').hide();
-        $('.week').hide();
-        $('.month').show();
+	    	$('.oneday').css('display','none');
+        $('.week').css('display','none');
+        $('.month').css('display','inline');
       });
 	    
-	    
-	    $(function(event) {
-	       $('.oneday').show();
-	       $('.week').hide();
-	       $('.month').hide();
-	     });
     </script>
 
 

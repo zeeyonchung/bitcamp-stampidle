@@ -41,6 +41,10 @@ ul a {
 
 
 
+
+
+
+
 .one:hover ~ hr.underline {
 	width: 77px;
 	margin-left: 153px;
@@ -132,12 +136,33 @@ button.move img {
 
 
 
-.calendar input {
-	width: 420px;
+#cal-wrapper input {
+	width: 310px;
+	height: 45px;
   text-align: center;
   font-size: 1.8em;
   color: #464646;
   vertical-align: middle;
+  padding-bottom: 2px;
+}
+
+
+
+
+#cal-wrapper select {
+	width: 185px;
+	height: 45px;
+	margin: 0 63px;
+	vertical-align: middle;
+	font-size: 1.63em;
+	text-align-last:center;
+	color: #464646;
+	border: 0;
+	outline: none;
+	text-align: center;
+	-webkit-appearance:none;
+	box-shadow: none !important;
+	display: inline-block;
 }
 
 
@@ -157,13 +182,13 @@ button.move img {
 
 
 
-#wrapper
+#cal-wrapper
     {
     display:inline;
     }
 .oneday { margin:0; display:inline;}
-.week { margin:0; display:inline;}
-.month { margin:0; display:inline;}
+.week { margin:0; display:none;}
+.month { margin:0; display:none;}
 .date-picker-wrapper .month-wrapper table .day.lalala { background-color:orange; }
 .options { display:none; border-left:6px solid #8ae; padding:10px; font-size:1em; line-height:1.4; background-color:#eee; border-radius:4px;}
 .date-picker-wrapper.date-range-picker19 .day.first-date-selected { background-color: red !important; }
