@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Stampidle</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/cafeinfoedit.css">
+<link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
+
+
+</head>
+
+<body>
+  <div class='container'>
+  <div id='header'></div>
+  <div id='sidebar'></div>
+  
+  
+  <div id="content">
+    <div class='con'>
+
+      <!-- 고객관리 메뉴 -->
+      <nav class='manage-navi'>
+          <ul>
+            <li><a href='#'>카페정보 입력</a></li>
+            <li class="one"><a href="#">기본정보</a></li>
+            <span style='color: rgb(190, 190, 190);'>|</span>
+            <li class="two"><a href="#">무료서비스 항목</a></li>
+            <span style='color: rgb(190, 190, 190);'>|</span>
+            <li class="three"><a href="#">기타 등록</a></li>
+            <hr class='underline' />
+          </ul>
+          <hr>
+      </nav>
+      <!-- 고객관리 메뉴 -->
+      <!-- 카페이름 -->
+      <div class='cafe-name'>
+        <span>카페이름*:</span>
+        <input type="text" class="form-control" placeholder="내용을 입력해 주세요">
+        <span class="info-subtext">(한글 기준 25자 이내)</span>
+      </div>
+      <!-- 카페이름 -->
+      <!-- 카테고리 -->
+      <div class='cafe-name'>
+        <span>카테고리*:</span>
+        <div class="checkbox1">
+				  <label>
+				    <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+				    24시간 카페
+				  </label>
+				</div>
+				<div class="checkbox">
+          <label>
+            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            북카페
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            애견카페
+          </label>
+        </div>
+        
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            직접입력
+            <input type="text" class="inperson" placeholder="내용을 입력해 주세요">
+          </label>
+        </div>
+      </div>
+      <!-- 카테고리 -->
+      <!-- 소개글 -->
+      <div class='cafe-name2'>
+        <span class="introtext">소개글:</span>
+        <div class='cafe-introdiv'>
+          <input type="text" id="introcafe" class="form-control" placeholder="내용을 입력해 주세요">
+        </div>
+        <div class="intro-subtext">
+	        <span class="info-subtext">카페 페이지 카페이름 아래에 반영됩니다.<br></span>
+	        <span class="info-subtext">(한글 기준 200자 이내)</span>
+        </div>
+      </div>
+      <!-- 소개글 -->
+      <!-- 영업시간 -->
+      <div class="work-time">
+        <div style="position:relative; display:inline-block; float:left">
+          영업시간:
+        </div>
+        <div class="pre-set-before">
+          <div id="pre_set">
+            <div class="select1">
+	            <select class="form-control">
+							  <option>매일</option>
+							  <option>평일</option>
+							  <option>주말</option>
+							  <option>월요일</option>
+							  <option>화요일</option>
+							  <option>수요일</option>
+							  <option>목요일</option>
+							  <option>금요일</option>
+							  <option>토요일</option>
+							  <option>일요일</option>
+							</select>
+						</div>
+						<div class="select1">
+							<select class="form-control">
+							  <option>1</option>
+							  <option>2</option>
+							  <option>3</option>
+							  <option>4</option>
+							  <option>5</option>
+							  <option>6</option>
+							  <option>7</option>
+							  <option>8</option>
+							  <option>9</option>
+							  <option>10</option>
+							  <option>11</option>
+							  <option>12</option>
+							</select>
+						</div>
+						:
+						<div class="select2">
+              <select class="form-control">
+                <option>00</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
+                <option>50</option>
+              </select>
+            </div>
+            ~
+            <div class="select2">
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
+            </div>
+            :
+            <div class="select2">
+              <select class="form-control">
+                <option>00</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
+                <option>50</option>
+              </select>
+            </div>
+            <input class="pbtn" type="button" value="-" onclick="remove_item(this)">
+          </div>
+        
+         
+        <div id="field"></div>
+        </div>
+         
+        <input class="pbtn" type="button" value="+" onclick="add_item()"><br>
+        <span class="worktime-addtext">설정 시간에 따라 통계가 이루어 집니다.</span>
+      </div>
+      
+      
+      <!-- 매장 번호 -->
+      <div class="work-time">
+        <div class="work-time-text">
+          매장번호:
+        </div>
+        <div class="pre-set-before">
+          <div id="pre_set1">
+            <div class="select1">
+              <select class="form-control">
+                <option>02</option>
+                <option>032</option>
+                <option>031</option>
+                <option>033</option>
+                <option>화요일</option>
+              </select>
+            </div>
+            <input type="text" id="number-input" class="form-control" placeholder="000">
+            -
+            <input type="text" id="number-input" class="form-control" placeholder="0000">
+            <input class="pbtn" type="button" value="-" onclick="remove_item1(this)">
+          </div>
+        
+         
+        <div id="field1"></div>
+        </div>
+         
+        <input class="pbtn" type="button" value="+" onclick="add_item1()"><br>
+        <span class="worktime-addtext">설정 시간에 따라 통계가 이루어 집니다.</span>
+      </div>
+      <!-- 매장 번호 -->
+      <!-- 주소 찾기 -->
+      <div class='cafe-name3'>
+        <div class="introtext2">주소*</div>
+        
+        <div class='addr-div'>
+	        <input class="inputaddr"type="text" id="sample4_postcode" placeholder="우편번호">
+					<input class="inputaddr-btn"type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+					<input class="inputaddr"type="text" id="sample4_roadAddress" placeholder="도로명주소">
+					<input class="inputaddr"type="text" id="sample4_jibunAddress" placeholder="지번주소">
+					<span id="guide" style="color:#999"></span>
+        </div>
+        
+      </div>
+      <!-- 주소 찾기 -->
+      <!-- 좌석 수 -->
+      <div class='cafe-name3'>
+        <div class="introtext2">좌석 수</div>
+        <div class="pre-set-before2">
+          <div class="select1">
+              <select class="form-control">
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
+                <option>50</option>
+                <option>100</option>
+                <option>150</option>
+                <option>200</option>
+                <option>250</option>
+              </select>
+            </div>
+        </div>
+      </div>
+      <!-- 좌석 수 -->
+      <!-- 로고추가-->
+      <div class='cafe-name3'>
+        <div class="introtext2">로고추가</div>
+        
+        <div class="imgbox" id="upfile1" >
+          <!-- 이미지 바로 등록? 
+          <img src="../image/icon_calendar.png" id="upfile1" />
+           -->
+          화면을 선택해서 이미지를 등록해 주세요
+          <input type="file" id="file1"  name="file1" style="display:none" />
+        </div>
+      </div>
+      <!-- 로고추가-->
+      
+      <!-- 다음단계입력-->
+      <div>
+        <div class='cafe-name4'>
+          <button type="button" class="btn btn-default btn-lg btn-block">다음단계?</button>
+        </div>
+      </div>
+      <!-- 다음단계입력-->
+      
+    </div>
+  </div>
+    
+</div>
+  
+  
+  
+  
+  
+
+
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../js/bit.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="stamplog.js"></script>
+
+  
+  
+  <!-- tr 태그 클릭 시 고객 상세페이지로 이동 -->
+  <script>
+  "use strict"
+  
+  $('.tr-link').click(function(event) {
+    location.href = '../stampidle_cs/customerdetail.html'
+  });
+  </script>
+  
+  
+  <script>
+  /*이미지*/
+  $("#upfile1").click(function () {
+      $("#file1").trigger('click');
+  });
+  /*++++추가기능*/
+     function add_item(){
+          // pre_set 에 있는 내용을 읽어와서 처리..
+          var div = document.createElement('div');
+          div.innerHTML = document.getElementById('pre_set').innerHTML;
+          document.getElementById('field').appendChild(div);
+     }
+     function remove_item(obj){
+          // obj.parentNode 를 이용하여 삭제
+          document.getElementById('field').removeChild(obj.parentNode);
+     }
+     /*++++추가기능*/
+     function add_item1(){
+         // pre_set 에 있는 내용을 읽어와서 처리..
+         var div = document.createElement('div');
+         div.innerHTML = document.getElementById('pre_set1').innerHTML;
+         document.getElementById('field1').appendChild(div);
+    }
+    function remove_item1(obj){
+         // obj.parentNode 를 이용하여 삭제
+         document.getElementById('field1').removeChild(obj.parentNode);
+    }
+</script>
+ 
+  <span id="guide" style="color:#999"></span>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+
+<script>
+//지도 검색
+//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+function sample4_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+            var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+
+            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                extraRoadAddr += data.bname;
+            }
+            // 건물명이 있고, 공동주택일 경우 추가한다.
+            if(data.buildingName !== '' && data.apartment === 'Y'){
+               extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+            }
+            // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+            if(extraRoadAddr !== ''){
+                extraRoadAddr = ' (' + extraRoadAddr + ')';
+            }
+            // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+            if(fullRoadAddr !== ''){
+                fullRoadAddr += extraRoadAddr;
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
+            document.getElementById('sample4_roadAddress').value = fullRoadAddr;
+            document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
+
+            // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+            if(data.autoRoadAddress) {
+                //예상되는 도로명 주소에 조합형 주소를 추가한다.
+                var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                document.getElementById('guide').innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+
+            } else if(data.autoJibunAddress) {
+                var expJibunAddr = data.autoJibunAddress;
+                document.getElementById('guide').innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+
+            } else {
+                document.getElementById('guide').innerHTML = '';
+            }
+        }
+    }).open();
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

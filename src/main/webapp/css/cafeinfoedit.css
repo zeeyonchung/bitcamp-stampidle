@@ -1,0 +1,289 @@
+@CHARSET "UTF-8";
+
+@import url("frame.css");
+
+
+
+
+.manage-navi {
+  border: 1px;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  
+}
+
+.manage-navi a {
+  text-decoration: none;
+}
+
+.manage-navi li:first-of-type {
+  border: 1px;
+  width: 200px;
+  display: inline-block;
+  position: relative;
+  font-size: 2em;
+}
+
+ul li:nth-of-type(2), li:nth-of-type(3), li:nth-of-type(4) {
+  border: 1px;
+  display: inline;
+  font-size: 1.2em;
+}
+
+ul a {
+  display: inline-block;
+  padding: .75rem 0;
+  margin: 0;
+  text-decoration: none;
+  color: #333;
+}
+
+
+
+
+.one:hover ~ hr.underline {
+  width: 75px;
+  margin-left: 200px;
+}
+
+
+.two:hover ~ hr.underline {
+  width: 120px;
+  margin-left: 283px;
+}
+
+
+.three:hover ~ hr.underline {
+  width: 80px;
+  margin-left: 420px;
+}
+
+
+
+
+
+.underline {
+  height: .25rem;
+  width: 80px;
+  margin-top: -6px;
+  margin-left: 200px;
+  background: gray;
+  border: none;
+  transition: .4s ease-in-out;
+  z-index: 99;
+}
+
+.manage-navi > hr {
+  z-index: 1;
+  border: 0;
+  border: 1px solid rgb(190, 190, 190);
+}
+
+.cafe-name {
+	width:100%;
+	margin-top:10px;
+}
+
+.cafe-name .form-control {
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	margin-left:100px;
+	display:inline-block;
+	width: 350px;
+}
+
+.info-subtext {
+	margin-left:10px;
+	
+}
+
+.checkbox1 {
+  display:inline-block;
+  margin-left: 100px;
+}
+
+.checkbox {
+	display:inline-block;
+	margin-left: 40px;
+}
+.cafe-name2 {
+  width:100%;
+  margin-top:10px;
+  position:relative;
+}
+
+.inperson{
+	display:inline-block;
+	width:200px;
+	border:1px solid #dedede;
+}
+
+.cafe-introdiv{
+	display:inline-block;
+}
+#introcafe {
+	width:350px;
+	height:200px;
+	margin-left:120px;
+	border:1px solid #dedede;
+	border-radius: 5px;
+}
+
+.introtext {
+	position:relative;
+	top:-80px;
+}
+
+.intro-subtext {
+	display:inline-block;
+	color:#dedede;
+	position:relative;
+	top:-65px;
+}
+.work-time {
+	position:relative;
+	margin-top:10px;
+	display:inline-box;
+	
+}
+.work-time-text{
+	display:inline-block;
+	position:relative;
+}
+.pre-set-before {
+	display:inline-block;
+	margin-left:100px;
+	
+}
+.pre-set-before-num {
+  display:inline-block;
+  margin-left:95px;
+  
+}
+#pre_set {
+	position:relative;
+}
+.select1{
+	display:inline-block;
+	margin-left:10px;
+	margin-bottom:10px;
+}
+
+.select2{
+  display:inline-block;
+  margin-left:3px;
+  margin-bottom:10px;
+}
+
+.pbtn {
+	margin-left:10px;
+  border: 1px solid rgb(255,89,72);
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: rgb(255,89,72);
+  font-size: 20px;
+  text-align:center;
+}
+
+.worktime-addtext {
+	margin-left:180px;
+	color:#dedede
+}
+
+#number-input {
+  margin-left:10px;
+  margin-right:10px;
+  margin-top:3px;
+  display:inline-block;
+  border:none;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  width: 150px;
+  height:34px
+}
+
+.cafe-name3 {
+  width:100%;
+  display:inline-block;
+  margin-top:10px;
+  position:relative;
+}
+.introtext2 {
+	display:inline-block;
+	float:left;
+}
+.addr-div{
+  display:inline-block;
+  margin-left:133px;
+}
+
+.addr-div .inputaddr {
+	width:350px;
+	height:40px;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+}
+
+
+.inputaddr-btn {
+  width:100px;
+  height:40px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+}
+.imgbox {
+	margin-left:110px;
+	text-align:center;
+	display: inline-block;
+	width:300px;
+  height:250px;
+  background-color:#dedede;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  float:left;
+}
+.pre-set-before2 {
+  margin-left:155px;
+}
+
+
+.cafe-name4 {
+  width:100%;
+  display:inline-block;
+  margin-top:10px;
+  position:relative;
+  text-align:center;
+}
+
+.logo-text-div {
+	color:#dedede;
+	display:inline-block;
+	position:relative;
+	left:-45px;
+	bottom:-180px;
+}
+
+.btn-regi{
+	display:inline-block;
+	position:relative;
+	float:left;
+}
+
+.logo-remain{
+	display:inline-block;
+	float:left;
+	margin-left:10px;
+	position:relative;
+}
+
+
+
+
+
+
+
+
+
+
