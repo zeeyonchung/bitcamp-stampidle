@@ -1,139 +1,82 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset='UTF-8'>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Stampidle</title>
-<link rel="stylesheet"
-	href="node_modules/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/message.css">
 
-</head>
-
-<body>
-
-	<!-- Button trigger Message Modal -->
-	<button type="button" class="btn btn-primary" id="popbutton">
-	  message
+<div class="modal-header">
+	<img src='../image/btn_searchW.png'>
+	<button type="button" class="close" data-dismiss="modal"
+		aria-label="Close">
+		<span aria-hidden="true">&times;</span>
 	</button>
-	
-	<!-- Message Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <img src='image/btn_searchW.png'>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myModalLabel">메시지</h4>
-	      </div>
-	      
-	      <div class="modal-body">
-	        <div class='one-msg'>
-	          <div class='msg-left'>
-			        <span class="button__badge">4</span>
-			        <img src='image/cstmerPic_sample.png'alt="..." class="cstmer-img img-circle">
-		        </div>
-		        <div class='msg-content'>
-		          <div class='sub'>
-			          <span class='cstmer-name'>홍길동</span>
-			          <span class='msg-date'>21:55 - 2017/01/22</span>
-		          </div>
-		          <div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주시고 있으면 오늘 보관 좀 부탁드릴...</div>
-  		        <img src='image/btn_searchB.png'>
-		        </div>
-	        </div>
-	        <hr>
-	        
-	        <div class='one-msg'>
-            <div class='msg-left'>
-              <span class="button__badge">2</span>
-              <img src='image/cstmerPic_sample.png'alt="..." class="cstmer-img img-circle">
-            </div>
-            <div class='msg-content'>
-              <div class='sub'>
-                <span class='cstmer-name'>홍길동</span>
-                <span class='msg-date'>21:55 - 2017/01/22</span>
-              </div>
-              <div class='pre-msg'>2월 8일 오후 4시 37분 메시지를 만들고 있다</div>
-              <img src='image/btn_searchB.png'>
-            </div>
-          </div>
-          <hr>
-          
-          <div class='one-msg'>
-            <div class='msg-left'>
-              <span class="button__badge">3</span>
-              <img src='image/cstmerPic_sample.png'alt="..." class="cstmer-img img-circle">
-            </div>
-            <div class='msg-content'>
-              <div class='sub'>
-                <span class='cstmer-name'>홍길동</span>
-                <span class='msg-date'>21:55 - 2017/01/22</span>
-              </div>
-              <div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주시고 있으면 오늘 보관 좀 부탁드릴...</div>
-              <img src='image/btn_searchB.png'>
-            </div>
-          </div>
-          <hr>
-          
-          <div class='one-msg'>
-            <div class='msg-left'>
-              <span class="button__badge">7</span>
-              <img src='image/cstmerPic_sample.png'alt="..." class="cstmer-img img-circle">
-            </div>
-            <div class='msg-content'>
-              <div class='sub'>
-                <span class='cstmer-name'>홍길동</span>
-                <span class='msg-date'>21:55 - 2017/01/22</span>
-              </div>
-              <div class='pre-msg'>혹시 지갑 있었나요?</div>
-              <img src='image/btn_searchB.png'>
-            </div>
-          </div>
-          <hr>
-	      </div><!-- modal-body -->
-	      
-	      
-	      <!-- <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
-	      </div> -->
-	    </div>
-	  </div>
+	<h4 class="modal-title" id="myModalLabel">메시지</h4>
+</div>
+
+<div class="modal-body">
+	<div class='one-msg'>
+		<div class='msg-left'>
+			<span class="button__badge">4</span> <img
+				src='../image/cstmerPic_sample.png' alt="..."
+				class="cstmer-img img-circle">
+		</div>
+		<div class='msg-content'>
+			<div class='sub'>
+				<span class='cstmer-name'>홍길동</span> <span class='msg-date'>21:55
+					- 2017/01/22</span>
+			</div>
+			<div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주시고 있으면 오늘 보관 좀
+				부탁드릴...</div>
+			<img src='../image/btn_searchB.png'>
+		</div>
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	
+	<hr>
 
+	<div class='one-msg'>
+		<div class='msg-left'>
+			<span class="button__badge">2</span> <img
+				src='../image/cstmerPic_sample.png' alt="..."
+				class="cstmer-img img-circle">
+		</div>
+		<div class='msg-content'>
+			<div class='sub'>
+				<span class='cstmer-name'>홍길동</span> <span class='msg-date'>21:55
+					- 2017/01/22</span>
+			</div>
+			<div class='pre-msg'>2월 8일 오후 4시 37분 메시지를 만들고 있다</div>
+			<img src='../image/btn_searchB.png'>
+		</div>
+	</div>
+	<hr>
 
-  <script src="node_modules/jquery/dist/jquery.js"></script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="js/bit.js"></script>
-  <script src="js/common.js"></script>
+	<div class='one-msg'>
+		<div class='msg-left'>
+			<span class="button__badge">3</span> <img
+				src='../image/cstmerPic_sample.png' alt="..."
+				class="cstmer-img img-circle">
+		</div>
+		<div class='msg-content'>
+			<div class='sub'>
+				<span class='cstmer-name'>홍길동</span> <span class='msg-date'>21:55
+					- 2017/01/22</span>
+			</div>
+			<div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주시고 있으면 오늘 보관 좀
+				부탁드릴...</div>
+			<img src='../image/btn_searchB.png'>
+		</div>
+	</div>
+	<hr>
 
-  <script>
-  $(function(){
-	    $("#popbutton").click(function(){
-	        $('div.modal').modal();
-	    })
-	})
-	
-	// modal에 보여줄 페이지가 다른 파일에 있을 때
-	//$(function(){
-  //  $("#popbutton").click(function(){
-  //      $('div.modal').modal({
-  //                    remote : 'layer.html'
-  //              });
-	//    })
-	//})
-  </script>
-
-</body>
-</html>
+	<div class='one-msg'>
+		<div class='msg-left'>
+			<span class="button__badge">7</span> <img
+				src='../image/cstmerPic_sample.png' alt="..."
+				class="cstmer-img img-circle">
+		</div>
+		<div class='msg-content'>
+			<div class='sub'>
+				<span class='cstmer-name'>홍길동</span> <span class='msg-date'>21:55
+					- 2017/01/22</span>
+			</div>
+			<div class='pre-msg'>혹시 지갑 있었나요?</div>
+			<img src='../image/btn_searchB.png'>
+		</div>
+	</div>
+	<hr>
+</div>
+<!-- modal-body -->
