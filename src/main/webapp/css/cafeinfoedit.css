@@ -149,6 +149,7 @@ ul a {
 .work-time-text{
 	display:inline-block;
 	position:relative;
+	float:left;
 }
 .pre-set-before {
 	display:inline-block;
