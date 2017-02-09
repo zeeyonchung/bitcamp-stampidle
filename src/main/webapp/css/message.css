@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 
-hr {
+.modal-content hr {
 	border: 1px solid #ececec;
 }
 
@@ -65,6 +65,22 @@ h4 {
 .modal-content .modal-body {
 	position: relative;
 	padding: 0px 15px;
+	height: 510px;
+	overflow-y: auto;
+}
+
+
+.modal-content .modal-body::-webkit-scrollbar {
+    width: 12px;
+}
+.modal-content .modal-body::-webkit-scrollbar-track {
+    background-color: #eaeaea;
+}
+.modal-content .modal-body::-webkit-scrollbar-thumb {
+    background-color: rgba(110, 110, 110, 0.2);
+}
+.modal-content .modal-body::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
 }
 
 
