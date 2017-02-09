@@ -23,13 +23,6 @@
 				<div class='usetemp'>
 					<button class='tempbtn' id="btn-pop">
 						<span class='temptext'>카드템플릿 사용</span>
-						<div class="tempPop">
-						<div id='back'>
-            <div class='template'>
-            <button class='btn_top' type='button'></button>
-            </div>
-  </div>
-						</div>
 					</button>
 				</div>
 				<div class='front'>
@@ -87,8 +80,9 @@
 				<button class='btmsubmit'>등록하기</button>
 			</div>
 		</div>
+		
 		<!-- 탬플릿선택 화면 -->
-		<div id='back'>
+		<div class='tempPop'>
       <div class='template'>
         <button class='btn_top' type='button'></button>
         <div class='text_top'>탬플릿 이미지</div>
@@ -193,22 +187,47 @@ $(document).ready( function(){
         $('.tempPop').fadeIn(200);
     });
 
-    $('.close_profilePop').click(function(){
-        $('.profilePop').fadeOut(200);
+    $('.btn_top').click(function(){
+        $('.tempPop').fadeOut(200);
     });
-   
     
-    /* pulldownPop2 */
-    $('#logon-div2').click(function(){
-        $('.profilePop2').slideDown(200);
-    });
-
-    $('.close_profilePop2').click(function(){
-        $('.profilePop2').slideUp(200);
+    $('.button').click(function(){
+        $('.tempPop').fadeOut(200);
     });
 });
 </script>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
 
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+      if (n < 1) {
+        slideIndex = slides.length
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
 </body>
 </html>
 
