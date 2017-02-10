@@ -1,0 +1,335 @@
+/************ header_cstmr ************/
+
+.table-responsive {width:auto!important; margin:0!important; overflow-y:hidden;}
+.panel-body {padding:0!important;}
+#content_cstmr {
+    background:#f5f5f5;
+    padding-bottom:50px;
+}
+
+.cafelist .con {
+    width: 960px;
+}
+
+
+
+/************ search ************/
+.search {
+    clear:both;
+    width:100%;
+    padding:25px;
+    background:#ff5948;
+}
+
+.search .srchArea {
+	position:relative;
+	width:960px;
+	margin:auto;
+}
+
+.search .inputArea {
+    margin:auto;
+    width: 370px;
+    height: 45px;
+    border-radius: 50px;
+    background: #fff;
+    transition:all 0.3s ease .05s;
+}
+
+.search .inputArea:hover {
+    box-shadow: 2px 0 30px rgba(231, 18, 18, 0.9);
+    transition:all 0.3s ease .05s;
+}
+.search .inputArea .srchBar {
+    float: left;
+    width: 370px;
+    height:45px;
+    padding: 8px 20px 9px 20px;
+    font-size: 18px;
+    color: #555;
+    background: transparent;
+    
+}
+
+.search .inputArea .btn_srch {
+    float:right;
+    width: 40px;
+    height: 38px;
+    margin-top:3px;
+    margin-right:-45px;
+    background: url(../../image/btn_searchW.png) no-repeat center center;
+    font-size: 0;
+}
+
+.search .srchMap {
+	position:absolute;
+	right:0;
+	top: -12px;
+    width:70px;
+    height:70px;
+    border-radius: 50px;
+    text-align:center;
+    background:#ff4936;
+    cursor:pointer;
+    color:#fff;
+    font-size:0.8em;
+}
+
+.search .srchMap:before {
+    text-align:center;
+    display:block;
+    margin-top:6px;
+    height:33px;
+    font-family:"FontAwesome";
+    font-size:2.5em;
+    content: "\f041";
+    color:#fff;
+}
+
+.search .srchList {
+    display:none;
+    position:absolute;
+    right:0;
+    top: -12px;
+    width:70px;
+    height:70px;
+    border-radius: 50px;
+    text-align:center;
+    background:#ff4936;
+    cursor:pointer;
+    color:#fff;
+    font-size:0.8em;
+}
+
+.search .srchList:before {
+    text-align:center;
+    display:block;
+    margin-top:10px;
+    height:29px;
+    font-family:"FontAwesome";
+    font-size:2.0em;
+    content: "\f00b";
+    color:#fff;
+}
+
+.search .srchList a, .search .srchMap a {
+	color:#fff;
+}
+
+/************ tagList ************/
+.tagList {
+    margin:auto;
+    margin-top:30px;
+    text-align:center;
+}
+
+.tagList li {
+    box-sizing: border-box;
+    display:inline-block;
+    margin-right:0 10px;
+    color:#333;
+    font-size:1.2em;
+}
+
+.tagList li input {
+	border:0;
+}
+.tagList li input[type='radio']:checked + label.tag {
+	display:block;
+    padding:5px 10px;
+	box-sizing: border-box;
+    border-radius:7px;
+    background:#fff;
+    border: 1px solid #ddd;
+}
+
+/************ cafeList ************/
+.cafeList {
+    clear:both;
+    padding-top:10px;
+    width:100%;
+}
+
+.cafeList .cafe {
+    float:left;
+    width:32%;
+    box-sizing: border-box;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:7px;
+    margin-right:2%;
+    margin-bottom:20px;
+    box-shadow: 2px 2px 5px rgba(70, 70, 70, 0.1);
+    transition:all 0.3s ease .05s;
+    height: 400px;
+}
+
+.cafeList .cafe:hover {
+	border:1px solid #ff5948;
+	box-shadow: 0 0 7px rgba(255, 89, 79, 0.8);
+    transition:all 0.3s ease .05s;
+}
+
+.cafeList .cafe:nth-child(3n) {
+	margin-right:0%;
+}
+	
+.cafeList .cafe .cafeImg {
+	position:relative;
+	min-height:150px;
+}
+
+
+.cafeList .cafe .cafeImg .logoImg {
+	position:absolute;
+	top:0;
+	width:100%;
+	height:150px;
+	background:#fff;
+	border-radius:7px 7px 0 0;
+	text-align:center;
+	display:table;
+	transition:all 0.3s ease .05s;
+	overflow:hidden;
+}
+.cafeList .cafe:hover .cafeImg .logoImg {
+    height:0px;
+    display:inline;
+    transition:all 0.3s ease .05s;
+}
+
+.cafeList .cafe .cafeImg .logoImg img {
+	margin-top:25px;
+	max-width:120px;
+	max-height:120px;
+    transition:all 0.3s ease .05s;
+}
+.cafeList .cafe:hover .cafeImg .logoImg img {
+	max-width:0px;
+    max-height:0;
+    transition:all 0.3s ease .05s;
+}
+
+.cafeList .cafe .cafeImg .cardImg {
+    border-radius:7px 7px 0 0;
+}
+.cafeList .cafe:hover .cafeImg .cardImg {
+}
+
+.cafeList .cafe .cafeImg .cardImg img {
+	width:100%;
+	height:0;
+	border-radius:7px 7px 0 0;
+}
+.cafeList .cafe:hover .cafeImg .cardImg img {
+	width:100%;
+    height:150px;
+}
+
+
+.cafeList .cafeTxt {
+	position:relative;
+    min-height:200px;
+    padding:10% 6% 6% 6%;
+}
+
+.cafeList .cafeTxt .tit {
+	font-size:1.4em;
+	font-weight:bold;
+	color:#333;
+}
+
+.cafeList .cafeTxt .time {
+    color:#555;
+    margin-top:5px;
+}
+
+.cafeList .cafeTxt .like {
+    width:30px;
+    height:30px;
+    position:absolute;
+    top:10px;
+    right:3%;
+    text-align:center;
+    cursor:pointer;
+}
+
+.cafeList .cafeTxt .like:first-line {
+	 font-size:0em;
+}
+
+.cafeList .cafeTxt .like:after {
+    text-align:center;
+    display:block;
+    height:33px;
+    font-family:"FontAwesome";
+    font-size:1.8em;
+    content: "\f004";
+    color:#ff5948;
+}
+
+.cafeList .cafeTxt .like.select:before {
+    content: "\f004";
+    color:#ff5948;
+}
+
+.cafeList .cafeTxt .txt {
+	margin-top:10px;
+    font-size:0.9em;
+    color:#9f9f9f;
+}
+
+.cafeList .cafeTxt .tag {
+	margin:25px 0 10px 0;
+}
+
+.cafeList .cafeTxt .tag span {
+	border: 2px solid #ddd;
+	padding:2px 10px;
+	margin-right:3px;
+	border-radius:20px;
+}
+
+.cafeList .cafeTxt .icons {
+	display:inline-block;
+}
+	
+.cafeList .cafeTxt .distance {
+    display:inline-block;
+}
+
+.cafeList .cafeTxt .distance:before {
+    content:'|';
+    color:#ddd;
+    padding-right:5px;
+}
+
+
+
+
+
+/*************************************************
+                                    cafelist_map                     
+*************************************************/
+#content_cstmr.cafelist_map {
+	padding:0;
+}
+#content_cstmr.cafelist_map .con {
+	width:100%;
+}
+	
+.cafelist_map .search .srchList {
+    display:block;
+}
+
+.cafelist_map .search .srchMap {
+    display:none;
+}
+.cafelist_map .mapArea {
+	overflow:hidden;
+}
+.cafelist_map .mapArea .map {
+	margin-top:-65px;
+	width:100%;
+	height:800px;
+}

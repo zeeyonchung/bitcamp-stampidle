@@ -5,7 +5,7 @@
 <title>고객 상세 정보</title>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="event-new.css">
+<link rel="stylesheet" href="../css/eventupdate.css">
 <link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
 <!--  jQuery UI CSS파일  -->
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
@@ -75,14 +75,15 @@
 <!--jQuery UI 라이브러리 js파일 -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
+  /*이미지*/
   $("#upfile1").click(function () {
 	    $("#file1").trigger('click');
 	});
-  // 달력
+  /* 달력*/
   $(function() {
     $( "#datepicker" ).datepicker({
         showOn: "both", 
-        buttonImage: "#", 
+        buttonImage: "../image/icon_calendar.png", 
         buttonImageOnly: true 
   });
   });
@@ -90,7 +91,7 @@
   $(function() {
 	    $( "#datepicker2" ).datepicker({
 	        showOn: "both", 
-	        buttonImage: "#", 
+	        buttonImage: "../image/icon_calendar.png", 
 	        buttonImageOnly: true 
 	  });
 	  });

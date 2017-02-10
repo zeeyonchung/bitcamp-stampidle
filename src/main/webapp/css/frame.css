@@ -1,4 +1,4 @@
-@import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+
 
 /*************************************************
                                     input style                     
@@ -421,7 +421,13 @@
     text-align: center;
 }
 
+.btn_cafeInfo:hover {
+	color:#fff;
+}
 
+.btn_message:hover, .btn_mobile:hover, .btn_guide:hover {
+    color:#888;
+}
 
 
 /*************************************************

@@ -147,3 +147,8 @@ hr {
 .submit-btn {
 	margin-top:20px;
 }
+
+.ui-datepicker-trigger {
+	 margin-left:10px;
+   height:28px;
+}
