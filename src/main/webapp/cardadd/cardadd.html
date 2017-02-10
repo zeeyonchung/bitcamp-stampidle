@@ -61,7 +61,7 @@
 						</span>
 					</div>
 					<div class='btnAre'>
-						<button class='mbtn' onclick="remove_item(this)">-</button>
+						<button class='mbtn' onclick="remove_item()">-</button>
 						<button class='pbtn' onclick='add_item()'>+</button>
 					</div>
 				</div>
@@ -141,17 +141,13 @@
 	<script src="main.js"></script>
 	<script>
 		function add_item() {
-			// pre_set 에 있는 내용을 읽어와서 처리..
 			var div = document.createElement('div');
 			div.className = "stmpare";
-			
-			//div.innerHTML = document.getElementById('pre_set').innerHTML;
-			
 			document.getElementById('stmpside').appendChild(div);
 		}
-		function remove_item(obj) {
-			// obj.parentNode 를 이용하여 삭제
-			document.getElementById('stmpare').removeChild(obj.parentNode);
+		function remove_item() {
+			//$('.stmpare').remove();
+			$('.stmpside .stmpare:last-child').remove();
 		}
 	</script>
 	<script>

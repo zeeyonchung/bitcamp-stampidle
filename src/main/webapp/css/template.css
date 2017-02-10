@@ -102,7 +102,6 @@
 .slideare {
 }
 .slideshow {
-  border: 1px solid red;
   margin: auto;
   width: 250px;
   height: 150px;
@@ -112,8 +111,7 @@
 .next {
 	float: right;
   right: 0;
-  border-radius: 3px 0 0 3px;
-  border: 1px solid red;
+  margin-right: 10px;
 }
 
 .nextare {
@@ -130,7 +128,7 @@
 }
 .prev {
 	float:left;
-  border: 1px solid red;
+	margin-left: 10px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
