@@ -12,25 +12,26 @@
 	<div class='container'>
 	
 		<div id='header_cstmr'>
-		  <h1 class='logo'><a href='../customer/main.html'><img src='../image/logo.png' alt='Stampidle'></a></h1>
-		  <ul class='menu'>
-		      <li>서비스소개</li>
-		      <li>등록카페찾기</li>
-		      <li>카페별 이벤트</li>
-		  </ul>
-		</div>
-		
-		<div id='content_cstmr'>
-		
-	    <!-- search -->
-        <div class='search'>
-            <div class='srchArea'>
-	            <div class='inputArea'>
-	                <input class='srchBar' type='text' placeholder='이름 또는 전화번호'><a href='' class='btn_srch'>검색</a>
-	            </div>
-	            <div class='srchMap'>지도검색</div>
-            </div>
+          <h1 class='logo'><a href='../customer/main.html'><img src='../image/logo.png' alt='Stampidle'></a></h1>
+          <ul class='menu'>
+              <li><a href='main.html'>서비스소개</a></li>
+              <li><a href='cafelist.html'>등록카페찾기</a></li>
+              <li><a href='event.html'>카페별이벤트</a></li>
+          </ul>
         </div>
+        
+        <div id='content_cstmr' class='cafelist'>
+		
+		    <!-- search -->
+	        <div class='search'>
+	            <div class='srchArea'>
+		            <div class='inputArea'>
+		                <input class='srchBar' type='text' placeholder='이름 또는 전화번호'><a href='' class='btn_srch'>검색</a>
+		            </div>
+		            <div class='srchMap'><a href='cafelist_map.html'>지도검색</a></div>
+	                <div class='srchList'><a href='cafelist.html'>카페리스트</a></div>
+	            </div>
+	        </div>
         
 		    <!-- con -->
 			<div class='con'>
@@ -162,6 +163,63 @@
 	                            <p class='distance'>1km</p>
 	                        </div>
 	                    </div>
+	                    
+	                    <div class='cafe'>
+                            <div class='cafeImg'>
+                                <p class='logoImg'><img src='../image/logo_sample.png'></p>
+                                <p class='cardImg'><img src='../image/card_sample.jpg'></p>
+                            </div>
+                            <div class='cafeTxt'>
+                                <h5 class='tit'>카페 프레스코</h5>
+                                <p class='time'>평일09:00~23:00 주말 08:00~24:00</p>
+                                <p class='like'>좋아요</p>
+                                <p class='txt'>달콤한 스낵과 샌드위치를 판매하는<br>편안한 분위기의 유럽풍 커피하우스 체인점입니다.</p>
+                                <p class='tag'><span>#스터디룸</span><span>#북카페</span></p>
+                                <p class='icons'>
+                                    <span class='Event'>Event</span>
+                                    <span class='Free'>Free</span>
+                                </p>
+                                <p class='distance'>1km</p>
+                            </div>
+                        </div>
+                        
+                        <div class='cafe'>
+                            <div class='cafeImg'>
+                                <p class='logoImg'><img src='../image/logo_sample.png'></p>
+                                <p class='cardImg'><img src='../image/card_sample.jpg'></p>
+                            </div>
+                            <div class='cafeTxt'>
+                                <h5 class='tit'>카페 프레스코</h5>
+                                <p class='time'>평일09:00~23:00 주말 08:00~24:00</p>
+                                <p class='like'>좋아요</p>
+                                <p class='txt'>달콤한 스낵과 샌드위치를 판매하는 편안한 분위기</p>
+                                <p class='tag'><span>#스터디룸</span><span>#북카페</span></p>
+                                <p class='icons'>
+                                    <span class='Event'>Event</span>
+                                    <span class='Free'>Free</span>
+                                </p>
+                                <p class='distance'>1km</p>
+                            </div>
+                        </div>
+                        
+                        <div class='cafe'>
+                            <div class='cafeImg'>
+                                <p class='logoImg'><img src='../image/logo_sample.png'></p>
+                                <p class='cardImg'><img src='../image/card_sample.jpg'></p>
+                            </div>
+                            <div class='cafeTxt'>
+                                <h5 class='tit'>카페 프레스코</h5>
+                                <p class='time'>평일09:00~23:00 주말 08:00~24:00</p>
+                                <p class='like'>좋아요</p>
+                                <p class='txt'>달콤한 스낵과 샌드위치를 판매하는<br>편안한 분위기의 유럽풍 커피하우스 체인점입니다.</p>
+                                <p class='tag'><span>#스터디룸</span><span>#북카페</span></p>
+                                <p class='icons'>
+                                    <span class='Event'>Event</span>
+                                    <span class='Free'>Free</span>
+                                </p>
+                                <p class='distance'>1km</p>
+                            </div>
+                        </div>
                     
                     </div>
 			    </div>
@@ -198,6 +256,9 @@ $(function(){
         }
     });
 });
+
+
+
 </script>
 
 <!-- <script>
