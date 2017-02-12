@@ -38,62 +38,13 @@
 
 
 
-				<!-- 일간주간월간 -->
-				<div class='sort'>
-					<button type='button' id='oneday-btn'
-						class="btn btn-default btn-selected radius">일간</button>
-					<button type='button' id='week-btn' class="btn btn-default radius">주간</button>
-					<button type='button' id='month-btn' class="btn btn-default radius">월간</button>
-				</div>
-
-
-
 				<!-- 날짜 선택 -->
-				<div class='stat-date'>
-
-					<button type='button' class='btn btn-default move'
-						id='pre-date-btn'>
-						<img src='../image/icon_arrow.png'>
-					</button>
-
-
-
-					<div id="cal-wrapper">
-						<div class="oneday">
-							<input id="date-day" type='text' value='2017-02-07'>
-						</div>
-
-						<div class="week">
-							<input id="date-week" type='text'
-								value='2017-02-07 ~ 2017-02-07'
-								style='width: 450px;'>
-						</div>
-
-						<div class="month">
-						  <input id="date-custom" type="hidden">
-							<select class="form-control">
-								<option>2016년 2월</option>
-								<option>2016년 3월</option>
-								<option>2016년 4월</option>
-								<option>2016년 5월</option>
-								<option>2016년 6월</option>
-								<option>2016년 7월</option>
-								<option>2016년 8월</option>
-								<option>2016년 9월</option>
-								<option>2016년 10월</option>
-								<option>2016년 11월</option>
-								<option>2016년 12월</option>
-								<option>2017년 1월</option>
-							</select>
-						</div>
-
-
-						<button type='button' class='btn btn-default move'
-							id='next-date-btn'>
-							<img src='../image/icon_arrow2.png'>
-						</button>
-					</div>
-				</div><!-- stat-date -->
+				<div class='calendar'>
+					날짜 설정
+					<img class='calendar-icon' src='../image/icon_calendar.png'>
+					<input id="date-custom" type='text' class='input-day' onfocus="this.blur()"
+						value="2017-02-14 ~ 2017-02-14">
+				</div>
 
 
 				<!-- 그래프 -->
@@ -115,21 +66,17 @@
 
 <script src="../node_modules/jquery/dist/jquery.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
 <script src="../js/bit.js"></script>
 <script src="../js/common.js"></script>
-</body>
 <script src="statistics.js"></script>
 
-<script src="http://www.blueb.co.kr/SRC2/daterange/jquery-1.11.2.min.js"></script>
 <script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
-<script
-	src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
+<script src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
 <script src="../js/calendar.js"></script>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/highcharts-3d.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="../node_modules/highcharts/highcharts.js"></script>
+<script src="../node_modules/highcharts/highcharts-3d.js"></script>
+<script src="../node_modules/highcharts/modules/exporting.js"></script>
 <script src="../node_modules/highcharts/js/themes/grid-light.js"></script>
 
 
@@ -282,6 +229,7 @@
     });
     </script>
 
+</body>
 </html>
 
 

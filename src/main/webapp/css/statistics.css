@@ -88,107 +88,40 @@ ul a {
 
 
 
-
-
-
-
-
-.sort {
-	float: right;
-}
-
-
-.radius {
-	border-radius: 20px;
-}
-
-
-.btn-selected {
-  border: 3px solid #ccc;
-  font-weight: bold;
-}
-
-
-
-
-
-
-
-
-
-.stat-date {
-	clear: right;
-	text-align: center;
-}
-
-
-
-button.move {
+.calendar {
+	<!--border: 1px solid red;-->
 	border: 1px;
+	margin-top: 50px;
+	margin-bottom: 40px;
 	text-align: center;
+	font-size: 1.25em;
 }
-
-
-button.move img {
-	width: 10px;
-	height: 25px;
-}
-
-
-
-#cal-wrapper input {
-	width: 310px;
-	height: 45px;
-  text-align: center;
-  font-size: 1.8em;
-  color: #464646;
-  vertical-align: middle;
-  padding-bottom: 2px;
-}
-
-
-
-
-#cal-wrapper select {
-	width: 185px;
-	height: 45px;
-	margin: 0 63px;
-	vertical-align: middle;
-	font-size: 1.63em;
-	text-align-last:center;
-	color: #464646;
-	border: 0;
-	outline: none;
-	text-align: center;
-	-webkit-appearance:none;
-	box-shadow: none !important;
-	display: inline-block;
-}
-
-
-
 
 
 .calendar-icon {
-  width: 22px;
-  height: 22px;
-  position: relative;
-  margin-top: 2px;
-  margin-left: -4px;
-  vertical-align: top;
+	width: 22px;
+	height: 22px;
+	position: relative;
+	margin: 4px 5px;
+	vertical-align: top;
+}
+
+
+.input-day {
+	text-align: center;
+	font-size: 1.2em;
+	border: 0;
+	border-bottom: 3px solid #eee;
+	width: 290px;
+	height: 28px;
+	vertical-align: bottom;
+	cursor: pointer;
 }
 
 
 
 
 
-#cal-wrapper
-    {
-    display:inline;
-    }
-.oneday { margin:0; display:inline;}
-.week { margin:0; display:none;}
-.month { margin:0; display:none;}
 .date-picker-wrapper .month-wrapper table .day.lalala { background-color:orange; }
 .options { display:none; border-left:6px solid #8ae; padding:10px; font-size:1em; line-height:1.4; background-color:#eee; border-radius:4px;}
 .date-picker-wrapper.date-range-picker19 .day.first-date-selected { background-color: red !important; }

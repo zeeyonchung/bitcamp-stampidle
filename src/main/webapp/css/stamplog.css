@@ -99,29 +99,15 @@ ul a {
 	font-size: 1.25em;
 }
 
-b {
-	vertical-align: middle;
-}
 
 .calendar-icon {
 	width: 22px;
 	height: 22px;
 	position: relative;
-	margin-top: 2px;
-	margin-left: -4px;
+	margin: 4px 5px;
 	vertical-align: top;
 }
 
-
-#calendar-btn {
-	text-align: center;
-	width: 27px;
-	height: 27px;
-	background-color: rgb(255, 255, 255);
-	border: 1px;
-	margin-top: 4px;
-	vertical-align: bottom;
-}
 
 .input-day {
 	text-align: center;
@@ -130,6 +116,7 @@ b {
 	width: 220px;
 	height: 28px;
 	vertical-align: bottom;
+	cursor: pointer;
 }
 
 
@@ -235,12 +222,8 @@ ul.pagination li a:hover:not(.active) {
 
 
 
-#wrapper
-    {
-    }
-    .demo { margin:0;}
-    .date-picker-wrapper .month-wrapper table .day.lalala { background-color:orange; }
-    .options { display:none; border-left:6px solid #8ae; padding:10px; font-size:1em; line-height:1.4; background-color:#eee; border-radius:4px;}
-    .date-picker-wrapper.date-range-picker19 .day.first-date-selected { background-color: red !important; }
-    .date-picker-wrapper.date-range-picker19 .day.last-date-selected { background-color: orange !important; }
+.date-picker-wrapper .month-wrapper table .day.lalala { background-color:orange; }
+.options { display:none; border-left:6px solid #8ae; padding:10px; font-size:1em; line-height:1.4; background-color:#eee; border-radius:4px;}
+.date-picker-wrapper.date-range-picker19 .day.first-date-selected { background-color: red !important; }
+.date-picker-wrapper.date-range-picker19 .day.last-date-selected { background-color: orange !important; }
 

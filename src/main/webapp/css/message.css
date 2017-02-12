@@ -62,7 +62,7 @@ h4 {
 
 .modal-content .modal-body {
 	position: relative;
-	padding: 0px 15px;
+	padding: 0px;
 	height: 510px;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -84,11 +84,19 @@ h4 {
 
 
 
+
 .one-msg {
-	height: 90px;
-	padding: 5px 0px;
-	margin: 5px 0px;
+	height: 100px;
+	padding: 10px 15px;
 }
+
+
+
+.one-msg:hover {
+	background-color: #f9f9f9;
+	cursor: pointer;
+}
+
 
 
 .one-msg .msg-left {
@@ -98,7 +106,7 @@ h4 {
 
 
 .msg-left .cstmer-img {
-	width: 75px;
+	width: 80px;
 }
 
 
@@ -119,7 +127,7 @@ h4 {
 	position: relative;
 	display: inline-block;
 	float: right;
-	width: 340px;
+	width: 320px;
 	height: 80px;
 }
 
@@ -165,29 +173,6 @@ h4 {
 
 
 
-
-
-
-
-.msg-detail-btn {
-	display: inline-block;
-  height: 40px;
-  vertical-align: middle;
-  width: 22px;
-  position: relative;
-  left: 22px;
-  background:url(../image/btn_searchB.png) no-repeat center center;
-  background-size: 20px;
-  font-size: 0px;
-}
-
-
-
-
-
-
-
-
 .chat {
 	margin: 10px 0px;
 	display: inline-block;
@@ -195,7 +180,7 @@ h4 {
 }
 
 .bubble{
-    background-color: #F2F2F2;
+    background-color: #fdfdfd;
     border-radius: 5px;
     box-shadow: 0 0 6px #B2B2B2;
     display: inline-block;
@@ -206,7 +191,7 @@ h4 {
 }
 
 .bubble::before {
-    background-color: #F2F2F2;
+    background-color: #fdfdfd;
     content: "\00a0";
     display: block;
     height: 16px;
@@ -308,20 +293,3 @@ h4 {
 
 
 
-
-
-
-
-
-
-.modal {
- overflow-y: auto;
-}
-
-.modal-open {
- overflow: auto;
-}
-
-.modal-open[style] {
-padding-right: 0px !important;
-}
