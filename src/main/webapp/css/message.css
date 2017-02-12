@@ -174,9 +174,9 @@ h4 {
 
 
 .chat {
-	margin: 10px 0px;
+	margin: 10px;
 	display: inline-block;
-  width: 430px;
+	width: 430px;
 }
 
 .bubble{
@@ -270,9 +270,8 @@ h4 {
 
 
 .chat-cstmer .mylogo {
-	width: 87px;
+	width: 60px;
 	float: right;
-	margin-top: 20px;
 	margin-right: 10px;
 }
 
