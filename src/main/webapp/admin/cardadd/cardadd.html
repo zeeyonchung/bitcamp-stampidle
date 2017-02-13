@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Stampidle</title>
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/cardadd.css">
+<link rel="stylesheet" href="../css/template.css">
+</head>
+
+
+<body>
+	<div class='container'>
+		<div id='header'></div>
+		<div id='sidebar'></div>
+		<div id='content'>
+			<div class='con'>
+				<h3>스탬프카드 이미지등록</h3>
+				<div class='topLine'></div>
+				<div class='usetemp'>
+					<button class='tempbtn' id="btn-pop">
+						<span class='temptext'>카드템플릿 사용</span>
+					</button>
+				</div>
+				<div class='front'>
+					<span class='frontText'>앞면</span> <img src='../image/xbox.png'
+						class='xbox'>
+					<div class='frontFile'>
+						<input type=file name='fileup1' style='display: none;'>
+						<button class='filebtn' onclick='document.all.fileup1.click()'>File</button>
+						<img src='../image/i.png' class='i'> <br> <br> <br>
+						<p class='text'>
+							앞면이미지 미등록시<br> 기존 카페 로고 이미지가<br> 자동 등록됩니다.
+						</p>
+					</div>
+				</div>
+				<div class='mid'>
+					<img src='../image/template1.jpg' class='backcard'>
+					<div id='stmpside' class='stmpside'>
+						<!-- <div id="pre_set">
+							<div class='stmpare'>
+								<div id="field"></div>
+							</div>
+						</div> -->
+					</div>
+					<span class='midText1'>뒷면<br> <span class='midText2'>스탬프
+							찍는 면</span></span>
+					<div class='midFile'>
+						<input type=file name='fileup2' style='display: none;'>
+						<button class='midfilebtn' onclick='document.all.fileup1.click()'>File</button>
+					</div>
+					<br>
+					<div class='midTextAre'>
+						<span class='midText3'>현재 스탬프 영역 개수</span><br> <span
+							class='midNum'>0</span><span>개</span><br> <br> <span
+							class='text'>스탬프가 찍힐 공간 개수만큼 +버튼으로 추<br> 가한 후 도장이 찍힐
+							위치를<br>마우스로 조정해 주세요.
+						</span>
+					</div>
+					<div class='btnAre'>
+						<button class='mbtn' onclick="remove_item()">-</button>
+						<button class='pbtn' onclick='add_item()'>+</button>
+					</div>
+				</div>
+				<div class='final'>
+					<div class='stmpshape'>
+						<br> <span class='finalText'>스탬프 모양</span>
+						<div class='stmpimgbox'>
+							<img src='../image/stmp4.png' class='selectimg'>
+						</div>
+						<input type=file name='fileup2' style='display: none;'>
+						<button class='selectFile' onclick='document.all.fileup1.click()'>File</button>
+					</div>
+				</div>
+				<div class='btmLine'></div>
+				<br>
+				<button class='btmsubmit'>등록하기</button>
+			</div>
+		</div>
+		
+		<!-- 탬플릿선택 화면 -->
+		<div class='tempPop'>
+      <div class='template'>
+        <button class='btn_top' type='button'></button>
+        <div class='text_top'>탬플릿 이미지</div>
+        <div class='slideare'>
+          <div class='prevare'>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          </div>
+          <div class='slideshow'>
+            <div class="mySlides">
+              <img src="../image/template1.jpg"
+                style="width: 100%; height: 100%">
+            </div>
+            <div class="mySlides">
+              <img src="../image/template2.jpg" style="width: 100%; height: 100%">
+            </div>
+            <div class="mySlides">
+              <img src="../image/template3.jpg" style="width: 100%; height: 100%">
+            </div>
+          </div>
+          <div class='nextare'>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+          <br>
+          <div style="text-align: center">
+            <span class="dot" onclick="currentSlide(1)"></span> <span
+              class="dot" onclick="currentSlide(2)"></span> <span class="dot"
+              onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+
+        <div class='text_btm'>스탬프 이미지</div>
+        <div class='stmp_are'>
+          <label class='label1'> <input class='stmp1' type='radio'
+            name='value' style="display: none"> <img class='img1'
+            src='../image/stmp1.png'>
+          </label> <label class='label1'> <input class='stmp2' type='radio'
+            name='value' style="display: none"> <img class='img2'
+            src='../image/stmp2.png'>
+          </label> <label class='label1'> <input class='stmp3' type='radio'
+            name='value' style="display: none"> <img class='img3'
+            src='../image/stmp3.png'>
+          </label> <label class='label1'> <input class='stmp4' type='radio'
+            name='value' style="display: none"> <img class='img4'
+            src='../image/stmp4.png'>
+          </label>
+          <button type='button' class='button'>카드선택</button>
+        </div>
+      </div>
+    </div>
+	</div>
+
+	<script src="../../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="../js/bit.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="main.js"></script>
+	<script>
+		function add_item() {
+			var div = document.createElement('div');
+			div.className = "stmpare";
+			document.getElementById('stmpside').appendChild(div);
+		}
+		function remove_item() {
+			//$('.stmpare').remove();
+			$('.stmpside .stmpare:last-child').remove();
+		}
+	</script>
+	<script>
+		$(function() {
+			$('.mbtn').click(function(e) {
+				e.preventDefault();
+				var stat = $('.midNum').text();
+				var num = parseInt(stat, 10);
+				num--;
+				if (num <= 0) {
+					alert('더이상 줄일수 없습니다.');
+					num = 0;
+				}
+				$('.midNum').text(num);
+			});
+			$('.pbtn').click(function(e) {
+				e.preventDefault();
+				var stat = $('.midNum').text();
+				var num = parseInt(stat, 10);
+				num++;
+				if (num > 12) {
+					alert('더이상 추가할수 없습니다.');
+					num = 12;
+				}
+				$('.midNum').text(num);
+			});
+		});
+	</script>
+	<script>
+/* pulldownPop */
+$(document).ready( function(){
+    $('#btn-pop').click(function(){
+        $('.tempPop').fadeIn(200);
+    });
+
+    $('.btn_top').click(function(){
+        $('.tempPop').fadeOut(200);
+    });
+    
+    $('.button').click(function(){
+        $('.tempPop').fadeOut(200);
+    });
+});
+</script>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+      if (n < 1) {
+        slideIndex = slides.length
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
+</body>
+</html>
+
+

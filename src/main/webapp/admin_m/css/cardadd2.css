@@ -1,0 +1,262 @@
+@CHARSET "UTF-8";
+
+.con {
+	border: 1px solid red;
+	margin-top: 100px;
+	margin-left: 150px;
+	width: 800px;
+	height: 500px;
+}
+
+.usetemp {
+	float: right;
+}
+
+.topLine {
+	border:1px solid rgb(160,160,160);
+	width: 800px;
+	margin-top: 10px;
+}
+
+.tempbtn {
+	clear: both;
+	margin-top: 10px;
+	border: 2px solid rgb(227,227,227);
+	border-radius: 10px;
+	background-color: white;
+  width: 120px;
+  height:	30px;
+}
+
+.temptext {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+/*--front--*/
+
+.front {
+	border: 1px solid red;
+	margin-top: 80px;
+	margin-left: 30px;
+	width : 200px;
+	height: 300px;
+	width: 200px;
+	float:left;
+}
+
+.frontText {
+	font-size: 26px;
+}
+
+.frontFile {
+	margin-top: 30px;
+}
+
+.filebtn {
+	width: 60px;
+	border:1px;
+  border-radius: 5px;
+  width: 50px;
+  height: 25px;
+  background-color: rgb(236,236,236);
+	
+}
+
+.text {
+	font-size: 12px;
+	color: gray;
+}
+
+.xbox {
+	border: 1px solid red;
+	float: right;
+	width: 130px;
+}
+
+.i {
+	float: right;
+	width: 30px;
+}
+
+/*--mid--*/
+.mid {
+	border: 1px solid red;
+	margin-top: 80px;
+	width: 400px;
+	height: 300px;
+	float:left;
+	margin-left: 20px;
+}
+
+.backcard {
+	position: absolute;
+	float: left;
+	width: 270px;
+}
+
+.stmpside {
+	position: absolute;
+	display: inline;
+  /*border: 1px solid red;*/
+  margin-left: 5px;
+  margin-top:5px;
+  width: 261px;
+  min-height: 100px;
+  padding-left: 8px;
+}
+
+.stmpare {
+	position: relative;
+	display: inline-block;
+	/*border: 1px solid red;*/
+	width: 38px;
+	height: 50px;
+	margin-right: 3px;
+	margin-bottom: 2px;
+	background-color: white;
+	border-radius: 5px;
+	
+}
+
+
+.midTextAre {
+	position: absolute;
+	border: 1px solid red;
+	width: 236px;
+	margin-top: 160px;
+}
+
+.midText1 {
+	border: 1px solid red;
+	font-size: 26px;
+	float: right;
+	width: 100px;
+	height: 40px;
+	margin-top: 0px;
+	margin-right: 15px;
+	margin-bottom: -20px;
+}
+
+.midText2 {
+	color: red;
+}
+
+.midText3 {
+	font-size: 14px;
+	color: red;
+}
+
+.midfilebtn {
+	width: 80px;
+	float: right;
+	border:1px;
+	margin-top: 120px;
+	margin-right: -90px;
+  border-radius: 5px;
+  background-color: rgb(236,236,236);
+}
+
+.midText2 {
+	color: red;
+	font-size: 10px;
+}
+
+.midNum{
+	margin-left: 20px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.btnAre {
+	position: relative;
+	border: 1px solid red;
+	width: 200px;
+	height: 80px;
+	margin-top: 160px;
+	margin-left: 130px;
+	padding-top: 10px;
+}
+
+.mbtn {
+	border: 1px solid lightgray;
+	border-radius: 100px;
+	width: 40px;
+	height: 40px;
+	background-color: white;
+	color: lightgray;
+}
+
+.pbtn {
+	border: 0;
+  border-radius: 100px;
+  width: 60px;
+  height: 60px;
+  background-color: rgb(255,89,72);
+  color: white;
+  font-size: 40px;
+}
+
+/*--fianl--*/
+
+.final {
+	border: 1px solid red;
+	margin-top: 200px;
+	float: left;
+	width: 120px;
+	height: 150px;
+}
+
+.stmpshape {
+	border: 1px solid gray;
+	border-radius: 10px;
+	width: 120px;
+	height: 150px;
+}
+
+.finalText {
+	margin-left: 20px;
+	color: black;
+	border: 1px solid red;
+}
+
+.stmpimgbox {
+	border: 1px solid lightgray;
+	border-radius: 3px;
+	width: 50px;
+	height: 50px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.selectimg {
+	width: 45px;
+	height: 45px;
+}
+
+.selectFile {
+	margin-top: 10px;
+	margin-left: 18px;
+	border:1px;
+	border-radius: 5px;
+	width: 80px;
+	height: 30px;
+  background-color: rgb(236,236,236);
+}
+
+.btmLine {
+  border:1px solid rgb(227,227,227);
+  width: 800px;
+  margin-top: 420px;
+}
+
+.btmsubmit{
+	border: 1px;
+	border-radius: 2px;
+	margin-left: 300px;
+	background-color: rgb(255,89,72);
+	color: white;
+	width: 200px;
+	height: 30px;
+}

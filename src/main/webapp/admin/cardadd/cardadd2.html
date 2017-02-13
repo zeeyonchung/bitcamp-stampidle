@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Stampidle</title>
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/cardadd.css">
+</head>
+
+
+<body>
+	<div class='container'>
+		<div id='header'></div>
+		<div id='sidebar'></div>
+		<div id='content'>
+			<div class='con'>
+				<h3>스탬프카드 이미지등록</h3>
+				<div class='topLine'></div>
+				<div class='usetemp'>
+					<button class='tempbtn'
+						onclick="location.href='../template/template.html'">
+						<span class='temptext'>카드템플릿 사용</span>
+					</button>
+				</div>
+				<div class='front'>
+					<span class='frontText'>앞면</span> <img src='../image/xbox.png'
+						class='xbox'>
+					<div class='frontFile'>
+						<input type=file name='fileup1' style='display: none;'>
+						<button class='filebtn' onclick='document.all.fileup1.click()'>File</button>
+						<img src='../image/i.png' class='i'> <br> <br> <br>
+						<p class='text'>
+							앞면이미지 미등록시<br> 기존 카페 로고 이미지가<br> 자동 등록됩니다.
+						</p>
+					</div>
+				</div>
+				<div class='mid'>
+					<img src='../image/template1.jpg' class='backcard'>
+					<div id='stmpside' class='stmpside'>
+						<!-- <div id="pre_set">
+							<div class='stmpare'>
+								<div id="field"></div>
+							</div>
+						</div> -->
+					</div>
+					<span class='midText1'>뒷면<br> <span class='midText2'>스탬프
+							찍는 면</span></span>
+					<div class='midFile'>
+						<input type=file name='fileup2' style='display: none;'>
+						<button class='midfilebtn' onclick='document.all.fileup1.click()'>File</button>
+					</div>
+					<br>
+					<div class='midTextAre'>
+						<span class='midText3'>현재 스탬프 영역 개수</span><br> <span
+							class='midNum'>0</span><span>개</span><br> <br> <span
+							class='text'>스탬프가 찍힐 공간 개수만큼 +버튼으로 추<br> 가한 후 도장이 찍힐
+							위치를<br>마우스로 조정해 주세요.
+						</span>
+					</div>
+					<div class='btnAre'>
+						<button class='mbtn' onclick="remove_item(this)">-</button>
+						<button class='pbtn' onclick='add_item()'>+</button>
+					</div>
+				</div>
+				<div class='final'>
+					<div class='stmpshape'>
+						<br> <span class='finalText'>스탬프 모양</span>
+						<div class='stmpimgbox'>
+							<img src='../image/stmp4.png' class='selectimg'>
+						</div>
+						<input type=file name='fileup2' style='display: none;'>
+						<button class='selectFile' onclick='document.all.fileup1.click()'>File</button>
+					</div>
+				</div>
+				<div class='btmLine'></div>
+				<br>
+				<button class='btmsubmit'>등록하기</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="../../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="../js/bit.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="main.js"></script>
+	<script>
+		function add_item() {
+			// pre_set 에 있는 내용을 읽어와서 처리..
+			var div = document.createElement('div');
+			div.className = "stmpare";
+			
+			//div.innerHTML = document.getElementById('pre_set').innerHTML;
+			
+			document.getElementById('stmpside').appendChild(div);
+		}
+		function remove_item(obj) {
+			// obj.parentNode 를 이용하여 삭제
+			document.getElementById('stmpare').removeChild(obj.parentNode);
+		}
+	</script>
+	<script>
+		$(function() {
+			$('.mbtn').click(function(e) {
+				e.preventDefault();
+				var stat = $('.midNum').text();
+				var num = parseInt(stat, 10);
+				num--;
+				if (num <= 0) {
+					alert('더이상 줄일수 없습니다.');
+					num = 0;
+				}
+				$('.midNum').text(num);
+			});
+			$('.pbtn').click(function(e) {
+				e.preventDefault();
+				var stat = $('.midNum').text();
+				var num = parseInt(stat, 10);
+				num++;
+				if (num > 12) {
+					alert('더이상 추가할수 없습니다.');
+					num = 12;
+				}
+				$('.midNum').text(num);
+			});
+		});
+	</script>
+	<script>
+		
+	</script>
+
+</body>
+</html>
+
+

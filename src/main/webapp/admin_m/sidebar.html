@@ -1,0 +1,63 @@
+<!-- slide left menu area -->
+    <div class='slideArea'>
+        <div class='sidebar'>
+            <!-- navigation -->
+            <ul class='slideMn'>
+                <li role="presentation" class='treeview searchCstmr active'>
+                    <a href='../student/main.html'>고객검색</a>
+                    <ul class='treeview-menu'>
+                    </ul>
+                </li>
+                <li role="presentation" class='treeview statistics'>
+                    <a href=''>방문통계</a>
+                    <ul class='treeview-menu'>
+                    </ul>
+                </li> 
+                <li role="presentation" class='treeview event'>
+                    <a href=''>이벤트</a>
+                    <ul class='treeview-menu'>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- //navigation -->
+        
+        <a href='../cafeinfo/cafeinfo.html' class='btn_cafeInfo'>카페정보</a>
+        <a class="btn_message" data-toggle="modal"  data-target="#myModal"  data-remote="../message.html">Click to open Modal
+          메시지함<span class='newMsg'>10</span>
+        </a>
+        <a href='' class='btn_mobile'>모바일<br>사이트</a>
+        <a href='' class='btn_guide'>스탬피들<br>가이드</a>
+        <div class='footer'>Copyright (c)<br> Stampidle <a href='../customer/main.html'>customer</a></div>
+    </div>
+    <!-- //slide left menu area -->
+    
+    
+    <!-- btn_message 메시지팝업 -->
+    <!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog" data-keyboard="false">
+	   <div class="modal-dialog">
+	      <div class="modal-content"></div>
+	   </div>
+	</div>
+	<!-- Modal2 -->
+	<div class="modal" id="myModal2" aria-hidden="true" style="display: none;" data-keyboard="false">
+	   <div class="modal-dialog">
+	      <div class="modal-content"></div>
+	
+	   </div>
+	</div>
+    <!-- //btn_message 메시지팝업 -->
+    
+    
+    <script>
+    $('.searchCstmr').click(function(e) {
+        location.href = '../stampidle_cs/customerdetail.html'
+    });
+    $('.statistics').click(function(e) {
+        location.href = '../manage/stamplog.html'
+    });
+    $('.event').click(function(e) {
+        location.href = '../event/main.html'
+    });
+    </script>

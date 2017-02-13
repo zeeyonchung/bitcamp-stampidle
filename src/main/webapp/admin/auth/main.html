@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>로그인</title>
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/login.css">
+</head>
+
+
+<body>
+	<div class='container'>
+		<div id='header'></div>
+		<div id='sidebar'></div>
+		<div id="content" class='login'>
+		
+		    <!-- con -->
+			<div class='con'>
+				<h2>카페회원 로그인</h2>
+
+				<form>
+					<div class="form-group">
+						<label class='radio-inline'> <input id='user-type1'
+							type='radio' name='user-type' value='student' checked>학생
+						</label> <label class='radio-inline'> <input id='user-type2' type='radio' name='user-type' value='teacher'>강사
+						</label> <label class='radio-inline'> <input id='user-type3' type='radio' name='user-type' value='manager'>운영자
+						</label>
+					</div>
+
+					<div class="form-group">
+						<input id='email' type='text' class="form-control" placeholder='예)hong@test.com'> 
+						<input id='password' type='password' class="form-control" placeholder="Password">
+					</div>
+					<div class="checkbox">
+						<label> <input type="checkbox"> 이메일 저장
+						</label>
+					</div>
+					<button id='submit-btn' type="button" class="btn btn-default">로그인</button>
+				</form>
+				
+				
+			</div>
+			<!-- //con -->
+		</div>
+	</div>
+
+	<script src="../../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="../js/bit.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="main.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

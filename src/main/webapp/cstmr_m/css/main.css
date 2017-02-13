@@ -1,0 +1,137 @@
+@CHARSET "UTF-8";
+
+.con {
+	background-image: url('../image/bg_mainCon.png');
+	background-repeat: no-repeat;
+	background-position: center 10px;
+}
+
+.con .text {
+	font-size: 1em;
+	margin: 20px auto 10px;
+	width: 500px;
+}
+
+.mainDetail .search {
+	position: relative;
+	margin: auto;
+	margin-bottom: 40px;
+	width: 400px;
+	height: 70px;
+}
+
+.mainDetail .search .inputArea {
+	position: absolute;
+	width: 290px;
+	min-height: 40px;
+	margin-top: 20px;
+	border-radius: 20px;
+	background: #fff;
+	background-color: rgb(255, 89, 72);
+}
+
+.mainDetail .search .inputArea .srchBar {
+	float: left;
+	color: white;
+	width: 200px;
+	font-size: 16px;
+	padding-left: 20px;
+	padding-top: 10px;
+	background-color: rgba(255, 89, 72, 0);
+}
+
+.srchBar::-webkit-input-placeholder {
+	color: white;
+}
+
+.mainDetail .search .inputArea .btn_srch {
+	float: right;
+	width: 40px;
+	height: 38px;
+	background: url(../image/btn_searchW.png) no-repeat center center;
+	font-size: 0;
+}
+
+.mainDetail .search .inputArea .srchList {
+	display: none;
+	clear: both;
+	padding-bottom: 15px;
+}
+
+.mainDetail .search .inputArea:hover .srchList {
+	display: block;
+}
+
+.mainDetail .search .inputArea:hover .srchList li {
+	border-top: 1px solid #e4e4e4;
+	padding: 10px 20px 12px 20px;
+	font-size: 15px;
+	color: #555;
+}
+
+.mainDetail .search .inputArea:hover .srchList li:hover {
+	background: #f6f6f6;
+}
+
+.mainDetail .search .inputArea:hover .srchList .cstmrNm {
+	display: inline-block;
+	width: 80px;
+}
+
+.mainDetail .search .inputArea:hover .srchList .cstmrTel {
+	
+}
+
+.mainDetail .search .btn_newCstmr {
+	position: absolute;
+	left: 295px;
+	width: 100px;
+	height: 100px;
+	border: 0;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: url('../image/btn_newCustomer.png');
+}
+
+.today {
+	margin-top: 60px;
+	margin: auto;
+	padding-left: 30px;
+	width: 220px;
+}
+
+.dayTime {
+	margin: 10px auto 10px;
+	padding-left: 320px;
+	width: 900px;
+}
+
+.dayTime .btn_end {
+	float: right;
+	margin: 4px;
+}
+
+.stat1 {
+	margin: auto;
+	margin-top: 20px;
+	clear: both;
+	width: 902px;
+	height: 302px;
+	border-top: 1px solid lightgray;
+	border-left: 1px solid lightgray;
+	background:#fff;
+}
+
+.stat1 .stat2 {
+	float: left;
+	border-right: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
+	width: 300px;
+	height: 150px;
+	text-align: center;
+	padding: 30px;
+}
+
+.btn_stat {
+	margin: 20px auto;
+	width: 120px;
+}

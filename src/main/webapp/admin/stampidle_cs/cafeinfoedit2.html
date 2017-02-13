@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Stampidle</title>
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/cafeinfoedit2.css">
+<link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
+
+
+</head>
+
+<body>
+  <div class='container'>
+  <div id='header'></div>
+  <div id='sidebar'></div>
+  
+  
+  <div id="content">
+    <div class='con'>
+
+      <!-- 고객관리 메뉴 -->
+      <nav class='manage-navi'>
+          <ul>
+            <li><a href='#'>카페정보 입력</a></li>
+            <li class="one"><a href="../stampidle_cs/cafeinfoedit.html">기본정보</a></li>
+            <span style='color: rgb(190, 190, 190);'>|</span>
+            <li class="two"><a href="../stampidle_cs/cafeinfoedit2.html">무료서비스 항목</a></li>
+            <span style='color: rgb(190, 190, 190);'>|</span>
+            <li class="three"><a href="#">기타 등록</a></li>
+            <hr class='underline' />
+          </ul>
+          <hr>
+      </nav>
+      <!-- 고객관리 메뉴 -->
+      <!-- 무료 서비스 항목 -->
+      <div class='cafe-name'>
+        <span class='freename'>무료서비스 항목*:</span>
+	      <div class="pre-set-before">
+	          <div id="pre_set">
+	            <div class='free-sub'>
+			        <input type="text" class="form-control free1" placeholder="10">
+			        <span>개 모을시</span>
+			        <input type="text" class="form-control free2" placeholder="5000">
+			        
+			        <span>원 이하 메뉴 무료증정</span>
+			        </div>
+			        
+			        <div class="checkbox">
+			          <label>
+			            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+			            제조음료
+			          </label>
+			        </div>
+			        <div class="checkbox">
+			          <label>
+			            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+			            디저트
+			          </label>
+			        </div>
+			        <div class="checkbox">
+			          <label>
+			            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+			            병음료
+			          </label>
+			        </div>
+	            <input class="pbtn" type="button" value="-" onclick="remove_item(this)">
+	          </div>
+	        <div id="field"></div>
+	      </div>
+          <input class="pbtn" type="button" value="+" onclick="add_item()">
+      </div>
+      <!-- 무료 서비스 항목 -->
+      
+      
+      <!-- 쿠폰사진 -->
+      <div class='cafe-name'>
+        <div class="introtext2">쿠폰사진*</div>
+        
+        <div class="imgbox" id="upfile1" >
+          <!-- 이미지 바로 등록? 
+          <img src="../image/icon_calendar.png" id="upfile1" />
+           -->
+          화면을 선택해서 이미지를 등록해 주세요
+          <input type="file" id="file1"  name="file1" style="display:none" />
+        </div>
+        
+        <div class="imgbox2" id="upfile2" >
+          <!-- 이미지 바로 등록? 
+          <img src="../image/icon_calendar.png" id="upfile2" />
+           -->
+          화면을 선택해서 이미지를 등록해 주세요
+          <input type="file" id="file2"  name="file2" style="display:none" />
+        </div>
+        <div>
+	        <button type="button" class="btn btn-default btn-sm btn-regi">등록</button>
+	        <button type="button" class="btn btn-default btn-sm btn-regi">삭제</button>
+        </div>
+        
+      </div>
+      <!-- 쿠폰사진 -->
+      <!-- 다음 단계 -->
+      
+      <div class='cafe-name'>
+          <button type="button" class="btn btn-default btn-lg btn-block">다음단계?</button>
+      </div>
+      
+      
+      
+    </div>
+  </div>
+    
+</div>
+  
+  
+  
+  
+  
+
+
+  <script src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../js/bit.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="stamplog.js"></script>
+
+  
+  
+  <!-- tr 태그 클릭 시 고객 상세페이지로 이동 -->
+  <script>
+  "use strict"
+  
+  $('.tr-link').click(function(event) {
+    location.href = '../stampidle_cs/customerdetail.html'
+  });
+  </script>
+  
+  
+  <script>
+  /*이미지*/
+  $("#upfile1").click(function () {
+      $("#file1").trigger('click');
+  });
+  
+  /*이미지*/
+  $("#upfile2").click(function () {
+      $("#file2").trigger('click');
+  });
+  /*++++추가기능*/
+     function add_item(){
+          // pre_set 에 있는 내용을 읽어와서 처리..
+          var div = document.createElement('div');
+          div.innerHTML = document.getElementById('pre_set').innerHTML;
+          document.getElementById('field').appendChild(div);
+     }
+     function remove_item(obj){
+          // obj.parentNode 를 이용하여 삭제
+          document.getElementById('field').removeChild(obj.parentNode);
+     }
+   
+</script>
+ 
+  <span id="guide" style="color:#999"></span>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

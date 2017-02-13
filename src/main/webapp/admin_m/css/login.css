@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+.login .con {
+	min-width: 400px;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.login .con h2 {
+	text-align: center;
+	margin: 50px auto 30px auto;
+}
+
+.login .con .form-group {
+	text-align: center;
+}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Stampidle</title>
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/statistics.css">
+<link rel="stylesheet"
+	href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
+</head>
+
+<body>
+	<div class='container'>
+		<div id='header'></div>
+		<div id='sidebar'></div>
+
+
+		<div id="content">
+			<div class='con'>
+
+				<!-- 고객관리 메뉴 -->
+				<nav class='manage-navi'>
+					<ul>
+						<li><a href='#'>고객 관리</a></li>
+						<li class="one"><a href="#">방문 통계</a></li>
+						<span style='color: rgb(190, 190, 190);'>|</span>
+						<li class="two"><a href="#">고객리스트</a></li>
+						<span style='color: rgb(190, 190, 190);'>|</span>
+						<li class="three"><a href="#">도장 발급 내역</a></li>
+						<hr class='underline' />
+					</ul>
+					<hr>
+				</nav>
+
+
+
+				<!-- 일간주간월간 -->
+				<div class='sort'>
+					<button type='button' id='oneday-btn'
+						class="btn btn-default btn-selected radius">일간</button>
+					<button type='button' id='week-btn' class="btn btn-default radius">주간</button>
+					<button type='button' id='month-btn' class="btn btn-default radius">월간</button>
+				</div>
+
+
+
+				<!-- 날짜 선택 -->
+				<div class='stat-date'>
+
+					<button type='button' class='btn btn-default move'
+						id='pre-date-btn'>
+						<img src='../image/icon_arrow.png'>
+					</button>
+
+
+
+					<div id="cal-wrapper">
+						<div class="oneday">
+							<input id="date-day" type='text' value='2017-02-07'>
+						</div>
+
+						<div class="week">
+							<input id="date-week" type='text'
+								value='2017-02-07 ~ 2017-02-07'
+								style='width: 450px;'>
+						</div>
+
+						<div class="month">
+						  <input id="date-custom" type="hidden">
+							<select class="form-control">
+								<option>2016년 2월</option>
+								<option>2016년 3월</option>
+								<option>2016년 4월</option>
+								<option>2016년 5월</option>
+								<option>2016년 6월</option>
+								<option>2016년 7월</option>
+								<option>2016년 8월</option>
+								<option>2016년 9월</option>
+								<option>2016년 10월</option>
+								<option>2016년 11월</option>
+								<option>2016년 12월</option>
+								<option>2017년 1월</option>
+							</select>
+						</div>
+
+
+						<button type='button' class='btn btn-default move'
+							id='next-date-btn'>
+							<img src='../image/icon_arrow2.png'>
+						</button>
+					</div>
+				</div><!-- stat-date -->
+
+
+				<!-- 그래프 -->
+				<div id="stat-graph"></div>
+
+				<!-- 그래프2 -->
+				<div id="stat-graph2"></div>
+
+
+			</div>
+			<!-- con -->
+		</div>
+
+	</div>
+
+
+</body>
+
+
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+
+
+<script src="statistics.js"></script>
+
+<script src="http://www.blueb.co.kr/SRC2/daterange/jquery-1.11.2.min.js"></script>
+<script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
+<script
+    src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
+<script src="../js/calendar.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="../../node_modules/highcharts/js/themes/grid-light.js"></script>
+
+
+
+<!-- 일간월간주간 선택 시 달력 바뀜 -->
+<script>
+        "use strict"
+        
+        $('#oneday-btn').click(function(event) {
+            $('.oneday').css('display','inline');
+          $('.week').css('display','none');
+          $('.month').css('display','none');
+        });
+        
+        $('#week-btn').click(function(event) {
+            $('.oneday').css('display','none');
+        $('.week').css('display','inline');
+        $('.month').css('display','none');
+      });
+        
+        $('#month-btn').click(function(event) {
+            $('.oneday').css('display','none');
+        $('.week').css('display','none');
+        $('.month').css('display','inline');
+      });
+        
+    </script>
+
+
+
+
+<!-- 그래프 -->
+<script>
+    $(function () { 
+        var myChart = Highcharts.chart('stat-graph', {
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: 'Average Monthly Temperature and Rainfall in Tokyo'
+            },
+            subtitle: {
+                text: 'Source: WorldClimate.com'
+            },
+            xAxis: [{
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                crosshair: true
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+                    format: '{value}°C',
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                },
+                title: {
+                    text: 'Temperature',
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    text: 'Rainfall',
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                labels: {
+                    format: '{value} mm',
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FAFAFA'
+            },
+            series: [{
+                name: '발급 도장 수',
+                type: 'column',
+                yAxis: 1,
+                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+                tooltip: {
+                    valueSuffix: ' mm'
+                }
+
+            }, {
+                name: '방문자 수',
+                type: 'spline',
+                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+                tooltip: {
+                    valueSuffix: '°C'
+                }
+            }]
+        });
+    });
+    </script>
+
+
+<!-- 그래프2 -->
+<script>
+    $(function () { 
+        var myChart = Highcharts.chart('stat-graph2', {
+            chart: {
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45
+                }
+            },
+            title: {
+                text: 'Contents of Highsoft\'s weekly fruit delivery'
+            },
+            subtitle: {
+                text: '3D donut in Highcharts'
+            },
+            plotOptions: {
+                pie: {
+                    innerSize: 100,
+                    depth: 45
+                }
+            },
+            series: [{
+                name: 'Delivered amount',
+                data: [
+                    ['Bananas', 8],
+                    ['Kiwi', 3],
+                    ['Mixed nuts', 1],
+                    ['Oranges', 6],
+                    ['Apples', 8],
+                    ['Pears', 4],
+                    ['Clementines', 4],
+                    ['Reddish (bag)', 1],
+                    ['Grapes (bunch)', 1]
+                ]
+            }]
+        });
+    });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

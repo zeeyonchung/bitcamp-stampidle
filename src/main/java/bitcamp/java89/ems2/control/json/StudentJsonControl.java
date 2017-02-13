@@ -22,13 +22,13 @@ public class StudentJsonControl {
   
   @Autowired StudentService studentService;
   
-  @RequestMapping("/student/list")
+  @RequestMapping(value = {"/admin/student/list", "/admin_m/student/list",  "/cstmr_m/student/list", "/student/list"})
   public AjaxResult list() throws Exception {
     List<Student> list = studentService.getList();
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
-  @RequestMapping("/student/detail")
+  @RequestMapping(value = {"/admin/student/detail", "/admin_m/student/detail", "/cstmr_m/student/detail", "/student/detail"})
   public AjaxResult detail(int memberNo) throws Exception {
     Student student = studentService.getDetail(memberNo);
     
@@ -39,7 +39,7 @@ public class StudentJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, student);
   }
   
-  @RequestMapping("/student/add")
+  @RequestMapping(value = {"/admin/student/add", "/admin_m/student/add", "/cstmr_m/student/add", "/student/add"})
   public AjaxResult add(Student student, MultipartFile photo) throws Exception {
     
     // 페이지 컨트롤러는 입력 파라미터 값을 가공하여 모델 객체에게 전달하는 일을 한다.
@@ -54,7 +54,7 @@ public class StudentJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
 
-  @RequestMapping("/student/delete")
+  @RequestMapping(value = {"/admin/student/delete", "/admin_m/student/delete", "/cstmr_m/student/delete", "/student/delete"})
   public AjaxResult delete(int memberNo, HttpServletRequest request) throws Exception {
     int count = studentService.delete(memberNo);
     if (count == 0) {
@@ -63,7 +63,7 @@ public class StudentJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
   }
   
-  @RequestMapping("/student/update")
+  @RequestMapping(value = {"/admin/student/update", "/admin_m/student/update", "/cstmr_m/student/update", "/student/update"})
   public AjaxResult update(Student student, MultipartFile photo) throws Exception {
     
     if (photo != null && photo.getSize() > 0) { // 파일이 업로드 되었다면,

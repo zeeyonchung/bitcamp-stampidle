@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stampidle</title>
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/template.css">
+</head>
+<body>
+	<div class='container'>
+		<div id='content'>
+			<div class='template'>
+				<button class='btn_top' type='button'></button>
+				<div class='text_top'>탬플릿 이미지</div>
+				<div class='slideare'>
+					<div class='prevare'>
+						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					</div>
+					<div class='slideshow'>
+						<div class="mySlides">
+							<img src="../image/template1.jpg"
+								style="width: 100%; height: 100%">
+						</div>
+						<div class="mySlides">
+							<img src="../image/template2.jpg" style="width: 100%; height: 100%">
+						</div>
+						<div class="mySlides">
+							<img src="../image/template3.jpg" style="width: 100%; height: 100%">
+						</div>
+					</div>
+					<div class='nextare'>
+						<a class="next" onclick="plusSlides(1)">&#10095;</a>
+					</div>
+					<br>
+					<div style="text-align: center">
+						<span class="dot" onclick="currentSlide(1)"></span> <span
+							class="dot" onclick="currentSlide(2)"></span> <span class="dot"
+							onclick="currentSlide(3)"></span>
+					</div>
+				</div>
+
+				<div class='text_btm'>스탬프 이미지</div>
+				<div class='stmp_are'>
+					<label class='label1'> <input class='stmp1' type='radio'
+						name='value' style="display: none"> <img class='img1'
+						src='../image/stmp1.png'>
+					</label> <label class='label1'> <input class='stmp2' type='radio'
+						name='value' style="display: none"> <img class='img2'
+						src='../image/stmp2.png'>
+					</label> <label class='label1'> <input class='stmp3' type='radio'
+						name='value' style="display: none"> <img class='img3'
+						src='../image/stmp3.png'>
+					</label> <label class='label1'> <input class='stmp4' type='radio'
+						name='value' style="display: none"> <img class='img4'
+						src='../image/stmp4.png'>
+					</label>
+					<button type='button' class='button'>카드선택</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		function plusSlides(n) {
+			showSlides(slideIndex += n);
+		}
+
+		function currentSlide(n) {
+			showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			if (n > slides.length) {
+				slideIndex = 1
+			}
+			if (n < 1) {
+				slideIndex = slides.length
+			}
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex - 1].style.display = "block";
+			dots[slideIndex - 1].className += " active";
+		}
+	</script>
+</body>
+</html>

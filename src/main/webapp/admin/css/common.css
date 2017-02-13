@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+@import url("default.css");
+@import url("frame.css");
+@import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+@import url("message.css");
+
+/*************************************************
+                                    common                     
+*************************************************/
+* {
+	font-family: "malgun gothic", "san-serif";
+}
+
+body {
+	color: #666;
+	word-break: break-all;
+	overflow-x: hidden;
+}
+
+a {
+	color: #222;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+
+
+
+/*************************************************
+                                    layout                     
+*************************************************/
+
+.container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-width: 960px;
+    min-height: 100%;
+    background: url(../image/bg_con.png) no-repeat right top;
+    background-attachment: fixed;
+}
+
+#header {
+}
+
+#sidebar {
+	min-width: 800px;
+}
+
+#content {
+	margin-top: 70px;
+    width:100% !important;
+    padding: 30px 20px 0 20px;
+}
+
+#content .con {
+	margin: auto;
+	min-height: 700px;
+    min-width: 800px;
+    max-width: 960px;	
+}
+
+
