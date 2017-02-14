@@ -1,7 +1,6 @@
 <div class="modal-header">
   <img src='../image/btn_searchW.png'>
-  <button type="button" class="close" data-dismiss="modal"
-    aria-label="Close">
+  <button type="button" class="close">
     <span aria-hidden="true">-</span>
   </button>
   <h4 class="modal-title">메시지</h4>
@@ -21,9 +20,6 @@
 
 
 <div class="modal-body" style="height:340px;">
-
-
-
   <div class="chat">
     <div class="bubble me">Hello there!</div>
     <div class="bubble you">Hi. I'm an expandeable chat box with box
@@ -34,14 +30,20 @@
     <div class="bubble you">wlridnsrjf</div>
     <div class="bubble you">안녕안녕안녕안여낭ㄴㄴ안녕안연안녕안녕</div>
   </div>
-
-
-
 </div>
 
 
 
 <div class="modal-footer">
   <textarea class="chat-input form-control"></textarea>
-    
 </div>
+
+
+
+<script>
+$('.close').click(function(e) {
+  $.get('../message.html', function(result) {
+    $('.modal-content').html(result);
+  });
+});
+</script>

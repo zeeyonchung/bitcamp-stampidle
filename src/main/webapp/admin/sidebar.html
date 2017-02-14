@@ -35,18 +35,11 @@
     
     <!-- btn_message 메시지팝업 -->
     <!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog" data-keyboard="false">
-	   <div class="modal-dialog">
-	      <div class="modal-content"></div>
-	   </div>
-	</div>
-	<!-- Modal2 -->
-	<div class="modal" id="myModal2" aria-hidden="true" style="display: none;" data-keyboard="false">
-	   <div class="modal-dialog">
-	      <div class="modal-content"></div>
-	
-	   </div>
-	</div>
+		<div class="modal fade" id="myModal" role="dialog" data-keyboard="false">
+		   <div class="modal-dialog">
+		      <div class="modal-content"></div>
+		   </div>
+		</div>
     <!-- //btn_message 메시지팝업 -->
     
     
@@ -59,5 +52,13 @@
     });
     $('.event').click(function(e) {
         location.href = '../event/main.html'
+    });
+    </script>
+    
+    <script>
+    $('.one-msg').click(function(e) {
+    	$.get('../messagedetail.html', function(result) {
+   	    $('.modal-content').html(result);
+   	  });
     });
     </script>
