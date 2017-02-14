@@ -198,10 +198,6 @@ $('#fileupload').fileupload({
   }, 
   submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
     console.log('submit()...');
-    data.formData = {
-        name: $('#name').val(),
-        age: $('#age').val()
-    };
   }, 
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     console.log('done()...');
