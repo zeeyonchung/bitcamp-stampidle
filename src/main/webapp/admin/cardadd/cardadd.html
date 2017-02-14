@@ -25,6 +25,7 @@
             <span class='temptext'>카드템플릿 사용</span>
           </button>
         </div>
+        <!-- 프론트영역 -->
         <div class='front'>
           <span class='frontText'>앞면</span> 
           <img src='../image/xbox.png'class='xbox'>
@@ -37,6 +38,7 @@
             </p>
           </div>
         </div>
+        <!-- 중간영역 -->
         <div class='mid'>
           <img src='../image/template1.jpg' class='backcard'>
           <div id='stmpside' class='stmpside'>
@@ -60,6 +62,7 @@
             <button class='pbtn' onclick='add_item()'>+</button>
           </div>
         </div>
+       <!-- 마지막 영역 -->
         <div class='final'>
           <div class='stmpshape'>
             <br> <span class='finalText'>스탬프 모양</span>
@@ -80,7 +83,7 @@
       </div>
     </div>
     
-    
+    <!-- 경고창 -->
     <div class='cd_alert1 alert'>
         1개이상 존재해야 합니다.
         <a class='close_alert1 close_alert'>x</a>
@@ -162,6 +165,8 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="../js/bit.js"></script>
   <script src="../js/common.js"></script>
+  
+  <!-- div 드래그관련 script -->
   <script>
   $( function() {
 	  for(var i = 0; i < 21; i++) {
@@ -174,6 +179,8 @@
 	  })
 	  
   </script>
+  
+  <!-- 파일 업로드 관련 script -->
   <script>
 "use strict"
 
@@ -198,50 +205,7 @@ $('#fileupload').fileupload({
 });
 
 </script>
- <!--<script>
-"use strict"
-$('#fileupload').fileupload({
-  url: 'cardadd.jsp',        // 서버에 요청할 URL
-  dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-  sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-  singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
-  autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
-  disableImageResize: /Android(?!.*Chrome)|Opera/
-        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-  previewMaxWidth: 800,   // 미리보기 이미지 너비
-  previewMaxHeight: 800,  // 미리보기 이미지 높이 
-  previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-  processalways: function(e, data) {
-      console.log('fileuploadprocessalways()...');
-      var imagesDiv = $('#images-div');
-      var canvas = data.files[0].preview;
-      var dataURL = canvas.toDataURL();
-      $("<img>").attr('src', dataURL).css('width', '48px').appendTo(imagesDiv);
-      $('#upload-btn').click(function() {
-          data.submit();
-      });
-  }, 
-  submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
-    console.log('submit()...');
-    data.formData = {
-        name: $('#name').val(),
-        age: $('#age').val()
-    };
-  }, 
-  done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-    console.log('done()...');
-    console.log(data.result);
-    var param = data.result.params[0];
-    $.each(data.result.params, function(index, param) {
-      if (param.filename) {
-          $('<p/>').text(param.name + " : " + param.filename + ", " + param.size).appendTo(document.body);
-      } else {
-          $('<p/>').text(param.name + " : " + param.value).appendTo(document.body);
-      }
-    });
-  }
-});
-</script>-->
+<!-- div 추가,제거 관련 script1 -->
   <script>
     function add_item() {
     	/*
@@ -264,6 +228,7 @@ $('#fileupload').fileupload({
       $(".stmpside").children().eq(num).css("top","0px");
     }
   </script>
+  <!-- div 추가,제거 관련 script2 -->
   <script>
     $(function() {
       $('.mbtn').click(function(e) {
@@ -293,6 +258,8 @@ $('#fileupload').fileupload({
       });
     });
   </script>
+  
+  <!-- 경고창 관련 script -->
   <script>
   /* alert */
   $(document).ready(function() {
@@ -306,6 +273,8 @@ $('#fileupload').fileupload({
       });
   });
 </script>
+
+<!-- 탬플릿 이용버튼 클릭시 팝업관련 script -->
   <script>
 /* pulldownPop */
 $(document).ready( function(){
@@ -321,6 +290,8 @@ $(document).ready( function(){
     });
 });
 </script>
+
+<!-- 탬플릿 슬라이드 관련 script -->
 <script>
     var slideIndex = 1;
     showSlides(slideIndex);
