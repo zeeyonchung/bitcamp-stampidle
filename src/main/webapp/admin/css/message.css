@@ -2,12 +2,12 @@
 
 
 .modal-content hr {
-	border: 1px solid #ececec;
+  border: 1px solid #ececec;
 }
 
 h4 {
-	font-size: 1.4em;
-	font-weight: bold;
+  font-size: 1.4em;
+  font-weight: bold;
 }
 
 
@@ -17,22 +17,22 @@ h4 {
 }
 
 .modal-header {
-	background-color: #ff5948;
-	color: white;
+  background-color: #ff5948;
+  color: white;
 }
 
 .modal-header .close span {
-	color: white;
-	font-size: 1.2em;
+  color: white;
+  font-size: 1.2em;
 }
 
 .modal-header .modal-title {
-	text-align: center;
+  text-align: center;
 }
 
 .modal-header > img {
-	width: 25x;
-	float: left;
+  width: 25x;
+  float: left;
 }
 
 .modal-header > img:hover {
@@ -45,27 +45,27 @@ h4 {
 
 
 .modal-content {
-	position: relative;
-	width: 465px;
-	min-height: 590px;
-	text-align: left;
+  position: relative;
+  width: 465px;
+  min-height: 590px;
+  text-align: left;
 }
 
 
 .modal-content .modal-footer {
-	position: absolute;
-	bottom: 0;
-	width: 463px;
-	background-color: white;
+  position: absolute;
+  bottom: 0;
+  width: 463px;
+  background-color: white;
 }
 
 
 .modal-content .modal-body {
-	position: relative;
-	padding: 0px 15px;
-	height: 510px;
-	overflow-y: auto;
-	overflow-x: hidden;
+  position: relative;
+  padding: 0px;
+  height: 510px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 
@@ -84,21 +84,29 @@ h4 {
 
 
 
+
 .one-msg {
-	height: 90px;
-	padding: 5px 0px;
-	margin: 5px 0px;
+  height: 100px;
+  padding: 10px 15px;
 }
 
 
+
+.one-msg:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+
+
 .one-msg .msg-left {
-	position: relative;
-	display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 
 .msg-left .cstmer-img {
-	width: 75px;
+  width: 80px;
 }
 
 
@@ -116,39 +124,39 @@ h4 {
 
 
 .one-msg .msg-content {
-	position: relative;
-	display: inline-block;
-	float: right;
-	width: 340px;
-	height: 80px;
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 320px;
+  height: 80px;
 }
 
 
 .msg-content .sub {
-	margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 
 .msg-content .sub .cstmer-name {
-	font-size: 1.24em;
+  font-size: 1.24em;
   font-weight: bold;
 }
 
 
 .msg-content .sub .msg-date {
-	float: right;
-	font-size: 0.9em;
-	color: #b9b9b9;
+  float: right;
+  font-size: 0.9em;
+  color: #b9b9b9;
 }
 
 .msg-content .pre-msg {
-	display: inline-block;
+  display: inline-block;
   width: 280px;
 }
 
 
 .msg-content > img {
-	vertical-align: bottom;
+  vertical-align: bottom;
   width: 22px;
   position: relative;
   left: 22px;
@@ -165,37 +173,14 @@ h4 {
 
 
 
-
-
-
-
-.msg-detail-btn {
-	display: inline-block;
-  height: 40px;
-  vertical-align: middle;
-  width: 22px;
-  position: relative;
-  left: 22px;
-  background:url(../image/btn_searchB.png) no-repeat center center;
-  background-size: 20px;
-  font-size: 0px;
-}
-
-
-
-
-
-
-
-
 .chat {
-	margin: 10px 0px;
-	display: inline-block;
+  margin: 10px;
+  display: inline-block;
   width: 430px;
 }
 
 .bubble{
-    background-color: #F2F2F2;
+    background-color: #fdfdfd;
     border-radius: 5px;
     box-shadow: 0 0 6px #B2B2B2;
     display: inline-block;
@@ -206,7 +191,7 @@ h4 {
 }
 
 .bubble::before {
-    background-color: #F2F2F2;
+    background-color: #fdfdfd;
     content: "\00a0";
     display: block;
     height: 16px;
@@ -251,44 +236,43 @@ h4 {
 
 
 .chat-cstmer {
-	border-bottom: 1px solid #e0e0e0;
-	width: 463px;
-	height: 100px;
-	padding: 5px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  width: 463px;
+  height: 100px;
+  padding: 5px 12px;
 }
 
 
 .chat-cstmer .cstmer-img {
-	display: inline-block;
-	float: left;
-	width: 87px;
+  display: inline-block;
+  float: left;
+  width: 87px;
 }
 
 
 .chat-cstmer .cstmer-info {
-	display: inline-block;
-	float: left;
-	margin-top: 5px;
-	margin-left: 15px;
-	width: 120px;
+  display: inline-block;
+  float: left;
+  margin-top: 5px;
+  margin-left: 15px;
+  width: 120px;
 }
 
 
 .chat-cstmer .cstmer-info .name {
-	font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 
 .chat-cstmer .cstmer-info span, a {
-	display: block;
+  display: block;
 }
 
 
 .chat-cstmer .mylogo {
-	width: 87px;
-	float: right;
-	margin-top: 20px;
-	margin-right: 10px;
+  width: 60px;
+  float: right;
+  margin-right: 10px;
 }
 
 
@@ -301,27 +285,8 @@ h4 {
 
 
 .chat-input {
-	width: 433px;
-	height: 60px;
-	padding: 5px;
+  width: 433px;
+  height: 60px;
+  padding: 5px;
 }
 
-
-
-
-
-
-
-
-
-.modal {
- overflow-y: auto;
-}
-
-.modal-open {
- overflow: auto;
-}
-
-.modal-open[style] {
-padding-right: 0px !important;
-}

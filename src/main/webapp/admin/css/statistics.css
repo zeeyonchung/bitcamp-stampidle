@@ -8,6 +8,7 @@
 
 .manage-navi {
   border: 1px;
+  margin-top: 90px;
   margin-bottom: 30px;
 }
 
@@ -16,15 +17,15 @@
 }
 
 .manage-navi li:first-of-type {
-	border: 1px;
-	width: 150px;
+  border: 1px;
+  width: 150px;
   display: inline-block;
   position: relative;
   font-size: 2em;
 }
 
 ul li:nth-of-type(2), li:nth-of-type(3), li:nth-of-type(4) {
-	border: 1px;
+  border: 1px;
   display: inline;
   font-size: 1.2em;
 }
@@ -45,8 +46,8 @@ ul a {
 
 
 .one:hover ~ hr.underline {
-	width: 77px;
-	margin-left: 153px;
+  width: 77px;
+  margin-left: 153px;
 }
 
 
@@ -87,107 +88,40 @@ ul a {
 
 
 
-
-
-
-
-
-.sort {
-	float: right;
-}
-
-
-.radius {
-	border-radius: 20px;
-}
-
-
-.btn-selected {
-  border: 3px solid #ccc;
-  font-weight: bold;
-}
-
-
-
-
-
-
-
-
-
-.stat-date {
-	clear: right;
-	text-align: center;
-}
-
-
-
-button.move {
-	border: 1px;
-	text-align: center;
-}
-
-
-button.move img {
-	width: 10px;
-	height: 25px;
-}
-
-
-
-#cal-wrapper input {
-	width: 310px;
-	height: 45px;
+.calendar {
+  <!--border: 1px solid red;-->
+  border: 1px;
+  margin-top: 50px;
+  margin-bottom: 40px;
   text-align: center;
-  font-size: 1.8em;
-  color: #464646;
-  vertical-align: middle;
-  padding-bottom: 2px;
+  font-size: 1.25em;
 }
-
-
-
-
-#cal-wrapper select {
-	width: 185px;
-	height: 45px;
-	margin: 0 63px;
-	vertical-align: middle;
-	font-size: 1.63em;
-	text-align-last:center;
-	color: #464646;
-	border: 0;
-	outline: none;
-	text-align: center;
-	-webkit-appearance:none;
-	box-shadow: none !important;
-	display: inline-block;
-}
-
-
-
 
 
 .calendar-icon {
   width: 22px;
   height: 22px;
   position: relative;
-  margin-top: 2px;
-  margin-left: -4px;
+  margin: 4px 5px;
   vertical-align: top;
+}
+
+
+.input-day {
+  text-align: center;
+  font-size: 1.2em;
+  border: 0;
+  border-bottom: 3px solid #eee;
+  width: 290px;
+  height: 28px;
+  vertical-align: bottom;
+  cursor: pointer;
 }
 
 
 
 
 
-#cal-wrapper
-    {
-    display:inline;
-    }
-.oneday { margin:0; display:inline;}
-.week { margin:0; display:none;}
-.month { margin:0; display:none;}
 .date-picker-wrapper .month-wrapper table .day.lalala { background-color:orange; }
 .options { display:none; border-left:6px solid #8ae; padding:10px; font-size:1em; line-height:1.4; background-color:#eee; border-radius:4px;}
 .date-picker-wrapper.date-range-picker19 .day.first-date-selected { background-color: red !important; }
@@ -202,10 +136,6 @@ button.move img {
 
 
 #stat-graph, #stat-graph2 {
-	border: 1px solid #E6E6E6;
-	margin-top: 60px;
+  border: 1px solid #E6E6E6;
+  margin-top: 60px;
 }
-
-
-
-
