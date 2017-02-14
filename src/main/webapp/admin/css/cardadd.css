@@ -81,6 +81,7 @@
 }
 
 .xbox {
+	z-index:0;
 	float: right;
 	width: 130px;
 }
@@ -127,6 +128,19 @@
 	background-color: white;
 	border-radius: 5px;
 	
+}
+
+#stmpare {
+  position: relative;
+  display: inline-block;
+  /*border: 1px solid red;*/
+  width: 38px;
+  height: 50px;
+  margin-right: 3px;
+  margin-bottom: 2px;
+  background-color: white;
+  border-radius: 5px;
+  
 }
 
 
@@ -226,6 +240,7 @@
 }
 
 .stmpimgbox {
+	position:relative;
 	border: 1px solid lightgray;
 	border-radius: 3px;
 	width: 50px;
@@ -238,22 +253,40 @@
 .selectimg {
 	width: 45px;
 	height: 45px;
+  z-index:0;
+}
+
+.stmpimgbox img + img {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1000000;
 }
 
 .selectFile {
 	margin-top: 10px;
 	margin-left: 18px;
-	border:1px;
+	border:0px;
 	border-radius: 5px;
 	width: 80px;
 	height: 30px;
   background-color: rgb(236,236,236);
 }
 
+.stmpinfo {
+	width: 200px;
+	margin-top: 10px;
+	margin-right: 50px;
+}
+.info {
+	font-size: 11px;
+	color: gray;
+}
+
 .btmLine {
   border:1px solid rgb(227,227,227);
   width: 800px;
-  margin-top: 420px;
+  margin-top: 450px;
 }
 
 .btmsubmit{
@@ -264,4 +297,24 @@
 	color: white;
 	width: 200px;
 	height: 30px;
+}
+
+/************ alert ************/
+.alert {
+    display: none;
+    position: absolute;
+    left:50%;
+    top: 400px;
+    width: 300px;
+    margin-left:-150px;
+    padding: 15px;
+    background: #fafafa;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.alert .close_alert {
+  position: absolute;
+  top: 7px;
+  right: 10px;
 }

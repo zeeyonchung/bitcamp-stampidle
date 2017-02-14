@@ -82,8 +82,7 @@
 }
 
 .label1 input[type='radio']:checked + img {
-	border: 1px solid rgb(255,90,73);
-	color: rgb(255,90,73);
+	background-color: 1px solid rgb(255,90,73);
 }
 
 .button {
@@ -99,8 +98,6 @@
 	border-radius: 20px;
 }
 
-.slideare {
-}
 .slideshow {
   margin: auto;
   width: 250px;
