@@ -41,8 +41,8 @@
                     </h4>
                 </div>
                 <div class='dayTime'>
-                    <span><font color='gray'>2017.01.01 </font><font
-                        color='lightgray'>오픈시간 : 07:30 현재시간 15:08</font></span>
+                    <span><font color='gray' id='date'></font></span><font
+                        color='lightgray'>오픈시간 : 07:30 현재시간 <span id='time'></span></font></span>
                     <div class='btn_end'>
                         <button type="button" class="btn btn-default btn-sm">
                             <font color='gray'>오늘의 통계 마감</font>
@@ -86,8 +86,8 @@
                         <font color='gray'>통계 자세히 보기</font>
                     </button>
                 </div>
-			    
-			    
+
+
 			</div>
 			<!-- //con -->
 		</div>
@@ -99,6 +99,39 @@
 	<script src="../js/bit.js"></script>
 	<script src="../js/common.js"></script>
 	<script src="main.js"></script>
+<<<<<<< HEAD
+	<script>
+	var dateObj = new Date();
+	var year = dateObj.getFullYear();
+	var month = dateObj.getMonth()+1;
+	var day = dateObj.getDate();
+	var hour = dateObj.getHours();
+	var minute = dateObj.getMinutes();
+	var today = year + "." + month + "." + day;
+	var time = hour + ":" + minute;
+  $('#date').text(today).css('margin-right','10px');
+	$('#time').text(time);
+	</script>
+=======
+	
+	<script>
+  /* addcstmerPop */
+ 
+  $(document).ready(function() {
+    $('.btn_newCstmr').click(function() {
+      $('.addcstmerPop').fadeIn(200);
+    });
+    
+    $('.close_addcstmerPop').click(function() {
+      $('.addcstmerPop').fadeOut(200);
+    });
+    
+    $('.add-btn').click(function() {
+      $('.addcstmerPop').fadeOut(200);
+    });
+  });
+  </script>
+>>>>>>> branch 'master' of https://github.com/anneSinae/bitcamp_stampidle.git
 
 </body>
 </html>

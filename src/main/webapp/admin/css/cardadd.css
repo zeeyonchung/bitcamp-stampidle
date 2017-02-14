@@ -113,7 +113,7 @@
   margin-left: 5px;
   margin-top:5px;
   width: 261px;
-  min-height: 100px;
+  min-height: 127px;
   padding-left: 8px;
 }
 
@@ -306,12 +306,13 @@
     left:50%;
     top: 400px;
     width: 300px;
-    margin-left:-150px;
+    margin-left:-80px;
     padding: 15px;
     background: #fafafa;
     box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
     text-align: center;
     border: 2px solid rgb(255,89,27);
+    
 }
 
 .alert .close_alert {

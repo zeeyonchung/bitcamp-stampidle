@@ -19,40 +19,41 @@ if (!ServletFileUpload.isMultipartContent(request)) {
   resultMap.put("params", "멀티파트 형식이 아닙니다.");
   
 } else {
-    DiskFileItemFactory itemFactory = new DiskFileItemFactory();
-    ServletFileUpload uploadHandler = new ServletFileUpload(itemFactory);
-    try {
-      List<FileItem> items = uploadHandler.parseRequest(request);
-        
-      int count = 0;
-      ArrayList<Map<String,Object>> data = new ArrayList<>();
-      HashMap<String,Object> objMap = null;
-      
-      for (FileItem item : items) {
-        objMap = new HashMap<>();
-        
-        if (item.isFormField()) {
-          objMap.put("name", item.getFieldName());
-          objMap.put("value", item.getString("UTF-8"));
-        } else { 
-          objMap.put("name", item.getFieldName());
-          objMap.put("filename", item.getName());
-          objMap.put("size", item.getSize());
-          ServletContext sc = this.getServletContext();
-          String realPath = sc.getRealPath("/upload/" + item.getName());
-          item.write(new File(realPath));
-          objMap.put("filepath", realPath);
-        }
-        data.add(objMap);
-      }
-      resultMap.put("status", "success");
-      resultMap.put("params", data);
-      
-    } catch (Exception e) {
-      resultMap.put("status", "failure");
-      resultMap.put("params", e.getMessage());
-      e.printStackTrace();
-    }
+	DiskFileItemFactory itemFactory = new DiskFileItemFactory();
+	ServletFileUpload uploadHandler = new ServletFileUpload(itemFactory);
+	try {
+	  List<FileItem> items = uploadHandler.parseRequest(request);
+	    
+	  int count = 0;
+	  ArrayList<Map<String,Object>> data = new ArrayList<>();
+	  HashMap<String,Object> objMap = null;
+	  
+	  for (FileItem item : items) {
+	    objMap = new HashMap<>();
+	    
+	    if (item.isFormField()) {
+	      objMap.put("name", item.getFieldName());
+	      objMap.put("value", item.getString("UTF-8"));
+
+	    } else { 
+	      objMap.put("name", item.getFieldName());
+	      objMap.put("filename", item.getName());
+	      objMap.put("size", item.getSize());
+	      ServletContext sc = this.getServletContext();
+	      String realPath = sc.getRealPath("/upload/" + item.getName());
+	      item.write(new File(realPath));
+	      objMap.put("filepath", realPath);
+	    }
+	    data.add(objMap);
+	  }
+	  resultMap.put("status", "success");
+	  resultMap.put("params", data);
+	  
+	} catch (Exception e) {
+	  resultMap.put("status", "failure");
+	  resultMap.put("params", e.getMessage());
+	  e.printStackTrace();
+	}
 }
 out.print(new Gson().toJson(resultMap));
 System.out.println("OK!");

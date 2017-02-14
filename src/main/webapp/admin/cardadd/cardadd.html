@@ -169,20 +169,20 @@
   <!-- div 드래그관련 script -->
   <script>
   $( function() {
-      for(var i = 0; i < 21; i++) {
-          $("<div>").attr("class","stmpare")
-            .css("display","none")
-          .appendTo("#stmpside")
-          .draggable({containment : 'parent' })
-          .addTouch();
-         };
-      })
-      
+	  for(var i = 0; i < 21; i++) {
+		  $("<div>").attr("class","stmpare")
+		    .css("display","none")
+	      .appendTo("#stmpside")
+	      .draggable({containment : 'parent' })
+	      .addTouch();
+	     };
+	  })
   </script>
   
   <!-- 파일 업로드 관련 script -->
   <script>
 "use strict"
+
 $('#fileupload').fileupload({
     dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
     done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
@@ -202,6 +202,7 @@ $('#fileupload').fileupload({
         }
     } 
 });
+
 </script>
 <!-- div 추가,제거 관련 script1 -->
   <script>
