@@ -1,0 +1,188 @@
+
+
+.container {
+  background:url(../image/bg_con.png) no-repeat right top;
+  background-attackment: fixed;
+}
+
+#content2 {
+  width:450px; 
+  margin-left: 10px;
+  display:inline-block;
+  float:left;
+}
+#content3 {
+  width:450px;
+  margin-left: 0px;
+  margin-right: 20px;
+  display:inline-block;
+  position:fixed;
+  
+}
+.img-circle {
+  float:left;
+  height:85px;
+}
+#name {
+  font-size:1.5em;
+}
+.use-cafe-crr{
+	float: left; 
+	height: 30px; 
+	margin-top: 30px;
+}
+#send-text {
+  float :right;
+  margin-right: 5px; 
+  margin-top: 10px;
+}
+
+#phone-number {
+  font-size:1em;
+}
+
+hr {
+  width:30px;
+}
+
+
+.cpall {
+   
+  border-right:1px solid red; 
+  border-left:1px solid red; 
+  text-align:center;
+}
+.cpall-name{
+  font-size:2em;
+}
+.usecp-div {
+  width:170px;
+  float:left; 
+  height:60px; 
+  text-align:center; 
+  margin-top:30px;
+}
+.usecp {
+  border:1.5px solid gray;
+  border-radius:5px; 
+  width:40px; 
+  height:30px;
+  margin-left: 40px; 
+  margin-top:20px;
+}
+.use-btn-div {
+  width:77px; 
+  float:left; 
+  margin-top:30px;
+}
+.cpnumber-table {
+  width:200px;
+  float:left; 
+  margin-top:30px;
+}
+
+.cpnumber-table table {
+  width:200px;
+}
+
+.cancle-btn-div {
+  width:77px; 
+  float:left;
+}
+#use-btn {
+  float :right; 
+  margin-right: 5px; 
+}
+#cancle-btn {
+  float :right; 
+  margin-right: 5px; 
+  margin-top: 3px;
+}
+#current-use {
+  font-size:1em; 
+  background-color:gray; 
+  margin-top: 10px;
+  float:left;
+}
+#current-table {
+  float :left; 
+  font-size:0.9em; 
+  margin-top: 10px;
+}
+#imgbox {
+  float: left; 
+  border:1px solid gray; 
+  border-width:1px 1px; 
+  width:400px; 
+  margin-left: 10px; 
+  margin-right: 10px; 
+}
+#card-back {
+  height:270px; 
+  width:350px; 
+  margin-left: 25px; 
+  margin-right: 25px; 
+  margin-top:10px; 
+  margin-bottom:10px;
+}
+.current-stamp {
+  float: left; 
+  width: 400px; 
+  border:1px solid gray;
+  border-width:1px 1px; 
+  margin-left: 10px; 
+  margin-right: 10px;
+}
+
+.current-type {
+  float: left; 
+  width: 150px; 
+  padding-left:10px; 
+  padding-right:10px;
+}
+.current-table2 {
+  width:150px;
+  margin-top:20px; 
+  margin-bottom:20px; 
+}
+.current-save-stamp {
+  width:200px;
+  font-size:0.7em; 
+  border-right:1px solid gray; 
+  text-align:center;
+}
+
+#reset-btn {
+  margin-top:20px; 
+  margin-bottom:10px; 
+  font-size:1.2em;
+}
+
+.cp-question {
+  float: left; 
+  width:240px; 
+  height:36px;
+}
+#cp-question-btn {
+  float :right; 
+  margin-right: 5px;
+  margin-top: 10px;
+}
+.question-div {
+  float: left; 
+  width: 240px; 
+  height:36px;
+  text-align:center; 
+  font-size:0.7em;
+}
+
+.regist-stamp-div {
+  float:left; 
+  width:240px; 
+  text-align:center; 
+  margin-top:22px;
+}
+
+.regist-stamp-div button {
+  margin-right: 5px;
+}
