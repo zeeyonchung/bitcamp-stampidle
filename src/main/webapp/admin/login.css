@@ -3,13 +3,15 @@
 
 
 body {
-  background-image: url("image/hotchocolate.jpg");
-  background-size: cover;
+  background-color:#140a08;
   height: 100%;
+  background-repeat: no-repeat;
 }
 
-.container {
-	background: none;
+.container.login {
+	position:absolute;
+  background-image: url("image/hotchocolate2.jpg");
+  background-size: cover;
 }
 
 
@@ -22,7 +24,7 @@ body {
   /*border: 4px solid rgb(255, 89, 72);*/
   margin: auto;
   text-align: center;
-  padding: 120px 0px 180px 0px;
+  padding: 150px 0px 180px 0px;
 }
 
 .login-main .login-title {
@@ -41,7 +43,7 @@ body {
 }
 
 .checkbox {
-  color: white;
+  color: #dde2e1;
 }
 
 
@@ -231,7 +233,7 @@ body {
   width: 330px;
   height: 300px;
   margin: auto;
-  top: 100px;
+  top: 130px;
   background-color: white;
   text-align: center;
   padding: 60px 20px;
