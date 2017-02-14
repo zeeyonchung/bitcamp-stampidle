@@ -1,6 +1,6 @@
 <div class="modal-header">
   <img src='../image/btn_searchW.png'>
-  <button type="button" class="close">
+  <button type="button" class="close detail">
     <span aria-hidden="true">-</span>
   </button>
   <h4 class="modal-title">메시지</h4>
@@ -26,9 +26,11 @@
       shadow. How are you? I expand horizontally and vertically, as you can
       see here.</div>
     <div class="bubble me">Awesome.</div>
+    <div class="bubble me">Awesome.</div>
     <div class="bubble you">sjan</div>
     <div class="bubble you">wlridnsrjf</div>
     <div class="bubble you">안녕안녕안녕안여낭ㄴㄴ안녕안연안녕안녕</div>
+    <div class="bubble you">ekskekfkakqk</div>
   </div>
 </div>
 
@@ -41,9 +43,7 @@
 
 
 <script>
-$('.close').click(function(e) {
-  $.get('../message.html', function(result) {
-    $('.modal-content').html(result);
-  });
+$('.detail.close').click(function(e) {
+  $('.modal-content').load('../message.html');
 });
 </script>

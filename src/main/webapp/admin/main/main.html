@@ -86,8 +86,8 @@
                         <font color='gray'>통계 자세히 보기</font>
                     </button>
                 </div>
-			    
-			    
+
+
 			</div>
 			<!-- //con -->
 		</div>
@@ -99,6 +99,24 @@
 	<script src="../js/bit.js"></script>
 	<script src="../js/common.js"></script>
 	<script src="main.js"></script>
+	
+	<script>
+  /* addcstmerPop */
+ 
+  $(document).ready(function() {
+    $('.btn_newCstmr').click(function() {
+      $('.addcstmerPop').fadeIn(200);
+    });
+    
+    $('.close_addcstmerPop').click(function() {
+      $('.addcstmerPop').fadeOut(200);
+    });
+    
+    $('.add-btn').click(function() {
+      $('.addcstmerPop').fadeOut(200);
+    });
+  });
+  </script>
 
 </body>
 </html>
