@@ -41,7 +41,7 @@ if (!ServletFileUpload.isMultipartContent(request)) {
 	      objMap.put("filename", item.getName());
 	      objMap.put("size", item.getSize());
 	      ServletContext sc = this.getServletContext();
-	      String realPath = sc.getRealPath("../../upload/" + item.getName());
+	      String realPath = sc.getRealPath("/upload/" + item.getName());
 	      item.write(new File(realPath));
 	      objMap.put("filepath", realPath);
 	    }

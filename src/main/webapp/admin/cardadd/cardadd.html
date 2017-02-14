@@ -29,9 +29,9 @@
           <span class='frontText'>앞면</span> 
           <img src='../image/xbox.png'class='xbox'>
           <div class='frontFile'>
-            <input id='fileupload1' type=file name='fileup1' style='display: none;'>
-            <button class='filebtn' onclick='document.all.fileup1.click()'>File</button>
-            <img src='../image/i.png' class='i'> <br> <br> <br>
+            <!--<input id='fileupload1' type=file name='fileup1' style='display: none;'>
+            <button class='filebtn' onclick='document.all.fileup1.click()'>File</button>-->
+            <br><img src='../image/i.png' class='i'> <br> <br> <br>
             <p class='text'>
               앞면이미지 미등록시<br> 기존 카페 로고 이미지가<br> 자동 등록됩니다.
             </p>
@@ -44,8 +44,8 @@
           <span class='midText1'>뒷면<br> <span class='midText2'>스탬프
               찍는 면</span></span>
           <div class='midFile'>
-            <input type=file name='fileup2' style='display: none;'>
-            <button class='midfilebtn' onclick='document.all.fileup1.click()'>File</button>
+            <!--<input type=file name='fileup2' style='display: none;'>
+            <button class='midfilebtn' onclick='document.all.fileup1.click()'>File</button>  -->
           </div>
           <br>
           <div class='midTextAre'>
@@ -65,9 +65,10 @@
             <br> <span class='finalText'>스탬프 모양</span>
             <div class='stmpimgbox' id='images-div'>
             <img src='../image/stmp4.png' class='selectimg'>
+            <img id='photo-img'>
             </div>
-            <input id='fileupload' type='file' name='fileup3' style='display: none;'>
-            <button class='selectFile' onclick='document.all.fileup3.click()'>File</button>
+            <input data-url="cardadd.jsp"id='fileupload' type='file' name='fileup' style='display: none;'>
+            <button class='selectFile' onclick='document.all.fileup.click()'>File</button>
           </div>
           <div class='stmpinfo'>
          <span class='info'>※파일 이름은<br>영문만 지원합니다.</span>
@@ -167,13 +168,37 @@
 		  $("<div>").attr("class","stmpare")
 		    .css("display","none")
 	      .appendTo("#stmpside")
-	      .draggable()
+	      .draggable({containment : 'parent' })
 	      .addTouch();
 	     };
 	  })
 	  
   </script>
   <script>
+"use strict"
+
+$('#fileupload').fileupload({
+    dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
+    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+      console.log(data.result);
+      var param = data.result.params[0];
+      console.log(param);
+      $('#photo-path').val(param.filepath);
+    },
+    processalways: function(e, data) {
+        console.log('fileuploadprocessalways()...');
+        var img = $('#photo-img');
+        if (!img.attr('src')) {
+          console.log('미리보기 처리...');
+          var canvas = data.files[0].preview;
+          var dataURL = canvas.toDataURL();
+          img.attr('src', dataURL).css('width', '48px');
+        }
+    } 
+});
+
+</script>
+ <!--<script>
 "use strict"
 $('#fileupload').fileupload({
   url: 'cardadd.jsp',        // 서버에 요청할 URL
@@ -198,6 +223,10 @@ $('#fileupload').fileupload({
   }, 
   submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
     console.log('submit()...');
+    data.formData = {
+        name: $('#name').val(),
+        age: $('#age').val()
+    };
   }, 
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     console.log('done()...');
@@ -212,7 +241,7 @@ $('#fileupload').fileupload({
     });
   }
 });
-</script>
+</script>-->
   <script>
     function add_item() {
     	/*
