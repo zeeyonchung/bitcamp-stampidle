@@ -1,0 +1,170 @@
+@CHARSET "UTF-8";
+
+#content {
+  margin-left: 50px;
+  margin-top: 100px;
+  padding-top: 1px;
+  padding-left: 10px;
+  min-height: 400px;
+  /*background-image: url('../image/bg_mainCon.png');*/
+  background-repeat: no-repeat;
+}
+
+.template {
+	margin: auto;
+	width: 100%;
+	height: 450px;
+	border: 3px solid rgb(255,90,73);
+	background-color:white;
+	margin-top: 100px;
+}
+
+.btn_top {
+	float: right;
+	width: 30px;
+	height: 30px;
+	border: 0;
+	background: url('../image/btn_close.png');
+	background-repeat: no-repeat;
+}
+
+.text_top {
+	clear: both;
+	padding: 10px  
+}
+
+.card_are {
+	float: left;
+	width: 308px;
+	height: 150px;
+	margin-bottom: 30px;
+}
+
+.text_btm {
+	padding: 10px
+}
+
+.stmp_are {
+	float: left;
+  width: 300px;
+  height: 130px;
+  margin-left: 40px;
+}
+
+.label1 {
+	margin: 14px;
+	border: 1px solid lightgray;
+	border-radius: 3px;
+}
+
+.stmp1 {
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 40px;
+	height: 40px;
+}
+
+.img1 {
+	width: 40px;
+  height: 40px;
+}
+.img2 {
+  width: 40px;
+  height: 40px;
+}
+.img3 {
+  width: 40px;
+  height: 40px;
+}
+.img4 {
+  width: 40px;
+  height: 40px;
+}
+
+.label1 input[type='radio']:checked + img {
+	border: 1px solid rgb(255,90,73);
+	box-shadow: 0px 0px 10px rgb(255,90,73);
+}
+
+.button {
+	color: white;
+	border: none;
+	text-align: center;
+	background-color: rgb(255,90,73);
+	width: 200px;
+	height: 30px;
+	margin-left: 50px;
+	margin-top: 15px;
+	font-size: 16px;
+	border-radius: 20px;
+}
+
+.slideshow {
+  margin: auto;
+  width: 250px;
+  height: 150px;
+}
+
+/* Position the "next button" to the right */
+.next {
+	float: right;
+  right: 0;
+  margin-right: 10px;
+}
+
+.nextare {
+	float: right;
+	width: 20px;
+  height: 20px;
+  margin-top: -100px;
+}
+.prevare {
+	width: 20px;
+	height: 20px;
+	margin-top: 50px;
+	float: left;
+}
+.prev {
+	float:left;
+	margin-left: 10px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
