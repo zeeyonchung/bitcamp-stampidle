@@ -34,6 +34,9 @@
 			<br>
 			<div class='mid'>
 				<img src='../image/template1.jpg' class='backcard'>
+				<div id='stmpside' class='stmpside'>
+				</div>
+				<!-- <button class='camera1'><img src='../image/camera.png' alt='camera1' width='40' height='40'></button> -->
 			</div>
 			<br> <br> <span class='mid-text'>현재 스탬프영역 개수</span>
 			<div class='mid-text-are'>
@@ -55,6 +58,7 @@
 					<div class='stmpimgbox' id='images-div'>
 						<img src='../image/stmp4.png' class='selectimg'> <img
 							id='photo-img'>
+					<button class='camera2'><img src='../image/camera.png' alt='camera2' width='28' height='28'></button>
 					</div>
 				</div>
 				<button class='btmsubmit'>카드 설정</button>
@@ -123,6 +127,8 @@
 	<script src="../js/bit.js"></script>
 	<script src="../js/common.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="../../node_modules/jquery.ui.touch/jquery.ui.touch.js"></script>
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
 	<script>
@@ -176,22 +182,14 @@
 	<!-- div 추가,제거 관련 script1 -->
 	<script>
 			function add_item() {
-				/*
-				var div = document.createElement('div');
-				div.className = "stmpare";
-				div.id="stmpare";
-				document.getElementById('stmpside').appendChild(div);
-				 */
 				var num = $('.midNum').text();
 				$(".stmpside").children().eq(num).css("display", "");
 				$(".stmpside").children().eq(num).css("left", "0px");
 				$(".stmpside").children().eq(num).css("top", "0px");
 			}
 			function remove_item() {
-				//$('.stmpare').remove();
-				/*$('.stmpside .stmpare:last-child').remove();*/
 				var num = $('.midNum').text();
-				$(".stmpside").children().eq(num - 1).css("display", "none");
+				$(".stmpside").children().eq(num-1).css("display", "none");
 				$(".stmpside").children().eq(num).css("left", "0px");
 				$(".stmpside").children().eq(num).css("top", "0px");
 			}
@@ -205,8 +203,6 @@
 					var num = parseInt(stat, 10);
 					num--;
 					if (num <= 0) {
-						//alert('1개이상 존재해야 합니다.');
-						//$('.alert').css("display", "block");
 						$('.cd_alert1').fadeIn(100);
 						num = 0;
 					}
@@ -238,5 +234,16 @@
 				;
 			})
 		</script>
+		<script>
+  $( function() {
+    for(var i = 0; i < 21; i++) {
+      $("<div>").attr("class","stmpare")
+        .css("display","none")
+        .appendTo("#stmpside")
+        .draggable({containment : 'parent' })
+        .addTouch();
+       };
+    })
+  </script>
 </body>
 </html>

@@ -47,6 +47,55 @@
   width: 89%;
 }
 
+.stmpside {
+  position: absolute;
+  display: inline;
+  /*border: 1px solid red;*/
+  margin-left: 5px;
+  margin-top:5px;
+  width: 320px;
+  min-height: 155px;
+  padding-left: 8px;
+}
+
+.stmpare {
+  position: relative;
+  display: inline-block;
+  /*border: 1px solid red;*/
+  width: 15%;
+  height: 60px;
+  margin-right: 3px;
+  margin-bottom: 2px;
+  background-color: white;
+  border-radius: 5px;
+  
+}
+
+#stmpare {
+  position: relative;
+  display: inline-block;
+  /*border: 1px solid red;*/
+  width: 50%;
+  height: 50px;
+  margin-right: 3px;
+  margin-bottom: 2px;
+  background-color: white;
+  border-radius: 5px;
+  
+}
+
+.camera1 {
+	position: relative;
+	float: right;
+	margin-top: 180px;
+	margin-right: -18px;
+	border: none;
+  border-radius: 100px;
+  background-color: rgba(255,89,72, 0.9);
+  width: 60px;
+  height: 60px;
+}
+
 .mid-text {
 	margin-left: 25%;
 	color: rgb(255,89,72);
@@ -110,6 +159,18 @@
   border-radius: 2px;
   width: 70px;
   height: 65px;
+}
+
+.camera2 {
+  position: relative;
+  float: right;
+  border: none;
+  border-radius: 100px;
+  background-color: rgba(255,89,72, 0.9);
+  margin-right: -20px;
+  margin-top: -10px;
+  width: 36px;
+  height: 36px;
 }
 
 .btmsubmit{
