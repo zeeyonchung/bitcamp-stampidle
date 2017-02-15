@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Stampidle</title>
+<link rel="stylesheet"
+  href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/statistics.css">
+<link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+</head>
+
+<body>
+	<div class='container'>
+
+
+		<div id="content">
+			<div class='con'>
+
+				<div data-role="page" id="article1">
+					<div data-role="header" data-theme="b" data-position="fixed"
+						data-id="footer">
+						<h1>통계</h1>
+						<div class="manage-navi">
+							<ul>
+								<li class="one"><a href="#">방문 통계</a></li>
+								<li class="two"><a href="#">고객리스트</a></li>
+								<li class="three"><a href="#">도장 발급 내역</a></li>
+							</ul>
+						</div>
+					</div>
+					<div data-role="content">
+						<div class="sub">달력들어갈거야</div>
+						<div class="graph">그래프1</div>
+						<div class="graph">그래프2</div>
+						<div class="graph">그래프3</div>
+					</div>
+				</div>
+
+
+
+
+
+
+				<div data-role="page" id="article2">
+					<div data-role="header" data-theme="b" data-position="fixed"
+						data-id="footer">
+						<a href="#article1" data-icon="home" data-iconpos="notext">Home</a>
+						<h1>통계</h1>
+						<div class="manage-navi">
+							<ul>
+								<li class="one"><a href="#">방문 통계</a></li>
+								<li class="two"><a href="#">고객리스트</a></li>
+								<li class="three"><a href="#">도장 발급 내역</a></li>
+							</ul>
+						</div>
+					</div>
+					<div data-role="content">
+						<div class="sub">총 20명 정렬조건</div>
+						<div class="cstmer-table">테이블 들어갈거야</div>
+					</div>
+				</div>
+
+
+
+
+
+				<div data-role="page" id="article3">
+					<div data-role="header" data-theme="b" data-position="fixed"
+						data-id="footer">
+						<a href="#article1" data-icon="home" data-iconpos="notext">Home</a>
+						<h1>통계</h1>
+						<div class="manage-navi">
+							<ul>
+								<li class="one"><a href="#">방문 통계</a></li>
+								<li class="two"><a href="#">고객리스트</a></li>
+								<li class="three"><a href="#">도장 발급 내역</a></li>
+							</ul>
+						</div>
+					</div>
+					<div data-role="content">
+						<div class="sub">총 20건 정렬조건</div>
+						<div class="stamp-table">테이블 들어갈거야</div>
+					</div>
+
+
+				</div><!-- con -->
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+
+
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+<script src="statistics.js"></script>
+
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script>
+$(document).on('swipeleft', '.ui-page', function(event){    
+    if(event.handled !== true) // This will prevent event triggering more then once
+    {    
+        var nextpage = $.mobile.activePage.next('[data-role="page"]');
+        // swipe using id of next page if exists
+        if (nextpage.length > 0) {
+            $.mobile.changePage(nextpage, {transition: "slide", reverse: false}, true, true);
+        }
+        event.handled = true;
+    }
+    return false;         
+});
+
+$(document).on('swiperight', '.ui-page', function(event){     
+    if(event.handled !== true) // This will prevent event triggering more then once
+    {      
+        var prevpage = $(this).prev('[data-role="page"]');
+        if (prevpage.length > 0) {
+            $.mobile.changePage(prevpage, {transition: "slide", reverse: true}, true, true);
+        }
+        event.handled = true;
+    }
+    return false;            
+});
+</script>
+
+</body>
+</html>
+
