@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+.top-text {
+	width: 230px;
+	margin: auto;
+	font-size: 30px;
+}
+
+.down-down {
+	margin-left: 149px;
+	margin-top: 5px;
+}
+
+.visit, .new-stmp, .get-message {
+  display: inline-block;
+  border: 1px solid lightgray;
+  width: 140px;
+  height: 100px;
+  margin-right: 10px;
+  margin-left: 22px;
+  margin-top: 10px;
+  text-align:center;
+}
+
+.new-card, .new-memb, .service-drink {
+	display: inline-block;
+  border: 1px solid lightgray;
+  width: 140px;
+  height: 100px;
+  margin-right: 10px;
+  margin-top: 10px;
+  text-align:center;
+}
+
+.num-text {
+	font-size: 50px;
+}
+
