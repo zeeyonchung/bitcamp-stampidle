@@ -3,7 +3,7 @@
 @import url("default.css");
 @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
 @import url("message.css");
-
+@import url("searchbar_expanding.css");
 
 /*************************************************
                                     common                     
@@ -36,18 +36,23 @@ a {
 }
 
 #header .logo {
-	width:40%;
+	width:35%;
     margin: auto;
     text-align: center;
 }
 
 #header .logo img {
 	width:auto;
-	height:30px;
-	margin-top:2px;
+	height:35px;
+	margin-top:1px;
 }
 
 
+
+
+/*************************************************
+                                    content                     
+*************************************************/
 
 /************ top bar ************/
 .side-left-pushy-button {
@@ -55,16 +60,15 @@ a {
     width: 50px;
     height: 50px;
     background: url(../image/btn_navi.png) no-repeat center center #ff5948;
-    background-size:23px 18px;
+    background-size:21px 16px;
     margin-bottom:0;
     font-size: 0;
     transition: all 0.3s ease .05s;
 }
 
-
 .side-left-pushy-button:hover {
     background: url(../image/btn_navi.png) no-repeat center center #ff4040;
-    background-size:25px 20px;
+    background-size:21px 16px;
     transition: all 0.3s ease .05s;
 }
 
@@ -78,32 +82,8 @@ a {
     text-align:center;
 }
 
-.btn_search {
-	display:block;
-	position: absolute;
-    top:0;
-    right:0;
-    width: 50px;
-    height: 50px;
-    text-align:center;
-    overflow:hidden;
-}
-	
-.btn_search:before {
-	display:block;
-    font-family:"FontAwesome";
-    content: "\f002";
-    font-size:2em;
-    color:#fff;
-    line-height:50px;
-}
-    
 .main .btn_message {
 	display:block;
-}
-
-.main .btn_search {
-    display:none;
 }
 
 .btn_message:before {
@@ -132,6 +112,8 @@ a {
     font-style: italic;
     line-height:100%;
 }
+
+
 
 
 /************ sidebar : slide left menu area ************/
@@ -169,13 +151,13 @@ a {
 
 .sidebar .profileArea #logoff-div #login-btn {
 	display:inline;
-	height:60px;
-	padding: 3px 15px 5px 15px;
-    border: 3px solid #e0e0e0;
+	padding: 5px 15px 5px 15px;
+    border: 2px solid #e0e0e0;
     color: #555;
-    border-radius: 20px;
+    border-radius: 5px;
     letter-spacing: -1px;
     cursor:pointer;
+    font-size:0.9em;
 }
 
 .sidebar .profileArea {
@@ -285,6 +267,7 @@ a {
 	font-family:"FontAwesome";
     content: "\f118";
     margin-right:7px;
+    font-size:1.2em;
 }
 
 .cafeinfo a:before {
@@ -309,11 +292,12 @@ a {
     font-family:"FontAwesome";
     content: "\f0c0";
     margin-right:7px;
+    font-size:0.9em;
 }
 
 
 
-/************ search top ************/
+/************ main search top ************/
 .searchMain {
 	display:none;
 }
@@ -345,7 +329,7 @@ a {
 .searchMain .inputArea .srchBar {
     float: left;
     width: 80%;
-    padding: 8px 20px 9px 20px;
+    padding: 9px 20px 9px 20px;
     font-size: 16px;
     color: #555;
     background: transparent;
@@ -399,21 +383,159 @@ a {
     background: #444;
     border-radius: 20px;
     color: #fff;
+    font-size:0.8em;
+}
+
+
+
+/************ sub search tops ************/
+.main .sb-search {
+    display:none;
+}
+
+.btn_search {
+    display:block;
+    position: absolute;
+    top:0;
+    right:0;
+    width: 50px;
+    height: 50px;
+    text-align:center;
+    overflow:hidden;
+}
+    
+.btn_search:before {
+    display:block;
+    font-family:"FontAwesome";
+    content: "\f002";
+    font-size:1em;
+    color:#fff;
+    line-height:50px;
+}
+    
+.main .btn_search {
+    display:none;
+}
+
+.sb-search {
+    position:absolute;
+    right:0;
+    top:0;
+    margin-top:0;
+    background:#ff5948;
+    min-width: 50px;
+    height:50px;
+}
+
+.sb-search.sb-search-open .sb-icon-search, .no-js .sb-search .sb-icon-search {
+    background:#ff5948;
+}
+.sb-icon-search {
+    background:#ff5948;
+    height:50px;    
+}
+
+.sb-search-input {
+    height: 40px;
+    top:5px;
+    right:50px;
+    padding:8px 20px 10px 20px;
+    border-radius:20px!important;
+    width:82%;
+    background:#ff6656;
+    line-height:100%;
+    border:1px solid #ff897d;
+    color:#fff;
+    font-size:1em;
+    transition: all 0.3s ease .03s;
+}
+
+.sb-search.sb-search-open, .no-js .sb-search {
+    width:86%;
+    border-radius:20px!important;
+    overflow:visible;
+}
+    
+.sb-search-input::-webkit-input-placeholder {color: #ffd6d2; font-size:0.8em;}
+.sb-search-input::-webkit-input-placeholder {color: #ffd6d2;}
+.sb-search-input:-moz-placeholder {color: #ffd6d2;}
+.sb-search-input::-moz-placeholder {color: #ffd6d2;}
+.sb-search-input:-ms-input-placeholder {color: #ffd6d2;}
+
+.sb-search-input:hover {
+    background:#fff;
+    line-height:100%;
+    border:1px solid #ff5948;
+    color:#444;
+    transition: all 0.3s ease .03s;
+}
+
+.sb-search-input:hover::-webkit-input-placeholder {color: #888; font-size:0.8em;}
+.sb-search-input:hover::-webkit-input-placeholder {color: #888;}
+.sb-search-input:hover:-moz-placeholder {color: #888;}
+.sb-search-input:hover::-moz-placeholder {color: #888;}
+.sb-search-input:hover:-ms-input-placeholder {color: #888;}
+    
+.sb-search .inputArea {
+    position:absolute;
+    display:none;
+    width: 72%;
+    margin: 0 3% 0 3%;
+    min-height: 40px;
+    border-radius: 20px;
+    background: #fff;
+    border:2px solid #ff5948;
+    transition: all 0.3s ease .03s;
+}
+.sb-search .sb-search-input:hover + .inputArea {
+	transition: all 0.3s ease .03s;
+    display:block;
+} 
+
+.sb-search .inputArea .srchList {
+    clear: both;
+    padding-bottom: 15px;
+}
+
+.sb-search .inputArea:hover .srchList li {
+    border-top: 1px solid #e4e4e4;
+    padding: 10px 20px 12px 20px;
     font-size: 15px;
-    font-size:0.9em;
+    color: #555;
+}
+
+.inputArea:hover .srchList li:hover {
+    background: #f6f6f6;
+}
+
+.sb-search .inputArea:hover .srchList .cstmrNm {
+    display: inline-block;
+    width: 80px;
+}
+
+.sb-search .inputArea:hover .srchList .cstmrTel {
+}
+
+.sb-search .inputArea {
+    top:42px;
+    z-index:30;
 }
 
 
 /************ container : content ************/
 #container {
-	padding:25px 20px;
+	padding:35px 20px 25px 20px;
 }
 
-.main #container {
-    margin-top:100px;
+ .main #container {
+    padding-top:80px;
+}
+
+#container .con {
+    font-size:0.9em;
+}
+#container .con h1 {
+	font-size:1.5em;
 }
 
 
-.test {
-	display
-}

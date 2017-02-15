@@ -3,7 +3,19 @@
             <a class='btn_message' data-toggle="modal"  data-target="#myModal"  data-remote="../message.html">
                 <span class='msg'>메시지함</span><span class='newMsg'>10</span>
             </a>
-            <a class='btn_search'>검색</a>
+            
+            <div id="sb-search" class="sb-search">
+                <form>
+                    <input class="sb-search-input" placeholder="이름 또는 전화번호" type="text"  name="search" id="search">
+                    <div class='inputArea'>
+	                    <ul class='srchList'>
+	                        <li><a href='../stampidle_cs/customerdetail.html'><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-1234-5678</span></a></li>
+	                        <li><a href='../stampidle_cs/customerdetail.html'><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-2345-6789</span></a></li>
+	                    </ul>
+                    </div>
+                    <span class="sb-icon-search btn_search">검색</span>
+                </form>
+            </div>
             
             <div class='searchMain'>
                 <div class='inputArea'>
@@ -32,3 +44,13 @@
            </div>
         </div>
         <!-- //btn_message 메시지팝업 -->
+        
+        
+<!-- expand searchbar button -->
+<script src="../js/modernizr.custom.js"></script>
+<script src="../js/classie.js"></script>
+<script src="../js/uisearch.js"></script>
+<script>
+new UISearch(document.getElementById('sb-search'));
+</script>
+<!-- //expand searchbar button -->
