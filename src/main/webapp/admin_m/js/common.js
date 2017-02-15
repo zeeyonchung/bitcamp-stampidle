@@ -8,6 +8,7 @@ $( function() {
 		if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
 			// 로그온 상태 출력 창을 감춘다.
 			$('#logon-div').css('display', 'none');
+			$('#logout-btn').css('display', 'none');
 			
 			// 로그인 버튼의 클릭 이벤트 핸들러 등록하기
 			$('#login-btn').click(function(event) {
@@ -19,7 +20,7 @@ $( function() {
 		
 		// 로그인 되었으면, 로그오프 상태 출력 창을 감춘다. 
 		$('#logoff-div').css('display', 'none');
-		$('#logon-div img').attr('src', '../upload/' + ajaxResult.data.photoPath);
+		$('#logon-div img').attr('src', '../../upload/' + ajaxResult.data.photoPath);
 		$('#logon-div span').text(ajaxResult.data.name);
 		
 		// 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
@@ -34,7 +35,7 @@ $( function() {
 	
 	// sidebar.html을 가져와서 붙인다.
 	$.get('../sidebar.html', function(result) {
-	  $('#sidebar').html(result);
+	  $('.sidebar').html(result);
 	});
 	
 });

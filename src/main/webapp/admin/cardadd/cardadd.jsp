@@ -14,7 +14,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%
 HashMap<String,Object> resultMap = new HashMap<>();
-
 if (!ServletFileUpload.isMultipartContent(request)) {
   resultMap.put("status", "failure");
   resultMap.put("params", "멀티파트 형식이 아닙니다.");
@@ -41,7 +40,7 @@ if (!ServletFileUpload.isMultipartContent(request)) {
 	      objMap.put("filename", item.getName());
 	      objMap.put("size", item.getSize());
 	      ServletContext sc = this.getServletContext();
-	      String realPath = sc.getRealPath("../../upload/" + item.getName());
+	      String realPath = sc.getRealPath("/upload/" + item.getName());
 	      item.write(new File(realPath));
 	      objMap.put("filepath", realPath);
 	    }
@@ -59,9 +58,3 @@ if (!ServletFileUpload.isMultipartContent(request)) {
 out.print(new Gson().toJson(resultMap));
 System.out.println("OK!");
 %>
-
-
-
-
-
-

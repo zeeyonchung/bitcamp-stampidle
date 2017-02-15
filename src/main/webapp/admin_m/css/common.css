@@ -1,9 +1,9 @@
 @CHARSET "UTF-8";
 
 @import url("default.css");
-@import url("frame.css");
 @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
 @import url("message.css");
+@import url("searchbar_expanding.css");
 
 /*************************************************
                                     common                     
@@ -13,9 +13,8 @@
 }
 
 body {
-	color: #666;
+	color: #444;
 	word-break: break-all;
-	overflow-x: hidden;
 }
 
 a {
@@ -23,43 +22,520 @@ a {
 	text-decoration: none;
 	outline: none;
 	cursor: pointer;
-	-webkit-tap-highlight-color: transparent;
 }
-
 
 
 /*************************************************
                                     layout                     
 *************************************************/
 
-.container {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    min-width: 960px;
-    min-height: 100%;
-    background: url(../image/bg_con.png) no-repeat right top;
-    background-attachment: fixed;
-}
-
 #header {
+    width: 100%;
+    height: 50px;
+    background: #ff5948;
 }
 
-#sidebar {
-	min-width: 800px;
+#header .logo {
+	width:35%;
+    margin: auto;
+    text-align: center;
 }
 
-#content {
-	margin-top: 70px;
-    width:100% !important;
-    padding: 30px 20px 0 20px;
+#header .logo img {
+	width:auto;
+	height:35px;
+	margin-top:1px;
 }
 
-#content .con {
-	margin: auto;
-	min-height: 700px;
-    min-width: 800px;
-    max-width: 960px;	
+
+
+
+/*************************************************
+                                    content                     
+*************************************************/
+
+/************ top bar ************/
+.side-left-pushy-button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url(../image/btn_navi.png) no-repeat center center #ff5948;
+    background-size:21px 16px;
+    margin-bottom:0;
+    font-size: 0;
+    transition: all 0.3s ease .05s;
+}
+
+.side-left-pushy-button:hover {
+    background: url(../image/btn_navi.png) no-repeat center center #ff4040;
+    background-size:21px 16px;
+    transition: all 0.3s ease .05s;
+}
+
+.btn_message {
+	display:none;
+    position: absolute;
+    top:0;
+    right:5px;
+    width: 50px;
+    height: 50px;
+    text-align:center;
+}
+
+.main .btn_message {
+	display:block;
+}
+
+.btn_message:before {
+	display:block;
+	font-family:"FontAwesome";
+    content: "\f003";
+    font-size:1.7em;
+    color:#fff;
+    line-height:50px;
+}
+
+.btn_message .newMsg {
+	position:absolute;
+	top:-0px;
+	right:-5px;
+    display: block;
+    width: 40px;
+    height: 30px;
+    padding: 6px 4px 0 0;
+    background: url(../image/message_newBg.png) no-repeat right top;
+    background-size:40px auto;
+    font-size: 1em;
+    font-weight: bold;
+    color:#ff4040;
+    text-align: center;
+    font-style: italic;
+    line-height:100%;
+}
+
+
+
+
+/************ sidebar : slide left menu area ************/
+.sidebar {
+    width:250px;
+    z-index:9999;
+}
+
+.sidebar a {
+    padding:10px 15px;
+    transition: all 0.3s ease .03s;
+    font-size:0.9em;
+}
+
+.sidebar a:hover {
+    background:#2d2d2d;
+    transition: all 0.3s ease .03s;
+}
+
+#logout-btn {
+	position:absolute;
+	width:90%;
+	bottom:10px;
+	margin:0 5%;
+	border:1px solid #444;
+	text-align:center;
+	padding:5px 0;
+	font-size:0.8em;
+	background:#303030;
+}
+.sidebar .profileArea #logoff-div {
+	margin:20px 0 0 10px;
+	display:inline-block;
+}
+
+.sidebar .profileArea #logoff-div #login-btn {
+	display:inline;
+	padding: 5px 15px 5px 15px;
+    border: 2px solid #e0e0e0;
+    color: #555;
+    border-radius: 5px;
+    letter-spacing: -1px;
+    cursor:pointer;
+    font-size:0.9em;
+}
+
+.sidebar .profileArea {
+	display:table;
+    width:100%;
+    height:60px;
+    background:#fff;
+}
+
+.sidebar .profileArea:after {
+	float:right;
+	display:block;
+	margin-right:10px;
+    font-family:"FontAwesome";
+    content: "\f013";
+    color:#999;
+    font-size:1.8em;
+    line-height:60px;
+}
+
+.sidebar .profileArea .profileImg {
+    float:left;
+    width: 50px;
+    height: 50px;
+    margin:5px 10px;
+    border-radius: 40px;
+    overflow: hidden;
+    background:#ddd;
+}
+
+.sidebar .profileArea .profileImg img {
+    width: 100%;
+    height: auto;
+}
+
+.sidebar .profileArea .cafeNm {
+	float:left;
+	display:table;
+    font-size:1.1em;
+    font-weight:bold;
+    line-height:120%;
+    color:#222;
+}
+
+.sidebar .profileArea .cafeNm span {
+	display:table-cell;
+	vertical-align:middle;
+	height:60px;
+}
+
+.sidebar .keyMenu {
+    width:100%;
+    height:100px;
+    background:#ff5948;
+}
+
+
+.sidebar .keyMenu {
+	text-align:center;
+}
+
+.sidebar .keyMenu .mn_home, .sidebar .keyMenu .mn_msg {
+	float:left;
+    width:80px;
+    height:80px;
+    margin:10px 30px 0 30px;
+    border-radius:50px;
+    background:#ff4936;
+    color:#fff;
+    transition: all 0.3s ease .05s;
+    font-size:0.8em;
+}
+	
+.sidebar .keyMenu .mn_home {
+	margin:10px 20px 0 35px;
+}
+
+.sidebar .keyMenu .mn_msg {
+    margin:10px 0 0 0;
+}
+
+.sidebar .keyMenu .mn_home:before, .sidebar .keyMenu .mn_msg:before {
+	display:block;
+	font-family:"FontAwesome";
+}
+
+.sidebar .keyMenu .mn_home:before {
+	content: "\f015";
+    font-size:2.7em;
+    line-height:110%;
+    margin-top:14px;
+}
+
+.sidebar .keyMenu .mn_msg:before {
+    content: "\f003";
+    font-size:2.4em;
+    line-height:130%;
+    margin-top:12px;
+}
+	
+.sidebar .etcMenu li:hover {
+    background:#333;	
+    transition: all 0.3s ease .05s;
+}
+
+.stamp a:before {
+	font-family:"FontAwesome";
+    content: "\f118";
+    margin-right:7px;
+    font-size:1.2em;
+}
+
+.cafeinfo a:before {
+    font-family:"FontAwesome";
+    content: "\f0f6";
+    margin-right:7px;
+}
+
+.event a:before {
+    font-family:"FontAwesome";
+    content: "\f1cb";
+    margin-right:7px;
+}
+
+.statis a:before {
+    font-family:"FontAwesome";
+    content: "\f080";
+    margin-right:7px;
+}
+
+.cstmrList a:before {
+    font-family:"FontAwesome";
+    content: "\f0c0";
+    margin-right:7px;
+    font-size:0.9em;
+}
+
+
+
+/************ main search top ************/
+.searchMain {
+	display:none;
+}
+
+.main .searchMain {
+	position:absolute;
+	top:50px;
+	z-index:10;
+	display:block;
+    width: 100%;
+    height: 50px;
+    background: #ff5948;
+    border-bottom:1px solid #ff4936;
+}
+
+.searchMain .inputArea {
+	display:inline-block;
+    width: 72%;
+    margin: 0 3% 0 3%;
+    min-height: 40px;
+    border-radius: 20px;
+    background: #fff;
+    border:1px solid #ff4936;
+}
+.searchMain .inputArea {
+    border:2px solid #ff5948;
+}
+
+.searchMain .inputArea .srchBar {
+    float: left;
+    width: 80%;
+    padding: 9px 20px 9px 20px;
+    font-size: 16px;
+    color: #555;
+    background: transparent;
+}
+
+.searchMain .inputArea .btn_srch {
+    float:left;
+    width: 20%;
+    height: 38px;
+    background: url(../image/btn_searchB.png) no-repeat center center;
+    font-size: 0;
+}
+
+.searchMain .inputArea .srchList {
+    display: none;
+    clear: both;
+    padding-bottom: 15px;
+}
+
+.searchMain .inputArea:hover .srchList {
+    display: block;
+}
+
+.searchMain .inputArea:hover .srchList li {
+    border-top: 1px solid #e4e4e4;
+    padding: 10px 20px 12px 20px;
+    font-size: 15px;
+    color: #555;
+}
+
+.searchMain .inputArea:hover .srchList li:hover {
+    background: #f6f6f6;
+}
+
+.searchMain .inputArea:hover .srchList .cstmrNm {
+    display: inline-block;
+    width: 80px;
+}
+
+.searchMain .inputArea:hover .srchList .cstmrTel {
+}
+
+.searchMain .btn_newCstmr_top {
+    display:inline-block;
+    position:absolute;
+    right:3%;
+    width:20%;
+    height: 40px;
+    margin-top: 0;
+    border: 0;
+    background: #444;
+    border-radius: 20px;
+    color: #fff;
+    font-size:0.8em;
+}
+
+
+
+/************ sub search tops ************/
+.main .sb-search {
+    display:none;
+}
+
+.btn_search {
+    display:block;
+    position: absolute;
+    top:0;
+    right:0;
+    width: 50px;
+    height: 50px;
+    text-align:center;
+    overflow:hidden;
+}
+    
+.btn_search:before {
+    display:block;
+    font-family:"FontAwesome";
+    content: "\f002";
+    font-size:1em;
+    color:#fff;
+    line-height:50px;
+}
+    
+.main .btn_search {
+    display:none;
+}
+
+.sb-search {
+    position:absolute;
+    right:0;
+    top:0;
+    margin-top:0;
+    background:#ff5948;
+    min-width: 50px;
+    height:50px;
+}
+
+.sb-search.sb-search-open .sb-icon-search, .no-js .sb-search .sb-icon-search {
+    background:#ff5948;
+}
+.sb-icon-search {
+    background:#ff5948;
+    height:50px;    
+}
+
+.sb-search-input {
+    height: 40px;
+    top:5px;
+    right:50px;
+    padding:8px 20px 10px 20px;
+    border-radius:20px!important;
+    width:82%;
+    background:#ff6656;
+    line-height:100%;
+    border:1px solid #ff897d;
+    color:#fff;
+    font-size:1em;
+    transition: all 0.3s ease .03s;
+}
+
+.sb-search.sb-search-open, .no-js .sb-search {
+    width:86%;
+    border-radius:20px!important;
+    overflow:visible;
+}
+    
+.sb-search-input::-webkit-input-placeholder {color: #ffd6d2; font-size:0.8em;}
+.sb-search-input::-webkit-input-placeholder {color: #ffd6d2;}
+.sb-search-input:-moz-placeholder {color: #ffd6d2;}
+.sb-search-input::-moz-placeholder {color: #ffd6d2;}
+.sb-search-input:-ms-input-placeholder {color: #ffd6d2;}
+
+.sb-search-input:hover {
+    background:#fff;
+    line-height:100%;
+    border:1px solid #ff5948;
+    color:#444;
+    transition: all 0.3s ease .03s;
+}
+
+.sb-search-input:hover::-webkit-input-placeholder {color: #888; font-size:0.8em;}
+.sb-search-input:hover::-webkit-input-placeholder {color: #888;}
+.sb-search-input:hover:-moz-placeholder {color: #888;}
+.sb-search-input:hover::-moz-placeholder {color: #888;}
+.sb-search-input:hover:-ms-input-placeholder {color: #888;}
+    
+.sb-search .inputArea {
+    position:absolute;
+    display:none;
+    width: 72%;
+    margin: 0 3% 0 3%;
+    min-height: 40px;
+    border-radius: 20px;
+    background: #fff;
+    border:2px solid #ff5948;
+    transition: all 0.3s ease .03s;
+}
+.sb-search .sb-search-input:hover + .inputArea {
+	transition: all 0.3s ease .03s;
+    display:block;
+} 
+
+.sb-search .inputArea .srchList {
+    clear: both;
+    padding-bottom: 15px;
+}
+
+.sb-search .inputArea:hover .srchList li {
+    border-top: 1px solid #e4e4e4;
+    padding: 10px 20px 12px 20px;
+    font-size: 15px;
+    color: #555;
+}
+
+.inputArea:hover .srchList li:hover {
+    background: #f6f6f6;
+}
+
+.sb-search .inputArea:hover .srchList .cstmrNm {
+    display: inline-block;
+    width: 80px;
+}
+
+.sb-search .inputArea:hover .srchList .cstmrTel {
+}
+
+.sb-search .inputArea {
+    top:42px;
+    z-index:30;
+}
+
+
+/************ container : content ************/
+#container {
+	padding:35px 20px 25px 20px;
+}
+
+ .main #container {
+    padding-top:80px;
+}
+
+#container .con {
+    font-size:0.9em;
+}
+#container .con h1 {
+	font-size:1.5em;
 }
 
 

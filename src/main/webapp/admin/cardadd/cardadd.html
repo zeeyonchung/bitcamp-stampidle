@@ -25,18 +25,20 @@
             <span class='temptext'>카드템플릿 사용</span>
           </button>
         </div>
+        <!-- 프론트영역 -->
         <div class='front'>
           <span class='frontText'>앞면</span> 
           <img src='../image/xbox.png'class='xbox'>
           <div class='frontFile'>
-            <input id='fileupload1' type=file name='fileup1' style='display: none;'>
-            <button class='filebtn' onclick='document.all.fileup1.click()'>File</button>
-            <img src='../image/i.png' class='i'> <br> <br> <br>
+            <!--<input id='fileupload1' type=file name='fileup1' style='display: none;'>
+            <button class='filebtn' onclick='document.all.fileup1.click()'>File</button>-->
+            <br><img src='../image/i.png' class='i'> <br> <br> <br>
             <p class='text'>
               앞면이미지 미등록시<br> 기존 카페 로고 이미지가<br> 자동 등록됩니다.
             </p>
           </div>
         </div>
+        <!-- 중간영역 -->
         <div class='mid'>
           <img src='../image/template1.jpg' class='backcard'>
           <div id='stmpside' class='stmpside'>
@@ -44,8 +46,8 @@
           <span class='midText1'>뒷면<br> <span class='midText2'>스탬프
               찍는 면</span></span>
           <div class='midFile'>
-            <input type=file name='fileup2' style='display: none;'>
-            <button class='midfilebtn' onclick='document.all.fileup1.click()'>File</button>
+            <!--<input type=file name='fileup2' style='display: none;'>
+            <button class='midfilebtn' onclick='document.all.fileup1.click()'>File</button>  -->
           </div>
           <br>
           <div class='midTextAre'>
@@ -60,14 +62,16 @@
             <button class='pbtn' onclick='add_item()'>+</button>
           </div>
         </div>
+       <!-- 마지막 영역 -->
         <div class='final'>
           <div class='stmpshape'>
             <br> <span class='finalText'>스탬프 모양</span>
             <div class='stmpimgbox' id='images-div'>
             <img src='../image/stmp4.png' class='selectimg'>
+            <img id='photo-img'>
             </div>
-            <input id='fileupload' type='file' name='fileup3' style='display: none;'>
-            <button class='selectFile' onclick='document.all.fileup3.click()'>File</button>
+            <input data-url="cardadd.jsp"id='fileupload' type='file' name='fileup' style='display: none;'>
+            <button class='selectFile' onclick='document.all.fileup.click()'>File</button>
           </div>
           <div class='stmpinfo'>
          <span class='info'>※파일 이름은<br>영문만 지원합니다.</span>
@@ -79,7 +83,7 @@
       </div>
     </div>
     
-    
+    <!-- 경고창 -->
     <div class='cd_alert1 alert'>
         1개이상 존재해야 합니다.
         <a class='close_alert1 close_alert'>x</a>
@@ -161,61 +165,49 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="../js/bit.js"></script>
   <script src="../js/common.js"></script>
+  
+  <!-- div 드래그관련 script -->
   <script>
   $( function() {
 	  for(var i = 0; i < 21; i++) {
 		  $("<div>").attr("class","stmpare")
 		    .css("display","none")
 	      .appendTo("#stmpside")
-	      .draggable()
+	      .draggable({containment : 'parent' })
 	      .addTouch();
 	     };
 	  })
-	  
   </script>
+  
+  <!-- 파일 업로드 관련 script -->
   <script>
 "use strict"
+
 $('#fileupload').fileupload({
-  url: 'cardadd.jsp',        // 서버에 요청할 URL
-  dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-  sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-  singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
-  autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
-  disableImageResize: /Android(?!.*Chrome)|Opera/
-        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-  previewMaxWidth: 800,   // 미리보기 이미지 너비
-  previewMaxHeight: 800,  // 미리보기 이미지 높이 
-  previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-  processalways: function(e, data) {
-      console.log('fileuploadprocessalways()...');
-      var imagesDiv = $('#images-div');
-      var canvas = data.files[0].preview;
-      var dataURL = canvas.toDataURL();
-      $("<img>").attr('src', dataURL).css('width', '48px').appendTo(imagesDiv);
-      $('#upload-btn').click(function() {
-          data.submit();
-      });
-  }, 
-  submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
-    console.log('submit()...');
-  }, 
-  done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-    console.log('done()...');
-    console.log(data.result);
-    var param = data.result.params[0];
-    $.each(data.result.params, function(index, param) {
-      if (param.filename) {
-          $('<p/>').text(param.name + " : " + param.filename + ", " + param.size).appendTo(document.body);
-      } else {
-          $('<p/>').text(param.name + " : " + param.value).appendTo(document.body);
-      }
-    });
-  }
+    dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
+    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+      console.log(data.result);
+      var param = data.result.params[0];
+      console.log(param);
+      $('#photo-path').val(param.filepath);
+    },
+    processalways: function(e, data) {
+        console.log('fileuploadprocessalways()...');
+        var img = $('#photo-img');
+        if (!img.attr('src')) {
+          console.log('미리보기 처리...');
+          var canvas = data.files[0].preview;
+          var dataURL = canvas.toDataURL();
+          img.attr('src', dataURL).css('width', '48px');
+        }
+    } 
 });
+
 </script>
+<!-- div 추가,제거 관련 script1 -->
   <script>
     function add_item() {
-    	/*
+        /*
       var div = document.createElement('div');
       div.className = "stmpare";
       div.id="stmpare";
@@ -229,12 +221,13 @@ $('#fileupload').fileupload({
     function remove_item() {
       //$('.stmpare').remove();
       /*$('.stmpside .stmpare:last-child').remove();*/
-    	var num = $('.midNum').text();
+        var num = $('.midNum').text();
       $(".stmpside").children().eq(num-1).css("display","none");
       $(".stmpside").children().eq(num).css("left","0px");
       $(".stmpside").children().eq(num).css("top","0px");
     }
   </script>
+  <!-- div 추가,제거 관련 script2 -->
   <script>
     $(function() {
       $('.mbtn').click(function(e) {
@@ -256,7 +249,7 @@ $('#fileupload').fileupload({
         var num = parseInt(stat, 10);
         num++;
         if (num > 21) {
-        	 $('.cd_alert2').fadeIn(100);
+             $('.cd_alert2').fadeIn(100);
           //alert('더이상 추가할수 없습니다.');
           num = 21;
         }
@@ -264,12 +257,14 @@ $('#fileupload').fileupload({
       });
     });
   </script>
+  
+  <!-- 경고창 관련 script -->
   <script>
   /* alert */
   $(document).ready(function() {
     $('.close_alert1').click(function() {
       //$('.alert').css("display","none");
-    	$('.cd_alert1').fadeOut(100);
+        $('.cd_alert1').fadeOut(100);
     });
     $('.close_alert2').click(function() {
         //$('.alert').css("display","none");
@@ -277,6 +272,8 @@ $('#fileupload').fileupload({
       });
   });
 </script>
+
+<!-- 탬플릿 이용버튼 클릭시 팝업관련 script -->
   <script>
 /* pulldownPop */
 $(document).ready( function(){
@@ -292,6 +289,8 @@ $(document).ready( function(){
     });
 });
 </script>
+
+<!-- 탬플릿 슬라이드 관련 script -->
 <script>
     var slideIndex = 1;
     showSlides(slideIndex);
