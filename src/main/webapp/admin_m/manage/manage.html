@@ -12,6 +12,11 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 <link rel="stylesheet" href="../css/manage.css">
 
+<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/16.2.4/css/dx.spa.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/16.2.4/css/dx.common.css" />
+<link rel="dx-theme" data-theme="generic.light" href="https://cdn3.devexpress.com/jslib/16.2.4/css/dx.light.css" />
+    
+
 
 </head>
 <body>
@@ -42,14 +47,18 @@
 					<div class='section'>
 						<div class="horiarr">
 							<div id="statrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-							    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
-							    <span></span> <b class="caret"></b>
+						    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+						    <span></span> <b class="caret"></b>
 							</div>
 						</div>
 						
-						<div class="graph">그래프1</div>
-						<div class="graph">그래프2</div>
-						<div class="graph">그래프3</div>
+						<div class="graphwrap">
+	            <div id="chart" style="max-height:300px; max-width:300px; margin: 0 auto"></div>
+				    </div>
+				    <hr class="color">
+						<div class="graphwrap">
+						  <div id="pie" style="max-height:300px; max-width:300px; margin: 0 auto"></div>
+						</div>
 						
 						
 					</div>
@@ -69,7 +78,7 @@
 							</button>
 							<ul class="dropdown-menu">
 								<li>첫방문순</li>
-								<li>마지막방문순</li>
+								<li>최근방문순</li>
 								<li>이름순</li>
 								<li>쿠폰순</li>
 							</ul>
@@ -183,14 +192,13 @@
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="../js/bit.js"></script>
 	<script src="../js/common.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
 
 	
 	
 <!--  Swipe -->
-<script type="text/javascript" src="../js/jquery-latest.js"></script>
+<!-- <script type="text/javascript" src="../js/jquery-latest.js"></script> 문제문제문제올드버전이래 -->
 <script type="text/javascript" src="../js/tab_swipe.js"></script>
 <script type="text/javascript">
 $(window).load(function(){
@@ -278,6 +286,23 @@ $(function() {
 });
 </script>
 <!-- //stamprange -->
+
+
+
+
+<!-- graph -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cldrjs/0.4.4/cldr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cldrjs/0.4.4/cldr/event.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cldrjs/0.4.4/cldr/supplemental.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cldrjs/0.4.4/cldr/unresolved.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/globalize/1.1.1/globalize.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/globalize/1.1.1/globalize/message.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/globalize/1.1.1/globalize/number.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/globalize/1.1.1/globalize/currency.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/globalize/1.1.1/globalize/date.min.js"></script>
+<script src="https://cdn3.devexpress.com/jslib/16.2.4/js/dx.all.js"></script>
+<script src="manage.js"></script>
+<!-- //graph -->
 
 
 </body>
