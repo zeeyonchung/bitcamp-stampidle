@@ -1,0 +1,113 @@
+@CHARSET "UTF-8";
+
+
+
+/******************** section1 **********************/
+
+.horiarr {
+	padding-top: 8px;
+	text-align: center;
+	margin-top: 10px;
+	height: 50px;
+	border: 1px solid #ccc;
+}
+
+.pull-right {
+	display: inline-block;
+	float: none;
+	border: 0!important;
+}
+
+.daterangepicker.dropdown-menu {
+	max-width: 50%;
+}
+
+.daterangepicker.dropdown-menu.single {
+  max-width: 100%;
+}
+
+
+.daterangepicker .ranges ul {
+	text-align: center;
+}
+
+.daterangepicker .ranges li.active {
+	background-color: #ff5948;
+	border: 1px solid #ff5948;
+	color: white;
+}
+
+.daterangepicker .ranges li {
+	font-size: 1.2em;
+	color: #777;
+	padding: 5px 12px;
+	margin-bottom: 8px;
+	cursor: pointer;
+}
+
+.daterangepicker .ranges li:hover {
+	background-color: rgb(255, 127, 114);;
+	border: 1px solid rgb(255, 127, 114);;
+	color: #fff;
+	cursor: pointer;
+}
+
+.daterangepicker td.active {
+	background-color: #ff5948;
+}
+
+.graph {
+	border: 1px solid red;
+	height: 300px;
+}
+
+
+
+
+/******************** section2, 3 **********************/
+
+
+.dropdown-menu {
+	text-align: center;
+}
+
+table, th {
+	text-align: center;
+	font-size: 1em;
+}
+
+table-striped th:first-of-type, table-striped td:first-of-type {
+  margin-right: 1em;
+}
+
+table-striped th:nth-of-type(2), table-striped td:nth-of-type(2) {
+	width: 10em;
+}
+
+.pagin {
+	text-align: center;
+}
+
+.pagination {
+	margin: 0;
+}
+
+.pagination > li > a {
+	color: #838383;
+}
+
+.pagination > .active > a {
+	background-color: #ffffff;
+	border-color: #ddd;
+	color: #ff5948;
+}
+
+.btn-group.two {
+    position: absolute;
+    top: 65px;
+    right: 3%;
+}
+
+.secTit.two {
+    margin-top: 15px;
+}

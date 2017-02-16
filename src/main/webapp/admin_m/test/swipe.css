@@ -2,14 +2,18 @@
 
 
 
-.arrange {
+.horiarr {
+	padding-top: 8px;
 	text-align: center;
   margin-top: 10px;
+  height: 50px;
+  border: 1px solid #ccc;
 }
 
 .pull-right {
 	display: inline-block;
 	float: none;
+	border: 0!important;
 }
 
 .daterangepicker.dropdown-menu {
@@ -18,4 +22,27 @@
 
 .ranges ul {
 	text-align: center;
+}
+
+
+.ranges li.active {
+    background-color: #ff5948;
+    border: 1px solid #ff5948;
+}
+
+
+.ranges li {
+    font-size: 1.2em;
+    color: #777;
+    padding: 5px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+
+.ranges li:hover {
+    background-color: rgb(255, 127, 114);;
+    border: 1px solid rgb(255, 127, 114);;
+    color: #fff;
+    cursor: pointer;
 }
