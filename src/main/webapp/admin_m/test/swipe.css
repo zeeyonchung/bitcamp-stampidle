@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+
+
+.arrange {
+	text-align: center;
+  margin-top: 10px;
+}
+
+.pull-right {
+	display: inline-block;
+	float: none;
+}
+
+.daterangepicker.dropdown-menu {
+	max-width: 50%;
+}
+
+.ranges ul {
+	text-align: center;
+}
