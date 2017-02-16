@@ -34,10 +34,30 @@ a {
     background: #ff5948;
 }
 
-#header .logo {
+.main #header .logo {
+	display:block;
 	width:35%;
     margin: auto;
     text-align: center;
+}
+
+.main #pageTitle, #pageTit {
+	display:none;
+}
+
+#header .logo {
+    display:none;	
+}
+	
+#pageTitle {
+    position:fixed;
+    width:60%;
+    top:16px;
+    left:50%;
+    margin-left:-30%;	
+    font-size:1.2em;
+    color:#fff;
+    text-align:center;
 }
 
 #header .logo img {
@@ -269,7 +289,7 @@ a {
     font-size:1.2em;
 }
 
-.cafeinfo a:before {
+.cafeinfom a:before {
     font-family:"FontAwesome";
     content: "\f0f6";
     margin-right:7px;

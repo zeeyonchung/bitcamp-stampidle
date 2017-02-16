@@ -1,0 +1,161 @@
+/* swipe area */
+#container {
+    padding:0;
+}
+
+#swipe {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+#swipe .swWrap {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#swipe .swWrap .section {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    height: 100%;
+    float: left;
+}
+
+.swipe_nav {
+    height: 36px;
+    background: linear-gradient(#434343, #333);
+    
+}
+
+.swipe_nav ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.swipe_nav ul li {
+    float: left;
+    text-align: center;
+    line-height: 35px;
+    border-top:1px solid #333;
+    transition: all 0.3s ease .03s;
+}
+
+.swipe_nav ul li:nth-child(1) {
+    width: 33%;
+    
+}
+
+.swipe_nav ul li:nth-child(2) {
+    width: 33%;
+}
+
+.swipe_nav ul li:nth-child(3) {
+    width: 34%;
+}
+
+.swipe_nav ul li.on {
+    overflow: hidden;
+    background: #444;
+    border-top:1px solid #ff4040;
+    background: linear-gradient(#ff4936, #ff5948);
+    transition: all 0.3s ease .03s;
+}
+
+.swipe_nav ul li.on a {
+    color: #fff;
+}
+
+.swipe_nav ul li a {
+    display: block;
+    color: #cacaca;
+}
+/* //swipe area */
+
+/* sub guide style */
+.section {
+    padding:0 1%;   
+}
+
+.secTit {
+    border-bottom:2px solid #f4f4f4;
+    padding-bottom:7px;
+    margin-bottom:10px;
+    font-size:1em;
+    color:#666;
+    margin-top:20px;
+}
+
+.secTit .num {
+    font-size:1.3m;
+    color:#ff5948;
+}
+
+.btn-group {
+    position:absolute;
+    top:10px;
+    right:3%;
+}
+
+.btn-group > button {
+    width : 80px;
+    text-align:left;
+    padding:4px 7px;
+}
+
+.btn-group > button span {
+    float:right;
+    margin-top:7px;
+}
+
+.dropdown-menu {
+    padding:7px;
+    min-width : 80px;
+}
+
+.dropdown-menu li {
+    padding:4px 0;
+    font-size:0.8em;
+    border-top:1px solid #f9f9f9;
+}
+
+.dropdown-menu li:first-child {
+    border-top:0;
+}
+/* //sub guide style */
+
+
+
+/* paging */
+#paging {
+	display:none; /*make 'block' if you want to use*/
+    height: 30px;
+    line-height: 30px;
+    clear: both;
+    background: #cfcfcf;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+#paging button {
+    width: 35px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 10px;
+    background: #666;
+    color: #fff;
+}
+
+#paging button:nth-of-type(2) {
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 0;
+}

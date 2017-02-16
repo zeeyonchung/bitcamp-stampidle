@@ -1,5 +1,6 @@
             <!-- <div class="side-left-pushy-button" >menu btn</div> -->
             <h1 class='logo'><a href='../main/main.html'><img src='../image/logoW.png' alt='Stampidle'></a></h1>
+            <h2 id='pageTitle'></h2>
             <a class='btn_message' data-toggle="modal"  data-target="#myModal"  data-remote="../message.html">
                 <span class='msg'>메시지함</span><span class='newMsg'>10</span>
             </a>
@@ -54,3 +55,11 @@
 new UISearch(document.getElementById('sb-search'));
 </script>
 <!-- //expand searchbar button -->
+
+<script>
+$(function() {
+    // 페이지별 title을 가져와 topbar에 넣기
+    var pageTitString = $("#pageTit").text();
+    $("#pageTitle").text(pageTitString);
+});
+</script>
