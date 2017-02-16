@@ -69,7 +69,7 @@
 							</button>
 							<ul class="dropdown-menu">
 								<li>첫방문순</li>
-								<li>등록순</li>
+								<li>마지막방문순</li>
 								<li>이름순</li>
 								<li>쿠폰순</li>
 							</ul>
@@ -227,7 +227,7 @@ $(window).load(function(){
 <script type="text/javascript">
 $(function() {
 
-    var start = moment();
+    var start = moment().subtract(6, 'days');
     var end = moment();
 
     function cb(start, end) {
@@ -240,8 +240,6 @@ $(function() {
         endDate: end,
         opens: "center",
         ranges: {
-           '오늘': [moment(), moment()],
-           '어제': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
            '지난 7일': [moment().subtract(6, 'days'), moment()],
            '지난 30일': [moment().subtract(29, 'days'), moment()],
            '이번 달': [moment().startOf('month'), moment().endOf('month')],
