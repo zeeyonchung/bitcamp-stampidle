@@ -129,19 +129,19 @@
 
         <div class='text_btm'>스탬프 이미지</div>
         <div class='stmp_are'>
-          <label class='label1'> <input class='stmp1' type='radio'
-            name='value' style="display: none"> <img class='img1'
-            src='../image/stmp1.png'>
-          </label> <label class='label1'> <input class='stmp2' type='radio'
-            name='value' style="display: none"> <img class='img2'
-            src='../image/stmp2.png'>
-          </label> <label class='label1'> <input class='stmp3' type='radio'
-            name='value' style="display: none"> <img class='img3'
-            src='../image/stmp3.png'>
-          </label> <label class='label1'> <input class='stmp4' type='radio'
-            name='value' style="display: none"> <img class='img4'
+          <label class='label1'> <input id='checkimg'class='stmp4' type='radio'
+            name='value' style="display: none" checked> <img class='img4'
             src='../image/stmp4.png'>
           </label>
+          <label class='label1'> <input id='checkimg' class='stmp1' type='radio'
+            name='value' style="display: none"> <img class='img1'
+            src='../image/stmp1.png'>
+          </label> <label class='label1'> <input id='checkimg' class='stmp2' type='radio'
+            name='value' style="display: none"> <img class='img2'
+            src='../image/stmp2.png'>
+          </label> <label class='label1'> <input id='checkimg' class='stmp3' type='radio'
+            name='value' style="display: none"> <img class='img3'
+            src='../image/stmp3.png'></label>
           <button type='button' class='button'>카드선택</button>
         </div>
       </div>
@@ -328,6 +328,9 @@ $(document).ready( function(){
 	  var cardPath = $('.mySlides[style*="display: block"] img').attr('src');
 	  $('.backcard').remove();
 	  $('<img>').attr("class","backcard").attr("src",cardPath).insertBefore("#stmpside");
+		var stmpPath = $(':checked + img').attr('src');
+		$('.selectimg').remove();
+		$('<img>').attr("class","selectimg").attr("src",stmpPath).insertBefore("#photo-img");
   });
 
   </script>
