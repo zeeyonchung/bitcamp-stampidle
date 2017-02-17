@@ -56,26 +56,34 @@
 	background-color: #ff5948;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/******************** section1 graph **********************/
+
 .graphwrap {
-	height: 300px;
 	width: 100%;
 	margin-top: 10px;
+	height: auto;
 }
 
-.graphwrap:nth-of-type(3) {
-	height: 340px;
-}
 
 
 hr.color {
 	border: 1px solid #eee;
 }
 
-
-/******************** section1 graph **********************/
 #chart {
-  width: 100%;
-  height: 440px;
+  width: 90%;
+  margin: auto;
 }
 
 #chart>.center {
@@ -89,8 +97,9 @@ hr.color {
 
 
 #pie {
-  height: 440px;
-  width: 100%;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 /******************** section2, 3 **********************/

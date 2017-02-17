@@ -53,11 +53,11 @@
 						</div>
 						
 						<div class="graphwrap">
-	            <div id="chart" style="max-height:300px; max-width:300px; margin: 0 auto"></div>
+	            <div id="chart"></div>
 				    </div>
 				    <hr class="color">
 						<div class="graphwrap">
-						  <div id="pie" style="max-height:300px; max-width:300px; margin: 0 auto"></div>
+						  <div id="pie"></div>
 						</div>
 						
 						
@@ -227,28 +227,6 @@ $(window).load(function(){
 <!-- // Swipe -->
 
 
-
-<!-- Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
-<script>
-$(document).ready(function() {
-   var secH1 = $(".section:nth-child(1)").outerHeight();
-   var secH2 = $(".section:nth-child(2)").outerHeight();
-   var secH3 = $(".section:nth-child(3)").outerHeight();
-   
-   $("#swipe .swWrap").css('height', secH1);
-
-   $('.tab1 a').click(function(e) {
-       $("#swipe .swWrap").css('height', secH1);
-   });
-   $('.tab2 a').click(function(e) {
-        $("#swipe .swWrap").css('height', secH2);
-    });
-   $('.tab3 a').click(function(e) {
-        $("#swipe .swWrap").css('height', secH3);
-    });
-});
-</script>
-<!-- //Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
 
 
 
