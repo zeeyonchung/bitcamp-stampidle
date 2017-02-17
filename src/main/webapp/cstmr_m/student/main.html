@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset='UTF-8'>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>Stampidle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/pushy.css">
 <link rel="stylesheet" href="../css/common.css">
+
+
 </head>
 <body>
-	<div class='container'>
-		<div id='header'></div>
-		<div id='sidebar'></div>
-		<div id="content">
-        
-            <div class='con'>
-                <h1>학생 정보 cstmr_m</h1>
-                <a id='new-btn' href='#'>추가</a><br>
-                <table id='list-table' border='1'>
-                <thead>
-                    <tr>
-                      <th>회원번호</th>
-                      <th>이름</th>
-                      <th>전화</th>
-                      <th>재직</th>
-                      <th>최종학력</th>
-                      <th>학교명</th>
-                    </tr>
-                <thead>
-                <tbody></tbody>
-                </table>
-            </div>
+    <div class="side-left-pushy-button" >menu btn</div>
+    <div id='header'></div>
+    <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
+    
+    <div id="container">
+       <h2 id='pageTit'>학생정보</h2>
+       
+       <!-- con -->
+       <div class='con'>
+       
+            <h1>학생 정보 cstmr_m</h1>
+            <a id='new-btn' href='#'>추가</a><br>
+            <table id='list-table' border='1'>
+            <thead>
+                <tr>
+                  <th>회원번호</th>
+                  <th>이름</th>
+                  <th>전화</th>
+                  <th>재직</th>
+                  <th>최종학력</th>
+                  <th>학교명</th>
+                </tr>
+            <thead>
+            <tbody></tbody>
+            </table>
+            
         </div>
-	</div>
-
+        <!-- con -->
+    </div>
+    
+    
 	<script src="../../node_modules/jquery/dist/jquery.js"></script>
-	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-	<script src="../js/bit.js"></script>
-	<script src="../js/common.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../js/bit.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="../js/pushy.js"></script>
+   <script src="../js/pushy_stampidle.js"></script>
 	<script src="main.js"></script>
 
 </body>

@@ -253,7 +253,7 @@
 .selectimg {
 	width: 45px;
 	height: 45px;
-  z-index:1;
+  z-index:0;
 }
 
 .stmpimgbox img + img {
