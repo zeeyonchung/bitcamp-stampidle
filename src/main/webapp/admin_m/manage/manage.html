@@ -33,9 +33,9 @@
 
 			<div class='swipe_nav'>
 				<ul id="tab_swipe">
-					<li class="on"><a href="#" onclick="areaSwipe.slide(0);return false;">통계</a></li>
-					<li><a href="#" onclick="areaSwipe.slide(1);return false;">고객리스트</a></li>
-					<li><a href="#" onclick="areaSwipe.slide(2);return false;">도장 발급 내역</a></li>
+					<li class="tab1 on"><a href="#" onclick="areaSwipe.slide(0);return false;">통계</a></li>
+					<li class="tab2"><a href="#" onclick="areaSwipe.slide(1);return false;">고객리스트</a></li>
+					<li class="tab3"><a href="#" onclick="areaSwipe.slide(2);return false;">도장 발급 내역</a></li>
 				</ul>
 			</div>
 
@@ -225,6 +225,30 @@ $(window).load(function(){
 });
 </script>
 <!-- // Swipe -->
+
+
+
+<!-- Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
+<script>
+$(document).ready(function() {
+   var secH1 = $(".section:nth-child(1)").outerHeight();
+   var secH2 = $(".section:nth-child(2)").outerHeight();
+   var secH3 = $(".section:nth-child(3)").outerHeight();
+   
+   $("#swipe .swWrap").css('height', secH1);
+
+   $('.tab1 a').click(function(e) {
+       $("#swipe .swWrap").css('height', secH1);
+   });
+   $('.tab2 a').click(function(e) {
+        $("#swipe .swWrap").css('height', secH2);
+    });
+   $('.tab3 a').click(function(e) {
+        $("#swipe .swWrap").css('height', secH3);
+    });
+});
+</script>
+<!-- //Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
 
 
 
