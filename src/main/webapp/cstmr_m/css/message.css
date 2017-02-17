@@ -7,6 +7,36 @@
 }
 
 
+
+
+.cafetype {
+  border-bottom: 1px solid #eee;
+  padding: 5px 10px;
+}
+
+
+
+.btn.my {
+  width: 70px;
+  height: 30px;
+  color: #fff;
+  background-color: #9c9c9c;
+  border-color: #9c9c9c;
+  padding: 0;
+}
+
+.btn.notmy {
+  width: 70px;
+  height: 30px;
+  color: gray;
+  padding: 0;
+}
+
+
+
+
+
+
 .search-msg {
 	height: 50px;
 	border-bottom: 1px solid #eee;
@@ -52,7 +82,7 @@
 }
 
 
-.msg-left .cstmer-img {
+.msg-left img {
 	height: 65px;
 	vertical-align: inherit;
 }
@@ -84,7 +114,7 @@
 }
 
 
-.msg-content .sub .cstmer-name {
+.msg-content .sub .cafe-name {
   font-size: 1.24em;
   font-weight: bold;
 }
@@ -109,7 +139,7 @@
 /*********************message detail****************************/
 
 .listback {
-  display: table;
+	display: table;
   border-bottom: 1px solid #eee;
   font-size: 1.2em;
   padding-left: 3%;
@@ -118,17 +148,17 @@
 
 
 .listback .verarr {
-  display: table-cell;
+	display: table-cell;
   vertical-align: middle;
 }
 
 .listback .back-btn {
-  width: 15px;
-  margin-right: 15px;
+	width: 15px;
+	margin-right: 15px;
 }
 
 .listback .name {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 
@@ -173,10 +203,9 @@
 
 
 
-
 .me {
     background-color: #fdfdfd;
-    display: inline-block;
+	  display: inline-block;
     float: left;
     margin: 0px 5px 0px 20px;
 }
@@ -187,23 +216,23 @@
 }
 
 .mewrap {
-  float: left;
-  clear: both;
+	float: left;
+	clear: both;
   margin-top: 10px;
 }
 
 .mewrap img {
-  float: left;
-  width: 50px;
-  height: 50px;
-  margin-right: 5px;
-  background-color: white;
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin-right: 5px;
+	background-color: white;
 }
 
 .mewrap .time {
-  display: inline-block;
-  color: white;
-  font-size: 0.9em;
+	display: inline-block;
+	color: white;
+	font-size: 0.9em;
 }
 
 
@@ -212,17 +241,17 @@
 
 
 .you {
-  background-color: rgb(106, 83, 80);
-  color: white;
-  float: right;
-  margin-right: 20px;
-  margin-left: 5px;
+	background-color: rgb(106, 83, 80);
+	color: white;
+	float: right;
+	margin-right: 20px;
+	margin-left: 5px;
 }
 
 .you::before {
-  background-color: rgb(106, 83, 80);
-  box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
-  right: -9px;    
+	background-color: rgb(106, 83, 80);
+	box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+	right: -9px;    
 }
 
 .youwrap {
@@ -233,12 +262,11 @@
 
 
 .youwrap .time {
-  display: inline-block;
-  color: white;
-  font-size: 0.9em;
-  float:right;
+	display: inline-block;
+	color: white;
+	font-size: 0.9em;
+	float:right;
 }
-
 
 
 
