@@ -109,15 +109,32 @@
 /*********************message detail****************************/
 
 .listback {
-  height: 50px;
+	display: table;
   border-bottom: 1px solid #eee;
+  font-size: 1.2em;
+  padding-left: 3%;
 }
+
+
+.listback .verarr {
+	display: table-cell;
+  vertical-align: middle;
+}
+
+.listback .back-btn {
+	width: 15px;
+	margin-right: 15px;
+}
+
+
+
 
 
 .chat {
   display: inline-block;
   overflow-y: auto;
   padding: 10px;
+  width: 100%;
 }
 
 .bubble{
@@ -129,6 +146,7 @@
     position: relative;
     vertical-align: top;
     min-height: 40px;
+    max-width: 70%;
 }
 
 .bubble::before {
@@ -174,53 +192,7 @@
 
 
 
-
-
-.chat-cstmer {
-  border-bottom: 1px solid #e0e0e0;
-  width: 100%;
-  height: 85px;
-  padding: 5px 12px;
-}
-
-
-.chat-cstmer .cstmer-img {
-  display: inline-block;
-  float: left;
-  width: 70px;
-}
-
-
-.chat-cstmer .cstmer-info {
-  display: inline-block;
-  float: left;
-  margin-left: 15px;
-  width: 120px;
-}
-
-
-.chat-cstmer .cstmer-info .name {
-  font-size: 1.2em;
-}
-
-
-.chat-cstmer .cstmer-info span, a {
-  display: block;
-}
-
-
-.chat-cstmer .mylogo {
-  height: 70px;
-  float: right;
-  margin-right: 10px;
-}
-
-
-
-
-
-
-
 .chat-input {
   padding: 5px;
+  height: 100%
 }

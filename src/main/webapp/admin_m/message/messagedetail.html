@@ -23,19 +23,10 @@
     <!-- con -->
     <div class='con'>
     
-      <div class="listback">
-        -메시지목록
-      </div>
-
-			<div class="chat-cstmer">
-				<img src="../image/cstmerPic_sample.png"
-					class="cstmer-img img-circle">
-				<div class="cstmer-info">
-					<span class="name">홍길동</span> <span class="tel">010-1565-8652</span>
-					<a class="detail-btn" href="../stampidle_cs/customerdetail.html">디테일페이지</a>
-				</div>
-				<img class="mylogo" src="../image/logo_sample.png">
-			</div>
+      <div class="listback"> <div class="verarr">
+        <img class="back-btn" src="../image/icon_arrow.png">
+        <span class="name">홍길동</span>
+      </div> </div>
 
 			<div class="chat">
 				<div class="bubble me">Hello there!</div>
@@ -69,17 +60,25 @@
 		function size() {
 			// Get the dimensions of the viewport
 			var width = $(window).width();
-			var height = $(window).height();
+			var height = $(window).height() - 50;
 			
-			console.log($(window).height() * 0.6);
-
+			$('.con').css({
+        "height" : height
+      });
+			
+			
+			$('.listback').css({
+        "height" : height * 0.1,
+      });
+			
+			
 			$('.chat').css({
-				"height" : $(window).height() * 0.6,
+				"height" : height * 0.75,
 				"overflow-y": "auto"
 			});
 			
 			$('.chat-input').css({
-        "height" : $(window).height() * 0.1
+        "height" : height * 0.144
       });
 			
 		}
