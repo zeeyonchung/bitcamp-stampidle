@@ -330,7 +330,7 @@ $(document).ready( function(){
 	  $('<img>').attr("class","backcard").attr("src",cardPath).insertBefore("#stmpside");
 		var stmpPath = $(':checked + img').attr('src');
 		$('.selectimg').remove();
-		$('<img>').attr("class","selectimg").attr("src",stmpPath).insertBefore("#photo-img");
+		$('<img>').attr("class","selectimg").attr("src",stmpPath).css('z-index','1').insertBefore("#photo-img");
   });
 
   </script>
