@@ -39,7 +39,7 @@
 	
 	      
 	      <div class="card">
-	        
+	        <img class="card-img">
 	      </div>
 	      
 	      <textarea class="gift-msg"></textarea>
@@ -76,8 +76,9 @@
         "height" : height * 0.1
       });
       
-      $('.card').css({
-        "min-height" : height * 0.35
+      $('.card-img').css({
+        "min-height" : height * 0.35,
+        "max-width" : $('.card').css('width')
       });
       
       $('.gift-msg').css({
@@ -101,7 +102,7 @@
 	<!-- 화면 로드시 내 스탬프 카드 불러오기 -->
   <script>
     $(function() {
-    	$('.card').css({'background-image':'url("../image/card2.jpg")'});
+    	$('.card-img').prop('src','../image/card2.jpg');
     });
   </script>
   
