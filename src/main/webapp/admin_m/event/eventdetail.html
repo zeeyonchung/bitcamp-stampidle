@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Stampidle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/pushy.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/eventdetail.css">
+
+</head>
+<body>
+  <div class="side-left-pushy-button" >menu btn</div>
+  <div id='header'></div>
+  <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
+  
+  <div id="container" style="padding:0px;">
+     <!-- con -->
+    <div class='con cafe-pic'>
+       <!-- 이미지 슬라이더 -->
+       <div class="carousel-buttons-container">
+          <ul></ul>
+      </div>
+	    <div class="carousel-container">
+		    <div class="left-arrow"></div>
+		    <div class="right-arrow"></div>
+		    <div class="carousel-image-holder">
+		       <img src="http://digitaljournal.com/img/8/7/8/4/4/i/1/1/7/o/ulingan_kids.jpg" />
+		       <img src="http://freethoughtblogs.com/taslima/files/2012/06/22-funny2.jpg" />
+		       <img src="http://blog.metrotrends.org/wp-content/uploads/2013/09/childPoverty.jpg" />
+		       <img src="http://www.chinadaily.com.cn/china/images/2010WenUN/attachement/jpg/site1/20100921/0013729ece6b0e01d9691a.jpg" />
+		    </div>
+	    </div>
+    </div>
+			<div class="clear"></div>
+			<!-- 타이틀 -->
+			
+			<div class='title'>
+			  <span>앤업 오피스 어택! 무료 아메리카노 증정</span>
+			</div>
+			<div class='cafe-name-before'>
+				<div class='cafe-name1'>##카페이름 명동점</div>
+			</div>
+    <div class='cafe-name-before2'>
+      <div>
+	      <span class='span-title'>&nbsp;기간&nbsp;</span>
+	      <span class='span-period1'>2017-01-01</span>
+	      <span class='span-period1 span-period2'>2017-02-01</span>
+      </div>
+      <div class='event-cont-div'>
+	      <span class='span-title'>&nbsp;내용&nbsp;</span>
+	      <span class='span-contents'>블라블라블라블라블라블라블라블라블라블라</span>
+      </div>
+      <div class='page-move'>
+        <a class='glyphicon glyphicon-pencil'></a>
+        <a class='glyphicon glyphicon-trash'></a>
+      </div>
+    </div>
+      <button class="btn btn-default btn-lg btn-block add-new-btn">새 이벤트 등록</button>
+      <!-- con -->
+  </div>
+    
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-meta.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-exif.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-exif-map.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-orientation.js"></script>
+<script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/pushy.js"></script>
+<script src="../js/pushy_stampidle.js"></script>
+<script src="main.js"></script>
+
+
+<script>
+
+
+/* input 박스 초기 값 설정 후 클릭시 삭제*/
+function clearText(field){
+if(field.defaultValue == field.value) field.value = '';
+else if(field.value == '') field.value = field.defaultValue;
+}
+
+
+/* 버튼 색상 변경 */
+$('#btn1').toggle(function(){
+	var i = 0;
+	i++;
+	console.log(i);
+	if(i%2==0){
+	$("#btn1")
+    .css("border","solid 3px red")
+    .css("background","pink");
+	} else {
+		$("#btn1")
+	    .css("border","solid 3px red")
+	    .css("background","white");
+	}
+	
+});
+</script>
+
+
+<script>
+
+
+<!-- 이미지 슬라이더 -->
+$(".left-arrow").hide();
+var numImgs = $('div.carousel-image-holder img').length;
+
+var addId = numImgs;
+
+
+
+if(numImgs == 2){       
+    var clicked = 0;
+    imgCount = numImgs-2;
+}else if(numImgs <= 1){
+    $(".right-arrow").hide();       
+}else{
+    var clicked = 1;        
+    imgCount = numImgs-1;
+}
+if(numImgs > 2){
+ for (var i=0; i<numImgs; i++){
+$("ul").prepend('<li class="carousel-buttons" id="carousel'+addId+'"></li>');
+var addId = addId - 1;
+  }
+}else{
+
+}
+
+
+$(".carousel-buttons").click(function(){
+
+var findIdClicked = $(this).attr("id");
+
+var splitString = findIdClicked.split("carousel")   
+var findTheNumb = splitString[1];
+
+$(".carousel-buttons").removeClass("active");
+$(this).addClass("active");
+clicked = parseInt(findTheNumb);
+ var adjustNumberforSlide = findTheNumb-1;
+
+$(".carousel-image-holder").animate({"left": -(600*adjustNumberforSlide)+"px"});        
+console.log(clicked);
+
+if(findTheNumb == 1){
+    $(".left-arrow").hide();
+    $(".right-arrow").show();
+}else if (findTheNumb == numImgs){
+    $(".right-arrow").hide();
+    $(".left-arrow").show();
+}else{
+    $(".right-arrow").show();
+    $(".left-arrow").show();
+}
+});
+
+
+$(".carousel-buttons-container").find("li").first().addClass("active"); 
+
+
+$(".right-arrow").click(function(){
+
+    if (clicked < imgCount){
+
+    $(".carousel-image-holder").animate({"left": "-=100%"});
+
+
+        console.log(clicked);
+    }else{
+    $(".carousel-image-holder").animate({"left": "-=100%"});
+    $(".right-arrow").hide();
+
+        console.log(clicked);
+    }
+
+    clicked = clicked+1;
+    $(".left-arrow").show();
+    $(".carousel-buttons").removeClass("active");
+    $("#carousel"+clicked).addClass("active");
+
+});
+
+$(".left-arrow").click(function(){
+
+    if (clicked > 2){
+
+    $(".carousel-image-holder").animate({"left": "+=100%"});
+
+        console.log(clicked);
+    }else{
+    $(".carousel-image-holder").animate({"left": "+=100%"});
+    $(".left-arrow").hide();
+
+        console.log(clicked);
+    }
+
+    $(".right-arrow").show();
+    clicked = clicked-1;
+    $(".carousel-buttons").removeClass("active");
+    $("#carousel"+clicked).addClass("active");
+
+
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

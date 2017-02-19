@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Stampidle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/pushy.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/cafeinfoedit2.css">
+
+</head>
+<body>
+    <div class="side-left-pushy-button" >menu btn</div>
+    <div id='header'></div>
+    <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
+    
+    <div id="container" style="padding:0px;">
+       <!-- con -->
+       <div class='con cafe-pic'>
+         <div class='cafe-edit cafe-edit2'>
+         기본 정보
+         </div>
+         <div class='cafe-edit '>
+         무료서비스
+         </div>
+         <!-- 무료 서비스 항목 정보 -->
+         <div class='logo-pic'>
+          무료서비스항목 정보
+         </div>
+         <div class='free-edit'>
+           <span class='font-ctr'>무료제공 전까지 구매 수</span>
+           <input type="text" class="form-control cafe-name-input"  >
+         </div>
+         <div class='free-edit'>
+           <span class='font-ctr'>서비스제공 한계 금액</span>
+           <input type="text" class="form-control cafe-name-input2"  >
+         </div>
+         <!--  카테고리카테고리 -->
+         <div class='categori-div'>
+           <input class='btn-category' type='button' value='  제조음료  '>
+           <input class='btn-category' type='button' value='  디져트  '>
+           <input class='btn-category' type='button' value='  병음료  '>
+        </div>
+        <!-- 사진 선택 앞면-->
+        <div class='logo-pic'>
+          스탬프카드 사진
+         </div>
+         <div class='logo-pic-area'>
+           <div class="form-group">
+            <label for="photo" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+              <label id='photo-label' class='radio-inline view-form'>
+                <img id='photo-img' height='80'>
+              </label>
+              <label class='radio-inline'>  
+                <input id='photo' class='form-control glyphicon glyphicon-camera' type='file' name='files' multiple>
+                <input id='photo-path' type='hidden'>
+              </label>
+            </div>
+           </div>
+         </div>
+        <!-- 사진 뒷면-->
+         <div class='logo-pic-area'>
+           <div class="form-group">
+            <label for="photo" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+              <label id='photo-label' class='radio-inline view-form'>
+                <img id='photo-img' height='80'>
+              </label>
+              <label class='radio-inline'>  
+                <input id='photo' class='form-control glyphicon glyphicon-camera' type='file' name='files' multiple>
+                <input id='photo-path' type='hidden'>
+              </label>
+            </div>
+           </div>
+         </div>
+        <!-- 마지막 버튼 -->
+       <div class='cafe-edit cafe-edit3'>
+       기타등록
+       </div>
+    </div>
+        <!-- con -->
+  </div>
+    
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-meta.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-exif.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-exif-map.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-orientation.js"></script>
+<script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/pushy.js"></script>
+<script src="../js/pushy_stampidle.js"></script>
+<script src="main.js"></script>
+
+
+<script>
+
+
+/* input 박스 초기 값 설정 후 클릭시 삭제*/
+function clearText(field){
+if(field.defaultValue == field.value) field.value = '';
+else if(field.value == '') field.value = field.defaultValue;
+}
+
+
+/* 버튼 색상 변경 */
+$('#btn1').toggle(function(){
+	var i = 0;
+	i++;
+	console.log(i);
+	if(i%2==0){
+	$("#btn1")
+    .css("border","solid 3px red")
+    .css("background","pink");
+	} else {
+		$("#btn1")
+	    .css("border","solid 3px red")
+	    .css("background","white");
+	}
+	
+});
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
