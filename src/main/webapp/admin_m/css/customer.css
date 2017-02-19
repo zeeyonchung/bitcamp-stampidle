@@ -1,0 +1,155 @@
+@CHARSET "UTF-8";
+
+
+
+#container {
+	padding: 0;
+}
+
+
+.padding {
+	padding: 0px 20px 0px 20px;
+}
+
+
+.btnwrap {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.btn.confirm {
+  width: 45%;
+  height: 40px;
+  color: white;
+  background-color: #ff5948;
+  border-color: #ff5948;
+  border-radius: 30px;
+}
+
+
+.help {
+	height: 40px;
+	width: 40px;
+	background: url("../image/icon_inf.png") no-repeat center center;
+	background-size: 24px 24px;
+	font-size: 0;
+	float: right;
+}
+
+
+
+
+
+
+.cstmer {
+	background-color: #f9f9f9;
+	margin-top: 20px;
+	clear: both;
+	padding: 15px;
+}
+
+
+
+
+.cstmer .info {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #d2d2d2;
+}
+
+.cstmer .info .cstmer-img {
+	width: 60px;
+	height: 60px;
+}
+
+.cstmer .info .textwrap {
+	display: inline-block;
+	margin-left: 20px;
+	vertical-align: middle;
+}
+
+.cstmer .info .textwrap .name {
+	font-size: 1.4em;
+}
+
+.cstmer .info .msg-btn {
+	width: 40px;
+	height: 40px;
+	float: right;
+  background-color: white;
+  margin-top: 10px;
+}
+
+
+
+
+
+.cstmer .finish {
+	padding: 10px 20px 0px 20px;
+}
+
+.cstmer .finish .left {
+	display: inline-block;
+	text-align: center;
+}
+
+.cstmer .finish .left .no {
+	height: 35px;
+	font-size: 1.7em;
+	font-weight: bold;
+}
+
+.cstmer .finish .right {
+	display: inline-block;
+	text-align: center;
+	float: right;
+}
+
+.cstmer .finish .right .useno {
+	width: 50px;
+	height: 28px;
+	text-align: center;
+	margin-top: 5px;
+	font-size: 1.3em;
+	font-weight: bold;
+	border: 1px solid #d8d7d7;
+}
+
+.cstmer .finish .use {
+	margin-top: 10px;
+	margin-right: 7px;
+	float: right;
+}
+
+.cstmer .finish .use .use-btn {
+	width: 70px;
+	height: 25px;
+	padding: 0;
+	background-color: #ff5948;
+	border-color: #ff5948;
+	color: white;
+}
+
+.cstmer .finish .use .cancel-btn {
+	width: 50px;
+	height: 25px;
+	padding: 0;
+	color: #fff;
+	background-color: #999;
+	border-color: #999;
+}
+
+
+
+
+.cstmer .stat {
+	border: 1px solid #d2d2d2;
+	margin-top: 55px;
+	padding: 10px 20px;
+	font-size: 0.9em;
+}
+
+.cstmer .stat .title {
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 15px;
+}

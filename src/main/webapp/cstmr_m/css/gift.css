@@ -1,0 +1,110 @@
+@CHARSET "UTF-8";
+
+
+
+
+#container {
+  padding: 0;
+}
+
+.listback {
+  display: table;
+  border-bottom: 1px solid #eee;
+  font-size: 1.2em;
+  padding: 0 3%;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+
+.listback .verarr {
+  display: table-cell;
+  vertical-align: middle;
+  
+}
+
+.listback .back-btn {
+  width: 15px;
+  margin-right: 15px;
+}
+
+
+.floatright {
+	float: right;
+	position: relative;
+  top: 5px;
+}
+
+
+
+
+
+
+
+.padding {
+	 padding: 0 2%;
+	 text-align: center;
+}
+
+
+.search-form {
+	margin: 10% 2%;
+}
+
+.search-form .form-control {
+	display: inline-block;
+	width: 79%;
+	height: 40px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+
+.search-form .form-control:focus {
+  border: 1px solid tomato;
+}
+
+.btn.search {
+	vertical-align: inherit;
+	width: 20%;
+	height: 40px;
+	float: right;
+	color: #fff;
+	background-color: #444;
+	border-color: #444;
+}
+
+.search-form .btn:focus {
+  outline: none;
+}
+
+
+.gift-msg {
+	width: 100%;
+	margin-top: 8%;
+	margin-bottom: 5%;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.gift-msg:focus {
+	outline: none;
+}
+
+
+.btn.send {
+  vertical-align: inherit;
+  width: 80%;
+  height: 40px;
+  color: #fff;
+  background-color: #444;
+  border-color: #444;
+}
+
+
+/******************* 스탬프 선택하기 **********************/
+
+
+.card {
+}

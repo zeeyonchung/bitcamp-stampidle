@@ -1,0 +1,87 @@
+@CHARSET "UTF-8";
+
+.my-photo {
+  height: 230px;
+  margin: auto;
+  padding-top: 35px;
+  background-image: url('../image/coffee.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.photo-are {
+	position:relative;
+	width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-top: 25px;
+  border-radius: 50px;
+  background-color: #ddd;
+  background-image: url('../image/profile.png');
+  background-size: 60% 70%;
+  background-position: center 27px;
+  background-repeat: no-repeat;
+  box-shadow: 0px 0px 0px 5px rgb(255,255,255);
+}
+
+.camera-btn {
+	position: absolute;
+	border: none;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(255,255,255,0.1);
+	margin-left: 200px;
+	margin-top: -30px;
+}
+
+.input-are {
+	width: 90%;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 60px;
+}
+
+.under-bar {
+	border: 1px solid #ddd;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+li {
+	font-size: 15px;
+	color: gray;
+}
+
+input {
+	height: 40px;
+	width: 70%;
+}
+
+.name {
+	margin-left: 60px;
+}
+
+.tel {
+	margin-left: 30px;
+}
+
+.nickname {
+	margin-left: 50px;
+}
+
+.email {
+	margin-left: 50px;
+}
+
+
+.submit {
+	display:inherit;
+	border: none;
+	margin: auto;
+	color: white;
+	background-color: rgb(255,90,73);
+	border-radius: 50px;
+	width: 60%;
+	height: 50px;
+	font-size: 17px;
+}

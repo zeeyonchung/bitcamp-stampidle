@@ -33,9 +33,9 @@
 
 			<div class='swipe_nav'>
 				<ul id="tab_swipe">
-					<li class="on"><a href="#" onclick="areaSwipe.slide(0);return false;">통계</a></li>
-					<li><a href="#" onclick="areaSwipe.slide(1);return false;">고객리스트</a></li>
-					<li><a href="#" onclick="areaSwipe.slide(2);return false;">도장 발급 내역</a></li>
+					<li class="tab1 on"><a href="#" onclick="areaSwipe.slide(0);return false;">통계</a></li>
+					<li class="tab2"><a href="#" onclick="areaSwipe.slide(1);return false;">고객리스트</a></li>
+					<li class="tab3"><a href="#" onclick="areaSwipe.slide(2);return false;">도장 발급 내역</a></li>
 				</ul>
 			</div>
 
@@ -53,11 +53,11 @@
 						</div>
 						
 						<div class="graphwrap">
-	            <div id="chart" style="max-height:300px; max-width:300px; margin: 0 auto"></div>
+	            <div id="chart"></div>
 				    </div>
 				    <hr class="color">
 						<div class="graphwrap">
-						  <div id="pie" style="max-height:300px; max-width:300px; margin: 0 auto"></div>
+						  <div id="pie"></div>
 						</div>
 						
 						
@@ -225,6 +225,8 @@ $(window).load(function(){
 });
 </script>
 <!-- // Swipe -->
+
+
 
 
 

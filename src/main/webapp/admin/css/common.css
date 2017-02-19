@@ -3,13 +3,14 @@
 @import url("default.css");
 @import url("frame.css");
 @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @import url("message.css");
 
 /*************************************************
                                     common                     
 *************************************************/
 * {
-	font-family: "malgun gothic", "san-serif";
+	font-family: "Nanum Gothic", "malgun gothic", "san-serif";
 }
 
 body {

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Stampidle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/pushy.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/message.css">
+
+
+</head>
+<body>
+  <div class="side-left-pushy-button">menu btn</div>
+  <div id='header'></div>
+  <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
+
+  <div id="container">
+     <h2 id='pageTit'>메시지</h2>
+     
+    <!-- con -->
+    <div class='con'>
+    
+      <div class="listback"> <div class="verarr">
+        <img class="back-btn" src="../image/icon_arrow.png">
+        <span class="name">홍길동</span>
+      </div> </div>
+
+			<div class="chat">
+        <div class="mewrap"><img class="img-circle" src="../image/cstmerPic_sample.png"><div class="bubble me">Hello there!</div><div class="time">13:52</div></div>
+        <div class="youwrap"><div class="bubble you">Hi. I'm an expandeable chat box with
+          box shadow. How are you? I expand horizontally and vertically, as
+          you can see here.</div><div class="time">13:52</div></div>
+        <div class="mewrap"><img class="img-circle" src="../image/cstmerPic_sample.png"><div class="bubble me">Hello there!</div><div class="time">13:52</div></div>
+        <div class="mewrap"><img class="img-circle" src="../image/cstmerPic_sample.png"><div class="bubble me">ow are you? I expand horizontally and vertically, asow are you? I expand horizontally and vertically, as</div><div class="time">13:52</div></div>
+        <div class="youwrap"><div class="bubble you">wlridnsrjf</div><div class="time">13:52</div></div>
+        <div class="youwrap"><div class="bubble you">안녕안녕안녕안여낭ㄴㄴ안녕안연안녕안녕</div><div class="time">13:52</div></div>
+        <div class="youwrap"><div class="bubble you">ekskekfkakqk</div><div class="time">13:52</div></div>
+        <div class="youwrap"><div class="bubble you">ekskekfkakqk</div><div class="time">13:52</div></div>
+        <div class="youwrap"><div class="bubble you">ekskekfkakqk</div><div class="time">13:52</div></div>
+        <div class="mewrap"><img class="img-circle" src="../image/cstmerPic_sample.png"><div class="bubble me">Hello there!</div><div class="time">13:52</div></div>
+      </div>
+			
+      <textarea class="chat-input form-control"></textarea>
+
+		</div>
+    <!-- //con -->
+  </div>
+
+
+  <script src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../js/bit.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/pushy.js"></script>
+  <script src="../js/pushy_stampidle.js"></script>
+
+
+  <script>
+		function size() {
+			// Get the dimensions of the viewport
+			var width = $(window).width();
+			var height = $(window).height() - 50;
+			
+			$('.con').css({
+        "height" : height
+      });
+			
+			
+			$('.listback').css({
+        "height" : height * 0.1,
+      });
+			
+			
+			$('.chat').css({
+				"height" : height * 0.75,
+				"overflow-y": "auto"
+			});
+			
+			$('.chat-input').css({
+        "height" : height * 0.144
+      });
+			
+		}
+		$(document).ready(size); // When the page first loads
+		$(window).resize(size); // When the browser changes size
+	</script>
+	
+	<script>
+    $('.back-btn').click(function() {
+      location.href = "message.html";
+    })
+  </script>
+
+</body>
+</html>

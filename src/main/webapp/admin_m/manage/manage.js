@@ -94,11 +94,11 @@ var dataSource2 = [{
     region: "한달전",
     val: 5
 }, {
-    region: "첫방문",
-    val: 20
-}, {
     region: "한달이상",
-    val: 3
+    val: 7
+}, {
+    region: "첫방문",
+    val: 15
 }];
 
 

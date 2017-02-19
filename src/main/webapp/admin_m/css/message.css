@@ -1,102 +1,46 @@
 @CHARSET "UTF-8";
 
-.modal {
-	z-index:10000;
-}
-.modal-content hr {
-  border: 1px solid #ececec;
-}
 
-h4 {
-  font-size: 1.4em;
-  font-weight: bold;
+
+#container {
+	padding: 0;
 }
 
 
-.modal-dialog {
-    width: 465px;
-    margin: 30px auto;
+.search-msg {
+	height: 50px;
+	border-bottom: 1px solid #eee;
+	padding: 12px 10px;
 }
 
-.modal-header {
-  background-color: #ff5948;
-  color: white;
+.search-msg img {
+	width: 15px;
+	margin-right: 10px;
 }
 
-.modal-header .close span {
-  color: white;
-  font-size: 1.2em;
+.search-msg input {
+	width: 90%;
+	border: 0;
+	vertical-align: sub;
 }
 
-.modal-header .modal-title {
-  text-align: center;
+.search-msg input:focus {
+  outline: none;
 }
-
-.modal-header > img {
-  width: 25x;
-  float: left;
-}
-
-.modal-header > img:hover {
-  cursor: pointer;
-}
-
-
-
-
-
-
-.modal-content {
-  position: relative;
-  width: 465px;
-  min-height: 590px;
-  text-align: left;
-}
-
-
-.modal-content .modal-footer {
-  position: absolute;
-  bottom: 0;
-  width: 463px;
-  background-color: white;
-}
-
-
-.modal-content .modal-body {
-  position: relative;
-  padding: 0px;
-  height: 510px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-
-.modal-content .modal-body::-webkit-scrollbar {
-    width: 12px;
-}
-.modal-content .modal-body::-webkit-scrollbar-track {
-    background-color: #eaeaea;
-}
-.modal-content .modal-body::-webkit-scrollbar-thumb {
-    background-color: rgba(110, 110, 110, 0.2);
-}
-.modal-content .modal-body::-webkit-scrollbar-thumb:hover {
-  background-color: #aaa;
-}
-
-
 
 
 .one-msg {
-  height: 100px;
-  padding: 10px 15px;
+	position: relative;
+	padding: 10px;
+  height: 90px;
+  border-bottom: 1px solid #eee;
+  /*max-width: 420px;*/
 }
 
 
 
-.one-msg:hover {
-  background-color: #f9f9f9;
-  cursor: pointer;
+.one-msg:active {
+  background-color: #f3f3f3;
 }
 
 
@@ -104,11 +48,13 @@ h4 {
 .one-msg .msg-left {
   position: relative;
   display: inline-block;
+  margin-right: 2%;
 }
 
 
 .msg-left .cstmer-img {
-  width: 80px;
+	height: 65px;
+	vertical-align: inherit;
 }
 
 
@@ -126,11 +72,10 @@ h4 {
 
 
 .one-msg .msg-content {
+	width: 73%;
   position: relative;
   display: inline-block;
-  float: right;
-  width: 320px;
-  height: 80px;
+  vertical-align: top;
 }
 
 
@@ -145,56 +90,68 @@ h4 {
 }
 
 
-.msg-content .sub .msg-date {
-  float: right;
+.msg-date {
+	position: absolute;
+	top: 10px;
+	right: 10px;
   font-size: 0.9em;
   color: #b9b9b9;
 }
 
 .msg-content .pre-msg {
   display: inline-block;
-  width: 280px;
-}
-
-
-.msg-content > img {
-  vertical-align: bottom;
-  width: 22px;
-  position: relative;
-  left: 22px;
-}
-
-.msg-content > img:hover {
-  cursor: pointer;
+  max-height: 42px;
 }
 
 
 
 
+/*********************message detail****************************/
 
-
-
-.message-detail {
+.listback {
+  display: table;
+  border-bottom: 1px solid #eee;
+  font-size: 1.2em;
+  padding-left: 3%;
+  width: 100%;
 }
+
+
+.listback .verarr {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.listback .back-btn {
+  width: 15px;
+  margin-right: 15px;
+}
+
+.listback .name {
+  font-weight: bold;
+}
+
 
 
 
 
 .chat {
-  margin: 10px;
   display: inline-block;
-  width: 430px;
+  padding: 10px;
+  width: 100%;
+  background-image: url('../image/hotchocolate.png');
+  background-position:bottom center;
 }
 
-.bubble{
-    background-color: #fdfdfd;
+.bubble {
     border-radius: 5px;
     box-shadow: 0 0 6px #B2B2B2;
     display: inline-block;
     padding: 10px 18px;
     position: relative;
     vertical-align: top;
-    min-height: 40px;
+    min-height: 50px;
+    max-width: 70%;
 }
 
 .bubble::before {
@@ -212,10 +169,16 @@ h4 {
     width:  20px;
 }
 
+
+
+
+
+
 .me {
+    background-color: #fdfdfd;
+    display: inline-block;
     float: left;
-    clear: both;
-    margin: 5px 45px 5px 20px;         
+    margin: 0px 5px 0px 20px;
 }
 
 .me::before {
@@ -223,68 +186,58 @@ h4 {
     left: -9px;           
 }
 
+.mewrap {
+  float: left;
+  clear: both;
+  margin-top: 10px;
+}
+
+.mewrap img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  background-color: white;
+}
+
+.mewrap .time {
+  display: inline-block;
+  color: white;
+  font-size: 0.9em;
+}
+
+
+
+
+
+
 .you {
-    float: right;
-    clear: both;
-    margin: 5px 20px 5px 45px;         
+  background-color: rgb(106, 83, 80);
+  color: white;
+  float: right;
+  margin-right: 20px;
+  margin-left: 5px;
 }
 
 .you::before {
-    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
-    right: -9px;    
+  background-color: rgb(106, 83, 80);
+  box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+  right: -9px;    
 }
 
-
-
-
-
-
-
-
-
-.chat-cstmer {
-  border-bottom: 1px solid #e0e0e0;
-  width: 463px;
-  height: 100px;
-  padding: 5px 12px;
-}
-
-
-.chat-cstmer .cstmer-img {
-  display: inline-block;
-  float: left;
-  width: 87px;
-}
-
-
-.chat-cstmer .cstmer-info {
-  display: inline-block;
-  float: left;
-  margin-top: 5px;
-  margin-left: 15px;
-  width: 120px;
-}
-
-
-.chat-cstmer .cstmer-info .name {
-  font-size: 1.5em;
-}
-
-
-.chat-cstmer .cstmer-info span, a {
-  display: block;
-}
-
-
-.chat-cstmer .mylogo {
-  width: 60px;
+.youwrap {
   float: right;
-  margin-right: 10px;
+  clear: both;
+  margin-top: 10px;
 }
 
 
-
-
+.youwrap .time {
+  display: inline-block;
+  color: white;
+  font-size: 0.9em;
+  float:right;
+}
 
 
 
@@ -292,8 +245,8 @@ h4 {
 
 
 .chat-input {
-  width: 433px;
-  height: 60px;
   padding: 5px;
+  height: 100%;
+  border-top: 5px solid gray;
+  border-radius: initial;
 }
-

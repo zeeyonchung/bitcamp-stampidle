@@ -1,10 +1,24 @@
-<div class='navbar'><a href='#' class='sidebar-toggle' data-toggle='offcanvas'>show navigation</a></div>
-        
-        <div class='top'>
-            <h1 class='logo'><a href='../main/main.html'><img src='../image/logo.png' alt='Stampidle'></a></h1>
+            <!-- <div class="side-left-pushy-button" >menu btn</div> -->
+            <h1 class='logo'><a href='../main/main.html'><img src='../image/logoW.png' alt='Stampidle'></a></h1>
+            <h2 id='pageTitle'></h2>
+            <a class='btn_message' data-toggle="modal"  data-target="#myModal"  data-remote="../message.html">
+                <span class='msg'>메시지함</span><span class='newMsg'>10</span>
+            </a>
             
+            <div id="sb-search" class="sb-search">
+                <form>
+                    <input class="sb-search-input" placeholder="이름 또는 전화번호" type="text"  name="search" id="search">
+                    <div class='inputArea'>
+	                    <ul class='srchList'>
+	                        <li><a href='../stampidle_cs/customerdetail.html'><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-1234-5678</span></a></li>
+	                        <li><a href='../stampidle_cs/customerdetail.html'><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-2345-6789</span></a></li>
+	                    </ul>
+                    </div>
+                    <span class="sb-icon-search btn_search">검색</span>
+                </form>
+            </div>
             
-            <div class='search'>
+            <div class='searchMain'>
                 <div class='inputArea'>
                     <input class='srchBar' type='text' placeholder='이름 또는 전화번호'><a href='' class='btn_srch'>검색</a>
                     <ul class='srchList'>
@@ -14,42 +28,38 @@
                 </div>
                 <button class='btn_newCstmr_top' type='button'>고객등록</button>
             </div>
-            
-            
-            <div id='logoff-div' class='btnStyle1' ><a id='login-btn' href='#'>로그인</a></div>
-            
-            <div id='logon-div'>
-                <div class='logonTxt'><span class='cafeNm'>카페프레스코</span><p class='hello'>Welcome to Stampidle</p></div>
-                <div class='profileImg'><img src='../image/cstmerPic_sample.png' alt='Profile Img'></div>
-            </div>
-            <div class='profilePop'>
-                <a href='' class='profileImgB'><img src='../image/cstmerPic_sample.png' alt='Profile Img'></a>
-                <div class='chk-useImg'>
-                  카페로고를<br>프로필이미지로 사용 
-                    <div class='chkArea'><input type='checkbox' id='checkbox1' class='input1' /><label for='checkbox1'></label></div>
-                </div>
-                <a id='logout-btn' class='btnStyle1' href='#'>로그아웃</a>
-                <div class='btnInfo'>
-                    <a class='btn-joinInfo btnStyle1' href='#'>가입정보 변경</a>
-                    <a class='btn-cafeInfo btnStyle1' href='#'>카페정보 변경</a>
-                </div>
-                <a class='close_profilePop'>x</a>
-            </div>
-            
+
+
+
+<!-- btn_message 메시지팝업 -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog" data-keyboard="false">
+           <div class="modal-dialog">
+              <div class="modal-content"></div>
+           </div>
         </div>
-
-
-<script type='text/javascript' src='../js/jQuery-2.1.3.min.js'></script>
-<script type='text/javascript' src='../js/slidemenu.min.js'></script>
+        <!-- Modal2 -->
+        <div class="modal" id="myModal2" aria-hidden="true" style="display: none;" data-keyboard="false">
+           <div class="modal-dialog">
+              <div class="modal-content"></div>
+           </div>
+        </div>
+        <!-- //btn_message 메시지팝업 -->
+        
+        
+<!-- expand searchbar button -->
+<script src="../js/modernizr.custom.js"></script>
+<script src="../js/classie.js"></script>
+<script src="../js/uisearch.js"></script>
 <script>
-	/* profilePop */
-	$(document).ready(function() {
-		$('#logon-div').click(function() {
-			$('.profilePop').fadeIn(200);
-		});
+new UISearch(document.getElementById('sb-search'));
+</script>
+<!-- //expand searchbar button -->
 
-		$('.close_profilePop').click(function() {
-			$('.profilePop').fadeOut(200);
-		});
-	});
+<script>
+$(function() {
+    // 페이지별 title을 가져와 topbar에 넣기
+    var pageTitString = $("#pageTit").text();
+    $("#pageTitle").text(pageTitString);
+});
 </script>

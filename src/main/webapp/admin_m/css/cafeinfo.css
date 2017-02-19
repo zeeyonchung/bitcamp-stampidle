@@ -10,7 +10,7 @@
 
 /************ introArea ************/
 .introArea {
-	padding:0 4%;
+	padding:0 3%;
 	height: 130px;
 }
 
@@ -29,7 +29,7 @@
 .introArea .cafeTxt {
     float:left;
     width:68%;
-    margin-left:4%;
+    margin-left:3%;
 }
 
 .introArea .cafeTxt .cafeName {
@@ -124,8 +124,8 @@
 }
 
 .imgInfoArea .card h3 {
-    padding:10px 4%;
-    font-size:1.5em;
+    padding:10px 3%;
+    font-size:1.4em;
     color: #444;
     font-weight:bold;
     letter-spacing:-1px;	
@@ -141,12 +141,12 @@
 }
 
 .imgInfoArea .card .cardInfo {
-    padding:15px 20px 25px 20px;
+    padding:15px 20px 30px 20px;
     text-align:center;
 }
 
 .imgInfoArea .card .cardInfo .stampNum {
-    padding-top:15px;
+    padding-top:10px;
 }
 
 .imgInfoArea .card .cardInfo .stampNum .txt1 {
@@ -161,7 +161,7 @@
 
 .imgInfoArea .card .cardInfo .stampNum .txt2 {
 	color:#555;
-    padding:10px 4%;
+    padding:7px 4%;
     font-size:0.9em;
 }
 
@@ -346,11 +346,11 @@
 /************ 대표메뉴 menuArea ************/
 .menuArea {
     clear:both;
-    padding:25px 4% 0 4%;
+    padding:15px 3% 0 3%;
 }
 
 .menuArea h3 { 
-	font-size:1.5em;
+	font-size:1.4em;
 	margin-bottom:10px;
 	color: #444;
     font-weight:bold;
@@ -445,20 +445,22 @@
 	position:relative;
 	clear: both;
 	width: 100%;
-	padding:50px 4% 0 4%;
+	padding:50px 0 0 0;
 }
 
 .commentArea h3 {
 	color: #444;
 	font-weight:bold;
 	letter-spacing:-1px;
-	font-size:1.5em;
+	font-size:1.4em;
+	margin:0 3%;
 }
 
 /* 별점 starScore */
 .commentArea .starScore {
 	padding-top:10px;
 	height:20px;
+	margin:0 3%;
 }
 
 .commentArea .starScore .result {
@@ -503,12 +505,15 @@
 .commentArea .comment_list {
     font-size: 0.8em;
 }
+
 .commentArea .comment_list .total {
-	margin-top: 30px;
-	padding-bottom:2px;
-	border-bottom: 2px solid #555;
+	margin: 30px 3% 2px 3%;
 	color: #666;
 	font-size:1.3em;
+}
+
+.commentArea .comment_list ul {
+    border-top: 2px solid #555;
 }
 
 .commentArea .comment_list .total span {
@@ -524,6 +529,7 @@
 	float: left;
 	width: 100%;
 	border-bottom: 1px solid #e7e8e9;
+	padding:0 3%;
 }
 
 .commentArea .comment_list li .profileImg {
