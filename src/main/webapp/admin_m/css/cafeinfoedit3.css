@@ -1,8 +1,16 @@
+@CHARSET "UTF-8";
+
+@import url("slick.css");
+
 .cafe-pic {
 	width: 100%;
 	margin:0;
 	padding:0px;
 	
+}
+.slick-slide img {
+    display: block;
+    width: 100%;
 }
 
 .cafe-edit {
