@@ -1,15 +1,16 @@
 @CHARSET "UTF-8";
 
-@import url("slick.css");
-
 .secTit {
 	margin-bottom:5px;
 }
 
 /************ 카페소개 ************/
 
+.intro {
+	height: 630px;
+}
+
 .cafe-card {
-	border: 1px solid red;
 	width: 100%;
 	height: 200px;
 	margin: auto;
@@ -41,10 +42,9 @@
 }
 
 .cafe-text {
-	border: 1px solid red;
 	margin: auto;
 	width: 80%;
-	height: 300px;
+	height: 250px;
 }
 
 .cafe-name {
@@ -92,6 +92,12 @@
 }
 
 .cafe-addr:before {
+	width:20px;
+  padding-right:7px;
+  font-family:"FontAwesome";
+  color:#b4b4b4;
+  display:inline-block;
+  text-align:center;
 	content: "\f041";
 }
 
@@ -99,8 +105,57 @@
 	margin-top: 10px;
 }
 
+.cafe-tel:before {
+	width:20px;
+  padding-right:7px;
+  font-family:"FontAwesome";
+  color:#b4b4b4;
+  display:inline-block;
+  text-align:center;
+  content: "\f095";
+}
+
 .cafe-info {
 	margin-top: 10px;
+}
+
+.cafe-info:before {
+  width:20px;
+  padding-right:7px;
+  font-family:"FontAwesome";
+  color:#b4b4b4;
+  display:inline-block;
+  text-align:center;
+  content: "\f040";
+}
+
+
+.btn-message {
+	float: right;
+	border: none;
+	width: 20%;
+	height: 70px;
+	border-radius: 100%;
+	background-color: gray;
+	background-image: url('../image/post.png');
+	background-size: 60% 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.btn-gift {
+	float: right;
+	border: none;
+	width: 20%;
+	height: 70px;
+	margin-right: 10px;
+	margin-left: 10px;
+	border-radius: 100%;
+	background-color: rgb(255,90,73);
+	background-image: url('../image/gift.png');
+	background-size: 60% 60%;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 /************ 대표메뉴 menuArea ************/
