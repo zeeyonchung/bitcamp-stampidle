@@ -1,3 +1,7 @@
+@CHARSET "UTF-8";
+
+@import url("slick.css");
+
 .cafe-pic {
 	width: 100%;
 	margin:0;
@@ -7,88 +11,101 @@
 
 
 /*이미지 슬라이더*/
-.clear{clear:both;}
 
-.carousel-container{
-width: 100%;
-height: 360px;
-float: left;
-margin: 0;
-padding: 0;
-position: relative;
-overflow: hidden;
+/* //cafe interior images slide */
+
+
+ .imgInfo .infoDetail {
+    padding:15px;
+}
+
+.imgInfo .infoDetail .time,
+.imgInfo .infoDetail .seat,
+.imgInfo .infoDetail .tel,
+.imgInfo .infoDetail .addr
+{
+  font-size:0.9em;
+  color:#666;
+}
+  
+.imgInfoArea .imgInfo .infoDetail .time:before,
+.imgInfoArea .imgInfo .infoDetail .seat:before,
+.imgInfoArea .imgInfo .infoDetail .tel:before,
+.imgInfoArea .imgInfo .infoDetail .addr:before
+{
+  width:20px;
+  padding-right:7px;
+    font-family:"FontAwesome";
+    color:#b4b4b4;
+    display:inline-block;
+    text-align:center;
+}
+
+.imgInfoArea .imgInfo .infoDetail .time:before {
+    content: "\f017";
+}
+
+.imgInfoArea .imgInfo .infoDetail .seat:before {
+    content: "\f007";
+}
+
+.imgInfoArea .imgInfo .infoDetail .tel:before {
+    content: "\f095";
+}
+
+.imgInfoArea .imgInfo .infoDetail .addr:before {
+    content: "\f041";
+}
+
+.imgInfoArea .imgInfo .infoDetail .btn-showMap {
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:40px;
+    height:40px;
+    background:#666;
+    border-radius: 40px;
+    border:0;
+    font-size:0;
+}
+
+.imgInfoArea .imgInfo .infoDetail .btn-showMap:before {
+    font-family:"FontAwesome";
+    content: "\f041";
+    color:#fff;
+    font-size:25px;
+}
+
+.imgInfoArea .imgInfo .map {
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.imgInfoArea .imgInfo .map .btn-hideMap {
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:40px;
+    height:40px;
+    background:#666;
+    border-radius: 40px;
+    border:0;
+    font-size:0;
+}
+
+.imgInfoArea .imgInfo .btn-hideMap:before {
+    font-family:"FontAwesome";
+    content: "\f00d";
+    color:#fff;
+    font-size:25px;
 }
 
 
-.right-arrow{
-    width: 10%;
-    height: 100%;
-    background-color: rgba(0,0,0,.5);
-    position: absolute;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    z-index: 2;
-}
-
-.left-arrow{
-    width: 10%;
-    height: 100%;
-    background-color: rgba(0,0,0,.5);
-    position: absolute;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    z-index: 2;
-}
-.carousel-image-holder{
-    height:360px;
-    width: 400%;
-    margin: 0;
-    padding: 0;
-    position: absolute; 
-    z-index: 1;
-}
-
-.carousel-image-holder img{
-    width: 600px;
-    float: left;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-}
-
-.carousel-buttons-container{
-    width: 600px;
-    text-align: center;
-    margin: 15px 0 0 0;
-    padding: 0;
-}
-
-.carousel-buttons-container ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.carousel-buttons{
-    background-color: #dddddd;
-    height: 18px;
-    width: 18px;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 10px 0 0;
-    padding: 0;
-    cursor: pointer;
-}
-
-.carousel-buttons:last-of-type{
-    margin: 0;
-}
-
-.active{
-    background-color: #e67e22;
-}
+/*이미지 슬라이더*/
 .location-div {
 	width:95%;
 	margin-top:3%;
