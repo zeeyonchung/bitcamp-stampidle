@@ -43,7 +43,10 @@
         <div class="mewrap"><img class="img-circle" src="../image/cstmerPic_sample.png"><div class="bubble me">Hello there!</div><div class="time">13:52</div></div>
       </div>
 			
-      <textarea class="chat-input form-control"></textarea>
+			<div class="inputwrap">
+        <textarea class="chat-input form-control"></textarea>
+        <img src="../image/icon_send.png">
+      </div>
 
 		</div>
     <!-- //con -->
@@ -75,12 +78,12 @@
 			
 			
 			$('.chat').css({
-				"height" : height * 0.75,
+				"height" : height * 0.8,
 				"overflow-y": "auto"
 			});
 			
-			$('.chat-input').css({
-        "height" : height * 0.144
+			$('.inputwrap').css({
+        "height" : height * 0.1
       });
 			
 		}
