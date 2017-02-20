@@ -211,9 +211,7 @@ $(window).load(function(){
             }
             mnTab[pos].className = 'on';
             
-            console.log(currentSlide);
 				    var secH = $(".section:nth-of-type(" + currentSlide + ")").outerHeight();
-            console.log(secH);
             $("#swipe .swWrap").css('height', secH);
         }
     });
