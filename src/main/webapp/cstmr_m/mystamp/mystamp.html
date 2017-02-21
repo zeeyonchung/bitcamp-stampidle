@@ -21,13 +21,12 @@
 	<div id="container">
 	   <h2 id='pageTit'>나의 스탬프</h2>
 	   
-	   <div class='test'></div>
 		<!-- con -->
 		<div class='con'>
 
 			<div class='swipe_nav'>
 				<ul id="tab_swipe">
-					<li class="tab on"><a href="#" onclick="areaSwipe.slide(0);return false;">전체카드</a></li>
+					<li class="tab1 on"><a href="#" onclick="areaSwipe.slide(0);return false;">전체카드</a></li>
 					<li class='tab2'><a href="#" onclick="areaSwipe.slide(1);return false;">즐겨찾는 카드</a></li>
 					<li class='tab3'><a href="#" onclick="areaSwipe.slide(2);return false;">다모은 카드</a></li>
 				</ul>
@@ -240,12 +239,6 @@
 			</div>
 
 
-			<div id="paging">
-				<button type="button" class="prev" onclick="areaSwipe.prev();">Prev</button>
-				<span id="b"></span>
-				<button type="button" class="next" onclick="areaSwipe.next();">Next</button>
-			</div>
-
 		</div>
 		<!-- //con -->
 	</div>
@@ -269,23 +262,25 @@ $(window).load(function(){
     if (!document.getElementById('tab_swipe')) return false;
     var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
     var elem = document.getElementById('swipe');
+    
+    
     window.areaSwipe = Swipe(elem, {
         startSlide: 0,
         continuous: true,
         callback: function(pos) {
             var currentSlide = areaSwipe.getPos() + 1;
-            var totalSlides = areaSwipe.getNumSlides();
-            document.getElementById('b').innerHTML = currentSlide + ' / ' + totalSlides;
             var n = mnTab.length;
             while (n--) {
                 mnTab[n].className = ' ';
             }
             mnTab[pos].className = 'on';
+            
+            console.log(currentSlide);
+                var secH = $(".section:nth-of-type(" + currentSlide + ")").outerHeight();
+            console.log(secH);
+            $("#swipe .swWrap").css('height', secH);
         }
     });
-    var currentSlide = areaSwipe.getPos() + 1;
-    var totalSlides = areaSwipe.getNumSlides();
-    document.getElementById('b').innerHTML = currentSlide + ' / ' + totalSlides;
 });
 </script>
 <!-- // Swipe -->

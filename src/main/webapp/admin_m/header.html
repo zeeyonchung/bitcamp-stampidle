@@ -1,7 +1,7 @@
             <!-- <div class="side-left-pushy-button" >menu btn</div> -->
             <h1 class='logo'><a href='../main/main.html'><img src='../image/logoW.png' alt='Stampidle'></a></h1>
             <h2 id='pageTitle'></h2>
-            <a class='btn_message' href="../message/message.html">
+            <a class='btn_message' data-toggle="modal"  data-target="#myModal"  data-remote="../message.html">
                 <span class='msg'>메시지함</span><span class='newMsg'>10</span>
             </a>
             
@@ -30,6 +30,21 @@
             </div>
 
 
+
+<!-- btn_message 메시지팝업 -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog" data-keyboard="false">
+           <div class="modal-dialog">
+              <div class="modal-content"></div>
+           </div>
+        </div>
+        <!-- Modal2 -->
+        <div class="modal" id="myModal2" aria-hidden="true" style="display: none;" data-keyboard="false">
+           <div class="modal-dialog">
+              <div class="modal-content"></div>
+           </div>
+        </div>
+        <!-- //btn_message 메시지팝업 -->
         
         
 <!-- expand searchbar button -->

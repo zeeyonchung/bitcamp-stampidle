@@ -193,6 +193,16 @@
         }).find('a, input, button, select').attr({
             'tabindex': '0'
         });
+        
+        
+        //for cstmr_m/main.html by sinae
+      	if ($('body').hasClass('cstmr_m main')) {
+  	    	var stampNumHistoryString = $(".slick-current.slick-active .stampNumS .history").text();
+  	    	var stampNumNumAllString = $(".slick-current.slick-active .stampNumS .numAll").text();
+  	    	$(".stampNum .history").text(stampNumHistoryString);
+  	    	$(".stampNum .numAll").text(stampNumNumAllString);
+      	}
+      	// //for cstmr_m/main.html by sinae
 
     };
 
@@ -2649,7 +2659,7 @@
     };
 
     Slick.prototype.swipeMove = function(event) {
-
+    	
         var _ = this,
             edgeWasHit = false,
             curLeft, swipeDirection, swipeLength, positionOffset, touches;
@@ -2720,6 +2730,7 @@
 
         _.setCSS(_.swipeLeft);
 
+      
     };
 
     Slick.prototype.swipeStart = function(event) {

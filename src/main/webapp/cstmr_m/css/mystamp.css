@@ -1,5 +1,5 @@
 .secTit {
-	margin-bottom:5px;
+	margin-bottom:0;
 }
 
 .swWrap {
@@ -46,7 +46,7 @@
 }
 
 .cafeName {
-	font-size:1.2em;
+	font-size:1.25em;
     color:#333;
     font-weight:bold;
     letter-spacing:-1px;
@@ -55,7 +55,6 @@
 .tag {
     display:block;
     margin:3px 0 0 0;
-    font-size:0.9em;
     color:#999;
 }
 
@@ -80,8 +79,8 @@
     float:left;
     overflow:hidden;
     height:20px;
-    width:20px;
-    font-size:1em;
+    width:22px;
+    font-size:1.3em;
     line-height:20px;
 }
 
@@ -96,9 +95,9 @@
     float:left;
     overflow:hidden;
     height:20px;
-    width:20px;
-    font-size:1.2em;
-    line-height:19px;
+    width:22px;
+    font-size:1.5em;
+    line-height:20px;
 }
 
 .issue .event:before {
@@ -110,10 +109,10 @@
 
 .stampNum {
 	position:absolute;
-	top:5px;
+	top:7px;
 	right:0;
     color:#666;
-    font-size:1.2em;
+    font-size:1em!important;
     width:55px;
     height:55px;
     border:3px solid #f0f0f0;
