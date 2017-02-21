@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Stampidle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/pushy.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/slick.css">
+<link rel="stylesheet" href="../css/eventlist.css">
+
+
+</head>
+<body class='eventlist'>
+	<div class="side-left-pushy-button">menu btn</div>
+	<div id='header'></div>
+	<div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
+
+	<div id="container">
+	   <h2 id='pageTit'>이벤트</h2>
+	   
+		<!-- con -->
+		<div class='con'>
+            
+            
+            <div class='eventBn'>
+                <h3>카페별 이벤트로 더욱 신나게!</h3>
+                <ul>
+                    <li><img src='../image/bn_sample1.jpg' alt='stamp card'></li>
+                    <li><img src='../image/bn_sample2.jpg' alt='stamp card'></li>
+                    <li><img src='../image/bn_sample1.jpg' alt='stamp card'></li>
+                </ul>
+            </div>
+            
+			
+		</div>
+		<!-- //con -->
+	</div>
+
+
+	<script src="../../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="../js/bit.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="../js/pushy.js"></script>
+	<script src="../js/pushy_stampidle.js"></script>
+	<script src="../js/link.js"></script>
+	
+    <script>
+        /* show hide latelyCardSlide */
+        $(document).ready(function() {
+            $('.btn_show').click(function() {
+            	$('.btn_show').hide();
+            	$('.btn_hide').show();
+                $('.latelyCardSlide').slideDown(00);
+                $('.stampNum').slideDown(00);
+                $('.latelyCard h2').removeClass('hidden');
+            });
+
+            $('.btn_hide').click(function() {
+            	$('.btn_hide').hide();
+                $('.btn_show').show();
+                $('.latelyCardSlide').slideUp(00);
+                $('.stampNum').slideUp(00);
+                $('.latelyCard h2').addClass('hidden');
+            });
+        });
+    </script>
+
+    <!-- slide images -->
+    <script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).on('ready', function() {
+
+            /* latelyCard slide */
+            $(".latelyCardSlide").slick({
+                dots : true,
+                infinite : true,
+                slidesToShow : 1,
+                slidesToScroll : 1
+            });
+            
+         // stampNumS 스탬프개수 stampNum에 넣기(at loading)
+            var stampNumHistoryString = $(".slick-current .stampNumS .history").text();
+            var stampNumNumAllString = $(".slick-current .stampNumS .numAll").text();
+            $(".stampNum .history").text(stampNumHistoryString);
+            $(".stampNum .numAll").text(stampNumNumAllString);
+            
+         // stampNumS 스탬프개수 stampNum에 넣기(at sliding : search 'for cstmr_m/main.html by sinae' in slick.js)
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
