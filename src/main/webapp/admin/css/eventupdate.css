@@ -1,4 +1,4 @@
-span {
+.con span {
 	font-size:2em;
 }
 
@@ -40,8 +40,8 @@ hr {
   width:70px;
   display:inline-block;
 }
-.form-control {
-  width:857px;
+.nameblock-div .form-control {
+  width:89%;
   margin-top:30px;
   display:inline-block;
   float:left;
@@ -73,9 +73,9 @@ hr {
 #datepicker{
 	border:1px solid #dedede;
 	border-radius: 5px;
-	margin-left:19px;
+	margin-left:5%;
 	height:35px;
-	width:300px;
+	width:70%;
 }
 
 #datepicker2{
@@ -83,7 +83,7 @@ hr {
   border-radius: 5px;
   margin-left:19px;
   height:35px;
-  width:300px;
+  width:70%;
 }
 
 .pchar {
@@ -122,16 +122,16 @@ hr {
 }
 
 .eventup-contents .form-contents{
-	width:860px;
+	width:89%;
 	height:300px;
+	margin-left:1%;
 	border-radius: 5px;
   border:1px solid #dedede;
-  display:inline-block;
 }
 
 .pchar2 {
-	position:relative;
-	top:-130px;
+	float:left;
+	top:0;
 	left:-5px;
   margin-left:20px;
   font-size:1em;
