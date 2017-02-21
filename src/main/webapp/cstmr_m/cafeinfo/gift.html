@@ -67,7 +67,7 @@
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
 
-  <!-- 화면 height 조정 -->
+  <!-- 화면 사이즈 조정 -->
 	<script>
     function size() {
       // Get the dimensions of the viewport
@@ -95,13 +95,6 @@
         "max-width" : $('.card-tmp').css('width')
       });
       
-      $('.stamp').css({
-    	  "width": "15%"
-      });
-      
-      $('.stamp-img').css({
-        "width": "100%"
-      });
     }
     $(document).ready(size); // When the page first loads
     $(window).resize(size); // When the browser changes size
