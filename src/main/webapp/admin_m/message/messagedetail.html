@@ -91,11 +91,14 @@
 		$(window).resize(size); // When the browser changes size
 	</script>
 	
+	<!-- 채팅창 스크롤 맨 밑으로 -->
 	<script>
-    $('.back-btn').click(function() {
-      location.href = "message.html";
+    $(function() {
+    	$(".chat").scrollTop($('body').height());
     })
   </script>
+  
+  
 
 </body>
 </html>
