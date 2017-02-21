@@ -60,6 +60,7 @@
 
 
 .one-msg {
+	cursor:pointer;
 	position: relative;
 	padding: 10px;
   height: 90px;

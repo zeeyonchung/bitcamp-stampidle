@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Stampidle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/pushy.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/new-event.css">
+
+</head>
+<body class='eventadd'>
+  <div class="side-left-pushy-button" >menu btn</div>
+  <div id='header'></div>
+  <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
+  
+  <div id="container" style="padding:0px;">
+    <h2 id='pageTit'>이벤트 등록</h2>
+  
+     <!-- con -->
+       <!-- 이미지 슬라이더 -->
+    <div class='con cafe-pic'>
+	    <section class="cafeImgSlide slider">
+	      <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
+	      <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
+	      <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
+	    </section>
+    </div>
+			<div class="clear"></div>
+			<!-- 장소 -->
+			<div class='location-div'>
+			  <input type="text" class="form-control" placeholder="장소" >
+			  
+			</div>
+			<!-- 시작일 -->
+			<div class='date-div'>
+        <div class="startdiv">
+          <input type="text" id="datepicker" class="form-control" placeholder="시작일" >
+        </div>
+      </div>
+      <!-- 종료일 -->
+      <div class='date-div'>
+        <div class="startdiv">
+          <input type="text" id="datepicker2" class="form-control" placeholder="종료일" >
+        </div>
+      </div>
+      <!-- 내용 -->
+      <div class='contents-div location-div'>
+        <input type="text" class="form-control" placeholder="내용" >
+      </div>
+        <button class="btn btn-default btn-lg btn-block add-new-btn">새 이벤트 등록</button>
+      <!-- con -->
+  </div>
+    
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-meta.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-exif.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-exif-map.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-orientation.js"></script>
+<script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/pushy.js"></script>
+<script src="../js/pushy_stampidle.js"></script>
+
+
+<!--jQuery 기본 js파일 -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!--jQuery UI 라이브러리 js파일 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(document).on('ready', function() {
+
+      /* menu images slide */
+      $(".menuSlide").slick({
+        dots : true,
+        infinite : true,
+        slidesToShow : 3,
+        slidesToScroll : 3
+      });
+
+      /* cafe interior images slide */
+      $(".cafeImgSlide").slick({
+        dots : true,
+        infinite : true,
+        slidesToShow : 1,
+        slidesToScroll : 1
+      });
+
+    });
+  </script>
+
+<script>
+
+<!-- 이미지 슬라이더 -->
+
+//달력
+$(function() {
+    $( "#datepicker" ).datepicker({
+        showOn: "both", 
+        buttonImage: "../image/icon_calendar.png", 
+        buttonImageOnly: true 
+  });
+  });
+  
+$(function() {
+    $( "#datepicker2" ).datepicker({
+        showOn: "both", 
+        buttonImage: "../image/icon_calendar.png", 
+        buttonImageOnly: true 
+  });
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

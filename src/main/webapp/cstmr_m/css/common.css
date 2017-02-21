@@ -118,6 +118,7 @@ a {
     height: 50px;
     text-align:center;
     overflow:hidden;
+    z-index:10;
 }
 
 .btn_myLocat:before {
@@ -144,6 +145,7 @@ a {
     height: 50px;
     text-align:center;
     overflow:hidden;
+    z-index:10;
 }
     
 .btn_home:before {

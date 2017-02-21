@@ -1,0 +1,152 @@
+@CHARSET "UTF-8";
+
+@import url("slick.css");
+
+.cafe-pic {
+	width: 100%;
+	margin:0;
+	padding:0px;
+	
+}
+
+
+/*이미지 슬라이더*/
+
+/* //cafe interior images slide */
+
+
+ .imgInfo .infoDetail {
+    padding:15px;
+}
+
+.imgInfo .infoDetail .time,
+.imgInfo .infoDetail .seat,
+.imgInfo .infoDetail .tel,
+.imgInfo .infoDetail .addr
+{
+  font-size:0.9em;
+  color:#666;
+}
+  
+.imgInfoArea .imgInfo .infoDetail .time:before,
+.imgInfoArea .imgInfo .infoDetail .seat:before,
+.imgInfoArea .imgInfo .infoDetail .tel:before,
+.imgInfoArea .imgInfo .infoDetail .addr:before
+{
+  width:20px;
+  padding-right:7px;
+    font-family:"FontAwesome";
+    color:#b4b4b4;
+    display:inline-block;
+    text-align:center;
+}
+
+.imgInfoArea .imgInfo .infoDetail .time:before {
+    content: "\f017";
+}
+
+.imgInfoArea .imgInfo .infoDetail .seat:before {
+    content: "\f007";
+}
+
+.imgInfoArea .imgInfo .infoDetail .tel:before {
+    content: "\f095";
+}
+
+.imgInfoArea .imgInfo .infoDetail .addr:before {
+    content: "\f041";
+}
+
+.imgInfoArea .imgInfo .infoDetail .btn-showMap {
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:40px;
+    height:40px;
+    background:#666;
+    border-radius: 40px;
+    border:0;
+    font-size:0;
+}
+
+.imgInfoArea .imgInfo .infoDetail .btn-showMap:before {
+    font-family:"FontAwesome";
+    content: "\f041";
+    color:#fff;
+    font-size:25px;
+}
+
+.imgInfoArea .imgInfo .map {
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.imgInfoArea .imgInfo .map .btn-hideMap {
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:40px;
+    height:40px;
+    background:#666;
+    border-radius: 40px;
+    border:0;
+    font-size:0;
+}
+
+.imgInfoArea .imgInfo .btn-hideMap:before {
+    font-family:"FontAwesome";
+    content: "\f00d";
+    color:#fff;
+    font-size:25px;
+}
+
+
+/*이미지 슬라이더*/
+.location-div {
+	width:95%;
+	margin-top:3%;
+}
+.location-div > .form-control {
+  border: 1px solid #e9e9e9;
+  margin-left: 2.5%;
+  border-radius: 5px;
+}
+.date-div {
+	width:95%;
+  margin-top:3%;
+}
+
+.startdiv > .form-control {
+	width: 89.5%;
+  border: 1px solid #e9e9e9;
+  margin-left: 2.5%;
+  border-radius: 5px;
+  display:inline-block;
+}
+
+.contents-div > .form-control {
+	height:250px;
+}
+.pchar {
+  display:inline;
+}
+.ui-datepicker-trigger{
+    margin-left: 3%;
+    width: 5%;
+}
+
+
+.add-new-btn {
+  background:#ff5948;
+  color:white;
+  margin-top:20px;
+  
+}
+/********************************************************/
+
+
+

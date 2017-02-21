@@ -18,7 +18,7 @@
     <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
 
 	<div data-addui='accordion'>
-		<div role='header' class='cafe-edit'>기본 정보</div>
+		<div role='header' class='cafe-edit basicInfo'>기본 정보</div>
 		<form>
 		<div role='content' style="padding:0px;">
 			<div class='con cafe-pic' >
@@ -93,7 +93,7 @@
     </div>
 		</div>
 		
-		<div role='header' class='cafe-edit'>무료서비스</div>
+		<div role='header' class='cafe-edit free'>무료서비스</div>
 		<div role='content' style="padding:0px;">
 			<div class='con cafe-pic'>
          <!-- 무료 서비스 항목 정보 -->
@@ -151,7 +151,7 @@
     </div>
 		</div>
 		
-		<div role='header' class='cafe-edit'>기타등록</div>
+		<div role='header' class='cafe-edit etcInfo'>기타등록</div>
 		<div role='content' style="padding:0px;">
 			<div class='con cafe-pic'>
          <!-- 매장사진 등록-->
@@ -300,7 +300,12 @@ function sample4_execDaumPostcode() {
 <script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
-
+        
+    	$(".etcInfo").click(function(e) {
+    		var etcInfoImgW = $(".etcInfo").outerWidth();
+            $(".slick-active img").css("width",etcInfoImgW);
+        });
+    	
       /* menu images slide */
       $(".menuSlide").slick({
         dots : true,
@@ -316,7 +321,8 @@ function sample4_execDaumPostcode() {
         slidesToShow : 1,
         slidesToScroll : 1
       });
-
+      
+      
     });
   </script>
   
