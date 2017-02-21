@@ -184,22 +184,28 @@ a {
 }
 
 .sidebar .profileArea {
-	display:table;
     width:100%;
     height:60px;
     background:#fff;
 }
 
 .sidebar .profileArea:after {
-	float:right;
-	display:block;
-	margin-right:10px;
+    float:right;
+    display:block;
+    margin-top:-60px;
+    margin-right:10px;
     font-family:"FontAwesome";
     content: "\f013";
     color:#999;
     font-size:1.8em;
     line-height:60px;
 }
+
+.sidebar .profileArea #logon-div {
+    width:100%;
+    height:60px;
+}
+
 
 .sidebar .profileArea .profileImg {
     float:left;
