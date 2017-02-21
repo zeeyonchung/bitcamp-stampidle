@@ -21,7 +21,6 @@
 	<div id="container">
 	   <h2 id='pageTit'>카페 정보</h2>
 	   
-	   <div class='test'></div>
 		<!-- con -->
 		<div class='con'>
 
@@ -38,19 +37,7 @@
 
                     <!-- section1 -->
 					<div class='section intro'>
-						<div class='cafe-card'>
-						<div class='stmp-circle'>5/10</div>
-						  <img class='stmpcard' src='../image/stmpcard.png'>
-						</div>
-						<div class='cafe-text'>
-						  <div class='cafe-name'>Cafe name</div>
-						  <div class='like select'>259</div>
-						  <div class='cafe-tag'>#24시 #스터디카페</div>
-						  <div class='cafe-addr'>경기도 성남시 중원구 금광2동 0000번지<br>00건물 2층</div>
-						  <div class='cafe-tel'>031) 736-0000</div>
-						  <div class='cafe-info'> 12번 음료 구매 후 13번째 구매시<br>
-						    모든 음료 regular 사이즈 중 한 가지 무료</div>
-						</div>
+						카페소개
 					</div>
                     <!-- //section1 -->
                     
@@ -235,12 +222,6 @@
 			</div>
 
 
-			<div id="paging">
-				<button type="button" class="prev" onclick="areaSwipe.prev();">Prev</button>
-				<span id="b"></span>
-				<button type="button" class="next" onclick="areaSwipe.next();">Next</button>
-			</div>
-
 		</div>
 		<!-- //con -->
 	</div>
@@ -264,23 +245,25 @@ $(window).load(function(){
     if (!document.getElementById('tab_swipe')) return false;
     var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
     var elem = document.getElementById('swipe');
+    
+    
     window.areaSwipe = Swipe(elem, {
         startSlide: 0,
         continuous: true,
         callback: function(pos) {
             var currentSlide = areaSwipe.getPos() + 1;
-            var totalSlides = areaSwipe.getNumSlides();
-            document.getElementById('b').innerHTML = currentSlide + ' / ' + totalSlides;
             var n = mnTab.length;
             while (n--) {
                 mnTab[n].className = ' ';
             }
             mnTab[pos].className = 'on';
+            
+            console.log(currentSlide);
+                var secH = $(".section:nth-of-type(" + currentSlide + ")").outerHeight();
+            console.log(secH);
+            $("#swipe .swWrap").css('height', secH);
         }
     });
-    var currentSlide = areaSwipe.getPos() + 1;
-    var totalSlides = areaSwipe.getNumSlides();
-    document.getElementById('b').innerHTML = currentSlide + ' / ' + totalSlides;
 });
 </script>
 <!-- // Swipe -->
@@ -303,6 +286,7 @@ $(document).ready(function() {
 	$('.tab3 a').click(function(e) {
         $("#swipe .swWrap").css('height', secH3);
     });
+	
 });
 </script>
 <!-- //Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->

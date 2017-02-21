@@ -42,6 +42,7 @@ $.fn.Pushy = function(options) {
 		body = $('body'),
 		container = $('#'+this.container), //container css class
 		overlayPushy = $('#pushyOverlay'+ instanceNumber), //site overlay
+		overlayPushyMap = $('#pushyOverlay_map'), // by sinae for cstmr_m/findcafe.html
 		push = $('.push'), //css class to add pushy capability
 		menuBtn = $('.'+this.button), //css classes to toggle the menu
 		menuSpeed = 200, //jQuery fallback menu speed
@@ -62,6 +63,7 @@ $.fn.Pushy = function(options) {
 
 	function togglePushy(){				
 		overlayPushy.toggleClass(pushyActiveClass); 
+		/*overlayPushyMap.toggleClass(pushyActiveClass); */ // by sinae for cstmr_m/findcafe.html
 		pushy.toggleClass(pushyClass);
 		push.toggleClass(pushClass); //css class to add pushy capability
 		
@@ -101,6 +103,7 @@ $.fn.Pushy = function(options) {
 
 	function openPushyFallback(){
 		overlayPushy.addClass(pushyActiveClass);
+		overlayPushyMap.addClass(pushyActiveClass);   // by sinae for cstmr_m/findcafe.html
 		pushy.animate({left: "0px"}, menuSpeed);
 		container.animate({left: menuWidth}, menuSpeed);
 		push.animate({left: menuWidth}, menuSpeed); //css class to add pushy capability
@@ -108,6 +111,7 @@ $.fn.Pushy = function(options) {
 
 	function closePushyFallback(){
 		overlayPushy.removeClass(pushyActiveClass);
+		overlayPushyMap.removeClass(pushyActiveClass); // by sinae for cstmr_m/findcafe.html
 		pushy.animate({left: "-" + menuWidth}, menuSpeed);
 		container.animate({left: "0px"}, menuSpeed);
 		push.animate({left: "0px"}, menuSpeed); //css class to add pushy capability
@@ -151,6 +155,11 @@ $.fn.Pushy = function(options) {
 			togglePushy();
 		});
 		
+		 // by sinae for cstmr_m/findcafe.html
+		overlayPushyMap.click(function(){ 			
+			togglePushy();
+		});
+		
 	}else{
 		//jQuery fallback
 		pushy.css({left: "-" + menuWidth}); //hide menu by default
@@ -172,6 +181,17 @@ $.fn.Pushy = function(options) {
 
 		//close menu when clicking site overlay
 		siteOverlay.click(function(){ 
+			if (state) {
+				openPushyFallback();
+				state = false;
+			} else {
+				closePushyFallback();
+				state = true;
+			}
+		});
+		
+		 // by sinae for cstmr_m/findcafe.html
+		overlayPushyMap.click(function(){ 
 			if (state) {
 				openPushyFallback();
 				state = false;

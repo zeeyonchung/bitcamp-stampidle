@@ -1,0 +1,342 @@
+/************ 기존 css customizing ************/
+.findCafe .sidebar {
+ 	z-index:99999;
+}
+
+.findCafe #header {
+	position:fixed;
+	z-index:99900;
+	
+} .findCafe .btn_home {
+	display:none;
+}
+
+.findCafe .btn_search {
+    display:block;	
+}
+
+.findCafe .menu-btn {
+	z-index:99901;
+}
+.findCafe #container {
+    padding:0;
+    padding-top:50px;
+}
+
+.findCafe .sb-search {
+	width:86%;
+	overflow:visible;
+}
+
+.findCafe .btn_prev {
+	display:none;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 50px;
+    height: 50px;
+    text-align:center;
+    overflow:hidden;
+    z-index:99991;
+}
+
+.findCafe .btn_prev.active {
+	display:block;
+}
+
+.findCafe .btn_prev:before {
+    display:block;
+    height:50px;
+    font-family:"FontAwesome";
+    color:#fff;
+    content: "\f104";
+    font-size:2.3em;
+}
+.findCafe .overlay-pushy.overlay-active {
+	z-index:99901;
+}
+
+
+/************ 맵 화면 mapArea ************/
+.mapArea {
+    position:fixed;
+    overflow:hidden;
+    top:0;
+    width:100%;
+    height:100%;
+}
+.mapArea.pushy-top-open {
+	top:50px;
+}
+
+.mapArea .map {
+	margin-top:-44px;
+    width:100%;
+    height:100%;
+}
+
+
+
+/* btn show_srchMap */
+.findCafe .srchMap {
+	width: 100%;
+	background:url(../image/bg_map.png) no-repeat left center rgba(0,0,0,0)!important;
+	background-size:100% 100%;
+}
+
+.findCafe .srchMap.menu-btn {
+	padding:15px;
+    margin-bottom:0;
+}
+
+.findCafe .srchMap .btn_show {
+    display:block;
+    width:80%;
+    height:30px;
+    margin:auto;
+    font-size:1.1em;
+    border:0;
+    background:#373737;
+    border-radius:5px;
+}
+
+
+/************ 카페리스트영역 cafeListArea ************/
+.cafeListArea {
+	box-shadow:0 0 5px rgba(0,0,0,0.5);
+	width:100%;
+	height:800px;
+	overflow:hidden;
+}
+
+/* sub guide style */
+.listArea {
+	padding:0 3%;
+	overflow-y:scroll;
+}
+
+.secTit {
+    border-bottom:2px solid #f4f4f4;
+    padding-bottom:7px;
+    font-size:1em;
+    color:#666;
+    padding-top:20px;
+    margin:0 3%;
+}
+
+.secTit .num {
+    font-size:1.3m;
+    color:#ff5948;
+}
+
+.btn-group {
+    position:absolute;
+    top:117px;
+    right:3%;
+}
+
+.btn-group > button {
+    width : 80px;
+    text-align:left;
+    padding:4px 7px;
+}
+
+.btn-group > button span {
+    float:right;
+    margin-top:7px;
+}
+
+.dropdown-menu {
+    padding:7px;
+    min-width : 80px;
+}
+
+.dropdown-menu li {
+    padding:4px 0;
+    font-size:0.8em;
+    border-top:1px solid #f9f9f9;
+}
+
+.dropdown-menu li:first-child {
+    border-top:0;
+}
+/* //sub guide style */
+
+
+/************ 리스트공통 list style ************/
+.list {
+	position:relative;
+	padding:15px 0 10px 0;
+	border-bottom:1px solid #f4f4f4;
+	transition: all 0.3s easein .03s;
+	cursor:pointer;
+}
+
+/* .list:hover {
+	background:#f4f4f4;
+	transition: all 0.3s easein .03s;
+} */
+
+.list:after {
+	clear:both;
+	content:' ';
+	display:block;
+}
+
+.cardArea {
+	float:left;
+	margin-right:3%;
+	width:30%;
+	max-width:120px;
+}
+
+.cardArea img {
+   width:100%;
+   height:auto;
+   max-height:100px;
+   border-radius:5px;
+}
+
+.cafeTxt {
+	float:left;
+	width:51%;
+}
+
+.cafeTxt .cafeName {
+	font-size:1.25em;
+    color:#333;
+    font-weight:bold;
+    letter-spacing:-1px;
+}
+
+.cafeTxt .tag {
+    display:block;
+    margin:3px 0 0 0;
+    font-size:0.9em;
+    color:#999;
+}
+
+.cafeTxt .tag span {
+    margin-right:2%;
+}
+
+.cafeTxt .time {
+	color:#666;
+	font-size:0.6em;
+	line-height:130%;
+}
+
+.cafeTxt .issue {
+	display:inline-block;
+    color:#666;
+    font-size:0.9em;
+    height:20px;
+}
+
+.cafeTxt .issue .free {
+    float:left;
+    overflow:hidden;
+    height:20px;
+    width:22px;
+    font-size:1.3em;
+    line-height:20px;
+}
+
+.cafeTxt .issue .free:before {
+	display:inline-block;
+	font-family:"FontAwesome";
+	color:#713318;
+    content: "\f0f4";
+}
+
+.cafeTxt .issue .event {
+    float:left;
+    overflow:hidden;
+    height:20px;
+    width:22px;
+    font-size:1.5em;
+    line-height:20px;
+}
+
+.cafeTxt .issue .event:before {
+    display:inline-block;
+    font-family:"FontAwesome";
+    color:#ff7640;
+    content: "\f06b";
+}
+
+.cafeTxt .like {
+	display:inline-block;
+    overflow:hidden;
+    height:20px;
+    width:50px;
+    line-height:19px;
+    font-size:0.9em;
+    cursor:pointer;
+}
+
+.cafeTxt .like:before {
+    display:inline-block;
+    font-family:"FontAwesome";
+    padding-left:2px;
+    content: "\f08a";
+    font-size:1.3em;
+    color:#ff5948;
+    margin-right:3px;
+    vertical-align:middle;
+}
+
+.cafeTxt .like.select:before {
+    content: "\f004";
+    color:#ff5948;
+}
+
+
+.myCard {
+    position:absolute;
+    top:7px;
+    right:0;
+    width:55px;
+    height:55px;
+    border:3px solid #f0f0f0;
+    border-radius: 50px;
+    text-align:center;
+    background:#fff;
+    font-size:0.9em;
+    background-size:60%;
+    line-height:42px;
+    cursor:pointer;
+    z-index:50;
+    overflow:hidden;
+}
+
+.myCard:before {
+    text-align:center;
+    display:block;
+    height:15px;
+    font-family:"FontAwesome";
+    font-size:1.9em;
+    line-height:37px;
+    content: "\f063";
+    color:#666;
+}
+
+.myCard.select {
+    line-height:80px;
+}
+
+.myCard.select:before {
+	margin:8px 0 0 2px;
+	font-size:2.5em;
+    content: "\f046";
+    color:#ff5948;
+}
+
+.distance {
+	position:absolute;
+    top:72px;
+    right:0;
+    width:55px;
+    height:30px;
+    text-align:center;
+}

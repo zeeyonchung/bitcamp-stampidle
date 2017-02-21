@@ -106,6 +106,7 @@
 
 <script>
   $(document).ready(function() {
+	  
     $('.register-btn').click(function(event) {
       event.preventDefault();
       $('.loginPop').fadeIn(200);
@@ -162,6 +163,25 @@
   });
 </script>
 
+
+<!-- 팝업 위치 조정... -->
+<script>
+function size() {
+  var height = $(window).height();
+  var width = $(window).width();
+  
+  $('.register').css({"top" : (height - parseInt($('.register').css('height'))) / 2});
+  $('.register').css({"left" : (width - parseInt($('.register').css('width'))) / 2});
+  $('.verify-code').css({"top" : (height - parseInt($('.verify-code').css('height'))) / 2});
+  $('.verify-code').css({"left" : (width - parseInt($('.verify-code').css('width'))) / 2});
+  $('.find-id').css({"top" : (height - parseInt($('.find-id').css('height'))) / 2 + 60});
+  $('.find-id').css({"left" : (width - parseInt($('.find-id').css('width'))) / 2});
+  $('.find-password').css({"top" : (height - parseInt($('.find-password').css('height'))) / 2 + 60});
+  $('.find-password').css({"left" : (width - parseInt($('.find-password').css('width'))) / 2});
+}
+$(document).ready(size);
+$(window).resize(size);
+</script>
 
 
 

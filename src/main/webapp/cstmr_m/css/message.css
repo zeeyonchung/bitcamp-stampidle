@@ -171,6 +171,8 @@
   width: 100%;
   background-image: url('../image/hotchocolate.png');
   background-position:bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bubble {

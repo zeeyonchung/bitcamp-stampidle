@@ -118,6 +118,7 @@
 .cstmer .finish .use {
 	margin-top: 10px;
 	margin-right: 7px;
+  clear: right;
 	float: right;
 }
 

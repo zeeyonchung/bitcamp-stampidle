@@ -19,7 +19,7 @@
 
 .introCstmerSlide {
     width: 100%;
-    height: 700px;
+    height: 600px;
     margin-top: 30px;
 }
 
@@ -73,6 +73,25 @@
 .guideArea {
     width:70%;
     margin:auto;
+    margin-bottom: 30px;
+}
+
+
+.guideArea li {
+	width: 24.5%;
+	display: inline-block;
+}
+
+.guideArea .wrap {
+	padding: 0 5px;
+}
+
+.guideArea .wrap img {
+	width: 100%;
+}
+
+.guideArea .wrap figcaption h3, p {
+  margin-top: 5px;
 }
 
 
