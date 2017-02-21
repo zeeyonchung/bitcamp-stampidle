@@ -39,6 +39,9 @@
 	
 	      
 	      <div class="card">
+	        <div class="card-tmp">
+	          <img class="card-img">
+	        </div>
 	        <div class="stamp">
 	          <img class="stamp-img">
 	          <img class="check-icon" src="../image/icon_check.png">
@@ -79,15 +82,26 @@
         "height" : height * 0.1
       });
       
-      $('.card').css({
-        "min-height" : height * 0.35,
-        "max-width" : $('.card').css('width')
-      });
-      
       $('.gift-msg').css({
         "height" : height * 0.17
       });
       
+      $('.card').css({
+        "min-height" : height * 0.35,
+      });
+      
+      $('.card-img').css({
+        "min-height" : height * 0.35,
+        "max-width" : $('.card-tmp').css('width')
+      });
+      
+      $('.stamp').css({
+    	  "width": "15%"
+      });
+      
+      $('.stamp-img').css({
+        "width": "100%"
+      });
     }
     $(document).ready(size); // When the page first loads
     $(window).resize(size); // When the browser changes size
@@ -105,12 +119,12 @@
 	<!-- 화면 로드시 내 스탬프 카드 불러오기 -->
   <script>
     $(function() {
-    	$('.card').css('background-image','url("../image/card2.jpg")');
+    	$('.card-img').prop('src','../image/card2.jpg');
     	$('.stamp-img').prop('src','../image/stmp22.png');
     	
-    	// 스탬프 div의 위치 값 - db에서 가져와서 입력하세요.
-    	$('.stamp').css('left', 100);
-    	$('.stamp').css('top', 100);
+    	// 스탬프 div의 위치 값 - db에서 가져와서 입력.
+    	$('.stamp').css('left', '2%');
+    	$('.stamp').css('top', '2%');
     });
   </script>
   
