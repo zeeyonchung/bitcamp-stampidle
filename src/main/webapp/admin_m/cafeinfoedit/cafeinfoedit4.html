@@ -8,37 +8,37 @@
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/pushy.css">
 <link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/cafeinfoedit.css">
+<link rel="stylesheet" href="../css/cafeinfoedit4.css">
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css"> -->
 
 </head>
 <body>
-    <div class="side-left-pushy-button" >menu btn</div>
-    <div id='header'></div>
-    <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
-    
-    <div id="container" style="padding:0px;">
+  <div class="side-left-pushy-button" >menu btn</div>
+  <div id='header'></div>
+  <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
+<div id="accordion">
+  <h3 class='cafe-edit'>기본 정보</h3>
+  <div id="container" >
        <!-- con -->
        <div class='con cafe-pic'>
-         <div class='cafe-edit'>
-         기본 정보
-         </div>
          <!-- 로고 사진 -->
          <div class='logo-pic'>
           로고사진
          </div>
          <div class='logo-pic-area'>
-	         <div class="form-group">
-				    <label for="photo" class="col-sm-2 control-label">사진</label>
-				    <div class="col-sm-10">
-				      <label id='photo-label' class='radio-inline view-form'>
-				        <img id='photo-img' height='80'>
-				      </label>
-				      <label class='radio-inline'>  
-				        <input id='photo' class='form-control glyphicon glyphicon-camera' type='file' name='files' multiple>
-				        <input id='photo-path' type='hidden'>
-				      </label>
-				    </div>
-				   </div>
+           <div class="form-group">
+            <label for="photo" class="col-sm-2 control-label">사진</label>
+            <div class="col-sm-10">
+              <label id='photo-label' class='radio-inline view-form'>
+                <img id='photo-img' height='80'>
+              </label>
+              <label class='radio-inline'>  
+                <input id='photo' class='form-control glyphicon glyphicon-camera' type='file' name='files' multiple>
+                <input id='photo-path' type='hidden'>
+              </label>
+            </div>
+           </div>
          </div>
          <div class='cafe-name-div'>
            <input type="text" class="form-control cafe-name-input" placeholder="카페이름" >
@@ -90,16 +90,109 @@
         <!-- 다음 수정 -->
         
       </div>
-        <div class='cafe-edit cafe-edit2'>
-         무료서비스
-         </div>
-         <div class='cafe-edit cafe-edit3'>
-         기타등록
-         </div>
     </div>
         <!-- con -->
   </div>
-    
+  <!-- 2번쨰 무료 서비스 항목 시작 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~` -->
+  <h3 class='cafe-edit'>무료서비스</h3>
+  <div id="container" style="padding:0px;">
+    <div class='con cafe-pic'>
+         <!-- 무료 서비스 항목 정보 -->
+         <div class='logo-pic'>
+          무료서비스항목 정보
+         </div>
+         <div class='free-edit'>
+           <span class='font-ctr'>무료제공 전까지 구매 수</span>
+           <input type="text" class="form-control cafe-name-input"  >
+         </div>
+         <div class='free-edit'>
+           <span class='font-ctr'>서비스제공 한계 금액</span>
+           <input type="text" class="form-control cafe-name-input2"  >
+         </div>
+         <!--  카테고리카테고리 -->
+         <div class='categori-div'>
+           <input class='btn-category' type='button' value='  제조음료  '>
+           <input class='btn-category' type='button' value='  디져트  '>
+           <input class='btn-category' type='button' value='  병음료  '>
+        </div>
+        <!-- 사진 선택 앞면-->
+        <div class='logo-pic'>
+          스탬프카드 사진
+         </div>
+         <div class='logo-pic-area'>
+           <div class="form-group">
+            <label for="photo" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+              <label id='photo-label' class='radio-inline view-form'>
+                <img id='photo-img' height='80'>
+              </label>
+              <label class='radio-inline'>  
+                <input id='photo' class='form-control glyphicon glyphicon-camera' type='file' name='files' multiple>
+                <input id='photo-path' type='hidden'>
+              </label>
+            </div>
+           </div>
+         </div>
+        <!-- 사진 뒷면-->
+         <div class='logo-pic-area'>
+           <div class="form-group">
+            <label for="photo" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+              <label id='photo-label' class='radio-inline view-form'>
+                <img id='photo-img' height='80'>
+              </label>
+              <label class='radio-inline'>  
+                <input id='photo' class='form-control glyphicon glyphicon-camera' type='file' name='files' multiple>
+                <input id='photo-path' type='hidden'>
+              </label>
+            </div>
+           </div>
+         </div>
+        <!-- 마지막 버튼 -->
+    </div>
+  </div>
+  
+  <!--  3번  -->
+  <h3 class='cafe-edit'>기타등록</h3>
+  <div id="container" style="padding:0px;">
+       <!-- con -->
+       <div class='con cafe-pic'>
+         <!-- 매장사진 등록-->
+         <div class='logo-pic'>
+          매장사진 등록
+         </div>
+         <div class='logo-pic-area'>
+           <section class="cafeImgSlide slider">
+              <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
+              <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
+              <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
+            </section>
+         </div>
+         
+         <!--  대표메뉴 -->
+         <div class='logo-pic'>
+          대표 메뉴
+         </div>
+         <div class='menu-div'>
+           <img src="../image/menu_sample2.png" alt="..." class="img-circle">
+           <input type="text" class="form-control cafe-name-input1" placeholder="메뉴명" >
+           <input type="text" class="form-control cafe-name-input2" placeholder="가격" >
+         </div>
+         <div class='menu-div'>
+           <img src="../image/menu_sample2.png" alt="..." class="img-circle">
+           <input type="text" class="form-control cafe-name-input1" placeholder="메뉴명" >
+           <input type="text" class="form-control cafe-name-input2" placeholder="가격" >
+         </div>
+        <!-- 마지막 버튼-->
+        <div class='add-menu-div'>
+          <button class='btn btn-default btn-lg'>대표 메뉴 추가</button>
+        </div>
+       
+    </div>
+        <!-- con -->
+  </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.js"></script>
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -143,7 +236,6 @@ $('#btn1').toggle(function(){
 	
 });
 </script>
-
 <!-- 주소 찾기 스크립트; -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
@@ -202,6 +294,41 @@ function sample4_execDaumPostcode() {
 }
 </script>
 
+
+<!-- 이미지 슬라이더 -->
+<script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(document).on('ready', function() {
+
+      /* menu images slide */
+      $(".menuSlide").slick({
+        dots : true,
+        infinite : true,
+        slidesToShow : 3,
+        slidesToScroll : 3
+      });
+
+      /* cafe interior images slide */
+      $(".cafeImgSlide").slick({
+        dots : true,
+        infinite : true,
+        slidesToShow : 1,
+        slidesToScroll : 1
+      });
+
+    });
+  </script>
+  
+
+      <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+	  $( "#accordion" ).accordion({ autoHeight: false });
+  } );
+  
+  </script>
 </body>
 </html>
 
