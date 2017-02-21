@@ -142,12 +142,12 @@ $('.eventlist li').click(function() {
 	location.href = "../event/eventdetail.html";
 });
 
-
-/********* event/eventdetail.html ***********/
-
-$('.eventdetail .add-new-btn').click(function() {
+$('.eventlist .add-new-btn').click(function() {
 	location.href = "../event/eventadd.html";
 });
+
+
+/********* event/eventdetail.html ***********/
 
 
 $('.eventdetail .glyphicon-pencil').click(function() {
