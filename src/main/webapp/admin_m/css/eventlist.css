@@ -1,7 +1,3 @@
-.eventlist .con {
-	position: relative;
-}
-
 
 .main {
     background:#f4f4f4;
@@ -56,6 +52,4 @@
 .add-new-btn {
   background:#ff5948;
   color:white;
-  position: absolute;
-  bottom: 30px;
 }
