@@ -18,7 +18,7 @@
     <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
 
 	<div data-addui='accordion'>
-		<div role='header' class='cafe-edit'>기본 정보</div>
+		<div role='header' class='cafe-edit basicInfo'>기본 정보</div>
 		<form>
 		<div role='content' style="padding:0px;">
 			<div class='con cafe-pic' >
@@ -93,7 +93,7 @@
     </div>
 		</div>
 		
-		<div role='header' class='cafe-edit'>무료서비스</div>
+		<div role='header' class='cafe-edit free'>무료서비스</div>
 		<div role='content' style="padding:0px;">
 			<div class='con cafe-pic'>
          <!-- 무료 서비스 항목 정보 -->
@@ -306,7 +306,12 @@ function sample4_execDaumPostcode() {
     });
   
     $(document).on('ready', function() {
-
+        
+    	$(".etcInfo").click(function(e) {
+    		var etcInfoImgW = $(".etcInfo").outerWidth();
+            $(".slick-active img").css("width",etcInfoImgW);
+        });
+    	
       /* menu images slide */
       $(".menuSlide").slick({
         dots : true,
@@ -322,7 +327,8 @@ function sample4_execDaumPostcode() {
         slidesToShow : 1,
         slidesToScroll : 1
       });
-
+      
+      
     });
   </script>
   

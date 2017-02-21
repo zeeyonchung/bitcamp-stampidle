@@ -8,48 +8,49 @@
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/pushy.css">
 <link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/eventadd.css">
+<link rel="stylesheet" href="../css/eventdetail.css">
 
 </head>
-<body class="eventadd">
+<body class='eventdetail'>
   <div class="side-left-pushy-button" >menu btn</div>
   <div id='header'></div>
   <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
   
   <div id="container" style="padding:0px;">
      <!-- con -->
-       <!-- 이미지 슬라이더 -->
     <div class='con cafe-pic'>
-	    <section class="cafeImgSlide slider">
-	      <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
-	      <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
-	      <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
-	    </section>
-	      <button class='camera1 glyphicon glyphicon-camera' ></button>
+       <!-- 이미지 슬라이더 -->
+       <section class="cafeImgSlide slider">
+         <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
+         <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
+         <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
+       </section>
+       <button class='camera1 glyphicon glyphicon-camera' ></button>
     </div>
 			<div class="clear"></div>
-			<!-- 장소 -->
-			<div class='location-div'>
-			  <input type="text" class="form-control" placeholder="장소" >
-			  
+			<!-- 타이틀 -->
+			
+			<div class='title'>
+			  <span>앤업 오피스 어택! 무료 아메리카노 증정</span>
 			</div>
-			<!-- 시작일 -->
-			<div class='date-div'>
-        <div class="startdiv">
-          <input type="text" id="datepicker" class="form-control" placeholder="시작일" >
-        </div>
+			<div class='cafe-name-before'>
+				<div class='cafe-name1'>##카페이름 명동점</div>
+			</div>
+    <div class='cafe-name-before2'>
+      <div>
+	      <span class='span-title'>&nbsp;기간&nbsp;</span>
+	      <span class='span-period1'>2017-01-01</span>
+	      <span class='span-period1 span-period2'>2017-02-01</span>
       </div>
-      <!-- 종료일 -->
-      <div class='date-div'>
-        <div class="startdiv">
-          <input type="text" id="datepicker2" class="form-control" placeholder="종료일" >
-        </div>
+      <div class='event-cont-div'>
+	      <span class='span-title'>&nbsp;내용&nbsp;</span>
+	      <span class='span-contents'>블라블라블라블라블라블라블라블라블라블라</span>
       </div>
-      <!-- 내용 -->
-      <div class='contents-div location-div'>
-        <input type="text" class="form-control" placeholder="내용" >
-      </div>
-        <button class="btn btn-default btn-lg btn-block add-new-btn">새 이벤트 등록</button>
+    </div>
+    <hr>
+    <div class="btn">
+      <button id="use-btn" class="btn btn-default btn-sm" type="submit">목록</button>
+    </div>
       <!-- con -->
   </div>
     
@@ -71,13 +72,35 @@
 <script src="../js/common.js"></script>
 <script src="../js/pushy.js"></script>
 <script src="../js/pushy_stampidle.js"></script>
-<script src="../js/link.js"></script>
 
 
-<!--jQuery 기본 js파일 -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<!--jQuery UI 라이브러리 js파일 -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+
+/* input 박스 초기 값 설정 후 클릭시 삭제*/
+function clearText(field){
+if(field.defaultValue == field.value) field.value = '';
+else if(field.value == '') field.value = field.defaultValue;
+}
+
+
+/* 버튼 색상 변경 */
+$('#btn1').toggle(function(){
+	var i = 0;
+	i++;
+	console.log(i);
+	if(i%2==0){
+	$("#btn1")
+    .css("border","solid 3px red")
+    .css("background","pink");
+	} else {
+		$("#btn1")
+	    .css("border","solid 3px red")
+	    .css("background","white");
+	}
+	
+});
+</script>
 
 <script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">
@@ -101,28 +124,6 @@
 
     });
   </script>
-
-<script>
-
-<!-- 이미지 슬라이더 -->
-
-//달력
-$(function() {
-    $( "#datepicker" ).datepicker({
-        showOn: "both", 
-        buttonImage: "../image/icon_calendar.png", 
-        buttonImageOnly: true 
-  });
-  });
-  
-$(function() {
-    $( "#datepicker2" ).datepicker({
-        showOn: "both", 
-        buttonImage: "../image/icon_calendar.png", 
-        buttonImageOnly: true 
-  });
-  });
-</script>
 
 </body>
 </html>

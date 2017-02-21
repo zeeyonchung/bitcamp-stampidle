@@ -1,37 +1,129 @@
-/*****  sidebar.html  *****/
+/** *** sidebar.html **** */
 
-//move to auth/main.js
-/*$('#logoff-div').click(function(e) {
-    location.href = '../auth/main.html'
-});
-//move to js/common.js
-$('#logout-btn').click(function(e) {
-    location.href = '../auth/main.html'
-}); */
-$('#logon-div').click(function(e) {
+// move to auth/main.js
+/*
+$('#logoff-div').click(function(e) { location.href = '../auth/main.html' });
+//move to js/common.js 
+$('#logout-btn').click(function(e) { location.href ='../auth/main.html' });
+*/
+$('.sidebar #logon-div').click(function(e) {
 	location.href = '../mypage/mypage.html'
 });
-$('.mn_myStamp a').click(function(e) {
+$('.sidebar .mn_myStamp a').click(function(e) {
 	e.preventDefault();
 	location.href = '../mystamp/mystamp.html'
 });
-$('.mn_findCafe').click(function(e) {
+$('.sidebar .mn_findCafe').click(function(e) {
 	location.href = '../findcafe/findcafe.html'
 });
-$('.like a').click(function(e) {
+$('.sidebar .like a').click(function(e) {
 	e.preventDefault();
 	location.href = '../likecafe/likecafe.html'
 });
-$('.event a').click(function(e) {
+$('.sidebar .event a').click(function(e) {
 	e.preventDefault();
 	location.href = '../event/event.html'
 });
-$('.msg a').click(function(e) {
+$('.sidebar .msg a').click(function(e) {
 	e.preventDefault();
 	location.href = '../message/message.html'
 });
 
 
+/** *** main/main.html **** */
+/*$('.main .cardArea img').click(function(e) {
+	location.href = '../cafeinfo/cafeinfo.html'
+});*/
+$('.main .eventBn li img').click(function(e) {
+	location.href = '../event/event.html'
+});
+$('.main .favor .mn').click(function(e) {
+	location.href = '../likecafe/likecafe.html'
+});
+$('.main .all .mn').click(function(e) {
+	location.href = '../mystamp/mystamp.html'
+});
+$('.main .msg .mn').click(function(e) {
+	location.href = '../message/message.html'
+});
 
-/*****  main/main.html  *****/
+
+/** *** cafeinfo/cafeinfo.html **** */
+$('.cafeinfo .btn-gift').click(function(e) {
+	location.href = '../cafeinfo/gift.html'
+});
+$('.cafeinfo .btn-message').click(function(e) {
+	location.href = '../message/message.html'
+});
+
+
+/** *** cafeinfo/gift.html **** */
+$('.gift .back-btn').click(function(e) {
+	location.href = '../cafeinfo/cafeinfo.html'
+});
+
+
+/** *** event/event.html **** */
+$('.event .eventBn').click(function(e) {
+	location.href = '../event/eventdetail.html'
+});
+
+
+/** *** event/eventadd.html **** */
+$('.eventadd .add-new-btn').click(function(e) {
+	location.href = '../event/event.html'
+});
+
+
+/** *** event/eventdetail.html **** */
+$('.eventdetail #use-btn').click(function(e) {
+	location.href = '../event/event.html'
+});
+
+
+/** *** findcafe/findcafe.html **** */
+$('.findCafe .list').click(function(e) {
+	location.href = '../cafeinfo/cafeinfo.html'
+});
+
+
+/** *** likecafe/likecafe.html **** */
+$('.likeCafe .list').click(function(e) {
+	location.href = '../cafeinfo/cafeinfo.html'
+});
+
+
+/** *** message/message.html **** */
+$('.message .one-msg').click(function(e) {
+	location.href = '../message/messagedetail.html'
+});
+
+
+/** *** messagedetail/messagedetail.html **** */
+$('.messageDetail .back-btn').click(function(e) {
+	location.href = '../message/message.html'
+});
+
+
+/** *** mypage/mypage.html **** */
+$('.myPage .submit').click(function(e) {
+	location.href = '../mypage/mypage.html'
+});
+
+
+/** *** mystamp/mystamp.html **** */
+$('.mystamp .list').click(function(e) {
+	location.href = '../cafeinfo/cafeinfo.html'
+});
+
+
+/** *** header.html **** */
+$('#header .logo').click(function(e) {
+	location.href = '../main/main.html'
+});
+$('#header .btn_home').click(function(e) {
+	e.preventDefault();
+	location.href = '../main/main.html'
+});
+
 

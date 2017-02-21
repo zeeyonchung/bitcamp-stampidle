@@ -1,3 +1,4 @@
+
 .main {
     background:#f4f4f4;
 }
@@ -42,4 +43,13 @@
 
 .eventBn li img {
     width:100%;
+}
+
+
+
+
+
+.add-new-btn {
+  background:#ff5948;
+  color:white;
 }

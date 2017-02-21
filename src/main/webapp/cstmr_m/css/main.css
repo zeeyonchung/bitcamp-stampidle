@@ -264,7 +264,7 @@
 	border-left:0;
 }
 
-.mn_btm li.favor a:before {
+.mn_btm li.favor .mn:before {
 	font-family:"FontAwesome";
     content: "\f005";
     font-size:1.7em;
@@ -274,7 +274,7 @@
     display:inline-block;
 }
 
-.mn_btm li.all a:before {
+.mn_btm li.all .mn:before {
     font-family:"FontAwesome";
     content: "\f00b";
     font-size:1.7em;
@@ -284,7 +284,7 @@
     display:inline-block;
 }
 
-.mn_btm li.msg a:before {
+.mn_btm li.msg .mn:before {
     font-family:"FontAwesome";
     content: "\f003";
     font-size:1.7em;
