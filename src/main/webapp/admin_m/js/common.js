@@ -13,7 +13,7 @@ $( function() {
 			// 로그인 버튼의 클릭 이벤트 핸들러 등록하기
 			$('#login-btn').click(function(event) {
 				event.preventDefault()
-				location.href = '../../admin_m/auth/main.html'
+				location.href = '../auth/login.html'
 			});
 			return;
 		}
@@ -27,7 +27,7 @@ $( function() {
 		$('#logout-btn').click(function(event) {
 			event.preventDefault()
 			$.getJSON('../../admin_m/auth/logout.json', function(ajaxResult) {
-				location.href = '../../admin_m/auth/main.html'
+				location.href = '../auth/login.html'
 			});
 		});
 	  });
