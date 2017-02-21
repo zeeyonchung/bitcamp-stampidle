@@ -44,6 +44,7 @@
 	top: 0;
 	left: 0;
 	display: block;
+	height: 100%;
 }
 
 .slick-track:before, .slick-track:after {

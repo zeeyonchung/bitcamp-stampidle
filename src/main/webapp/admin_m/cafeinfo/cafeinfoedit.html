@@ -151,7 +151,7 @@
     </div>
 		</div>
 		
-		<div role='header' class='cafe-edit'>기타등록</div>
+		<div role='header' class='cafe-edit etcInfo'>기타등록</div>
 		<div role='content' style="padding:0px;">
 			<div class='con cafe-pic'>
          <!-- 매장사진 등록-->
@@ -299,6 +299,12 @@ function sample4_execDaumPostcode() {
 <!-- 이미지 슬라이더 -->
 <script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">
+  
+  $(".etcInfo").click(function(e) {
+      var etcInfoImgW = $(".etcInfo").outerWidth();
+        $(".slick-active img").css("width",etcInfoImgW);
+    });
+  
     $(document).on('ready', function() {
 
       /* menu images slide */
