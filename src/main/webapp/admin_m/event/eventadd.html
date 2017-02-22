@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../css/pushy.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/eventadd.css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 
 </head>
 <body class="eventadd">
@@ -17,6 +18,7 @@
   <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
   
   <div id="container" style="padding:0px;">
+  <h2 id='pageTit'>이벤트</h2>
      <!-- con -->
        <!-- 이미지 슬라이더 -->
     <div class='con cafe-pic'>
@@ -108,20 +110,20 @@
 
 //달력
 $(function() {
-    $( "#datepicker" ).datepicker({
-        showOn: "both", 
-        buttonImage: "../image/icon_calendar.png", 
-        buttonImageOnly: true 
+  $( "#datepicker" ).datepicker({
+      showOn: "both", 
+      buttonImage: "../image/icon_calendar.png", 
+      buttonImageOnly: true
   });
-  });
+});
   
 $(function() {
-    $( "#datepicker2" ).datepicker({
-        showOn: "both", 
-        buttonImage: "../image/icon_calendar.png", 
-        buttonImageOnly: true 
+  $( "#datepicker2" ).datepicker({
+      showOn: "both", 
+      buttonImage: "../image/icon_calendar.png", 
+      buttonImageOnly: true
   });
-  });
+});
 </script>
 
 </body>

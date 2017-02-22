@@ -23,19 +23,39 @@
 	   
 		<!-- con -->
 		<div class='con'>
-            
-            
-            <div class='eventBn'>
-                <h3>카페별 이벤트로 더욱 신나게!</h3>
-                <ul>
-                    <li><img src='../image/bn_sample1.jpg' alt='stamp card'></li>
-                    <li><img src='../image/bn_sample2.jpg' alt='stamp card'></li>
-                    <li><img src='../image/bn_sample1.jpg' alt='stamp card'></li>
-                </ul>
+
+
+			<div class='eventBn'>
+        <button class="btn btn-default btn-lg btn-block add-new-btn">새 이벤트 등록</button>
+					<div class="one-event">
+					  <img src='../image/bn_sample1.jpg' alt='stamp card'>
+					  <div class="text-div">
+					    <span class="title">앤업 오피스 어택! 무료 아메리카노 증정</span>
+					    <span class="store">@카페스누피 강남점</span>
+					    <span class="blank"></span>
+					    <span class="daterange">2017-03-12 ~ 2017-04-01</span><br>
+					  </div>
+					</div>
+					<div class="one-event">
+					  <img src='../image/bn_sample2.jpg' alt='stamp card'>
+					  <div class="text-div">
+              <span class="title">앤업 오피스 어택! 무료 아메리카노 증정</span>
+              <span class="store">@카페스누피 강남점</span>
+              <span class="blank"></span>
+              <span class="daterange">2017-03-12 ~ 2017-04-01</span><br>
             </div>
-            
-            <button class="btn btn-default btn-lg btn-block add-new-btn">새 이벤트 등록</button>
-			
+					</div>
+					<div class="one-event">
+            <img src='../image/bn_sample1.jpg' alt='stamp card'>
+            <div class="text-div">
+              <span class="title">앤업 오피스 어택! 무료 아메리카노 증정</span>
+              <span class="store">@카페스누피 강남점</span>
+              <span class="blank"></span>
+              <span class="daterange">2017-03-12 ~ 2017-04-01</span><br>
+            </div>
+          </div>
+			</div>
+
 		</div>
 		<!-- //con -->
 	</div>
@@ -49,52 +69,8 @@
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
 	<script src="../js/link.js"></script>
-	
-    <script>
-        /* show hide latelyCardSlide */
-        $(document).ready(function() {
-            $('.btn_show').click(function() {
-            	$('.btn_show').hide();
-            	$('.btn_hide').show();
-                $('.latelyCardSlide').slideDown(00);
-                $('.stampNum').slideDown(00);
-                $('.latelyCard h2').removeClass('hidden');
-            });
 
-            $('.btn_hide').click(function() {
-            	$('.btn_hide').hide();
-                $('.btn_show').show();
-                $('.latelyCardSlide').slideUp(00);
-                $('.stampNum').slideUp(00);
-                $('.latelyCard h2').addClass('hidden');
-            });
-        });
-    </script>
 
-    <!-- slide images -->
-    <script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
-        $(document).on('ready', function() {
-
-            /* latelyCard slide */
-            $(".latelyCardSlide").slick({
-                dots : true,
-                infinite : true,
-                slidesToShow : 1,
-                slidesToScroll : 1
-            });
-            
-         // stampNumS 스탬프개수 stampNum에 넣기(at loading)
-            var stampNumHistoryString = $(".slick-current .stampNumS .history").text();
-            var stampNumNumAllString = $(".slick-current .stampNumS .numAll").text();
-            $(".stampNum .history").text(stampNumHistoryString);
-            $(".stampNum .numAll").text(stampNumNumAllString);
-            
-         // stampNumS 스탬프개수 stampNum에 넣기(at sliding : search 'for cstmr_m/main.html by sinae' in slick.js)
-        });
-    </script>
-    
-    
 </body>
 </html>
 

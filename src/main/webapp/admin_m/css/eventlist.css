@@ -1,10 +1,6 @@
 
-.main {
-    background:#f4f4f4;
-}
-
-.main #container {
-    padding:0;
+.eventlist #container {
+    padding: 20px 3% 0 3%;
 }
 
 .secTit {
@@ -17,32 +13,43 @@
 /************ 이벤트배너영역 `Bn ************/
 .eventBn {
 	margin-top:0px;
+	text-align: center;
 }
 
-.eventBn h3 {
-	width:80%;
-    font-size:1.2em;
-    margin:0 auto 20px auto;
-    color: #444;
-    font-weight:bold;
-    letter-spacing:-1px;
-    text-align:center;
-    border:1px solid #333;
-    padding:5px 10px 3px 10px;
-    border-radius:30px;
+.eventBn .one-event {
+  padding-top:15px;
+  clear: both;
 }
 
-.eventBn ul {
-    margin-bottom:60px;
-}
-
-.eventBn li {
-	padding:0 3%;
-    margin-bottom:5px;
-}
-
-.eventBn li img {
+.eventBn .one-event img {
     width:100%;
+}
+
+
+.eventBn .one-event .text-div {
+	padding: 2%;
+}
+
+.eventBn .one-event .text-div .title {
+	display: inline-block;
+	width: 100%;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: 500;
+}
+
+.eventBn .one-event .text-div .store {
+  font-size: 0.9em;
+}
+
+.eventBn .one-event .text-div .blank {
+	display: inline-block;
+  width: 5%;
+}
+
+.eventBn .one-event .text-div .daterange {
+  font-size: 0.85em;
+  color: tomato;
 }
 
 
@@ -50,6 +57,12 @@
 
 
 .add-new-btn {
-  background:#ff5948;
-  color:white;
+	  display: inline-block;
+    background: #ffffff;
+    color: #333;
+    border: 3px solid #ff5948;
+    border-radius: 100px;
+    width: 60%;
+    font-size: 1.1em;
+    margin-bottom: 5px;
 }
