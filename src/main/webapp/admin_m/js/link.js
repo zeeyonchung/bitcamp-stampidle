@@ -138,7 +138,7 @@ $('.login .login-main .login-btn').click(function() {
 
 /********* event/eventlist.html ***********/
 
-$('.eventlist li').click(function() {
+$('.eventlist .one-event').click(function() {
 	location.href = "../event/eventdetail.html";
 });
 
