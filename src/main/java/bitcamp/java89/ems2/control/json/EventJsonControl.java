@@ -17,7 +17,7 @@ public class EventJsonControl {
   
   @Autowired EventService evnetService;
   
-  @RequestMapping(value = "/admin/event/list")
+  @RequestMapping(value = "/admin/event/main")
   public AjaxResult list() throws Exception {
     List<Event> list = evnetService.getList();
     return new AjaxResult(AjaxResult.SUCCESS, list);

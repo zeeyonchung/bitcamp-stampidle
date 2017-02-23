@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.EventDao">
+
+  <resultMap type="event" id="event-map">
+    <id     column="eno"        property="eventNo"/>
+    <result column="titl"       property="eventTitle"/>
+    <result column="econts"     property="eventContents"/>
+    <result column="ebirth"     property="registDate"/>
+    <result column="epath"      property="eventPhotoPath"/>
+    <result column="eview"      property="eventView"/>
+    <result column="sday"       property="startDate"/>
+    <result column="eday"       property="endDate"/>
+  </resultMap>
+  
+  
+  <select id="getList" resultMap="event-map">
+    select 
+      e.eno,
+      e.titl,
+      e.econts,
+      e.ebirth,
+      e.epath,
+      e.eview,
+      e.sday,
+      e.eday,
+      c.cname
+    from event e
+      left outer join cafe c on e.cfno = c.cfno
+  </select>
+  
+
+</mapper>
+
+
+
+
+
+
+
+

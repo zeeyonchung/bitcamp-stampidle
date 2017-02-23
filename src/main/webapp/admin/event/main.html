@@ -42,118 +42,10 @@
                 </div>
 
 
-                <!-- 이벤트 글 하나 -->
-                <div class='one-event'>
-                    <img src='../image/cafeImg_sample.png'>
-                    <div id='event-text'>
-                        <div id='event-title'>
-                            <a href='#'>앤업 오피스 어택! 무료아메리카노 증정 이벤트 </a>
-                        </div>
-                        <div id='event-store'>
-                            <p>카페 XX 명동점</p>
-                        </div>
-                        <div>
-                            <div class='event-box'>기간</div>
-                            <div id='event-period'>
-                                <p>2017-03-12 ~ 2017-04-01</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class='event-box'>내용</div>
-                            <div id='event-content'>
-                                <p>아메리카노 1잔 구매시 1잔 무료 다른 행사와 중복 불가</p>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
+                <div class="eventdiv">
                 </div>
 
 
-                <div class='one-event'>
-                    <img src='../image/cafeImg_sample.png'>
-                    <div id='event-text'>
-                        <div id='event-title'>
-                            <a href='#'>앤업 오피스 어택!<br>무료아메리카노 증정 이벤트
-                            </a>
-                        </div>
-                        <div id='event-store'>
-                            <p>카페 XX 명동점</p>
-                        </div>
-                        <div>
-                            <div class='event-box'>기간</div>
-                            <div id='event-period'>
-                                <p>2017-03-12 ~ 2017-04-01</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class='event-box'>내용</div>
-                            <div id='event-content'>
-                                <p>
-                                    아메리카노 1잔 구매시 1잔 무료<br>다른 행사와 중복 불가
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-
-
-                <div class='one-event'>
-                    <img src='../image/cafeImg_sample.png'>
-                    <div id='event-text'>
-                        <div id='event-title'>
-                            <a href='#'>앤업 오피스 어택!<br>무료아메리카노 증정 이벤트
-                            </a>
-                        </div>
-                        <div id='event-store'>
-                            <p>카페 XX 명동점</p>
-                        </div>
-                        <div>
-                            <div class='event-box'>기간</div>
-                            <div id='event-period'>
-                                <p>2017-03-12 ~ 2017-04-01</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class='event-box'>내용</div>
-                            <div id='event-content'>
-                                <p>
-                                    아메리카노 1잔 구매시 1잔 무료<br>다른 행사와 중복 불가
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-
-
-                <div class='one-event'>
-                    <img src='../image/cafeImg_sample.png'>
-                    <div id='event-text'>
-                        <div id='event-title'>
-                            <a href='#'>앤업 오피스 어택!<br>무료아메리카노 증정 이벤트
-                            </a>
-                        </div>
-                        <div id='event-store'>
-                            <p>카페 XX 명동점</p>
-                        </div>
-                        <div>
-                            <div class='event-box'>기간</div>
-                            <div id='event-period'>
-                                <p>2017-03-12 ~ 2017-04-01</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class='event-box'>내용</div>
-                            <div id='event-content'>
-                                <p>
-                                    아메리카노 1잔 구매시 1잔 무료<br>다른 행사와 중복 불가
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
 
 
                 <!-- 다음페이지 -->
@@ -175,13 +67,44 @@
 		</div>
 	</div>
 
-  <script src="../js/context.js"></script>
-  <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+<div class='one-event'>
+    <img src='{{eventPhotoPath}}'>
+    <div id='event-text'>
+        <div id='event-title' data-no="{{eventNo}}">
+            <a href='#'>{{eventTitle}}</a>
+        </div>
+        <div id='event-store'>
+            <p>{{cafeName}}</p>
+        </div>
+        <div>
+            <div class='event-box'>기간</div>
+            <div id='event-period'>
+                <p>{{startDate}} ~ {{endDate}}</p>
+            </div>
+        </div>
+        <div>
+            <div class='event-box'>내용</div>
+            <div id='event-content'>
+                <p>{{eventContents}}</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+{{/each}}
+</script>
+
+	<script src="../js/context.js"></script>
+  <script src="../../node_modules/handlebars/dist/handlebars.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.js"></script>
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="../js/bit.js"></script>
 	<script src="../js/common.js"></script>
 	<script src="../js/link.js"></script>
+	<script src="main.js"></script>
 
 </body>
 </html>
