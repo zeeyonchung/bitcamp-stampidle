@@ -26,6 +26,14 @@ public class EventServiceImpl implements EventService {
     return eventDao.getList(cafeMemberNo, pageCount);
   }
   
+  @Override
+  public int add(Event event) throws Exception {
+    
+    
+    return eventDao.insert(event);
+  }
+
+
   public Event getDetail(int eventNo) throws Exception {
     return eventDao.getOne(eventNo);
   }
@@ -40,6 +48,7 @@ public class EventServiceImpl implements EventService {
     return count;
   }
 }
+  
 
 
 

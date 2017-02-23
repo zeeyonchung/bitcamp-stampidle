@@ -51,6 +51,19 @@
   </select>
   
   
+  <insert id="insert" parameterType="event">
+    insert into event(eno,titl,econts,ebirth,epath,eview,sday,eday) 
+    values(
+      #{eventNo},
+      #{eventTitle},
+      #{eventContents}, 
+      #{registDate}, 
+      #{eventPhotoPath},
+      #{eventView}, 
+      #{startDate},
+      #{endDate})
+  </insert>
+  
   <select id="getOne" resultMap="event-map">
     select 
       e.eno,

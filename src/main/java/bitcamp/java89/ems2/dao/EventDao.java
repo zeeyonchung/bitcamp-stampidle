@@ -6,6 +6,7 @@ import bitcamp.java89.ems2.domain.Event;
 
 public interface EventDao {
   ArrayList<Event> getList(int cafeMemberNo, int pageCount) throws Exception;
+  int insert(Event event) throws Exception;
   Event getOne(int eventNo) throws Exception;
   int countByNo(int eventNo) throws Exception;
   int delete(int eventNo) throws Exception;
