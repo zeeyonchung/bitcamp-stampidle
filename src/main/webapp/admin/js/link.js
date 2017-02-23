@@ -1,53 +1,52 @@
 /*****  sidebar.html  *****/
 
-
 // 로그인 화면 상단 stampidle 로고
 $('.logo').click(function(e) {
-	location.href = '../main/main.html'
+	location.href = clientRoot + '/main/main.html'
 });
 
 //sidebar link*******************************************
 $('.searchCstmr').click(function(e) {
-    location.href = '../stampidle_cs/customerdetail.html'
+    location.href = clientRoot + '/stampidle_cs/customerdetail.html'
 });
 $('.statistics').click(function(e) {
-    location.href = '../manage/statistics.html'
+    location.href = clientRoot + '/manage/statistics.html'
 });
 $('.event').click(function(e) {
-    location.href = '../event/main.html'
+    location.href = clientRoot + '/event/main.html'
 });
 
 // header link ********************************************
 $('.logo-img-src').click(function(e) {
 	e.preventDefault();
-    location.href = '../main/main.html'
+    location.href = clientRoot + '/main/main.html'
 });
 
 $('.srchList li a').click(function(e) {
 	e.preventDefault();
-    location.href = '../stampidle_cs/customerdetail.html'
+    location.href = clientRoot + '/stampidle_cs/customerdetail.html'
 });
 
 
 // event page link
 $('.one a').click(function(e) {
 	e.preventDefault();
-    location.href = 'main.html'
+    location.href = clientRoot + '/event/main.html'
 });
 
 $('.two a').click(function(e) {
 	e.preventDefault();
-    location.href = 'pastevent.html'
+    location.href = clientRoot + '/event/pastevent.html'
 });
 
 $('#add-event').click(function(e) {
 	e.preventDefault();
-    location.href = 'eventadd.html'
+    location.href = clientRoot + '/event/eventadd.html'
 });
 
 $('#event-title a').click(function(e) {
 	e.preventDefault();
-    location.href = 'eventdetail.html'
+    location.href = clientRoot + '/event/eventdetail.html'
 });
 
 
@@ -55,57 +54,57 @@ $('#event-title a').click(function(e) {
 
 $('#use-btn-list').click(function(e) {
 	e.preventDefault();
-    location.href = 'main.html'
+    location.href = clientRoot + '/event/main.html'
 });
 
 $('#use-btn-edit').click(function(e) {
 	e.preventDefault();
-    location.href = 'eventupdate.html'
+    location.href = clientRoot + '/event/eventupdate.html'
 });
 
 //eventupdate page link ****************************
 $('#cancle-btn2').click(function(e) {
 	e.preventDefault();
-    location.href = 'eventdetail.html'
+    location.href = clientRoot + '/event/eventdetail.html'
 });
 
 $('.event-regi-btn').click(function(e) {
 	e.preventDefault();
-    location.href = 'main.html'
+    location.href = clientRoot + '/event/main.html'
 });
 
 // statistics page link *****************************
 $('.statistics-one').click(function(e) {
-    location.href = '../manage/statistics.html'
+    location.href = clientRoot + '/manage/statistics.html'
 });
 $('.statistics-two').click(function(e) {
-    location.href = '../manage/customerlist.html'
+    location.href = clientRoot + '/manage/customerlist.html'
 });
 $('.statistics-three').click(function(e) {
-    location.href = '../manage/stamplog.html'
+    location.href = clientRoot + '/manage/stamplog.html'
 });
 
 
 // cafeinfo page link ******************************
 $('.cafeTxt .btn-edit').click(function(e) {
 	e.preventDefault();
-    location.href = '../cafeinfoedit/cafeinfoedit.html'
+    location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
 });
 
 
 //cafeinfoedit page link ******************************
 $('.manage-navi ul .one').click(function(e) {
 	e.preventDefault();
-    location.href = '../cafeinfoedit/cafeinfoedit.html'
+    location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
 });
 
 $('.manage-navi ul .two').click(function(e) {
 	e.preventDefault();
-    location.href = '../cafeinfoedit/cafeinfoedit2.html'
+    location.href = clientRoot + '/cafeinfoedit/cafeinfoedit2.html'
 });
 
 $('.manage-navi ul .three').click(function(e) {
 	e.preventDefault();
-    location.href = '../cafeinfoedit/cafeinfoedit3.html'
+    location.href = clientRoot + '/cafeinfoedit/cafeinfoedit3.html'
 });
 
