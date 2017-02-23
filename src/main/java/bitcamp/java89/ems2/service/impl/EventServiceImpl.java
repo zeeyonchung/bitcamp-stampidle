@@ -17,8 +17,8 @@ public class EventServiceImpl implements EventService {
   @Autowired CafeDao cafeDao;
   @Autowired EventDao eventDao;
   
-  public List<Event> getList() throws Exception {
-    return eventDao.getList();
+  public List<Event> getList(int cafeMemberNo) throws Exception {
+    return eventDao.getList(cafeMemberNo);
   }
   
   @Override
@@ -29,8 +29,18 @@ public class EventServiceImpl implements EventService {
   }
 
 
-  public Event getDetail(int no) throws Exception {
-    return eventDao.getOne(no);
+  public Event getDetail(int eventNo) throws Exception {
+    return eventDao.getOne(eventNo);
+  }
+  
+  public int delete(int eventNo) throws Exception {
+    if (eventDao.countByNo(eventNo) == 0) {
+      throw new Exception("해당 글이 없습니다.");
+    }
+    
+    int count = eventDao.delete(eventNo);
+    
+    return count;
   }
 }
   

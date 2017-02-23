@@ -8,7 +8,9 @@ public interface EventService {
   List<Event> getList() throws Exception;
   int add(Event event) throws Exception;
 
-  Event getDetail(int no) throws Exception;
+  List<Event> getList(int cafeMemberNo) throws Exception;
+  Event getDetail(int eventNo) throws Exception;
+  int delete(int eventNo) throws Exception;
 }
 
 

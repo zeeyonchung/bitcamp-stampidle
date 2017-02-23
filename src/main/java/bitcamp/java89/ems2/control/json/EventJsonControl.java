@@ -21,8 +21,8 @@ public class EventJsonControl {
   @Autowired EventService eventService;
   
   @RequestMapping(value = "/admin/event/main")
-  public AjaxResult list() throws Exception {
-    List<Event> list = eventService.getList();
+  public AjaxResult list(int cafeMemberNo) throws Exception {
+    List<Event> list = eventService.getList(cafeMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
@@ -43,14 +43,24 @@ public class EventJsonControl {
   
   
   @RequestMapping(value = "/admin/event/detail")
-  public AjaxResult detail(int memberNo) throws Exception {
-    Event event = eventService.getDetail(memberNo);
+  public AjaxResult detail(int eventNo) throws Exception {
+    Event event = eventService.getDetail(eventNo);
     
     if (event == null) {
       return new AjaxResult(AjaxResult.FAIL, "해당 글이 없습니다.");
     }
     
     return new AjaxResult(AjaxResult.SUCCESS, event);
+  }
+  
+  
+  @RequestMapping(value = "/admin/event/delete")
+  public AjaxResult delete(int eventNo) throws Exception {
+    int count = eventService.delete(eventNo);
+    if (count == 0) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 글이 없습니다.");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
   }
   
   
