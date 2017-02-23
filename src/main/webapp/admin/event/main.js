@@ -12,6 +12,8 @@ $.getJSON(serverRoot + '/event/main.json', function(ajaxResult) {
   eventdiv.html(template({"list": list}));
   
   $('#event-title').click(function(event) {
+	event.preventDefault();
   	location.href = 'eventdetail.html?eventNo=' + $(this).attr("data-no");
+  	console.log($(this).attr("data-no"));
   });
 });
