@@ -1,8 +1,8 @@
 $( function() {
 	// header.html을 가져와서 붙인다.
-	$.get('../header.html', function(result) {
+	$.get(clientRoot + '/admin_m/header.html', function(result) {
 	  // 서버에서 로그인 사용자 정보를 가져온다.
-	  $.getJSON('../../admin_m/auth/loginUser.json', function(ajaxResult) {
+	  $.getJSON(serverRoot + '/admin_m/auth/loginUser.json', function(ajaxResult) {
 		$('#header').html(result);
 
 		if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
@@ -34,7 +34,7 @@ $( function() {
 	});
 	
 	// sidebar.html을 가져와서 붙인다.
-	$.get('../sidebar.html', function(result) {
+	$.get(clientRoot + '/admin_m/sidebar.html', function(result) {
 	  $('.sidebar').html(result);
 	});
 	
