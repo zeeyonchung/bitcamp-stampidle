@@ -53,10 +53,6 @@ $('#use-btn-list').click(function(e) {
     location.href = clientRoot + '/event/main.html'
 });
 
-$('#use-btn-edit').click(function(e) {
-	e.preventDefault();
-    location.href = clientRoot + '/event/eventupdate.html'
-});
 
 //eventupdate page link ****************************
 $('#cancle-btn2').click(function(e) {

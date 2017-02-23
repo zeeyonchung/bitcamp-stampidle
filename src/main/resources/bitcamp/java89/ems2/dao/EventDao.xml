@@ -67,6 +67,20 @@
     where e.eno=#{value}
   </select>
   
+  
+  <select id="countByNo" parameterType="int" resultType="int">
+    select count(*)
+    from event
+    where eno=#{value}
+  </select>
+  
+  
+  <delete id="delete" parameterType="int">
+  <![CDATA[
+    delete from event where eno=#{value}
+  ]]>
+  </delete>
+  
 
 </mapper>
 

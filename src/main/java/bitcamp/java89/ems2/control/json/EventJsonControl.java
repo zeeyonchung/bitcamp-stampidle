@@ -36,6 +36,16 @@ public class EventJsonControl {
   }
   
   
+  @RequestMapping(value = "/admin/event/delete")
+  public AjaxResult delete(int eventNo) throws Exception {
+    int count = eventService.delete(eventNo);
+    if (count == 0) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 글이 없습니다.");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
+  }
+  
+  
 }
 
 

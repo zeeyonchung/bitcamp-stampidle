@@ -30,3 +30,27 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
   $('.eventdetail #evnet-img').attr('src', '../../upload/' + event.eventPhotoPath);
   $('.eventdetail .contents').text(event.eventContents);
 });
+
+
+
+$('#use-btn-delete').click(function() {
+  $.getJSON('delete.json?eventNo=' + eventNo, function(ajaxResult) {
+	  if (ajaxResult.status != "success") { 
+		  alert(ajaxResult.data);
+		  return;
+	  }
+	  location.href = clientRoot + '/event/main.html';
+  });
+});
+
+
+
+$('#use-btn-edit').click(function() {
+  $.getJSON('update.json?eventNo=' + eventNo, function(ajaxResult) {
+	  if (ajaxResult.status != "success") { 
+		  alert(ajaxResult.data);
+		  return;
+	  }
+	  location.href = clientRoot + '/event/eventdetail.html?eventNo=' + eventNo;
+  });
+});
