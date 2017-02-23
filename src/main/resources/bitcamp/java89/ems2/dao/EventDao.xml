@@ -7,6 +7,23 @@
 
   <resultMap type="event" id="event-map">
     <id     column="eno"        property="eventNo"/>
+    
+    <result column="cfno"       property="cafeNo"/>
+    <result column="cftel"       property="cafeTel"/>
+    <result column="cname"       property="cafeName"/>
+    <result column="intro"       property="intro"/>
+    <result column="addr"       property="address"/>
+    <result column="daddr"       property="detailAddress"/>
+    <result column="chair"       property="chairNo"/>
+    <result column="logo"       property="logPath"/>
+    
+    <result column="cmno"       property="cafeMemberNo"/>
+    <result column="id"       property="id"/>
+    <result column="ctel"       property="cellNo"/>
+    <result column="crn"       property="companyNo"/>
+    <result column="email"       property="Email"/>
+    <result column="pwd"       property="password"/>
+    
     <result column="titl"       property="eventTitle"/>
     <result column="econts"     property="eventContents"/>
     <result column="ebirth"     property="registDate"/>
@@ -30,6 +47,23 @@
       c.cname
     from event e
       left outer join cafe c on e.cfno = c.cfno
+  </select>
+  
+  
+  <select id="getOne" resultMap="event-map">
+    select 
+      e.eno,
+      e.titl,
+      e.econts,
+      e.ebirth,
+      e.epath,
+      e.eview,
+      e.sday,
+      e.eday,
+      c.cname
+    from event e
+      left outer join cafe c on e.cfno = c.cfno
+    where eno=#{value}
   </select>
   
 

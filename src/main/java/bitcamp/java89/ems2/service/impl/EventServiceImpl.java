@@ -21,6 +21,9 @@ public class EventServiceImpl implements EventService {
     return eventDao.getList();
   }
   
+  public Event getDetail(int no) throws Exception {
+    return eventDao.getOne(no);
+  }
 }
 
 
