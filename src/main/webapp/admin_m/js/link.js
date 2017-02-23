@@ -1,17 +1,20 @@
+
+
+
 /********* header ***********/
 
 $(".logo").click(function() {
-	location.href = "../main/main.html"
+	location.href = clientRoot + "/admin_m/main/main.html"
 });
 
 
 $(".btn_message").click(function() {
-	location.href = "../message/message.html"
+	location.href = clientRoot + "/admin_m/message/message.html"
 });
 
 
 $(".srchList li").click(function() {
-	location.href = "../manage/customerdetail.html"
+	location.href = clientRoot + "/admin_m/manage/customerdetail.html"
 }); /*회원번호에따라.. 나중수정*/
 
 
@@ -19,47 +22,47 @@ $(".srchList li").click(function() {
 /********* sidebar ***********/
 
 $("#login-btn").click(function() {
-	location.href = "../auth/login.html"
+	location.href = clientRoot + "/admin_m/auth/login.html"
 });
 
 
 $(".mn_home").click(function() {
-	location.href = "../main/main.html"
+	location.href = clientRoot + "/admin_m/main/main.html"
 });
 
 
 $(".mn_msg").click(function() {
-	location.href = "../message/message.html"
+	location.href = clientRoot + "/admin_m/message/message.html"
 });
 
 
 $(".stamp").click(function() {
-	location.href = "../cardadd/cardadd.html"
+	location.href = clientRoot + "/admin_m/cardadd/cardadd.html"
 });
 
 
 $(".cafeinfom").click(function() {
-	location.href = "../cafeinfo/cafeinfo.html"
+	location.href = clientRoot + "/admin_m/cafeinfo/cafeinfo.html"
 });
 
 
 $(".event").click(function() {
-	location.href = "../event/eventlist.html"
+	location.href = clientRoot + "/admin_m/event/eventlist.html"
 });
 
 
 $(".statis").click(function() {
-	location.href = "../manage/manage.html"
+	location.href = clientRoot + "/admin_m/manage/manage.html"
 });
 
 
 $(".cstmrList").click(function() {
-	location.href = "../manage/manage.html"
+	location.href = clientRoot + "/admin_m/manage/manage.html"
 });
 
 
 $("#logout-btn").click(function() {
-	location.href = "../auth/login.html"
+	location.href = clientRoot + "/admin_m/auth/login.html"
 });
 
 
@@ -67,7 +70,7 @@ $("#logout-btn").click(function() {
 /********* message/message.html ***********/
 
 $('.message .one-msg').click(function() {
-	location.href = "../message/messagedetail.html";
+	location.href = clientRoot + "/admin_m/message/messagedetail.html";
 }); /*회원번호에따라.. 나중수정*/
 
 
@@ -76,12 +79,12 @@ $('.message .one-msg').click(function() {
 /********* message/messagedetail.html ***********/
 
 $('.messagedetail .back-btn').click(function() {
-	location.href = "../message/message.html";
+	location.href = clientRoot + "/admin_m/message/message.html";
 });
 
 
 $('.messagedetail .chat .mewrap img').click(function() {
-	location.href = "../manage/customerdetail.html";
+	location.href = clientRoot + "/admin_m/manage/customerdetail.html";
 });
 
 
@@ -89,12 +92,12 @@ $('.messagedetail .chat .mewrap img').click(function() {
 /********* manage/manage.html ***********/
 
 $('.manage .section.two table tr:not(:first-of-type)').click(function() {
-	location.href = "../manage/customerdetail.html";
+	location.href = clientRoot + "/admin_m/manage/customerdetail.html";
 });
 
 
 $('.manage .section.three table tr:not(:first-of-type)').click(function() {
-	location.href = "../manage/customerdetail.html";
+	location.href = clientRoot + "/admin_m/manage/customerdetail.html";
 });
 
 
@@ -102,7 +105,7 @@ $('.manage .section.three table tr:not(:first-of-type)').click(function() {
 /********* manage/customerdetail.html ***********/
 
 $('.customerdetail .cstmer .info .msg-btn').click(function() {
-	location.href = "../message/messagedetail.html";
+	location.href = clientRoot + "/admin_m/message/messagedetail.html";
 });
 
 
@@ -110,14 +113,14 @@ $('.customerdetail .cstmer .info .msg-btn').click(function() {
 
 $('.cafeinfo .introArea .btn-edit').click(function() {
 	event.preventDefault();
-	location.href = "../cafeinfo/cafeinfoedit.html";
+	location.href = clientRoot + "/admin_m/cafeinfo/cafeinfoedit.html";
 });
 
 
 /********* cafeinfo/cafeinfoedit.html ***********/
 
 $('.cafeinfoedit .cafe-edit.cafe-edit2').click(function() {
-	location.href = "../cafeinfo/cafeinfo.html";
+	location.href = clientRoot + "/admin_m/cafeinfo/cafeinfo.html";
 });
 
 
@@ -125,25 +128,25 @@ $('.cafeinfoedit .cafe-edit.cafe-edit2').click(function() {
 /********* cardadd/cardadd.html ***********/
 
 $('.cardadd .btmsubmit').click(function() {
-	location.href = "../main/main.html";
+	location.href = clientRoot + "/admin_m/main/main.html";
 });
 
 
 /********* auth/login.html ***********/
 
 $('.login .login-main .login-btn').click(function() {
-	location.href = "../main/main.html";
+	location.href = clientRoot + "/admin_m/main/main.html";
 });
 
 
 /********* event/eventlist.html ***********/
 
 $('.eventlist .one-event').click(function() {
-	location.href = "../event/eventdetail.html";
+	location.href = clientRoot + "/admin_m/event/eventdetail.html";
 });
 
 $('.eventlist .add-new-btn').click(function() {
-	location.href = "../event/eventadd.html";
+	location.href = clientRoot + "/admin_m/event/eventadd.html";
 });
 
 
@@ -151,16 +154,16 @@ $('.eventlist .add-new-btn').click(function() {
 
 
 $('.eventdetail .glyphicon-pencil').click(function() {
-	location.href = "../event/eventadd.html";
+	location.href = clientRoot + "/admin_m/event/eventadd.html";
 });
 
 $('.eventdetail .glyphicon-trash').click(function() {
-	location.href = "../event/eventlist.html";
+	location.href = clientRoot + "/admin_m/event/eventlist.html";
 });
 
 
 /********* event/eventadd.html ***********/
 
 $('.eventadd .add-new-btn').click(function() {
-	location.href = "../event/eventlist.html";
+	location.href = clientRoot + "/admin_m/event/eventlist.html";
 });
