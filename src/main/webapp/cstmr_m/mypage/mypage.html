@@ -4,52 +4,68 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>Stampidle</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../../node_modules/blueimp-file-upload/css/jquery.fileupload.css">
 <link rel="stylesheet" href="../css/pushy.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/tab_swipe.css">
 <link rel="stylesheet" href="../css/mypage.css">
-
+<style>
+.fileinput-bg {
+  border-radius: 100%;
+  background: url('../image/w-camera.png') no-repeat;
+  background-size: 20px 20px;
+  background-color: gray;
+  background-position: center;
+  margin-left: 75px;
+  margin-top: 75px;
+  z-index: 10000;
+}
+</style>
 
 </head>
-<body class='myPage'>
+<body>
 	<div class="side-left-pushy-button">menu btn</div>
 	<div id='header'></div>
 	<div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
 
 	<div id="container">
-	   <h2 id='pageTit'>내 정보 변경</h2>
+		<h2 id='pageTit'>내 정보 변경</h2>
 		<!-- con -->
 		<div class='con'>
-		<form class='mypage'>
-		  <div class='my-photo'>
-		    <div class='photo-are'>
-		    </div>
-		    <input data-url="cardadd.jsp"id='fileupload' type='file' name='fileup' style='display: none;'>
-		    <button class='camera-btn' onclick='document.all.fileup.click()'>
-		    <img src='../image/camera.png' width='28' height='28'>
-		    </button>
-		  </div>
-		  <div class='input-are'>
-		  <ul>
-		  <li>*이름<input class='name' placeholder='홍길동'></li>
-		  <div class='under-bar'></div>
-		  <li>*전화번호<input class='tel' placeholder='010-1234-5678'></li>
-		  <div class='under-bar'></div>
-		  <li>닉네임<input class='nickname' placeholder='홍길동님의 닉네임'></li>
-		  <div class='under-bar'></div>
-		  <li>이메일<input class='email' placeholder='홍길동님의 이메일'></li>
-		  <div class='under-bar'></div>
-		  </ul>
-		  </div>
-		  <button class='submit' type='submit'>변경사항 저장</button>
-		</form>
-    
-			
+			<form class='mypage'>
+				<div class='my-photo'>
+					<div class='photo-are'>
+						<img id='photo-img'> 
+						<div class="btn btn-success fileinput-button fileinput-bg ">
+						  <span>&nbsp;</span>
+						  <input data-url="mypage.jsp" id='fileupload' type='file'>
+						<!-- 	<img src='../image/w-camera.png' width='20' height='20'> -->
+						</div>
+					</div>
+				</div>
+				<div class='input-are'>
+					<ul>
+						<li>*이름<input class='name' placeholder='홍길동'></li>
+						<div class='under-bar'></div>
+						<li>*전화번호<input class='tel' placeholder='010-1234-5678'></li>
+						<div class='under-bar'></div>
+						<li>닉네임<input class='nickname' placeholder='홍길동님의 닉네임'></li>
+						<div class='under-bar'></div>
+						<li>이메일<input class='email' placeholder='홍길동님의 이메일'></li>
+						<div class='under-bar'></div>
+					</ul>
+				</div>
+				<button class='submit' type='submit'>변경사항 저장</button>
+			</form>
+
 
 		</div>
-		<!-- //con -->
+	</div>
+	<!-- //con -->
 	</div>
 
 
@@ -60,13 +76,56 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
+	<script
+		src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+	<script src="../../node_modules/blueimp-load-image/js/load-image.js"></script>
+	<script
+		src="../../node_modules/blueimp-load-image/js/load-image-meta.js"></script>
+	<script
+		src="../../node_modules/blueimp-load-image/js/load-image-exif.js"></script>
+	<script
+		src="../../node_modules/blueimp-load-image/js/load-image-exif-map.js"></script>
+	<script
+		src="../../node_modules/blueimp-load-image/js/load-image-orientation.js"></script>
+	<script
+		src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+	<script
+		src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+	<script
+		src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+	<script
+		src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+	<script
+		src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+	<script>
+		$('#camera-btn').click(function() {
+			document.getElementById("fileupload").click();
+		});
+	</script>
+	<script>
+		"use strict"
+		$('#fileupload').fileupload(
+				{
+					dataType : 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
+					done : function(e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+						console.log(data.result);
+						var param = data.result.params[0];
+						console.log(param);
+						$('#photo-path').val(param.filepath);
+					},
+					processalways : function(e, data) {
+						console.log('fileuploadprocessalways()...');
+						var img = $('#photo-img');
+						if (!img.attr('src')) {
+							console.log('미리보기 처리...');
+							var canvas = data.files[0].preview;
+							var dataURL = canvas.toDataURL();
+							img.attr('src', dataURL).css('width', '100%').css(
+									'max-height', '100px').css('border-radius',
+									'100%');
+						}
+					}
+				});
+	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
