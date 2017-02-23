@@ -2,17 +2,18 @@
 
 $('.event-regi-btn').click(function() {
     var param = {
+		"cafeNo": 10,
 		"eventTitle": $('.event-title').val(),
 		"eventContents": $('.event-contents').val(),
-		"registDate": $('#email').val(),
+		"registDate": '2017-02-11',
 		"eventPhotoPath": '../image/cafe_event.jpg',
 		"eventView": 0,
-		"startDate": $('.startDate').val(),
-		"endDate": $('.endDates').val(), 
+		"startDate": '2017-02-11',
+		"endDate": '2017-02-11', 
     };
     console.log(param);
     
-    $.post(serverRoot + '/student/update.json', param, function(ajaxResult) {
+    $.post(serverRoot + '/event/add.json', param, function(ajaxResult) {
     	if (ajaxResult.status != "success") {
     		alert(ajaxResult.data);
     		return;
