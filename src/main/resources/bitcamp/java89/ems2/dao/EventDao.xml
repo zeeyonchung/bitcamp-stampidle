@@ -32,6 +32,20 @@
       left outer join cafe c on e.cfno = c.cfno
   </select>
   
+  
+  <insert id="insert" parameterType="student">
+    insert into stud(eno,titl,econts,schl_nm,path) 
+    values(
+      #{eventNo},
+      #{eventTitle},
+      #{eventContents}, 
+      #{registDate}, 
+      #{eventPhotoPath},
+      #{eventView}, 
+      #{startDate},
+      #{endDate})
+  </insert>
+  
 
 </mapper>
 
