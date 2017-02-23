@@ -3,43 +3,43 @@ package bitcamp.java89.ems2.domain;
 public class Cafe extends CafeMember {
   private static final long serialVersionUID = 1L;
   
-  protected boolean working;
-  protected String grade;
-  protected String schoolName;
-  protected String postNo;
-  protected String basicAddress;
+  protected int cafeNo;
+  protected String cafeTel;
+  protected String cafeName;
+  protected String intro;
+  protected String address;
   protected String detailAddress;
-  protected String photoPath;
-  
-  public boolean isWorking() {
-    return working;
+  protected int chairNo;
+  protected String logPath;
+  public int getCafeNo() {
+    return cafeNo;
   }
-  public void setWorking(boolean working) {
-    this.working = working;
+  public void setCafeNo(int cafeNo) {
+    this.cafeNo = cafeNo;
   }
-  public String getGrade() {
-    return grade;
+  public String getCafeTel() {
+    return cafeTel;
   }
-  public void setGrade(String grade) {
-    this.grade = grade;
+  public void setCafeTel(String cafeTel) {
+    this.cafeTel = cafeTel;
   }
-  public String getSchoolName() {
-    return schoolName;
+  public String getCafeName() {
+    return cafeName;
   }
-  public void setSchoolName(String schoolName) {
-    this.schoolName = schoolName;
+  public void setCafeName(String cafeName) {
+    this.cafeName = cafeName;
   }
-  public String getPostNo() {
-    return postNo;
+  public String getIntro() {
+    return intro;
   }
-  public void setPostNo(String postNo) {
-    this.postNo = postNo;
+  public void setIntro(String intro) {
+    this.intro = intro;
   }
-  public String getBasicAddress() {
-    return basicAddress;
+  public String getAddress() {
+    return address;
   }
-  public void setBasicAddress(String basicAddress) {
-    this.basicAddress = basicAddress;
+  public void setAddress(String address) {
+    this.address = address;
   }
   public String getDetailAddress() {
     return detailAddress;
@@ -47,12 +47,22 @@ public class Cafe extends CafeMember {
   public void setDetailAddress(String detailAddress) {
     this.detailAddress = detailAddress;
   }
-  public String getPhotoPath() {
-    return photoPath;
+  public int getChairNo() {
+    return chairNo;
   }
-  public void setPhotoPath(String photoPath) {
-    this.photoPath = photoPath;
+  public void setChairNo(int chairNo) {
+    this.chairNo = chairNo;
   }
+  public String getLogPath() {
+    return logPath;
+  }
+  public void setLogPath(String logPath) {
+    this.logPath = logPath;
+  }
+  public static long getSerialversionuid() {
+    return serialVersionUID;
+  }
+  
   
   
 }

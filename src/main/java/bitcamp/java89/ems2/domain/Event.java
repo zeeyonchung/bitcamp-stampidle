@@ -3,56 +3,68 @@ package bitcamp.java89.ems2.domain;
 public class Event extends Cafe {
   private static final long serialVersionUID = 1L;
   
-  protected boolean working;
-  protected String grade;
-  protected String schoolName;
-  protected String postNo;
-  protected String basicAddress;
-  protected String detailAddress;
-  protected String photoPath;
+  protected int eventNo;
+  protected String eventTitle;
+  protected String eventContents;
+  protected String registDate;
+  protected String eventPhotoPath;
+  protected int eventView;
+  protected String startDate;
+  protected String endDate;
   
-  public boolean isWorking() {
-    return working;
+  
+  public int getEventNo() {
+    return eventNo;
   }
-  public void setWorking(boolean working) {
-    this.working = working;
+  public void setEventNo(int eventNo) {
+    this.eventNo = eventNo;
   }
-  public String getGrade() {
-    return grade;
+  public String getEventTitle() {
+    return eventTitle;
   }
-  public void setGrade(String grade) {
-    this.grade = grade;
+  public void setEventTitle(String eventTitle) {
+    this.eventTitle = eventTitle;
   }
-  public String getSchoolName() {
-    return schoolName;
+  public String getEventContents() {
+    return eventContents;
   }
-  public void setSchoolName(String schoolName) {
-    this.schoolName = schoolName;
+  public void setEventContents(String eventContents) {
+    this.eventContents = eventContents;
   }
-  public String getPostNo() {
-    return postNo;
+  public String getRegistDate() {
+    return registDate;
   }
-  public void setPostNo(String postNo) {
-    this.postNo = postNo;
+  public void setRegistDate(String registDate) {
+    this.registDate = registDate;
   }
-  public String getBasicAddress() {
-    return basicAddress;
+  public String getEventPhotoPath() {
+    return eventPhotoPath;
   }
-  public void setBasicAddress(String basicAddress) {
-    this.basicAddress = basicAddress;
+  public void setEventPhotoPath(String eventPhotoPath) {
+    this.eventPhotoPath = eventPhotoPath;
   }
-  public String getDetailAddress() {
-    return detailAddress;
+  public int getEventView() {
+    return eventView;
   }
-  public void setDetailAddress(String detailAddress) {
-    this.detailAddress = detailAddress;
+  public void setEventView(int eventView) {
+    this.eventView = eventView;
   }
-  public String getPhotoPath() {
-    return photoPath;
+  public String getStartDate() {
+    return startDate;
   }
-  public void setPhotoPath(String photoPath) {
-    this.photoPath = photoPath;
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
   }
+  public String getEndDate() {
+    return endDate;
+  }
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+  public static long getSerialversionuid() {
+    return serialVersionUID;
+  }
+  
   
   
 }
