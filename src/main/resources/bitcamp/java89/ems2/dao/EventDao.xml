@@ -64,7 +64,7 @@
       c.cname
     from event e
       left outer join cafe c on e.cfno = c.cfno
-    where eno=#{value}
+    where e.eno=#{value}
   </select>
   
 

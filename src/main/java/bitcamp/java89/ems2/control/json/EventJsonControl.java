@@ -25,8 +25,8 @@ public class EventJsonControl {
   
   
   @RequestMapping(value = "/admin/event/detail")
-  public AjaxResult detail(int memberNo) throws Exception {
-    Event event = eventService.getDetail(memberNo);
+  public AjaxResult detail(int eventNo) throws Exception {
+    Event event = eventService.getDetail(eventNo);
     
     if (event == null) {
       return new AjaxResult(AjaxResult.FAIL, "해당 글이 없습니다.");

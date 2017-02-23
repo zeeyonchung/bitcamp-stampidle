@@ -6,5 +6,5 @@ import bitcamp.java89.ems2.domain.Event;
 
 public interface EventDao {
   ArrayList<Event> getList(int cafeMemberNo) throws Exception;
-  Event getOne(int memberNo) throws Exception;
+  Event getOne(int eventNo) throws Exception;
 }
