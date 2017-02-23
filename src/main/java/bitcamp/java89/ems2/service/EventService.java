@@ -5,7 +5,7 @@ import java.util.List;
 import bitcamp.java89.ems2.domain.Event;
 
 public interface EventService {
-  List<Event> getList() throws Exception;
+  List<Event> getList(int cafeMemberNo) throws Exception;
   Event getDetail(int no) throws Exception;
 }
 

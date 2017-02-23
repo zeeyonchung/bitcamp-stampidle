@@ -17,8 +17,8 @@ public class EventServiceImpl implements EventService {
   @Autowired CafeDao cafeDao;
   @Autowired EventDao eventDao;
   
-  public List<Event> getList() throws Exception {
-    return eventDao.getList();
+  public List<Event> getList(int cafeMemberNo) throws Exception {
+    return eventDao.getList(cafeMemberNo);
   }
   
   public Event getDetail(int no) throws Exception {
