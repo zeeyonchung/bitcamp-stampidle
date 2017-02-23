@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.CafeMemberDao">
+
+  <resultMap type="cafeMember" id="cafeMember-map">
+    <id     column="cmno"      property="cafeMemberNo"/>
+    <result column="id"       property="id"/>
+    <result column="ctel"     property="cellNo"/>
+    <result column="crn"     property="companyNo"/>
+    <result column="email"      property="Email"/>
+    <result column="pwd"      property="password"/>
+  </resultMap>
+  
+  
+  <select id="getOneByIdPassword" parameterType="map"  resultMap="cafeMember-map">
+    select 
+      cmno,
+      id,
+      ctel,
+      crn,
+      email,
+      pwd
+    from cmemb
+    where id=#{id}
+      and pwd=password(#{password})
+  </select>
+  
+
+</mapper>
+
+
+
+
+
+
+
+
