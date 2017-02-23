@@ -6,7 +6,7 @@ public class CafeMember implements Serializable {
   
   private static final long serialVersionUID = 1L;
   protected int cafeMemberNo;
-  protected String iD;
+  protected String id;
   protected String cellNo;
   protected String companyNo;
   protected String Email;
@@ -19,11 +19,11 @@ public class CafeMember implements Serializable {
   public void setCafeMemberNo(int cafeMemberNo) {
     this.cafeMemberNo = cafeMemberNo;
   }
-  public String getiD() {
-    return iD;
+  public String getId() {
+    return id;
   }
-  public void setiD(String iD) {
-    this.iD = iD;
+  public void setId(String id) {
+    this.id = id;
   }
   public String getCellNo() {
     return cellNo;
