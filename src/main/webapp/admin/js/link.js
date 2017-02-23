@@ -44,10 +44,6 @@ $('#add-event').click(function(e) {
     location.href = clientRoot + '/event/eventadd.html'
 });
 
-$('#event-title a').click(function(e) {
-	e.preventDefault();
-    location.href = clientRoot + '/event/eventdetail.html'
-});
 
 
 // eventdetail page link ****************************
