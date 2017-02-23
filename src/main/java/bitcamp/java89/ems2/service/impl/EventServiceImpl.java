@@ -9,8 +9,6 @@ import bitcamp.java89.ems2.dao.CafeDao;
 import bitcamp.java89.ems2.dao.CafeMemberDao;
 import bitcamp.java89.ems2.dao.EventDao;
 import bitcamp.java89.ems2.domain.Event;
-import bitcamp.java89.ems2.domain.Member;
-import bitcamp.java89.ems2.domain.Student;
 import bitcamp.java89.ems2.service.EventService;
 
 @Service

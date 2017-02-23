@@ -35,22 +35,22 @@
 	      <div class="pchar3">
 	        행사 이름:
 	      </div>
-		      <input type="text" class="form-control" placeholder="내용을 입력해 주세요">
+		      <input type="text" class="form-control event-title" placeholder="내용을 입력해 주세요">
 	      <!-- 날짜설정 -->
 		    <div class="setdate-div">
 			    <div class="startdiv">
 				    <div class="pchar">시작일:</div> 
-				    <input type="text" id="datepicker">
+				    <input type="text" id="datepicker" class="startDate">
 			    </div>
 			    <div class="enddiv">
 				    <div class="pchar">종료일:</div>
-				    <input type="text" id="datepicker2">
+				    <input type="text" id="datepicker2"class="endDate">
 			    </div>
 		    </div>
 		    <!-- 날짜설정 end -->
 		    <div class="eventup-contents">
 		      <div class="pchar2">행사 내용:</div>
-		      <input type="text" class="form-contents" placeholder="내용을 입력해 주세요">
+		      <input type="text" class="form-contents event-contents" placeholder="내용을 입력해 주세요">
 		    </div>
 	    </div>
 	    <hr>
@@ -68,7 +68,8 @@
   <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src="../js/bit.js"></script>
   <script src="../js/common.js"></script>
-  <script src="main.js"></script>
+  <script src="../js/link.js"></script>
+  <script src="eventadd.js"></script>
   
 <!--jQuery 기본 js파일 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

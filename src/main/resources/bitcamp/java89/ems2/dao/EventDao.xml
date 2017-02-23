@@ -50,9 +50,8 @@
   </select>
   
   
-<<<<<<< HEAD
-  <insert id="insert" parameterType="student">
-    insert into stud(eno,titl,econts,schl_nm,path) 
+  <insert id="insert" parameterType="event">
+    insert into event(eno,titl,econts,ebirth,epath,eview,sday,eday) 
     values(
       #{eventNo},
       #{eventTitle},
