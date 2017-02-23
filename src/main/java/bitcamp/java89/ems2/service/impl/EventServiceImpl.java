@@ -1,6 +1,8 @@
 package bitcamp.java89.ems2.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +19,11 @@ public class EventServiceImpl implements EventService {
   @Autowired CafeDao cafeDao;
   @Autowired EventDao eventDao;
   
-  public List<Event> getList(int cafeMemberNo) throws Exception {
-    return eventDao.getList(cafeMemberNo);
+  public List<Event> getList(int cafeMemberNo, int pageCount) throws Exception {
+    Map<String, Integer> paramMap = new HashMap<>();
+    paramMap.put("param1", cafeMemberNo);
+    paramMap.put("param2", pageCount);
+    return eventDao.getList(cafeMemberNo, pageCount);
   }
   
   public Event getDetail(int eventNo) throws Exception {

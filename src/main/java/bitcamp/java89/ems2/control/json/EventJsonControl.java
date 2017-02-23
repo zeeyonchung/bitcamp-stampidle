@@ -18,8 +18,8 @@ public class EventJsonControl {
   @Autowired EventService eventService;
   
   @RequestMapping(value = "/admin/event/main")
-  public AjaxResult list(int cafeMemberNo) throws Exception {
-    List<Event> list = eventService.getList(cafeMemberNo);
+  public AjaxResult list(int cafeMemberNo, int pageCount) throws Exception {
+    List<Event> list = eventService.getList(cafeMemberNo, pageCount);
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
