@@ -2,13 +2,13 @@
 
 
 
-body {
+.login body {
   background-color:#140a08;
   height: 100%;
   background-repeat: no-repeat;
 }
 
-.container.login {
+.login .container.login {
 	position:absolute;
   background-image: url("../image/hotchocolate2.jpg");
   background-size: cover;
