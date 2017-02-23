@@ -125,7 +125,7 @@ ul a {
 }
 
 
-#event-text {
+.event-text {
   /*border: 1px solid black;*/
   display: inline;
   float: right;
@@ -133,17 +133,17 @@ ul a {
   height: 130px;
 }
 
-#event-title {
+.event-title {
   font-size: 1.1em;
 }
 
 
-#event-store {
+.event-store {
 	margin-top: 6px;
 	font-size: 0.92em;
 }
 
-#event-period {
+.event-period {
   display: inline-block;
   font-size: 0.8em;
   color: red;
@@ -152,7 +152,7 @@ ul a {
   margin-top: 2px;
 }
 
-#event-content {
+.event-content {
   display: inline-block;
   position: relative;
   margin-top: 2px;

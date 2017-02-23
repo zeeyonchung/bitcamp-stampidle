@@ -72,22 +72,22 @@
 {{#each list}}
 <div class='one-event'>
     <img src='{{eventPhotoPath}}'>
-    <div id='event-text'>
-        <div id='event-title' data-no="{{eventNo}}">
+    <div class='event-text'>
+        <div class='event-title' data-no="{{eventNo}}">
             <a href='#'>{{eventTitle}} / {{eventNo}}</a>
         </div>
-        <div id='event-store'>
+        <div class='event-store'>
             <p>{{cafeName}}</p>
         </div>
         <div>
             <div class='event-box'>기간</div>
-            <div id='event-period'>
+            <div class='event-period'>
                 <p>{{startDate}} ~ {{endDate}}</p>
             </div>
         </div>
         <div>
             <div class='event-box'>내용</div>
-            <div id='event-content'>
+            <div class='event-content'>
                 <p>{{eventContents}}</p>
             </div>
         </div>
