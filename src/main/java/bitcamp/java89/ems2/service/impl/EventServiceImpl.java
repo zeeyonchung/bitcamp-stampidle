@@ -31,6 +31,9 @@ public class EventServiceImpl implements EventService {
   }
 
 
+  public Event getDetail(int no) throws Exception {
+    return eventDao.getOne(no);
+  }
 }
   
 

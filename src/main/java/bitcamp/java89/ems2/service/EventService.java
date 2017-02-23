@@ -9,6 +9,7 @@ public interface EventService {
   List<Event> getList() throws Exception;
   int add(Event event) throws Exception;
 
+  Event getDetail(int no) throws Exception;
 }
 
 
