@@ -1,6 +1,5 @@
-/* var cafeMemberNo = getCookie('cafeMember.cafeMemberNo').replace(/"/g, ''); */
-
 /* 첫 페이지 가져오기 */
+/* var cafeMemberNo = getCookie('cafeMember.cafeMemberNo').replace(/"/g, ''); */
 $.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + 10 + "&pageCount=1", function(ajaxResult) {
   var status = ajaxResult.status;
   if (status != "success")

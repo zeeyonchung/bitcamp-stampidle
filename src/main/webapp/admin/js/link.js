@@ -29,15 +29,6 @@ $('.srchList li a').click(function(e) {
 
 
 // event page link
-$('.one a').click(function(e) {
-	e.preventDefault();
-    location.href = clientRoot + '/event/main.html'
-});
-
-$('.two a').click(function(e) {
-	e.preventDefault();
-    location.href = clientRoot + '/event/pastevent.html'
-});
 
 $('#add-event').click(function(e) {
 	e.preventDefault();
