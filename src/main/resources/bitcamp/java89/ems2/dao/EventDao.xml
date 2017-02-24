@@ -52,8 +52,9 @@
   
   
   <insert id="insert" parameterType="event">
-    insert into event(eno,titl,econts,ebirth,epath,eview,sday,eday) 
+    insert into event(cfno, eno,titl,econts,ebirth,epath,eview,sday,eday) 
     values(
+      #{cafeNo},
       #{eventNo},
       #{eventTitle},
       #{eventContents}, 
