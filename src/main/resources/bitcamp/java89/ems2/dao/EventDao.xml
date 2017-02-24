@@ -34,7 +34,7 @@
   </resultMap>
   
   
-  <select id="getList" resultMap="event-map">
+  <select id="getList" parameterType="java.util.Map" resultMap="event-map">
     select 
       e.eno,
       e.titl,
@@ -47,7 +47,9 @@
       c.cname
     from event e
       left outer join cafe c on e.cfno = c.cfno
-    where e.cfno=#{param1}
+    where e.cfno=#{cafeMemberNo}
+    order by e.eno desc
+    limit #{pageCount}, 5
   </select>
   
   
