@@ -38,8 +38,7 @@ $.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + cafeMemberNo + "&pageC
 });
 
 loadPagination(pageCount);
-$('.active').removeClass("active");
-$('.pagination li:nth-of-type(' + (pageCount % 5) + ') a').addClass("active");
+
 
 $(window).scrollTop($(window).height);
 
@@ -59,6 +58,11 @@ $.getJSON(serverRoot + '/event/pagination.json?currentPage=' + currentPage, func
   var pagination = $('.pagination');
   var template = Handlebars.compile($('#trTemplate2').html());
   pagination.html(template({"list": list}));
+  
+  $('.active').removeClass("active");
+  activelink = currentPage % 5;
+  if (activelink == 0) {activelink = 5;}
+  $('.pagination li:nth-of-type(' + activelink + ') a').addClass("active");
 
   $('.z .pagination a').click(function(event) {
 	  event.preventDefault();
