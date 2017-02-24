@@ -1,6 +1,19 @@
-/* 첫 페이지 가져오기 */
+
 /* var cafeMemberNo = getCookie('cafeMember.cafeMemberNo').replace(/"/g, ''); */
-$.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + 10 + "&pageCount=1", function(ajaxResult) {
+
+
+$(function() {
+	loadPage(1);
+});
+
+
+
+
+
+
+function loadPage(pageCount) {
+
+$.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + 10 + "&pageCount=" + pageCount, function(ajaxResult) {
   var status = ajaxResult.status;
   if (status != "success")
 	  return;
@@ -16,34 +29,41 @@ $.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + 10 + "&pageCount=1", f
   });
 });
 
+loadPagination(pageCount);
+$('.active').removeClass("active");
+$('.pagination li:nth-of-type(' + (pageCount % 5) + ') a').addClass("active");
 
-/* 페이지 번호 클릭 시 페이지 가져오기 */
-$('.z .pagination a').click(function(event) {
-	event.preventDefault();
-	
-	var pageCount = $(this).text();
-	
-	$.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + 10 + "&pageCount=" + pageCount, function(ajaxResult) {
-		console.log(pageCount);
-	  var status = ajaxResult.status;
-	  if (status != "success")
-		  return;
-	  var list = ajaxResult.data;
+$(window).scrollTop($(window).height);
 
-	  var eventdiv = $('.eventdiv');
-	  var template = Handlebars.compile($('#trTemplate').html());
-	  eventdiv.html(template({"list": list}));
+};
+
+
+
+
+
+function loadPagination(currentPage) {
+
+$.getJSON(serverRoot + '/event/pagination.json?currentPage=' + currentPage, function(ajaxResult) {
+  var status = ajaxResult.status;
+  if (status != "success")
+	  return;
+  var list = ajaxResult.data;
+  var pagination = $('.pagination');
+  var template = Handlebars.compile($('#trTemplate2').html());
+  pagination.html(template({"list": list}));
+
+  $('.z .pagination a').click(function(event) {
+	  event.preventDefault();
+	  var pageCount = $(this).text();
 	  
-	  $('.event-title').click(function(event) {
-		event.preventDefault();
-	  	location.href = 'eventdetail.html?eventNo=' + $(this).attr("data-no");
-	  });
-	});
-	
-	$('.active').removeClass("active");
-	$(this).addClass("active");
-	
-	$(window).scrollTop($(window).height);
+	  loadPage(pageCount);
+	  console.log(pageCount);
+  });
+  
 });
+
+};
+
+
 
 

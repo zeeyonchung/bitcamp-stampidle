@@ -1,5 +1,6 @@
 package bitcamp.java89.ems2.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,37 @@ public class EventServiceImpl implements EventService {
     int count = eventDao.delete(eventNo);
     
     return count;
+  }
+
+  
+  public List<Integer> getPagination(int currentPage) throws Exception {
+    
+    List<Integer> list = new ArrayList<>();
+    
+    int allEventNo = eventDao.getCount(currentPage);
+    int pageNo = 0;
+    
+    if (allEventNo % 5 != 0) {
+      pageNo = (allEventNo / 5) + 1;
+    } else {
+      pageNo = allEventNo / 5;
+    }
+    
+    
+    if (currentPage % 5 == 0) {
+      for (int i = currentPage - 4; i <= pageNo; i++) {
+        if (list.size() == 5) {break;}
+        list.add(i);
+      }
+    } else {
+      int currentPosition = currentPage % 5;
+      for (int i = currentPage - currentPosition + 1; i <= pageNo; i++) {
+        if (list.size() == 5) {break;}
+        list.add(i);
+      }
+    }
+    
+    return list;
   }
 }
   

@@ -64,6 +64,13 @@ public class EventJsonControl {
   }
   
   
+  
+  @RequestMapping("/admin/event/pagination")
+  public AjaxResult pagination(int currentPage) throws Exception {
+    List<Integer> pageNumbers = eventService.getPagination(currentPage);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, pageNumbers);
+  }
 }
 
 
