@@ -11,6 +11,10 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 
 
+	
+	
+	
+	
 /*제일 먼저 보여지는 1페이지*/
 loadPage(1);
 
@@ -20,7 +24,6 @@ loadPage(1);
 
 /****** 페이지 가져오기 ******/
 function loadPage(pageCount) {
-
 $.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + cafeMemberNo + "&pageCount=" + pageCount, function(ajaxResult) {
   var status = ajaxResult.status;
   if (status != "success")
@@ -41,7 +44,6 @@ loadPagination(pageCount);
 
 
 $(window).scrollTop($(window).height);
-
 };
 
 
@@ -49,7 +51,6 @@ $(window).scrollTop($(window).height);
 
 /****** 페이지 번호들 가져오기 ******/
 function loadPagination(currentPage) {
-
 $.getJSON(serverRoot + '/event/pagination.json?currentPage=' + currentPage, function(ajaxResult) {
   var status = ajaxResult.status;
   if (status != "success")
@@ -72,7 +73,33 @@ $.getJSON(serverRoot + '/event/pagination.json?currentPage=' + currentPage, func
   });
 });
 
+
+
+
 };
+
+
+
+
+/* prev, next 버튼 눌렀을 시*/
+$('#prev').click(function() {
+	var currentFirstPage = $('.z .pagination a:nth-of-type(1)').text();
+	console.log($('.z .pagination a:first-of-type').text());
+	if (currentFirstPage <= 1) {loadPage(1); return;}
+	
+	loadPage(currentFirstPage - 1);
+	console.log("prev...");
+});
+
+
+$('#next').click(function() {
+	var currentLastPage = $('.z .pagination a:nth-of-type(5)').text();
+	console.log($('.z .pagination a:nth-of-type(5)').text());
+	console.log(parseInt($('.z .pagination a:nth-of-type(5)').text()));
+	loadPage(currentLastPage + 1);
+	console.log("next...");
+});
+
 
 
 
