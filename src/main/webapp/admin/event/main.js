@@ -42,5 +42,6 @@ $('.z .pagination a').click(function(event) {
 	
 	$('.active').removeClass("active");
 	$(this).addClass("active");
-
+	
+	$(window).scrollTop($(window).height);
 });

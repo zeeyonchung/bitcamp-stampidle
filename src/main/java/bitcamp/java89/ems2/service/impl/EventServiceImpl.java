@@ -21,9 +21,10 @@ public class EventServiceImpl implements EventService {
   
   public List<Event> getList(int cafeMemberNo, int pageCount) throws Exception {
     Map<String, Integer> paramMap = new HashMap<>();
-    paramMap.put("param1", cafeMemberNo);
-    paramMap.put("param2", pageCount);
-    return eventDao.getList(cafeMemberNo, pageCount);
+    paramMap.put("cafeMemberNo", cafeMemberNo);
+    pageCount = (pageCount - 1) * 5;
+    paramMap.put("pageCount", pageCount);
+    return eventDao.getList(paramMap);
   }
   
   @Override
