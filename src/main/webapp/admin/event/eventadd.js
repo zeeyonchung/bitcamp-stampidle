@@ -61,5 +61,3 @@ $('#photo').fileupload({
     } 
 });
 
-
-
