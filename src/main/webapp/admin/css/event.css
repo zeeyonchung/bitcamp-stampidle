@@ -22,13 +22,13 @@
   font-size: 2em;
 }
 
-ul li:nth-of-type(2), li:nth-of-type(3) {
+.event-navi ul li.one, li.two {
 	border: 1px;
   display: inline;
   font-size: 1.2em;
 }
 
-ul a {
+.event-navi ul a {
   display: inline-block;
   padding: .75rem 0;
   margin: 0;
@@ -36,13 +36,13 @@ ul a {
   color: #333;
 }
 
-.two:hover ~ hr.underline {
+.event-navi .two:hover ~ hr.underline {
   width: 111px;
   margin-left: 259px;
 }
 
 
-.underline {
+.event-navi .underline {
   height: .25rem;
   width: 133px;
   margin-top: -6px;
@@ -69,7 +69,7 @@ ul a {
 }
 
 
-.keyword-event {
+.event-btns .keyword-event {
   width: 130px;
   height: 25px;
   font-size: 0.8em;
@@ -79,14 +79,14 @@ ul a {
   vertical-align: top;
 }
 
-#search-event-btn {
+.event-btns #search-event-btn {
 	width: 25px;
 	height: 25px;
 	font-size: 0.8em;
 }
 
 
-.btn-img {
+.event-btns .btn-img {
 	position: relative;
 	margin-top: -6px;
 	margin-left: -8px;
@@ -94,7 +94,7 @@ ul a {
 	height: 18px;
 }
 
-#add-event {
+.event-btns #add-event {
   width: 120px;
   height: 25px;
   float: right;
@@ -134,13 +134,13 @@ ul a {
 }
 
 .event-title {
-  font-size: 1.1em;
+  font-size: 1.4em;
 }
 
 
 .event-store {
 	margin-top: 6px;
-	font-size: 0.92em;
+	font-size: 1em;
 }
 
 .event-period {
@@ -156,7 +156,7 @@ ul a {
   display: inline-block;
   position: relative;
   margin-top: 2px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   vertical-align: text-top;
 }
 
@@ -178,6 +178,14 @@ ul a {
 .z {
   text-align: center;
 }
+
+.z ul.pagination li a.active {
+    background-color: rgb(94, 94, 94);
+    color: white;
+    border-radius: 5px;
+}
+
+
 
 .one-event hr {
   position: relative;
