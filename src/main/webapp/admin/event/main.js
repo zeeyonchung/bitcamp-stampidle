@@ -84,19 +84,14 @@ $.getJSON(serverRoot + '/event/pagination.json?currentPage=' + currentPage, func
 /* prev, next 버튼 눌렀을 시*/
 $('#prev').click(function() {
 	var currentFirstPage = parseInt($('.z .pagination a:nth-of-type(1)').text().substr(0,1));
-	console.log(currentFirstPage);
 	if (currentFirstPage <= 1) {loadPage(1); return;}
-	
 	loadPage(currentFirstPage - 1);
-	console.log("prev...");
 });
 
 
 $('#next').click(function() {
 	var currentLastPage = parseInt($('.z .pagination a:nth-of-type(1)').text().substr(4,1));
-	console.log(currentLastPage);
 	loadPage(currentLastPage + 1);
-	console.log("next...");
 });
 
 
