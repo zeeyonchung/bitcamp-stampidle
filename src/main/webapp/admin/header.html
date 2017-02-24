@@ -40,8 +40,8 @@
 							<span class="close_addcstmerPop">x</span>
 							<p>고객 계정 등록</p>
 							<div class="input-div">
-								<input type="text" class="form-control" placeholder="이름">  
-								<input type="text" class="form-control" placeholder="핸드폰 번호">
+								<input type="text" class="form-control" id='custom-name' placeholder="이름">  
+								<input type="text" class="form-control" id='custom-tel' placeholder="핸드폰 번호">
 							</div>
 							<button type="button" class="add-btn">등록하기</button>
 	         </div>
@@ -67,6 +67,7 @@
 
 <!-- <script type='text/javascript' src='../js/jQuery-2.1.3.min.js'></script> Is replaced to bootstrap jquery file -->
 <script type='text/javascript' src='../js/slidemenu.min.js'></script>
+<script src="addcustom.js"></script>
 <script>
 	/* profilePop */
 	$(document).ready(function() {
@@ -91,10 +92,6 @@
 		$('.close_addcstmerPop').click(function() {
 			$('.addcstmerPop').fadeOut(200);
 		});
-		
-		$('.add-btn').click(function() {
-      $('.addcstmerPop').fadeOut(200);
-    });
 	});
 </script>
 

@@ -1,4 +1,4 @@
-package bitcamp.java89.ems2.control;
+/*package bitcamp.java89.ems2.control;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -59,7 +59,7 @@ public class AuthControl {
     return "redirect:";
   }
 }
-
+*/
 
 
 

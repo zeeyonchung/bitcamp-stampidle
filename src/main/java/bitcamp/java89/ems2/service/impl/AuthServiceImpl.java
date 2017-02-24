@@ -19,9 +19,7 @@ public class AuthServiceImpl implements AuthService {
     paramMap.put("id", id);
     paramMap.put("password", password);
     
-    System.out.println(paramMap);
     CafeMember cafeMember = cafeMemberDao.getOneByIdPassword(paramMap);
-    System.out.println(cafeMember);
     if (cafeMember == null) {
       return null;
     }

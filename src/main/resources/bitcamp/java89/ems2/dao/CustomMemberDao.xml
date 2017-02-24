@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.CustomMemberDao">
+
+  <resultMap type="customMember" id="customMember-map">
+    <id     column="mno"      property="customMemberNo"/>
+    <result column="tel"       property="tel"/>
+    <result column="email"     property="email"/>
+    <result column="name"     property="name"/>
+    <result column="nick"      property="nick"/>
+    <result column="spot"      property="spot"/>
+    <result column="allow"      property="allow"/>
+  </resultMap>
+  
+  
+  <insert id="insert" parameterType="customMember">
+	  insert into memb(mno, tel, name) 
+	  values(
+	  #{customMemberNo},
+	  #{tel},
+	  #{name})
+  </insert>
+
+</mapper>
+
+
+
+
+
+
+
+

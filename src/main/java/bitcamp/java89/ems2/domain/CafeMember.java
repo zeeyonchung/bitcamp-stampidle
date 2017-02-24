@@ -11,6 +11,7 @@ public class CafeMember implements Serializable {
   protected String companyNo;
   protected String Email;
   protected String password;
+  
   public int getCafeMemberNo() {
     return cafeMemberNo;
   }
