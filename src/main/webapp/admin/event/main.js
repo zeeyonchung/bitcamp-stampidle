@@ -1,17 +1,24 @@
-
-var cafeMemberNo = getCookie('cafeMember').replace(/"/g, '');
-console.log(cafeMemberNo);
-
-
-$(function() {
-	loadPage(1);
-});
-
-
-
-
+/*로그인 정보를 가져와서*/
+$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+	if (ajaxResult.status != "success") {
+		console.log(ajaxResult.data);
+		location.href = clientRoot + "/auth/login.html";
+		/*로그인 안 했으면 로그인 페이지로 보내기*/
+	}
+	
+	var cafeMember = ajaxResult.data;
+	var cafeMemberNo = cafeMember.cafeMemberNo;
 
 
+
+/*제일 먼저 보여지는 1페이지*/
+loadPage(1);
+
+
+
+
+
+/****** 페이지 가져오기 ******/
 function loadPage(pageCount) {
 
 $.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + cafeMemberNo + "&pageCount=" + pageCount, function(ajaxResult) {
@@ -41,7 +48,7 @@ $(window).scrollTop($(window).height);
 
 
 
-
+/****** 페이지 번호들 가져오기 ******/
 function loadPagination(currentPage) {
 
 $.getJSON(serverRoot + '/event/pagination.json?currentPage=' + currentPage, function(ajaxResult) {
@@ -65,4 +72,4 @@ $.getJSON(serverRoot + '/event/pagination.json?currentPage=' + currentPage, func
 
 
 
-
+});
