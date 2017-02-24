@@ -13,11 +13,10 @@ import org.springframework.web.multipart.MultipartFile;
 import bitcamp.java89.ems2.util.MultipartUtil;
 
 @RestController // 이 애노테이션을 붙이면, 스프링 설정 파일에 JSON 변환기 'MappingJackson2JsonView' 객체를 등록하지 않아도 된다.
-@RequestMapping("/common/")
 public class CommonJsonControl {
   @Autowired ServletContext sc;
   
-  @RequestMapping("fileupload")
+  @RequestMapping("/common/fileupload")
   public AjaxResult fileupload(MultipartFile[] files) throws Exception {
     ArrayList<String> filenames = new ArrayList<>();
     

@@ -67,10 +67,11 @@
 	</div>
 
 
+<!-- 이벤트 글 목록 템플릿 -->
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
 <div class='one-event'>
-    <img src='{{eventPhotoPath}}'>
+    <img src='"../../upload/" + {{eventPhotoPath}}'>
     <div class='event-text'>
         <div class='event-title' data-no="{{eventNo}}">
             <a href='#'>{{eventTitle}} / {{eventNo}}</a>

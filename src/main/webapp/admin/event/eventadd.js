@@ -6,8 +6,6 @@ var now = new Date();
       var chan_val = year + '-' + mon + '-' + day;
 
 
-출처: http://wfreud.tistory.com/21 [wfreud 개인 라이브러리]
-
 $('.event-regi-btn').click(function() {
     var param = {
 		"cafeNo": 10,
@@ -35,7 +33,7 @@ $('.event-regi-btn').click(function() {
 //파일 업로드
 
 $('#photo').fileupload({
-    url: serverRoot + '/common/fileupload.json', // 서버에 요청할 URL
+    url: 'http://localhost:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
     dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
     sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
     singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
@@ -48,7 +46,7 @@ $('#photo').fileupload({
     done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     	console.log('done()...');
     	console.log(data.result);
-        $('#photo-path').val(data.result);
+        $('#photo-path').val(data.result.data[0]);
     }, 
     processalways: function(e, data) {
         console.log('fileuploadprocessalways()...', data.files.length, data.index);

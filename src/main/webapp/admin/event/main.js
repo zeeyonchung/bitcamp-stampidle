@@ -1,6 +1,6 @@
 /* var cafeMemberNo = getCookie('cafeMember.cafeMemberNo').replace(/"/g, ''); */
 
-
+/* 첫 페이지 가져오기 */
 $.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + 10 + "&pageCount=1", function(ajaxResult) {
   var status = ajaxResult.status;
   if (status != "success")
@@ -18,6 +18,7 @@ $.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + 10 + "&pageCount=1", f
 });
 
 
+/* 페이지 번호 클릭 시 페이지 가져오기 */
 $('.z .pagination a').click(function(event) {
 	event.preventDefault();
 	
@@ -45,3 +46,5 @@ $('.z .pagination a').click(function(event) {
 	
 	$(window).scrollTop($(window).height);
 });
+
+
