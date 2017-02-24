@@ -1,5 +1,6 @@
 
-/* var cafeMemberNo = getCookie('cafeMember.cafeMemberNo').replace(/"/g, ''); */
+var cafeMemberNo = getCookie('cafeMember').replace(/"/g, '');
+console.log(cafeMemberNo);
 
 
 $(function() {
@@ -13,7 +14,7 @@ $(function() {
 
 function loadPage(pageCount) {
 
-$.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + 10 + "&pageCount=" + pageCount, function(ajaxResult) {
+$.getJSON(serverRoot + '/event/main.json?cafeMemberNo=' + cafeMemberNo + "&pageCount=" + pageCount, function(ajaxResult) {
   var status = ajaxResult.status;
   if (status != "success")
 	  return;
@@ -57,9 +58,7 @@ $.getJSON(serverRoot + '/event/pagination.json?currentPage=' + currentPage, func
 	  var pageCount = $(this).text();
 	  
 	  loadPage(pageCount);
-	  console.log(pageCount);
   });
-  
 });
 
 };
