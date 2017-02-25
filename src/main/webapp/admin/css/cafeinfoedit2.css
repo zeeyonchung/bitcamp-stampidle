@@ -163,6 +163,11 @@ ul a {
   border-radius: 5px;
   float:left;
 }
+.col-sm-10 {
+    position: absolute;
+    top: 0px;
+    right: -240px;
+}
 
 .btn-regi{
 	margin-left:10px;
