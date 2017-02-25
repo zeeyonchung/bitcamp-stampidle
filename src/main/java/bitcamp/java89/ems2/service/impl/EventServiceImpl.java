@@ -48,6 +48,13 @@ public class EventServiceImpl implements EventService {
     
     return count;
   }
+  
+  public int update(Event event) throws Exception {
+    if (eventDao.countByNo(event.getEventNo()) == 0) {
+      throw new Exception("해당이벤트 번호가 존재하지 않습니다.");
+    }
+    return eventDao.update(event);
+  }
 }
   
 

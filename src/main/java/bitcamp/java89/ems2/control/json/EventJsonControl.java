@@ -63,7 +63,17 @@ public class EventJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
   }
   
-  
+  @RequestMapping(value="/admin/event/update")
+  public AjaxResult update(Event event) throws Exception {
+
+    int count = eventService.update(event);
+    
+    if (count == 0) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 번호의 학생이 없습니다.");
+    }
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "변경 성공입니다.");
+  }
 }
 
 

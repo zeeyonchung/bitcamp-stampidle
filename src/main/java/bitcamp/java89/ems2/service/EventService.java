@@ -9,6 +9,7 @@ public interface EventService {
   int add(Event event) throws Exception;
   Event getDetail(int eventNo) throws Exception;
   int delete(int eventNo) throws Exception;
+  int update(Event event) throws Exception;
 }
 
 

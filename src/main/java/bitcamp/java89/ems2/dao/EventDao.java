@@ -11,4 +11,5 @@ public interface EventDao {
   Event getOne(int eventNo) throws Exception;
   int countByNo(int eventNo) throws Exception;
   int delete(int eventNo) throws Exception;
+  int update(Event event) throws Exception;
 }

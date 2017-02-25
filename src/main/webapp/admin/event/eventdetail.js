@@ -43,14 +43,7 @@ $('#use-btn-delete').click(function() {
   });
 });
 
-
-
-$('#use-btn-edit').click(function() {
-  $.getJSON('update.json?eventNo=' + eventNo, function(ajaxResult) {
-	  if (ajaxResult.status != "success") { 
-		  alert(ajaxResult.data);
-		  return;
-	  }
-	  location.href = clientRoot + '/event/eventdetail.html?eventNo=' + eventNo;
-  });
+$('#use-btn-edit').click(function(e) {
+	e.preventDefault();
+    location.href = clientRoot + '/event/eventupdate.html?eventNo='+ eventNo
 });

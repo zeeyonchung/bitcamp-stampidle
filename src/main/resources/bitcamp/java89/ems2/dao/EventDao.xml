@@ -67,6 +67,17 @@
       #{endDate})
   </insert>
   
+  <update id="update" parameterType="event">
+    update event set
+      titl=#{eventTitle}, 
+      econts=#{eventContents}, 
+      ebirth=#{registDate}, 
+      sday=#{startDate},
+      eday=#{endDate},
+      epath=#{eventPhotoPath}
+    where eno=#{eventNo}
+  </update>
+  
   <select id="getOne" resultMap="event-map">
     select 
       e.eno,
@@ -84,6 +95,9 @@
   </select>
   
   
+  
+  
+  
   <select id="countByNo" parameterType="int" resultType="int">
     select count(*)
     from event
@@ -99,10 +113,6 @@
   
 
 </mapper>
-
-
-
-
 
 
 
