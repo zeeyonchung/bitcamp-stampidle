@@ -23,20 +23,20 @@
 	  <div class="con">
       <span>매장 이벤트 추가</span>
       <hr>
-      <div class="imgbox">
-	        <label for="photo" class="col-sm-2 control-label"></label>
-				    <div class="col-sm-10">
-				        <img id='photo-img' height='80'>
-				        <span class="btn btn-success fileinput-button">
-				            <i class="glyphicon glyphicon-plus"></i>
-				            <input id='photo' class='form-control' type='file' name='files'>
-				        </span>
-				        <input id='photo-path' type='hidden'>
-				    </div>
-	        <input type="file" id="file1"  name="file1" style="display:none" />
-	    </div>
-	    <br>
-	    <hr>
+      <div class="imgbox" id="upfile1" >
+        <img id='photo-img' height='100%' width='100%'>
+          <label for="photo" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <span class="btn btn-success fileinput-button" >
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <input id='photo' class='form-control' type='file' name='files'>
+                </span>
+                <input id='photo-path' type='hidden'>
+            </div>
+          <input type="file" id="file1"  name="file1" style="display:none" />
+      </div>
+      <br>
+      <hr style='margin-top:30px;'>
 	    <div class="nameblock-div">
 	      <div class="pchar3">
 	        행사 이름:

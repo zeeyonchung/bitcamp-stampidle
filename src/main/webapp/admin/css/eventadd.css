@@ -36,6 +36,13 @@ hr {
   width:70px;
   display:inline-block;
 }
+
+.col-sm-10 {
+  float:right;
+}
+.col-sm-10 .fileinput-button {
+  float:right;
+}
 .nameblock-div .form-control {
   width:89%;
   margin-top:30px;
