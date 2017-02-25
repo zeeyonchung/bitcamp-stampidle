@@ -111,6 +111,13 @@
   ]]>
   </delete>
   
+  
+  
+  <select id="getCount" parameterType="int" resultType="int">
+    select count(*)
+    from event
+  </select>
+  
 
 </mapper>
 

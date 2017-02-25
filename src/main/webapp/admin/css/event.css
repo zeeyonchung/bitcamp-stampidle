@@ -179,12 +179,21 @@
   text-align: center;
 }
 
-.z ul.pagination li a.active {
-    background-color: rgb(94, 94, 94);
-    color: white;
-    border-radius: 5px;
+
+
+.z ul.pagination {
+	vertical-align: middle;
 }
 
+.z ul.pagination li a.active {
+	background-color: rgb(94, 94, 94);
+	color: white;
+	border-radius: 5px;
+}
+
+.z > button {
+	vertical-align: middle;
+}
 
 
 .one-event hr {

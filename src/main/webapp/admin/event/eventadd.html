@@ -5,7 +5,7 @@
 <title>고객 상세 정보</title>
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/eventupdate.css">
+<link rel="stylesheet" href="../css/eventadd.css">
 <link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
 <!--  jQuery UI CSS파일  -->
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
@@ -23,8 +23,8 @@
 	  <div class="con">
       <span>매장 이벤트 추가</span>
       <hr>
-      <div class="imgbox" id="upfile1" >
-	        <label for="photo" class="col-sm-2 control-label">사진</label>
+      <div class="imgbox">
+	        <label for="photo" class="col-sm-2 control-label"></label>
 				    <div class="col-sm-10">
 				        <img id='photo-img' height='80'>
 				        <span class="btn btn-success fileinput-button">
@@ -97,6 +97,8 @@
   $("#upfile1").click(function () {
 	    $("#file1").trigger('click');
 	});*/
+	
+	
   /* 달력*/
   $(function() {
     $( "#datepicker" ).datepicker({

@@ -8,7 +8,7 @@ var now = new Date();
 
 $('.event-regi-btn').click(function() {
     var param = {
-		"cafeNo": 10,
+		"cafeNo": 1,
 		"eventTitle": $('.event-title').val(),
 		"eventContents": $('.event-contents').val(),
 		"registDate": chan_val,
@@ -55,7 +55,8 @@ $('#photo').fileupload({
         	console.log('미리보기 처리...');
 	        var canvas = data.files[0].preview;
 	        var dataURL = canvas.toDataURL();
-	        img.attr('src', dataURL).css('width', '100px');
+	        img.attr('src', dataURL).css('width', '100%');
+	        img.attr('src', dataURL).css('height', '100%');
 	        $('#photo-label').css('display', '');
         }
     } 

@@ -27,12 +27,7 @@ hr {
 	width:100%;
 	margin-bottom:30px;
 }
-.col-sm-10 {
-	float:right;
-}
-.col-sm-10 .fileinput-button {
-	float:right;
-}
+
 .pchar3 {
   float:left;
   margin-left:15px;

@@ -19,7 +19,8 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
   $('.event-contents').val(event.eventContents);
   $('.startDate').val(event.startDate);
   $('.endDate').val(event.endDate);
-  $('#photo-img').attr('src', '../upload/' + event.eventPhotoPath);
+  console.log('src', '../upload/' + event.eventPhotoPath);
+  $('#photo').attr('src', '../upload/' + event.eventPhotoPath);
 });
 
 
@@ -81,7 +82,7 @@ $('#photo').fileupload({
         	console.log('미리보기 처리...');
 	        var canvas = data.files[0].preview;
 	        var dataURL = canvas.toDataURL();
-	        img.attr('src', dataURL).css('width', '100px');
+	        img.attr('src', dataURL).css('width', '100%');
 	        $('#photo-label').css('display', '');
         }
     } 

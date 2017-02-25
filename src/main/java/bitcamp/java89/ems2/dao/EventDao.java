@@ -12,4 +12,5 @@ public interface EventDao {
   int countByNo(int eventNo) throws Exception;
   int delete(int eventNo) throws Exception;
   int update(Event event) throws Exception;
+  int getCount(int currentPage) throws Exception;
 }
