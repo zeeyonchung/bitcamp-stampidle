@@ -33,16 +33,16 @@ public class CafeMember implements Serializable {
   public String getCompanyNo() {
     return companyNo;
   }
-  public void setCompanyNo(String companyNo) {
+  public String getEmail() {
+		return Email;
+	}
+	public void setEmail(String email) {
+		Email = email;
+	}
+	public void setCompanyNo(String companyNo) {
     this.companyNo = companyNo;
   }
-  public String getEmail() {
-    return Email;
-  }
-  public void setEmail(String email) {
-    Email = email;
-  }
-  public String getPassword() {
+	public String getPassword() {
     return password;
   }
   public void setPassword(String password) {
