@@ -383,7 +383,7 @@
 .myeditPop p:first-of-type {
   font-size: 1.5em;
   font-weight: 500;
-  font-weight: bold;
+  letter-spacing:-1px;
 }
 
 
@@ -414,6 +414,7 @@
 
 .myeditPop input:focus {
   border: 1px solid tomato;
+  box-shadow: 0px 0px 8px rgba(255, 89, 72, 0.6);
 }
 
 
@@ -441,7 +442,49 @@
 }
 
 
+/****************** register:유효성 검사항목 관련(formValidate) ******************/
+.form-group label {
+    display: none!important;
+}
 
+.form-group {
+    position: relative;
+    margin: 0;
+}
+
+.help-block {
+    position: absolute;
+    background: rgba(255, 255, 255, 1);
+    top: 24px;
+    right: 00px;
+    border: 1px solid #ff5948;
+    padding: 3px 10px;
+    border-radius: 0px;
+    font-size: 0.75em;
+    color: #ff5948 !important;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.form-control-feedback.glyphicon-ok+.help-block {
+    display: none !important;
+}
+
+.glyphicon {
+    margin-top: 4px;
+}
+
+.glyphicon-ok:before {
+    content: "\e013";
+    font-size: 0.8em;
+    color: #ff5948;
+}
+
+.glyphicon-remove:before {
+    content: "\e014";
+    font-size: 0.8em;
+    color: #333;
+}
 
 
 /*************************************************

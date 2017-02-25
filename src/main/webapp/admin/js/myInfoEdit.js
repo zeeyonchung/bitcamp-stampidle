@@ -16,7 +16,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 
 $('.myeditPop .edit-btn').click(function() {
-	$('.profilePop').fadeOut(200);
 	$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var loginUser = ajaxResult.data;
 		var param = {
