@@ -27,6 +27,30 @@ $('.login-btn').click(function() {
 $('#id').val(getCookie('id').replace(/"/g, ''));
 
 
+//회원가입
+$('.add-btn').click(function(event) {
+	event.preventDefault();
+    var param = {
+    		id: $('#new-id').val(),
+    		cellNo: $('#new-cellNo').val(),
+    		companyNo: $('#new-companyNo').val(),
+    		Email: $('#new-email').val(),
+    		password: $('#new-password').val()
+    };
+    console.log(param);
+    
+    
+    $.post(serverRoot + '/cafeMember/add.json', param, function(ajaxResult) {
+    	if (ajaxResult.status != "success") {
+    		alert(ajaxResult.data);
+    		return;
+    	}
+    	$('.loginPop').fadeOut(200);
+        $('.register').css('display', 'none');
+    	alert('등록이 완료되었습니다.');
+    }, 'json');
+    
+}); // click()
 
 
 

@@ -28,7 +28,47 @@
       and pwd=password(#{password})
   </select>
   
-
+   
+<update id="update" parameterType="CafeMember">
+    update cmemb set
+      id=#{id}, 
+      ctel=#{cellNo}, 
+      crn=#{companyNo},
+	  email=#{email},
+	  pwd=password(#{password})
+    where cmno=#{cafeMemberNo}
+  </update>
+  <select id="countByCmNo" parameterType="int" resultType="int">
+    select count(*)
+    from cmemb cm 
+    where cm.cmno=#{value}
+  </select>
+  
+  
+  <select id="getOne" parameterType="int" resultMap="cafeMember-map">
+    select 
+      cm.cmno,
+      cm.id,
+      cm.ctel,
+      cm.crn,
+      cm.email,
+      cm.pwd
+    from cmemb cm
+    where cm.cmno=#{value} 
+  </select>
+  
+  <insert id="insert" parameterType="cafeMember">
+    insert into cmemb(cmno, id, ctel, crn, email, pwd) 
+    values(
+    #{cafeMemberNo},
+    #{id},
+    #{cellNo},
+    #{companyNo},
+    #{Email},
+    password(#{password})
+   )
+  </insert>
+  
 </mapper>
 
 

@@ -191,9 +191,16 @@
 	border-radius: 5px;
 }
 
-.z > button {
+.z .btn {
 	vertical-align: middle;
 }
+
+.z .btn-default:focus {
+	outline: none;
+	background: white;
+	border-color: #ccc;
+}
+
 
 
 .one-event hr {

@@ -26,7 +26,7 @@ $( function() {
 		$('#logout-btn').click(function(event) {
 			event.preventDefault()
 			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
-				location.href = clientRoot + '/auth/main.html'
+				location.href = clientRoot + '/auth/login.html'
 			});
 		});
 	  });

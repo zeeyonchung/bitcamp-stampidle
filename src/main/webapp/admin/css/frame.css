@@ -76,7 +76,7 @@
 #header .top .search .inputArea {
     position: absolute;
     width: 290px;
-    min-height: 40px;
+    min-height: 38px;
     margin-top: 20px;
     border: 1px solid #b2b2b2;
     border-radius: 20px;
@@ -86,8 +86,10 @@
 #header .top .search .inputArea .srchBar {
     float: left;
     width: 240px;
-    padding: 8px 20px 9px 20px;
-    font-size: 16px;
+    padding: 0 20px;
+    height:38px;
+    line-height:38px;
+    font-size: 1.3em;
     color: #555;
     background: transparent;
 }
@@ -143,6 +145,53 @@
     font-size: 15px;
 }
 
+
+/***  auto complete 고객검색 자동완성 ***/
+.ac_results {
+	clear: both;
+    padding: 0px;
+    overflow: hidden;
+    z-index: 99999;
+    width:290px!important;
+    border:1px solid #b2b2b2;
+    border-radius:20px;
+    z-index:1000000;
+    background:#fff;
+}
+
+.ac_results ul {
+    list-style-position: outside;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width:290px;
+}
+.ac_results li {
+    margin: 0px;
+    cursor: default;
+    display: block;
+    font-size: 1.4em;
+    padding: 0 20px;
+    overflow: hidden;
+    height:40px;
+    line-height:40px;
+    font-size:1em;
+}
+
+.ac_results li strong {
+    font-weight:normal;
+}
+
+.ac_odd {
+    background-color: #f7f7f7;
+}
+
+.ac_over {
+    background-color: #444;
+    color: white;
+}
+
+
 /************ logon-div ************/
 #header .top #logon-div {
     float: right;
@@ -196,7 +245,7 @@
     width: 275px;
     padding: 15px;
     background: #fafafa;
-    box-shadow: 3px 3px 10px #d8d8d8;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
     text-align: left;
 }
 
@@ -248,17 +297,21 @@
 
 #header .top .profilePop .btnInfo .btn-joinInfo {
     float: left;
-    padding: 3px 16px 5px 16px;
+    width:49%;
+    padding: 3px 0 5px 0;
     font-size: 14px;
     font-weight: bold;
+    text-align:center;
 }
 
 #header .top .profilePop .btnInfo .btn-cafeInfo {
     float: left;
-    padding: 3px 16px 5px 16px;
-    margin-left: 5px;
+    width:49%;
+    padding: 3px 0 5px 0;
+    margin-left: 2%;
     font-size: 14px;
     font-weight: bold;
+    text-align:center;
 }
 #header .top .profilePop .close_profilePop {
 	position: absolute;
@@ -379,7 +432,7 @@
 .myeditPop p:first-of-type {
   font-size: 1.5em;
   font-weight: 500;
-  font-weight: bold;
+  letter-spacing:-1px;
 }
 
 
@@ -389,12 +442,28 @@
   background-color: #f9f7f7;
   border: 0;
   border-radius: 4px;
+  text-align:left;
+}
+
+.myeditPop .no_input {
+  margin-top: 5px;
+  height: 45px;
+  background-color: #f8eaea;
+  border: 0;
+  border-radius: 4px;
+  text-align:left;
+  line-height:34px;
+}
+
+.myeditPop .form-control:after {
+	
 }
 
 
 
 .myeditPop input:focus {
   border: 1px solid tomato;
+  box-shadow: 0px 0px 8px rgba(255, 89, 72, 0.6);
 }
 
 
@@ -422,7 +491,49 @@
 }
 
 
+/****************** register:유효성 검사항목 관련(formValidate) ******************/
+.form-group label {
+    display: none!important;
+}
 
+.form-group {
+    position: relative;
+    margin: 0;
+}
+
+.help-block {
+    position: absolute;
+    background: rgba(255, 255, 255, 1);
+    top: 24px;
+    right: 00px;
+    border: 1px solid #ff5948;
+    padding: 3px 10px;
+    border-radius: 0px;
+    font-size: 0.75em;
+    color: #ff5948 !important;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.form-control-feedback.glyphicon-ok+.help-block {
+    display: none !important;
+}
+
+.glyphicon {
+    margin-top: 4px;
+}
+
+.glyphicon-ok:before {
+    content: "\e013";
+    font-size: 0.8em;
+    color: #ff5948;
+}
+
+.glyphicon-remove:before {
+    content: "\e014";
+    font-size: 0.8em;
+    color: #333;
+}
 
 
 /*************************************************

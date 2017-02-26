@@ -16,9 +16,3 @@ $('.addcstmerPop .add-btn').click(function() {
     }, 'json');
     
 }); // click()
-
-
-
-
-
-
