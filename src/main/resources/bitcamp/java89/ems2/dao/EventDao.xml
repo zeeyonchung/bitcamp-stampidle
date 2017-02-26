@@ -49,7 +49,7 @@
       left outer join cafe c on e.cfno = c.cfno
     where e.cfno=#{cafeMemberNo}
     order by e.eno desc
-    limit #{pageCount}, 5
+    limit #{firstPost}, #{postNo}
   </select>
   
   
@@ -113,9 +113,10 @@
   
   
   
-  <select id="getCount" parameterType="int" resultType="int">
+  <select id="getCount" resultType="int">
     select count(*)
     from event
+    where cfno=#{cafeMemberNo}
   </select>
   
 

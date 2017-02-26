@@ -1,6 +1,7 @@
 package bitcamp.java89.ems2.control.json;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -20,10 +21,16 @@ public class EventJsonControl {
   
   @Autowired EventService eventService;
   
-  @RequestMapping(value = "/admin/event/main")
-  public AjaxResult list(int cafeMemberNo, int pageCount) throws Exception {
-    List<Event> list = eventService.getList(cafeMemberNo, pageCount);
-    return new AjaxResult(AjaxResult.SUCCESS, list);
+  @RequestMapping(value = "/admin/event/loadPage")
+  public AjaxResult list(int cafeMemberNo, int pageCount, int postNo) throws Exception {
+    List<Event> list = eventService.getList(cafeMemberNo, pageCount, postNo);
+    int allEventNo = eventService.getCount(cafeMemberNo);
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("list", list);
+    resultMap.put("allEventNo", allEventNo);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
   @RequestMapping(value = "/admin/event/add")
@@ -76,8 +83,8 @@ public class EventJsonControl {
   }
   
   @RequestMapping("/admin/event/pagination")
-  public AjaxResult pagination(int currentPage) throws Exception {
-    List<Integer> pageNumbers = eventService.getPagination(currentPage);
+  public AjaxResult pagination(int cafeMemberNo, int currentPage, int postNo) throws Exception {
+    List<Integer> pageNumbers = eventService.getPagination(cafeMemberNo, currentPage, postNo);
     
     return new AjaxResult(AjaxResult.SUCCESS, pageNumbers);
   }
