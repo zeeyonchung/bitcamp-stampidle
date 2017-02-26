@@ -12,4 +12,5 @@ public interface CafeMemberDao {
   int update(CafeMember cafeMember) throws Exception;
   int countByCmNo(int cafeMemberNo) throws Exception;
   CafeMember getOne(int cafeMemberNo) throws Exception;
+  int insert(CafeMember cafeMember) throws Exception;
 }

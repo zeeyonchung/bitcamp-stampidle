@@ -56,6 +56,19 @@
     from cmemb cm
     where cm.cmno=#{value} 
   </select>
+  
+  <insert id="insert" parameterType="cafeMember">
+    insert into cmemb(cmno, id, ctel, crn, email, pwd) 
+    values(
+    #{cafeMemberNo},
+    #{id},
+    #{cellNo},
+    #{companyNo},
+    #{Email},
+    password(#{password})
+   )
+  </insert>
+  
 </mapper>
 
 
