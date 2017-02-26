@@ -1,5 +1,7 @@
 package bitcamp.java89.ems2.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,11 @@ public class CustomMemberServiceImpl implements CustomMemberService {
   public int add(CustomMember customMember) throws Exception {
     return customMemberDao.insert(customMember);
   }
+  
+  public List<CustomMember> getSrchListCustomMember() throws Exception {
+  	return customMemberDao.getSrchListCustomMember();
+  }
+  
 }
   
 
