@@ -115,10 +115,26 @@ ul a {
 	float:left;
 }
 
+.photo-imgbox-div {
+	width:400px; 
+	background:#dedede;
+}
+
+
+.col-sm-10 {
+  position: absolute;
+  right: -400px;
+  top: 0px;
+}
+
+
 
 #pre_set, #pre_set2 {
   position:relative;
 }
+
+
+
 
 .free-sub{
 	display:inline-block;
