@@ -22,6 +22,10 @@ public class CafeMemberImpl implements CafeMemberService {
   public CafeMember getDetail(int cafeMemberNo) throws Exception {
   	return cafeMemberDao.getOne(cafeMemberNo);
   }
+  
+  public int add(CafeMember cafeMember) throws Exception {
+    return cafeMemberDao.insert(cafeMember);
+  }
 }
 
 

@@ -5,13 +5,14 @@
             
             
             <div class='search'>
-                <div class='inputArea'>
-                    <input class='srchBar' type='text' placeholder='이름 또는 전화번호'><a href='' class='btn_srch'>검색</a>
-                    <ul class='srchList'>
-                        <li><a href=''><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-1234-5678</span></a></li>
-                        <li><a href=''><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-2345-6789</span></a></li>
-                    </ul>
-                </div>
+                <form name="form1" class='inputArea' method="post">
+	                 <input type="text" id="searchbox" class='srchBar' placeholder='이름 또는 전화번호'>
+	                 <input type="submit" id="sumit" class='btn_srch' value="검색">
+                 <!-- <ul class='srchList'>
+                     <li><a href=''><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-1234-5678</span></a></li>
+                     <li><a href=''><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-2345-6789</span></a></li>
+                 </ul> -->
+                </form>
                 <button class='btn_newCstmr_top' type='button'>고객등록</button>
             </div>
             
@@ -37,68 +38,69 @@
             </div>
             
             <div class="addcstmerPop">
-							<span class="close_addcstmerPop">x</span>
-							<p>고객 계정 등록</p>
-							<div class="input-div">
-								<input type="text" class="form-control" id='custom-name' placeholder="이름">  
-								<input type="text" class="form-control" id='custom-tel' placeholder="핸드폰 번호">
-							</div>
-							<button type="submit" class="add-btn">등록하기</button>
+				<span class="close_addcstmerPop">x</span>
+				<p>고객 계정 등록</p>
+				<div class="input-div">
+					<input type="text" class="form-control" id='custom-name' placeholder="이름">  
+					<input type="text" class="form-control" id='custom-tel' placeholder="핸드폰 번호">
+				</div>
+				<button type="submit" class="add-btn">등록하기</button>
 	         </div>
 
 
-	<div class="panel panel-default myeditPop">
-		<span class="close">x</span>
-		<p>가입 정보 수정</p>
-		<div class="input-div">
-			<form id="signupForm1" method="post">
-
-				<div class="form-group">
-					<div id="id" class="form-control no_input"></div>
+			<div class="panel panel-default myeditPop">
+				<span class="close">x</span>
+				<p>가입 정보 수정</p>
+				<div class="input-div">
+					<form id="signupForm1" method="post">
+		
+						<div class="form-group">
+							<div id="id" class="form-control no_input"></div>
+						</div>
+		
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="password">비밀번호</label> <input
+								type="password" class="form-control" id="password" name="password"
+								placeholder="비밀번호" />
+						</div>
+		
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="confirm_password">비밀번호
+								확인</label> <input type="password" class="form-control"
+								id="confirm_password" name="confirm_password"
+								placeholder="비밀번호 확인" />
+						</div>
+		
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="email">이메일</label> <input
+								type="text" class="form-control" id="email" name="email"
+								placeholder="이메일" />
+						</div>
+		
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="phone">핸드폰번호</label> <input
+								type="text" class="form-control" id="phone" name="phone"
+								placeholder="핸드폰번호" />
+						</div>
+		
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="companyNo">사업자
+								등록번호</label> <input type="text" class="form-control" id="companyNo"
+								name="companyNo" placeholder="사업자 등록번호" />
+						</div>
+		
+		
+						<button type="submit" name="signup1" class="login-btn edit-btn">수정하기</button>
+					</form>
 				</div>
-
-				<div class="form-group">
-					<label class="col-sm-4 control-label" for="password">비밀번호</label> <input
-						type="password" class="form-control" id="password" name="password"
-						placeholder="비밀번호" />
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-4 control-label" for="confirm_password">비밀번호
-						확인</label> <input type="password" class="form-control"
-						id="confirm_password" name="confirm_password"
-						placeholder="비밀번호 확인" />
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-4 control-label" for="email">이메일</label> <input
-						type="text" class="form-control" id="email" name="email"
-						placeholder="이메일" />
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-4 control-label" for="phone">핸드폰번호</label> <input
-						type="text" class="form-control" id="phone" name="phone"
-						placeholder="핸드폰번호" />
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-4 control-label" for="companyNo">사업자
-						등록번호</label> <input type="text" class="form-control" id="companyNo"
-						name="companyNo" placeholder="사업자 등록번호" />
-				</div>
-
-
-				<button type="submit" name="signup1" class="login-btn edit-btn">수정하기</button>
-			</form>
-		</div>
-
-
+				
+				
+            </div>
 	</div>
 
 
 
-	<script type='text/javascript' src='../js/slidemenu.min.js'></script>
+<script type='text/javascript' src='../js/slidemenu.min.js'></script>
 <script src="../js/addcustom.js"></script>
 <script src="../js/myInfoEdit.js"></script>
 <script>
@@ -113,8 +115,8 @@
 		});
 	});
 </script>
-<script>
 
+<script>
   /* addcstmerPop */
 	$(document).ready(function() {
 		$('.btn_newCstmr_top').click(function() {
@@ -129,7 +131,6 @@
 
 
 <script>
-
   /* myeditPop */
   $(document).ready(function() {
     $('.btn-joinInfo').click(function(event) {
@@ -142,99 +143,129 @@
   });
 </script>
 
+
 <!-- form validate 유효성검사 -->
-    <script type="text/javascript" src="../js/jquery.validate.js"></script>
-    <script type="text/javascript">
-        $( document ).ready( function () {
-            $( "#signupForm1" ).validate( {
-                rules: {
-                    id: {
-                        required: true,
-                        minlength: 4
-                    },
-                    password: {
-                        required: true,
-                        minlength: 4
-                    },
-                    confirm_password: {
-                        required: true,
-                        minlength: 4,
-                        equalTo: "#password"
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    phone: {
-                        required: true,
-                        minlength: 10
-                    },
-                    companyNo: {
-                        required: true,
-                        minlength: 10
-                    },
-                    agree1: "required"
+<script type="text/javascript" src="../js/jquery.validate.js"></script>
+<script type="text/javascript">
+    $( document ).ready( function () {
+        $( "#signupForm1" ).validate( {
+            rules: {
+                id: {
+                    required: true,
+                    minlength: 4
                 },
-                messages: {
-                    id: {
-                        required: "이름을 입력해주세요.",
-                        minlength: "4자이상 입력해주세요."
-                    },
-                    password: {
-                        required: "비밀번호를 입력해주세요.",
-                        minlength: "4자 이상 입력해주세요."
-                    },
-                    confirm_password: {
-                        required: "비밀번호 확인을 위해 다시 한 번 입력해주세요.",
-                        minlength: "4자 이상 입력해주세요.",
-                        equalTo: "비밀번호를 다시 확인해주세요."
-                    },
-                    phone: {
-                        required: "연락처를 입력해주세요.",
-                        minlength: "입력번호를 다시 확인해주세요."
-                    },
-                    companyNo: {
-                        required: "사업자등록번호를 입력해주세요.",
-                        minlength: "입력번호를 다시 확인해주세요."
-                    },
-                    email: "이메일을 입력해주세요.",
-                    agree: "약관에 동의해주세요."
+                password: {
+                    required: true,
+                    minlength: 4
                 },
-                
-                errorElement: "em",
-                errorPlacement: function ( error, element ) {
-                    error.addClass( "help-block" );
+                confirm_password: {
+                    required: true,
+                    minlength: 4,
+                    equalTo: "#password"
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true,
+                    minlength: 10
+                },
+                companyNo: {
+                    required: true,
+                    minlength: 10
+                },
+                agree1: "required"
+            },
+            messages: {
+                id: {
+                    required: "이름을 입력해주세요.",
+                    minlength: "4자이상 입력해주세요."
+                },
+                password: {
+                    required: "비밀번호를 입력해주세요.",
+                    minlength: "4자 이상 입력해주세요."
+                },
+                confirm_password: {
+                    required: "비밀번호 확인을 위해 다시 한 번 입력해주세요.",
+                    minlength: "4자 이상 입력해주세요.",
+                    equalTo: "비밀번호를 다시 확인해주세요."
+                },
+                phone: {
+                    required: "연락처를 입력해주세요.",
+                    minlength: "입력번호를 다시 확인해주세요."
+                },
+                companyNo: {
+                    required: "사업자등록번호를 입력해주세요.",
+                    minlength: "입력번호를 다시 확인해주세요."
+                },
+                email: "이메일을 입력해주세요.",
+                agree: "약관에 동의해주세요."
+            },
+            
+            errorElement: "em",
+            errorPlacement: function ( error, element ) {
+                error.addClass( "help-block" );
 
-                    // Add `has-feedback` class to the parent div.form-group
-                    // in order to add icons to inputs
-                    element.parents( ".col-sm-5" ).addClass( "has-feedback" );
+                // Add `has-feedback` class to the parent div.form-group
+                // in order to add icons to inputs
+                element.parents( ".col-sm-5" ).addClass( "has-feedback" );
 
-                    if ( element.prop( "type" ) === "checkbox" ) {
-                        error.insertAfter( element.parent( "label" ) );
-                    } else {
-                        error.insertAfter( element );
-                    }
-
-                    // Add the span element, if doesn't exists, and apply the icon classes to it.
-                    if ( !element.next( "span" )[ 0 ] ) {
-                        $( "<span class='glyphicon glyphicon-remove form-control-feedback'></span>" ).insertAfter( element );
-                    }
-                },
-                success: function ( label, element ) {
-                    // Add the span element, if doesn't exists, and apply the icon classes to it.
-                    if ( !$( element ).next( "span" )[ 0 ] ) {
-                        $( "<span class='glyphicon glyphicon-ok form-control-feedback'></span>" ).insertAfter( $( element ) );
-                    }
-                },
-                highlight: function ( element, errorClass, validClass ) {
-                    $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
-                    $( element ).next( "span" ).addClass( "glyphicon-remove" ).removeClass( "glyphicon-ok" );
-                },
-                unhighlight: function ( element, errorClass, validClass ) {
-                    $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
-                    $( element ).next( "span" ).addClass( "glyphicon-ok" ).removeClass( "glyphicon-remove" );
+                if ( element.prop( "type" ) === "checkbox" ) {
+                    error.insertAfter( element.parent( "label" ) );
+                } else {
+                    error.insertAfter( element );
                 }
-            } );
+
+                // Add the span element, if doesn't exists, and apply the icon classes to it.
+                if ( !element.next( "span" )[ 0 ] ) {
+                    $( "<span class='glyphicon glyphicon-remove form-control-feedback'></span>" ).insertAfter( element );
+                }
+            },
+            success: function ( label, element ) {
+                // Add the span element, if doesn't exists, and apply the icon classes to it.
+                if ( !$( element ).next( "span" )[ 0 ] ) {
+                    $( "<span class='glyphicon glyphicon-ok form-control-feedback'></span>" ).insertAfter( $( element ) );
+                }
+            },
+            highlight: function ( element, errorClass, validClass ) {
+                $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+                $( element ).next( "span" ).addClass( "glyphicon-remove" ).removeClass( "glyphicon-ok" );
+            },
+            unhighlight: function ( element, errorClass, validClass ) {
+                $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+                $( element ).next( "span" ).addClass( "glyphicon-ok" ).removeClass( "glyphicon-remove" );
+            }
         } );
-    </script>
+    } );
+</script>
 <!-- //form validate 유효성검사 -->
+
+
+<!-- auto complete 고객검색 자동완성 -->
+<script type="text/javascript" src="../js/auto_complete/jquery.js"></script>
+<script type="text/javascript" src="../js/auto_complete/jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="../js/auto_complete/jquery.ajaxQueue.js"></script>
+<script type="text/javascript" src="../js/auto_complete/jquery.autocomplete.js"></script>
+<script>
+    var availableTags = [
+                        '가나',
+                        '가나쵸콜렛',
+                        '가오리',
+                        '가상현실',
+                        '북마크',
+                        '북까페',
+                        '북촌한옥마을',
+                        '010-3238-0101',
+                        '010-3338-0222'
+                    ];
+</script>
+<script>
+$(document).ready(function() {
+    $("#searchbox").autocomplete(availableTags,{ 
+        matchContains: true,
+        selectFirst: false
+    });
+});
+</script>
+<!-- //auto complete 고객검색 자동완성 -->

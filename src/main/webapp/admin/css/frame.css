@@ -76,7 +76,7 @@
 #header .top .search .inputArea {
     position: absolute;
     width: 290px;
-    min-height: 40px;
+    min-height: 38px;
     margin-top: 20px;
     border: 1px solid #b2b2b2;
     border-radius: 20px;
@@ -86,8 +86,10 @@
 #header .top .search .inputArea .srchBar {
     float: left;
     width: 240px;
-    padding: 8px 20px 9px 20px;
-    font-size: 16px;
+    padding: 0 20px;
+    height:38px;
+    line-height:38px;
+    font-size: 1.3em;
     color: #555;
     background: transparent;
 }
@@ -142,6 +144,53 @@
     color: #fff;
     font-size: 15px;
 }
+
+
+/***  auto complete 고객검색 자동완성 ***/
+.ac_results {
+	clear: both;
+    padding: 0px;
+    overflow: hidden;
+    z-index: 99999;
+    width:290px!important;
+    border:1px solid #b2b2b2;
+    border-radius:20px;
+    z-index:1000000;
+    background:#fff;
+}
+
+.ac_results ul {
+    list-style-position: outside;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width:290px;
+}
+.ac_results li {
+    margin: 0px;
+    cursor: default;
+    display: block;
+    font-size: 1.4em;
+    padding: 0 20px;
+    overflow: hidden;
+    height:40px;
+    line-height:40px;
+    font-size:1em;
+}
+
+.ac_results li strong {
+    font-weight:normal;
+}
+
+.ac_odd {
+    background-color: #f7f7f7;
+}
+
+.ac_over {
+    background-color: #444;
+    color: white;
+}
+
 
 /************ logon-div ************/
 #header .top #logon-div {

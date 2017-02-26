@@ -48,7 +48,7 @@
 }
 
 
-.login-main .login-btn {
+.login-main .login-btn, .add-btn {
   display: block;
   clear: left;
   margin: auto;
