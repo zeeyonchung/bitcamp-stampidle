@@ -11,4 +11,5 @@ public interface CafeMemberDao {
   CafeMember getOneByIdPassword(Map<String,String> paramMap) throws Exception;
   int update(CafeMember cafeMember) throws Exception;
   int countByCmNo(int cafeMemberNo) throws Exception;
+  CafeMember getOne(int cafeMemberNo) throws Exception;
 }

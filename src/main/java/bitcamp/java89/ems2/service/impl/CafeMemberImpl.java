@@ -11,14 +11,16 @@ import bitcamp.java89.ems2.service.CafeMemberService;
 public class CafeMemberImpl implements CafeMemberService {
   @Autowired CafeMemberDao cafeMemberDao;
   
-
-  
   public int update(CafeMember cafeMember) throws Exception {
     if (cafeMemberDao.countByCmNo(cafeMember.getCafeMemberNo()) == 0) {
       throw new Exception("사용자를 찾지 못했습니다.");
     }
     cafeMemberDao.update(cafeMember);
     return cafeMemberDao.update(cafeMember);
+  }
+  
+  public CafeMember getDetail(int cafeMemberNo) throws Exception {
+  	return cafeMemberDao.getOne(cafeMemberNo);
   }
 }
 

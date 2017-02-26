@@ -45,6 +45,17 @@
   </select>
   
   
+  <select id="getOne" parameterType="int" resultMap="cafeMember-map">
+    select 
+      cm.cmno,
+      cm.id,
+      cm.ctel,
+      cm.crn,
+      cm.email,
+      cm.pwd
+    from cmemb cm
+    where cm.cmno=#{value} 
+  </select>
 </mapper>
 
 

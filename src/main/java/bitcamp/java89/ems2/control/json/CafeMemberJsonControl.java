@@ -28,6 +28,17 @@ public class CafeMemberJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "변경 성공입니다.");
   }
  
+  
+  @RequestMapping(value = {"/admin/cafeMember/detail"})
+  public AjaxResult detail(int cafeMemberNo) throws Exception {
+  	CafeMember cafeMember = cafeMemberService.getDetail(cafeMemberNo);
+    
+    if (cafeMember == null) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
+    }
+    
+    return new AjaxResult(AjaxResult.SUCCESS, cafeMember);
+  }
 }
 
 
