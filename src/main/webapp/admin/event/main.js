@@ -28,7 +28,7 @@ loadPage(1);
 /****** 페이지 가져오기 ******/
 function loadPage(pageCount) {
 $.getJSON(
-serverRoot + '/event/loadPage.json',
+serverRoot + '/event/list.json',
 {'cafeMemberNo': cafeMemberNo,
  'pageCount': pageCount,
  'postNo': postNo}, 
@@ -44,6 +44,11 @@ function(ajaxResult) {
   
   $('.event-title').click(function(event) {
 	event.preventDefault();
+	
+	
+	
+	
+	
   	location.href = 'eventdetail.html?eventNo=' + $(this).attr("data-no");
   });
   

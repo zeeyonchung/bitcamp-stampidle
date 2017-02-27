@@ -21,10 +21,14 @@ public class EventJsonControl {
   
   @Autowired EventService eventService;
   
-  @RequestMapping(value = "/admin/event/loadPage")
+  @RequestMapping(value = "/admin/event/list")
   public AjaxResult list(int cafeMemberNo, int pageCount, int postNo) throws Exception {
     List<Event> list = eventService.getList(cafeMemberNo, pageCount, postNo);
     int allEventNo = eventService.getCount(cafeMemberNo);
+    
+    if (list.size() == 0) {
+      return new AjaxResult(AjaxResult.FAIL, "페이지가 존재하지 않습니다.");
+    }
     
     HashMap<String,Object> resultMap = new HashMap<>();
     resultMap.put("list", list);
@@ -85,6 +89,10 @@ public class EventJsonControl {
   @RequestMapping("/admin/event/pagination")
   public AjaxResult pagination(int cafeMemberNo, int currentPage, int postNo) throws Exception {
     List<Integer> pageNumbers = eventService.getPagination(cafeMemberNo, currentPage, postNo);
+    
+    if (pageNumbers.size() == 0) {
+      return new AjaxResult(AjaxResult.FAIL, "페이지 번호 정보가 존재하지 않습니다.");
+    }
     
     return new AjaxResult(AjaxResult.SUCCESS, pageNumbers);
   }
