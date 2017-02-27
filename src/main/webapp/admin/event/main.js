@@ -67,7 +67,6 @@ $(window).scrollTop($(window).height);
 
 /****** 페이지 번호들 가져오기 ******/
 function loadPagination(currentPage, allEventNo) {
-	console.log(cafeMemberNo,currentPage,postNo,searchCondition,searchKeyword)
 $.getJSON(
 serverRoot + '/event/pagination.json',
 {'cafeMemberNo': cafeMemberNo,
