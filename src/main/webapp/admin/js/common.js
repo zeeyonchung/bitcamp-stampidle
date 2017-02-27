@@ -20,7 +20,7 @@ $( function() {
 		// 로그인 되었으면, 로그오프 상태 출력 창을 감춘다. 
 		$('#logoff-div').css('display', 'none');
 		$('#logon-div img').attr('src', '../upload/' + ajaxResult.data.photoPath);
-		$('#logon-div span').text(ajaxResult.data.name);
+		$('#logon-div span').text(ajaxResult.data.id);
 		
 		// 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
 		$('#logout-btn').click(function(event) {
