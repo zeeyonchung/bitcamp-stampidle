@@ -4,12 +4,17 @@
 <meta charset='UTF-8'>
 <title>스탬피들 로그인</title>
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <link rel="stylesheet" href="../css/default.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/login.css">
 
 </head>
-
+<style>
+.register {
+  display: block;
+}
+</style>
 
 
 
@@ -76,19 +81,52 @@
 
 
 
-        <div class="register">
-          <span class="close">x</span>
-          <p>카페회원 계정 등록</p>
-          <div class="input-div">
-            <input type="text" class="form-control" placeholder="아이디" id="new-id">
-            <input type="password" class="form-control" placeholder="비밀번호" id='new-password'>
-            <input type="password" class="form-control" placeholder="비밀번호 확인">
-            <input type="text" class="form-control" placeholder="이메일" id='new-email'>
-            <input type="text" class="form-control" placeholder="핸드폰번호" id='new-cellNo'>
-            <input type="text" class="form-control" placeholder="사업자 등록번호" id='new-companyNo'>
-          </div>
-          <button type="button" class="add-btn">가입하기</button>
-        </div>
+        <div class="panel panel-default register">
+        <span class="close">x</span>
+    <p>카페회원 계정 등록</p>
+
+    <div class="input-div">
+    <form id="signupForm1" method="post">
+
+      <div class="form-group">
+        <label class="col-sm-4 control-label" for="id">아이디</label>
+        <input type="text" class="form-control" id="id3" name="id" placeholder="아이디" />
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-4 control-label" for="password">비밀번호</label>
+        <input type="password" class="form-control" id="password3" name="password" placeholder="비밀번호" />
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-4 control-label" for="confirm_password">비밀번호 확인</label>
+        <input type="password" class="form-control"
+          id="confirm_password" name="confirm_password" placeholder="비밀번호 확인" />
+      </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="email">이메일</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="이메일" />
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="phone">핸드폰번호</label>
+                <input type="text" class="form-control" id="phone"
+                    name="phone" placeholder="핸드폰번호" />
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="companyNo">사업자 등록번호</label>
+                <input type="text" class="form-control" id="companyNo"
+                    name="companyNo" placeholder="사업자 등록번호" />
+            </div>
+            
+      
+      <button type="submit" class="login-btn" id='add-btn' name="signup1" value="가입하기">가입하기</button>
+    </form>
+    </div>
+
+  </div>
         
       </div>
     
@@ -101,6 +139,8 @@
 <script src="../js/bit.js"></script>
 <script src="../js/common.js"></script>
 <script src="login.js"></script>
+<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../js/jquery.validate.js"></script>
 
 
 
@@ -184,6 +224,105 @@ $(document).ready(size);
 $(window).resize(size);
 </script>
 
+<script type="text/javascript">
+    /* $.validator.setDefaults( {
+      submitHandler: function () {
+        alert( "form check done" );
+      }
+    } ); */
+
+    $( document ).ready( function () {
+      $( "#signupForm1" ).validate( {
+        rules: {
+          id: {
+            required: true,
+            minlength: 4
+          },
+          password: {
+            required: true,
+            minlength: 4
+          },
+          confirm_password: {
+            required: true,
+            minlength: 4,
+            equalTo: "#password3"
+          },
+          email: {
+            required: true,
+            email: true
+          },
+          phone: {
+                        required: true,
+                        minlength: 10
+                    },
+                    companyNo: {
+                        required: true,
+                        minlength: 10
+                    },
+          agree1: "required"
+        },
+        messages: {
+          id: {
+            required: "이름을 입력해주세요.",
+                        minlength: "4자이상 입력해주세요."
+          },
+          password: {
+            required: "비밀번호를 입력해주세요.",
+                        minlength: "4자 이상 입력해주세요."
+          },
+          confirm_password: {
+            required: "비밀번호 확인을 위해 다시 한 번 입력해주세요.",
+                        minlength: "4자 이상 입력해주세요.",
+                        equalTo: "비밀번호를 다시 확인해주세요."
+          },
+          phone: {
+                        required: "연락처를 입력해주세요.",
+                        minlength: "입력번호를 다시 확인해주세요."
+                    },
+                    companyNo: {
+                        required: "사업자등록번호를 입력해주세요.",
+                        minlength: "입력번호를 다시 확인해주세요."
+                    },
+          email: "이메일을 입력해주세요.",
+                    agree: "약관에 동의해주세요."
+        },
+        
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          error.addClass( "help-block" );
+
+          // Add `has-feedback` class to the parent div.form-group
+          // in order to add icons to inputs
+          element.parents( ".col-sm-5" ).addClass( "has-feedback" );
+
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.parent( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+
+          // Add the span element, if doesn't exists, and apply the icon classes to it.
+          if ( !element.next( "span" )[ 0 ] ) {
+            $( "<span class='glyphicon glyphicon-remove form-control-feedback'></span>" ).insertAfter( element );
+          }
+        },
+        success: function ( label, element ) {
+          // Add the span element, if doesn't exists, and apply the icon classes to it.
+          if ( !$( element ).next( "span" )[ 0 ] ) {
+            $( "<span class='glyphicon glyphicon-ok form-control-feedback'></span>" ).insertAfter( $( element ) );
+          }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+          $( element ).next( "span" ).addClass( "glyphicon-remove" ).removeClass( "glyphicon-ok" );
+        },
+        unhighlight: function ( element, errorClass, validClass ) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+          $( element ).next( "span" ).addClass( "glyphicon-ok" ).removeClass( "glyphicon-remove" );
+        }
+      } );
+    } );
+  </script>
 
 
 </body>

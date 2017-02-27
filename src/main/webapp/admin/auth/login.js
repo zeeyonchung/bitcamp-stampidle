@@ -28,14 +28,14 @@ $('#id').val(getCookie('id').replace(/"/g, ''));
 
 
 //회원가입
-$('.add-btn').click(function(event) {
+$('#add-btn').click(function(event) {
 	event.preventDefault();
     var param = {
-    		id: $('#new-id').val(),
-    		cellNo: $('#new-cellNo').val(),
-    		companyNo: $('#new-companyNo').val(),
-    		Email: $('#new-email').val(),
-    		password: $('#new-password').val()
+    		id: $('#id3').val(),
+    		cellNo: $('.form-group #phone').val(),
+    		companyNo: $('.form-group #companyNo').val(),
+    		Email: $('.form-group #email').val(),
+    		password: $('#password3').val()
     };
     console.log(param);
     
