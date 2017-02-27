@@ -1,14 +1,47 @@
-/* div 드래그관련 script */
-$( function() {
-	for(var i = 0; i < 21; i++) {
-		$("<div>").attr("class","stmpare")
-		.css("display","none")
-		.appendTo("#stmpside")
-		.draggable({containment : 'parent' })
-		.addTouch();
-	};
-})
 
+
+/*******************스탬프 영역 추가하기*********************/
+var stampNo = 0;
+
+
+$(document.body).on('click', '.pbtn', function(event) {
+  if (stampNo + 1 > 20) {$('.cd_alert2').css('display', 'inline-block'); $('.midNum').text(20); return;}
+  $('<div>')
+    .addClass('stmpare')
+    .addClass('stampNo' + stampNo)
+    .appendTo("#stmpside")
+    .draggable({containment : 'parent'})
+    .addTouch();
+    
+  stampNo++;
+  $('.midNum').text(stampNo);
+});
+
+
+
+$(document.body).on('click', '.mbtn', function(event) {
+  stampNo--;
+  if (stampNo < 0) {$('.cd_alert1').css('display', 'inline-block'); $('.midNum').text(0); return;}
+  $('.stampNo' + stampNo).remove();
+  $('.midNum').text(stampNo);
+});
+
+
+
+
+
+
+/* 경고창 */
+$(document).ready(function() {
+	$('.close_alert1').click(function() {
+		//$('.alert').css("display","none");
+		$('.cd_alert1').fadeOut(100);
+	});
+	$('.close_alert2').click(function() {
+		//$('.alert').css("display","none");
+		$('.cd_alert2').fadeOut(100);
+	});
+});
 
 
 
@@ -41,89 +74,6 @@ $('#fileupload').fileupload({
 
 
 
-
-
-/* div 추가,제거 관련 script1 */
-function add_item() {
-	/*
-      var div = document.createElement('div');
-      div.className = "stmpare";
-      div.id="stmpare";
-      document.getElementById('stmpside').appendChild(div);
-	 */
-	var num = $('.midNum').text();
-	$(".stmpside").children().eq(num).css("display","");
-	$(".stmpside").children().eq(num).css("left","0px");
-	$(".stmpside").children().eq(num).css("top","0px");
-}
-function remove_item() {
-	//$('.stmpare').remove();
-	/*$('.stmpside .stmpare:last-child').remove();*/
-	var num = $('.midNum').text();
-	$(".stmpside").children().eq(num-1).css("display","none");
-	$(".stmpside").children().eq(num).css("left","0px");
-	$(".stmpside").children().eq(num).css("top","0px");
-}
-
-
-
-
-
-
-
-
-/* div 추가,제거 관련 script2 */
-$(function() {
-	$('.mbtn').click(function(e) {
-		e.preventDefault();
-		var stat = $('.midNum').text();
-		var num = parseInt(stat, 10);
-		num--;
-		if (num <= 0) {
-			//alert('1개이상 존재해야 합니다.');
-			//$('.alert').css("display", "block");
-			$('.cd_alert1').fadeIn(100);
-			num = 0;
-		}
-		$('.midNum').text(num);
-	});
-	$('.pbtn').click(function(e) {
-		e.preventDefault();
-		var stat = $('.midNum').text();
-		var num = parseInt(stat, 10);
-		num++;
-		if (num > 21) {
-			$('.cd_alert2').fadeIn(100);
-			//alert('더이상 추가할수 없습니다.');
-			num = 21;
-		}
-		$('.midNum').text(num);
-	});
-});
-
-
-
-
-
-
-/* 경고창 관련 script */
-/* alert */
-$(document).ready(function() {
-	$('.close_alert1').click(function() {
-		//$('.alert').css("display","none");
-		$('.cd_alert1').fadeOut(100);
-	});
-	$('.close_alert2').click(function() {
-		//$('.alert').css("display","none");
-		$('.cd_alert2').fadeOut(100);
-	});
-});
-
-
-
-
-
-
 /* 탬플릿 이용버튼 클릭시 팝업관련 script */
 /* pulldownPop */
 $(document).ready( function(){
@@ -136,10 +86,15 @@ $(document).ready( function(){
 
 	$('.button').click(function(){
 		$('.tempPop').fadeOut(200);
+		var cardPath = $('.mySlides[style*="display: block"] img').attr('src');
+		$('.backcard').remove();
+		$('<img>').attr("class","backcard").attr("src",cardPath).insertBefore("#stmpside");
+		
+		var stmpPath = $(':checked + img').attr('src');
+		$('.selectimg').remove();
+		$('<img>').attr("class","selectimg").attr("src",stmpPath).css('z-index','1').insertBefore("#photo-img");
 	});
 });
-
-
 
 
 
