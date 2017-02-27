@@ -20,8 +20,8 @@ public class EventServiceImpl implements EventService {
   @Autowired CafeDao cafeDao;
   @Autowired EventDao eventDao;
   
-  public List<Event> getList(int cafeMemberNo, int pageCount, int postNo) throws Exception {
-    Map<String, Integer> paramMap = new HashMap<>();
+  public List<Event> getList(int cafeMemberNo, int pageCount, int postNo, String searchCondition, String searchKeyword) throws Exception {
+    Map<String, Object> paramMap = new HashMap<>();
     int firstPost = (pageCount - 1) * postNo;
     int allEventNo = eventDao.getCount(cafeMemberNo);
     if (firstPost > allEventNo) {
@@ -32,6 +32,23 @@ public class EventServiceImpl implements EventService {
     paramMap.put("firstPost", firstPost);
     paramMap.put("postNo", postNo);
     
+    if (searchKeyword != null) {
+      paramMap.put("searchKeyword", searchKeyword);
+      if (searchCondition != null) {
+        switch (searchCondition) {
+          case "e.titl" : 
+            paramMap.put("searchCondition", searchCondition);
+            return eventDao.getListByTitle(paramMap);
+          case "c.cname" :
+            paramMap.put("searchCondition", searchCondition); 
+            return eventDao.getListByCafe(paramMap);
+          case "e.econts" :
+            paramMap.put("searchCondition", searchCondition); 
+            return eventDao.getListByContents(paramMap);
+        }
+      }
+      
+    }
     return eventDao.getList(paramMap);
   }
   
@@ -76,11 +93,22 @@ public class EventServiceImpl implements EventService {
   }
 
   
-  public List<Integer> getPagination(int cafeMemberNo, int currentPage, int postNo) throws Exception {
+  public List<Integer> getPagination(int cafeMemberNo, int currentPage, int postNo, String searchCondition, String searchKeyword) throws Exception {
     
     List<Integer> list = new ArrayList<>();
     
-    int allEventNo = eventDao.getCount(cafeMemberNo);
+    int allEventNo = 0;
+    
+    if (searchCondition != "" && searchKeyword != "") {
+      Map<String, Object> paramMap = new HashMap<>();
+      paramMap.put("cafeMemberNo", cafeMemberNo);
+      paramMap.put("searchCondition", searchCondition);
+      paramMap.put("searchKeyword", searchKeyword);
+      allEventNo = eventDao.getCountByKeyword(paramMap);
+    } else {
+      allEventNo = eventDao.getCount(cafeMemberNo);
+    }
+    
     int allPageNo = 0;
     
     if (allEventNo % postNo != 0) {
@@ -90,15 +118,15 @@ public class EventServiceImpl implements EventService {
     }
     
     if (currentPage % postNo == 0) {
-      for (int i = currentPage - 4; i <= allPageNo; i++) {
+      for (int i = currentPage - (postNo-1); i <= allPageNo; i++) {
         if (list.size() == postNo) {break;}
         list.add(i);
       }
     } else {
       int currentPosition = currentPage % postNo;
-      if (currentPosition == 0) {currentPosition = 5;}
+      if (currentPosition == 0) {currentPosition = postNo;}
       for (int i = currentPage - currentPosition + 1; i <= allPageNo; i++) {
-        if (list.size() == 5) {break;}
+        if (list.size() == postNo) {break;}
         list.add(i);
       }
     }

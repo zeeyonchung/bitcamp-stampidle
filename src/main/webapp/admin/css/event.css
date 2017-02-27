@@ -71,25 +71,26 @@
 
 .event-btns .keyword-event {
   width: 130px;
-  height: 25px;
+  height: 30px;
   font-size: 0.8em;
   margin-left: 5px;
+  margin-right: 0;
   padding-left: 5px;
-  border: 1px solid gray;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   vertical-align: top;
 }
 
 .event-btns #search-event-btn {
-	width: 25px;
-	height: 25px;
+	width: 30px;
+	height: 30px;
 	font-size: 0.8em;
 }
 
 
 .event-btns .btn-img {
 	position: relative;
-	margin-top: -6px;
-	margin-left: -8px;
+	margin-left: -6px;
 	width: 18px;
 	height: 18px;
 }
@@ -108,6 +109,25 @@
   text-align: center;
 }
 
+
+.event-btns .btn {
+  width: 80px;
+}
+
+.event-btns .dropdown-menu {
+  text-align: center;
+  min-width: 80px;
+  font-size: 0.9em;
+}
+
+.event-btns .dropdown-menu li {
+  padding: 3px 0;
+  cursor: pointer;
+}
+
+.event-btns .dropdown-menu li:hover {
+  background-color: #eee;
+}
 
 
 

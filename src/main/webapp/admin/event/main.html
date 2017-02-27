@@ -12,54 +12,69 @@
 
 <body>
 	<div class='container'>
-        <div id='header'></div>
-        <div id='sidebar'></div>
-        <div id='content'>
+    <div id='header'></div>
+    <div id='sidebar'></div>
+    <div id='content'>
+    
+      <!-- con -->
+      <div class='con'>
+
+<!-- 이벤트 메뉴 -->
+        <nav class='event-navi'>
+          <ul>
+              <li><a href='#'>이벤트</a></li>
+              <li class="one"><a href="#">진행 중인 이벤트</a></li>
+              <span style='color: rgb(190, 190, 190);'>|</span>
+              <li class="two"><a href="#">지나간 이벤트</a></li>
+              <hr class='underline'>
+          </ul>
+          <hr>
+        </nav>
+
+
+        <!-- 이벤트 찾기, 등록 버튼 -->
+        <div class='event-btns'>
         
-            <!-- con -->
-            <div class='con'>
-
-				<!-- 이벤트 메뉴 -->
-                <nav class='event-navi'>
-                    <ul>
-                        <li><a href='#'>이벤트</a></li>
-                        <li class="one"><a href="#">진행 중인 이벤트</a></li>
-                        <span style='color: rgb(190, 190, 190);'>|</span>
-                        <li class="two"><a href="#">지나간 이벤트</a></li>
-                        <hr class='underline'>
-                    </ul>
-                    <hr>
-                </nav>
-
-
-                <!-- 이벤트 찾기, 등록 버튼 -->
-                <div class='event-btns'>
-                    <input class='keyword-event' type='text' placeholder='검색어 입력'>
-                    <button id='search-event-btn' class="btn btn-default" type='button'>
-                        <img class="btn-img" src="../image/btn_searchB.png">
-                    </button>
-                    <button id='add-event' type='button'>이벤트등록</button>
-                </div>
+          <div class="btn-group two">
+            <button class="btn btn-default btn-sm dropdown-toggle"
+              type="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">검색조건 <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>제목</li>
+              <li>카페명</li>
+              <li>내용</li>
+            </ul>
+          </div>
+        
+          <input class='keyword-event' type='text' placeholder='검색어 입력'>
+          
+          <button id='search-event-btn' class="btn btn-default" type='button'>
+              <img class="btn-img" src="../image/btn_searchB.png">
+          </button>
+          
+          <button id='add-event' type='button'>이벤트등록</button>
+        </div>
 
 
-                <div class="eventdiv">
-                </div>
+        <div class="eventdiv">
+        </div>
 
 
 
 
-                <!-- 다음페이지 -->
-                <div class='z'>
-                  <button id="prev" class="btn btn-default btn-sm" type="button">&laquo;</button>
-                  <ul class="pagination">
-                  </ul>
-                  <button id="next" class="btn btn-default btn-sm" type="button">&raquo;</button>
-                </div>
+     <!-- 다음페이지 -->
+        <div class='z'>
+          <button id="prev" class="btn btn-default btn-sm" type="button">&laquo;</button>
+          <ul class="pagination">
+          </ul>
+          <button id="next" class="btn btn-default btn-sm" type="button">&raquo;</button>
+        </div>
 
-			</div>
-			<!-- //con -->
-		</div>
-	</div>
+      </div>
+<!-- //con -->
+    </div>
+  </div>
 
 
 <!-- 이벤트 글 목록 템플릿 -->

@@ -52,6 +52,59 @@
     limit #{firstPost}, #{postNo}
   </select>
   
+  <select id="getListByTitle" parameterType="java.util.Map" resultMap="event-map">
+    select 
+      e.eno,
+      e.titl,
+      e.econts,
+      e.ebirth,
+      e.epath,
+      e.eview,
+      e.sday,
+      e.eday,
+      c.cname
+    from event e
+      left outer join cafe c on e.cfno = c.cfno
+    where e.cfno=#{cafeMemberNo} and e.titl like concat('%', #{searchKeyword}, '%')
+    order by e.eno desc
+    limit #{firstPost}, #{postNo}
+  </select>
+  
+  <select id="getListByCafe" parameterType="java.util.Map" resultMap="event-map">
+    select 
+      e.eno,
+      e.titl,
+      e.econts,
+      e.ebirth,
+      e.epath,
+      e.eview,
+      e.sday,
+      e.eday,
+      c.cname
+    from event e
+      left outer join cafe c on e.cfno = c.cfno
+    where e.cfno=#{cafeMemberNo} and c.cname like concat('%', #{searchKeyword}, '%')
+    order by e.eno desc
+    limit #{firstPost}, #{postNo}
+  </select>
+  
+  <select id="getListByContents" parameterType="java.util.Map" resultMap="event-map">
+    select 
+      e.eno,
+      e.titl,
+      e.econts,
+      e.ebirth,
+      e.epath,
+      e.eview,
+      e.sday,
+      e.eday,
+      c.cname
+    from event e
+      left outer join cafe c on e.cfno = c.cfno
+    where e.cfno=#{cafeMemberNo} and e.econts like concat('%', #{searchKeyword}, '%')
+    order by e.eno desc
+    limit #{firstPost}, #{postNo}
+  </select>
   
   <insert id="insert" parameterType="event">
     insert into event(cfno, eno,titl,econts,ebirth,epath,eview,sday,eday) 
@@ -125,6 +178,21 @@
     select count(*)
     from event
     where cfno=#{cafeMemberNo}
+  </select>
+  
+  
+  <select id="getCountByKeyword" parameterType="java.util.Map" resultType="int">
+		select count(*)
+		    from event e
+		left outer join cafe c on e.cfno = c.cfno
+    where e.cfno=#{cafeMemberNo} and
+    CASE
+        WHEN #{searchCondition}="e.titl" THEN  e.titl
+        WHEN #{searchCondition}="c.cname" THEN c.cname
+        WHEN #{searchCondition}="e.econts" THEN e.econts
+        else ''
+    END
+    like concat('%', #{searchKeyword}, '%')
   </select>
   
 

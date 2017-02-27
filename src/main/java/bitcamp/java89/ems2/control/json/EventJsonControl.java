@@ -22,8 +22,8 @@ public class EventJsonControl {
   @Autowired EventService eventService;
   
   @RequestMapping(value = "/admin/event/list")
-  public AjaxResult list(int cafeMemberNo, int pageCount, int postNo) throws Exception {
-    List<Event> list = eventService.getList(cafeMemberNo, pageCount, postNo);
+  public AjaxResult list(int cafeMemberNo, int pageCount, int postNo, String searchCondition, String searchKeyword) throws Exception {
+    List<Event> list = eventService.getList(cafeMemberNo, pageCount, postNo, searchCondition, searchKeyword);
     int allEventNo = eventService.getCount(cafeMemberNo);
     
     if (list.size() == 0) {
@@ -92,8 +92,8 @@ public class EventJsonControl {
   }
   
   @RequestMapping("/admin/event/pagination")
-  public AjaxResult pagination(int cafeMemberNo, int currentPage, int postNo) throws Exception {
-    List<Integer> pageNumbers = eventService.getPagination(cafeMemberNo, currentPage, postNo);
+  public AjaxResult pagination(int cafeMemberNo, int currentPage, int postNo, String searchCondition, String searchKeyword) throws Exception {
+    List<Integer> pageNumbers = eventService.getPagination(cafeMemberNo, currentPage, postNo, searchCondition, searchKeyword);
     
     if (pageNumbers.size() == 0) {
       return new AjaxResult(AjaxResult.FAIL, "페이지 번호 정보가 존재하지 않습니다.");

@@ -20,21 +20,28 @@ var postNo = 5;
 loadPage(1);
 
 
+/* 검색 변수 */
+var searchCondition = "";
+var searchKeyword = "";
+
+
 
 
 
 
 /****** 페이지 가져오기 ******/
-function loadPage(pageCount) {
+function loadPage(pageCount, searchCondition, searchKeyword) {
 $.getJSON(
 serverRoot + '/event/list.json',
 {'cafeMemberNo': cafeMemberNo,
  'pageCount': pageCount,
- 'postNo': postNo}, 
+ 'postNo': postNo,
+ 'searchCondition': searchCondition,
+ 'searchKeyword': searchKeyword
+ }, 
 function(ajaxResult) {
   var status = ajaxResult.status;
-  if (status != "success")
-	  return;
+  if (status != "success") {console.log(ajaxResult.data); return;}
   var list = ajaxResult.data.list;
 
   var eventdiv = $('.eventdiv');
@@ -60,11 +67,14 @@ $(window).scrollTop($(window).height);
 
 /****** 페이지 번호들 가져오기 ******/
 function loadPagination(currentPage, allEventNo) {
+	console.log(cafeMemberNo,currentPage,postNo,searchCondition,searchKeyword)
 $.getJSON(
 serverRoot + '/event/pagination.json',
 {'cafeMemberNo': cafeMemberNo,
  'currentPage': currentPage,
- 'postNo': postNo
+ 'postNo': postNo,
+ 'searchCondition': searchCondition,
+ 'searchKeyword': searchKeyword
 },
 function(ajaxResult) {
   var status = ajaxResult.status;
@@ -84,7 +94,7 @@ function(ajaxResult) {
 	  event.preventDefault();
 	  var pageCount = $(this).text();
 	  
-	  loadPage(pageCount);
+	  loadPage(pageCount, searchCondition, searchKeyword);
   });
   
   loadButton(allEventNo);
@@ -122,6 +132,30 @@ function loadButton(allEventNo) {
 		}
 	});
 };
+
+
+
+
+
+/* 검색조건 */
+$(".event-btns .dropdown-menu li").click(function(){
+	$(".event-btns .btn.dropdown-toggle:first-child").text($(this).text());
+	if ($(this).text() == "제목") {
+		searchCondition = "e.titl"
+	} else if ($(this).text() == "카페명") {
+		searchCondition = "c.cname"
+	} else if ($(this).text() == "내용") {
+		searchCondition = "e.econts"
+	}
+});
+
+
+$("#search-event-btn").click(function(){
+	searchKeyword = $('.keyword-event').val();
+	if (searchCondition == '') {alert('검색 조건 설정하세요');}
+	loadPage(1, searchCondition, searchKeyword);
+});
+
 
 
 
