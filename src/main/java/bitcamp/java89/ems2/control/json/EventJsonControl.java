@@ -74,6 +74,11 @@ public class EventJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
   }
   
+  @RequestMapping(value="/admin/event/updateView")
+  public void updateView(int eventNo) throws Exception {
+    eventService.updateView(eventNo);
+  }
+  
   @RequestMapping(value="/admin/event/update")
   public AjaxResult update(Event event) throws Exception {
 

@@ -67,6 +67,14 @@
       #{endDate})
   </insert>
   
+  
+  <update id="updateView" parameterType="int">
+    update event
+		set eview = eview + 1
+		where eno=#{eventNo};
+  </update>
+  
+  
   <update id="update" parameterType="event">
     update event set
       titl=#{eventTitle}, 

@@ -68,7 +68,12 @@ public class EventServiceImpl implements EventService {
       throw new Exception("해당이벤트 번호가 존재하지 않습니다.");
     }
     return eventDao.update(event);
-}
+  }
+  
+  
+  public void updateView(int eventNo) throws Exception {
+    eventDao.updateView(eventNo);
+  }
 
   
   public List<Integer> getPagination(int cafeMemberNo, int currentPage, int postNo) throws Exception {

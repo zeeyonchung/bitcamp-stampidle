@@ -28,7 +28,7 @@ $.getJSON(serverRoot + '/customMember/srchList.json', function(ajaxResult) {
     ];
 	    
 	$(window).load(function() {
-		$("#searchbox").autocomplete(availableTags, {
+		$("#searchbox").autocomplete({
 			source: availableTags
 		});
 	});
