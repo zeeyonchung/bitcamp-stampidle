@@ -1,3 +1,4 @@
+
 $.getJSON(serverRoot + '/customMember/srchList.json', function(ajaxResult) {
 	var status = ajaxResult.status;
 
@@ -26,10 +27,9 @@ $.getJSON(serverRoot + '/customMember/srchList.json', function(ajaxResult) {
         '010-3338-0222'
     ];
 	    
-	$(document).ready(function() {
+	$(window).load(function() {
 		$("#searchbox").autocomplete(availableTags, {
-			matchContains : true,
-			selectFirst : false
+			source: availableTags
 		});
 	});
 });

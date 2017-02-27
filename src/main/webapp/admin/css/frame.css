@@ -146,6 +146,45 @@
 }
 
 
+
+
+
+
+.ui-menu
+{
+    position: relative;
+    list-style: none;
+    background-color: white;
+    border-radius: 18px;
+    z-index:100000000000000;
+    box-shadow: 5px 0px 8px white;
+    width: 290px;
+    line-height: 200%;
+    font-size: 1em;
+    padding: 15px 0;
+    border: 1px solid #b2b2b2;
+
+}
+
+.ui-menu .ui-menu-item
+{
+    margin: none;
+    padding-left: 15px;
+    padding-right:10px;
+}
+
+.ui-menu .ui-menu-item:hover
+{
+    margin: none;
+    padding-left: 15px;
+    padding-right:10px;
+    color: white;
+    background-color: #555;
+}
+
+
+
+
 /***  auto complete 고객검색 자동완성 ***/
 .ac_results {
 	clear: both;
