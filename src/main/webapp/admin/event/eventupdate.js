@@ -20,7 +20,7 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
   $('.startDate').val(event.startDate);
   $('.endDate').val(event.endDate);
   console.log('src', '../upload/' + event.eventPhotoPath);
-  $('#photo').attr('src', '../upload/' + event.eventPhotoPath);
+  $('#photo-img').attr('src', '../../upload/' + event.eventPhotoPath);
 });
 
 
