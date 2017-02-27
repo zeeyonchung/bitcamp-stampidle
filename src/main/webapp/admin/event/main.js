@@ -2,8 +2,8 @@
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
 		console.log(ajaxResult.data);
-		/*location.href = clientRoot + "/auth/login.html";
-		로그인 안 했으면 로그인 페이지로 보내기*/
+		location.href = clientRoot + "/auth/login.html";
+		/*로그인 안 했으면 로그인 페이지로 보내기*/
 	}
 	
 	var cafeMember = ajaxResult.data;

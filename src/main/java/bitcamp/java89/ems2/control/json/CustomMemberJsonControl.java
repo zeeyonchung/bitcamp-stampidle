@@ -1,5 +1,7 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.List;
+
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +22,11 @@ public class CustomMemberJsonControl {
     customMemberService.add(customMember);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
+  
+  @RequestMapping(value = {"/admin/customMember/srchList"})
+  public AjaxResult list() throws Exception {
+    List<CustomMember> srchList = customMemberService.getSrchListCustomMember();
+    return new AjaxResult(AjaxResult.SUCCESS, srchList);
+  }
+  
 }
-
-
-
-
-

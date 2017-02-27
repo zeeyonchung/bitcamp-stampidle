@@ -104,6 +104,7 @@
 <script type='text/javascript' src='../js/slidemenu.min.js'></script>
 <script src="../js/addcustom.js"></script>
 <script src="../js/myInfoEdit.js"></script>
+<script src="../js/link.js"></script>
 <script>
 	/* profilePop */
 	$(document).ready(function() {
@@ -244,29 +245,6 @@
 
 
 <!-- auto complete 고객검색 자동완성 -->
-<script type="text/javascript" src="../js/auto_complete/jquery.js"></script>
-<script type="text/javascript" src="../js/auto_complete/jquery.bgiframe.min.js"></script>
-<script type="text/javascript" src="../js/auto_complete/jquery.ajaxQueue.js"></script>
-<script type="text/javascript" src="../js/auto_complete/jquery.autocomplete.js"></script>
-<script>
-    var availableTags = [
-                        '가나',
-                        '가나쵸콜렛',
-                        '가오리',
-                        '가상현실',
-                        '북마크',
-                        '북까페',
-                        '북촌한옥마을',
-                        '010-3238-0101',
-                        '010-3338-0222'
-                    ];
-</script>
-<script>
-$(document).ready(function() {
-    $("#searchbox").autocomplete(availableTags,{ 
-        matchContains: true,
-        selectFirst: false
-    });
-});
-</script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/auto_complete/srchCstmr.js"></script>
 <!-- //auto complete 고객검색 자동완성 -->

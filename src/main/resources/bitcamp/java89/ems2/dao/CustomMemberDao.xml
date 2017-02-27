@@ -24,6 +24,18 @@
 	  #{name})
   </insert>
 
+  <select id="getSrchListCustomMember" resultMap="customMember-map">
+    select 
+  		mno,
+  		tel,
+  		email,
+  		name, 
+  		nick,
+  		spot,
+  		allow
+  	from memb;
+  </select>
+  
 </mapper>
 
 
