@@ -24,7 +24,7 @@ public class EventJsonControl {
   @RequestMapping(value = "/admin/event/list")
   public AjaxResult list(int cafeMemberNo, int pageCount, int postNo, String searchCondition, String searchKeyword) throws Exception {
     List<Event> list = eventService.getList(cafeMemberNo, pageCount, postNo, searchCondition, searchKeyword);
-    int allEventNo = eventService.getCount(cafeMemberNo);
+    int allEventNo = eventService.getCount(cafeMemberNo, searchCondition, searchKeyword);
     
     if (list.size() == 0) {
       return new AjaxResult(AjaxResult.FAIL, "페이지가 존재하지 않습니다.");

@@ -112,7 +112,7 @@ function loadButton(allEventNo) {
 	$('#prev').click(function() {
 		var currentFirstPage = parseInt($('.z .pagination a:nth-of-type(1)').text().substr(0,1));
 		if (currentFirstPage <= 1) {loadPage(1); return;}
-		loadPage(currentFirstPage - 1);
+		loadPage(currentFirstPage - 1, searchCondition, searchKeyword);
 	});
 	
 	$('#next').click(function() {
@@ -125,9 +125,9 @@ function loadButton(allEventNo) {
 		}
 		
 		if (currentLastPage >= allPageNo) {
-			loadPage(currentLastPage);
+			loadPage(currentLastPage, searchCondition, searchKeyword);
 		} else {
-			loadPage(currentLastPage + 1);
+			loadPage(currentLastPage + 1, searchCondition, searchKeyword);
 		}
 	});
 };

@@ -53,8 +53,19 @@ public class EventServiceImpl implements EventService {
   }
   
   
-  public int getCount(int cafeMemberNo) throws Exception {
-	  return eventDao.getCount(cafeMemberNo);
+  public int getCount(int cafeMemberNo, String searchCondition, String searchKeyword) throws Exception {
+    int allEventNo = 0;
+    if (searchCondition != "" && searchKeyword != "") {
+      Map<String, Object> paramMap = new HashMap<>();
+      paramMap.put("cafeMemberNo", cafeMemberNo);
+      paramMap.put("searchCondition", searchCondition);
+      paramMap.put("searchKeyword", searchKeyword);
+      allEventNo = eventDao.getCountByKeyword(paramMap);
+    } else {
+      allEventNo = eventDao.getCount(cafeMemberNo);
+    }
+    
+    return allEventNo;
   }
   
   
