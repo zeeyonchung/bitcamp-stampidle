@@ -1,5 +1,16 @@
 
 
+/** stmpside 넓이 조정 **/
+$(function() {
+	var width = $('.backcard').css('width');
+	var height = $('.backcard').css('height');
+	$('.stmpside').css('width', width);
+	$('.stmpside').css('height', height);
+});
+
+
+
+
 /*******************스탬프 영역 추가하기*********************/
 var stampNo = 0;
 
@@ -19,10 +30,6 @@ $(document.body).on('click', '.pbtn', function(event) {
   stampNo++;
   $('.midNum').text(stampNo);
 });
-
-
-//위치 정보 저장
-
 
 
 
@@ -48,80 +55,7 @@ $(document).ready(function() {
 	});
 });
 
-$('.btmsubmit').click (function() {
-	var array=[];
-	for(i=0; i < stampNo; i++) {
-	var p = $('.stampNo' + i);
-	  var position = p.position();
-	  array.push(position);
-	}
-	console.log(array);
-	
-	var param = {
-			"stampCount": $('.midNum').text(),
-			"backImgPath": $('.backcard').attr("src"),
-			"stampImgPath": $('#photo-path').attr("src"),
-			"stampPositionList": array
-	    };
-		console.log(param);
-	    $.post(serverRoot + '/cardadd/add.json', param, function(ajaxResult) {
-	        if (ajaxResult.status != "success") {
-	          alert(ajaxResult.data);
-	          return;
-	        }
-	        location.href = '../cafeinfoedit/cafeinfoedit3.html';
-	    }, 'json'); // post();
-});
 
-
-
-/* 파일 업로드 관련 script */
-$('#fileupload').fileupload({
-	dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
-	done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-		console.log(data.result);
-		var param = data.result.params[0];
-		console.log(param);
-		$('#photo-path').val(param.filepath);
-	},
-	processalways: function(e, data) {
-		console.log('fileuploadprocessalways()...');
-		var img = $('#photo-img');
-		if (!img.attr('src')) {
-			console.log('미리보기 처리...');
-			var canvas = data.files[0].preview;
-			var dataURL = canvas.toDataURL();
-			img.attr('src', dataURL).css('width', '48px');
-		}
-	} 
-});
-
-
-
-
-
-
-/* 탬플릿 이용버튼 클릭시 팝업관련 script */
-/* pulldownPop */
-$(document).ready( function(){
-	$('#btn-pop').click(function(){
-		$('.tempPop').fadeIn(200);
-	});
-	$('.btn_top').click(function(){
-		$('.tempPop').fadeOut(200);
-	});
-
-	$('.button').click(function(){
-		$('.tempPop').fadeOut(200);
-		var cardPath = $('.mySlides[style*="display: block"] img').attr('src');
-		$('.backcard').remove();
-		$('<img>').attr("class","backcard").attr("src",cardPath).insertBefore("#stmpside");
-		
-		var stmpPath = $(':checked + img').attr('src');
-		$('.selectimg').remove();
-		$('<img>').attr("class","selectimg").attr("src",stmpPath).css('z-index','1').insertBefore("#photo-img");
-	});
-});
 
 
 
@@ -159,11 +93,100 @@ function showSlides(n) {
 
 
 
+/* 탬플릿 이용버튼 클릭시 팝업관련 script */
+/* pulldownPop */
+$(document).ready( function(){
+	$('#btn-pop').click(function(){
+		$('.tempPop').fadeIn(200);
+	});
+	$('.btn_top').click(function(){
+		$('.tempPop').fadeOut(200);
+	});
 
-/** stmpside 넓이 조정 **/
-$(function() {
-	var width = $('.backcard').css('width');
-	var height = $('.backcard').css('height');
-	$('.stmpside').css('width', width);
-	$('.stmpside').css('height', height);
+	$('.button').click(function(){
+		$('.tempPop').fadeOut(200);
+		var cardPath = $('.mySlides[style*="display: block"] img').attr('src');
+		$('.backcard').remove();
+		$('<img>').attr("class","backcard").attr("src",cardPath).insertBefore("#stmpside");
+		
+		var stmpPath = $(':checked + img').attr('src');
+		$('.selectimg').remove();
+		$('<img>').attr("class","selectimg").attr("src",stmpPath).css('z-index','1').insertBefore("#photo-img");
+	});
 });
+
+
+
+
+
+
+/*********************** 저장 *************************/
+
+
+$('.btmsubmit').click (function() {
+	
+	
+	var paramCard = {
+			"stampCount": $('.midNum').text(),
+			"backImgPath": $('.backcard').attr("src"),
+			"stampImgPath": $('#photo-img').attr("src")
+	};
+	console.log(paramCard);
+	$.post(serverRoot + '/cardadd/add.json', paramCard, function(ajaxResult) {
+		if (ajaxResult.status != "success") {
+			alert(ajaxResult.data);
+			return;
+		}
+	}, 'json');
+	
+	
+	
+	for(i=0; i < stampNo; i++) {
+		var p = $('.stampNo' + i);
+		var positionX = p.position().left;
+		var positionY = p.position().top;
+		
+		var paramPosition = {
+			"positionX": positionX,
+			"positionY": positionY
+		};
+		console.log(paramPosition);
+		$.post(serverRoot + '/cardadd/addStampPosition.json', paramPosition, function(ajaxResult) {
+			if (ajaxResult.status != "success") {
+				alert(ajaxResult.data);
+				return;
+			}
+		}, 'json');
+	}
+	
+	//location.href = '../cafeinfoedit/cafeinfoedit3.html';
+});
+
+
+
+
+
+
+
+/* 파일 업로드 관련 script */
+$('#fileupload').fileupload({
+	dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
+	done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+		console.log(data.result);
+		var param = data.result.params[0];
+		console.log(param);
+		$('#photo-path').val(param.filepath);
+	},
+	processalways: function(e, data) {
+		console.log('fileuploadprocessalways()...');
+		var img = $('#photo-img');
+		if (!img.attr('src')) {
+			console.log('미리보기 처리...');
+			var canvas = data.files[0].preview;
+			var dataURL = canvas.toDataURL();
+			img.attr('src', dataURL).css('width', '48px');
+		}
+	} 
+});
+
+

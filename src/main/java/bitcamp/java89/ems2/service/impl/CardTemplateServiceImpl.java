@@ -1,7 +1,5 @@
 package bitcamp.java89.ems2.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,39 +17,20 @@ public class CardTemplateServiceImpl implements CardTemplateService {
   @Autowired CafeDao cafeDao;
   @Autowired StampCardInfoDao stampCardInfoDao;
   @Autowired StampPositionDao stampPositionDao;
-  
-  
-
-
-
-
-
 
 
 
   @Override
   public void add(StampCardInfo stampCardInfo) throws Exception {
-    List<StampPosition> list = stampCardInfo.getStampPositionList();
-    
-      
-    
-    stampCardInfoDao.insert(stampCardInfo);
+    //stampCardInfoDao.insert(stampCardInfo);
   }
-}
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
+  @Override
+  public void addStampPosition(StampPosition stampPosition) throws Exception {
+    //stampPositionDao.insert(stampPosition);
+  }
+  
+}
 
 

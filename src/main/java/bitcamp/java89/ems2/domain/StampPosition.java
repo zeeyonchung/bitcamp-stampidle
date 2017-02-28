@@ -1,15 +1,11 @@
 package bitcamp.java89.ems2.domain;
 
-import java.io.Serializable;
-
-public class StampPosition implements Serializable{
-
+public class StampPosition extends StampCardInfo{
   private static final long serialVersionUID = 1L;
   
   protected int positionNo;
   protected float positionX;
   protected float positionY;
-  protected  int belongStampNo;
   
   
   
@@ -31,13 +27,6 @@ public class StampPosition implements Serializable{
   public void setPositionY(float positionY) {
     this.positionY = positionY;
   }
-  public int getBelongStampNo() {
-    return belongStampNo;
-  }
-  public void setBelongStampNo(int belongStampNo) {
-    this.belongStampNo = belongStampNo;
-  }
-
   
   
 }

@@ -11,7 +11,7 @@ $.getJSON(serverRoot + '/customMember/srchList.json', function(ajaxResult) {
 
 	
 	$.each(arrSrchList, function (index, value) {
-        console.log(value);
+        //console.log(value);
     });
 	
 	var test = "test";
