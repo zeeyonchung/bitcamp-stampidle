@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.StampCardInfoDao">
+
+  <resultMap type="stampCardInfo" id="cafe-map">
+    <id column="scno"       property="stampCafeCardNo"/>
+    
+    <result column="cmno"      property="cafeMemberNo"/>
+    <result column="id"       property="id"/>
+    <result column="ctel"     property="cellNo"/>
+    <result column="crn"     property="companyNo"/>
+    <result column="email"      property="Email"/>
+    <result column="pwd"      property="password"/>
+    
+    <result column="cfno"        property="cafeNo"/>
+    <result column="cftel"       property="cafeTel"/>
+    <result column="cname"       property="cafeName"/>
+    <result column="intro"       property="intro"/>
+    <result column="addr"       property="address"/>
+    <result column="daddr"       property="detailAddress"/>
+    <result column="chair"       property="chairNo"/>
+    <result column="logo"       property="logPath"/>
+    
+    <result column="bpath"       property="backImgPath"/>
+    <result column="stnum"       property="stampCount"/>
+    <result column="shape"       property="stampImgPath"/>
+  </resultMap>
+  
+  
+  <insert id="insert" parameterType="stampCardInfo" useGeneratedKeys="true" keyProperty="stampCafeCardNo">
+    insert into scinfo(cfno, bpath, stnum, shape)
+    values((select cfno from cafe 
+            left outer join cmemb on cmemb.cmno=cafe.cmno
+            where cafe.cmno=#{cafeMemberNo}), 
+          #{backImgPath}, #{stampCount}, #{stampImgPath})
+  </insert>
+</mapper>
+
+
+
+
+
+
+
+

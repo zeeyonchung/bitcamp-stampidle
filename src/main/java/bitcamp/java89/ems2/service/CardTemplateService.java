@@ -4,7 +4,7 @@ import bitcamp.java89.ems2.domain.StampCardInfo;
 import bitcamp.java89.ems2.domain.StampPosition;
 
 public interface CardTemplateService {
-  void add(StampCardInfo stampCardInfo) throws Exception;
+  int add(StampCardInfo stampCardInfo) throws Exception;
   void addStampPosition(StampPosition stampPosition) throws Exception;
 }
 

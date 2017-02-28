@@ -17,8 +17,9 @@ public class CardTemplateControl {
   @Autowired CardTemplateService cardTemplateService;
   
   @RequestMapping(value = "/admin/cardadd/add")
-  public void add(StampCardInfo stampCardInfo) throws Exception {
-    cardTemplateService.add(stampCardInfo);
+  public AjaxResult add(StampCardInfo stampCardInfo) throws Exception {
+    int stampCafeCardNo = cardTemplateService.add(stampCardInfo);
+    return new AjaxResult(AjaxResult.SUCCESS, stampCafeCardNo);
   }
   
   
