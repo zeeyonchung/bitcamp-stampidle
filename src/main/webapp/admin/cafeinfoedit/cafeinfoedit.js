@@ -30,3 +30,28 @@ $('#photo').fileupload({
         }
     } 
 });
+
+// 다음단계 버튼
+$('#btn-next').click(function(event) {
+	event.preventDefault();
+    var param = {
+    		cafeName: $('#cafeName').val(),
+    		cellNo: $('.form-group #phone').val(),
+    		companyNo: $('.form-group #companyNo').val(),
+    		Email: $('.form-group #email').val(),
+    		password: $('#password3').val()
+    };
+    console.log(param);
+    
+    
+    $.post(serverRoot + '/cafeMember/add.json', param, function(ajaxResult) {
+    	if (ajaxResult.status != "success") {
+    		alert(ajaxResult.data);
+    		return;
+    	}
+    	$('.loginPop').fadeOut(200);
+        $('.register').css('display', 'none');
+    	alert('등록이 완료되었습니다.');
+    }, 'json');
+    
+}); // click()

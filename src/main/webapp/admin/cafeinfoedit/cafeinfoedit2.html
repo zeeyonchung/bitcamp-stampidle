@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/cafeinfoedit2.css">
+<link rel="stylesheet" href="../css/cafeinfoedit3.css">
 <link rel="stylesheet" href="http://www.blueb.co.kr/SRC2/daterange/daterangepicker.css" />
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 <link rel="stylesheet" href="../../node_modules/blueimp-file-upload/css/jquery.fileupload.css">
@@ -30,77 +31,65 @@
             <li><a href='#'>카페정보 입력</a></li>
             <li class="one"><a href="">기본정보</a></li>
             <span style='color: rgb(190, 190, 190);'>|</span>
-            <li class="two"><a href="">무료서비스 항목</a></li>
-            <span style='color: rgb(190, 190, 190);'>|</span>
-            <li class="three"><a href="">기타 등록</a></li>
+            <li class="two"><a href="">사진 등록</a></li>
             <hr class='underline' />
           </ul>
           <hr>
       </nav>
-      <!-- 고객관리 메뉴 -->
-      <!-- 무료 서비스 항목 -->
-      <div class='cafe-name'>
-        <span class='freename'>무료서비스 항목*:</span>
-	      <div class="pre-set-before">
-	          <div id="pre_set">
-	            <div class='free-sub'>
-			        <input type="text" class="form-control free1" placeholder="10">
-			        <span>개 모을시</span>
-			        <input type="text" class="form-control free2" placeholder="5000">
-			        
-			        <span>원 이하 메뉴 무료증정</span>
-			        </div>
-			        
-			        <div class="checkbox">
-			          <label>
-			            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-			            제조음료
-			          </label>
-			        </div>
-			        <div class="checkbox">
-			          <label>
-			            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-			            디저트
-			          </label>
-			        </div>
-			        <div class="checkbox">
-			          <label>
-			            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-			            병음료
-			          </label>
-			        </div>
-	            <input class="pbtn" type="button" value="-" onclick="remove_item(this)">
-	          </div>
-	        <div id="field"></div>
-	      </div>
-          <input class="pbtn" type="button" value="+" onclick="add_item()">
-      </div>
-      <!-- 무료 서비스 항목 -->
-      
-      
       <!-- 쿠폰사진 -->
       <div class='cafe-name'>
         <div class="introtext2">쿠폰사진*</div>
         
         <div class="imgbox" id="upfile1" >
-        <img id='photo-img' height='100%' width='100%'>
+        <img id='photo-img1' height='100%' width='100%'>
         </div>
         
-        <div class="imgbox2" id="upfile2" >
-        <img id='photo-img2' height='100%' width='100%'>
           <label for="photo" class="col-sm-2 control-label"></label>
             <div class="col-sm-10">
                 <span class="btn btn-success fileinput-button" >
                     <i class="glyphicon glyphicon-plus"></i>
-                    <input id='photo' class='form-control' type='file' name='files'>
+                    <input id='photo1' class='form-control' type='file' name='files'>
                 </span>
-                <input id='photo-path' type='hidden'>
+                <input id='photo-path1' type='hidden'>
             </div>
-          <input type="file" id="file1"  name="file1" style="display:none" />
         </div>
         <div>
         </div>
         
+      <!-- 매장 사진 -->
+      <div class='cafe-name'>
+        <span class='freename'>매장 사진:</span>
+        <div class="pre-set-before">
+            <div class="photo-imgbox-div">
+            <img id='photo-img' height='80'>
+            </div>
+            <label for="photo" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <input id='photo' class='form-control' type='file' name='files' multiple>
+                </span>
+                <input id='photo-path' type='hidden'>
+            </div>
+        </div>
+      </div>
+      <!-- 매장 사진 -->
+      <!-- 대표 메뉴 -->
+      <div class='cafe-name'>
+        <span class='freename'>대표 메뉴:</span>
+        <div class="pre-set-before">
+          <div id="pre_set2">
+            <input class="fileupload" type="file" name="photo">
+            메뉴: <input id='name' type='text'>
+            가격: <input id='age' type='text'><br>
+            <div class='images-div'  ></div>
+            <input class="pbtn" type="button" value="-" onclick="remove_item2(this)">
+          </div>
+          <div id="field2"></div>
+        </div>
+          <input class="pbtn" type="button" value="+" onclick="add_item2()">
+      </div>
+      <!-- 대표메뉴 -->
       </div>
       <!-- 쿠폰사진 -->
       <!-- 다음 단계 -->
@@ -160,10 +149,6 @@
       $("#file1").trigger('click');
   });
   
-  /*이미지*/
-  $("#upfile2").click(function () {
-      $("#file2").trigger('click');
-  });
   /*++++추가기능*/
      function add_item(){
           // pre_set 에 있는 내용을 읽어와서 처리..
