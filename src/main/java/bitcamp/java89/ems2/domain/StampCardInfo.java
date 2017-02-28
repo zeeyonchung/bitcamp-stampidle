@@ -1,5 +1,7 @@
 package bitcamp.java89.ems2.domain;
 
+import java.util.List;
+
 public class StampCardInfo extends Cafe {
   private static final long serialVersionUID = 1L;
   
@@ -7,6 +9,7 @@ public class StampCardInfo extends Cafe {
   protected String backImgPath;
   protected int stampCount;
   protected String stampImgPath;
+  protected List<StampPosition> stampPositionList;
   
   
   
@@ -34,6 +37,12 @@ public class StampCardInfo extends Cafe {
   }
   public void setStampImgPath(String stampImgPath) {
     this.stampImgPath = stampImgPath;
+  }
+  public List<StampPosition> getStampPositionList() {
+    return stampPositionList;
+  }
+  public void setStampPositionList(List<StampPosition> stampPositionList) {
+    this.stampPositionList = stampPositionList;
   }
   
 }

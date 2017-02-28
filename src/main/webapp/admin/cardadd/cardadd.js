@@ -56,8 +56,22 @@ $('.btmsubmit').click (function() {
 	  array.push(position);
 	}
 	console.log(array);
+	
+	var param = {
+			"stampCount": $('.midNum').text(),
+			"backImgPath": $('.backcard').attr("src"),
+			"stampImgPath": $('#photo-path').attr("src"),
+			"stampPositionList": array
+	    };
+		console.log(param);
+	    $.post(serverRoot + '/cardadd/add.json', param, function(ajaxResult) {
+	        if (ajaxResult.status != "success") {
+	          alert(ajaxResult.data);
+	          return;
+	        }
+	        location.href = '../cafeinfoedit/cafeinfoedit3.html';
+	    }, 'json'); // post();
 });
-
 
 
 
