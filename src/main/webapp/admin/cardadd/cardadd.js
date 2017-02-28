@@ -5,7 +5,7 @@ var stampNo = 0;
 
 
 $(document.body).on('click', '.pbtn', function(event) {
-  if (stampNo + 1 > 20) {$('.cd_alert2').css('display', 'inline-block'); $('.midNum').text(20); return;}
+  if (stampNo + 1 > 20) {$('.cd_alert2').css('display', 'inline-block'); return;}
   $('<div>')
     .addClass('stmpare')
     .addClass('stampNo' + stampNo)
@@ -20,8 +20,8 @@ $(document.body).on('click', '.pbtn', function(event) {
 
 
 $(document.body).on('click', '.mbtn', function(event) {
+  if (stampNo - 1 < 0) {$('.cd_alert1').css('display', 'inline-block'); return;}
   stampNo--;
-  if (stampNo < 0) {$('.cd_alert1').css('display', 'inline-block'); $('.midNum').text(0); return;}
   $('.stampNo' + stampNo).remove();
   $('.midNum').text(stampNo);
 });
@@ -128,3 +128,15 @@ function showSlides(n) {
 	slides[slideIndex - 1].style.display = "block";
 	dots[slideIndex - 1].className += " active";
 }
+
+
+
+
+
+/** stmpside 넓이 조정 **/
+$(function() {
+	var width = $('.backcard').css('width');
+	var height = $('.backcard').css('height');
+	$('.stmpside').css('width', width);
+	$('.stmpside').css('height', height);
+});

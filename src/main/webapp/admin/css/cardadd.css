@@ -109,38 +109,21 @@
 .stmpside {
 	position: absolute;
 	display: inline;
-  /*border: 1px solid red;*/
-  margin-left: 5px;
-  margin-top:5px;
-  width: 261px;
-  min-height: 127px;
-  padding-left: 8px;
+	min-height: 127px;
+	padding: 6px;
 }
 
 .stmpare {
 	position: relative;
 	display: inline-block;
 	/*border: 1px solid red;*/
-	width: 38px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	margin-right: 3px;
 	margin-bottom: 2px;
 	background-color: white;
 	border-radius: 5px;
 	
-}
-
-#stmpare {
-  position: relative;
-  display: inline-block;
-  /*border: 1px solid red;*/
-  width: 38px;
-  height: 50px;
-  margin-right: 3px;
-  margin-bottom: 2px;
-  background-color: white;
-  border-radius: 5px;
-  
 }
 
 
