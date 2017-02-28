@@ -1,7 +1,7 @@
 
 //파일 업로드
 
-$('#photo').fileupload({
+$('#photo1').fileupload({
     url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
     dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
     sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
@@ -14,11 +14,11 @@ $('#photo').fileupload({
     done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     	console.log('done()...');
     	console.log(data.result);
-        $('#photo-path').val(data.result.data[0]);
+        $('#photo-path1').val(data.result.data[0]);
     }, 
     processalways: function(e, data) {
         console.log('fileuploadprocessalways()...', data.files.length, data.index);
-        var img = $('#photo-img');
+        var img = $('#photo-img1');
         if (data.index == 0) {
         	console.log('미리보기 처리...');
 	        var canvas = data.files[0].preview;

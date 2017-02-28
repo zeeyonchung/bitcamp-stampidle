@@ -29,7 +29,7 @@
             <li><a href='#'>카페정보 입력</a></li>
             <li class="one"><a href="">기본정보</a></li>
             <span style='color: rgb(190, 190, 190);'>|</span>
-            <li class="two"><a href="">무료서비스 항목</a></li>
+            <li class="two"><a href="">사진 등록</a></li>
             <span style='color: rgb(190, 190, 190);'>|</span>
             <li class="three"><a href="">기타 등록</a></li>
             <hr class='underline' />
@@ -40,7 +40,7 @@
       <!-- 카페이름 -->
       <div class='cafe-name'>
         <span>카페이름*:</span>
-        <input type="text" class="form-control" placeholder="내용을 입력해 주세요">
+        <input type="text" class="form-control" placeholder="내용을 입력해 주세요" id='cafeName'>
         <span class="info-subtext">(한글 기준 25자 이내)</span>
       </div>
       <!-- 카페이름 -->
@@ -49,19 +49,19 @@
         <span>카테고리*:</span>
         <div class="checkbox1">
 				  <label>
-				    <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+				    <input type="checkbox" id="blankCheckbox" value="option1" aria-label="..." id='tag1'>
 				    24시간 카페
 				  </label>
 				</div>
 				<div class="checkbox">
           <label>
-            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="..." id='tag2'>
             북카페
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <input type="checkbox" id="blankCheckbox" value="option1" aria-label="..." id='tag3'>
             애견카페
           </label>
         </div>
@@ -70,7 +70,7 @@
           <label>
             <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
             직접입력
-            <input type="text" class="inperson" placeholder="내용을 입력해 주세요">
+            <input type="text" class="inperson" placeholder="내용을 입력해 주세요" id='tag4'>
           </label>
         </div>
       </div>
@@ -79,7 +79,7 @@
       <div class='cafe-name2'>
         <span class="introtext">소개글:</span>
         <div class='cafe-introdiv'>
-          <input type="text" id="introcafe" class="form-control" placeholder="내용을 입력해 주세요">
+          <input type="text" id="introcafe" class="form-control" id='intro' placeholder="내용을 입력해 주세요">
         </div>
         <div class="intro-subtext">
 	        <span class="info-subtext">카페 페이지 카페이름 아래에 반영됩니다.<br></span>
@@ -95,7 +95,7 @@
         <div class="pre-set-before">
           <div id="pre_set">
             <div class="select1">
-	            <select class="form-control">
+	            <select class="form-control" id='day'>
 							  <option>매일</option>
 							  <option>평일</option>
 							  <option>주말</option>
@@ -109,7 +109,7 @@
 							</select>
 						</div>
 						<div class="select1">
-							<select class="form-control">
+							<select class="form-control" id='startTime'>
 							  <option>1</option>
 							  <option>2</option>
 							  <option>3</option>
@@ -126,7 +126,7 @@
 						</div>
 						:
 						<div class="select2">
-              <select class="form-control">
+              <select class="form-control" id='startTime'>
                 <option>00</option>
                 <option>10</option>
                 <option>20</option>
@@ -137,7 +137,7 @@
             </div>
             ~
             <div class="select2">
-              <select class="form-control">
+              <select class="form-control" id='endTime'>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -154,7 +154,7 @@
             </div>
             :
             <div class="select2">
-              <select class="form-control">
+              <select class="form-control" id='endTime'>
                 <option>00</option>
                 <option>10</option>
                 <option>20</option>
@@ -183,7 +183,7 @@
         <div class="pre-set-before-num">
           <div id="pre_set1">
             <div class="select1">
-              <select class="form-control">
+              <select class="form-control" id='cafeTel'>
                 <option>02</option>
                 <option>032</option>
                 <option>031</option>
@@ -202,7 +202,6 @@
         </div>
          
         <input class="pbtn" type="button" value="+" onclick="add_item1()"><br>
-        <span class="worktime-addtext">설정 시간에 따라 통계가 이루어 집니다.</span>
       </div>
       <!-- 매장 번호 -->
       <!-- 주소 찾기 -->
@@ -224,7 +223,7 @@
         <div class="introtext2">좌석 수:</div>
         <div class="pre-set-before2">
           <div class="select1">
-              <select class="form-control">
+              <select class="form-control" id='chairNo'>
                 <option>10</option>
                 <option>20</option>
                 <option>30</option>
@@ -255,7 +254,7 @@
                     <i class="glyphicon glyphicon-plus"></i>
                     <input id='photo' class='form-control' type='file' name='files'>
                 </span>
-                <input id='photo-path' type='hidden'>
+                <input id='photo-path' class='logPath'>
             </div>
         </div>
       </div>
@@ -264,7 +263,7 @@
       <!-- 다음단계입력-->
       <div>
         <div class='cafe-name4'>
-          <button type="button" class="btn btn-default btn-lg btn-block">다음단계?</button>
+          <button type="button" class="btn btn-default btn-lg btn-block" id='btn-next'>다음단계?</button>
         </div>
       </div>
       <!-- 다음단계입력-->

@@ -48,15 +48,10 @@ ul a {
 
 
 .two:hover ~ hr.underline {
-  width: 120px;
-  margin-left: 283px;
+  width: 75px;
+  margin-left: 268px;
 }
 
-
-.three:hover ~ hr.underline {
-  width: 80px;
-  margin-left: 420px;
-}
 
 
 

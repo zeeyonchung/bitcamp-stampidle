@@ -52,12 +52,6 @@ ul a {
 }
 
 
-.three:hover ~ hr.underline {
-  width: 80px;
-  margin-left: 420px;
-}
-
-
 
 
 
@@ -166,7 +160,8 @@ ul a {
 .col-sm-10 {
     position: absolute;
     top: 0px;
-    right: -240px;
+    right: -300px;
+    
 }
 
 .btn-regi{
