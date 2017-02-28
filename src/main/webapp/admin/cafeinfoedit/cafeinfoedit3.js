@@ -1,6 +1,34 @@
 
 //파일 업로드
 
+$(document.body).on('click', '.pbtn', function(event) {
+	var cafeMenu = "메뉴";
+	var menuPrice = "가격";
+	$("<input>")
+	  .attr({type:"text", id:"name"})
+	  .appendTo('#field2');
+	$("<input>")
+	  .attr({type:"text", id:"age"})
+	  .appendTo('#field2');
+	$("<span></span>")
+	  .addClass("btn")
+	  .addClass("btn-success")
+	  .addClass("fileinput-button")
+	  .appendTo("#field2");
+});
+
+function add_item2(){
+   // pre_set 에 있는 내용을 읽어와서 처리..
+   var div = document.createElement('div');
+   div.innerHTML = document.getElementById('pre_set2').innerHTML;
+   document.getElementById('field2').appendChild(div);
+}
+function remove_item2(obj){
+   // obj.parentNode 를 이용하여 삭제
+   document.getElementById('field2').removeChild(obj.parentNode);
+}
+
+
 $('#photo').fileupload({
     url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
     dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
@@ -29,3 +57,9 @@ $('#photo').fileupload({
         }
     } 
 });
+
+function remove_item(obj){
+    // obj.parentNode 를 이용하여 삭제
+    document.getElementById('field').removeChild(obj.parentNode);
+}
+

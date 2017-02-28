@@ -60,15 +60,24 @@
         <span class='freename'>대표 메뉴:</span>
         <div class="pre-set-before">
           <div id="pre_set2">
-            <input class="fileupload" type="file" name="photo">
             메뉴: <input id='name' type='text'>
             가격: <input id='age' type='text'><br>
-            <div class='images-div'  ></div>
-            <input class="pbtn" type="button" value="-" onclick="remove_item2(this)">
+            <div class="photo-imgbox-div">
+            <img id='photo-img2' height='80'>
+            </div>
+            <label for="photo2" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <input id='photo2' class='form-control' type='file' name='files' multiple>
+                </span>
+                <input id='photo-path2' type='hidden'>
+            </div>
+            <input class="pbtn" type="button" value="-">
           </div>
           <div id="field2"></div>
         </div>
-          <input class="pbtn" type="button" value="+" onclick="add_item2()">
+          <input class="pbtn" type="button" value="+" >
       </div>
       
       <div class='cafe-name'>
@@ -114,50 +123,9 @@
   $('.tr-link').click(function(event) {
     location.href = '../stampidle_cs/customerdetail.html'
   });
-  </script>
-  
-  <script>
     
-     function add_item(){
-         // pre_set 에 있는 내용을 읽어와서 처리..
-         var div = document.createElement('div');
-         div.innerHTML = document.getElementById('pre_set').innerHTML;
-         document.getElementById('field').appendChild(div);
-    }
-    function remove_item(obj){
-         // obj.parentNode 를 이용하여 삭제
-         document.getElementById('field').removeChild(obj.parentNode);
-    }
-    
-    function add_item2(){
-        // pre_set 에 있는 내용을 읽어와서 처리..
-        var div = document.createElement('div');
-        div.innerHTML = document.getElementById('pre_set2').innerHTML;
-        document.getElementById('field2').appendChild(div);
-   }
-   function remove_item2(obj){
-        // obj.parentNode 를 이용하여 삭제
-        document.getElementById('field2').removeChild(obj.parentNode);
-   }
 </script>
 
-<!-- input을 버튼으로 -->
-<script>
-$(function(){          
-  $('#btn-upload').click(function(e){
-    e.preventDefault();             
-    $("input:file").click();               
-    var ext = $("input:file").val().split(".").pop().toLowerCase();
-    if(ext.length > 0){
-      if($.inArray(ext, ["gif","png","jpg","jpeg"]) == -1) { 
-        alert("gif,png,jpg 파일만 업로드 할수 있습니다.");
-        return false;  
-      }                  
-    }
-    $("input:file").val().toLowerCase();
-  });                         
-});          
-</script>
 <script src='../js/link.js'></script>
 </body>
 </html>

@@ -11,11 +11,18 @@ $(document.body).on('click', '.pbtn', function(event) {
     .addClass('stampNo' + stampNo)
     .appendTo("#stmpside")
     .draggable({containment : 'parent'})
+    .text(stampNo+1)
     .addTouch();
-    
+
+  
+
   stampNo++;
   $('.midNum').text(stampNo);
 });
+
+
+//위치 정보 저장
+
 
 
 
@@ -25,8 +32,6 @@ $(document.body).on('click', '.mbtn', function(event) {
   $('.stampNo' + stampNo).remove();
   $('.midNum').text(stampNo);
 });
-
-
 
 
 
@@ -43,7 +48,15 @@ $(document).ready(function() {
 	});
 });
 
-
+$('.btmsubmit').click (function() {
+	var array=[];
+	for(i=0; i < stampNo; i++) {
+	var p = $('.stampNo' + i);
+	  var position = p.position();
+	  array.push(position);
+	}
+	console.log(array);
+});
 
 
 
