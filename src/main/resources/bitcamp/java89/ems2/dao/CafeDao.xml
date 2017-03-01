@@ -38,6 +38,20 @@
   #{chairNo},
   #{logPath})
   </insert>
+  
+  <select id='getOne' parameterType='int' resultMap='cafe-map'>
+    select
+      cfno,
+      cmno,
+      cname,
+      intro,
+      addr,
+      daddr,
+      chair,
+      logo
+    from cafe
+    where cmno=#{cafeMemberNo}
+  </select>
 </mapper>
 
 
