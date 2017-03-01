@@ -206,39 +206,44 @@
 
 
 
-  <script src="../js/context.js"></script>
-  <script src="../../node_modules/jquery/dist/jquery.js"></script>
-  <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="../js/bit.js"></script>
-  <script src="../js/common.js"></script>
-  <script src="stamplog.js"></script>
+<script src="../js/context.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+<script src="stamplog.js"></script>
 
-  <script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
-  <script src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
-  <script src="../js/calendar.js"></script>
+<script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
+<script src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
+<script src="../js/calendar.js"></script>
 
 
-  <!-- tr 태그 클릭 시 고객 상세페이지로 이동 -->
+<!-- tr 태그 클릭 시 고객 상세페이지로 이동 -->
+<script>
+"use strict"
+
+$('.tr-link').click(function(event) {
+  location.href = '../stampidle_cs/customerdetail.html'
+});
+</script>
+
+<!-- 임시링크 -->
   <script>
-  "use strict"
-  
-  $('.tr-link').click(function(event) {
-    location.href = '../stampidle_cs/customerdetail.html'
+  $('.one').click(function(e) {
+      location.href = '../manage/statistics.html'
+  });
+  $('.two').click(function(e) {
+      location.href = '../manage/customerlist.html'
+  });
+  $('.three').click(function(e) {
+      location.href = '../manage/stamplog.html'
   });
   </script>
+  <!-- //임시링크 -->
   
-  <!-- 임시링크 -->
-    <script>
-    $('.one').click(function(e) {
-        location.href = '../manage/statistics.html'
-    });
-    $('.two').click(function(e) {
-        location.href = '../manage/customerlist.html'
-    });
-    $('.three').click(function(e) {
-        location.href = '../manage/stamplog.html'
-    });
-    </script>
-    <!-- //임시링크 -->
+<!-- auto complete 고객검색 자동완성 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../js/srchCstmr.js"></script>
+<!-- //auto complete 고객검색 자동완성 -->
 </body>
 </html>

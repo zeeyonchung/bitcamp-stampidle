@@ -2,8 +2,8 @@ $( function() {
 	// header.html을 가져와서 붙인다.
 	$.get(clientRoot + '/header.html', function(result) {
 	  // 서버에서 로그인 사용자 정보를 가져온다.
+	  $('#header').html(result);
 	  $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-		$('#header').html(result);
 
 		if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
 			// 로그온 상태 출력 창을 감춘다.

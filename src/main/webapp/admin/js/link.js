@@ -1,27 +1,31 @@
-/*****  sidebar.html  *****/
 
+/*****  sidebar.html  *****/
 // 로그인 화면 상단 stampidle 로고
 $('.logo').click(function(e) {
 	location.href = clientRoot + '/main/main.html'
 });
 
+
 //sidebar link*******************************************
-$('.searchCstmr').click(function(e) {
+$('.searchCstmr a').click(function(e) {
+	e.preventDefault();
     location.href = clientRoot + '/stampidle_cs/customerdetail.html'
 });
-$('.statistics').click(function(e) {
+$('.statistics a').click(function(e) {
+	e.preventDefault();
     location.href = clientRoot + '/manage/statistics.html'
 });
-$('.event').click(function(e) {
+$('.event a').click(function(e) {
+	e.preventDefault();
     location.href = clientRoot + '/event/main.html'
 });
+
 
 // header link ********************************************
 $('.logo-img-src').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/main/main.html'
 });
-
 $('.srchList li a').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/stampidle_cs/customerdetail.html'
@@ -29,16 +33,13 @@ $('.srchList li a').click(function(e) {
 
 
 // event page link
-
 $('#add-event').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/event/eventadd.html'
 });
 
 
-
 // eventdetail page link ****************************
-
 $('#use-btn-list').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/event/main.html'
@@ -92,4 +93,8 @@ $('.manage-navi ul .three').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/cafeinfoedit/cafeinfoedit3.html'
 });
+
+
+
+
 

@@ -18,6 +18,7 @@ body {
 	color: #666;
 	word-break: break-all;
 	overflow-x: hidden;
+	overflow-y:scroll;
 }
 
 a {

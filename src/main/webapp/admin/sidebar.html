@@ -4,7 +4,7 @@
             <!-- navigation -->
             <ul class='slideMn'>
                 <li role="presentation" class='treeview searchCstmr active'>
-                    <a href='../student/main.html'>고객검색</a>
+                    <a href=''>고객검색</a>
                     <ul class='treeview-menu'>
                     </ul>
                 </li>
@@ -41,4 +41,17 @@
 		   </div>
 		</div>
     <!-- //btn_message 메시지팝업 -->
-    
+   <script>
+$('.searchCstmr a').click(function(e) {
+    e.preventDefault();
+    location.href = clientRoot + '/stampidle_cs/customerdetail.html'
+});
+$('.statistics a').click(function(e) {
+    e.preventDefault();
+    location.href = clientRoot + '/manage/statistics.html'
+});
+$('.event a').click(function(e) {
+    e.preventDefault();
+    location.href = clientRoot + '/event/main.html'
+});
+</script> 
