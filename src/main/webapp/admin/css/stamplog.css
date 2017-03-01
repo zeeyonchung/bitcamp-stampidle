@@ -180,36 +180,25 @@ th:first-of-type, td:first-of-type {
 }
 
 
-ul.pagination {
-    <!--border: 1px solid black;-->
-    display: inline-block;
-    padding: 0;
-    margin-top: 20px;
+
+.z ul.pagination {
+	vertical-align: middle;
 }
 
-ul.pagination li {
-  display: inline;
+.z ul.pagination li a.active {
+	background-color: rgb(94, 94, 94);
+	color: white;
+	border-radius: 5px;
 }
 
-ul.pagination li a {
-    width: 25px;
-    height: 25px;
-    color: rgb(187, 187, 187);
-    float: left;
-    padding: 2px 8px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-left: 2px;
+.z .btn {
+	vertical-align: middle;
 }
 
-ul.pagination li a.active {
-    background-color: rgb(94, 94, 94);
-    color: white;
-    border-radius: 5px;
-}
-
-ul.pagination li a:hover:not(.active) {
-  background-color: #ddd;
+.z .btn-default:focus {
+	outline: none;
+	background: white;
+	border-color: #ccc;
 }
 
 

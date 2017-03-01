@@ -1,12 +1,11 @@
 package bitcamp.java89.ems2.domain;
 
-public class StampPosition extends StampCardInfo{
-  private static final long serialVersionUID = 1L;
+public class StampPosition {
   
   protected int positionNo;
   protected float positionX;
   protected float positionY;
-  
+  protected int positionOrder;
   
   
   public int getPositionNo() {
@@ -27,6 +26,12 @@ public class StampPosition extends StampCardInfo{
   public void setPositionY(float positionY) {
     this.positionY = positionY;
   }
+public int getPositionOrder() {
+	return positionOrder;
+}
+public void setPositionOrder(int positionOrder) {
+	this.positionOrder = positionOrder;
+}
   
   
 }
