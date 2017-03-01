@@ -4,7 +4,6 @@
 <meta charset='UTF-8'>
 <title>Stampidle</title>
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" href="../css/default.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/main.css">
 </head>
@@ -24,17 +23,16 @@
                     스탬프를 등록하시려면 <font color='red'>기존 회원검색</font> 또는 <font color='red'>고객계정을
                         새로 추가</font>해주세요.
                 </div>
-                <div class='search'>
-                    <div class='inputArea'>
-                        <input class='srchBar' type='text' placeholder='이름 또는 전화번호'><a
-                            href='' class='btn_srch'>검색</a>
-                        <ul class='srchList'>
-                            <li><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-1234-5678</span></li>
-                            <li><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-2345-6789</span></li>
-                        </ul>
-                    </div>
-                    <button class='btn_newCstmr' type='button'></button>
-                </div>
+                
+	            <div class='search'>
+	                <form name="form1" class='inputArea' method="post">
+	                     <input type="text" id="searchbox-main" class='srchBar' placeholder='전화번호를 입력하세요.'>
+	                     <input type="submit" id="sumit" class='btn_srch' value="검색">
+	                </form>
+	                <button class='btn_newCstmr' type='button'>고객등록</button>
+	            </div>
+            
+            
                 <div class='today'>
                     <h4>
                         <span>오늘 카페 이용현황</span>
@@ -134,6 +132,8 @@
 <!-- auto complete 고객검색 자동완성 -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../js/srchCstmr.js"></script>
+<script>
+</script>
 <!-- //auto complete 고객검색 자동완성 -->
 </body>
 </html>

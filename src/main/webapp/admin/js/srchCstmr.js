@@ -6,7 +6,6 @@ $(function() {
             return;
 
         var jsonSrchList = ajaxResult.data;
-            console.log(jsonSrchList.value);
         var arrSrchList = $.map(jsonSrchList, function(jdata) {
             return jdata
         });
@@ -21,6 +20,11 @@ $(function() {
         $("#searchbox").autocomplete({
             source: availableTags
         });
+        
+        $("#searchbox-main").autocomplete({
+            source: availableTags
+        });
+        
     });
 
 });

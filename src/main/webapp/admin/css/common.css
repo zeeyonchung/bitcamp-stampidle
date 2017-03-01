@@ -46,6 +46,7 @@ a {
 }
 
 #header {
+	min-width: 960px;  
 }
 
 #sidebar {
