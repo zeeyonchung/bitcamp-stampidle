@@ -21,14 +21,15 @@ public class CardTemplateServiceImpl implements CardTemplateService {
 
 
   @Override
-  public void add(StampCardInfo stampCardInfo) throws Exception {
-    //stampCardInfoDao.insert(stampCardInfo);
+  public int add(StampCardInfo stampCardInfo) throws Exception {
+    stampCardInfoDao.insert(stampCardInfo);
+    return stampCardInfo.getStampCafeCardNo();
   }
   
   
   @Override
   public void addStampPosition(StampPosition stampPosition) throws Exception {
-    //stampPositionDao.insert(stampPosition);
+    stampPositionDao.insert(stampPosition);
   }
   
 }

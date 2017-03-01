@@ -3,11 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="bitcamp.java89.ems2.dao.CafeDao">
+<mapper namespace="bitcamp.java89.ems2.dao.StampPositionDao">
 
-  <resultMap type="cafe" id="cafe-map">
-    <id     column="cfno"      property="cafeNo"/>
+  <resultMap type="StampPosition" id="cafe-map">
+    <id column="posino"       property="positionNo"/>
     
+    <result column="scno"       property="stampCafeCardNo"/>
     <result column="cmno"      property="cafeMemberNo"/>
     <result column="id"       property="id"/>
     <result column="ctel"     property="cellNo"/>
@@ -15,6 +16,7 @@
     <result column="email"      property="Email"/>
     <result column="pwd"      property="password"/>
     
+    <result column="cfno"        property="cafeNo"/>
     <result column="cftel"       property="cafeTel"/>
     <result column="cname"       property="cafeName"/>
     <result column="intro"       property="intro"/>
@@ -22,36 +24,20 @@
     <result column="daddr"       property="detailAddress"/>
     <result column="chair"       property="chairNo"/>
     <result column="logo"       property="logPath"/>
+    
+    <result column="bpath"       property="backImgPath"/>
+    <result column="stnum"       property="stampCount"/>
+    <result column="shape"       property="stampImgPath"/>
+    
+    <result column="posix"       property="positionX"/>
+    <result column="posiy"       property="positionY"/>
   </resultMap>
   
   
-  <insert id="insert" parameterType="cafe">
-  insert into cafe(cfno, cmno, cftel, cname, intro, addr, daddr, chair, logo)
-  values(
-  #{cafeNo},
-  #{cafeMemberNo},
-  #{cafeTel},
-  #{cafeName},
-  #{intro},
-  #{address},
-  #{detailAddress},
-  #{chairNo},
-  #{logPath})
+  <insert id="insert" parameterType="stampPosition">
+    insert into stposi(posix, posiy, scno)
+    values(#{positionX}, #{positionY}, #{stampCafeCardNo})
   </insert>
-  
-  <select id='getOne' parameterType='int' resultMap='cafe-map'>
-    select
-      cfno,
-      cmno,
-      cname,
-      intro,
-      addr,
-      daddr,
-      chair,
-      logo
-    from cafe
-    where cmno=#{cafeMemberNo}
-  </select>
 </mapper>
 
 

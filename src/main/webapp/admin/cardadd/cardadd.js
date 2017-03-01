@@ -1,3 +1,16 @@
+/*로그인 정보를 가져와서*/
+var cafeMemberNo = "";
+
+$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+	if (ajaxResult.status != "success") {
+		console.log(ajaxResult.data);
+		location.href = clientRoot + "/auth/login.html";
+		/*로그인 안 했으면 로그인 페이지로 보내기*/
+	}
+	cafeMemberNo = ajaxResult.data.cafeMemberNo;
+});
+
+
 
 
 /** stmpside 넓이 조정 **/
@@ -122,11 +135,15 @@ $(document).ready( function(){
 
 /*********************** 저장 *************************/
 
+var stampCafeCardNo = 0;
+
+
 
 $('.btmsubmit').click (function() {
 	
 	
 	var paramCard = {
+			"cafeMemberNo": cafeMemberNo,
 			"stampCount": $('.midNum').text(),
 			"backImgPath": $('.backcard').attr("src"),
 			"stampImgPath": $('#photo-img').attr("src")
@@ -137,27 +154,34 @@ $('.btmsubmit').click (function() {
 			alert(ajaxResult.data);
 			return;
 		}
+		stampCafeCardNo = ajaxResult.data;
+		console.log(stampCafeCardNo+"hello"+$('.stmpside').css('height').split('px')[0]);
+		
+		
+		for(i=0; i < stampNo; i++) {
+			var p = $('.stampNo' + i);
+			var positionX = p.position().left / $('.stmpside').css('width').split('px')[0] * 100;
+			var positionY = p.position().top / $('.stmpside').css('height').split('px')[0] * 100;
+			
+			var paramPosition = {
+					"stampCafeCardNo": stampCafeCardNo,
+					"positionX": positionX,
+					"positionY": positionY
+			};
+			
+			console.log(paramPosition);
+			$.post(serverRoot + '/cardadd/addStampPosition.json', paramPosition, function(ajaxResult) {
+				if (ajaxResult.status != "success") {
+					alert(ajaxResult.data);
+					return;
+				}
+			}, 'json');
+		}
+		
 	}, 'json');
 	
 	
 	
-	for(i=0; i < stampNo; i++) {
-		var p = $('.stampNo' + i);
-		var positionX = p.position().left;
-		var positionY = p.position().top;
-		
-		var paramPosition = {
-			"positionX": positionX,
-			"positionY": positionY
-		};
-		console.log(paramPosition);
-		$.post(serverRoot + '/cardadd/addStampPosition.json', paramPosition, function(ajaxResult) {
-			if (ajaxResult.status != "success") {
-				alert(ajaxResult.data);
-				return;
-			}
-		}, 'json');
-	}
 	
 	//location.href = '../cafeinfoedit/cafeinfoedit3.html';
 });
