@@ -74,9 +74,9 @@ public class CustomCardServiceImpl implements CustomCardService {
     
     List<CustomCard> customCardList = null;
     
-    if (searchKeyword != null) {
+    if (searchKeyword != "") {
       paramMap.put("searchKeyword", searchKeyword);
-      if (searchCondition != null) {
+      if (searchCondition != "") {
         switch (searchCondition) {
           case "memb.name" : 
             paramMap.put("searchCondition", searchCondition);
@@ -86,9 +86,10 @@ public class CustomCardServiceImpl implements CustomCardService {
             customCardList = customCardDao.getStampListByTel(paramMap);
         }
       }
+    } else {
+        customCardList = customCardDao.getStampList(paramMap);
     }
     
-    customCardList = customCardDao.getStampList(paramMap);
     
     returnMap.put("customCardList", customCardList);
     

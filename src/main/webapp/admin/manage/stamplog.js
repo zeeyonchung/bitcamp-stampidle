@@ -42,6 +42,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	
 	function loadPage(pageCount) {
+		console.log("searchCondition: " + searchCondition);
+		console.log("searchKeyword: " + searchKeyword);
+		
 		$.getJSON(
 			serverRoot + '/customCard/stampList.json',
 			{'cafeMemberNo': cafeMemberNo,
@@ -110,9 +113,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			var pagestr = $('.z .pagination a:nth-of-type(1)').text();
 			var currentLastPage = parseInt(pagestr.charAt(pagestr.length - 1));
 			if (allStampIssueNo % postNo == 0) {
-				var allPageNo = Math.floor(allEventNo / postNo);
+				var allPageNo = Math.floor(allStampIssueNo / postNo);
 			} else {
-				var allPageNo = Math.floor(allEventNo / postNo) + 1;
+				var allPageNo = Math.floor(allStampIssueNo / postNo) + 1;
 			}
 			
 			if (currentLastPage >= allPageNo) {
@@ -141,6 +144,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	$("#search-log-btn").click(function(){
 		searchKeyword = $('.input-name').val();
 		if (searchCondition == '') {alert('검색 조건 설정하세요'); return;}
+		
 		loadPage(1);
 	});
 
