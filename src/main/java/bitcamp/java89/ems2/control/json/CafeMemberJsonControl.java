@@ -1,5 +1,7 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.List;
+
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,13 @@ public class CafeMemberJsonControl {
   public AjaxResult add(CafeMember cafeMember) throws Exception {
     cafeMemberService.add(cafeMember);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+  
+  @RequestMapping("/admin/cafeMember/list")
+  public AjaxResult list(int cafeMemberNo) throws Exception {
+    List<CafeMember> list = cafeMemberService.getList(cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
   }
 }
 
