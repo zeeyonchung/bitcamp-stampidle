@@ -24,7 +24,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	$('#date-custom').val(2016 + "-" + month + "-" + day + " ~ " + year + "-" + month + "-" + day);
 	
 	
-
 	
 
 	/*게시글 몇 개씩 보여줄 건지 설정*/

@@ -81,9 +81,11 @@ public class CustomCardServiceImpl implements CustomCardService {
           case "memb.name" : 
             paramMap.put("searchCondition", searchCondition);
             customCardList = customCardDao.getStampListByName(paramMap);
+            break;
           case "memb.tel" :
             paramMap.put("searchCondition", searchCondition); 
             customCardList = customCardDao.getStampListByTel(paramMap);
+            break;
         }
       }
     } else {
