@@ -36,6 +36,16 @@
   	from memb;
   </select>
   
+  <select id="getOneByNameTel" parameterType="map"  resultMap="customMember-map">
+    select 
+      mno,
+      name,
+      tel
+    from memb
+    where name=#{name}
+      and tel=#{tel}
+  </select>
+  
 </mapper>
 
 

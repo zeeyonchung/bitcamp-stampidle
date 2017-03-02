@@ -22,10 +22,10 @@
         <div class="login-main">
 	        <p class="login-title">일반회원 로그인</p>
 	        <div>
-	          <input type="text" class="form-control" placeholder="이름">
+	          <input type="text" class="form-control name" placeholder="이름">
 	        </div>
 	        <div>
-	           <input type="text" class="form-control" placeholder="핸드폰번호">
+	           <input type="text" class="form-control tel" placeholder="핸드폰번호">
 	        </div>
 	        <button type="button" class="login-btn">Login</button>
 	        <button type="button" class="register-btn">회원가입</button>
@@ -35,10 +35,10 @@
 	        <p class="login-title">일반회원 계정 등록</p>
 	        <div class="input-div">
 	          <div>
-	          <input type="text" class="form-control" placeholder="이름">
+	          <input type="text" class="form-control" id="name" placeholder="이름">
 	          </div>
 	          <div>
-	          <input type="text" class="form-control" placeholder="핸드폰번호">
+	          <input type="text" class="form-control" id="tel" placeholder="핸드폰번호">
 	          </div>
 	        </div>
 	        <button type="button" class="register-ok-btn">가입하기</button>
@@ -52,11 +52,12 @@
     <!-- //con -->
   </div>
 
-
+  <script src="js/context.js"></script>
   <script src="../node_modules/jquery/dist/jquery.js"></script>
   <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src="js/bit.js"></script>
   <script src="js/common.js"></script>
+  <script src="login.js"></script>
 
 	<script>
 		function size() {

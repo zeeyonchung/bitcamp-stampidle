@@ -17,7 +17,7 @@ public class CustomMemberJsonControl {
   
   @Autowired CustomMemberService customMemberService;
   
-  @RequestMapping("/admin/customMember/add")
+  @RequestMapping(value = {"/admin/customMember/add", "/cstmr_m/customMember/add"})
   public AjaxResult add(CustomMember customMember) throws Exception {
     customMemberService.add(customMember);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
