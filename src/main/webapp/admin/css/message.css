@@ -280,18 +280,21 @@ h4 {
   margin-right: 10px;
 }
 
-
-
-
-
-
-
-
-
-
 .chat-input {
-  width: 433px;
+  width: 355px;
   height: 60px;
   padding: 5px;
+  display: inline-block;
+  float: left;
+}
+
+.btn-send {
+  width: 78px;
+  height: 52px;
+  background-color: rgb(255, 89, 72);
+  border-radius: 0 5px 5px 0;
+  border: none;
+  color: white;
+  
 }
 
