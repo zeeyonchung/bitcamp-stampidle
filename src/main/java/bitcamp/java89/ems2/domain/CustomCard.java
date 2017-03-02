@@ -8,6 +8,7 @@ public class CustomCard extends StampCardInfo {
   protected int customCardNo;
   protected String cardIssueDate;
   protected String cardState;
+  protected String cardUseDate;
   
   protected List<Stamp> stampList;
   
@@ -19,6 +20,12 @@ public class CustomCard extends StampCardInfo {
   protected String customPhoto;
   
   
+public String getCardUseDate() {
+    return cardUseDate;
+  }
+  public void setCardUseDate(String cardUseDate) {
+    this.cardUseDate = cardUseDate;
+  }
 public String getCustomPhoto() {
     return customPhoto;
   }

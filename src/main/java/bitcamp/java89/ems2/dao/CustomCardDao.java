@@ -9,7 +9,9 @@ public interface CustomCardDao {
   List<CustomCard> getStampList(Map<String, Object> paramMap) throws Exception;
   List<CustomCard> getStampListByName(Map<String, Object> paramMap) throws Exception;
   List<CustomCard> getStampListByTel(Map<String, Object> paramMap) throws Exception;
-  CustomCard getStampDetail(int customMemberNo) throws Exception;
+  
   int getStampCount(Map<String, Object> paramMap) throws Exception;
   int getStampCountByKeyword(Map<String, Object> paramMap) throws Exception;
+  
+  CustomCard getStampDetail(Map<String, Object> paramMap) throws Exception;
 }

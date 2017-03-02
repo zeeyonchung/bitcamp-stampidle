@@ -126,10 +126,13 @@ public class CustomCardServiceImpl implements CustomCardService {
 
 
   @Override
-  public CustomCard getStampDetail(int customMemberNo) throws Exception {
-    
+  public CustomCard getStampDetail(int customMemberNo, int cafeMemberNo) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("customMemberNo", customMemberNo);
+    paramMap.put("cafeMemberNo", cafeMemberNo);
+    customCardDao.getStampDetail(paramMap);
      
-    return customCardDao.getStampDetail(customMemberNo);
+    return null;
   }
 
 }

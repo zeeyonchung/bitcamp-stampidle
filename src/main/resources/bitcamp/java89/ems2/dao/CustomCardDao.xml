@@ -10,12 +10,14 @@
     
     <result column="birth"       property="cardIssueDate"/>
     <result column="mcuse"       property="cardState"/>
+    <result column="death"       property="cardUseDate"/>
     
     <result column="mno"       property="customMemberNo"/>
     <result column="tel"       property="customTel"/>
     <result column="email"       property="customEmail"/>
     <result column="name"       property="customName"/>
     <result column="nick"       property="customNick"/>
+    <result column="cphoto"       property="customPhoto"/>
     
     <result column="scno"       property="stampCafeCardNo"/>
     <result column="bpath"       property="backImgPath"/>
@@ -129,6 +131,40 @@
         else ''
         END
         like concat('%', #{searchKeyword}, '%')
+  </select>
+  
+  
+  <select id="getStampDetail" parameterType="java.util.Map" resultType="int">
+    select
+      memb.name,
+      memb.tel,
+      (select count(mcuse) from mcard where mcuse=1)'usable-card',
+      (select mcard.birth from memb 
+	      left outer join mcard on memb.mno=mcard.mno 
+	      left outer join stamp on stamp.mcno=mcard.mcno 
+	      where 
+	      stamp.stime in (select stamp.stime from stamp order by desc limit 1) and
+	      memb.mno=#{customMemberNo} and
+        cmemb.cmno=#{cafeMemberNo}) 'made-date',
+      (select stamp.many
+        from memb
+			  left outer join mcard on memb.mno=mcard.mno
+			  left outer join stamp on stamp.mcno=mcard.mcno
+			  left outer join scinfo on mcard.scno = scinfo.scno
+			  left outer join cafe on cafe.cfno = scinfo.cfno
+			  left outer join cmemb on cafe.cmno = cmemb.cmno
+			  where
+			  memb.mno=#{customMemberNo} and
+			  cmemb.cmno=#{cafeMemberNo}
+      ) 'all-stamp',
+      (select stime from memb
+			  left outer join mcard on memb.mno=mcard.mno
+			  left outer join stamp on stamp.mcno=mcard.mcno
+			where
+			  stamp.stime in (select stamp.stime from stamp order by desc limit 1) and
+			  memb.mno=#{customMemberNo} and
+        cmemb.cmno=#{cafeMemberNo}
+      )
   </select>
   
 
