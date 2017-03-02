@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.CustomCardDao">
+
+  <resultMap type="customCard" id="customCard-map">
+    <id     column="mcno"        property="customCardNo"/>
+    
+    <result column="birth"       property="cardIssueDate"/>
+    <result column="mcuse"       property="cardState"/>
+    
+    <result column="mno"       property="customMemberNo"/>
+    <result column="tel"       property="customTel"/>
+    <result column="email"       property="customEmail"/>
+    <result column="name"       property="customName"/>
+    <result column="nick"       property="customNick"/>
+    
+    <result column="scno"       property="stampCafeCardNo"/>
+    <result column="bpath"       property="backImgPath"/>
+    <result column="stnum"       property="stampCount"/>
+    <result column="shape"       property="stampImgPath"/>
+    
+    <collection property="stampList" ofType="stamp">
+      <id     column="stno"     property="stampNo"/>
+      <result column="many"     property="stampIssueCount"/>
+      <result column="stime"     property="stampIssueDate"/>
+    </collection>
+    
+    <collection property="stampPositionList" ofType="stampPosition">
+      <id     column="posino"     property="positionNo"/>
+      <result column="posix"     property="positionX"/>
+      <result column="posiy"     property="positionY"/>
+      <result column="stampod"     property="positionOrder"/>
+    </collection>
+  </resultMap>
+  
+  
+  <select id="getStampList" parameterType="java.util.Map" resultMap="customCard-map">
+    select 
+      stamp.stno,
+      stamp.many,
+      stamp.stime,
+      memb.mno,
+      memb.name,
+      memb.tel
+    from stamp
+      left outer join mcard on stamp.mcno = mcard.mcno
+      left outer join memb on mcard.mno = memb.mno
+      left outer join scinfo on mcard.scno = scinfo.scno
+    	left outer join cafe on scinfo.cfno = cafe.cfno
+    where cafe.cmno=#{cafeMemberNo}
+      and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
+      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
+    order by stamp.stno desc
+    limit #{firstPost}, #{postNo}
+  </select>
+  
+  <select id="getStampListByName" parameterType="java.util.Map" resultMap="customCard-map">
+    select 
+      stamp.stno,
+      stamp.many,
+      stamp.stime,
+      memb.mno,
+      memb.name,
+      memb.tel
+    from stamp
+      left outer join mcard on stamp.mcno = mcard.mcno
+      left outer join memb on mcard.mno = memb.mno
+      left outer join scinfo on mcard.scno = scinfo.scno
+    	left outer join cafe on scinfo.cfno = cafe.cfno
+    where cafe.cmno=#{cafeMemberNo}
+      and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
+      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
+      and memb.name like concat('%', #{searchKeyword}, '%')
+    order by stamp.stno desc
+    limit #{firstPost}, #{postNo}
+  </select>
+  
+  <select id="getStampListByTel" parameterType="java.util.Map" resultMap="customCard-map">
+    select 
+      stamp.stno,
+      stamp.many,
+      stamp.stime,
+      memb.mno,
+      memb.name,
+      memb.tel
+    from stamp
+      left outer join mcard on stamp.mcno = mcard.mcno
+      left outer join memb on mcard.mno = memb.mno
+      left outer join scinfo on mcard.scno = scinfo.scno
+    	left outer join cafe on scinfo.cfno = cafe.cfno
+    where cafe.cmno=#{cafeMemberNo}
+      and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
+      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
+      and memb.tel like concat('%', #{searchKeyword}, '%')
+    order by stamp.stno desc
+    limit #{firstPost}, #{postNo}
+  </select>
+  
+  
+  <select id="getStampCount" parameterType="java.util.Map" resultType="int">
+    select count(*)
+    from stamp
+    	left outer join mcard on stamp.mcno = mcard.mcno
+    	left outer join scinfo on mcard.scno = scinfo.scno
+    	left outer join cafe on scinfo.cfno = cafe.cfno
+    where cafe.cmno=#{cafeMemberNo} 
+      and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
+      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
+  </select>
+  
+  
+  <select id="getStampCountByKeyword" parameterType="java.util.Map" resultType="int">
+		select count(*)
+		from stamp
+    	left outer join mcard on stamp.mcno = mcard.mcno
+    	left outer join memb on mcard.mno = memb.mno
+    	left outer join scinfo on mcard.scno = scinfo.scno
+    	left outer join cafe on scinfo.cfno = cafe.cfno
+    where cafe.cmno=#{cafeMemberNo}
+      and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
+      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
+      and
+        CASE
+        WHEN #{searchCondition}="memb.name" THEN  memb.name
+        WHEN #{searchCondition}="memb.tel" THEN memb.tel
+        else ''
+        END
+        like concat('%', #{searchKeyword}, '%')
+  </select>
+  
+
+</mapper>
+
+
+
+

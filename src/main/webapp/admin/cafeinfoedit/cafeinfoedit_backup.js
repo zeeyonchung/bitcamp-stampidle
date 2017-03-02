@@ -31,54 +31,54 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult) {
 				var detailCafeMember = ajaxResult.data;
 				var cafeNumber = detailCafeMember.cafeNo;
-				var days = $('select[id=day]')
-				var daysNum = days.length;
-				var start1 = $('select[id=startTime1]');
-				var start2 = $('select[id=startTime2]');
-				var end1 = $('select[id=endTime1]');
-				var end2 = $('select[id=endTime2]');
-				
-				for (var i=0; i < daysNum; i++) {
-					var param2 = {
-							cafeNo: cafeNumber,
-							day: days.eq(i).val(),
-							startTime: start1.eq(i).val() + ":" + start2.eq(i).val(),
-							endTime: end1.eq(i).val() + ":" + end2.eq(i).val()
-					}
-					console.log(param2);
-					
-					$.post(serverRoot + '/cafeTime/add.json', param2, function(ajaxResult) {
-						if (ajaxResult.status != "success") {
-							alert(ajaxResult.data);
-							return;
-						}
-						alert('시간등록 완료되었습니다.');
-					}, 'json');
-				};
-				var tags = [];
-				var checked = $(".tag input[type='checkbox']:checked");
-				for(var i=0; i<checked.length; i++){
-					if (checked.eq(i).attr('id') != 'self')
-						tags += checked.eq(i).val() + " ";
-				};
-				if($('.inperson').val() != null) {
-					tags += $('.inperson').val()
-				};
-				
-				var param3 = {
-						cafeNo: cafeNumber,
-						tagName: tags
-				}
-				console.log(param3);
-				$.post(serverRoot + '/tag/add.json', param3, function(ajaxResult) {
-					if (ajaxResult.status != "success") {
-						alert(ajaxResult.data);
-						return;
-					}
-					alert('태그등록 완료되었습니다.');
-				}, 'json');
 			});
 		}, 'json');
+		
+	
+		
+		var days = $('select[id=day]')
+		var daysNum = days.length;
+		var start1 = $('select[id=startTime1]');
+		var start2 = $('select[id=startTime2]');
+		var end1 = $('select[id=endTime1]');
+		var end2 = $('select[id=endTime2]');
+		
+		for (var i=0; i < daysNum; i++) {
+			var param2 = {
+		    cafeNo: cafeNumber,
+		    day: days.eq(i).val(),
+			startTime: start1.eq(i).val() + ":" + start2.eq(i).val(),
+			endTime: end1.eq(i).val() + ":" + end2.eq(i).val()
+			}
+			console.log(param2);
+			/*
+			$.post(serverRoot + '/cafeTime/add.json', param2, function(ajaxResult) {
+				if (ajaxResult.status != "success") {
+					alert(ajaxResult.data);
+					return;
+				}
+				alert('태그등록 완료되었습니다.');
+			}, 'json');*/
+		};
+		
+		
+		
+		var tags = [];
+		var checked = $(".tag input[type='checkbox']:checked");
+		for(var i=0; i<checked.length; i++){
+			if (checked.eq(i).attr('id') != 'self')
+				tags += checked.eq(i).val() + " ";
+		};
+		if($('.inperson').val() != null) {
+			tags += $('.inperson').val()
+		};
+		
+		var param3 = {
+				cafeMemberNo: cafeMemberNo,
+				tagName: tags
+		}
+		console.log(param3);
+		
 	}); // click()
 });
 

@@ -147,9 +147,6 @@
 
 
 
-
-
-
 .ui-menu
 {
     position: relative;
@@ -230,6 +227,13 @@
     color: white;
 }
 
+.ui-helper-hidden-accessible {
+    display:none!important;
+}
+
+.ui-widget-content.ui-autocomplete {
+	position:absolute!important;
+}
 
 /************ logon-div ************/
 #header .top #logon-div {

@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body class="stamplog">
     <div class='container'>
         <div id='header'></div>
         <div id='sidebar'></div>
@@ -39,11 +39,23 @@
 
 
         <!-- 날짜 설정 -->
-        <div class='calendar'>
-          날짜 설정
+        <div class='calendar'>날짜 설정
           <img class='calendar-icon' src='../image/icon_calendar.png'>
           <input id="date-custom" type='text' class='input-day' onfocus="this.blur()"> 
+          
+          
+          <div class="btn-group log-btns">
+            <button class="btn btn-default btn-sm dropdown-toggle"
+              type="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">검색조건 <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu search-log">
+              <li>이름</li>
+              <li>전화번호</li>
+            </ul>
+          </div>
           <input class='input-name' type='text' placeholder='검색어 입력'>
+          
           <button id='search-log-btn' class="btn btn-default" type='button'>
             <img class="btn-img" src="../image/btn_searchB.png">
           </button>
@@ -65,112 +77,7 @@
               </tr>
             </thead>
 
-            <tbody>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
-              <tr class='tr-link'>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3</td>
-                <td>2017-02-06</td>
-              </tr>
+            <tbody class="stamp-log-tbody">
             </tbody>
           </table>
         </div>
@@ -182,15 +89,10 @@
 
         <!-- 다음페이지 -->
         <div class='z'>
+          <button id="prev" class="btn btn-default btn-sm" type="button">&laquo;</button>
           <ul class="pagination">
-            <li><a href="#">〈</a></li>
-            <li><a href="#">1</a></li>
-            <li><a class="active" href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">〉</a></li>
           </ul>
+          <button id="next" class="btn btn-default btn-sm" type="button">&raquo;</button>
         </div>
 
 
@@ -205,40 +107,51 @@
 
 
 
+<!-- 스탬프 하나하나 템플릿 -->
+<script id="trTemplate1" type="text/x-handlebars-template">
+{{#each customCardList}}
+  <tr class='tr-link' data-no="{{customMemberNo}}">
+	{{#each stampList}}
+      <td>{{stampNo}}</td>
+	{{/each}}
 
-  <script src="../js/context.js"></script>
-  <script src="../../node_modules/jquery/dist/jquery.js"></script>
-  <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="../js/bit.js"></script>
-  <script src="../js/common.js"></script>
-  <script src="stamplog.js"></script>
+      <td>{{customName}}</td>
+      <td>{{customTel}}</td>
 
-  <script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
-  <script src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
-  <script src="../js/calendar.js"></script>
+ {{#each stampList}}
+      <td>{{stampIssueCount}}</td>
+      <td>{{stampIssueDate}}</td>
+  </tr>
+ {{/each}}
+{{/each}}
+</script>
+
+<!-- 글 번호 템플릿 -->
+<script id="trTemplate2" type="text/x-handlebars-template">
+{{#each paginationList}}
+<li><a href="#">{{this}}</a></li>
+{{/each}}
+</script>
 
 
-  <!-- tr 태그 클릭 시 고객 상세페이지로 이동 -->
-  <script>
-  "use strict"
-  
-  $('.tr-link').click(function(event) {
-    location.href = '../stampidle_cs/customerdetail.html'
-  });
-  </script>
-  
-  <!-- 임시링크 -->
-    <script>
-    $('.one').click(function(e) {
-        location.href = '../manage/statistics.html'
-    });
-    $('.two').click(function(e) {
-        location.href = '../manage/customerlist.html'
-    });
-    $('.three').click(function(e) {
-        location.href = '../manage/stamplog.html'
-    });
-    </script>
-    <!-- //임시링크 -->
+<script src="../js/context.js"></script>
+<script src="../../node_modules/handlebars/dist/handlebars.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/link.js"></script>
+<script src="stamplog.js"></script>
+
+<script src="http://www.blueb.co.kr/SRC2/daterange/moment.min.js"></script>
+<script src="http://www.blueb.co.kr/SRC2/daterange/jquery.daterangepicker.js"></script>
+<script src="../js/calendar.js"></script>
+
+
+
+<!-- auto complete 고객검색 자동완성 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../js/srchCstmr.js"></script>
+<!-- //auto complete 고객검색 자동완성 -->
 </body>
 </html>

@@ -23,13 +23,13 @@
   font-size: 2em;
 }
 
-ul li:nth-of-type(2), li:nth-of-type(3), li:nth-of-type(4) {
+.manage-navi ul li:nth-of-type(2), .manage-navi ul li:nth-of-type(3), .manage-navi ul li:nth-of-type(4) {
   border: 1px;
   display: inline;
   font-size: 1.2em;
 }
 
-ul a {
+.manage-navi ul a {
   display: inline-block;
   padding: .75rem 0;
   margin: 0;

@@ -129,15 +129,15 @@ public class EventServiceImpl implements EventService {
     }
     
     if (currentPage % postNo == 0) {
-      for (int i = currentPage - (postNo-1); i <= allPageNo; i++) {
-        if (list.size() == postNo) {break;}
+      for (int i = currentPage - 4; i <= allPageNo; i++) {
+        if (list.size() == 5) {break;}
         list.add(i);
       }
     } else {
       int currentPosition = currentPage % postNo;
-      if (currentPosition == 0) {currentPosition = postNo;}
+      if (currentPosition == 0) {currentPosition = 5;}
       for (int i = currentPage - currentPosition + 1; i <= allPageNo; i++) {
-        if (list.size() == postNo) {break;}
+        if (list.size() == 5) {break;}
         list.add(i);
       }
     }
