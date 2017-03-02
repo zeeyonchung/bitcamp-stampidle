@@ -20,7 +20,6 @@ public class CustomCardServiceImpl implements CustomCardService {
   @Autowired CafeDao cafeDao;
   @Autowired CustomCardDao customCardDao;
   
-  
   public Map<String, Object> getStampList(
 		int cafeMemberNo,
 		int pageCount, 
@@ -123,6 +122,14 @@ public class CustomCardServiceImpl implements CustomCardService {
     returnMap.put("paginationList", paginationList);
     
     return returnMap;
+  }
+
+
+  @Override
+  public CustomCard getStampDetail(int customMemberNo) throws Exception {
+    
+     
+    return customCardDao.getStampDetail(customMemberNo);
   }
 
 }

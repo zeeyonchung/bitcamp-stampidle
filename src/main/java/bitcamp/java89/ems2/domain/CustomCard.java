@@ -16,9 +16,15 @@ public class CustomCard extends StampCardInfo {
   protected String customEmail;
   protected String customName;
   protected String customNick;
+  protected String customPhoto;
   
   
-  
+public String getCustomPhoto() {
+    return customPhoto;
+  }
+  public void setCustomPhoto(String customPhoto) {
+    this.customPhoto = customPhoto;
+  }
 public int getCustomCardNo() {
 	return customCardNo;
 }

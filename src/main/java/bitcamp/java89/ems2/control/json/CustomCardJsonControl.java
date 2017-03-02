@@ -20,7 +20,7 @@ public class CustomCardJsonControl {
   @Autowired CustomCardService customCardService;
   
   @RequestMapping(value = "/admin/customCard/stampList")
-  public AjaxResult list(int cafeMemberNo, int pageCount, int postNo, String searchDate, String searchCondition, String searchKeyword) throws Exception {
+  public AjaxResult stampList(int cafeMemberNo, int pageCount, int postNo, String searchDate, String searchCondition, String searchKeyword) throws Exception {
     Map<String, Object> returnMap = customCardService.getStampList(cafeMemberNo, pageCount, postNo, searchDate, searchCondition, searchKeyword);
     
     int allStampIssueNo = (int)returnMap.get("allStampIssueNo");
@@ -37,6 +37,14 @@ public class CustomCardJsonControl {
     resultMap.put("allStampIssueNo", allStampIssueNo);
     resultMap.put("customCardList", customCardList);
     resultMap.put("paginationList", paginationList);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+  }
+  
+  
+  @RequestMapping(value = "/admin/customCard/stampDetail")
+  public AjaxResult stampDetail(int customMemberNo) throws Exception {
+    CustomCard resultMap = customCardService.getStampDetail(customMemberNo);
     
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
