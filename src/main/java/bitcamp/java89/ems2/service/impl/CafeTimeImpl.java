@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.CafeTimeDao;
 import bitcamp.java89.ems2.domain.CafeTime;
+import bitcamp.java89.ems2.domain.Tag;
 import bitcamp.java89.ems2.service.CafeTimeService;
 
 @Service
@@ -14,6 +15,10 @@ public class CafeTimeImpl implements CafeTimeService {
   @Override
   public int add(CafeTime cafeTime) throws Exception {
     return cafeTimeDao.insert(cafeTime);
+  }
+  
+  public CafeTime detailTime(int cafeNo) throws Exception {
+  	return cafeTimeDao.getOne(cafeNo);
   }
 }
 

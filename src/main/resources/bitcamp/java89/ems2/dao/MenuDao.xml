@@ -29,16 +29,24 @@
     <result column="mepath"       property="menuPath"/>
   </resultMap>
   
-  
-  <insert id="insert" parameterType="cafe">
-  insert into menu(meno, cfno, mena, price, mepath)
+  <insert id="insert" parameterType="menu" useGeneratedKeys="true" keyProperty="menuNo">
+  insert into menu(cfno, mena, price, mepath)
   values(
-  #{menuNo},
   #{cafeNo},
   #{menuName},
   #{price},
   #{menuPath})
   </insert>
+  
+  <select id="getOne" parameterType="int" resultMap="menu-map">
+    select 
+      mena,
+  	  price,
+  	  mepath
+    from menu
+    where cfno=#{value} 
+  </select>
+  
 </mapper>
 
 

@@ -20,6 +20,11 @@ $('.event a').click(function(e) {
     location.href = clientRoot + '/event/main.html'
 });
 
+$('.btn_cafeInfo').click(function(e) {
+	e.preventDefault();
+    location.href = clientRoot + '/cafeinfo/cafeinfo.html'
+});
+
 
 // header link ********************************************
 $('.logo-img-src').click(function(e) {
@@ -30,9 +35,13 @@ $('.srchList li a').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/stampidle_cs/customerdetail.html'
 });
+$('.btn-joinInfo btnStyle1').click(function(e) {
+	e.preventDefault();
+    location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
+});
 
 
-// event page link
+// event page link ********************************************
 $('#add-event').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/event/eventadd.html'
@@ -86,12 +95,7 @@ $('.manage-navi ul .one').click(function(e) {
 
 $('.manage-navi ul .two').click(function(e) {
 	e.preventDefault();
-    location.href = clientRoot + '/cafeinfoedit/cafeinfoedit2.html'
-});
-
-$('.manage-navi ul .three').click(function(e) {
-	e.preventDefault();
-    location.href = clientRoot + '/cafeinfoedit/cafeinfoedit3.html'
+    location.href = clientRoot + '/cardadd/cardadd.html'
 });
 
 

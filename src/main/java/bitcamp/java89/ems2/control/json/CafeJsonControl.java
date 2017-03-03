@@ -7,11 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java89.ems2.domain.Cafe;
+import bitcamp.java89.ems2.domain.CafePhoto;
 import bitcamp.java89.ems2.domain.CafeTime;
+import bitcamp.java89.ems2.domain.Menu;
 import bitcamp.java89.ems2.domain.Tag;
+import bitcamp.java89.ems2.service.CafePhotoService;
 import bitcamp.java89.ems2.service.CafeService;
 import bitcamp.java89.ems2.service.CafeTimeService;
+import bitcamp.java89.ems2.service.MenuService;
 import bitcamp.java89.ems2.service.TagService;
+
 
 @RestController
 public class CafeJsonControl {
@@ -20,6 +25,8 @@ public class CafeJsonControl {
   @Autowired CafeService cafeService;
   @Autowired CafeTimeService cafeTimeService;
   @Autowired TagService tagService;
+  @Autowired CafePhotoService cafePhotoService;
+  @Autowired MenuService menuService;
   
   @RequestMapping("/admin/cafe/add")
   public AjaxResult add(Cafe cafe) throws Exception {
@@ -39,6 +46,19 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
   
+  @RequestMapping("/admin/cafePhoto/add")
+  public AjaxResult add(CafePhoto cafePhoto) throws Exception {
+  	cafePhotoService.add(cafePhoto);
+  	return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+  @RequestMapping("/admin/menu/add")
+  public AjaxResult add(Menu menu) throws Exception {
+  	menuService.add(menu);
+  	return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+
   @RequestMapping("/admin/cafe/detail")
   public AjaxResult detail(int cafeMemberNo) throws Exception {
     Cafe cafe = (Cafe)cafeService.getDetail(cafeMemberNo);
@@ -46,9 +66,57 @@ public class CafeJsonControl {
     if (cafe == null) {
       return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
     }
-    
     return new AjaxResult(AjaxResult.SUCCESS, cafe);
   }
+  
+  
+  @RequestMapping(value = {"/admin/cafeTime/detail"})
+  public AjaxResult detailTime(int cafeNo) throws Exception {
+  	CafeTime cafeTime = (CafeTime)cafeTimeService.detailTime(cafeNo);
+    
+  	if (cafeTime == null) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, cafeTime);
+  }
+  
+  
+  @RequestMapping(value = {"/admin/tag/detail"})
+  public AjaxResult detailTag(int cafeNo) throws Exception {
+  	Tag tag = (Tag)tagService.detailTag(cafeNo);
+    
+  	if (tag == null) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
+    }
+    
+    return new AjaxResult(AjaxResult.SUCCESS, tag);
+  }
+  
+  
+  @RequestMapping(value = {"/admin/cafePhoto/detail"})
+  public AjaxResult detailCafePhoto(int cafeNo) throws Exception {
+  	CafePhoto cafePhoto = (CafePhoto)cafePhotoService.detailCafePhoto(cafeNo);
+    
+  	if (cafePhoto == null) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
+    }
+    
+    return new AjaxResult(AjaxResult.SUCCESS, cafePhoto);
+  }
+  
+  
+  @RequestMapping(value = {"/admin/menu/detail"})
+  public AjaxResult detailMenu(int cafeNo) throws Exception {
+  	Menu menu = (Menu)menuService.detailMenu(cafeNo);
+    
+  	if (menu == null) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
+    }
+    
+    return new AjaxResult(AjaxResult.SUCCESS, menu);
+  }
+  
+  
 }
 
 

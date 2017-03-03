@@ -28,11 +28,19 @@
   </resultMap>
   
   
-  <insert id="insert" parameterType="cafePhoto">
-  insert into cpoto(cpno, cfno, path)
+  <insert id="insert" parameterType="cafePhoto" useGeneratedKeys="true" keyProperty="cafePhotoNo">
+  insert into cpoto(cfno, path)
   values(
-  #{cafePhotoNo},
   #{cafeNo},
   #{path})
   </insert>
+  
+  <select id="getOne" parameterType="int" resultMap="cafePhoto-map">
+    select 
+      path
+    from cpoto
+    where cfno=#{value} 
+  </select>
+  
+  
 </mapper>

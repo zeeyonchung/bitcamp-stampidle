@@ -39,4 +39,14 @@
   #{startTime},
   #{endTime})
   </insert>
+  
+  <select id="getOne" parameterType="int" resultMap="cafeTime-map">
+    select 
+      wday,
+  	  stime,
+  	  etime
+    from wtime
+    where cfno=#{value} 
+  </select>
+  
 </mapper>

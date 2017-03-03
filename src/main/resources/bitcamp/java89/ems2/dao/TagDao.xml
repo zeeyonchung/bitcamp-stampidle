@@ -35,4 +35,13 @@
   #{cafeNo},
   #{tagName})
   </insert>
+  
+  <select id="getOne" parameterType="int" resultMap="tag-map">
+    select 
+      tname
+    from tag
+    where cfno=#{value} 
+  </select>
+  
+  
 </mapper>
