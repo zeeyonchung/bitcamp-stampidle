@@ -134,37 +134,24 @@
   </select>
   
   
-  <select id="getStampDetail" parameterType="java.util.Map" resultType="int">
-    select
-      memb.name,
-      memb.tel,
-      (select count(mcuse) from mcard where mcuse=1)'usable-card',
-      (select mcard.birth from memb 
-	      left outer join mcard on memb.mno=mcard.mno 
-	      left outer join stamp on stamp.mcno=mcard.mcno 
-	      where 
-	      stamp.stime in (select stamp.stime from stamp order by desc limit 1) and
-	      memb.mno=#{customMemberNo} and
-        cmemb.cmno=#{cafeMemberNo}) 'made-date',
-      (select stamp.many
-        from memb
-			  left outer join mcard on memb.mno=mcard.mno
-			  left outer join stamp on stamp.mcno=mcard.mcno
-			  left outer join scinfo on mcard.scno = scinfo.scno
-			  left outer join cafe on cafe.cfno = scinfo.cfno
-			  left outer join cmemb on cafe.cmno = cmemb.cmno
-			  where
-			  memb.mno=#{customMemberNo} and
-			  cmemb.cmno=#{cafeMemberNo}
-      ) 'all-stamp',
-      (select stime from memb
-			  left outer join mcard on memb.mno=mcard.mno
-			  left outer join stamp on stamp.mcno=mcard.mcno
-			where
-			  stamp.stime in (select stamp.stime from stamp order by desc limit 1) and
-			  memb.mno=#{customMemberNo} and
-        cmemb.cmno=#{cafeMemberNo}
-      )
+  <select id="getCustomDetail" parameterType="java.util.Map" resultMap="customCard-map">
+	select
+	  memb.cphoto,
+	  memb.name,
+	  memb.tel,
+	  mcard.mcno,
+	  mcard.birth,
+	  mcard.mcuse,
+	  stamp.stno,
+	  stamp.many,
+	  scinfo.stnum
+	from memb
+	  left outer join mcard on memb.mno=mcard.mno
+	  left outer join stamp on stamp.mcno=mcard.mcno
+	  left outer join scinfo on scinfo.scno=mcard.scno
+	where scinfo.cmno=#{cafeMemberNo}
+	  and memb.mno=#{customMemberNo}
+	order by mcard.birth asc
   </select>
   
 

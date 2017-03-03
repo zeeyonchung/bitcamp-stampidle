@@ -12,6 +12,7 @@ import bitcamp.java89.ems2.dao.CafeDao;
 import bitcamp.java89.ems2.dao.CafeMemberDao;
 import bitcamp.java89.ems2.dao.CustomCardDao;
 import bitcamp.java89.ems2.domain.CustomCard;
+import bitcamp.java89.ems2.domain.Stamp;
 import bitcamp.java89.ems2.service.CustomCardService;
 
 @Service
@@ -126,13 +127,34 @@ public class CustomCardServiceImpl implements CustomCardService {
 
 
   @Override
-  public CustomCard getStampDetail(int customMemberNo, int cafeMemberNo) throws Exception {
+  public Map<String, Object> getCustomDetail(int customMemberNo, int cafeMemberNo) throws Exception {
     HashMap<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("cafeMemberNo", cafeMemberNo);
-    customCardDao.getStampDetail(paramMap);
-     
-    return null;
+    
+    List<CustomCard> customDetailList = customCardDao.getCustomDetail(paramMap);
+    System.out.println(customDetailList);
+    
+    HashMap<String, Object> resultMap = new HashMap<>();
+    resultMap.put("customPhoto", customDetailList.get(customDetailList.size() - 1).getCustomPhoto());
+    resultMap.put("customName", customDetailList.get(customDetailList.size() - 1).getCustomName());
+    resultMap.put("customTel", customDetailList.get(0).getCustomTel());
+    resultMap.put("firstVisitDate", customDetailList.get(0).getCardIssueDate());
+    resultMap.put("lastVisitDate", customDetailList.get(customDetailList.size() - 1).getCardIssueDate());
+    
+    int stampCount = 0;
+    
+    for (CustomCard list : customDetailList) {
+      for (Stamp stampList : list.getStampList()) {
+        stampCount += stampList.getStampIssueCount();
+      }
+      System.out.println(stampCount);
+    }
+    
+    resultMap.put("allStampCount", stampCount);
+    resultMap.put("finishCardCount", customDetailList.get(customDetailList.size() - 1).getCardState());
+    
+    return resultMap;
   }
 
 }

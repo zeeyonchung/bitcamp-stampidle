@@ -6,6 +6,7 @@ try {
 
 
 var cafeMemberNo = 0;
+
 /*로그인 정보를 가져와서*/
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
@@ -15,11 +16,11 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	}
 	var cafeMember = ajaxResult.data;
 	cafeMemberNo = cafeMember.cafeMemberNo;
-});
 
 
 
-$.getJSON(serverRoot + '/customCard/stampDetail.json', 
+
+$.getJSON(serverRoot + '/customCard/customDetail.json', 
 		{'customMemberNo': customMemberNo,
 		'cafeMemberNo': cafeMemberNo},
 		function(ajaxResult) {
@@ -36,8 +37,10 @@ $.getJSON(serverRoot + '/customCard/stampDetail.json',
 		$('#custom-photo').attr('src', '../../upload/' + customCard.customPhoto);
 		$('#name').text(customCard.customName);
 		$('#phone-number').text(customCard.customTel);
-		$('.eventdetail #evnet-img').attr('src', '../../upload/' + customCard.eventPhotoPath);
-		$('.eventdetail .table3 .tabletd4').text(customCard.eventView);
-		$('.eventdetail .contents').text(customCard.eventContents);
+		$('.cpall-name').text(customCard.finishCardCount);
+		$('.first-visit-date').text(customCard.firstVisitDate);
+		$('.last-visit-date').text(customCard.lastVisitDate);
+		$('.all-stamp').text(customCard.allStampCount);
 });
 
+});
