@@ -23,18 +23,29 @@
     <result column="chair"       property="chairNo"/>
     <result column="logo"       property="logPath"/>
     
+    <result column="fpath"       property="frontImgPath"/>
     <result column="bpath"       property="backImgPath"/>
     <result column="stnum"       property="stampCount"/>
     <result column="shape"       property="stampImgPath"/>
+    <result column="service"       property="service"/>
+    
+    <collection property="stampPositionList" ofType="stampPosition">
+      <id     column="posino"     property="positionNo"/>
+      <result column="posix"     property="positionX"/>
+      <result column="posiy"     property="positionY"/>
+      <result column="stampod"     property="positionOrder"/>
+    </collection>
   </resultMap>
   
   
   <insert id="insert" parameterType="stampCardInfo" useGeneratedKeys="true" keyProperty="stampCafeCardNo">
-    insert into scinfo(cmno, bpath, stnum, shape)
-    values((select cmno from cafe 
-            left outer join cmemb on cmemb.cmno=cafe.cmno
-            where cafe.cmno=#{cafeMemberNo}), 
-          #{backImgPath}, #{stampCount}, #{stampImgPath})
+    insert into scinfo(cmno, fpath, bpath, stnum, shape, service)
+    values(#{cafeMemberNo}, #{frontImgPath}, #{backImgPath}, #{stampCount}, #{stampImgPath}, #{service})
+  </insert>
+  
+  <insert id="insertPosition" parameterType="stampPosition">
+    insert into stposi(posix, posiy, stampod, scno)
+    values(#{positionX}, #{positionY}, #{positionOrder}, #{stampCafeCardNo})
   </insert>
 </mapper>
 

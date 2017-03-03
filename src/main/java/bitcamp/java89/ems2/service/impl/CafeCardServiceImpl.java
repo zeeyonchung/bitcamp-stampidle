@@ -9,10 +9,10 @@ import bitcamp.java89.ems2.dao.StampCardInfoDao;
 import bitcamp.java89.ems2.dao.StampPositionDao;
 import bitcamp.java89.ems2.domain.StampCardInfo;
 import bitcamp.java89.ems2.domain.StampPosition;
-import bitcamp.java89.ems2.service.CardTemplateService;
+import bitcamp.java89.ems2.service.CafeCardService;
 
 @Service
-public class CardTemplateServiceImpl implements CardTemplateService {
+public class CafeCardServiceImpl implements CafeCardService {
   @Autowired CafeMemberDao cafeMemberNo;
   @Autowired CafeDao cafeDao;
   @Autowired StampCardInfoDao stampCardInfoDao;

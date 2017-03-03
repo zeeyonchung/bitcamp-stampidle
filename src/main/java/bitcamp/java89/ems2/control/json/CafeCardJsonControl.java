@@ -8,24 +8,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java89.ems2.domain.StampCardInfo;
 import bitcamp.java89.ems2.domain.StampPosition;
-import bitcamp.java89.ems2.service.CardTemplateService;
+import bitcamp.java89.ems2.service.CafeCardService;
 
 @RestController
-public class CardTemplateControl {
+public class CafeCardJsonControl {
   @Autowired ServletContext sc;
   
-  @Autowired CardTemplateService cardTemplateService;
+  @Autowired CafeCardService cafeCardService;
   
   @RequestMapping(value = "/admin/cardadd/add")
-  public AjaxResult add(StampCardInfo stampCardInfo) throws Exception {
-    int stampCafeCardNo = cardTemplateService.add(stampCardInfo);
-    return new AjaxResult(AjaxResult.SUCCESS, stampCafeCardNo);
+  public AjaxResult add(Object stampCardInfo) throws Exception {
+    
+    String jsonStampPositionList;
+    
+    
+    return new AjaxResult(AjaxResult.SUCCESS, null);
   }
   
   
   @RequestMapping(value = "/admin/cardadd/addStampPosition")
   public void addStampPosition(StampPosition stampPosition) throws Exception {
-    cardTemplateService.addStampPosition(stampPosition);
+    cafeCardService.addStampPosition(stampPosition);
   }
   
   

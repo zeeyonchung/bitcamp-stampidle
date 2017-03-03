@@ -6,15 +6,29 @@ public class StampCardInfo extends Cafe {
   private static final long serialVersionUID = 1L;
   
   protected int stampCafeCardNo;
+  protected String frontImgPath;
   protected String backImgPath;
   protected int stampCount;
   protected String stampImgPath;
+  protected String service;
   
   protected List<StampPosition> stampPositionList;
   
   
   
   
+public String getFrontImgPath() {
+    return frontImgPath;
+  }
+  public void setFrontImgPath(String frontImgPath) {
+    this.frontImgPath = frontImgPath;
+  }
+  public String getService() {
+    return service;
+  }
+  public void setService(String service) {
+    this.service = service;
+  }
 public List<StampPosition> getStampPositionList() {
 	return stampPositionList;
 }

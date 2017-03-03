@@ -141,49 +141,45 @@ var stampCafeCardNo = 0;
 
 $('.btmsubmit').click (function() {
 	
+	var stampPositionList = [];
 	
-	var paramCard = {
+	for(i=0; i < stampNo; i++) {
+		var p = $('.stampNo' + i);
+		var positionX = p.position().left / $('.stmpside').css('width').split('px')[0] * 100;
+		var positionY = p.position().top / $('.stmpside').css('height').split('px')[0] * 100;
+		
+		var stampPosition = {
+				"positionX": positionX,
+				"positionY": positionY,
+				"positionOrder": $('stampNo' + stampNo).text()
+		};
+		
+		stampPositionList.push(stampPosition);
+	}
+	
+	// jQuery 로 ajax 처리시 data 형식 중 배열(array)값을 넘기려면
+    // 다음과 같이 세팅값을 바꿔 주어야 한다.
+    jQuery.ajaxSettings.traditional = true;
+	
+	var param = {
 			"cafeMemberNo": cafeMemberNo,
 			"stampCount": $('.midNum').text(),
+			"frontImgPath": $('.frontcard').attr("src"),
 			"backImgPath": $('.backcard').attr("src"),
-			"stampImgPath": $('#photo-img').attr("src")
+			"stampImgPath": $('#photo-img').attr("src"),
+			"service": $('.service').text(),
+			"stampPositionList": stampPositionList
 	};
-	console.log(paramCard);
-	$.post(serverRoot + '/cardadd/add.json', paramCard, function(ajaxResult) {
+	
+	
+	$.post(serverRoot + '/cardadd/add.json', param, function(ajaxResult) {
 		if (ajaxResult.status != "success") {
 			alert(ajaxResult.data);
 			return;
 		}
-		stampCafeCardNo = ajaxResult.data;
-		console.log(stampCafeCardNo+"hello"+$('.stmpside').css('height').split('px')[0]);
-		
-		
-		for(i=0; i < stampNo; i++) {
-			var p = $('.stampNo' + i);
-			var positionX = p.position().left / $('.stmpside').css('width').split('px')[0] * 100;
-			var positionY = p.position().top / $('.stmpside').css('height').split('px')[0] * 100;
-			
-			var paramPosition = {
-					"stampCafeCardNo": stampCafeCardNo,
-					"positionX": positionX,
-					"positionY": positionY
-			};
-			
-			console.log(paramPosition);
-			$.post(serverRoot + '/cardadd/addStampPosition.json', paramPosition, function(ajaxResult) {
-				if (ajaxResult.status != "success") {
-					alert(ajaxResult.data);
-					return;
-				}
-			}, 'json');
-		}
 		
 	}, 'json');
 	
-	
-	
-	
-	//location.href = '../cafeinfoedit/cafeinfoedit3.html';
 });
 
 
