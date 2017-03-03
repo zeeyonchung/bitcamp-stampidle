@@ -15,7 +15,6 @@
     <result column="email"      property="Email"/>
     <result column="pwd"      property="password"/>
     
-    <result column="cfno"        property="cafeNo"/>
     <result column="cftel"       property="cafeTel"/>
     <result column="cname"       property="cafeName"/>
     <result column="intro"       property="intro"/>
@@ -31,8 +30,8 @@
   
   
   <insert id="insert" parameterType="stampCardInfo" useGeneratedKeys="true" keyProperty="stampCafeCardNo">
-    insert into scinfo(cfno, bpath, stnum, shape)
-    values((select cfno from cafe 
+    insert into scinfo(cmno, bpath, stnum, shape)
+    values((select cmno from cafe 
             left outer join cmemb on cmemb.cmno=cafe.cmno
             where cafe.cmno=#{cafeMemberNo}), 
           #{backImgPath}, #{stampCount}, #{stampImgPath})

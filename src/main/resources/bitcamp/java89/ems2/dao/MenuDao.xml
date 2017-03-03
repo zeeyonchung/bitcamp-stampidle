@@ -23,14 +23,13 @@
     <result column="chair"       property="chairNo"/>
     <result column="logo"       property="logPath"/>
     
-    <result column='cfno'      property="cafeNo"/>
     <result column="mena"       property="menuName"/>
     <result column="price"       property="price"/>
     <result column="mepath"       property="menuPath"/>
   </resultMap>
   
   <insert id="insert" parameterType="menu" useGeneratedKeys="true" keyProperty="menuNo">
-  insert into menu(cfno, mena, price, mepath)
+  insert into menu(cmno, mena, price, mepath)
   values(
   #{cafeNo},
   #{menuName},
@@ -44,7 +43,7 @@
   	  price,
   	  mepath
     from menu
-    where cfno=#{value} 
+    where cmno=#{value} 
   </select>
   
 </mapper>

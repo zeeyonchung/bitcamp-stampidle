@@ -3,7 +3,6 @@ package bitcamp.java89.ems2.domain;
 public class Cafe extends CafeMember {
   private static final long serialVersionUID = 1L;
   
-  protected int cafeNo;
   protected String cafeTel;
   protected String cafeName;
   protected String intro;
@@ -11,12 +10,6 @@ public class Cafe extends CafeMember {
   protected String detailAddress;
   protected int chairNo;
   protected String logPath;
-  public int getCafeNo() {
-    return cafeNo;
-  }
-  public void setCafeNo(int cafeNo) {
-    this.cafeNo = cafeNo;
-  }
   public String getCafeTel() {
     return cafeTel;
   }

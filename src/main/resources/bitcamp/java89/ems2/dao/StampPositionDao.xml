@@ -16,7 +16,6 @@
     <result column="email"      property="Email"/>
     <result column="pwd"      property="password"/>
     
-    <result column="cfno"        property="cafeNo"/>
     <result column="cftel"       property="cafeTel"/>
     <result column="cname"       property="cafeName"/>
     <result column="intro"       property="intro"/>

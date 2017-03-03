@@ -6,9 +6,8 @@
 <mapper namespace="bitcamp.java89.ems2.dao.CafeDao">
 
   <resultMap type="cafe" id="cafe-map">
-    <id     column="cfno"      property="cafeNo"/>
+    <id     column="cmno"      property="cafeMemberNo"/>
     
-    <result column="cmno"      property="cafeMemberNo"/>
     <result column="id"       property="id"/>
     <result column="ctel"     property="cellNo"/>
     <result column="crn"     property="companyNo"/>
@@ -26,9 +25,8 @@
   
   
   <insert id="insert" parameterType="cafe">
-  insert into cafe(cfno, cmno, cftel, cname, intro, addr, daddr, chair, logo)
+  insert into cafe(cmno, cftel, cname, intro, addr, daddr, chair, logo)
   values(
-  #{cafeNo},
   #{cafeMemberNo},
   #{cafeTel},
   #{cafeName},
@@ -41,7 +39,6 @@
   
   <select id='getOne' parameterType='int' resultMap='cafe-map'>
     select
-      cfno,
       cmno,
       cname,
       intro,

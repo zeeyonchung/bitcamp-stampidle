@@ -23,13 +23,12 @@
     <result column="chair"       property="chairNo"/>
     <result column="logo"       property="logPath"/>
     
-    <result column='cfno'      property='cafeNo'/>
     <result column="tname"       property="tagName"/>
   </resultMap>
   
   
   <insert id="insert" parameterType="cafeTime">
-  insert into tag(tno, cfno, tname)
+  insert into tag(tno, cmno, tname)
   values(
   #{tagNo},
   #{cafeNo},
@@ -40,7 +39,7 @@
     select 
       tname
     from tag
-    where cfno=#{value} 
+    where cmno=#{value} 
   </select>
   
   

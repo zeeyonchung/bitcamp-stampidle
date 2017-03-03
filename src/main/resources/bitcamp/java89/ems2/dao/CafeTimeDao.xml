@@ -23,7 +23,6 @@
     <result column="chair"       property="chairNo"/>
     <result column="logo"       property="logPath"/>
     
-    <result column='cfno'      property='cafeNo'/>
     <result column="wday"       property="day"/>
     <result column="stime"       property="startTime"/>
     <result column="etime"       property="endTime"/>
@@ -31,7 +30,7 @@
   
   
   <insert id="insert" parameterType="cafeTime">
-  insert into wtime(wtno, cfno, wday, stime, etime)
+  insert into wtime(wtno, cmno, wday, stime, etime)
   values(
   #{timeNo},
   #{cafeNo},
@@ -46,7 +45,7 @@
   	  stime,
   	  etime
     from wtime
-    where cfno=#{value} 
+    where cmno=#{value} 
   </select>
   
 </mapper>

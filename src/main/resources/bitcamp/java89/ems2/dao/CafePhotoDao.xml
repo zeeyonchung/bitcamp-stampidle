@@ -23,13 +23,12 @@
     <result column="chair"       property="chairNo"/>
     <result column="logo"       property="logPath"/>
     
-    <result column='cfno'      property='cafeNo'/>
     <result column="path"       property="path"/>
   </resultMap>
   
   
   <insert id="insert" parameterType="cafePhoto" useGeneratedKeys="true" keyProperty="cafePhotoNo">
-  insert into cpoto(cfno, path)
+  insert into cpoto(cmno, path)
   values(
   #{cafeNo},
   #{path})
@@ -39,7 +38,7 @@
     select 
       path
     from cpoto
-    where cfno=#{value} 
+    where cmno=#{value} 
   </select>
   
   
