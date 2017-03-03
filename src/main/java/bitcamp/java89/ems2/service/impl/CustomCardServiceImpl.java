@@ -133,7 +133,6 @@ public class CustomCardServiceImpl implements CustomCardService {
     paramMap.put("cafeMemberNo", cafeMemberNo);
     
     List<CustomCard> customDetailList = customCardDao.getCustomDetail(paramMap);
-    System.out.println(customDetailList);
     
     HashMap<String, Object> resultMap = new HashMap<>();
     resultMap.put("customPhoto", customDetailList.get(customDetailList.size() - 1).getCustomPhoto());
@@ -148,7 +147,6 @@ public class CustomCardServiceImpl implements CustomCardService {
       for (Stamp stampList : list.getStampList()) {
         stampCount += stampList.getStampIssueCount();
       }
-      System.out.println(stampCount);
     }
     
     resultMap.put("allStampCount", stampCount);

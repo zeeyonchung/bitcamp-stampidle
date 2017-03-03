@@ -8,7 +8,7 @@
   <resultMap type="event" id="event-map">
     <id     column="eno"        property="eventNo"/>
     
-    <result column="cfno"       property="cafeNo"/>
+    <result column="cmno"       property="cafeNo"/>
     <result column="cftel"       property="cafeTel"/>
     <result column="cname"       property="cafeName"/>
     <result column="intro"       property="intro"/>
@@ -46,8 +46,8 @@
       e.eday,
       c.cname
     from event e
-      left outer join cafe c on e.cfno = c.cfno
-    where e.cfno=#{cafeMemberNo}
+      left outer join cafe c on e.cmno = c.cmno
+    where e.cmno=#{cafeMemberNo}
     order by e.eno desc
     limit #{firstPost}, #{postNo}
   </select>
@@ -64,8 +64,8 @@
       e.eday,
       c.cname
     from event e
-      left outer join cafe c on e.cfno = c.cfno
-    where e.cfno=#{cafeMemberNo} and e.titl like concat('%', #{searchKeyword}, '%')
+      left outer join cafe c on e.cmno = c.cmno
+    where e.cmno=#{cafeMemberNo} and e.titl like concat('%', #{searchKeyword}, '%')
     order by e.eno desc
     limit #{firstPost}, #{postNo}
   </select>
@@ -82,8 +82,8 @@
       e.eday,
       c.cname
     from event e
-      left outer join cafe c on e.cfno = c.cfno
-    where e.cfno=#{cafeMemberNo} and c.cname like concat('%', #{searchKeyword}, '%')
+      left outer join cafe c on e.cmno = c.cmno
+    where e.cmno=#{cafeMemberNo} and c.cname like concat('%', #{searchKeyword}, '%')
     order by e.eno desc
     limit #{firstPost}, #{postNo}
   </select>
@@ -100,14 +100,14 @@
       e.eday,
       c.cname
     from event e
-      left outer join cafe c on e.cfno = c.cfno
-    where e.cfno=#{cafeMemberNo} and e.econts like concat('%', #{searchKeyword}, '%')
+      left outer join cafe c on e.cmno = c.cmno
+    where e.cmno=#{cafeMemberNo} and e.econts like concat('%', #{searchKeyword}, '%')
     order by e.eno desc
     limit #{firstPost}, #{postNo}
   </select>
   
   <insert id="insert" parameterType="event">
-    insert into event(cfno, eno,titl,econts,ebirth,epath,eview,sday,eday) 
+    insert into event(cmno, eno,titl,econts,ebirth,epath,eview,sday,eday) 
     values(
       #{cafeNo},
       #{eventNo},
@@ -151,7 +151,7 @@
       e.eday,
       c.cname
     from event e
-      left outer join cafe c on e.cfno = c.cfno
+      left outer join cafe c on e.cmno = c.cmno
     where e.eno=#{value}
   </select>
   
@@ -177,15 +177,15 @@
   <select id="getCount" resultType="int">
     select count(*)
     from event
-    where cfno=#{cafeMemberNo}
+    where cmno=#{cafeMemberNo}
   </select>
   
   
   <select id="getCountByKeyword" parameterType="java.util.Map" resultType="int">
 		select count(*)
 		    from event e
-		left outer join cafe c on e.cfno = c.cfno
-    where e.cfno=#{cafeMemberNo} and
+		left outer join cafe c on e.cmno = c.cmno
+    where e.cmno=#{cafeMemberNo} and
     CASE
         WHEN #{searchCondition}="e.titl" THEN  e.titl
         WHEN #{searchCondition}="c.cname" THEN c.cname

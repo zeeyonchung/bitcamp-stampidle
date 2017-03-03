@@ -51,7 +51,7 @@
       left outer join mcard on stamp.mcno = mcard.mcno
       left outer join memb on mcard.mno = memb.mno
       left outer join scinfo on mcard.scno = scinfo.scno
-    	left outer join cafe on scinfo.cfno = cafe.cfno
+    	left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo}
       and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
       and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
@@ -71,7 +71,7 @@
       left outer join mcard on stamp.mcno = mcard.mcno
       left outer join memb on mcard.mno = memb.mno
       left outer join scinfo on mcard.scno = scinfo.scno
-    	left outer join cafe on scinfo.cfno = cafe.cfno
+    	left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo}
       and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
       and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
@@ -92,7 +92,7 @@
       left outer join mcard on stamp.mcno = mcard.mcno
       left outer join memb on mcard.mno = memb.mno
       left outer join scinfo on mcard.scno = scinfo.scno
-    	left outer join cafe on scinfo.cfno = cafe.cfno
+    	left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo}
       and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
       and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
@@ -107,7 +107,7 @@
     from stamp
     	left outer join mcard on stamp.mcno = mcard.mcno
     	left outer join scinfo on mcard.scno = scinfo.scno
-    	left outer join cafe on scinfo.cfno = cafe.cfno
+    	left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo} 
       and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
       and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
@@ -120,7 +120,7 @@
     	left outer join mcard on stamp.mcno = mcard.mcno
     	left outer join memb on mcard.mno = memb.mno
     	left outer join scinfo on mcard.scno = scinfo.scno
-    	left outer join cafe on scinfo.cfno = cafe.cfno
+    	left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo}
       and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
       and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
