@@ -117,7 +117,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				var allPageNo = Math.floor(allStampIssueNo / postNo) + 1;
 			}
 			
-			if (currentLastPage >= allPageNo) {
+			if (currentLastPage <= allPageNo) {
 				loadPage(currentLastPage);
 			} else {
 				loadPage(currentLastPage + 1);

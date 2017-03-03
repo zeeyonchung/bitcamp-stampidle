@@ -124,7 +124,7 @@ function loadButton(allEventNo) {
 			var allPageNo = Math.floor(allEventNo / postNo) + 1;
 		}
 		
-		if (currentLastPage >= allPageNo) {
+		if (currentLastPage <= allPageNo) {
 			loadPage(currentLastPage, searchCondition, searchKeyword);
 		} else {
 			loadPage(currentLastPage + 1, searchCondition, searchKeyword);
