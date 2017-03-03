@@ -8,7 +8,7 @@ $('.login-btn').click(function() {
 	$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 		console.log(ajaxResult);
 		if (ajaxResult.status == "success") {
-			location.href = "main/main.html";
+			location.href = "../main/main.html";
 			return;
 		}
 	}, 'json');
