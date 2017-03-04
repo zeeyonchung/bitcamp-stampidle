@@ -17,20 +17,18 @@ public class CafeCardJsonControl {
   @Autowired CafeCardService cafeCardService;
   
   @RequestMapping(value = "/admin/cardadd/add")
-  public AjaxResult add(Object stampCardInfo) throws Exception {
-    
-    String jsonStampPositionList;
-    
-    
-    return new AjaxResult(AjaxResult.SUCCESS, null);
+  public AjaxResult add(StampCardInfo stampCardInfo) throws Exception {
+	int stampCafeCardNo = cafeCardService.add(stampCardInfo);
+    return new AjaxResult(AjaxResult.SUCCESS, stampCafeCardNo);
   }
   
   
   @RequestMapping(value = "/admin/cardadd/addStampPosition")
-  public void addStampPosition(StampPosition stampPosition) throws Exception {
-    cafeCardService.addStampPosition(stampPosition);
+  public AjaxResult add(StampPosition stampPosition) throws Exception {
+	cafeCardService.addPosition(stampPosition);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
-  
   
 }
 

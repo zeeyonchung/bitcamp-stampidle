@@ -45,7 +45,7 @@
   
   <insert id="insertPosition" parameterType="stampPosition">
     insert into stposi(posix, posiy, stampod, scno)
-    values(#{positionX}, #{positionY}, #{positionOrder}, #{stampCafeCardNo})
+    values (#{positionX}, #{positionY}, #{positionOrder}, #{stampCafeCardNo})
   </insert>
 </mapper>
 

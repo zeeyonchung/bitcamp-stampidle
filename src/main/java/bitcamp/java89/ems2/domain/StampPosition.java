@@ -2,12 +2,19 @@ package bitcamp.java89.ems2.domain;
 
 public class StampPosition {
   
+  protected int stampCafeCardNo;
   protected int positionNo;
   protected float positionX;
   protected float positionY;
   protected int positionOrder;
   
   
+  public int getStampCafeCardNo() {
+	  return stampCafeCardNo;
+  }
+  public void setStampCafeCardNo(int stampCafeCardNo) {
+	  this.stampCafeCardNo = stampCafeCardNo;
+  }
   public int getPositionNo() {
     return positionNo;
   }
