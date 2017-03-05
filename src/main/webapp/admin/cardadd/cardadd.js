@@ -116,15 +116,15 @@ $(document).ready( function(){
 		$('.tempPop').fadeOut(200);
 	});
 
-	$('.button').click(function(){
+	$('.stmp_are .button').click(function(){
 		$('.tempPop').fadeOut(200);
 		var cardPath = $('.mySlides[style*="display: block"] img').attr('src');
 		$('.backcard').remove();
 		$('<img>').attr("class","backcard").attr("src",cardPath).insertBefore("#stmpside");
 		
 		var stmpPath = $(':checked + img').attr('src');
-		$('.selectimg').remove();
-		$('<img>').attr("class","selectimg").attr("src",stmpPath).css('z-index','1').insertBefore("#photo-img");
+		$('.selectimg').attr("src",stmpPath);
+		$('#photo-path').val($('.selectimg').attr("src"));
 	});
 });
 
@@ -148,7 +148,7 @@ $('.btmsubmit').click (function() {
 			"stampCount": $('.midNum').text(),
 			"frontImgPath": $('.frontcard').attr("src"),
 			"backImgPath": $('.backcard').attr("src"),
-			"stampImgPath": $('#photo-img').attr("src"),
+			"stampImgPath": $('#photo-path').val(),
 			"service": $('.service').text()
 	};
 	console.log(paramCard);
@@ -158,7 +158,6 @@ $('.btmsubmit').click (function() {
 			return;
 		}
 		stampCafeCardNo = ajaxResult.data;
-		console.log(stampCafeCardNo+"hello"+$('.stmpside').css('height').split('px')[0]);
 		
 		
 		for(i=0; i < stampNo; i++) {
@@ -206,9 +205,9 @@ $('#fileupload').fileupload({
 		$('#photo-path').val(param.filepath);
 	},
 	processalways: function(e, data) {
-		console.log('fileuploadprocessalways()...');
+		console.log('fileuploadprocessalways()...', data.files.length, data.index);
 		var img = $('#photo-img');
-		if (!img.attr('src')) {
+		if (data.index == 0) {
 			console.log('미리보기 처리...');
 			var canvas = data.files[0].preview;
 			var dataURL = canvas.toDataURL();
