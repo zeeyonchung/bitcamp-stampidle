@@ -33,8 +33,13 @@ $.getJSON(serverRoot + '/customCard/customDetail.json',
 		}
 		
 		var customCard = ajaxResult.data;
+		console.log(customCard);
 		
-		$('#custom-photo').attr('src', '../../upload/' + customCard.customPhoto);
+		if (customCard.customPhoto == null) {
+			$('#custom-photo').attr('src', '../image/stmp4.png');
+		} else {
+			$('#custom-photo').attr('src', '../../upload/' + customCard.customPhoto);
+		}
 		$('#name').text(customCard.customName);
 		$('#phone-number').text(customCard.customTel);
 		$('.cpall-name').text(customCard.finishCardCount);
