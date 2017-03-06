@@ -46,7 +46,6 @@ hr {
 
 
 .cpall {
-   
   border-right:1px solid red; 
   border-left:1px solid red; 
   text-align:center;
@@ -121,7 +120,6 @@ hr {
     display: inline;
     min-height: 127px;
     padding: 6px;
-    border: 1px solid red;
     top: 10px;
     left: 25px;
 }
@@ -138,7 +136,7 @@ hr {
 }
 
 #card-back {
-  height:270px; 
+  height:220px; 
   width:350px; 
   margin-left: 25px; 
   margin-right: 25px; 
