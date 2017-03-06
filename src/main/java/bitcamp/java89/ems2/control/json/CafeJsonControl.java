@@ -71,8 +71,8 @@ public class CafeJsonControl {
   
   
   @RequestMapping(value = {"/admin/cafeTime/detail"})
-  public AjaxResult detailTime(int cafeNo) throws Exception {
-  	CafeTime cafeTime = (CafeTime)cafeTimeService.detailTime(cafeNo);
+  public AjaxResult detailTime(int cafeMemberNo) throws Exception {
+  	CafeTime cafeTime = (CafeTime)cafeTimeService.detailTime(cafeMemberNo);
     
   	if (cafeTime == null) {
       return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
@@ -82,8 +82,8 @@ public class CafeJsonControl {
   
   
   @RequestMapping(value = {"/admin/tag/detail"})
-  public AjaxResult detailTag(int cafeNo) throws Exception {
-  	Tag tag = (Tag)tagService.detailTag(cafeNo);
+  public AjaxResult detailTag(int cafeMemberNo) throws Exception {
+  	Tag tag = (Tag)tagService.detailTag(cafeMemberNo);
     
   	if (tag == null) {
       return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
@@ -94,8 +94,8 @@ public class CafeJsonControl {
   
   
   @RequestMapping(value = {"/admin/cafePhoto/detail"})
-  public AjaxResult detailCafePhoto(int cafeNo) throws Exception {
-  	CafePhoto cafePhoto = (CafePhoto)cafePhotoService.detailCafePhoto(cafeNo);
+  public AjaxResult detailCafePhoto(int cafeMemberNo) throws Exception {
+  	CafePhoto cafePhoto = (CafePhoto)cafePhotoService.detailCafePhoto(cafeMemberNo);
     
   	if (cafePhoto == null) {
       return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
@@ -106,8 +106,8 @@ public class CafeJsonControl {
   
   
   @RequestMapping(value = {"/admin/menu/detail"})
-  public AjaxResult detailMenu(int cafeNo) throws Exception {
-  	Menu menu = (Menu)menuService.detailMenu(cafeNo);
+  public AjaxResult detailMenu(int cafeMemberNo) throws Exception {
+  	Menu menu = (Menu)menuService.detailMenu(cafeMemberNo);
     
   	if (menu == null) {
       return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");

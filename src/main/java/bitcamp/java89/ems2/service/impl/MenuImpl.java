@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.MenuDao;
 import bitcamp.java89.ems2.domain.Menu;
-import bitcamp.java89.ems2.domain.Tag;
 import bitcamp.java89.ems2.service.MenuService;
 
 @Service
@@ -17,8 +16,8 @@ public class MenuImpl implements MenuService {
     return menuDao.insert(menu);
   }
   
-  public Menu detailMenu(int cafeNo) throws Exception {
-  	return menuDao.getOne(cafeNo);
+  public Menu detailMenu(int cafeMemberNo) throws Exception {
+  	return menuDao.getOne(cafeMemberNo);
   }
 }
 

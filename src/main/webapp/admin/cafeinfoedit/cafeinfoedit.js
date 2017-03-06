@@ -156,7 +156,7 @@ $('#photo').fileupload({
         .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
     previewMaxWidth: 800,   // 미리보기 이미지 너비
     previewMaxHeight: 800,  // 미리보기 이미지 높이 
-    previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+    previewCrop: false,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
     done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     	console.log('done()...');
     	console.log(data.result);
@@ -188,7 +188,7 @@ $('#cafe-photo').fileupload({
         .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
     previewMaxWidth: 800,   // 미리보기 이미지 너비
     previewMaxHeight: 800,  // 미리보기 이미지 높이 
-    previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+    previewCrop: false,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
     done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     	console.log('done()...');
     	console.log(data.result);
@@ -229,7 +229,7 @@ $('#cafe-photo').fileupload({
     	        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
     	    previewMaxWidth: 800,   // 미리보기 이미지 너비
     	    previewMaxHeight: 800,  // 미리보기 이미지 높이 
-    	    previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+    	    previewCrop: false,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
     	    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     	        console.log('done()...');
     	        console.log(data.result);

@@ -16,8 +16,8 @@ public class TagImpl implements TagService {
     return tagDao.insert(tag);
   }
   
-  public Tag detailTag(int cafeNo) throws Exception {
-  	return tagDao.getOne(cafeNo);
+  public Tag detailTag(int cafeMemberNo) throws Exception {
+  	return tagDao.getOne(cafeMemberNo);
   }
 }
 

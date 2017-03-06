@@ -16,8 +16,8 @@ public class CafePhotoImpl implements CafePhotoService {
     return cafePhotoDao.insert(cafePhoto);
   }
   
-  public CafePhoto detailCafePhoto(int cafeNo) throws Exception {
-  	return cafePhotoDao.getOne(cafeNo);
+  public CafePhoto detailCafePhoto(int cafeMemberNo) throws Exception {
+  	return cafePhotoDao.getOne(cafeMemberNo);
   }
 }
 

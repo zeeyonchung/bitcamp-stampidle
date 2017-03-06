@@ -22,7 +22,7 @@
         </div>
         <!-- //navigation -->
         
-        <a href='../cafeinfo/cafeinfo.html' class='btn_cafeInfo'>카페정보</a>
+        <a class='btn_cafeInfo'>카페정보</a>
         <a class="btn_message" data-toggle="modal"  data-target="#myModal"  data-remote="../message.html">Click to open Modal
           메시지함<span class='newMsg'>10</span>
         </a>
@@ -41,7 +41,8 @@
 		   </div>
 		</div>
     <!-- //btn_message 메시지팝업 -->
-   <script>
+<script>
+//sidebar link*******************************************
 $('.searchCstmr a').click(function(e) {
     e.preventDefault();
     location.href = clientRoot + '/stampidle_cs/customerdetail.html'
@@ -53,5 +54,18 @@ $('.statistics a').click(function(e) {
 $('.event a').click(function(e) {
     e.preventDefault();
     location.href = clientRoot + '/event/main.html'
+});
+$('.btn_cafeInfo').click(function(e) {
+    alert('test');
+    $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+        $.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + ajaxResult.data.cafeMemberNo, function(ajaxResult1) {
+            if (ajaxResult1.status == "fail") {
+                //alert('카페정보를 입력해주세요.');
+                 location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
+            } else {
+                location.href = clientRoot + '/cafeinfo/cafeinfo.html'
+            }
+        });
+    });
 });
 </script> 
