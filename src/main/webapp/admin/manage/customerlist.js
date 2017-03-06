@@ -19,8 +19,10 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			{'cafeMemberNo': cafeMemberNo
 			 }, 
 			function(ajaxResult) {
-			 if (status != "success")
-				  return;
+			 if (ajaxResult.status != "success") {
+				 console.log(ajaxResult.data);
+				 return;
+			 }
 			  
 			  var list = ajaxResult.data;
 			  var tbody = $('#list-table > tbody');

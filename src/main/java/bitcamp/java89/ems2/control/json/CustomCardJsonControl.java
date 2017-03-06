@@ -45,7 +45,6 @@ public class CustomCardJsonControl {
   @RequestMapping(value = "/admin/customCard/customList")
   public AjaxResult customList(int cafeMemberNo) throws Exception {
     List<CustomCard> resultMap = customCardService.getList(cafeMemberNo);
-    
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
