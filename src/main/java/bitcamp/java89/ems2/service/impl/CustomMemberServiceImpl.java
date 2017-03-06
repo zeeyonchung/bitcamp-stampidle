@@ -27,7 +27,10 @@ public class CustomMemberServiceImpl implements CustomMemberService {
   public int update(CustomMember customMember) throws Exception {
     return customMemberDao.update(customMember);
   }
-  
+  @Override
+  public CustomMember getOne(int customMemberNo) throws Exception {
+    return customMemberDao.getOne(customMemberNo);
+  }
 }
   
 

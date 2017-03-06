@@ -35,4 +35,10 @@ public class CustomMemberJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "변경 성공입니다.");
   }
   
+  @RequestMapping(value = {"/cstmr_m/customMember/getOne"})
+  public AjaxResult getOne(int customMemberNo) throws Exception {
+    CustomMember customMember = customMemberService.getOne(customMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, customMember);
+  }
+  
 }

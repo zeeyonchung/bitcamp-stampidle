@@ -57,6 +57,18 @@
     where mno=#{customMemberNo}
   </update>
   
+  <select id="getOne" resultMap="customMember-map"  parameterType="int">
+    select 
+      mno,
+      tel,
+      email,
+      name,
+      nick,
+      cphoto
+    from memb
+    where mno=#{customMemberNo}
+  </select>
+  
 </mapper>
 
 
