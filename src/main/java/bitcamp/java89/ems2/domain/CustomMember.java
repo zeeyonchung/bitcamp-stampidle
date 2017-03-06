@@ -12,6 +12,7 @@ public class CustomMember implements Serializable {
   protected String nick;
   protected String spot;
   protected boolean allow;
+  protected String photoPath;
   
   public int getCustomMemberNo() {
     return customMemberNo;
@@ -54,6 +55,12 @@ public class CustomMember implements Serializable {
   }
   public void setAllow(boolean allow) {
     this.allow = allow;
+  }
+  public String getPhotoPath() {
+    return photoPath;
+  }
+  public void setPhotoPath(String photoPath) {
+    this.photoPath = photoPath;
   }
   
   

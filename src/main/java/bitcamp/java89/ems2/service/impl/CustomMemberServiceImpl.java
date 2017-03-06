@@ -23,6 +23,11 @@ public class CustomMemberServiceImpl implements CustomMemberService {
   	return customMemberDao.getSrchListCustomMember();
   }
   
+  @Override
+  public int update(CustomMember customMember) throws Exception {
+    return customMemberDao.update(customMember);
+  }
+  
 }
   
 

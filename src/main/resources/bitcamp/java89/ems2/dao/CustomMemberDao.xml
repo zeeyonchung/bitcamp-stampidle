@@ -13,6 +13,7 @@
     <result column="nick"      property="nick"/>
     <result column="spot"      property="spot"/>
     <result column="allow"      property="allow"/>
+    <result column="cphoto"      property="photoPath"/>
   </resultMap>
   
   
@@ -45,6 +46,16 @@
     where name=#{name}
       and tel=#{tel}
   </select>
+  
+  <update id="update" parameterType="customMember">
+    update memb set
+      tel=#{tel},
+      email=#{email},
+      name=#{name},
+      nick=#{nick},
+      cphoto=#{photoPath}
+    where mno=#{customMemberNo}
+  </update>
   
 </mapper>
 
