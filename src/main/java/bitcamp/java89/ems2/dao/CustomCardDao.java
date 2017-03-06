@@ -1,5 +1,6 @@
 package bitcamp.java89.ems2.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,4 +15,5 @@ public interface CustomCardDao {
   int getStampCountByKeyword(Map<String, Object> paramMap) throws Exception;
   
   List<CustomCard> getCustomDetail(Map<String, Object> paramMap) throws Exception;
+  ArrayList<CustomCard> getList(int cafeMemberNo) throws Exception;
 }

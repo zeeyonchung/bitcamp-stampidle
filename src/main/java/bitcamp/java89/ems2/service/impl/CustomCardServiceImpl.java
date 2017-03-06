@@ -154,5 +154,9 @@ public class CustomCardServiceImpl implements CustomCardService {
     
     return resultMap;
   }
+  
+  public List<CustomCard> getList(int cafeMemberNo) throws Exception {
+    return customCardDao.getList(cafeMemberNo); 
+  }
 
 }

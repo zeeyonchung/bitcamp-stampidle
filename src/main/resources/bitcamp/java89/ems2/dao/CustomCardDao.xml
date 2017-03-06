@@ -154,6 +154,24 @@
 	order by mcard.birth asc
   </select>
   
+  <select id="getList" parameterType="java.util.Map" resultMap="customCard-map">
+    
+select
+  mcard.mno,
+  memb.tel,
+  memb.email,
+  mcard.mcno
+from memb
+  left outer join mcard on memb.mno=mcard.mno
+  left outer join scinfo on mcard.scno=scinfo.scno
+  left outer join cafe on scinfo.cmno=cafe.cmno
+where
+  cafe.cmno=#{cafeMemberNo}
+group by mcard.mno
+order by mcard.mno desc, mcard.birth desc
+
+  </select>
+  
 
 </mapper>
 
