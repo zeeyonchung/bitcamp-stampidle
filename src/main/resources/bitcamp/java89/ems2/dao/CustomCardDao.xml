@@ -154,23 +154,49 @@
 	order by mcard.birth asc
   </select>
   
+   <select id="getCustomCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
+	  select
+		  mcard.mcuse,
+		  stamp.stno,
+		  stamp.many,
+		  stamp.mcno
+		from mcard
+			inner join scinfo on scinfo.scno=mcard.scno
+			inner join stamp on mcard.mcno=stamp.mcno
+		where scinfo.cmno=#{cafeMemberNo} and mcard.mno=#{customMemberNo}
+  </select>
+  
+  <select id="getCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
+  select 
+	  stposi.posix, 
+	  stposi.posiy, 
+	  stposi.stampod, 
+	  scinfo.bpath, 
+	  scinfo.stnum,
+	  scinfo.shape
+	from stposi
+		inner join scinfo on stposi.scno=scinfo.scno
+		inner join mcard on mcard.scno=scinfo.scno
+	where scinfo.cmno=#{cafeMemberNo} and mcard.mno=#{customMemberNo}
+  </select>
+  
+  
+  
   <select id="getList" parameterType="java.util.Map" resultMap="customCard-map">
-    
-select
-  mcard.mno,
-  memb.name,
-  memb.tel,
-  memb.email,
-  mcard.mcno
-from memb
-  left outer join mcard on memb.mno=mcard.mno
-  left outer join scinfo on mcard.scno=scinfo.scno
-  left outer join cafe on scinfo.cmno=cafe.cmno
-where
-  cafe.cmno=#{cafeMemberNo}
-group by mcard.mno
-order by mcard.mno desc, mcard.birth desc
-
+	select
+	  mcard.mno,
+	  memb.name,
+	  memb.tel,
+	  memb.email,
+	  mcard.mcno
+	from memb
+	  left outer join mcard on memb.mno=mcard.mno
+	  left outer join scinfo on mcard.scno=scinfo.scno
+	  left outer join cafe on scinfo.cmno=cafe.cmno
+	where
+	  cafe.cmno=#{cafeMemberNo}
+	group by mcard.mno
+	order by mcard.mno desc, mcard.birth desc
   </select>
   
 

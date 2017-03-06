@@ -42,10 +42,42 @@ $.getJSON(serverRoot + '/customCard/customDetail.json',
 		}
 		$('#name').text(customCard.customName);
 		$('#phone-number').text(customCard.customTel);
-		$('.cpall-name').text(customCard.finishCardCount);
+		$('.finish-coupon').text(customCard.finishCardCount);
 		$('.first-visit-date').text(customCard.firstVisitDate);
 		$('.last-visit-date').text(customCard.lastVisitDate);
 		$('.all-stamp').text(customCard.allStampCount);
 });
+
+
+
+
+
+$.getJSON(serverRoot + '/customCard/customCardDetail.json', 
+		{'customMemberNo': customMemberNo,
+		'cafeMemberNo': cafeMemberNo},
+		function(ajaxResult) {
+		
+		var status = ajaxResult.status;
+		
+		if (status != "success") {
+			alert(ajaxResult.data);
+			return;
+		}
+		
+		var cardDetail = ajaxResult.data.cardDetail;
+		var customCardDetail = ajaxResult.data.customCardDetail;
+		var currentStampCount = ajaxResult.data.currentStampCount;
+		
+		
+		console.log(cardDetail);
+		console.log(cardDetail[0].backImgPath);
+		console.log(customCardDetail);
+		
+		$('#card-back').attr('src', serverRoot + "/admin/" + cardDetail[0].backImgPath);
+		/* 하... 경로가.....ㅠㅠ */
+		$('.current-stamp-count').text(currentStampCount);
+});
+
+
 
 });
