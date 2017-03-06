@@ -86,6 +86,23 @@ $.getJSON(serverRoot + '/customCard/customCardDetail.json',
 		$('#card-back').attr('src', serverRoot + "/admin/" + cardDetail.backImgPath);
 		/* 하... 경로가.....ㅠㅠ */
 		$('.current-stamp-count').text(currentStampCount);
+		
+		
+		
+		
+		for (var i = 0; i < cardDetail.stampPositionList.length; i++) {
+			var positionOrder = cardDetail.stampPositionList[i].positionOrder;
+			var positionX = cardDetail.stampPositionList[i].positionX * $('.stmpside').css('width');
+			var positionY = cardDetail.stampPositionList[i].positionY * $('.stmpside').css('height');
+			
+			$('<div>')
+		    .addClass('stmpare')
+		    .addClass('stampNo' + (positionOrder - 1))
+		    .appendTo("#stmpside")
+		    .text(positionOrder)
+		    .offset({top: positionY, left: positionX})
+		    .addTouch();
+		}
 });
 
 
