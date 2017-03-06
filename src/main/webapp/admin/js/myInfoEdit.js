@@ -1,4 +1,3 @@
-
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var loginUser = ajaxResult.data;
     
@@ -15,7 +14,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$('#email').val(loginUserDetail.email);
 			$('#companyNo').val(loginUserDetail.companyNo);
 	});
-
 });
 
 
@@ -38,7 +36,6 @@ $('.myeditPop .edit-btn').click(function() {
 				return;
 			} 
 		}, 'json');
-		
 	});
 });
 

@@ -42,6 +42,7 @@
       cmno,
       cname,
       intro,
+  	  cftel,
       addr,
       daddr,
       chair,
