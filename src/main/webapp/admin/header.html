@@ -6,8 +6,8 @@
             
             <div class='search'>
                 <form name="form1" class='inputArea' method="post">
-	                 <input type="text" id="searchbox" class='srchBar' placeholder='전화번호를 입력하세요.'>
-	                 <input type="submit" id="sumit" class='btn_srch' value="검색">
+                     <input type="text" id="searchbox" class='srchBar' placeholder='이름 또는 전화번호'>
+                     <input type="submit" id="sumit" class='btn_srch' value="검색">
                  <!-- <ul class='srchList'>
                      <li><a href=''><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-1234-5678</span></a></li>
                      <li><a href=''><span class='cstmrNm'>홍길동</span><span class='cstmrTel'>010-2345-6789</span></a></li>
@@ -31,103 +31,104 @@
                 </div>
                 <a id='logout-btn' class='btnStyle1' href='#'>로그아웃</a>
                 <div class='btnInfo'>
-                    <a class='btn-joinInfo btnStyle1' href=''>가입정보 변경</a>
-                    <a class='btn-cafeInfo btnStyle1' href=''>카페정보 변경</a>
+                    <a class='btn-joinInfo btnStyle1' href='#'>가입정보 변경</a>
+                    <a class='btn-cafeInfo btnStyle1' href='#'>카페정보 변경</a>
                 </div>
                 <a class='close_profilePop'>x</a>
             </div>
             
             <div class="addcstmerPop">
-				<span class="close_addcstmerPop">x</span>
-				<p>고객 계정 등록</p>
-				<div class="input-div">
-					<input type="text" class="form-control" id='custom-name' placeholder="이름">  
-					<input type="text" class="form-control" id='custom-tel' placeholder="핸드폰 번호">
-				</div>
-				<button type="submit" class="add-btn">등록하기</button>
-	         </div>
+                <span class="close_addcstmerPop">x</span>
+                <p>고객 계정 등록</p>
+                <div class="input-div">
+                    <input type="text" class="form-control" id='custom-name' placeholder="이름">  
+                    <input type="text" class="form-control" id='custom-tel' placeholder="핸드폰 번호">
+                </div>
+                <button type="submit" class="add-btn">등록하기</button>
+             </div>
 
 
-			<div class="panel panel-default myeditPop">
-				<span class="close">x</span>
-				<p>가입 정보 수정</p>
-				<div class="input-div">
-					<form id="signupForm1" method="post">
-		
-						<div class="form-group">
-							<div id="id" class="form-control no_input"></div>
-						</div>
-		
-						<div class="form-group">
-							<label class="col-sm-4 control-label" for="password">비밀번호</label> <input
-								type="password" class="form-control" id="password" name="password"
-								placeholder="비밀번호" />
-						</div>
-		
-						<div class="form-group">
-							<label class="col-sm-4 control-label" for="confirm_password">비밀번호
-								확인</label> <input type="password" class="form-control"
-								id="confirm_password" name="confirm_password"
-								placeholder="비밀번호 확인" />
-						</div>
-		
-						<div class="form-group">
-							<label class="col-sm-4 control-label" for="email">이메일</label> <input
-								type="text" class="form-control" id="email" name="email"
-								placeholder="이메일" />
-						</div>
-		
-						<div class="form-group">
-							<label class="col-sm-4 control-label" for="phone">핸드폰번호</label> <input
-								type="text" class="form-control" id="phone" name="phone"
-								placeholder="핸드폰번호" />
-						</div>
-		
-						<div class="form-group">
-							<label class="col-sm-4 control-label" for="companyNo">사업자
-								등록번호</label> <input type="text" class="form-control" id="companyNo"
-								name="companyNo" placeholder="사업자 등록번호" />
-						</div>
-		
-		
-						<button type="submit" name="signup1" class="login-btn edit-btn">수정하기</button>
-					</form>
-				</div>
-				
-				
+            <div class="panel panel-default myeditPop">
+                <span class="close">x</span>
+                <p>가입 정보 수정</p>
+                <div class="input-div">
+                    <form id="signupForm1" method="post">
+        
+                        <div class="form-group">
+                            <div id="id" class="form-control no_input"></div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="password">비밀번호</label> <input
+                                type="password" class="form-control" id="password" name="password"
+                                placeholder="비밀번호" />
+                        </div>
+        
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="confirm_password">비밀번호
+                                확인</label> <input type="password" class="form-control"
+                                id="confirm_password" name="confirm_password"
+                                placeholder="비밀번호 확인" />
+                        </div>
+        
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="email">이메일</label> <input
+                                type="text" class="form-control" id="email" name="email"
+                                placeholder="이메일" />
+                        </div>
+        
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="phone">핸드폰번호</label> <input
+                                type="text" class="form-control" id="phone" name="phone"
+                                placeholder="핸드폰번호" />
+                        </div>
+        
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="companyNo">사업자
+                                등록번호</label> <input type="text" class="form-control" id="companyNo"
+                                name="companyNo" placeholder="사업자 등록번호" />
+                        </div>
+        
+        
+                        <button type="submit" name="signup1" class="login-btn edit-btn">수정하기</button>
+                    </form>
+                </div>
+                
+                
             </div>
-	</div>
+    </div>
 
 
-<script src="../js/context.js"></script>
+
 <script src="../js/link.js"></script>
 <script type='text/javascript' src='../js/slidemenu.min.js'></script>
 <script src="../js/addcustom.js"></script>
 <script src="../js/myInfoEdit.js"></script>
+<script src="../js/link.js"></script>
 <script>
-	/* profilePop */
-	$(document).ready(function() {
-		$('#logon-div').click(function() {
-			$('.profilePop').fadeIn(200);
-		});
+    /* profilePop */
+    $(document).ready(function() {
+        $('#logon-div').click(function() {
+            $('.profilePop').fadeIn(200);
+        });
 
-		$('.close_profilePop').click(function() {
-			$('.profilePop').fadeOut(200);
-		});
-	});
+        $('.close_profilePop').click(function() {
+            $('.profilePop').fadeOut(200);
+        });
+    });
 </script>
 
 <script>
   /* addcstmerPop */
-	$(document).ready(function() {
-		$('.btn_newCstmr_top').click(function() {
-			$('.addcstmerPop').fadeIn(200);
-		});
+    $(document).ready(function() {
+        $('.btn_newCstmr_top').click(function() {
+            $('.addcstmerPop').fadeIn(200);
+        });
 
-		$('.close_addcstmerPop').click(function() {
-			$('.addcstmerPop').fadeOut(200);
-		});
-	});
+        $('.close_addcstmerPop').click(function() {
+            $('.addcstmerPop').fadeOut(200);
+        });
+    });
 </script>
 
 
@@ -241,4 +242,5 @@
     } );
 </script>
 <!-- //form validate 유효성검사 -->
+
 

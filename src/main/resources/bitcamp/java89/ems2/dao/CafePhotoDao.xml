@@ -30,7 +30,7 @@
   <insert id="insert" parameterType="cafePhoto" useGeneratedKeys="true" keyProperty="cafePhotoNo">
   insert into cpoto(cmno, path)
   values(
-  #{cafeNo},
+  #{cafeMemberNo},
   #{path})
   </insert>
   
