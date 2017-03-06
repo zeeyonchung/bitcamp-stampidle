@@ -88,6 +88,10 @@ $.getJSON(serverRoot + '/customCard/customCardDetail.json',
 		$('.current-stamp-count').text(currentStampCount);
 		
 		
+		// positionOrder대로 재정렬
+		cardDetail.stampPositionList.sort(function (a, b) { 
+			return a.positionOrder > b.positionOrder;
+		});
 		
 		
 		for (var i = 0; i < cardDetail.stampPositionList.length; i++) {
