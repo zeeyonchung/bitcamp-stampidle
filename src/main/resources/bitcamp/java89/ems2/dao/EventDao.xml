@@ -8,7 +8,6 @@
   <resultMap type="event" id="event-map">
     <id     column="eno"        property="eventNo"/>
     
-    <result column="cmno"       property="cafeNo"/>
     <result column="cftel"       property="cafeTel"/>
     <result column="cname"       property="cafeName"/>
     <result column="intro"       property="intro"/>
@@ -109,7 +108,7 @@
   <insert id="insert" parameterType="event">
     insert into event(cmno, eno,titl,econts,ebirth,epath,eview,sday,eday) 
     values(
-      #{cafeNo},
+      #{cafeMemberNo},
       #{eventNo},
       #{eventTitle},
       #{eventContents}, 
