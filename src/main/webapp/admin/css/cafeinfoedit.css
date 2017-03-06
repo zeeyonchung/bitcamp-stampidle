@@ -238,11 +238,10 @@ ul a {
 	margin-left:110px;
 	text-align:center;
 	display: inline-block;
-	width:300px;
+	width:250px;
   height:250px;
   background-color:#dedede;
   border: 1px solid #dedede;
-  border-radius: 5px;
   float:left;
 }
 .pre-set-before2 {

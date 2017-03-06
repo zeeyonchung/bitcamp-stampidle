@@ -35,7 +35,7 @@ $('.srchList li a').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/stampidle_cs/customerdetail.html'
 });
-$('.btn-joinInfo btnStyle1').click(function(e) {
+$('.btn-cafeInfo').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
 });

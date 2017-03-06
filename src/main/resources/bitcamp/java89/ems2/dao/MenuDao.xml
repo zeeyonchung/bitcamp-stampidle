@@ -31,7 +31,7 @@
   <insert id="insert" parameterType="menu" useGeneratedKeys="true" keyProperty="menuNo">
   insert into menu(cmno, mena, price, mepath)
   values(
-  #{cafeNo},
+  #{cafeMemberNo},
   #{menuName},
   #{price},
   #{menuPath})

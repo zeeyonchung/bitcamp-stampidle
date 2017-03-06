@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.TagDao;
-import bitcamp.java89.ems2.domain.CafeMember;
 import bitcamp.java89.ems2.domain.Tag;
 import bitcamp.java89.ems2.service.TagService;
 

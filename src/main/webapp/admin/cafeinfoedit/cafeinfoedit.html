@@ -15,7 +15,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
 	<div class='container'>
 		<div id='header'></div>
 		<div id='sidebar'></div>
@@ -85,7 +84,7 @@
 
 				<!-- 영업시간 -->
 				<div class="work-time">
-					<div class="work-time-text">영업시간:</div>
+					<div class="work-time-text">영업시간</div>
 					<div class="pre-set-before">
 						<div id="pre_set">
 							<div class="select1">
@@ -174,7 +173,6 @@
 					<div class="work-time-text">매장번호</div>
 					
 					<div class="pre-set-before-num">
-						<div id="pre_set1">
 							<div class="select1">
 								<select class="form-control" id='cafeTel1'>
 									<option>02</option>
@@ -185,12 +183,7 @@
 							</div>
 							<input type="text" id="number-input" class="form-control cafeTel2" placeholder="000"> - 
 							<input type="text" id="number-input" class="form-control cafeTel3" placeholder="0000"> 
-							<input class="pbtn" type="button" value="-" onclick="remove_item1(this)">
-						</div>
-						<div id="field1"></div>
-						
 					</div>
-					<input class="pbtn" type="button" value="+" onclick="add_item1()"><br>
 					
 				</div>
 				<!-- 매장 번호 -->
@@ -214,7 +207,7 @@
 
 				<!-- 좌석 수 -->
 				<div class='cafe-name3'>
-					<div class="introtext2">좌석 수:</div>
+					<div class="introtext2">좌석 수</div>
 					<div class="pre-set-before2">
 						<div class="select1">
 							<select class="form-control" id='chairNo'>
@@ -239,7 +232,7 @@
 					<div class="introtext2">로고추가</div>
 
 					<div class="imgbox" id="upfile1">
-						<img id='photo-img' height='100%' width='100%'> 
+						<img id='photo-img'> 
 						<label for="photo" class="col-sm-2 control-label"></label> 
 						<input type="file" id="file1" name="file1" style="display: none;" />
 					</div>
@@ -262,9 +255,9 @@
 					<div class="introtext2">매장 사진</div>
                     
                     <div id="cafeImg_set">
-						<div class="imgbox" id="imgBox">
-							<img id='cafe-photo-img' height='100%' width='100%'> 
-							<input type="file" id="file1" name="file1" style="display: none;" />
+						<div class="imgbox">
+							<img id='cafe-photo-img'> 
+							<input type="file" id="cf-file" name="cf-file" style="display: none;" />
 						</div>
 						<div class="logo-remain">
 							<div class="col-sm-10">
@@ -272,7 +265,7 @@
 								    <i class="glyphicon glyphicon-plus"></i> 
 								    <input id='cafe-photo' class='form-control' type='file' name='files'>
 								</span> 
-								<input id='cafe-photo-path' class='logPath' style='visibility: hidden;'>
+								<input id='cafe-photo-path' class='cafephotoPath' style='visibility: hidden;'>
 							</div>
 						</div>
 					<input class="pbtn remove" type="button" value="-" onclick="remove_cafeimg(this)">
@@ -282,22 +275,6 @@
 					<input class="pbtn" type="button" value="+" onclick="add_cafeImg()">
 					
 				</div>
-				<script>
-				/* 매장사진 추가기능 */
-			     function add_cafeImg(){
-			         // pre_set 에 있는 내용을 읽어와서 처리..
-			         var count = 0;
-			         var div = document.createElement('div');
-			         div.innerHTML = document.getElementById('cafeImg_set').innerHTML;
-			         document.getElementById('field-cafeimg').appendChild(div);
-			         var x = document.getElementById("imgBox");
-			         //x.getElementsByTagName("img").getAttribute().replace("id","cafe-photo-img"+ ++count);
-			    }
-			    function remove_cafeimg(obj){
-			         // obj.parentNode 를 이용하여 삭제
-			         document.getElementById('field-cafeimg').removeChild(obj.parentNode);
-			    }
-				</script>
 				<!-- //매장 사진 -->
 
 
@@ -307,8 +284,8 @@
 					
 						<div id="menu_set">
 							<div class="imgbox" id="mnBox">
-	                            <img id='menu-photo-img' height='100%' width='100%'> 
-	                            <input type="file" id="file2" name="file2" style="display: none;" />
+	                            <img id='menu-photo-img'> 
+	                            <input type="file" id="mn-file" name="mn-file" style="display: none;" />
 	                        </div>
 	                        <div class="logo-remain">
 	                            <div class="col-sm-10">
@@ -316,12 +293,12 @@
 	                                    <i class="glyphicon glyphicon-plus"></i> 
 	                                    <input id='menu-photo' class='form-control' type='file' name='files'>
 	                                </span> 
-	                                <input id='menu-photo-path' class='logPath' style='visibility: hidden;'>
+	                                <input id='menu-photo-path' class='menuphotoPath' style='visibility: hidden;'>
 	                            </div>
 	                        </div>     
 	                        <div class="menuInfo">
-	                        메뉴: <input id='menuNm' type='text'> 
-	                        가격: <input id='price' type='text'>
+	                        메뉴: <input id='menuNm' class='mnNm' type='text'> 
+	                        가격: <input id='price' class='mnPrice' type='text'> 원
 	                        </div>
 	                        <input class="pbtn remove" type="button" value="-" onclick="remove_menu(this)">
                        </div>
@@ -329,21 +306,7 @@
 					<input class="pbtn" type="button" value="+" onclick="add_menu()">
 					
 				</div>
-				<script>
-                /* 대표사진 추가기능 */
-                 function add_menu(){
-                     // pre_set 에 있는 내용을 읽어와서 처리..
-                     var count = 0;
-                     var div = document.createElement('div');
-                     div.innerHTML = document.getElementById('menu_set').innerHTML;
-                     document.getElementById('field-menu').appendChild(div);
-                }
-                function remove_menu(obj){
-                     document.getElementById('field-menu').removeChild(obj.parentNode);
-                }
-                </script>
-				<!-- 대표메뉴 -->
-					
+
 					
 				<!-- 다음단계입력-->
 				<div>
@@ -381,57 +344,9 @@
 <script src="cafeinfoedit.js"></script>
 
 
-
-<!-- tr 태그 클릭 시 고객 상세페이지로 이동 -->
+<!-- 주소검색기능 -->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
-	"use strict"
-	
-	$('.tr-link').click(function(event) {
-	  location.href = '../stampidle_cs/customerdetail.html'
-	});
-</script>
-
-
-
-
-<script>
-/* 영업시간 추가기능 */
-	 function add_item(){
-	      // pre_set 에 있는 내용을 읽어와서 처리..
-	      var div = document.createElement('div');
-	      div.innerHTML = document.getElementById('pre_set').innerHTML;
-	      document.getElementById('field').appendChild(div);
-	 }
-	 function remove_item(obj){
-	      // obj.parentNode 를 이용하여 삭제
-	      document.getElementById('field').removeChild(obj.parentNode);
-	 }
-
-/* 매장번호 추가기능 */
-	 function add_item1(){
-	     // pre_set 에 있는 내용을 읽어와서 처리..
-	     var div = document.createElement('div');
-	     div.innerHTML = document.getElementById('pre_set1').innerHTML;
-	     document.getElementById('field1').appendChild(div);
-	}
-	 function remove_item1(obj){
-	      // obj.parentNode 를 이용하여 삭제
-	      document.getElementById('field1').removeChild(obj.parentNode);
-	 }
-	 
-
-</script>
-
-
-
-
-		<span id="guide" style="color: #999"></span>
-
-		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
-
-		<script>
-//지도 검색
 //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 function sample4_execDaumPostcode() {
     new daum.Postcode({
@@ -477,6 +392,7 @@ function sample4_execDaumPostcode() {
     }).open();
 }
 </script>
+<!-- //주소검색기능 -->
 
 <!-- auto complete 고객검색 자동완성 -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
