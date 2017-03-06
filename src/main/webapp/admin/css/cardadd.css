@@ -63,6 +63,8 @@
 
 .frontFile {
 	margin-top: 30px;
+	margin-left: 20px;
+	width: 220px;
 }
 
 .filebtn {
@@ -94,10 +96,10 @@
 /*--mid--*/
 .mid {
 	margin-top: 80px;
-	width: 400px;
+	width: 370px;
 	height: 300px;
 	float:left;
-	margin-left: 20px;
+	margin-left: 60px;
 }
 
 .backcard {
@@ -129,18 +131,15 @@
 
 .midTextAre {
 	position: absolute;
-	width: 236px;
+	width: 250px;
 	margin-top: 160px;
 }
 
 .midText1 {
 	font-size: 26px;
 	float: right;
-	width: 100px;
+	width: 80px;
 	height: 40px;
-	margin-top: 0px;
-	margin-right: 15px;
-	margin-bottom: -20px;
 }
 
 .midText2 {
@@ -272,14 +271,36 @@
   margin-top: 450px;
 }
 
+
+.service-div {
+	position: relative;
+	margin-left: 30px;
+}
+
+.service-div span {
+	font-size: 1.1em;
+	font-weight: bold;
+	vertical-align: top;
+	margin-right: 10px;
+}
+
+.service {
+	border: 1px solid #ccc;
+	width: 390px;
+	height: 40px;
+	padding: 10px;
+}
+
 .btmsubmit{
+	position: absolute;
+	right: 30px;
 	border: 1px;
 	border-radius: 2px;
 	margin-left: 300px;
 	background-color: rgb(255,89,72);
 	color: white;
-	width: 200px;
-	height: 30px;
+	width: 250px;
+	height: 35px;
 }
 
 /************ alert ************/
