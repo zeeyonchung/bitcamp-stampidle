@@ -16,6 +16,16 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	}
 	var cafeMember = ajaxResult.data;
 	cafeMemberNo = cafeMember.cafeMemberNo;
+	
+	
+	
+	/** stmpside 넓이 조정 **/
+	$(function() {
+		var width = $('#card-back').css('width');
+		var height = $('#card-back').css('height');
+		$('.stmpside').css('width', width);
+		$('.stmpside').css('height', height);
+	});
 
 
 
