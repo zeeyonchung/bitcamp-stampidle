@@ -168,7 +168,7 @@ public class CustomCardServiceImpl implements CustomCardService {
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("cafeMemberNo", cafeMemberNo);
     
-    List<CustomCard> cardDetail = customCardDao.getCardDetail(paramMap);
+    CustomCard cardDetail = customCardDao.getCardDetail(paramMap);
     List<CustomCard> customCardDetail = customCardDao.getCustomCardDetail(paramMap);
     
     HashMap<String, Object> resultMap = new HashMap<>();

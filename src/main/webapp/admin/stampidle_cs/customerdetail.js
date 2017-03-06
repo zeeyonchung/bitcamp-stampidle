@@ -70,10 +70,10 @@ $.getJSON(serverRoot + '/customCard/customCardDetail.json',
 		
 		
 		console.log(cardDetail);
-		console.log(cardDetail[0].backImgPath);
+		console.log(cardDetail.backImgPath);
 		console.log(customCardDetail);
 		
-		$('#card-back').attr('src', serverRoot + "/admin/" + cardDetail[0].backImgPath);
+		$('#card-back').attr('src', serverRoot + "/admin/" + cardDetail.backImgPath);
 		/* 하... 경로가.....ㅠㅠ */
 		$('.current-stamp-count').text(currentStampCount);
 });

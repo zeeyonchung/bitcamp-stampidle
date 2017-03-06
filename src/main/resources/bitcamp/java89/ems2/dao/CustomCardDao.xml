@@ -167,16 +167,17 @@
   </select>
   
   <select id="getCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
-  select 
+  select
+    mcard.mcno,
 	  stposi.posix, 
 	  stposi.posiy, 
 	  stposi.stampod, 
 	  scinfo.bpath, 
 	  scinfo.stnum,
 	  scinfo.shape
-	from stposi
-		inner join scinfo on stposi.scno=scinfo.scno
-		inner join mcard on mcard.scno=scinfo.scno
+	from mcard
+		inner join scinfo on mcard.scno=scinfo.scno
+		inner join stposi on stposi.scno=scinfo.scno
 	where scinfo.cmno=#{cafeMemberNo} and mcard.mno=#{customMemberNo}
   </select>
   
