@@ -2,7 +2,7 @@
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
 		console.log(ajaxResult.data);
-		location.href = clientRoot + "/login.html";
+		location.href = clientRoot + "/auth/login.html";
 		
 	}
 	var userData = ajaxResult.data;
@@ -15,11 +15,24 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	$('.name').val(userName);
 	$('.tel').val(userTel);
 	
-	$('submin').click(function(event) {
+	$('.submit').click(function(event) {
 		event.preventDefault();
 		var param = {
-				
-		}
+			customMemberNo: userNo,
+			tel: $('.tel').val(),
+			email: $('.email').val(),
+			name: $('.name').val(),
+			nick: $('.nickname').val(),
+			photoPath: $('#photo-path').val()
+		};
+		console.log(param);
+		$.post(serverRoot + '/customMember/update.json', param, function(ajaxResult) {
+			if (ajaxResult.status != "success") {
+				alert(ajaxResult.data);
+				return;
+			}
+			alert('개인정보 변경이 완료되었습니다.');
+		}, 'json'); 
 	});
 	
 });
