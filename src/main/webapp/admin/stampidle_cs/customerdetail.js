@@ -107,6 +107,17 @@ $.getJSON(serverRoot + '/customCard/customCardDetail.json',
 		    .offset({top: positionY, left: positionX})
 		    .addTouch();
 		}
+		
+		
+		for (var i = 0; i < currentStampCount; i++) {
+			$('<img>')
+		    .addClass('stamp-img')
+		    .appendTo('.stampNo' + i)
+		    .attr('src', '../upload/' + cardDetail.stampImgPath)
+		    .css('width', 40)
+		}
+		
+		console.log(cardDetail.stampImgPath);
 });
 
 

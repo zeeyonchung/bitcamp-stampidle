@@ -194,17 +194,16 @@ $('.btmsubmit').click (function() {
 
 
 
-
-/* 파일 업로드 관련 script */
+/* 파일 업로드 관련 script 
 $('#fileupload').fileupload({
-	dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
+	url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json',
+	dataType: 'json', 
 	done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 		console.log(data.result);
-		var param = data.result.params[0];
-		console.log(param);
-		$('#photo-path').val(param.filepath);
+		$('#photo-path').val(data.result.data[0]);
 	},
 	processalways: function(e, data) {
+		console.log(serverRoot + '/../common/fileupload.json');
 		console.log('fileuploadprocessalways()...', data.files.length, data.index);
 		var img = $('#photo-img');
 		if (data.index == 0) {
@@ -214,6 +213,32 @@ $('#fileupload').fileupload({
 			img.attr('src', dataURL).css('width', '48px');
 		}
 	} 
-});
+}); */
 
+
+$('#fileupload').fileupload({
+    url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
+    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
+    autoUpload: true,        // 파일을 추가할 때 자동 업로딩 여부 설정. 기본은 true.
+    disableImageResize: /Android(?!.*Chrome)|Opera/
+        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+    	console.log('done()...');
+    	console.log(data.result);
+        $('#photo-path').val(data.result.data[0]);
+    }, 
+    processalways: function(e, data) {
+        console.log('fileuploadprocessalways()...', data.files.length, data.index);
+        var img = $('#photo-img');
+        if (data.index == 0) {
+        	console.log('미리보기 처리...');
+	        var canvas = data.files[0].preview;
+	        var dataURL = canvas.toDataURL();
+	        img.attr('src', dataURL).css('width', '50px');
+	        $('#photo-label').css('display', '');
+        }
+    } 
+});
 
