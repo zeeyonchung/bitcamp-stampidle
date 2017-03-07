@@ -191,32 +191,6 @@ $('.btmsubmit').click (function() {
 });
 
 
-
-
-
-
-/* 파일 업로드 관련 script 
-$('#fileupload').fileupload({
-	url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json',
-	dataType: 'json', 
-	done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-		console.log(data.result);
-		$('#photo-path').val(data.result.data[0]);
-	},
-	processalways: function(e, data) {
-		console.log(serverRoot + '/../common/fileupload.json');
-		console.log('fileuploadprocessalways()...', data.files.length, data.index);
-		var img = $('#photo-img');
-		if (data.index == 0) {
-			console.log('미리보기 처리...');
-			var canvas = data.files[0].preview;
-			var dataURL = canvas.toDataURL();
-			img.attr('src', dataURL).css('width', '48px');
-		}
-	} 
-}); */
-
-
 $('#fileupload').fileupload({
     url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
     dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
