@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Stampidle</title> 
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
+<link rel="stylesheet" href="../../node_modules/blueimp-file-upload/css/jquery.fileupload.css">
+<style>
+body, div, span, input {margin:0; padding:0; border:0; list-style:none; font-weight:normal;}
+
+
+
+/*공통*/
+.box {
+    clear:both;
+    position:relative;
+    margin-bottom:15px;
+}
+.box:after {
+    display:block;
+    clear:both;
+    content:" ";
+}
+
+.tit {
+    width:20%;
+    float:left;
+    font-size:1.2em;
+}
+
+.inputArea {
+    width:80%;
+    float:left;
+}
+.inputArea .imgbox {
+    clear:both;
+    text-align:center;
+    width:150px;
+    height:150px;
+    border: 1px solid #dedede;
+    float:left;
+    border-radius:5px;
+    margin-bottom:7px;
+}
+
+.inputArea .imgbox img {
+    background:#fff;
+}
+.cafe-photo .inputArea .imgbox {
+    width:220px;
+    height:150px;
+}
+
+.inputArea .btn-deco {
+    width:70px!important;
+    float:left;
+    margin-left:10px;
+}
+.inputArea .btn-deco .btn-success {
+    width:100%;
+    background-color:#dedede;
+    border-color:#ddd;
+}
+.inputArea .btn-deco .btn-success:after {
+    content:"File";
+    color:#555;
+}
+
+.inputArea.field {
+    margin-left:20%;
+}
+
+.wrap {
+    position:relative;  
+}
+
+.plusBtn {
+    position:absolute;
+    bottom:0px;
+    right:17%;
+    background-color: #ff5948;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    margin-left:10px;
+    color: #fff;
+    font-size: 20px;
+    line-height:35px;
+    text-align:center;
+    float:left;
+}
+
+.plusBtn.remove {
+    position:static;
+    margin:-5px 27% 0 0;
+    border: 1px solid #ff5948;
+    background:#fff;
+    color: #ff5948;
+    float:right;
+    line-height:30px;
+    visibility:hidden;
+}
+
+.field .remove {
+    visibility:visible;
+}
+
+.cafe-photo .plusBtn {
+    bottom:122px;
+}
+
+.cafe-menu .plusBtn {
+    bottom:122px;
+}
+
+.work-time .plusBtn {
+    bottom:29px;
+}
+.menuInfo {
+    float:left;
+    margin:107px 0 0 -70px;
+}
+
+.menuInfo #menuNm, .menuInfo #price {
+    border:1px solid #cfcfcf;   
+    height:40px;
+    padding:5px 10px;
+    border-radius:5px;
+}
+
+.menuInfo #menuNm {
+    width: 150px;
+    margin-right:10px;
+}
+
+.menuInfo #price {
+    width: 100px;
+}
+</style>
+</head>
+
+<body>
+<div class='container'>
+
+
+	<!-- 로고추가 -->
+	<div class='logoImg box'>
+		<div class="tit">로고추가</div>
+
+		<div class="inputArea">
+			<div class="imgbox" id="upfile1">
+				<img id='photo-img'> <label for="photo"
+					class="col-sm-2 control-label"></label> <input type="file"
+					id="file1" name="file1" style="display: none;" />
+			</div>
+			<div class="btn-deco">
+				<span class="btn btn-success fileinput-button"> <input
+					id='photo' class='form-control' type='file' name='files'>
+				</span> <input id='photo-path' class='logPath' style='visibility: hidden;'>
+			</div>
+		</div>
+
+	</div>
+	<!-- 로고추가-->
+
+
+	<!-- 매장 사진 -->
+	<div class="cafe-photo box">
+		<div class="tit">매장 사진</div>
+
+		<div id="cafeImg_set" class='inputArea'>
+			<div class="imgbox">
+				<img id='cafe-photo-img'> <input type="file" id="cf-file"
+					name="cf-file" style="display: none;" />
+			</div>
+			<div class="btn-deco">
+				<span class="btn btn-success fileinput-button"> <input
+					id='cafe-photo' class='form-control' type='file' name='files'>
+				</span> <input id='cafe-photo-path' class='cafephotoPath'
+					style='visibility: hidden;'>
+			</div>
+			<input class="plusBtn remove" type="button" value="-"
+				onclick="remove_cafeimg(this)">
+		</div>
+		<div id="field-cafeimg" class='inputArea field'></div>
+
+		<input class="plusBtn" type="button" value="+"
+			onclick="add_cafeImg()">
+
+	</div>
+	<!-- //매장 사진 -->
+
+
+	<!-- 대표 메뉴 -->
+	<div class='cafe-menu box'>
+		<div class="tit">대표 메뉴</div>
+
+		<div id="menu_set" class='inputArea'>
+			<div class="imgbox" id="mnBox">
+				<img id='menu-photo-img'> <input type="file" id="mn-file"
+					name="mn-file" style="display: none;" />
+			</div>
+			<div class="btn-deco">
+				<span class="btn btn-success fileinput-button"> <input
+					id='menu-photo' class='form-control' type='file' name='files'>
+				</span> <input id='menu-photo-path' class='menuphotoPath'
+					style='visibility: hidden;'>
+			</div>
+			<div class="menuInfo">
+				메뉴 <input id='menuNm' class='mnNm' type='text'> 가격 <input
+					id='price' class='mnPrice' type='text'> 원
+			</div>
+			<input class="plusBtn remove" type="button" value="-"
+				onclick="remove_menu(this)">
+		</div>
+		<div id="field-menu" class='inputArea field'></div>
+		<input class="plusBtn" type="button" value="+" onclick="add_menu()">
+
+	</div>
+	<!-- //대표 메뉴 -->
+
+
+
+</div>
+
+
+
+<script src="../js/context.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-meta.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-exif.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-exif-map.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image-orientation.js"></script>
+<script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+<script src="img_upload.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
