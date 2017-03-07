@@ -119,7 +119,7 @@
 					processalways : function(e, data) {
 						console.log('fileuploadprocessalways()...', data.files.length, data.index);
 						var img = $('#photo-img');
-						if (!img.attr('src')) {
+						if (data.files.length != 0) {
 							console.log('미리보기 처리...');
 							var canvas = data.files[0].preview;
 							var dataURL = canvas.toDataURL();

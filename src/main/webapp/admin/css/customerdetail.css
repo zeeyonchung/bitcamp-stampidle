@@ -13,7 +13,7 @@
 }
 #content3 {
   width:450px;
-  margin-left: 0px;
+  margin-left: 30px;
   margin-right: 20px;
   display:inline-block;
   
@@ -46,7 +46,6 @@ hr {
 
 
 .cpall {
-   
   border-right:1px solid red; 
   border-left:1px solid red; 
   text-align:center;
@@ -109,15 +108,35 @@ hr {
   margin-top: 10px;
 }
 #imgbox {
+	position: relative;
   float: left; 
   border:1px solid gray; 
   border-width:1px 1px; 
   width:400px; 
-  margin-left: 10px; 
-  margin-right: 10px; 
 }
+
+.stmpside {
+    position: absolute;
+    display: inline;
+    min-height: 127px;
+    padding: 6px;
+    top: 10px;
+    left: 25px;
+}
+
+.stmpare {
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-right: 3px;
+    margin-bottom: 2px;
+    background-color: white;
+    border-radius: 5px;
+}
+
 #card-back {
-  height:270px; 
+  height:220px; 
   width:350px; 
   margin-left: 25px; 
   margin-right: 25px; 
@@ -129,8 +148,7 @@ hr {
   width: 400px; 
   border:1px solid gray;
   border-width:1px 1px; 
-  margin-left: 10px; 
-  margin-right: 10px;
+  padding: 10px;
 }
 
 .current-type {
@@ -145,8 +163,6 @@ hr {
   margin-bottom:20px; 
 }
 .current-save-stamp {
-  width:200px;
-  font-size:0.7em; 
   border-right:1px solid gray; 
   text-align:center;
 }
@@ -154,34 +170,30 @@ hr {
 #reset-btn {
   margin-top:20px; 
   margin-bottom:10px; 
-  font-size:1.2em;
+}
+
+.float-right {
+	float: right;
 }
 
 .cp-question {
-  float: left; 
-  width:240px; 
   height:36px;
 }
 #cp-question-btn {
-  float :right; 
+	float: right;
   margin-right: 5px;
   margin-top: 10px;
 }
-.question-div {
-  float: left; 
-  width: 240px; 
+
+.regist-stamp-div {
   height:36px;
   text-align:center; 
   font-size:0.7em;
-}
-
-.regist-stamp-div {
-  float:left; 
-  width:240px; 
-  text-align:center; 
-  margin-top:22px;
+  margin-right: 50px;
+  margin-top: 10px;
 }
 
 .regist-stamp-div button {
   margin-right: 5px;
+  margin-top: 30px;
 }

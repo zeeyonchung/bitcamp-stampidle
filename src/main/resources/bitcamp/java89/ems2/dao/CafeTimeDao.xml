@@ -33,7 +33,7 @@
   insert into wtime(wtno, cmno, wday, stime, etime)
   values(
   #{timeNo},
-  #{cafeNo},
+  #{cafeMemberNo},
   #{day},
   #{startTime},
   #{endTime})

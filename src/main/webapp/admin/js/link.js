@@ -6,7 +6,8 @@ $('.logo').click(function(e) {
 });
 
 
-//sidebar link*******************************************
+/*//sidebar link*******************************************
+//링크작동안하는 문제때문에 sidebar.html에 임시로 옮겨둠
 $('.searchCstmr a').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/stampidle_cs/customerdetail.html'
@@ -19,11 +20,19 @@ $('.event a').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/event/main.html'
 });
-
 $('.btn_cafeInfo').click(function(e) {
-	e.preventDefault();
-    location.href = clientRoot + '/cafeinfo/cafeinfo.html'
-});
+	alert('test');
+	$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+		$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + ajaxResult.data.cafeMemberNo, function(ajaxResult1) {
+			if (ajaxResult1.status == "fail") {
+				//alert('카페정보를 입력해주세요.');
+				 location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
+			} else {
+				location.href = clientRoot + '/cafeinfo/cafeinfo.html'
+			}
+		});
+	});
+}); */
 
 
 // header link ********************************************
@@ -35,7 +44,7 @@ $('.srchList li a').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/stampidle_cs/customerdetail.html'
 });
-$('.btn-joinInfo btnStyle1').click(function(e) {
+$('.btn-cafeInfo').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
 });

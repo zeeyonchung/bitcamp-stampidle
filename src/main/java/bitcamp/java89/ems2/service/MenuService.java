@@ -4,7 +4,7 @@ import bitcamp.java89.ems2.domain.Menu;
 
 public interface MenuService {
   int add(Menu menu) throws Exception;
-  Menu detailMenu(int cafeNo) throws Exception;
+  Menu detailMenu(int cafeMemberNo) throws Exception;
 }
 
 

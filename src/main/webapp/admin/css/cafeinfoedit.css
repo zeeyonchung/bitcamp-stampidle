@@ -86,7 +86,6 @@ ul a {
 .cafe-name .form-control {
 	border: 1px solid #dedede;
 	border-radius: 5px;
-	margin-left:100px;
 	display:inline-block;
 	width: 350px;
 }
@@ -98,7 +97,6 @@ ul a {
 
 .checkbox1 {
   display:inline-block;
-  margin-left: 100px;
 }
 
 .checkbox {
@@ -117,9 +115,6 @@ ul a {
 	border:1px solid #dedede;
 }
 
-.cafe-introdiv{
-	display:inline-block;
-}
 #introcafe {
 	width:350px;
 	height:200px;
@@ -138,6 +133,7 @@ ul a {
 	color:#dedede;
 	position:relative;
 	top:-65px;
+	margin-left:20%;
 }
 .work-time {
 	position:relative;
@@ -150,24 +146,9 @@ ul a {
 	position:relative;
 	float:left;
 }
-.pre-set-before {
-	display:inline-block;
-	margin-left:100px;
-	
-}
-.pre-set-before-num {
-  display:inline-block;
-}
-.work-time .pre-set-before-num {
-	margin-left:90px;
-}
-#pre_set {
-	position:relative;
-}
+
 .select1{
 	display:inline-block;
-	margin-left:10px;
-	margin-bottom:10px;
 }
 
 .select2{
@@ -189,8 +170,8 @@ ul a {
 }
 
 .worktime-addtext {
-	margin-left:180px;
-	color:#dedede
+	color:#999;
+	margin-left:20%;
 }
 
 #number-input {
@@ -205,19 +186,9 @@ ul a {
   height:34px
 }
 
-.cafe-name3 {
-  width:100%;
-  display:inline-block;
-  margin-top:10px;
-  position:relative;
-}
 .introtext2 {
 	display:inline-block;
 	float:left;
-}
-.addr-div{
-  display:inline-block;
-  margin-left:133px;
 }
 
 .addr-div .inputaddr {
@@ -234,21 +205,6 @@ ul a {
   border: 1px solid #dedede;
   border-radius: 5px;
 }
-.imgbox {
-	margin-left:110px;
-	text-align:center;
-	display: inline-block;
-	width:300px;
-  height:250px;
-  background-color:#dedede;
-  border: 1px solid #dedede;
-  border-radius: 5px;
-  float:left;
-}
-.pre-set-before2 {
-  margin-left:155px;
-}
-
 
 .cafe-name4 {
   width:100%;
@@ -370,10 +326,6 @@ ul a {
   
 }
 
-#pre_set {
-  position:relative;
-}
-
 .free-sub{
     display:inline-block;
 }
@@ -406,24 +358,6 @@ ul a {
   color: rgb(255,89,72);
   font-size: 20px;
   text-align:center;
-}
-
-.introtext2 {
-  display:inline-block;
-  float:left;
-}
-
-.imgbox {
-  margin-left:103px;
-  text-align:center;
-  display: inline-block;
-  width:300px;
-  height:200px;
-  background-color:#dedede;
-  border: 1px solid #dedede;
-  border-radius: 5px;
-  float:left;
-  
 }
 
 .imgbox2 {
@@ -474,128 +408,6 @@ ul a {
   font-size: 2em;
 }
 
-.manage-navi ul li:nth-of-type(2), .manage-navi ul li:nth-of-type(3), .manage-navi ul li:nth-of-type(4) {
-  border: 1px;
-  display: inline;
-  font-size: 1.2em;
-}
-
-ul a {
-  display: inline-block;
-  padding: .75rem 0;
-  margin: 0;
-  text-decoration: none;
-  color: #333;
-}
-
-
-
-
-.one:hover ~ hr.underline {
-  width: 75px;
-  margin-left: 200px;
-}
-
-
-.two:hover ~ hr.underline {
-  width: 75px;
-  margin-left: 268px;
-}
-
-
-
-
-
-
-.underline {
-  height: .25rem;
-  width: 80px;
-  margin-top: -6px;
-  margin-left: 420px;
-  background: gray;
-  border: none;
-  transition: .4s ease-in-out;
-  z-index: 99;
-}
-
-.manage-navi > hr {
-  z-index: 1;
-  border: 0;
-  border: 1px solid rgb(190, 190, 190);
-}
-
-.cafe-name {
-    width:100%;
-    margin-top:10px;
-    position:relative;
-    display:inline-block;
-    
-}
-.pre-set-before {
-  display:inline-block;
-  margin-left: 100px;
-  
-}
-
-#pre_set {
-    margin-top :20px;
-}
-
-#field > div {
-    margin-top : 20px;
-    border:1px solid black;
-}
-
-#field2 > div {
-  margin-top : 20px;
-  border:1px solid black;
-}
-/*----------------------------------------------*/
-
-.freename {
-    display:inline-block;
-    position:relative;
-    float:left;
-}
-
-.photo-imgbox-div {
-    width:400px; 
-    background:#dedede;
-}
-
-
-.col-sm-10 {
-  position: absolute;
-  top: 0px;
-}
-
-
-
-#pre_set, #pre_set2 {
-  position:relative;
-}
-
-
-
-
-.free-sub{
-    display:inline-block;
-}
-.cafe-name .free1 {
-    border: 1px solid #dedede;
-    border-radius: 5px;
-    margin-left:50px;
-    display:inline-block;
-    width: 50px;
-}
-.cafe-name .free2 {
-  border: 1px solid #dedede;
-  border-radius: 5px;
-  margin-left:5px;
-  display:inline-block;
-  width: 70px;
-}
-
 .checkbox {
   display:inline-block;
   margin-left: 10px;
@@ -636,53 +448,132 @@ ul a {
 }
 
 
-.pbtn.remove {
-	visibility:hidden;
+
+
+
+/*공통*/
+.box {
+	clear:both;
+	position:relative;
+	margin-bottom:15px;
+}
+.box:after {
+	display:block;
+    clear:both;
+    content:" ";
 }
 
-/* 매장사진 */
-.cafe-photo {
-	position:relative;
+.tit {
+	width:20%;
+	float:left;
+	font-size:1.2em;
 }
-.cafe-photo .pbtn {
+
+.inputArea {
+	width:80%;
 	float:left;
 }
-.cafe-photo .pbtn.remove {
-	margin-left:100px;
-}
-
-.imgbox {
-  clear:both;
-  margin-bottom:10px;
-}
-
-#field-cafeimg .remove {
-    visibility:visible;
-}
-
-/* 메뉴사진 */
-.cafe-menu {
+.inputArea .imgbox {
 	clear:both;
+    text-align:center;
+    width:150px;
+    height:150px;
+    border: 1px solid #dedede;
+    float:left;
+    border-radius:5px;
+    margin-bottom:7px;
+}
+
+.inputArea .imgbox img {
+    background:#fff;
+}
+.cafe-photo .inputArea .imgbox {
+    width:220px;
+    height:150px;
+}
+
+.inputArea .btn-deco {
+    width:70px!important;
+    float:left;
+    margin-left:10px;
+}
+.inputArea .btn-deco .btn-success {
+	width:100%;
+	background-color:#dedede;
+	border-color:#ddd;
+}
+.inputArea .btn-deco .btn-success:after {
+    content:"File";
+    color:#555;
+}
+
+.inputArea.field {
+	margin-left:20%;
+}
+
+.wrap {
+    position:relative;	
+}
+
+.plusBtn {
+	position:absolute;
+	bottom:0px;
+	right:17%;
+	background-color: #ff5948;
+	border-radius: 100px;
+	width: 40px;
+	height: 40px;
+	margin-left:10px;
+	color: #fff;
+	font-size: 20px;
+	line-height:35px;
+	text-align:center;
+	float:left;
+}
+
+.plusBtn.remove {
+	position:static;
+    margin:-5px 27% 0 0;
+    border: 1px solid #ff5948;
+    background:#fff;
+    color: #ff5948;
+    float:right;
+    line-height:30px;
+    visibility:hidden;
+}
+
+.field .remove {
+	visibility:visible;
+}
+
+.cafe-photo .plusBtn {
+    bottom:122px;
+}
+
+.cafe-menu .plusBtn {
+    bottom:122px;
+}
+
+.work-time .plusBtn {
+    bottom:29px;
 }
 .menuInfo {
-	clear:both;
-	width:50%;
-	height:50px;
 	float:left;
+	margin:107px 0 0 -70px;
 }
 
 .menuInfo #menuNm, .menuInfo #price {
-    border:1px solid #cfcfcf;	
+    border:1px solid #cfcfcf;   
     height:40px;
+    padding:5px 10px;
+    border-radius:5px;
 }
 
-.cafe-menu .pbtn {
-    float:left;
-}
-.cafe-menu .pbtn.remove {
-    margin-left:50px;
+.menuInfo #menuNm {
+	width: 150px;
+	margin-right:10px;
 }
 
-#field-menu .remove {
-	visibility:visible;
+.menuInfo #price {
+	width: 100px;
 }

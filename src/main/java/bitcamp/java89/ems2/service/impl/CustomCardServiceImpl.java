@@ -135,7 +135,9 @@ public class CustomCardServiceImpl implements CustomCardService {
     List<CustomCard> customDetailList = customCardDao.getCustomDetail(paramMap);
     
     HashMap<String, Object> resultMap = new HashMap<>();
-    resultMap.put("customPhoto", customDetailList.get(customDetailList.size() - 1).getCustomPhoto());
+    if (customDetailList.size() > 0) {
+      resultMap.put("customPhoto", customDetailList.get(customDetailList.size() - 1).getCustomPhoto());
+    }
     resultMap.put("customName", customDetailList.get(customDetailList.size() - 1).getCustomName());
     resultMap.put("customTel", customDetailList.get(0).getCustomTel());
     resultMap.put("firstVisitDate", customDetailList.get(0).getCardIssueDate());
@@ -163,23 +165,31 @@ public class CustomCardServiceImpl implements CustomCardService {
   @Override
   public Map<String, Object> getCustomCardDetail(int customMemberNo, int cafeMemberNo) throws Exception {
     
-    HashMap<String, Object> paramMap = new HashMap<>();p
+    HashMap<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("cafeMemberNo", cafeMemberNo);
     
     
-    HashMap<String, Object> resultMap = new HashMap<>();
-    resultMap.put("customCard", );
-    int stampCount = 0;
     
-    for (CustomCard list : customDetailList) {
-      for (Stamp stampList : list.getStampList()) {
-        stampCount += stampList.getStampIssueCount();
-      }
+    CustomCard cardDetail = customCardDao.getCardDetail(paramMap);
+    List<CustomCard> customCardDetail = customCardDao.getCustomCardDetail(paramMap);
+    
+    HashMap<String, Object> resultMap = new HashMap<>();
+    
+    resultMap.put("cardDetail", cardDetail);
+    resultMap.put("customCardDetail", customCardDetail);
+    
+    
+    
+    // 현재 모인 스탬프 수
+    int currentStampCount = 0;
+    if (customCardDetail.size() > 0) {
+      currentStampCount = customCardDetail.get(customCardDetail.size() - 1).getStampList().size();
+    } else {
+      currentStampCount = 0;
     }
     
-    resultMap.put("allStampCount", stampCount);
-    resultMap.put("finishCardCount", customDetailList.get(customDetailList.size() - 1).getCardState());
+    resultMap.put("currentStampCount", currentStampCount);
     
     return resultMap;
   }

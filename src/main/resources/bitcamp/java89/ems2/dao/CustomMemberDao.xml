@@ -17,10 +17,9 @@
   </resultMap>
   
   
-  <insert id="insert" parameterType="customMember">
-	  insert into memb(mno, tel, name) 
+  <insert id="insert" parameterType="customMember"  useGeneratedKeys="true" keyProperty="customMemberNo">
+	  insert into memb(tel, name) 
 	  values(
-	  #{customMemberNo},
 	  #{tel},
 	  #{name})
   </insert>
@@ -56,6 +55,18 @@
       cphoto=#{photoPath}
     where mno=#{customMemberNo}
   </update>
+  
+  <select id="getOne" resultMap="customMember-map"  parameterType="int">
+    select 
+      mno,
+      tel,
+      email,
+      name,
+      nick,
+      cphoto
+    from memb
+    where mno=#{customMemberNo}
+  </select>
   
 </mapper>
 

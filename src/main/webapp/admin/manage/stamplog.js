@@ -41,9 +41,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	
 	function loadPage(pageCount) {
-		console.log("searchCondition: " + searchCondition);
-		console.log("searchKeyword: " + searchKeyword);
-		
 		$.getJSON(
 			serverRoot + '/customCard/stampList.json',
 			{'cafeMemberNo': cafeMemberNo,

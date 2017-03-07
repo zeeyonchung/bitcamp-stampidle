@@ -34,6 +34,16 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			alert('개인정보 변경이 완료되었습니다.');
 		}, 'json'); 
 	});
-	
+	$.getJSON(serverRoot + '/customMember/getOne.json?customMemberNo=' + userNo, function(ajaxResult) {
+		var myData = ajaxResult.data;
+		var nick = myData.nick;
+		var mail = myData.email;
+		var photo = myData.photoPath;
+		$('.nickname').val(nick);
+		$('.email').val(mail);
+		
+	    $('#photo-img').attr("src", '../../upload/' + myData.photoPath).css('width', '100%').css(
+			'max-height', '100px').css('border-radius','100%');
+	});
 });
 

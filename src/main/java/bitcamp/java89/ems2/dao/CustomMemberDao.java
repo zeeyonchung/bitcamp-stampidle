@@ -10,4 +10,5 @@ public interface CustomMemberDao {
   ArrayList<CustomMember> getSrchListCustomMember() throws Exception;
   CustomMember getOneByNameTel(Map<String,String> paramMap) throws Exception;
   int update(CustomMember customMember) throws Exception;
+  CustomMember getOne(int customMemberNo) throws Exception;
 }
