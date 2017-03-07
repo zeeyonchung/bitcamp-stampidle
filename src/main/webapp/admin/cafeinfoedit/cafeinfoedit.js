@@ -9,7 +9,6 @@ if (memberNo > 0) {
 } else {
 	prepareNewForm();
 }
-alert("c");
 /******************  Edit page setting :prepareViewForm *****************/
 function prepareViewForm() {
 	$('#btn-next').addClass('btn-update');
@@ -44,7 +43,7 @@ function prepareViewForm() {
 				$('.postNo').val(cafe.postCode);
 				$('.addr').val(cafe.address);
 				$('.daddr').val(cafe.detailAddress);
-				//$('#chairNo').text(cafe.chairNo);
+				$('#chairNo').val(cafe.chairNo);
 				$('#photo-img').attr('src', '../../upload/' + cafe.logPath);
 			
 				/*
