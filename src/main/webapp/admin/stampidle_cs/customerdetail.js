@@ -87,8 +87,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				$(document.body).on('click', '.stmpare', function(event) {
 					var stampNo = this.getAttribute('class').split(" ")[1].split("stampNo")[1];
 					if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') == -1) {
-						console.log("도장~");
-						console.log(this.getAttribute('class').search('add-check'));
 						
 						$('<img>')
 						.addClass('stamp-img')
@@ -98,9 +96,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 						
 						$(this).addClass('add-check');
 						
-						console.log(this.getAttribute('class').search('add-check'));
 					} else if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') != -1) {
-						console.log("도장 취소.....");
 						
 						$('.stampNo' + stampNo).children('img').remove();
 						$(this).removeClass('add-check');
@@ -112,7 +108,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				
 				$('.stamp-btn').click(function(e) {
 					var stampIssueCount = $('#stmpside').children('.add-check').length;
-					console.log(customMemberNo, cafeMemberNo);
 					$.post(serverRoot + '/customCard/addStamp.json', 
 							{'customMemberNo': customMemberNo,
 							'cafeMemberNo': cafeMemberNo,
