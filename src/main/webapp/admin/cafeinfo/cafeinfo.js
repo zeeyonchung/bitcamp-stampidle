@@ -14,10 +14,10 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	/*$.getJSON(serverRoot + '/tag/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var tag = ajaxResult.data;*/
 		
-	$.getJSON(serverRoot + '/cafePhoto/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-		var cafePhoto = ajaxResult.data;
+	/*$.getJSON(serverRoot + '/cafePhoto/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var cafePhoto = ajaxResult.data;*/
 		
-	$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+	/*$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {*/
 			$('.cafeLogo img').attr('src', '../../upload/' + cafe.logPath);
 			$('.cafeName').text(cafe.cafeName);
 			/*$('.tag').text(tag.tagName);*/
@@ -34,8 +34,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			//$('.star').text(coments.cname);
 		
 		
-	});
-	});
+	/*});*/
+	/*});*/
 	/*});*/
 	/*});*/
 	});
