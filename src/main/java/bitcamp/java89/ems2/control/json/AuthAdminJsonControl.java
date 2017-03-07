@@ -16,12 +16,12 @@ public class AuthAdminJsonControl {
   
   @Autowired AuthService authService;
   
-  @RequestMapping("/admin/auth/login")
+  @RequestMapping(value = {"/admin/auth/login", "/admin_m/auth/login"})
   public AjaxResult login(String id, String password,
       HttpServletResponse response, HttpSession session, Model model) throws Exception {
     
     CafeMember cafeMember = authService.getCafeMemberInfo(id, password);
-    
+    System.out.println(cafeMember);
     if (cafeMember == null) {
       return new AjaxResult(AjaxResult.FAIL, "아이디 또는 암호가 틀리거나, 가입된 회원이 아닙니다.2");
     }
@@ -36,7 +36,7 @@ public class AuthAdminJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "로그아웃 성공입니다. admin");
   }
   
-  @RequestMapping("/admin/auth/loginUser")
+  @RequestMapping(value = {"/admin/auth/loginUser", "/admin_m/auth/loginUser"})
   public AjaxResult loginUser(HttpSession session) throws Exception {
     CafeMember cafeMember = (CafeMember)session.getAttribute("cafeMember");
 

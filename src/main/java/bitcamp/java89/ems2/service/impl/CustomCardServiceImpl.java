@@ -164,9 +164,11 @@ public class CustomCardServiceImpl implements CustomCardService {
 
   @Override
   public Map<String, Object> getCustomCardDetail(int customMemberNo, int cafeMemberNo) throws Exception {
+    
     HashMap<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("cafeMemberNo", cafeMemberNo);
+    
     
     CustomCard cardDetail = customCardDao.getCardDetail(paramMap);
     List<CustomCard> customCardDetail = customCardDao.getCustomCardDetail(paramMap);

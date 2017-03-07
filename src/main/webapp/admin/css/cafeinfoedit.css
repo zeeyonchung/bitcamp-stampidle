@@ -83,16 +83,14 @@ ul a {
 	margin-top:10px;
 }
 
-.cafe-name .form-control {
+.form-control {
 	border: 1px solid #dedede;
 	border-radius: 5px;
 	display:inline-block;
-	width: 350px;
 }
 
 .info-subtext {
 	margin-left:10px;
-	
 }
 
 .checkbox1 {
@@ -118,7 +116,6 @@ ul a {
 #introcafe {
 	width:350px;
 	height:200px;
-	margin-left:120px;
 	border:1px solid #dedede;
 	border-radius: 5px;
 }
@@ -206,6 +203,9 @@ ul a {
   border-radius: 5px;
 }
 
+.cafe-name #cafeName {
+	width:300px;
+}
 .cafe-name4 {
   width:100%;
   display:inline-block;
@@ -448,7 +448,9 @@ ul a {
 }
 
 
-
+#chairNo {
+	width:70px;
+}
 
 
 /*공통*/
