@@ -39,6 +39,15 @@
   </resultMap>
   
   
+  
+  
+  <insert id="insert" parameterType="java.util.Map">
+    insert into mcard(mno, scno, birth, mcuse) 
+    values(#{customMemberNo}, #{stampCafeCardNo}, curdate(), 0)
+  </insert>
+  
+  
+  
   <select id="getStampList" parameterType="java.util.Map" resultMap="customCard-map">
     select 
       stamp.stno,
@@ -198,6 +207,16 @@
 	  cafe.cmno=#{cafeMemberNo}
 	group by mcard.mno
 	order by mcard.mno desc, mcard.birth desc
+  </select>
+  
+  
+  <select id="getStampCafeCardNo" parameterType="int" resultType="int">
+  select
+    scinfo.scno
+  from scinfo
+  where cmno=#{cafeMemberNo}
+  order by scinfo.scno desc
+  limit 1
   </select>
   
 

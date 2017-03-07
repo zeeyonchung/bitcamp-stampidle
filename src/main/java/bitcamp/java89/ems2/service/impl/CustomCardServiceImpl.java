@@ -179,7 +179,12 @@ public class CustomCardServiceImpl implements CustomCardService {
     
     
     // 현재 모인 스탬프 수
-    int currentStampCount = customCardDetail.get(customCardDetail.size() - 1).getStampList().size();
+    int currentStampCount = 0;
+    if (customCardDetail.size() > 0) {
+      currentStampCount = customCardDetail.get(customCardDetail.size() - 1).getStampList().size();
+    } else {
+      currentStampCount = 0;
+    }
     
     resultMap.put("currentStampCount", currentStampCount);
     

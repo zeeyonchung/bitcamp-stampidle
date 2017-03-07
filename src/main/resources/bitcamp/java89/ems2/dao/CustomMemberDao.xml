@@ -17,10 +17,9 @@
   </resultMap>
   
   
-  <insert id="insert" parameterType="customMember">
-	  insert into memb(mno, tel, name) 
+  <insert id="insert" parameterType="customMember"  useGeneratedKeys="true" keyProperty="customMemberNo">
+	  insert into memb(tel, name) 
 	  values(
-	  #{customMemberNo},
 	  #{tel},
 	  #{name})
   </insert>

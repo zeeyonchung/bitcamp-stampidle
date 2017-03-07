@@ -19,4 +19,6 @@ public interface CustomCardDao {
   List<CustomCard> getCustomCardDetail(Map<String, Object> paramMap) throws Exception;
   CustomCard getCardDetail(Map<String, Object> paramMap) throws Exception;
   
+  int insert(Map<String, Object> paramMap) throws Exception;
+  int getStampCafeCardNo(int cafeMemberNo) throws Exception;
 }
