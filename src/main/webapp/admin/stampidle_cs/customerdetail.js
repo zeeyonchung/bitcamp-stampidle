@@ -114,6 +114,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		});
 			
 			
+		
+		
+		
+		
+		$('#reset-btn').click(function(e) {
+			
+		});
+		
 	});
 	
 

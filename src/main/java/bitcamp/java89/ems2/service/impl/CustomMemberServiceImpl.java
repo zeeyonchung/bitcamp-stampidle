@@ -35,8 +35,13 @@ public class CustomMemberServiceImpl implements CustomMemberService {
     int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
     
     Map<String, Object> paramMap2 = new HashMap<>();
-    paramMap2.put("customMemberNo", customMemberNo);
-    paramMap2.put("stampCafeCardNo", stampCafeCardNo);
+    paramMap2.put("cafeMemberNo", cafeMemberNo);
+    paramMap2.put("customMemberNo", customMember.getCustomMemberNo());
+    if (customCardDao.getCustomCardDetail(paramMap2) != null) {return customMemberNo;}
+    
+    Map<String, Object> paramMap3 = new HashMap<>();
+    paramMap3.put("customMemberNo", customMemberNo);
+    paramMap3.put("stampCafeCardNo", stampCafeCardNo);
     customCardDao.insert(paramMap2);
     
     return customMemberNo;
