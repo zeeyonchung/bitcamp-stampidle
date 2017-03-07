@@ -235,6 +235,9 @@ a {
     border-radius: 40px;
     overflow: hidden;
     background:#ddd;
+    background: url('../image/profile.png') no-repeat center 15px #ddd;
+    background-size: 60% 80%;
+    box-shadow: 0px 0px 0px 3px rgb(255,255,255);
 }
 
 .sidebar .profileArea .profileImg img {
