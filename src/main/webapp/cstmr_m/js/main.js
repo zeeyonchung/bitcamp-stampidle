@@ -2,7 +2,7 @@
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
 		console.log(ajaxResult.data);
-		location.href = clientRoot + "/login.html";
+		location.href = clientRoot + "/auth/login.html";
 		
 	}
 	var userData = ajaxResult.data;
