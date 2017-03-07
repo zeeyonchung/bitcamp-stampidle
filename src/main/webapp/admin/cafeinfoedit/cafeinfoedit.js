@@ -9,10 +9,11 @@ if (memberNo > 0) {
 } else {
 	prepareNewForm();
 }
+
+
 /******************  Edit page setting :prepareViewForm *****************/
 function prepareViewForm() {
 	$('#btn-next').addClass('btn-update');
-	alert("update");
 
 	
 	$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
@@ -26,64 +27,169 @@ function prepareViewForm() {
 			var cafe = ajaxResult.data;
 			
 		/*$.getJSON(serverRoot + '/cafeTime/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-			var cafeTime = ajaxResult.data;
+			var cafeTime = ajaxResult.data;*/
 		
-		/*$.getJSON(serverRoot + '/tag/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-			var tag = ajaxResult.data;*/
+		$.getJSON(serverRoot + '/tag/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+			var tag = ajaxResult.data;
 			
 		/*$.getJSON(serverRoot + '/cafePhoto/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 			var cafePhoto = ajaxResult.data;*/
 			
 		/*$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {*/
 				$('#cafeName').val(cafe.cafeName);
+				var tag_arr = tag.tagName.split(" ");
+				var tags = $('.tag .checkbox label input[type=checkbox]');
+				for (var i in tag_arr) {
+					for (var j in tags) {
+						if (tag_arr[i] == tags.eq(j).val()) {
+							tags.eq(j).attr('checked','checked');
+						} else {
+							$('#self').attr('checked','checked');
+							$('.tag .inperson').attr('value', tag_arr[i]);
+							if (tag_arr[i] == "")
+								$('#self').removeAttr('checked');
+						}
+					}
+				}
+				
 				$('#introcafe').text(cafe.intro);
-				/*$('#cafeTel1').text(cafe.cafeTel);
-				$('#cafeTel2').text(cafe.cafeTel);
-				$('#cafeTel3').text(cafe.cafeTel);*/
+				var cafeTel_arr = cafe.cafeTel.split("-");
+				var tel1 = $('#cafeTel1 option');
+				for (var i in tel1) {
+					if (cafeTel_arr[0] == tel1.eq(i).text()) {
+						tel1.eq(i).attr('selected','selected');
+					}
+				}
+				$('.cafeTel2').val(cafeTel_arr[1]);
+				$('.cafeTel3').val(cafeTel_arr[2]);
 				$('.postNo').val(cafe.postCode);
 				$('.addr').val(cafe.address);
 				$('.daddr').val(cafe.detailAddress);
 				$('#chairNo').val(cafe.chairNo);
 				$('#photo-img').attr('src', '../../upload/' + cafe.logPath);
 			
-				/*
-				 cafeMemberNo: cafeMemberNo,
-					cafeName: $('#cafeName').val(),
-					intro: $('#introcafe').val(),
-					cafeTel: $('#cafeTel1').val() + "-" + $('.cafeTel2').val() + "-" + $('.cafeTel3').val(),
-					address: $('.addr1').val() + "" + $('.addr2').val(),
-					detailAddress: $('.daddr').val(),
-					chairNo: parseInt($('#chairNo').val()),
-					logPath: $('#photo-path').val()
-				 * */
-			
 		/*});*/
 		/*});*/
-		/*});*/
+		});
 		/*});*/
 		});
 	});
 	
-	$('#update-btn').click(function() {
-		var param = {
-			"memberNo" : memberNo,
-			"name" : $('#name').val(),
-			"tel" : $('#tel').val(),
-			"email" : $('#email').val(),
-			"password" : $('#password').val(),
-			"working" : $('#working').is(':checked'),
-			"grade" : $('#grade').val(),
-			"schoolName" : $('#school-name').val()
+	
+	
+	alert("up1");
+	$('.btn-update').click(function() {
+		var cafeMemberNo = $('.cafeNm').attr("data-no");
+		/* 카페정보 정보 */
+		var cafeinfo = {
+				cafeMemberNo: cafeMemberNo,
+				cafeName: $('#cafeName').val(),
+				intro: $('#introcafe').val(),
+				cafeTel: $('#cafeTel1').val() + "-" + $('.cafeTel2').val() + "-" + $('.cafeTel3').val(),
+				postCode: $('.postNo').val(),
+				address: $('.addr').val(),
+				detailAddress: $('.daddr').val(),
+				chairNo: parseInt($('#chairNo').val()),
+				logPath: $('#photo-path').val()
 		};
-
-		$.post('update.json', param, function(ajaxResult) {
+		console.log(cafeinfo);
+		$.post(serverRoot + '/cafe/update.json', cafeinfo, function(ajaxResult) {
 			if (ajaxResult.status != "success") {
 				alert(ajaxResult.data);
 				return;
 			}
-			location.href = 'main.html';
+			alert('cafe정보등록이 완료되었습니다.');
 		}, 'json');
 
+		
+		/* 영업시간
+		var days = $('select[id=day]')
+		var start1 = $('select[id=startTime1]');
+		var start2 = $('select[id=startTime2]');
+		var end1 = $('select[id=endTime1]');
+		var end2 = $('select[id=endTime2]');
+		for (var i=0; i < days.length; i++) {
+			var workTime = {
+					cafeMemberNo: cafeMemberNo,
+					day: days.eq(i).val(),
+					startTime: start1.eq(i).val() + ":" + start2.eq(i).val(),
+					endTime: end1.eq(i).val() + ":" + end2.eq(i).val()
+			}
+			console.log(workTime);
+			$.post(serverRoot + '/cafeTime/update.json', workTime, function(ajaxResult) {
+				if (ajaxResult.status != "success") {
+					alert(ajaxResult.data);
+					return;
+				}
+				alert('시간등록 완료되었습니다.');
+			}, 'json');
+		}; */
+		
+		
+		/* 카페종류 태그 */
+		var tags = [];
+		var checked = $(".tag input[type='checkbox']:checked");
+		for(var i=0; i<checked.length; i++){
+			if (checked.eq(i).attr('id') != 'self')
+				tags += checked.eq(i).val() + " ";
+		};
+		if($('.inperson').val() != null) {
+			tags += $('.inperson').val()
+		};
+		var cafeTag = {
+				cafeMemberNo: cafeMemberNo,
+				tagName: tags
+		}
+		console.log(cafeTag);
+		$.post(serverRoot + '/tag/update.json', cafeTag, function(ajaxResult) {
+			if (ajaxResult.status != "success") {
+				alert(ajaxResult.data);
+				return;
+			}
+			alert('태그등록 완료되었습니다.');
+		}, 'json');
+
+		
+		/* 매장사진
+		var cafefilepath = $('.cafephotoPath')
+		console.log($('.cafephotoPath').length);
+		for (var i=0; i < cafefilepath.length; i++) {
+			var cafe_photo = {
+					cafeMemberNo: cafeMemberNo,
+					path: cafefilepath.eq(i).val()
+			}
+			console.log(cafe_photo);
+			$.post(serverRoot + '/cafePhoto/update.json', cafe_photo, function(ajaxResult) {
+				if (ajaxResult.status != "success") {
+					alert(ajaxResult.data);
+					return;
+				}
+				alert('매장사진등록이 완료되었습니다.');
+			}, 'json');
+		}  */
+		
+		
+		/*  대표메뉴
+		var menufilepath = $('.menuphotoPath')
+		var menuNm = $('.mnNm')
+		var menuPrice = $('.mnPrice')
+		console.log($('.menuphotoPath').length);
+		for (var i=0; i < menufilepath.length; i++) {
+			var cafe_menu = {
+					cafeMemberNo: cafeMemberNo,
+					menuName: menuNm.eq(i).val(),
+					price: menuPrice.eq(i).val(),
+					menuPath: menufilepath.eq(i).val()
+			}
+			$.post(serverRoot + '/menu/update.json', cafe_menu, function(ajaxResult) {
+				if (ajaxResult.status != "success") {
+					alert(ajaxResult.data);
+					return;
+				}
+				alert('메뉴등록이 완료되었습니다.');
+			}, 'json');
+		} */
+		
 	}); // click()
 
 }
@@ -93,18 +199,16 @@ function prepareViewForm() {
 /******************  Add page setting :prepareNewForm *****************/
 function prepareNewForm() {
 	$('#btn-next').addClass('btn-add');
-	alert("add");
 
 	$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		if (ajaxResult.status != "success") {
 			console.log(ajaxResult.data);
 			location.href = clientRoot + "/auth/login.html";
-			
 		}
-
 		var cafeMember = ajaxResult.data;
 		var cafeMemberNo = cafeMember.cafeMemberNo;
-//		다음단계 버튼
+
+		
 		$('.btn-add').click(function(event) {
 			
 			/* 카페정보 정보 */
@@ -120,7 +224,6 @@ function prepareNewForm() {
 					logPath: $('#photo-path').val()
 			};
 			console.log(cafeinfo);
-			
 			$.post(serverRoot + '/cafe/add.json', cafeinfo, function(ajaxResult) {
 				if (ajaxResult.status != "success") {
 					alert(ajaxResult.data);
@@ -128,6 +231,7 @@ function prepareNewForm() {
 				}
 				alert('cafe정보등록이 완료되었습니다.');
 			}, 'json');
+			
 			
 			 /* 영업시간 */
 				var days = $('select[id=day]')
@@ -143,7 +247,6 @@ function prepareNewForm() {
 							endTime: end1.eq(i).val() + ":" + end2.eq(i).val()
 					}
 					console.log(workTime);
-					
 					$.post(serverRoot + '/cafeTime/add.json', workTime, function(ajaxResult) {
 						if (ajaxResult.status != "success") {
 							alert(ajaxResult.data);
@@ -152,6 +255,7 @@ function prepareNewForm() {
 						alert('시간등록 완료되었습니다.');
 					}, 'json');
 				};
+				
 				
 				/* 카페종류 태그 */
 				var tags = [];
@@ -163,7 +267,6 @@ function prepareNewForm() {
 				if($('.inperson').val() != null) {
 					tags += $('.inperson').val()
 				};
-				
 				var cafeTag = {
 						cafeMemberNo: cafeMemberNo,
 						tagName: tags
@@ -176,7 +279,6 @@ function prepareNewForm() {
 					}
 					alert('태그등록 완료되었습니다.');
 				}, 'json');
-				
 				
 				
 				/* 매장사진 */
@@ -196,7 +298,6 @@ function prepareNewForm() {
 						alert('매장사진등록이 완료되었습니다.');
 					}, 'json');
 				} 
-				
 				
 				
 				/*  대표메뉴 */
