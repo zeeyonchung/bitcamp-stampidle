@@ -164,7 +164,8 @@ $('.btmsubmit').click (function() {
 			var p = $('.stampNo' + i);
 			var positionX = p.position().left / $('.stmpside').css('width').split('px')[0];
 			var positionY = p.position().top / $('.stmpside').css('height').split('px')[0];
-			
+			console.log(p.position().left);
+			console.log(p.position().top);
 			var paramPosition = {
 					"stampCafeCardNo": stampCafeCardNo,
 					"positionX": positionX,

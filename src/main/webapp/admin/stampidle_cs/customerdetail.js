@@ -25,6 +25,66 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var height = $('#card-back').css('height');
 		$('.stmpside').css('width', width);
 		$('.stmpside').css('height', height);
+		
+		
+
+		$.getJSON(serverRoot + '/customCard/customCardDetail.json', 
+				{'customMemberNo': customMemberNo,
+				'cafeMemberNo': cafeMemberNo},
+				function(ajaxResult) {
+				var status = ajaxResult.status;
+				
+				if (status != "success") {
+					alert(ajaxResult.data);
+					return;
+				}
+				
+				var cardDetail = ajaxResult.data.cardDetail;
+				var customCardDetail = ajaxResult.data.customCardDetail;
+				var currentStampCount = ajaxResult.data.currentStampCount;
+				
+				
+				console.log(cardDetail);
+				console.log(cardDetail.backImgPath);
+				console.log(customCardDetail);
+				
+				$('#card-back').attr('src', serverRoot + "/admin/" + cardDetail.backImgPath);
+				/* 하... 경로가.....ㅠㅠ */
+				$('.current-stamp-count').text(currentStampCount);
+				
+				
+				// positionOrder대로 재정렬
+				cardDetail.stampPositionList.sort(function (a, b) { 
+					return a.positionOrder > b.positionOrder;
+				});
+				
+				
+				for (var i = 0; i < cardDetail.stampPositionList.length; i++) {
+					var positionOrder = cardDetail.stampPositionList[i].positionOrder;
+					var positionX = parseFloat(cardDetail.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
+					var positionY = parseFloat(cardDetail.stampPositionList[i].positionY) * $('.stmpside').css('height').split("px")[0];
+					console.log(positionX,positionY);
+					
+					$('<div>')
+				    .addClass('stmpare')
+				    .addClass('stampNo' + (positionOrder - 1))
+				    .appendTo("#stmpside")
+				    .text(positionOrder)
+				    .css({top: positionY, left: positionX})
+				    .addTouch();
+				}
+				
+				
+				for (var i = 0; i < currentStampCount; i++) {
+					$('<img>')
+				    .addClass('stamp-img')
+				    .appendTo('.stampNo' + i)
+				    .attr('src', '../upload/' + cardDetail.stampImgPath)
+				    .css('width', 40)
+				}
+				
+				console.log(cardDetail.stampImgPath);
+		});
 	});
 
 
@@ -61,64 +121,6 @@ $.getJSON(serverRoot + '/customCard/customDetail.json',
 
 
 
-
-$.getJSON(serverRoot + '/customCard/customCardDetail.json', 
-		{'customMemberNo': customMemberNo,
-		'cafeMemberNo': cafeMemberNo},
-		function(ajaxResult) {
-		
-		var status = ajaxResult.status;
-		
-		if (status != "success") {
-			alert(ajaxResult.data);
-			return;
-		}
-		
-		var cardDetail = ajaxResult.data.cardDetail;
-		var customCardDetail = ajaxResult.data.customCardDetail;
-		var currentStampCount = ajaxResult.data.currentStampCount;
-		
-		
-		console.log(cardDetail);
-		console.log(cardDetail.backImgPath);
-		console.log(customCardDetail);
-		
-		$('#card-back').attr('src', serverRoot + "/admin/" + cardDetail.backImgPath);
-		/* 하... 경로가.....ㅠㅠ */
-		$('.current-stamp-count').text(currentStampCount);
-		
-		
-		// positionOrder대로 재정렬
-		cardDetail.stampPositionList.sort(function (a, b) { 
-			return a.positionOrder > b.positionOrder;
-		});
-		
-		
-		for (var i = 0; i < cardDetail.stampPositionList.length; i++) {
-			var positionOrder = cardDetail.stampPositionList[i].positionOrder;
-			var positionX = cardDetail.stampPositionList[i].positionX * $('.stmpside').css('width');
-			var positionY = cardDetail.stampPositionList[i].positionY * $('.stmpside').css('height');
-			
-			$('<div>')
-		    .addClass('stmpare')
-		    .addClass('stampNo' + (positionOrder - 1))
-		    .appendTo("#stmpside")
-		    .text(positionOrder)
-		    .offset({top: positionY, left: positionX})
-		    .addTouch();
-		}
-		
-		
-		for (var i = 0; i < currentStampCount; i++) {
-			$('<img>')
-		    .addClass('stamp-img')
-		    .appendTo('.stampNo' + i)
-		    .attr('src', '../upload/' + cardDetail.stampImgPath)
-		    .css('width', 40)
-		}
-		
-		console.log(cardDetail.stampImgPath);
-});
 
 
 
