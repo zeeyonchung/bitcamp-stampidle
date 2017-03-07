@@ -51,17 +51,20 @@
 				<!-- 카테고리 -->
 				<div class='tag box'>
 					<div class="tit">카테고리*</div>
-					<div class="checkbox1">
-						<label><input type="checkbox" id="blankCheckbox" value='24시간' aria-label="..."> 24시간 카페</label>
+					<div class="checkbox">
+                        <label><input type="checkbox" id="study" value='스터디' aria-label="..." > 스터디카페</label>
+                    </div>
+					<div class="checkbox">
+						<label><input type="checkbox" id="24h" value='24시간' aria-label="..."> 24시간카페</label>
 					</div>
 					<div class="checkbox">
-						<label><input type="checkbox" id="blankCheckbox" value='북카페' aria-label="..."> 북카페</label>
+						<label><input type="checkbox" id="book" value='북카페' aria-label="..."> 북카페</label>
 					</div>
 					<div class="checkbox">
-						<label><input type="checkbox" id="blankCheckbox" value='애견카페' aria-label="..."> 애견카페</label>
+						<label><input type="checkbox" id="pet" value='애견카페' aria-label="..."> 애견카페</label>
 					</div>
 
-					<div class="checkbox">
+					<div class="checkbox_self">
 						<label>
 						  <input type="checkbox" id="self" aria-label="..."> 
 						  직접입력 
@@ -177,10 +180,10 @@
 					<div class="inputArea pre-set-before-num">
 							<div class="select1">
 								<select class="form-control" id='cafeTel1'>
-									<option>02</option>
-									<option>032</option>
-									<option>031</option>
-									<option>033</option>
+									<option value="02">02</option>
+									<option value="032">032</option>
+									<option value="031">031</option>
+									<option value="033">033</option>
 								</select>
 							</div>
 							<input type="text" id="number-input" class="form-control cafeTel2" placeholder="000"> - 

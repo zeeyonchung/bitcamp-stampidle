@@ -93,14 +93,10 @@ ul a {
 	margin-left:10px;
 }
 
-.checkbox1 {
-  display:inline-block;
+.checkbox_self {
+    display:inline-block;
 }
 
-.checkbox {
-	display:inline-block;
-	margin-left: 40px;
-}
 .cafe-name2 {
   width:100%;
   margin-top:10px;
@@ -344,10 +340,6 @@ ul a {
   width: 70px;
 }
 
-.checkbox {
-  display:inline-block;
-  margin-left: 10px;
-}
 .pbtn {
   margin-left:10px;
   border: 1px solid rgb(255,89,72);
@@ -410,7 +402,7 @@ ul a {
 
 .checkbox {
   display:inline-block;
-  margin-left: 10px;
+  margin-right: 12px;
 }
 .pbtn {
   margin-left:10px;
