@@ -24,16 +24,19 @@
 	  #{name})
   </insert>
 
-  <select id="getSrchListCustomMember" resultMap="customMember-map">
+  <select id="getSrchListCustomMember" parameterType="int" resultMap="customMember-map">
     select 
-  		mno,
-  		tel,
-  		email,
-  		name, 
-  		nick,
-  		spot,
-  		allow
-  	from memb;
+  		memb.mno,
+  		memb.tel,
+  		memb.email,
+  		memb.name, 
+  		memb.nick
+  	from memb
+  	  inner join mcard on memb.mno=mcard.mno
+  	  left outer join scinfo on mcard.scno=scinfo.scno
+  	  left outer join cafe on scinfo.cmno=cafe.cmno
+  	where cafe.cmno=#{cafeMemberNo}
+  	group by memb.mno
   </select>
   
   <select id="getOneByNameTel" parameterType="map"  resultMap="customMember-map">

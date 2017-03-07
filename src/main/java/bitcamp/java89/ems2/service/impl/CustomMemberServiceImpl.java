@@ -31,8 +31,8 @@ public class CustomMemberServiceImpl implements CustomMemberService {
     return customMemberNo;
   }
   
-  public List<CustomMember> getSrchListCustomMember() throws Exception {
-  	return customMemberDao.getSrchListCustomMember();
+  public List<CustomMember> getSrchListCustomMember(int cafeMemberNo) throws Exception {
+  	return customMemberDao.getSrchListCustomMember(cafeMemberNo);
   }
   
   @Override

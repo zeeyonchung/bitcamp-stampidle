@@ -24,8 +24,8 @@ public class CustomMemberJsonControl {
   }
   
   @RequestMapping(value = {"/admin/customMember/srchList"})
-  public AjaxResult list() throws Exception {
-    List<CustomMember> srchList = customMemberService.getSrchListCustomMember();
+  public AjaxResult srchList(int cafeMemberNo) throws Exception {
+    List<CustomMember> srchList = customMemberService.getSrchListCustomMember(cafeMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, srchList);
   }
   
