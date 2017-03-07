@@ -20,14 +20,25 @@ public class CustomMemberServiceImpl implements CustomMemberService {
   
   @Override
   public int add(CustomMember customMember, int cafeMemberNo) throws Exception {
-    customMemberDao.insert(customMember);
-    int customMemberNo = customMember.getCustomMemberNo();
+    Map<String, String> paramMap = new HashMap<>();
+    paramMap.put("name", customMember.getName());
+    paramMap.put("tel", customMember.getTel());
+    int customMemberNo = 0;
+    if (customMemberDao.getOneByNameTel(paramMap) == null) {
+      customMemberDao.insert(customMember);
+      customMemberNo = customMember.getCustomMemberNo();
+    } else {
+      CustomMember oldCustomMember = customMemberDao.getOneByNameTel(paramMap);
+      customMemberNo = oldCustomMember.getCustomMemberNo();
+    }
+    
     int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
     
-    Map<String, Object> paramMap = new HashMap<>();
-    paramMap.put("customMemberNo", customMemberNo);
-    paramMap.put("stampCafeCardNo", stampCafeCardNo);
-    customCardDao.insert(paramMap);
+    Map<String, Object> paramMap2 = new HashMap<>();
+    paramMap2.put("customMemberNo", customMemberNo);
+    paramMap2.put("stampCafeCardNo", stampCafeCardNo);
+    customCardDao.insert(paramMap2);
+    
     return customMemberNo;
   }
   
