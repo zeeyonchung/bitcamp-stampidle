@@ -134,9 +134,6 @@ $('.cardadd .btmsubmit').click(function() {
 
 /********* auth/login.html ***********/
 
-$('.login .login-main .login-btn').click(function() {
-	location.href = clientRoot + "/admin_m/main/main.html";
-});
 
 
 /********* event/eventlist.html ***********/

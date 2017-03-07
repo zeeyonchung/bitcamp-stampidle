@@ -22,10 +22,10 @@
         <div class="login-main">
 	        <p class="login-title">카페회원 로그인</p>
 	        <div>
-	          <input type="text" class="form-control" placeholder="Email">
+	          <input type="text" class="form-control" id="id" placeholder="Email">
 	        </div>
 	        <div>
-	           <input type="password" class="form-control" placeholder="Password">
+	           <input type="password" class="form-control" id="password" placeholder="Password">
 	        </div>
 	        <button type="button" class="login-btn">Login</button>
 	        <button type="button" class="register-btn">회원가입</button>
@@ -70,6 +70,7 @@
   <script src="../js/bit.js"></script>
   <script src="../js/common.js"></script>
   <script src="../js/link.js"></script>
+  <script src="login.js"></script>
 
 	<script>
 		function size() {
@@ -84,7 +85,6 @@
 		$(document).ready(size); // When the page first loads
 		$(window).resize(size); // When the browser changes size
 	</script>
-
 
 
 	<script>

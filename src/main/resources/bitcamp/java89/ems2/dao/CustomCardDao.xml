@@ -219,9 +219,7 @@
   limit 1
   </select>
   
-  <select id="getCustomCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
   
-  </select>
   
 
 </mapper>
