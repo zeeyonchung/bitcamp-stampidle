@@ -27,14 +27,17 @@ $(function() {
 	        $("#searchbox").autocomplete({
 	            source: availableTags,
 	            select: function( event, ui ) {
-	              alert("선택~~~~");
 	              location.href = serverRoot + '/stampidle_cs/customerdetail.html?customMemberNo=' + ui.item.value;
 	              return false;
 	            }
 	        });
 	        
 	        $("#searchbox-main").autocomplete({
-	            source: availableTags
+	        	source: availableTags,
+	            select: function( event, ui ) {
+	              location.href = serverRoot + '/stampidle_cs/customerdetail.html?customMemberNo=' + ui.item.value;
+	              return false;
+	            }
 	        });
 	        
 	    });
