@@ -17,7 +17,7 @@ public class CustomMemberJsonControl {
   
   @Autowired CustomMemberService customMemberService;
   
-  @RequestMapping(value = {"/admin/customMember/add", "/cstmr_m/customMember/add"})
+  @RequestMapping(value = {"/admin/customMember/add"})
   public AjaxResult add(CustomMember customMember, int cafeMemberNo) throws Exception {
     customMemberService.add(customMember, cafeMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
@@ -39,6 +39,12 @@ public class CustomMemberJsonControl {
   public AjaxResult getOne(int customMemberNo) throws Exception {
     CustomMember customMember = customMemberService.getOne(customMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, customMember);
+  }
+  
+  @RequestMapping(value = {"/cstmr_m/customMember/add"})
+  public AjaxResult add(CustomMember customMember) throws Exception {
+    customMemberService.add(customMember);
+    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
   
 }
