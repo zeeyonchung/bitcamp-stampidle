@@ -69,6 +69,13 @@ public class CustomCardJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "스탬프 추가 성공");
   }
   
+  
+  @RequestMapping(value = "/admin/customCard/addNewCustomCard")
+  public AjaxResult addNewCustomCard(int cafeMemberNo, int customMemberNo) throws Exception {
+    customCardService.addNewCustomCard(cafeMemberNo, customMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, "스탬프 추가 성공");
+  }
+  
 }
 
 

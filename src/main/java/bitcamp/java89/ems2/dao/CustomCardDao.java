@@ -23,4 +23,6 @@ public interface CustomCardDao {
   int getStampCafeCardNo(int cafeMemberNo) throws Exception;
   
   int insertStamp(Map<String, Object> paramMap) throws Exception;
+  
+  void updatemcuse(Map<String, Object> paramMap) throws Exception;
 }

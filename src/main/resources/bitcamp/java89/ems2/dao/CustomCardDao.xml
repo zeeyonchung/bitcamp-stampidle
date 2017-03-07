@@ -47,6 +47,13 @@
   </insert>
   
   
+  <update id="updatemcuse" parameterType="java.util.Map">
+    UPDATE mcard 
+    SET mcuse = mcuse + 1
+    WHERE scno=#{stampCafeCardNo} and mno=#{customMemberNo} 
+  </update>
+  
+  
   
   <insert id="insertStamp" parameterType="java.util.Map">
     insert into stamp(mcno, many, stime) 
