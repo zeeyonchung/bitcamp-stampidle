@@ -182,12 +182,9 @@ $('.btmsubmit').click (function() {
 			}, 'json');
 		}
 		
+		location.href = '../cafeinfoedit/cafeinfoedit.html?cafeMemberNo=' + cafeMemberNo;
 	}, 'json');
 	
-	
-	
-	
-	//location.href = '../cafeinfoedit/cafeinfoedit3.html';
 });
 
 
