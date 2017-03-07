@@ -191,4 +191,15 @@ public class CustomCardServiceImpl implements CustomCardService {
     return resultMap;
   }
 
+
+  @Override
+  public void addStamp(int customMemberNo, int cafeMemberNo, int stampIssueCount) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("customMemberNo", customMemberNo);
+    paramMap.put("cafeMemberNo", cafeMemberNo);
+    paramMap.put("stampIssueCount", stampIssueCount);
+    
+    customCardDao.insertStamp(paramMap);
+  }
+
 }
