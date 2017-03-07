@@ -6,10 +6,19 @@ public class Cafe extends CafeMember {
   protected String cafeTel;
   protected String cafeName;
   protected String intro;
-  protected String address;
+  protected String postCode;
+	protected String address;
   protected String detailAddress;
   protected int chairNo;
   protected String logPath;
+  
+  
+  public String getPostCode() {
+		return postCode;
+	}
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
+	}
   public String getCafeTel() {
     return cafeTel;
   }

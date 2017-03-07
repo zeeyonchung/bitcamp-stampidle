@@ -17,6 +17,7 @@
     <result column="cftel"       property="cafeTel"/>
     <result column="cname"       property="cafeName"/>
     <result column="intro"       property="intro"/>
+    <result column="postno"       property="postCode"/>
     <result column="addr"       property="address"/>
     <result column="daddr"       property="detailAddress"/>
     <result column="chair"       property="chairNo"/>
@@ -25,12 +26,13 @@
   
   
   <insert id="insert" parameterType="cafe">
-  insert into cafe(cmno, cftel, cname, intro, addr, daddr, chair, logo)
+  insert into cafe(cmno, cftel, cname, intro, postno, addr, daddr, chair, logo)
   values(
   #{cafeMemberNo},
   #{cafeTel},
   #{cafeName},
   #{intro},
+  #{postCode},
   #{address},
   #{detailAddress},
   #{chairNo},
@@ -43,6 +45,7 @@
       cname,
       intro,
   	  cftel,
+  	  postno,
       addr,
       daddr,
       chair,
