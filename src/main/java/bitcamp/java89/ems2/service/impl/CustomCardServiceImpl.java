@@ -162,19 +162,14 @@ public class CustomCardServiceImpl implements CustomCardService {
 
   @Override
   public Map<String, Object> getCustomCardDetail(int customMemberNo, int cafeMemberNo) throws Exception {
-    HashMap<String, Object> paramMap = new HashMap<>();
+    
+    HashMap<String, Object> paramMap = new HashMap<>();p
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("cafeMemberNo", cafeMemberNo);
     
-    List<CustomCard> customDetailList = customCardDao.getCustomDetail(paramMap);
     
     HashMap<String, Object> resultMap = new HashMap<>();
-    resultMap.put("customPhoto", customDetailList.get(customDetailList.size() - 1).getCustomPhoto());
-    resultMap.put("customName", customDetailList.get(customDetailList.size() - 1).getCustomName());
-    resultMap.put("customTel", customDetailList.get(0).getCustomTel());
-    resultMap.put("firstVisitDate", customDetailList.get(0).getCardIssueDate());
-    resultMap.put("lastVisitDate", customDetailList.get(customDetailList.size() - 1).getCardIssueDate());
-    
+    resultMap.put("customCard", );
     int stampCount = 0;
     
     for (CustomCard list : customDetailList) {

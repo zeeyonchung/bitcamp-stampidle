@@ -173,6 +173,10 @@ order by mcard.mno desc, mcard.birth desc
 
   </select>
   
+  <select id="getCustomCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
+  
+  </select>
+  
 
 </mapper>
 
