@@ -79,7 +79,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					$('<img>')
 				    .addClass('stamp-img')
 				    .appendTo('.stampNo' + i)
-				    .attr('src', '../upload/' + cardDetail.stampImgPath)
+				    .attr('src', '../../upload/' + cardDetail.stampImgPath)
 				    .css('width', 40)
 				}
 				
