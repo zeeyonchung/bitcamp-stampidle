@@ -16,8 +16,6 @@ $(function() {
 	        }
 	        
 	        
-	        console.log(ajaxResult.data);
-	
 	        var availableTags = [];
 	        
 	        $.each( ajaxResult.data, function(index, value) {
