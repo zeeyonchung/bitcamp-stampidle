@@ -38,17 +38,19 @@
 				
 				
 				<!-- 카페이름 -->
-				<div class='cafe-name'>
-					<span>카페이름*</span> 
-					   <input type="text" class="form-control" placeholder="내용을 입력해 주세요" id='cafeName'> 
-					<span class="info-subtext">(한글 기준 25자 이내)</span>
+				<div class='cafe-name box'>
+					<div class="tit">카페이름*</div>
+					<div class="inputArea">
+						<input type="text" class="form-control" placeholder="내용을 입력해 주세요" id='cafeName'> 
+						<span class="info-subtext">(한글 기준 25자 이내)</span>
+					</div> 
 				</div>
 				<!-- 카페이름 -->
 				
 				
 				<!-- 카테고리 -->
-				<div class='cafe-name tag'>
-					<span>카테고리*</span>
+				<div class='tag box'>
+					<div class="tit">카테고리*</div>
 					<div class="checkbox1">
 						<label><input type="checkbox" id="blankCheckbox" value='24시간' aria-label="..."> 24시간 카페</label>
 					</div>
@@ -69,8 +71,8 @@
 				</div>
 				<!-- 카테고리 -->
 				<!-- 소개글 -->
-				<div class='cafe-name2'>
-					<span class="introtext">소개글</span>
+				<div class='cafe-name2 box'>
+					<div class="tit">소개글</div>
 					<div class='cafe-introdiv'>
 						<textarea id="introcafe" class="form-control" placeholder="내용을 입력해 주세요"></textarea>
 					</div>
@@ -83,9 +85,9 @@
 
 
 				<!-- 영업시간 -->
-				<div class="work-time">
-					<div class="work-time-text">영업시간</div>
-					<div class="pre-set-before">
+				<div class="work-time box">
+					<div class="tit">영업시간</div>
+					<div class="inputArea pre-set-before">
 						<div id="pre_set">
 							<div class="select1">
 
@@ -157,22 +159,22 @@
 									<option>50</option>
 								</select>
 							</div>
-							<input class="pbtn" type="button" value="-" onclick="remove_item(this)">
+							<input class="plusBtn remove" type="button" value="-" onclick="remove_item(this)">
 						</div>
 
-						<div id="field"></div>
+						<div id="field" class='field'></div>
 					</div>
 
-					<input class="pbtn" type="button" value="+" onclick="add_item()"><br>
+					<input class="plusBtn" type="button" value="+" onclick="add_item()"><br>
 					<span class="worktime-addtext">설정 시간에 따라 통계가 이루어 집니다.</span>
 				</div>
 
 
 				<!-- 매장 번호 -->
-				<div class="work-time">
-					<div class="work-time-text">매장번호</div>
+				<div class="work-time box">
+					<div class="tit">매장번호</div>
 					
-					<div class="pre-set-before-num">
+					<div class="inputArea pre-set-before-num">
 							<div class="select1">
 								<select class="form-control" id='cafeTel1'>
 									<option>02</option>
@@ -190,10 +192,10 @@
 
 
 				<!-- 주소 찾기 -->
-				<div class='cafe-name3'>
-					<div class="introtext2">주소*</div>
+				<div class='cafe-name3 box'>
+					<div class="tit">주소*</div>
 
-					<div class='addr-div'>
+					<div class='inputArea addr-div'>
 						<input class="inputaddr addr1" type="text" id="sample4_postcode" placeholder="우편번호"> 
 						<input class="inputaddr-btn" type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br> 
 						<input class="inputaddr addr2" type="text" id="sample4_roadAddress" placeholder="도로명주소">
@@ -206,9 +208,9 @@
 
 
 				<!-- 좌석 수 -->
-				<div class='cafe-name3'>
-					<div class="introtext2">좌석 수</div>
-					<div class="pre-set-before2">
+				<div class='cafe-name3 box'>
+					<div class="tit">좌석 수</div>
+					<div class="inputArea pre-set-before2">
 						<div class="select1">
 							<select class="form-control" id='chairNo'>
 								<option>10</option>
@@ -228,18 +230,17 @@
 
 
 				<!-- 로고추가 -->
-				<div class='cafe-name3'>
-					<div class="introtext2">로고추가</div>
+				<div class='logoImg box'>
+					<div class="tit">로고추가</div>
 
-					<div class="imgbox" id="upfile1">
-						<img id='photo-img'> 
-						<label for="photo" class="col-sm-2 control-label"></label> 
-						<input type="file" id="file1" name="file1" style="display: none;" />
-					</div>
-					<div class="logo-remain">
-						<div class="col-sm-10">
+                    <div class="inputArea">
+						<div class="imgbox" id="upfile1">
+							<img id='photo-img'> 
+							<label for="photo" class="col-sm-2 control-label"></label> 
+							<input type="file" id="file1" name="file1" style="display: none;" />
+						</div>
+						<div class="btn-deco">
 							<span class="btn btn-success fileinput-button"> 
-							     <i class="glyphicon glyphicon-plus"></i> 
 							     <input id='photo' class='form-control' type='file' name='files'>
 							</span> 
 							<input id='photo-path' class='logPath' style='visibility: hidden;'>
@@ -251,62 +252,56 @@
 
 
 				<!-- 매장 사진 -->
-				<div class="cafe-photo">
-					<div class="introtext2">매장 사진</div>
+				<div class="cafe-photo box">
+					<div class="tit">매장 사진</div>
                     
-                    <div id="cafeImg_set">
+                    <div id="cafeImg_set" class='inputArea'>
 						<div class="imgbox">
 							<img id='cafe-photo-img'> 
 							<input type="file" id="cf-file" name="cf-file" style="display: none;" />
 						</div>
-						<div class="logo-remain">
-							<div class="col-sm-10">
-								<span class="btn btn-success fileinput-button"> 
-								    <i class="glyphicon glyphicon-plus"></i> 
-								    <input id='cafe-photo' class='form-control' type='file' name='files'>
-								</span> 
-								<input id='cafe-photo-path' class='cafephotoPath' style='visibility: hidden;'>
-							</div>
+						<div class="btn-deco">
+							<span class="btn btn-success fileinput-button"> 
+							    <input id='cafe-photo' class='form-control' type='file' name='files'>
+							</span> 
+							<input id='cafe-photo-path' class='cafephotoPath' style='visibility: hidden;'>
 						</div>
-					<input class="pbtn remove" type="button" value="-" onclick="remove_cafeimg(this)">
+					   <input class="plusBtn remove" type="button" value="-" onclick="remove_cafeimg(this)">
 					</div>
-					<div id="field-cafeimg"></div>
+					<div id="field-cafeimg" class='inputArea field'></div>
 					
-					<input class="pbtn" type="button" value="+" onclick="add_cafeImg()">
+					<input class="plusBtn" type="button" value="+" onclick="add_cafeImg()">
 					
 				</div>
 				<!-- //매장 사진 -->
 
 
 				<!-- 대표 메뉴 -->
-				<div class='cafe-menu'>
-					<div class='freename'>대표 메뉴</div>
+				<div class='cafe-menu box'>
+					<div class="tit">대표 메뉴</div>
 					
-						<div id="menu_set">
-							<div class="imgbox" id="mnBox">
-	                            <img id='menu-photo-img'> 
-	                            <input type="file" id="mn-file" name="mn-file" style="display: none;" />
-	                        </div>
-	                        <div class="logo-remain">
-	                            <div class="col-sm-10">
-	                                <span class="btn btn-success fileinput-button"> 
-	                                    <i class="glyphicon glyphicon-plus"></i> 
-	                                    <input id='menu-photo' class='form-control' type='file' name='files'>
-	                                </span> 
-	                                <input id='menu-photo-path' class='menuphotoPath' style='visibility: hidden;'>
-	                            </div>
-	                        </div>     
-	                        <div class="menuInfo">
-	                        메뉴: <input id='menuNm' class='mnNm' type='text'> 
-	                        가격: <input id='price' class='mnPrice' type='text'> 원
-	                        </div>
-	                        <input class="pbtn remove" type="button" value="-" onclick="remove_menu(this)">
-                       </div>
-						<div id="field-menu"></div>
-					<input class="pbtn" type="button" value="+" onclick="add_menu()">
+					<div id="menu_set" class='inputArea'>
+						<div class="imgbox" id="mnBox">
+                            <img id='menu-photo-img'> 
+                            <input type="file" id="mn-file" name="mn-file" style="display: none;" />
+                        </div>
+                        <div class="btn-deco">
+                               <span class="btn btn-success fileinput-button"> 
+                                   <input id='menu-photo' class='form-control' type='file' name='files'>
+                               </span> 
+                               <input id='menu-photo-path' class='menuphotoPath' style='visibility: hidden;'>
+                        </div>     
+                        <div class="menuInfo">
+                        메뉴 <input id='menuNm' class='mnNm' type='text'> 
+                        가격 <input id='price' class='mnPrice' type='text'> 원
+                        </div>
+                        <input class="plusBtn remove" type="button" value="-" onclick="remove_menu(this)">
+                    </div>
+					<div id="field-menu" class='inputArea field'></div>
+					<input class="plusBtn" type="button" value="+" onclick="add_menu()">
 					
 				</div>
-
+                <!-- //대표 메뉴 -->
 					
 				<!-- 다음단계입력-->
 				<div>
