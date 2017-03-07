@@ -18,7 +18,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	cafeMemberNo = cafeMember.cafeMemberNo;
 	
 	
-	
 	/** stmpside 넓이 조정 **/
 	var width = $('#card-back').css('width');
 	var height = $('#card-back').css('height');

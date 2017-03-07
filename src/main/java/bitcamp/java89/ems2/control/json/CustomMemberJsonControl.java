@@ -19,8 +19,8 @@ public class CustomMemberJsonControl {
   
   @RequestMapping(value = {"/admin/customMember/add"})
   public AjaxResult add(CustomMember customMember, int cafeMemberNo) throws Exception {
-    customMemberService.add(customMember, cafeMemberNo);
-    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+    int customMemberNo = customMemberService.add(customMember, cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, customMemberNo);
   }
   
   @RequestMapping(value = {"/admin/customMember/srchList"})

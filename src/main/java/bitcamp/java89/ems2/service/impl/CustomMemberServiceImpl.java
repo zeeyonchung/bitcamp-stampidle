@@ -20,7 +20,7 @@ public class CustomMemberServiceImpl implements CustomMemberService {
   
   @Override
   public int add(CustomMember customMember, int cafeMemberNo) throws Exception {
-    int success = customMemberDao.insert(customMember);
+    customMemberDao.insert(customMember);
     int customMemberNo = customMember.getCustomMemberNo();
     int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
     
@@ -28,7 +28,7 @@ public class CustomMemberServiceImpl implements CustomMemberService {
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("stampCafeCardNo", stampCafeCardNo);
     customCardDao.insert(paramMap);
-    return success;
+    return customMemberNo;
   }
   
   public List<CustomMember> getSrchListCustomMember() throws Exception {
