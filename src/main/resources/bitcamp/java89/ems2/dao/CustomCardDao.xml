@@ -53,7 +53,9 @@
     values(
       (select mcno from mcard
         inner join scinfo on scinfo.scno=mcard.scno
-        where mcard.mno=#{customMemberNo} and scinfo.cmno=#{cafeMemberNo}), 
+        where mcard.mno=#{customMemberNo} and scinfo.cmno=#{cafeMemberNo}
+        order by mcard.mcno desc
+        limit 1), 
        #{stampIssueCount}, 
        curdate()
      )
@@ -183,8 +185,8 @@
 		  stamp.many,
 		  stamp.mcno
 		from mcard
-			inner join scinfo on scinfo.scno=mcard.scno
-			inner join stamp on mcard.mcno=stamp.mcno
+			left outer join scinfo on scinfo.scno=mcard.scno
+			left outer join stamp on mcard.mcno=stamp.mcno
 		where scinfo.cmno=#{cafeMemberNo} and mcard.mno=#{customMemberNo}
   </select>
   

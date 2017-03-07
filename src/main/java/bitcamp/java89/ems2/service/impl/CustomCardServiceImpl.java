@@ -177,13 +177,12 @@ public class CustomCardServiceImpl implements CustomCardService {
     HashMap<String, Object> resultMap = new HashMap<>();
     
     resultMap.put("cardDetail", cardDetail);
-    resultMap.put("customCardDetail", customCardDetail);
-    
     
     
     // 현재 모인 스탬프 수
     int currentStampCount = 0;
     if (customCardDetail.size() > 0) {
+      System.out.println(customCardDetail);
       int currentCardSize = customCardDetail.get(customCardDetail.size() - 1).getStampList().size();
       for (int i = 0; i < currentCardSize; i++) {
         currentStampCount += customCardDetail.get(customCardDetail.size() - 1).getStampList().get(i).getStampIssueCount();

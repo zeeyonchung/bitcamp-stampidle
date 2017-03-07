@@ -38,13 +38,11 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		}
 		
 		var cardDetail = ajaxResult.data.cardDetail;
-		var customCardDetail = ajaxResult.data.customCardDetail;
 		var currentStampCount = ajaxResult.data.currentStampCount;
 		
 		
 		console.log(cardDetail);
 		console.log(cardDetail.backImgPath);
-		console.log(customCardDetail);
 		
 		$('#card-back').attr('src', serverRoot + "/admin/" + cardDetail.backImgPath);
 		/* 하... 경로가.....ㅠㅠ */
