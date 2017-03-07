@@ -43,6 +43,10 @@ public class CustomMemberServiceImpl implements CustomMemberService {
   public CustomMember getOne(int customMemberNo) throws Exception {
     return customMemberDao.getOne(customMemberNo);
   }
+  @Override
+  public int add(CustomMember customMember) throws Exception {
+    return customMemberDao.insert(customMember);
+  }
 }
   
 

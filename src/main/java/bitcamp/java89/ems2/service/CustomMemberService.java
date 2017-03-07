@@ -9,5 +9,5 @@ public interface CustomMemberService {
   List<CustomMember> getSrchListCustomMember() throws Exception;
   int update(CustomMember customMember) throws Exception;
   CustomMember getOne(int customMemberNo) throws Exception;
-  
+  int add(CustomMember customMember) throws Exception;
 }
