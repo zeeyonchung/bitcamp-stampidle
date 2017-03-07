@@ -19,7 +19,7 @@ $(function() {
 			}
 
 			$('#logoff-div').css('display', 'none');
-			$('#logon-div .cafeNm').text(loginUser.id);
+			$('#logon-div .cafeNm').text(loginUser.id).attr('data-no',loginUser.cafeMemberNo);
 
 			$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + loginUser.cafeMemberNo, function(ajaxResult1) {
 				var cafeinfo = ajaxResult1.data;

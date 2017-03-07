@@ -18,6 +18,7 @@
     <result column="cftel"       property="cafeTel"/>
     <result column="cname"       property="cafeName"/>
     <result column="intro"       property="intro"/>
+    <result column="postno"       property="postCode"/>
     <result column="addr"       property="address"/>
     <result column="daddr"       property="detailAddress"/>
     <result column="chair"       property="chairNo"/>

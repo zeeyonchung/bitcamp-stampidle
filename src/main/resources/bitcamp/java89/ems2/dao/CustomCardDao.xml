@@ -48,6 +48,19 @@
   
   
   
+  <insert id="insertStamp" parameterType="java.util.Map">
+    insert into stamp(mcno, many, stime) 
+    values(
+      (select mcno from mcard
+        inner join scinfo on scinfo.scno=mcard.scno
+        where mcard.mno=#{customMemberNo} and scinfo.cmno=#{cafeMemberNo}), 
+       #{stampIssueCount}, 
+       curdate()
+     )
+  </insert>
+  
+  
+  
   <select id="getStampList" parameterType="java.util.Map" resultMap="customCard-map">
     select 
       stamp.stno,

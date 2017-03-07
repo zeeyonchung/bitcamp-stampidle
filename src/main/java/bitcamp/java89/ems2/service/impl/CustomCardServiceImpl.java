@@ -183,7 +183,10 @@ public class CustomCardServiceImpl implements CustomCardService {
     // 현재 모인 스탬프 수
     int currentStampCount = 0;
     if (customCardDetail.size() > 0) {
-      currentStampCount = customCardDetail.get(customCardDetail.size() - 1).getStampList().size();
+      int currentCardSize = customCardDetail.get(customCardDetail.size() - 1).getStampList().size();
+      for (int i = 0; i < currentCardSize; i++) {
+        currentStampCount += customCardDetail.get(customCardDetail.size() - 1).getStampList().get(i).getStampIssueCount();
+      }
     } else {
       currentStampCount = 0;
     }
@@ -191,6 +194,17 @@ public class CustomCardServiceImpl implements CustomCardService {
     resultMap.put("currentStampCount", currentStampCount);
     
     return resultMap;
+  }
+
+
+  @Override
+  public void addStamp(int customMemberNo, int cafeMemberNo, int stampIssueCount) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("customMemberNo", customMemberNo);
+    paramMap.put("cafeMemberNo", cafeMemberNo);
+    paramMap.put("stampIssueCount", stampIssueCount);
+    
+    customCardDao.insertStamp(paramMap);
   }
 
 }

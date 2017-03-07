@@ -63,7 +63,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					var positionOrder = cardDetail.stampPositionList[i].positionOrder;
 					var positionX = parseFloat(cardDetail.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
 					var positionY = parseFloat(cardDetail.stampPositionList[i].positionY) * $('.stmpside').css('height').split("px")[0];
-					console.log(positionX,positionY);
 					
 					$('<div>')
 				    .addClass('stmpare')
@@ -83,45 +82,78 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				    .css('width', 40)
 				}
 				
-				console.log(cardDetail.stampImgPath);
+				
+
+				$(document.body).on('click', '.stmpare', function(event) {
+					var stampNo = this.getAttribute('class').split(" ")[1].split("stampNo")[1];
+					if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') == -1) {
+						
+						$('<img>')
+						.addClass('stamp-img')
+						.appendTo('.stampNo' + stampNo)
+						.attr('src', '../../upload/' + cardDetail.stampImgPath)
+						.css('width', 40);
+						
+						$(this).addClass('add-check');
+						
+					} else if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') != -1) {
+						
+						$('.stampNo' + stampNo).children('img').remove();
+						$(this).removeClass('add-check');
+					}
+				});
+				
+				
+				
+				
+				$('.stamp-btn').click(function(e) {
+					var stampIssueCount = $('#stmpside').children('.add-check').length;
+					$.post(serverRoot + '/customCard/addStamp.json', 
+							{'customMemberNo': customMemberNo,
+							'cafeMemberNo': cafeMemberNo,
+							'stampIssueCount' : stampIssueCount},
+					function(ajaxResult) {
+						location.href="";
+					});
+				});
+				
+				
 		});
 	});
 
 
 
 
-$.getJSON(serverRoot + '/customCard/customDetail.json', 
-		{'customMemberNo': customMemberNo,
-		'cafeMemberNo': cafeMemberNo},
-		function(ajaxResult) {
-		
-		var status = ajaxResult.status;
-		
-		if (status != "success") {
-			alert(ajaxResult.data);
-			return;
-		}
-		
-		var customCard = ajaxResult.data;
-		console.log(customCard);
-		
-		if (customCard.customPhoto == null) {
-			$('#custom-photo').attr('src', '../image/stmp4.png');
-		} else {
-			$('#custom-photo').attr('src', '../../upload/' + customCard.customPhoto);
-		}
-		$('#name').text(customCard.customName);
-		$('#phone-number').text(customCard.customTel);
-		$('.finish-coupon').text(customCard.finishCardCount);
-		$('.first-visit-date').text(customCard.firstVisitDate);
-		$('.last-visit-date').text(customCard.lastVisitDate);
-		$('.all-stamp').text(customCard.allStampCount);
+	$.getJSON(serverRoot + '/customCard/customDetail.json', 
+			{'customMemberNo': customMemberNo,
+			'cafeMemberNo': cafeMemberNo},
+			function(ajaxResult) {
+			
+			var status = ajaxResult.status;
+			
+			if (status != "success") {
+				alert(ajaxResult.data);
+				return;
+			}
+			
+			var customCard = ajaxResult.data;
+			console.log(customCard);
+			
+			if (customCard.customPhoto == null) {
+				$('#custom-photo').attr('src', '../image/stmp4.png');
+			} else {
+				$('#custom-photo').attr('src', '../../upload/' + customCard.customPhoto);
+			}
+			$('#name').text(customCard.customName);
+			$('#phone-number').text(customCard.customTel);
+			$('.finish-coupon').text(customCard.finishCardCount);
+			$('.first-visit-date').text(customCard.firstVisitDate);
+			$('.last-visit-date').text(customCard.lastVisitDate);
+			$('.all-stamp').text(customCard.allStampCount);
+	});
+	
+	
+	
+	
 });
 
-
-
-
-
-
-
-});
