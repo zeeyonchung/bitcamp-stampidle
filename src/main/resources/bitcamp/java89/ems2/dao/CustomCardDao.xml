@@ -47,10 +47,10 @@
   </insert>
   
   
-  <update id="updatemcuse" parameterType="java.util.Map">
+  <update id="updatemcuse" parameterType="int">
     UPDATE mcard 
-    SET mcuse = mcuse + 1
-    WHERE scno=#{stampCafeCardNo} and mno=#{customMemberNo} 
+    SET mcuse = 1
+    WHERE mcno=#{currentCustomCardNo}
   </update>
   
   

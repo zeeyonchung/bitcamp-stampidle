@@ -119,7 +119,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		$('#reset-btn').click(function(e) {
 			if ($('#stmpside').children('.add-check').length + currentStampCount != $('.stmpare').length) {
 				console.log('아직 리셋 안 됨...');
-				return;}
+				return;
+			}
 			
 			$.getJSON(serverRoot + '/customCard/addNewCustomCard.json', 
 					{'customMemberNo': customMemberNo,

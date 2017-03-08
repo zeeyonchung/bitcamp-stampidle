@@ -24,5 +24,5 @@ public interface CustomCardDao {
   
   int insertStamp(Map<String, Object> paramMap) throws Exception;
   
-  void updatemcuse(Map<String, Object> paramMap) throws Exception;
+  void updatemcuse(int currentCustomCardNo) throws Exception;
 }

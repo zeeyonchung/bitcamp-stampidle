@@ -182,7 +182,6 @@ public class CustomCardServiceImpl implements CustomCardService {
     // 현재 모인 스탬프 수
     int currentStampCount = 0;
     if (customCardDetail.size() > 0) {
-      System.out.println(customCardDetail);
       int currentCardSize = customCardDetail.get(customCardDetail.size() - 1).getStampList().size();
       for (int i = 0; i < currentCardSize; i++) {
         currentStampCount += customCardDetail.get(customCardDetail.size() - 1).getStampList().get(i).getStampIssueCount();
@@ -212,15 +211,19 @@ public class CustomCardServiceImpl implements CustomCardService {
   public void addNewCustomCard(int cafeMemberNo, int customMemberNo) throws Exception {
     int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
     
+    Map<String, Object> paramMap0 = new HashMap<>();
+    paramMap0.put("customMemberNo", customMemberNo);
+    paramMap0.put("cafeMemberNo", cafeMemberNo);
+    List<CustomCard> customCardList = customCardDao.getCustomDetail(paramMap0);
+    int currentCustomCardNo = customCardList.get(customCardList.size() - 1).getCustomCardNo();
+    
+    
     Map<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("stampCafeCardNo", stampCafeCardNo);
     customCardDao.insert(paramMap);
     
-    Map<String, Object> paramMap2 = new HashMap<>();
-    paramMap2.put("stampCafeCardNo", stampCafeCardNo);
-    paramMap2.put("customMemberNo", customMemberNo);
-    customCardDao.updatemcuse(paramMap2);
+    customCardDao.updatemcuse(currentCustomCardNo);
   }
 
 }
