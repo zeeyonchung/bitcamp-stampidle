@@ -120,7 +120,7 @@ $(document).ready( function(){
 		$('.tempPop').fadeOut(200);
 		var cardPath = $('.mySlides[style*="display: block"] img').attr('src');
 		$('.backcard').remove();
-		$('<img>').attr("class","backcard").attr("src",cardPath).prepend(".mid");
+		$('<img>').attr("class","backcard").attr("src",cardPath).prependTo(".mid");
 		$('#back-photo-path').val($(".mid").children(".backcard").attr("src"));
 		
 		var stmpPath = $(':checked + img').attr('src');
