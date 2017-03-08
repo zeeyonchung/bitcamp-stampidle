@@ -77,10 +77,11 @@ function prepareViewForm() {
 	
 	
 	
-	alert("up1");
+
 	$('.btn-update').click(function() {
 		var cafeMemberNo = $('.cafeNm').attr("data-no");
-		/* 카페정보 정보 */
+		
+		/* 카페정보 정보*/
 		var cafeinfo = {
 				cafeMemberNo: cafeMemberNo,
 				cafeName: $('#cafeName').val(),
@@ -99,10 +100,9 @@ function prepareViewForm() {
 				return;
 			}
 			alert('cafe정보등록이 완료되었습니다.');
-		}, 'json');
+		}, 'json'); 
 
-		
-		/* 영업시간
+		/* 영업시간 */
 		var days = $('select[id=day]')
 		var start1 = $('select[id=startTime1]');
 		var start2 = $('select[id=startTime2]');
@@ -123,8 +123,7 @@ function prepareViewForm() {
 				}
 				alert('시간등록 완료되었습니다.');
 			}, 'json');
-		}; */
-		
+		}; 
 		
 		/* 카페종류 태그 */
 		var tags = [];
@@ -150,7 +149,7 @@ function prepareViewForm() {
 		}, 'json');
 
 		
-		/* 매장사진
+		/* 매장사진 */
 		var cafefilepath = $('.cafephotoPath')
 		console.log($('.cafephotoPath').length);
 		for (var i=0; i < cafefilepath.length; i++) {
@@ -166,10 +165,10 @@ function prepareViewForm() {
 				}
 				alert('매장사진등록이 완료되었습니다.');
 			}, 'json');
-		}  */
+		}  
 		
 		
-		/*  대표메뉴
+		/*  대표메뉴 */
 		var menufilepath = $('.menuphotoPath')
 		var menuNm = $('.mnNm')
 		var menuPrice = $('.mnPrice')
@@ -188,7 +187,7 @@ function prepareViewForm() {
 				}
 				alert('메뉴등록이 완료되었습니다.');
 			}, 'json');
-		} */
+		}
 		
 	}); // click()
 

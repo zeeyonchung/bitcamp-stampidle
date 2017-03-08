@@ -49,4 +49,12 @@
     where cmno=#{value} 
   </select>
   
+  <update id="update" parameterType="cafeTime">
+    update wtime set
+      wday=#{day},
+      stime=#{startTime},
+  	etime=#{endTime}
+    where cmno=#{cafeMemberNo}
+  </update>
+  
 </mapper>
