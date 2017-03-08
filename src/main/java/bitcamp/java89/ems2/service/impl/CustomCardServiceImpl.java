@@ -212,14 +212,15 @@ public class CustomCardServiceImpl implements CustomCardService {
 
   @Override
   public void addNewCustomCard(int cafeMemberNo, int customMemberNo) throws Exception {
-    int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
-    
     Map<String, Object> paramMap0 = new HashMap<>();
     paramMap0.put("customMemberNo", customMemberNo);
     paramMap0.put("cafeMemberNo", cafeMemberNo);
     List<CustomCard> customCardList = customCardDao.getCustomDetail(paramMap0);
+    System.out.printf(",,,,,,,,,,,,%d\n", customCardList.size() - 1);
+    System.out.printf("------,,,,,,,,,,,,%d\n", customCardList.get(customCardList.size() - 1).getCustomCardNo());
     int currentCustomCardNo = customCardList.get(customCardList.size() - 1).getCustomCardNo();
     
+    int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
     
     Map<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);

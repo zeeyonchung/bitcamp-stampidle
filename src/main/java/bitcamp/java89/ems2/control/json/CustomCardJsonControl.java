@@ -72,7 +72,6 @@ public class CustomCardJsonControl {
   
   @RequestMapping(value = "/admin/customCard/addNewCustomCard")
   public AjaxResult addNewCustomCard(int cafeMemberNo, int customMemberNo) throws Exception {
-    System.out.printf("cafeMemberNo: %s, customMemberNo: %s", cafeMemberNo, customMemberNo);
     customCardService.addNewCustomCard(cafeMemberNo, customMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, "스탬프 추가 성공");
   }

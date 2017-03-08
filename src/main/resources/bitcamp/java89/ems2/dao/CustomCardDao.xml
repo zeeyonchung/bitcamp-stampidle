@@ -182,7 +182,7 @@
 	  left outer join scinfo on scinfo.scno=mcard.scno
 	where scinfo.cmno=#{cafeMemberNo}
 	  and memb.mno=#{customMemberNo}
-	order by mcard.birth asc
+	order by mcard.mcno asc 
   </select>
   
    <select id="getCustomCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
