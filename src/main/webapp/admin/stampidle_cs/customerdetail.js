@@ -44,7 +44,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		console.log(cardDetail);
 		console.log(cardDetail.backImgPath);
 		
-		$('#card-back').attr('src', serverRoot + "/admin/" + cardDetail.backImgPath);
+		$('#card-back').attr('src', serverRoot + '/../upload/' + cardDetail.backImgPath);
 		/* 하... 경로가.....ㅠㅠ */
 		$('.current-stamp-count').text(currentStampCount);
 		
@@ -74,7 +74,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$('<img>')
 		    .addClass('stamp-img')
 		    .appendTo('.stampNo' + i)
-		    .attr('src', '../../upload/' + cardDetail.stampImgPath)
+		    .attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
 		    .css('width', 40)
 		}
 		
@@ -87,7 +87,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				$('<img>')
 				.addClass('stamp-img')
 				.appendTo('.stampNo' + stampNo)
-				.attr('src', '../../upload/' + cardDetail.stampImgPath)
+				.attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
 				.css('width', 40);
 				
 				$(this).addClass('add-check');

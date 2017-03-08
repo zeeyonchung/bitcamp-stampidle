@@ -45,16 +45,12 @@
         
         <!-- 중간영역 -->
         <div class='mid'>
-          <img src='../image/template1.jpg' class='backcard'>
-          <div id='stmpside' class='stmpside'>
-          </div>
-          <span class='midText1'>뒷면<br> <span class='midText2'>스탬프
-              찍는 면</span></span>
-          <div class='midFile'>
-            <!--<input type=file name='fileup2' style='display: none;'>
-            <button class='midfilebtn' onclick='document.all.fileup1.click()'>File</button>  -->
-          </div>
-          <br>
+          <img src='../image/template1.jpg' class='backcard' id='back-photo-img'>
+          <input id='back-photo-path' type='hidden' value='../image/template1.jpg'>
+          <input id='back-fileupload' class='selectFile' type='file' name='files'>
+            
+          <div id='stmpside' class='stmpside'></div>
+          <span class='midText1'>뒷면<br> <span class='midText2'>스탬프 찍는 면</span></span><br>
           <div class='midTextAre'>
             <span class='midText3'>현재 스탬프 영역 개수</span><br> 
               <span class='midNum'>0</span><span>개</span><br> <br> 
@@ -75,8 +71,8 @@
           <div class='stmpshape'>
             <br> <span class='finalText'>스탬프 모양</span> 
             <div class='stmpimgbox' id='images-div'>
-            <img src='../image/stmp4.png' class='selectimg' id='photo-img'>
-            <input id='photo-path' type='hidden' value='../image/stmp4.png'>
+	            <img src='../image/stmp4.png' class='selectimg' id='photo-img'>
+	            <input id='photo-path' type='hidden' value='../image/stmp4.png'>
             </div>
             <input id='fileupload' class='selectFile' type='file' name='files'>
           </div>

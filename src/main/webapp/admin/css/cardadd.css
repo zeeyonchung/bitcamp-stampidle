@@ -95,6 +95,7 @@
 
 /*--mid--*/
 .mid {
+	position: relative;
 	margin-top: 80px;
 	width: 370px;
 	height: 300px;
@@ -140,9 +141,13 @@
 	float: right;
 	width: 80px;
 	height: 40px;
+	right: 0px;
+	top: 0px;
+	position: absolute;
 }
 
 .midText2 {
+	float: right;
 	color: red;
 }
 
@@ -199,6 +204,14 @@
   color: white;
   font-size: 40px;
 }
+
+#back-fileupload {
+	position: absolute;
+	right: 0px;
+	top: 55px;
+}
+
+
 
 /*--fianl--*/
 
