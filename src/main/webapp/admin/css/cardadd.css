@@ -103,10 +103,15 @@
 	margin-left: 60px;
 }
 
+.mid-top {
+	height: 170px;
+}
+
 .backcard {
 	position: absolute;
 	float: left;
 	width: 270px;
+	min-height: 160px;
 }
 
 .stmpside {
@@ -132,8 +137,8 @@
 
 .midTextAre {
 	position: absolute;
-	width: 250px;
-	margin-top: 160px;
+	width: 270px;
+	margin-top: 20px;
 }
 
 .midText1 {
@@ -178,12 +183,10 @@
 }
 
 .btnAre {
-	position: relative;
-	width: 200px;
+	position: absolute;
 	height: 80px;
-	margin-top: 160px;
-	margin-left: 130px;
-	padding-top: 10px;
+	right: 0;
+	top: 0;
 }
 
 .mbtn {
@@ -279,15 +282,15 @@
 }
 
 .btmLine {
-  border:1px solid rgb(227,227,227);
-  width: 800px;
-  margin-top: 450px;
+	min-height: 470px;
 }
 
 
 .service-div {
 	position: relative;
 	margin-left: 30px;
+	padding-top: 20px;
+	border-top: 2px solid #ccc;
 }
 
 .service-div span {

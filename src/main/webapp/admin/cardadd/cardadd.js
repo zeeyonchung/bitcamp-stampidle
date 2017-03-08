@@ -14,12 +14,26 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 
 /** stmpside 넓이 조정 **/
-$(function() {
+function updateStmpsideSize() {
 	var width = $('.backcard').css('width');
 	var height = $('.backcard').css('height');
 	$('.stmpside').css('width', width);
 	$('.stmpside').css('height', height);
-});
+};
+/** mid-top 높이 조정 **/
+function updateMidtopSize() {
+	var width = $('.backcard').css('width');
+	var height = $('.backcard').css('height');
+	$('.mid-top').css('height', height);
+}
+/** btmLine 높이 조정 **/
+function updateBtmlineSize() {
+	var width = $('.backcard').css('width');
+	var height = parseInt($('.backcard').css('height').split("px")[0]) + 280;
+	$('.btmLine').css('height', height);
+}
+
+updateStmpsideSize();
 
 
 
@@ -241,6 +255,9 @@ $('#back-fileupload').fileupload({
 	        var canvas = data.files[0].preview;
 	        var dataURL = canvas.toDataURL();
 	        img.attr('src', dataURL).css('width', '270px');
+	        updateStmpsideSize();
+	        updateMidtopSize();
+	        updateBtmlineSize();
         }
     } 
 });
