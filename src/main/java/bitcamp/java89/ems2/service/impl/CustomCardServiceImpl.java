@@ -144,15 +144,18 @@ public class CustomCardServiceImpl implements CustomCardService {
     resultMap.put("lastVisitDate", customDetailList.get(customDetailList.size() - 1).getCardIssueDate());
     
     int stampCount = 0;
+    int finishCardCount = 0;
     
-    for (CustomCard list : customDetailList) {
-      for (Stamp stampList : list.getStampList()) {
+    for (CustomCard customCard : customDetailList) {
+      for (Stamp stampList : customCard.getStampList()) {
         stampCount += stampList.getStampIssueCount();
       }
+      
+      finishCardCount += Integer.parseInt(customCard.getCardState());
     }
     
     resultMap.put("allStampCount", stampCount);
-    resultMap.put("finishCardCount", customDetailList.get(customDetailList.size() - 1).getCardState());
+    resultMap.put("finishCardCount", finishCardCount);
     
     return resultMap;
   }
