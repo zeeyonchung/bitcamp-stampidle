@@ -14,7 +14,8 @@ if (memberNo > 0) {
 /******************  Edit page setting :prepareViewForm *****************/
 function prepareViewForm() {
 	$('#btn-next').addClass('btn-update');
-
+	$('.edit').show();
+	$('.add').hide();
 	
 	$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var loginUser = ajaxResult.data;
@@ -99,7 +100,7 @@ function prepareViewForm() {
 				alert(ajaxResult.data);
 				return;
 			}
-			alert('cafe정보등록이 완료되었습니다.');
+			alert('cafe업데이트등록 완료되었습니다.');
 		}, 'json'); 
 
 		/* 영업시간 */
@@ -121,9 +122,10 @@ function prepareViewForm() {
 					alert(ajaxResult.data);
 					return;
 				}
-				alert('시간등록 완료되었습니다.');
+				alert('시간업데이트 완료되었습니다.');
 			}, 'json');
 		}; 
+		
 		
 		/* 카페종류 태그 */
 		var tags = [];
@@ -145,7 +147,7 @@ function prepareViewForm() {
 				alert(ajaxResult.data);
 				return;
 			}
-			alert('태그등록 완료되었습니다.');
+			alert('태그업데이트 완료되었습니다.');
 		}, 'json');
 
 		
@@ -163,7 +165,7 @@ function prepareViewForm() {
 					alert(ajaxResult.data);
 					return;
 				}
-				alert('매장사진등록이 완료되었습니다.');
+				alert('매장사진업데이트 완료되었습니다.');
 			}, 'json');
 		}  
 		
@@ -185,7 +187,7 @@ function prepareViewForm() {
 					alert(ajaxResult.data);
 					return;
 				}
-				alert('메뉴등록이 완료되었습니다.');
+				alert('메뉴업데이트 완료되었습니다.');
 			}, 'json');
 		}
 		
@@ -198,6 +200,8 @@ function prepareViewForm() {
 /******************  Add page setting :prepareNewForm *****************/
 function prepareNewForm() {
 	$('#btn-next').addClass('btn-add');
+	$('.add').show();
+	$('.edit').hide();
 
 	$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		if (ajaxResult.status != "success") {

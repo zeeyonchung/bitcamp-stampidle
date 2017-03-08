@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 import bitcamp.java89.ems2.domain.Cafe;
 import bitcamp.java89.ems2.domain.CafePhoto;
 import bitcamp.java89.ems2.domain.CafeTime;
+import bitcamp.java89.ems2.domain.Likes;
 import bitcamp.java89.ems2.domain.Menu;
 import bitcamp.java89.ems2.domain.Tag;
 import bitcamp.java89.ems2.service.CafePhotoService;
 import bitcamp.java89.ems2.service.CafeService;
 import bitcamp.java89.ems2.service.CafeTimeService;
+import bitcamp.java89.ems2.service.LikesService;
 import bitcamp.java89.ems2.service.MenuService;
 import bitcamp.java89.ems2.service.TagService;
 
@@ -27,6 +29,7 @@ public class CafeJsonControl {
   @Autowired TagService tagService;
   @Autowired CafePhotoService cafePhotoService;
   @Autowired MenuService menuService;
+  @Autowired LikesService likesService;
   
   @RequestMapping("/admin/cafe/add")
   public AjaxResult add(Cafe cafe) throws Exception {
@@ -158,6 +161,14 @@ public class CafeJsonControl {
       return new AjaxResult(AjaxResult.FAIL, "해당 번호의 회원이 없습니다.");
     }
     return new AjaxResult(AjaxResult.SUCCESS, "변경 성공입니다.");
+  }
+  
+  @RequestMapping(value = {"/admin/likes/count"})
+  public AjaxResult count(int cafeMemberNo) throws Exception {
+  	int num = likesService.count(cafeMemberNo);
+    Likes likes = new Likes();
+    likes.setNum(num);
+    return new AjaxResult(AjaxResult.SUCCESS, likes);
   }
   
   
