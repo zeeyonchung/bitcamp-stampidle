@@ -266,12 +266,13 @@
 
 #header .top #logon-div .profileImg {
     display: inline-block;
-    margin-top:5px;
-    width: 64px;
-    height: 64px;
+    margin-top:4px;
+    width: 62px;
+    height: 62px;
     overflow: hidden;
     vertical-align: middle;
     background:#fff;
+    border-radius:40px;
 }
 
 #header .top #logon-div .profileImg img {

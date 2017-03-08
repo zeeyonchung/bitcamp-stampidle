@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.LikesDao">
+  
+  <select id="count" parameterType="int" resultType="int">
+  select count(*) from likes where 
+  	cmno=#{cafeMemberNo}
+  </select>
+  
+</mapper>
