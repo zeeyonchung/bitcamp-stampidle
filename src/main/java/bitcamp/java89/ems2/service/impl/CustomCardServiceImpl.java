@@ -150,7 +150,6 @@ public class CustomCardServiceImpl implements CustomCardService {
       for (Stamp stampList : customCard.getStampList()) {
         stampCount += stampList.getStampIssueCount();
       }
-      
       finishCardCount += Integer.parseInt(customCard.getCardState());
     }
     
@@ -225,7 +224,30 @@ public class CustomCardServiceImpl implements CustomCardService {
     paramMap.put("stampCafeCardNo", stampCafeCardNo);
     customCardDao.insert(paramMap);
     
-    customCardDao.updatemcuse(currentCustomCardNo);
+    customCardDao.updatePlusMcuse(currentCustomCardNo);
+  }
+  
+  
+  @Override
+  public void useCustomCard(int cafeMemberNo, int customMemberNo, int usedCardCount) throws Exception {
+    Map<String, Object> paramMap = new HashMap<>();
+    paramMap.put("customMemberNo", customMemberNo);
+    paramMap.put("cafeMemberNo", cafeMemberNo);
+    List<CustomCard> customDetailList = customCardDao.getCustomDetail(paramMap);
+    
+    int count = 0;
+    
+    for (CustomCard customCard : customDetailList) {
+      if (Integer.parseInt(customCard.getCardState()) == 1) {
+        int usedCustomCardNo = customCard.getCustomCardNo();
+        customCardDao.updateMinusMcuse(usedCustomCardNo);
+        count++;
+      }
+      
+      if (count == usedCardCount) {
+        return;
+      }
+    }
   }
 
 }

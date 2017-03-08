@@ -47,12 +47,18 @@
   </insert>
   
   
-  <update id="updatemcuse" parameterType="int">
+  <update id="updatePlusMcuse" parameterType="int">
     UPDATE mcard 
     SET mcuse = 1
     WHERE mcno=#{currentCustomCardNo}
   </update>
   
+  
+  <update id="updateMinusMcuse" parameterType="int">
+    UPDATE mcard 
+    SET mcuse = 0
+    WHERE mcno=#{usedCustomCardNo}
+  </update>
   
   
   <insert id="insertStamp" parameterType="java.util.Map">

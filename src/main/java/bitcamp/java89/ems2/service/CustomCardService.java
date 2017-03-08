@@ -12,6 +12,7 @@ public interface CustomCardService {
   Map<String, Object> getCustomCardDetail(int customMemberNo, int cafeMemberNo) throws Exception;
   void addStamp(int cafeMemberNo, int customMemberNo, int stampIssueCount) throws Exception;
   void addNewCustomCard(int cafeMemberNo, int customMemberNo) throws Exception;
+  void useCustomCard(int cafeMemberNo, int customMemberNo, int usedCardCount) throws Exception;
 }
 
 

@@ -163,6 +163,35 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		$('.first-visit-date').text(customCard.firstVisitDate);
 		$('.last-visit-date').text(customCard.lastVisitDate);
 		$('.all-stamp').text(customCard.allStampCount);
+		
+		
+		
+		
+		
+		$('#use-btn').click(function(e) {
+			//사용할 카드 개수
+			var usedCardCount = parseInt($('.usecp').val());
+			
+			if (usedCardCount > parseInt($('.finish-coupon').text())) {
+				alert("사용 가능한 쿠폰 수를 초과하여 입력하셨습니다.");
+				return;
+			} else if (usedCardCount <= 0 || usedCardCount == "") {
+				alert("사용 할 쿠폰 수를 입력해 주세요.");
+				return;
+			}
+			
+			
+			$.getJSON(serverRoot + '/customCard/useCustomCard.json', 
+					{'customMemberNo': customMemberNo,
+					'cafeMemberNo': cafeMemberNo,
+					'usedCardCount': usedCardCount
+					},
+				function(ajaxResult) {
+					location.href="";
+				}
+			);
+		});
+		
 	});
 	
 	
