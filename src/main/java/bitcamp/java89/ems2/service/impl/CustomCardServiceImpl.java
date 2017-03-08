@@ -216,8 +216,6 @@ public class CustomCardServiceImpl implements CustomCardService {
     paramMap0.put("customMemberNo", customMemberNo);
     paramMap0.put("cafeMemberNo", cafeMemberNo);
     List<CustomCard> customCardList = customCardDao.getCustomDetail(paramMap0);
-    System.out.printf(",,,,,,,,,,,,%d\n", customCardList.size() - 1);
-    System.out.printf("------,,,,,,,,,,,,%d\n", customCardList.get(customCardList.size() - 1).getCustomCardNo());
     int currentCustomCardNo = customCardList.get(customCardList.size() - 1).getCustomCardNo();
     
     int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
