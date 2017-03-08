@@ -288,7 +288,6 @@
 
 .service-div {
 	position: relative;
-	margin-left: 30px;
 	padding-top: 20px;
 	border-top: 2px solid #ccc;
 }
@@ -309,14 +308,13 @@
 
 .btmsubmit{
 	position: absolute;
-	right: 30px;
+	right: 0px;
 	border: 1px;
 	border-radius: 2px;
-	margin-left: 300px;
 	background-color: rgb(255,89,72);
 	color: white;
-	width: 250px;
-	height: 35px;
+	width: 300px;
+	height: 40px;
 }
 
 /************ alert ************/
@@ -340,4 +338,12 @@
   position: absolute;
   top: 7px;
   right: 10px;
+}
+
+
+.service-div .info {
+	font-size: 0.9em;
+	color: gray;
+	text-align: right;
+	margin-top: 10px;
 }
