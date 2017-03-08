@@ -42,5 +42,10 @@
     where cmno=#{value} 
   </select>
   
+  <update id="update" parameterType="cafePhoto">
+    update cpoto set
+  	path=#{path}
+    where cmno=#{cafeMemberNo}
+  </update>
   
 </mapper>

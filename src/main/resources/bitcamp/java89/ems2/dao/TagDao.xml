@@ -28,7 +28,7 @@
   </resultMap>
   
   
-  <insert id="insert" parameterType="cafeTime">
+  <insert id="insert" parameterType="tag">
   insert into tag(tno, cmno, tname)
   values(
   #{tagNo},
@@ -43,5 +43,10 @@
     where cmno=#{value} 
   </select>
   
+  <update id="update" parameterType="tag">
+    update tag set
+  	tname=#{tagName}
+    where cmno=#{cafeMemberNo}
+  </update>
   
 </mapper>

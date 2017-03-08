@@ -54,7 +54,7 @@
     where cmno=#{cafeMemberNo}
   </select>
   
-  <!--<update id="update" parameterType="cafe">
+  <update id="update" parameterType="cafe">
     update cafe set
       cftel=#{cafeTel},
       cname=#{cafeName},
@@ -63,9 +63,9 @@
 	  addr=#{address},
   	daddr=#{detailAddress},
   	chair=#{chairNo},
-  	logo=#{logPath})
+  	logo=#{logPath}
     where cmno=#{cafeMemberNo}
-  </update>-->
+  </update>
   
 </mapper>
 
