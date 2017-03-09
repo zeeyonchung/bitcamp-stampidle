@@ -23,7 +23,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    		alert(ajaxResult.data);
 	    		return;
 	    	}
-	    	location.href = serverRoot + '/main/main.html';
+	    	location.href = serverRoot + '/stampidle_cs/customerdetail.html?customMemberNo=' + ajaxResult.data;
 	    	alert('등록이 완료되었습니다.');
 	    }, 'json');
 	    

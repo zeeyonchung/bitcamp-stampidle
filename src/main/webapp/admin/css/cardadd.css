@@ -49,6 +49,7 @@
 /*--front--*/
 
 .front {
+	position: relative;
 	margin-top: 80px;
 	margin-left: 30px;
 	width : 200px;
@@ -62,9 +63,7 @@
 }
 
 .frontFile {
-	margin-top: 30px;
 	margin-left: 20px;
-	width: 220px;
 }
 
 .filebtn {
@@ -74,12 +73,17 @@
   width: 50px;
   height: 25px;
   background-color: rgb(236,236,236);
-	
 }
 
-.text {
+.front-img-div {
+	min-height: 90px;
+}
+
+.front .text {
 	font-size: 12px;
 	color: gray;
+	margin-top: 10px;
+  margin-left: 20px;
 }
 
 .xbox {
@@ -88,13 +92,16 @@
 	width: 130px;
 }
 
-.i {
-	float: right;
+.front .i {
+	position: absolute;
+	right: -40px;
+	top: 70px;
 	width: 30px;
 }
 
 /*--mid--*/
 .mid {
+	position: relative;
 	margin-top: 80px;
 	width: 370px;
 	height: 300px;
@@ -102,10 +109,15 @@
 	margin-left: 60px;
 }
 
+.mid-top {
+	height: 170px;
+}
+
 .backcard {
 	position: absolute;
 	float: left;
 	width: 270px;
+	min-height: 160px;
 }
 
 .stmpside {
@@ -129,10 +141,16 @@
 }
 
 
+.mid .text {
+  font-size: 12px;
+  color: gray;
+}
+
+
 .midTextAre {
 	position: absolute;
-	width: 250px;
-	margin-top: 160px;
+	width: 270px;
+	margin-top: 20px;
 }
 
 .midText1 {
@@ -140,9 +158,13 @@
 	float: right;
 	width: 80px;
 	height: 40px;
+	right: 0px;
+	top: 0px;
+	position: absolute;
 }
 
 .midText2 {
+	float: right;
 	color: red;
 }
 
@@ -173,12 +195,10 @@
 }
 
 .btnAre {
-	position: relative;
-	width: 200px;
+	position: absolute;
 	height: 80px;
-	margin-top: 160px;
-	margin-left: 130px;
-	padding-top: 10px;
+	right: 0;
+	top: 0;
 }
 
 .mbtn {
@@ -199,6 +219,14 @@
   color: white;
   font-size: 40px;
 }
+
+#back-fileupload {
+	position: absolute;
+	right: 0px;
+	top: 55px;
+}
+
+
 
 /*--fianl--*/
 
@@ -266,15 +294,14 @@
 }
 
 .btmLine {
-  border:1px solid rgb(227,227,227);
-  width: 800px;
-  margin-top: 450px;
+	min-height: 470px;
 }
 
 
 .service-div {
 	position: relative;
-	margin-left: 30px;
+	padding-top: 20px;
+	border-top: 2px solid #ccc;
 }
 
 .service-div span {
@@ -293,14 +320,13 @@
 
 .btmsubmit{
 	position: absolute;
-	right: 30px;
+	right: 0px;
 	border: 1px;
 	border-radius: 2px;
-	margin-left: 300px;
 	background-color: rgb(255,89,72);
 	color: white;
-	width: 250px;
-	height: 35px;
+	width: 300px;
+	height: 40px;
 }
 
 /************ alert ************/
@@ -324,4 +350,12 @@
   position: absolute;
   top: 7px;
   right: 10px;
+}
+
+
+.service-div .info {
+	font-size: 0.9em;
+	color: gray;
+	text-align: right;
+	margin-top: 10px;
 }

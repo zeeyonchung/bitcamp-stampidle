@@ -18,7 +18,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	cafeMemberNo = cafeMember.cafeMemberNo;
 	
 	
-	
 	/** stmpside 넓이 조정 **/
 	var width = $('#card-back').css('width');
 	var height = $('#card-back').css('height');
@@ -39,15 +38,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		}
 		
 		var cardDetail = ajaxResult.data.cardDetail;
-		var customCardDetail = ajaxResult.data.customCardDetail;
 		var currentStampCount = ajaxResult.data.currentStampCount;
 		
 		
 		console.log(cardDetail);
 		console.log(cardDetail.backImgPath);
-		console.log(customCardDetail);
 		
-		$('#card-back').attr('src', serverRoot + "/admin/" + cardDetail.backImgPath);
+		$('#card-back').attr('src', serverRoot + '/../upload/' + cardDetail.backImgPath);
 		/* 하... 경로가.....ㅠㅠ */
 		$('.current-stamp-count').text(currentStampCount);
 		
@@ -77,7 +74,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$('<img>')
 		    .addClass('stamp-img')
 		    .appendTo('.stampNo' + i)
-		    .attr('src', '../../upload/' + cardDetail.stampImgPath)
+		    .attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
 		    .css('width', 40)
 		}
 		
@@ -90,7 +87,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				$('<img>')
 				.addClass('stamp-img')
 				.appendTo('.stampNo' + stampNo)
-				.attr('src', '../../upload/' + cardDetail.stampImgPath)
+				.attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
 				.css('width', 40);
 				
 				$(this).addClass('add-check');
@@ -116,7 +113,24 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			});
 		});
 			
+		
+		
+		
+		$('#reset-btn').click(function(e) {
+			if ($('#stmpside').children('.add-check').length + currentStampCount != $('.stmpare').length) {
+				console.log('아직 리셋 안 됨...');
+				return;
+			}
 			
+			$.getJSON(serverRoot + '/customCard/addNewCustomCard.json', 
+					{'customMemberNo': customMemberNo,
+					'cafeMemberNo': cafeMemberNo},
+				function(ajaxResult) {
+					location.href="";
+				}
+			);
+		});
+		
 	});
 	
 
@@ -149,6 +163,35 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		$('.first-visit-date').text(customCard.firstVisitDate);
 		$('.last-visit-date').text(customCard.lastVisitDate);
 		$('.all-stamp').text(customCard.allStampCount);
+		
+		
+		
+		
+		
+		$('#use-btn').click(function(e) {
+			//사용할 카드 개수
+			var usedCardCount = parseInt($('.usecp').val());
+			
+			if (usedCardCount > parseInt($('.finish-coupon').text())) {
+				alert("사용 가능한 쿠폰 수를 초과하여 입력하셨습니다.");
+				return;
+			} else if (usedCardCount <= 0 || usedCardCount == "") {
+				alert("사용 할 쿠폰 수를 입력해 주세요.");
+				return;
+			}
+			
+			
+			$.getJSON(serverRoot + '/customCard/useCustomCard.json', 
+					{'customMemberNo': customMemberNo,
+					'cafeMemberNo': cafeMemberNo,
+					'usedCardCount': usedCardCount
+					},
+				function(ajaxResult) {
+					location.href="";
+				}
+			);
+		});
+		
 	});
 	
 	

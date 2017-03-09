@@ -12,14 +12,16 @@ import bitcamp.java89.ems2.service.CafeService;
 public class CafeImpl implements CafeService {
   @Autowired CafeDao cafeDao;
 
-  @Override
   public int add(Cafe cafe) throws Exception {
     return cafeDao.insert(cafe);
   }
   
-  @Override
   public CafeMember getDetail(int cafeMemberNo) throws Exception {
     return cafeDao.getOne(cafeMemberNo);
+  }
+  
+  public int update(Cafe cafe) throws Exception {
+    return cafeDao.update(cafe);
   }
 }
 

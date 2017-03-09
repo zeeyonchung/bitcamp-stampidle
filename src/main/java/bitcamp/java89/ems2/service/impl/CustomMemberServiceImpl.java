@@ -20,19 +20,35 @@ public class CustomMemberServiceImpl implements CustomMemberService {
   
   @Override
   public int add(CustomMember customMember, int cafeMemberNo) throws Exception {
-    int success = customMemberDao.insert(customMember);
-    int customMemberNo = customMember.getCustomMemberNo();
+    Map<String, String> paramMap = new HashMap<>();
+    paramMap.put("name", customMember.getName());
+    paramMap.put("tel", customMember.getTel());
+    int customMemberNo = 0;
+    if (customMemberDao.getOneByNameTel(paramMap) == null) {
+      customMemberDao.insert(customMember);
+      customMemberNo = customMember.getCustomMemberNo();
+    } else {
+      CustomMember oldCustomMember = customMemberDao.getOneByNameTel(paramMap);
+      customMemberNo = oldCustomMember.getCustomMemberNo();
+    }
+    
     int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
     
-    Map<String, Object> paramMap = new HashMap<>();
-    paramMap.put("customMemberNo", customMemberNo);
-    paramMap.put("stampCafeCardNo", stampCafeCardNo);
-    customCardDao.insert(paramMap);
-    return success;
+    Map<String, Object> paramMap2 = new HashMap<>();
+    paramMap2.put("cafeMemberNo", cafeMemberNo);
+    paramMap2.put("customMemberNo", customMemberNo);
+    if (customCardDao.getCustomCardDetail(paramMap2).size() > 0) {return customMemberNo;}
+    
+    Map<String, Object> paramMap3 = new HashMap<>();
+    paramMap3.put("customMemberNo", customMemberNo);
+    paramMap3.put("stampCafeCardNo", stampCafeCardNo);
+    customCardDao.insert(paramMap3);
+    
+    return customMemberNo;
   }
   
-  public List<CustomMember> getSrchListCustomMember() throws Exception {
-  	return customMemberDao.getSrchListCustomMember();
+  public List<CustomMember> getSrchListCustomMember(int cafeMemberNo) throws Exception {
+  	return customMemberDao.getSrchListCustomMember(cafeMemberNo);
   }
   
   @Override

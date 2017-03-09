@@ -47,13 +47,28 @@
   </insert>
   
   
+  <update id="updatePlusMcuse" parameterType="int">
+    UPDATE mcard 
+    SET mcuse = 1
+    WHERE mcno=#{currentCustomCardNo}
+  </update>
+  
+  
+  <update id="updateMinusMcuse" parameterType="int">
+    UPDATE mcard 
+    SET mcuse = 0
+    WHERE mcno=#{usedCustomCardNo}
+  </update>
+  
   
   <insert id="insertStamp" parameterType="java.util.Map">
     insert into stamp(mcno, many, stime) 
     values(
       (select mcno from mcard
         inner join scinfo on scinfo.scno=mcard.scno
-        where mcard.mno=#{customMemberNo} and scinfo.cmno=#{cafeMemberNo}), 
+        where mcard.mno=#{customMemberNo} and scinfo.cmno=#{cafeMemberNo}
+        order by mcard.mcno desc
+        limit 1), 
        #{stampIssueCount}, 
        curdate()
      )
@@ -173,7 +188,7 @@
 	  left outer join scinfo on scinfo.scno=mcard.scno
 	where scinfo.cmno=#{cafeMemberNo}
 	  and memb.mno=#{customMemberNo}
-	order by mcard.birth asc
+	order by mcard.mcno asc 
   </select>
   
    <select id="getCustomCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
@@ -183,8 +198,8 @@
 		  stamp.many,
 		  stamp.mcno
 		from mcard
-			inner join scinfo on scinfo.scno=mcard.scno
-			inner join stamp on mcard.mcno=stamp.mcno
+			left outer join scinfo on scinfo.scno=mcard.scno
+			left outer join stamp on mcard.mcno=stamp.mcno
 		where scinfo.cmno=#{cafeMemberNo} and mcard.mno=#{customMemberNo}
   </select>
   

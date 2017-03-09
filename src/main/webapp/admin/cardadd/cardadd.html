@@ -18,80 +18,85 @@
     <div id='sidebar'></div>
     <div id='content'>
       <div class='con'>
-        <h3>스탬프카드 이미지등록</h3>
+        <h3>스탬프카드 등록</h3>
         <div class='topLine'></div>
-        <div class='usetemp'>
-          <button class='tempbtn' id="btn-pop">
-            <span class='temptext'>카드템플릿 사용</span>
-          </button>
+        
+        
+        <div class='btmLine'>
+	        <div class='usetemp'>
+	          <button class='tempbtn' id="btn-pop">
+	            <span class='temptext'>카드템플릿 사용</span>
+	          </button>
+	        </div>
+	        
+	        
+	        <!-- 프론트영역 -->
+	        <div class='front'>
+	          <img src='../image/i.png' class='i'>
+	          <div class="front-img-div">
+	            <span class='frontText'>앞면</span> 
+	            <img src='../image/xbox.png' class='xbox frontcard' id='front-photo-img'>
+	          </div>
+	          <div class='frontFile'>
+	            <input id='front-photo-path' type='hidden' value='../image/xbox.png'>
+	            <input id='front-fileupload' class='selectFile' type='file' name='files'>
+	            <p class='text'>
+	              앞면이미지 미등록시<br> 기존 카페 로고 이미지가<br> 자동 등록됩니다.
+	            </p>
+	          </div>
+	        </div>
+	        
+	        
+	        
+	        <!-- 중간영역 -->
+	        <div class='mid'>
+	          <div class="mid-top">
+		          <img src='../image/template1.jpg' class='backcard' id='back-photo-img'>
+		          <input id='back-photo-path' type='hidden' value='../image/template1.jpg'>
+		          <input id='back-fileupload' class='selectFile' type='file' name='files'>
+		           
+		          <div id='stmpside' class='stmpside'></div>
+		          <span class='midText1'>뒷면<br> <span class='midText2'>스탬프 찍는 면</span></span><br>
+	          </div>
+	          
+	          <div class='midTextAre'>
+	            <span class='midText3'>현재 스탬프 영역 개수</span><br> 
+	              <span class='midNum'>0</span><span>개</span><br> <br> 
+	              <span class='text'>스탬프가 찍힐 공간 개수만큼 +버튼으로 추가한 후 <br> 도장이 찍힐
+	              위치를 마우스로 조정해 주세요.
+	            </span>
+		          <div class='btnAre'>
+		            <button class='mbtn' type="button">-</button>
+		            <button class='pbtn' type="button">+</button>
+		          </div>
+	          </div>
+	        </div>
+	        
+	        
+	        
+	       <!-- 마지막 영역 -->
+	        <div class='final'>
+	          <div class='stmpshape'>
+	            <br> <span class='finalText'>스탬프 모양</span> 
+	            <div class='stmpimgbox' id='images-div'>
+		            <img src='../image/stmp4.png' class='selectimg' id='photo-img'>
+		            <input id='photo-path' type='hidden' value='../image/stmp4.png'>
+	            </div>
+	            <input id='fileupload' class='selectFile' type='file' name='files'>
+	          </div>
+	          <div class='stmpinfo'>
+	         <span class='info'>※파일 이름은<br>영문만 지원합니다.</span>
+	         </div>
+	        </div>
+
         </div>
-        
-        
-        <!-- 프론트영역 -->
-        <div class='front'>
-          <span class='frontText'>앞면</span> 
-          <img src='../image/xbox.png' class='xbox frontcard'>
-          <div class='frontFile'>
-            <!--<input id='fileupload1' type=file name='fileup1' style='display: none;'>
-            <button class='filebtn' onclick='document.all.fileup1.click()'>File</button>-->
-            <br><img src='../image/i.png' class='i'> <br>
-            <p class='text'>
-              앞면이미지 미등록시<br> 기존 카페 로고 이미지가<br> 자동 등록됩니다.
-            </p>
-          </div>
-        </div>
-        
-        
-        
-        <!-- 중간영역 -->
-        <div class='mid'>
-          <img src='../image/template1.jpg' class='backcard'>
-          <div id='stmpside' class='stmpside'>
-          </div>
-          <span class='midText1'>뒷면<br> <span class='midText2'>스탬프
-              찍는 면</span></span>
-          <div class='midFile'>
-            <!--<input type=file name='fileup2' style='display: none;'>
-            <button class='midfilebtn' onclick='document.all.fileup1.click()'>File</button>  -->
-          </div>
-          <br>
-          <div class='midTextAre'>
-            <span class='midText3'>현재 스탬프 영역 개수</span><br> 
-              <span class='midNum'>0</span><span>개</span><br> <br> 
-              <span class='text'>스탬프가 찍힐 공간 개수만큼 +버튼으로 추가한 후 <br> 도장이 찍힐
-              위치를 마우스로 조정해 주세요.
-            </span>
-          </div>
-          <div class='btnAre'>
-            <button class='mbtn' type="button">-</button>
-            <button class='pbtn' type="button">+</button>
-          </div>
-        </div>
-        
-        
-        
-       <!-- 마지막 영역 -->
-        <div class='final'>
-          <div class='stmpshape'>
-            <br> <span class='finalText'>스탬프 모양</span> 
-            <div class='stmpimgbox' id='images-div'>
-            <img src='../image/stmp4.png' class='selectimg' id='photo-img'>
-            <input id='photo-path' type='hidden' value='../image/stmp4.png'>
-            </div>
-            <input id='fileupload' class='selectFile' type='file' name='files'>
-          </div>
-          <div class='stmpinfo'>
-         <span class='info'>※파일 이름은<br>영문만 지원합니다.</span>
-         </div>
-        </div>
-        <div class='btmLine'></div>
-        <br>
-        
-        
+	        
+	        
         <div class="service-div">
           <span>서비스 내용</span>
           <input type="text" class="service">
           <button class='btmsubmit' id='upload-btn' type="button">등록하기</button>
+          <p class="info">※ 고객에게 이미 발급된 카드는 수정하실 수 없습니다. 수정 내용은 새로 발급되는 카드에 적용됩니다.</p>
         </div>
         
         

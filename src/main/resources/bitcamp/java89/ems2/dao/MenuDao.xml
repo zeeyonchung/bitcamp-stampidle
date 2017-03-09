@@ -47,6 +47,14 @@
     where cmno=#{value} 
   </select>
   
+  <update id="update" parameterType="menu">
+    update menu set
+      mena=#{menuName},
+      price=#{price},
+  	mepath=#{menuPath}
+    where cmno=#{cafeMemberNo}
+  </update>
+  
 </mapper>
 
 

@@ -53,6 +53,20 @@
     from cafe
     where cmno=#{cafeMemberNo}
   </select>
+  
+  <update id="update" parameterType="cafe">
+    update cafe set
+      cftel=#{cafeTel},
+      cname=#{cafeName},
+      intro=#{intro},
+	  postno=#{postCode},
+	  addr=#{address},
+  	daddr=#{detailAddress},
+  	chair=#{chairNo},
+  	logo=#{logPath}
+    where cmno=#{cafeMemberNo}
+  </update>
+  
 </mapper>
 
 

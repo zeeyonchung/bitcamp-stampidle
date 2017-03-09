@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.CafeTimeDao;
+import bitcamp.java89.ems2.domain.Cafe;
 import bitcamp.java89.ems2.domain.CafeTime;
 import bitcamp.java89.ems2.service.CafeTimeService;
 
@@ -18,6 +19,10 @@ public class CafeTimeImpl implements CafeTimeService {
   
   public CafeTime detailTime(int cafeMemberNo) throws Exception {
   	return cafeTimeDao.getOne(cafeMemberNo);
+  }
+  
+  public int update(CafeTime cafeTime) throws Exception {
+    return cafeTimeDao.update(cafeTime);
   }
 }
 

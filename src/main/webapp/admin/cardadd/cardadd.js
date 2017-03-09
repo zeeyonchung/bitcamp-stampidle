@@ -14,12 +14,29 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 
 /** stmpside 넓이 조정 **/
-$(function() {
+function updateStmpsideSize() {
 	var width = $('.backcard').css('width');
 	var height = $('.backcard').css('height');
 	$('.stmpside').css('width', width);
 	$('.stmpside').css('height', height);
-});
+};
+/** mid-top 높이 조정 **/
+function updateMidtopSize() {
+	var height = $('.backcard').css('height');
+	$('.mid-top').css('height', height);
+}
+/** btmLine 높이 조정 **/
+function updateBtmlineSize() {
+	var height = parseInt($('.backcard').css('height').split("px")[0]) + 280;
+	$('.btmLine').css('height', height);
+}
+/** front-img-div 높이 조정 **/
+function updateFrontimgdivSize() {
+	var height = parseInt($('.frontcard').css('height').split("px")[0]) + 10;
+	$('.front-img-div').css('height', height);
+}
+
+updateStmpsideSize();
 
 
 
@@ -120,7 +137,8 @@ $(document).ready( function(){
 		$('.tempPop').fadeOut(200);
 		var cardPath = $('.mySlides[style*="display: block"] img').attr('src');
 		$('.backcard').remove();
-		$('<img>').attr("class","backcard").attr("src",cardPath).insertBefore("#stmpside");
+		$('<img>').attr("class","backcard").attr("src",cardPath).prependTo(".mid");
+		$('#back-photo-path').val($(".mid").children(".backcard").attr("src"));
 		
 		var stmpPath = $(':checked + img').attr('src');
 		$('.selectimg').attr("src",stmpPath);
@@ -146,8 +164,8 @@ $('.btmsubmit').click (function() {
 	var paramCard = {
 			"cafeMemberNo": cafeMemberNo,
 			"stampCount": $('.midNum').text(),
-			"frontImgPath": $('.frontcard').attr("src"),
-			"backImgPath": $('.backcard').attr("src"),
+			"frontImgPath": $('#front-photo-path').val(),
+			"backImgPath": $('#back-photo-path').val(),
 			"stampImgPath": $('#photo-path').val(),
 			"service": $('.service').text()
 	};
@@ -164,8 +182,6 @@ $('.btmsubmit').click (function() {
 			var p = $('.stampNo' + i);
 			var positionX = p.position().left / $('.stmpside').css('width').split('px')[0];
 			var positionY = p.position().top / $('.stmpside').css('height').split('px')[0];
-			console.log(p.position().left);
-			console.log(p.position().top);
 			var paramPosition = {
 					"stampCafeCardNo": stampCafeCardNo,
 					"positionX": positionX,
@@ -179,15 +195,18 @@ $('.btmsubmit').click (function() {
 					alert(ajaxResult.data);
 					return;
 				}
+				//location.href = '../cafeinfoedit/cafeinfoedit.html?cafeMemberNo=' + cafeMemberNo;
 			}, 'json');
 		}
-		
-		location.href = '../cafeinfoedit/cafeinfoedit.html?cafeMemberNo=' + cafeMemberNo;
 	}, 'json');
 	
 });
 
 
+
+
+
+/************ 스탬프 이미지 저장 **************/
 $('#fileupload').fileupload({
     url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
     dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
@@ -210,6 +229,67 @@ $('#fileupload').fileupload({
 	        var dataURL = canvas.toDataURL();
 	        img.attr('src', dataURL).css('width', '50px');
 	        $('#photo-label').css('display', '');
+        }
+    } 
+});
+
+
+
+
+/************ 뒷면 이미지 저장 **************/
+$('#back-fileupload').fileupload({
+    url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
+    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
+    autoUpload: true,        // 파일을 추가할 때 자동 업로딩 여부 설정. 기본은 true.
+    disableImageResize: /Android(?!.*Chrome)|Opera/
+        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+    	console.log('done()...');
+    	console.log(data.result);
+        $('#back-photo-path').val(data.result.data[0]);
+    }, 
+    processalways: function(e, data) {
+        console.log('fileuploadprocessalways()...', data.files.length, data.index);
+        var img = $('#back-photo-img');
+        if (data.index == 0) {
+        	console.log('미리보기 처리...');
+	        var canvas = data.files[0].preview;
+	        var dataURL = canvas.toDataURL();
+	        img.attr('src', dataURL).css('width', '270px');
+	        updateStmpsideSize();
+	        updateMidtopSize();
+	        updateBtmlineSize();
+        }
+    } 
+});
+
+
+
+/************ 앞면 이미지 저장 **************/
+$('#front-fileupload').fileupload({
+    url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
+    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
+    autoUpload: true,        // 파일을 추가할 때 자동 업로딩 여부 설정. 기본은 true.
+    disableImageResize: /Android(?!.*Chrome)|Opera/
+        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+    	console.log('done()...');
+    	console.log(data.result);
+        $('#front-photo-path').val(data.result.data[0]);
+    }, 
+    processalways: function(e, data) {
+        console.log('fileuploadprocessalways()...', data.files.length, data.index);
+        var img = $('#front-photo-img');
+        if (data.index == 0) {
+        	console.log('미리보기 처리...');
+	        var canvas = data.files[0].preview;
+	        var dataURL = canvas.toDataURL();
+	        img.attr('src', dataURL).css('width', '130px');
+	        updateFrontimgdivSize();
         }
     } 
 });

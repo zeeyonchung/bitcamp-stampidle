@@ -18,10 +18,13 @@ public interface CustomCardDao {
   ArrayList<CustomCard> getList(int cafeMemberNo) throws Exception;
   ArrayList<CustomCard> getListSelect(Map<String, Object> paramMap) throws Exception;
   List<CustomCard> getCustomCardDetail(Map<String, Object> paramMap) throws Exception;
-  CustomCard getCardDetail(Map<String, Object> paramMap) throws Exception;
+  List<CustomCard> getCardDetail(Map<String, Object> paramMap) throws Exception;
   
   int insert(Map<String, Object> paramMap) throws Exception;
   int getStampCafeCardNo(int cafeMemberNo) throws Exception;
   
   int insertStamp(Map<String, Object> paramMap) throws Exception;
+  
+  void updatePlusMcuse(int currentCustomCardNo) throws Exception;
+  void updateMinusMcuse(int usedCustomCardNo) throws Exception;
 }
