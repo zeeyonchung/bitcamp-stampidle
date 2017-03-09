@@ -42,7 +42,7 @@ public class CafeMemberJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, cafeMember);
   }
   
-  @RequestMapping(value = {"/admin/cafeMember/add"})
+  @RequestMapping(value = {"/admin/cafeMember/add", "/admin_m/cafeMember/add"})
   public AjaxResult add(CafeMember cafeMember) throws Exception {
     cafeMemberService.add(cafeMember);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");

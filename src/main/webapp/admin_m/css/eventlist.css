@@ -12,6 +12,7 @@
 
 /************ 이벤트배너영역 `Bn ************/
 .eventBn {
+	 height: 20%;
 	margin-top:0px;
 	text-align: center;
 }
@@ -20,14 +21,33 @@
   padding-top:15px;
   clear: both;
 }
+.img-box{
+	      display: inline-block;
+    height: 150px;
+    width: 40%;
+    border: 1px solid black;
+        margin-top: 10px;
+}
+.img-box .img-src {
+	    height: 100%;
+    width: 100%;
+}
+.one-event {
+	margin-top:10px;
+	position: relative;
+    height: 150px;
+    width: 100%;
+}
 
 .eventBn .one-event img {
     width:100%;
 }
 
 
-.eventBn .one-event .text-div {
-	padding: 2%;
+.text-div {
+	width: 55%;
+    display: inline-block;
+    left: 50%;
 }
 
 .eventBn .one-event .text-div .title {
@@ -53,7 +73,9 @@
 }
 
 
-
+#top-btn {
+	float:right;
+}
 
 
 .add-new-btn {

@@ -170,6 +170,13 @@ public class CustomCardServiceImpl implements CustomCardService {
   public List<CustomCard> getList(int cafeMemberNo) throws Exception {
     return customCardDao.getList(cafeMemberNo); 
   }
+  
+  public List<CustomCard> getListSelect(int cafeMemberNo, String selectCafeList) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("cafeMemberNo", cafeMemberNo);
+    paramMap.put("selectCafeList", selectCafeList);
+    return customCardDao.getListSelect(paramMap); 
+  }
 
 
   @Override

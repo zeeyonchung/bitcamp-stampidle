@@ -53,6 +53,21 @@ public class EventServiceImpl implements EventService {
   }
   
   
+  public List<Event> getListInfinityScroll(int cafeMemberNo, int pageCount, int postNo) throws Exception {
+    Map<String, Object> paramMap = new HashMap<>();
+    int firstPost = (pageCount - 1) * postNo;
+    int allEventNo = eventDao.getCount(cafeMemberNo);
+    if (firstPost > allEventNo) {
+      firstPost = (pageCount - 2) * postNo;
+    }
+    
+    paramMap.put("cafeMemberNo", cafeMemberNo);
+    paramMap.put("firstPost", firstPost);
+    paramMap.put("postNo", postNo);
+    return eventDao.getList(paramMap);
+  }
+  
+  
   public int getCount(int cafeMemberNo, String searchCondition, String searchKeyword) throws Exception {
     int allEventNo = 0;
     if (searchCondition != "" && searchKeyword != "") {

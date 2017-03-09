@@ -15,6 +15,18 @@
 <body class="eventadd">
   <div class="side-left-pushy-button" >menu btn</div>
   <div id='header'></div>
+  <div class="imgbox" id="upfile1" >
+        <img id='photo-img' height='100%' width='100%'>
+          <label for="photo" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <span class="btn btn-success fileinput-button" >
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <input id='photo' class='form-control' type='file' name='files'>
+                </span>
+                <input id='photo-path' type='hidden'>
+            </div>
+          <input type="file" id="file1"  name="file1" style="display:none" />
+      </div>
   <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
   
   <div id="container" style="padding:0px;">
@@ -75,6 +87,7 @@
 <script src="../js/pushy.js"></script>
 <script src="../js/pushy_stampidle.js"></script>
 <script src="../js/link.js"></script>
+<script src="eventadd.js"></script>
 
 
 <!--jQuery 기본 js파일 -->
@@ -104,27 +117,31 @@
 
     });
   </script>
-
-<script>
-
-<!-- 이미지 슬라이더 -->
-
-//달력
-$(function() {
-  $( "#datepicker" ).datepicker({
-      showOn: "both", 
-      buttonImage: "../image/icon_calendar.png", 
-      buttonImageOnly: true
+<a>
+</a><script>
+ /*이미지
+ $("#upfile1").click(function () {
+    $("#file1").trigger('click');
+});*/
+   /* 달력*/
+  $(function() {
+    $( "#datepicker" ).datepicker({
+        showOn: "both", 
+        buttonImage: "../image/icon_calendar.png", 
+        buttonImageOnly: true ,
+        dateFormat:"yy-mm-dd"
   });
-});
+  });
   
-$(function() {
-  $( "#datepicker2" ).datepicker({
-      showOn: "both", 
-      buttonImage: "../image/icon_calendar.png", 
-      buttonImageOnly: true
-  });
-});
+  $(function() {
+     $( "#datepicker2" ).datepicker({
+         showOn: "both", 
+         buttonImage: "../image/icon_calendar.png", 
+         buttonImageOnly: true,
+         dateFormat:"yy-mm-dd"
+   });  
+ });
+
 </script>
 
 </body>
