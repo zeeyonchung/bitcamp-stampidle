@@ -10,11 +10,27 @@
   border: 1px;
   margin-bottom: 30px;
 }
-
+.dropdown {
+	float:right;
+}
 .manage-navi a {
   text-decoration: none;
 }
+.dropdown-menu {
+  text-align: center;
+  min-width: 80px;
+  font-size: 0.9em;
+}
 
+ .dropdown-menu li {
+  padding: 3px 0;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.dropdown-menu li:hover {
+  background-color: #eee;
+}
 .manage-navi li:first-of-type {
 	border: 1px;
 	width: 150px;

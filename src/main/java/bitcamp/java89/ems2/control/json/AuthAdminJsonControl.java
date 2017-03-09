@@ -22,6 +22,7 @@ public class AuthAdminJsonControl {
     
     CafeMember cafeMember = authService.getCafeMemberInfo(id, password);
     System.out.println(cafeMember);
+    
     if (cafeMember == null) {
       return new AjaxResult(AjaxResult.FAIL, "아이디 또는 암호가 틀리거나, 가입된 회원이 아닙니다.2");
     }
@@ -30,7 +31,7 @@ public class AuthAdminJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "로그인 성공! admin");
   }
   
-  @RequestMapping("/admin/auth/logout")
+  @RequestMapping(value={"/admin/auth/logout", "/admin_m/auth/logout"})
   public AjaxResult logout(HttpSession session) throws Exception {
     session.invalidate(); // 기존 세션을 무효화시킨다.
     return new AjaxResult(AjaxResult.SUCCESS, "로그아웃 성공입니다. admin");

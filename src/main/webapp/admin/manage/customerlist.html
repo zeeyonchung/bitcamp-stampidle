@@ -31,7 +31,7 @@
             <span style='color: rgb(190, 190, 190);'>|</span>
             <li class="statistics-three"><a href="#">도장 발급 내역</a></li>
             <hr class='underline' />
-          </ul>
+          </ul> 
           <hr>
       </nav>
       
@@ -41,14 +41,17 @@
       <!-- 이용고객수, 정렬조건 -->
       <div class='wrap2'>
         <div id='customer-number'>카드이용고객 20명</div>
-        <select id='customer-select'>
-          <option value='' disabled selected>정렬조건</option>
-          <option value='regist'>등록순</option>
-          <option value='alphabet'>가나다순</option>
-          <option value='visit'>최근방문순</option>
-        </select>
+        <div class="dropdown">
+				  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    정렬조건
+				  </button>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				    <a class="dropdown-item" href="#">등록순</a>
+				    <a class="dropdown-item" href="#">가나다순</a>
+				    <a class="dropdown-item" href="#">최근방문순</a>
+				  </div>
+				</div>
       </div>
-
 
 
         <!-- 고객목록 테이블 -->
@@ -101,7 +104,7 @@
 
   <script id = "trTemplate" type="text/x-hanlebars-template">
     {{#each list}}
-      <tr class='tr-link'>
+      <tr class='tr-link' onclick="location.href='../stampidle_cs/customerdetail.html?customMember={{customMemberNo}}'">
         <td>{{customCardNo}}</td>
         <td>{{customName}}</td>
         <td>{{customTel}}</td>
@@ -117,19 +120,12 @@
   <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src="../../node_modules/handlebars/dist/handlebars.js"></script>
   <script src="../js/bit.js"></script>
-  <script src="customerlist.js"></script>
+  <script src="customerlist3.js"></script>
   <script src="../js/common.js"></script>
   <script src="../js/link.js"></script>
   <!-- <script src="customerlist.js"></script>  -->
   
   <!-- tr 태그 클릭 시 고객 상세페이지로 이동 -->
-  <script>
-  "use strict"
-  
-  $('.tr-link').click(function(event) {
-    location.href = '../stampidle_cs/customerdetail.html'
-  });
-  </script>
   
   <!-- 임시링크 -->
     <script>

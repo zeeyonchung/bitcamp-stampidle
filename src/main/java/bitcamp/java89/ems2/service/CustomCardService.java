@@ -9,6 +9,7 @@ public interface CustomCardService {
   Map<String, Object> getStampList(int cafeMemberNo, int pageCount, int postNo, String searchDate, String searchCondition, String searchKeyword) throws Exception;
   Map<String, Object> getCustomDetail(int customMemberNo, int cafeMemberNo) throws Exception;
   List<CustomCard> getList(int cafeMemberNo) throws Exception;
+  List<CustomCard> getListSelect(int cafeMemberNo, String selectCafeList) throws Exception;
   Map<String, Object> getCustomCardDetail(int customMemberNo, int cafeMemberNo) throws Exception;
   void addStamp(int cafeMemberNo, int customMemberNo, int stampIssueCount) throws Exception;
 }

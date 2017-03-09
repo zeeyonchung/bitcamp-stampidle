@@ -25,3 +25,35 @@ $('.login-btn').click(function() {
 
 //email 쿠키가 있다면 값을 넣는다.
 $('#id').val(getCookie('id').replace(/"/g, ''));
+
+
+
+//회원가입
+$('.register-ok-btn').click(function(event) {
+	event.preventDefault();
+  var param = {
+  		id: $('#id2').val(),
+  		password:$('#password2').val(),
+  		password2: $('#password3').val(),
+  		Email: $('#email').val(),
+  		cellNo: $('#cell-phone').val(),
+  		companyNo: $('#company-no').val()
+  };
+  console.log(param);
+  
+  if( param.id!="" && param.password == param.password2) {
+	  
+	  $.post(serverRoot + '/admin_m/cafeMember/add.json', param, function(ajaxResult) {
+		  if (ajaxResult.status != "success") {
+			  alert(ajaxResult.data);
+			  return;
+		  }
+		  $('.loginPop').fadeOut(200);
+		  $('.register').css('display', 'none');
+		  alert('등록이 완료되었습니다.');
+	  }, 'json');
+  } else {
+	  alert('비밀번호 및 아이디를 확인해 주세요');
+  }
+  
+}); // click()
