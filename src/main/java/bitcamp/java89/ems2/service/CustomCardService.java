@@ -14,6 +14,10 @@ public interface CustomCardService {
   void addStamp(int cafeMemberNo, int customMemberNo, int stampIssueCount) throws Exception;
   void addNewCustomCard(int cafeMemberNo, int customMemberNo) throws Exception;
   void useCustomCard(int cafeMemberNo, int customMemberNo, int usedCardCount) throws Exception;
+  int getMyCardCount(int customMemberNo) throws Exception;
+  int getMyCardNo(int customMemberNo) throws Exception;
+  int getCafeNo(int customCardNo) throws Exception;
+  List<CustomCard> getStampNo(int customCardNo) throws Exception;
 }
 
 

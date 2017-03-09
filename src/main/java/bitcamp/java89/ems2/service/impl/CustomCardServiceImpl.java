@@ -264,5 +264,25 @@ public class CustomCardServiceImpl implements CustomCardService {
       }
     }
   }
+  
+  @Override
+  public int getMyCardCount(int customMemberNo) throws Exception {
+    return customCardDao.getMyCardCount(customMemberNo);
+  }
+  
+  @Override
+  public int getMyCardNo(int customMemberNo) throws Exception {
+    return customCardDao.getMyCardNo(customMemberNo);
+  }
+  
+  @Override
+  public int getCafeNo(int customCardNo) throws Exception {
+    return customCardDao.getCafeNo(customCardNo);
+  }
+  
+  @Override
+  public List<CustomCard> getStampNo(int customCardNo) throws Exception {
+    return customCardDao.getStampNo(customCardNo);
+  }
 
 }

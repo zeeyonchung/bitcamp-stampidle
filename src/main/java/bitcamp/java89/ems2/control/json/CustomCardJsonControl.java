@@ -88,6 +88,30 @@ public class CustomCardJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "스탬프 추가 성공");
   }
   
+  @RequestMapping(value = "/cstmr_m/customCard/getMyCardCount")
+  public AjaxResult cardCount(int customMemberNo) throws Exception {
+     int myCardNo = customCardService.getMyCardCount(customMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, myCardNo);
+  }
+  
+  @RequestMapping(value = "/cstmr_m/customCard/getMyCardNo")
+  public AjaxResult cardNo(int customMemberNo) throws Exception {
+     int myCardNo = customCardService.getMyCardCount(customMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, myCardNo);
+  }
+  
+  @RequestMapping(value = "/cstmr_m/customCard/getCafeNo")
+  public AjaxResult cafeNo(int customCardNo) throws Exception {
+     int cafeNo = customCardService.getCafeNo(customCardNo);
+    return new AjaxResult(AjaxResult.SUCCESS, cafeNo);
+  }
+  
+  @RequestMapping(value = "/cstmr_m/customCard/getStampNo")
+  public AjaxResult stampNo(int customCardNo) throws Exception {
+    List<CustomCard> stampNo = customCardService.getStampNo(customCardNo);
+    return new AjaxResult(AjaxResult.SUCCESS, stampNo);
+  }
+  
 }
 
 

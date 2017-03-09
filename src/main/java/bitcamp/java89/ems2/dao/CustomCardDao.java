@@ -27,4 +27,11 @@ public interface CustomCardDao {
   
   void updatePlusMcuse(int currentCustomCardNo) throws Exception;
   void updateMinusMcuse(int usedCustomCardNo) throws Exception;
+  
+  int getMyCardCount(int customMemberNo) throws Exception;
+  int getMyCardNo(int customMemberNo) throws Exception;
+  int getCafeNo(int customCardNo) throws Exception;
+  
+  List<CustomCard> getStampNo(int customCardNo) throws Exception; 
+  
 }

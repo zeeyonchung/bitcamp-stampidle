@@ -62,7 +62,7 @@ public class CafeJsonControl {
   }
   
 
-  @RequestMapping("/admin/cafe/detail")
+  @RequestMapping(value ={"/admin/cafe/detail","/cstmr_m/cafe/detail"})
   public AjaxResult detail(int cafeMemberNo) throws Exception {
     Cafe cafe = (Cafe)cafeService.getDetail(cafeMemberNo);
     if (cafe == null) {
@@ -72,7 +72,7 @@ public class CafeJsonControl {
   }
   
   
-  @RequestMapping(value = {"/admin/cafeTime/detail"})
+  @RequestMapping(value = {"/admin/cafeTime/detail", "/cstmr_m/cafeTime/detail"})
   public AjaxResult detailTime(int cafeMemberNo) throws Exception {
   	CafeTime cafeTime = (CafeTime)cafeTimeService.detailTime(cafeMemberNo);
   	if (cafeTime == null) {
@@ -82,7 +82,7 @@ public class CafeJsonControl {
   }
   
   
-  @RequestMapping(value = {"/admin/tag/detail"})
+  @RequestMapping(value = {"/admin/tag/detail", "/cstmr_m/tag/detail"})
   public AjaxResult detailTag(int cafeMemberNo) throws Exception {
   	Tag tag = (Tag)tagService.detailTag(cafeMemberNo);
   	if (tag == null) {
