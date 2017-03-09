@@ -48,6 +48,7 @@ function(ajaxResult) {
   var template = Handlebars.compile($('#trTemplate').html());
   eventdiv.html(template({"list": list}));
   
+  
   $('.event-title').click(function(event) {
 	event.preventDefault();
 	$.getJSON(serverRoot + '/event/updateView.json?eventNo=' + $(this).attr("data-no"));

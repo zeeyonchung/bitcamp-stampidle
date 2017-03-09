@@ -8,6 +8,7 @@ public class Event extends Cafe {
   protected String eventContents;
   protected String registDate;
   protected String eventPhotoPath;
+  protected String eventBannerPhotoPath;
   protected int eventView;
   protected String startDate;
   protected String endDate;
@@ -42,6 +43,13 @@ public class Event extends Cafe {
   }
   public void setEventPhotoPath(String eventPhotoPath) {
     this.eventPhotoPath = eventPhotoPath;
+  }
+  
+  public String getEventBannerPhotoPath() {
+    return eventBannerPhotoPath;
+  }
+  public void setEventBannerPhotoPath(String eventBannerPhotoPath) {
+    this.eventBannerPhotoPath = eventBannerPhotoPath;
   }
   public int getEventView() {
     return eventView;

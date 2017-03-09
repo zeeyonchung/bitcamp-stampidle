@@ -28,6 +28,7 @@
     <result column="econts"     property="eventContents"/>
     <result column="ebirth"     property="registDate"/>
     <result column="epath"      property="eventPhotoPath"/>
+    <result column="bpath"      property="eventBannerPhotoPath"/>
     <result column="eview"      property="eventView"/>
     <result column="sday"       property="startDate"/>
     <result column="eday"       property="endDate"/>
@@ -41,6 +42,7 @@
       e.econts,
       e.ebirth,
       e.epath,
+      e.bpath,
       e.eview,
       e.sday,
       e.eday,
@@ -59,6 +61,7 @@
       e.econts,
       e.ebirth,
       e.epath,
+      e.bpath,
       e.eview,
       e.sday,
       e.eday,
@@ -77,6 +80,7 @@
       e.econts,
       e.ebirth,
       e.epath,
+      e.bpath,
       e.eview,
       e.sday,
       e.eday,
@@ -95,6 +99,7 @@
       e.econts,
       e.ebirth,
       e.epath,
+      e.bpath,
       e.eview,
       e.sday,
       e.eday,
@@ -107,7 +112,7 @@
   </select>
   
   <insert id="insert" parameterType="event">
-    insert into event(cmno, eno,titl,econts,ebirth,epath,eview,sday,eday) 
+    insert into event(cmno, eno,titl,econts,ebirth,epath,bpath,eview,sday,eday) 
     values(
       #{cafeMemberNo},
       #{eventNo},
@@ -115,6 +120,7 @@
       #{eventContents}, 
       #{registDate}, 
       #{eventPhotoPath},
+      #{eventBannerPhotoPath},
       #{eventView}, 
       #{startDate},
       #{endDate})
