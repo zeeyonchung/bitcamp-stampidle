@@ -181,6 +181,7 @@
 	  mcard.mcuse,
 	  stamp.stno,
 	  stamp.many,
+	  stamp.stime,
 	  scinfo.stnum
 	from memb
 	  left outer join mcard on memb.mno=mcard.mno
