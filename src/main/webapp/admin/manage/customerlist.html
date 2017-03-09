@@ -46,8 +46,8 @@
 				    정렬조건
 				  </button>
 				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    <a class="dropdown-item" href="#">등록순</a>
-				    <a class="dropdown-item" href="#">가나다순</a>
+				    <a class="dropdown-item" href="#">등록순</a><br>
+				    <a class="dropdown-item" href="#">가나다순</a><br>
 				    <a class="dropdown-item" href="#">최근방문순</a>
 				  </div>
 				</div>
@@ -78,13 +78,9 @@
         <!-- 다음페이지 -->
         <div class='z'>
           <ul class="pagination">
-            <li><a href="#">〈</a></li>
-            <li><a href="#">1</a></li>
-            <li><a class="active" href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">〉</a></li>
+            <li><a id='prevPgBtn' >〈</a></li>
+            <li><a id='pageNo' href="#">1</a></li>
+            <li><a id='nextPgBtn'>〉</a></li>
           </ul>
         </div>
         
@@ -104,7 +100,7 @@
 
   <script id = "trTemplate" type="text/x-hanlebars-template">
     {{#each list}}
-      <tr class='tr-link' onclick="location.href='../stampidle_cs/customerdetail.html?customMember={{customMemberNo}}'">
+      <tr class='tr-link' data-no="{{customCardNo}}">
         <td>{{customCardNo}}</td>
         <td>{{customName}}</td>
         <td>{{customTel}}</td>
@@ -127,19 +123,6 @@
   
   <!-- tr 태그 클릭 시 고객 상세페이지로 이동 -->
   
-  <!-- 임시링크 -->
-    <script>
-    $('.one').click(function(e) {
-        location.href = '../manage/statistics.html'
-    });
-    $('.two').click(function(e) {
-        location.href = '../manage/customerlist.html'
-    });
-    $('.three').click(function(e) {
-        location.href = '../manage/stamplog.html'
-    });
-    </script>
-    <!-- //임시링크 -->
 
 
 <!-- auto complete 고객검색 자동완성 -->

@@ -234,7 +234,7 @@
 	where
 	  cafe.cmno=#{cafeMemberNo}
 	group by mcard.mno
-	order by mcard.mno desc, mcard.birth desc
+	limit #{startRowIndex}, #{rowSize}
   </select>
   
   <select id="getListSelect" parameterType="java.util.Map" resultMap="customCard-map">
@@ -251,7 +251,9 @@
   where
     cafe.cmno=#{cafeMemberNo}
   group by mcard.mno
-  order by #{selectCafeList}
+  order by #{selectCafeList} asc
+  limit #{startRowIndex}, #{rowSize}
+  
   </select>
   
   
@@ -264,7 +266,15 @@
   limit 1
   </select>
   
-  
+  <select id="countAll" parameterType="int" resultType="int">
+    select count(*)
+    from memb
+    left outer join mcard on memb.mno=mcard.mno
+    left outer join scinfo on mcard.scno=scinfo.scno
+    left outer join cafe on scinfo.cmno=cafe.cmno
+  where
+    cafe.cmno=#{cafeMemberNo}
+  </select>
   
 
 </mapper>

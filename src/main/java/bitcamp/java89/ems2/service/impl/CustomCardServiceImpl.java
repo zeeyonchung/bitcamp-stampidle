@@ -159,14 +159,20 @@ public class CustomCardServiceImpl implements CustomCardService {
     return resultMap;
   }
   
-  public List<CustomCard> getList(int cafeMemberNo) throws Exception {
-    return customCardDao.getList(cafeMemberNo); 
+  public List<CustomCard> getList(int cafeMemberNo, int pageNo, int pageSize) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("cafeMemberNo", cafeMemberNo);
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    return customCardDao.getList(paramMap); 
   }
   
-  public List<CustomCard> getListSelect(int cafeMemberNo, String selectCafeList) throws Exception {
+  public List<CustomCard> getListSelect(int cafeMemberNo, String selectCafeList, int pageNo, int pageSize) throws Exception {
     HashMap<String, Object> paramMap = new HashMap<>();
     paramMap.put("cafeMemberNo", cafeMemberNo);
     paramMap.put("selectCafeList", selectCafeList);
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
     return customCardDao.getListSelect(paramMap); 
   }
 
@@ -255,6 +261,12 @@ public class CustomCardServiceImpl implements CustomCardService {
         return;
       }
     }
+  }
+
+
+  @Override
+  public int getSize(int cafeMemberNo) throws Exception {
+    return customCardDao.countAll(cafeMemberNo);
   }
 
 }

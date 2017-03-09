@@ -1,6 +1,5 @@
 package bitcamp.java89.ems2.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,11 +14,13 @@ public interface CustomCardDao {
   int getStampCountByKeyword(Map<String, Object> paramMap) throws Exception;
   
   List<CustomCard> getCustomDetail(Map<String, Object> paramMap) throws Exception;
-  ArrayList<CustomCard> getList(int cafeMemberNo) throws Exception;
-  ArrayList<CustomCard> getListSelect(Map<String, Object> paramMap) throws Exception;
+  
+  List<CustomCard> getList(Map<String, Object> paramMap) throws Exception;
+  List<CustomCard> getListSelect(Map<String, Object> paramMap) throws Exception;
+  int countAll(int cafeMemberNo) throws Exception;
+  
   List<CustomCard> getCustomCardDetail(Map<String, Object> paramMap) throws Exception;
   List<CustomCard> getCardDetail(Map<String, Object> paramMap) throws Exception;
-  
   int insert(Map<String, Object> paramMap) throws Exception;
   int getStampCafeCardNo(int cafeMemberNo) throws Exception;
   
