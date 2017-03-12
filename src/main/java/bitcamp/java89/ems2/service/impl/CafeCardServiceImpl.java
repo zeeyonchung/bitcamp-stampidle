@@ -29,6 +29,10 @@ public class CafeCardServiceImpl implements CafeCardService {
 	stampCardInfoDao.insertPosition(stampPosition);
   }
   
+  @Override
+  public StampCardInfo getCardInfo(int cafeMemberNo) throws Exception {
+  	return stampCardInfoDao.getCardInfo(cafeMemberNo);
+  }
 }
 
 

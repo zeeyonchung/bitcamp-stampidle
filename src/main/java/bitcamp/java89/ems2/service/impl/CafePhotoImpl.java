@@ -1,10 +1,11 @@
 package bitcamp.java89.ems2.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.CafePhotoDao;
-import bitcamp.java89.ems2.domain.Cafe;
 import bitcamp.java89.ems2.domain.CafePhoto;
 import bitcamp.java89.ems2.service.CafePhotoService;
 
@@ -17,7 +18,7 @@ public class CafePhotoImpl implements CafePhotoService {
     return cafePhotoDao.insert(cafePhoto);
   }
   
-  public CafePhoto detailCafePhoto(int cafeMemberNo) throws Exception {
+  public List<CafePhoto> detailCafePhoto(int cafeMemberNo) throws Exception {
   	return cafePhotoDao.getOne(cafeMemberNo);
   }
   
