@@ -126,6 +126,13 @@
     background:#f0f0f0;
     padding:10px 0;
     text-align:center;
+    min-height: 250px;
+}
+
+.imgInfoArea .card .cardArea img {
+    width:auto;
+    max-width:400px;
+    min-height: 230px;
 }
 
 .imgInfoArea .card .cardInfo {
@@ -172,9 +179,22 @@
 }
 
 .imgInfoArea .imgInfo .cafeImg {
-    height:250px;
+    height:280px;
+    margin-top:-30px;
+}
+.imgInfoArea .imgInfo .cafeImgWrap {
+	height:280px;
+    overflow:hidden;
 }
 
+.cafeImgSlide {
+	margin-top:30px;
+    height:250px;
+    background:#f8f8f8;
+}
+.cafeImgSlide .slick-list {
+	max-height:250px;
+}
 .cafeImgSlide > div {
 	 height:250px;
 	overflow:hidden;
@@ -234,7 +254,8 @@
 /* //cafe interior images slide */
 
 .imgInfoArea .imgInfo .infoDetail {
-    padding:15px;
+    padding:12px 15px;
+    width:85%;
 }
 
 .imgInfoArea .imgInfo .infoDetail .time:before,
@@ -248,6 +269,14 @@
     color:#b4b4b4;
     display:inline-block;
     text-align:center;
+}
+
+.imgInfoArea .imgInfo .infoDetail .time span:after {
+    content: "/ ";
+}
+
+.imgInfoArea .imgInfo .infoDetail .time span:last-child:after {
+    content: " ";
 }
 
 .imgInfoArea .imgInfo .infoDetail .time:before {
@@ -318,6 +347,7 @@
 .menuArea {
     clear:both;
     padding-top:40px;
+    max-height:300px;
 }
 
 .menuArea h3 { 
@@ -346,6 +376,7 @@
 	border:1px solid #f0f0f0;
 	border-radius:100px;
 	overflow:hidden;
+	background:#f8f8f8;
 }
 
 .menuArea .menuSlide.slider .menu .mnImg img {

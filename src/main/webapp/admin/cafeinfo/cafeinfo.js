@@ -42,7 +42,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			
 			$.each(cafePhotos, function(i){
 				console.log(cafePhotos[i].path);
-			    $("<div class='sl_li'><img src='../../upload/"+cafePhotos[i].path+"'></div>").appendTo(".cafeImgSlide");
+			    $("<div class='sl_li'><img src='../../upload/"+cafePhotos[i].path+"' alt='cafe photo image'></div>").appendTo(".cafeImgSlide");
 			});
 			
 			$.each(cafeTime, function(i){
@@ -66,7 +66,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$.each(menus, function(i){
 				console.log(menus[i].path);
 				$("<div class='menu'><p class='mnImg'><img src='../../upload/" + menus[i].menuPath
-				+ "'></p><p class='mnName'>" + menus[i].menuName
+				+ "' alt='menu image'></p><p class='mnName'>" + menus[i].menuName
 				+ "</p><p class='price'>" + menus[i].menuName
 				+ "</p></div>").appendTo(".menuSlide");
 			});
@@ -85,7 +85,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			
 			function membImg(i) {
 				if (comments[i].photoPath == null) {
-					alert("dd");
 					return clientRoot + '/image/comment_default.png';
 				} else {
 					return comments[i].photoPath;

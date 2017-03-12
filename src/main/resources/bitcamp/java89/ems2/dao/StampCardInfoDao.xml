@@ -5,7 +5,7 @@
   
 <mapper namespace="bitcamp.java89.ems2.dao.StampCardInfoDao">
 
-  <resultMap type="stampCardInfo" id="cafe-map">
+  <resultMap type="stampCardInfo" id="stampCardInfo-map">
     <id column="scno"       property="stampCafeCardNo"/>
     
     <result column="cmno"      property="cafeMemberNo"/>
@@ -48,6 +48,12 @@
     insert into stposi(posix, posiy, stampod, scno)
     values (#{positionX}, #{positionY}, #{positionOrder}, #{stampCafeCardNo})
   </insert>
+  
+  <select id="getCardInfo" parameterType="int" resultMap="stampCardInfo-map">
+    select 
+  	* 
+  	from scinfo where cmno=#{value} 
+  </select>
 </mapper>
 
 

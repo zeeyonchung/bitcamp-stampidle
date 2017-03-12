@@ -1,5 +1,7 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.List;
+
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 import bitcamp.java89.ems2.domain.Cafe;
 import bitcamp.java89.ems2.domain.CafePhoto;
 import bitcamp.java89.ems2.domain.CafeTime;
+import bitcamp.java89.ems2.domain.Comment;
 import bitcamp.java89.ems2.domain.Likes;
 import bitcamp.java89.ems2.domain.Menu;
+import bitcamp.java89.ems2.domain.StampCardInfo;
 import bitcamp.java89.ems2.domain.Tag;
+import bitcamp.java89.ems2.service.CafeCardService;
 import bitcamp.java89.ems2.service.CafePhotoService;
 import bitcamp.java89.ems2.service.CafeService;
 import bitcamp.java89.ems2.service.CafeTimeService;
+import bitcamp.java89.ems2.service.CommentService;
 import bitcamp.java89.ems2.service.LikesService;
 import bitcamp.java89.ems2.service.MenuService;
 import bitcamp.java89.ems2.service.TagService;
@@ -28,8 +34,11 @@ public class CafeJsonControl {
   @Autowired CafeTimeService cafeTimeService;
   @Autowired TagService tagService;
   @Autowired CafePhotoService cafePhotoService;
+  @Autowired CommentService commentService;
   @Autowired MenuService menuService;
   @Autowired LikesService likesService;
+  @Autowired CafeCardService cafeCardService;
+  
   
   @RequestMapping("/admin/cafe/add")
   public AjaxResult add(Cafe cafe) throws Exception {
@@ -37,11 +46,13 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
   
+  
   @RequestMapping("/admin/cafeTime/add")
   public AjaxResult add(CafeTime cafeTime) throws Exception {
     cafeTimeService.add(cafeTime);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
+  
   
   @RequestMapping("/admin/tag/add")
   public AjaxResult add(Tag tag) throws Exception {
@@ -49,11 +60,13 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
   
+  
   @RequestMapping("/admin/cafePhoto/add")
   public AjaxResult add(CafePhoto cafePhoto) throws Exception {
   	cafePhotoService.add(cafePhoto);
   	return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
+  
   
   @RequestMapping("/admin/menu/add")
   public AjaxResult add(Menu menu) throws Exception {
@@ -74,44 +87,52 @@ public class CafeJsonControl {
   
   @RequestMapping(value = {"/admin/cafeTime/detail", "/cstmr_m/cafeTime/detail"})
   public AjaxResult detailTime(int cafeMemberNo) throws Exception {
-  	CafeTime cafeTime = (CafeTime)cafeTimeService.detailTime(cafeMemberNo);
-  	if (cafeTime == null) {
-      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
-    }
-    return new AjaxResult(AjaxResult.SUCCESS, cafeTime);
+  	List<CafeTime> list = cafeTimeService.detailTime(cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
   
   @RequestMapping(value = {"/admin/tag/detail", "/cstmr_m/tag/detail"})
   public AjaxResult detailTag(int cafeMemberNo) throws Exception {
   	Tag tag = (Tag)tagService.detailTag(cafeMemberNo);
-  	if (tag == null) {
-      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
-    }
-    
     return new AjaxResult(AjaxResult.SUCCESS, tag);
   }
   
   
   @RequestMapping(value = {"/admin/cafePhoto/detail"})
   public AjaxResult detailCafePhoto(int cafeMemberNo) throws Exception {
-  	CafePhoto cafePhoto = (CafePhoto)cafePhotoService.detailCafePhoto(cafeMemberNo);
-  	if (cafePhoto == null) {
-      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
-    }
-    
-    return new AjaxResult(AjaxResult.SUCCESS, cafePhoto);
+  	List<CafePhoto> list = cafePhotoService.detailCafePhoto(cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
   
   @RequestMapping(value = {"/admin/menu/detail"})
   public AjaxResult detailMenu(int cafeMemberNo) throws Exception {
-  	Menu menu = (Menu)menuService.detailMenu(cafeMemberNo);
-  	if (menu == null) {
-      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
-    }
-    
-    return new AjaxResult(AjaxResult.SUCCESS, menu);
+  	List<Menu> list = menuService.detailMenu(cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
+  
+  @RequestMapping(value = {"/admin/cardinfo/detail"})
+  public AjaxResult detailCardInfo(int cafeMemberNo) throws Exception {
+  	StampCardInfo stampCardInfo = (StampCardInfo)cafeCardService.getCardInfo(cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, stampCardInfo);
+  }
+  
+  
+  @RequestMapping(value = {"/admin/comment/detail"})
+  public AjaxResult getList(int cafeMemberNo) throws Exception {
+  	List<Comment> list = commentService.getList(cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
+  
+  @RequestMapping(value = {"/admin/comment/count"})
+  public AjaxResult contsCount(int cafeMemberNo) throws Exception {
+  	int num = commentService.count(cafeMemberNo);
+    Comment comment = new Comment();
+    comment.setContsCount(num);
+    return new AjaxResult(AjaxResult.SUCCESS, comment);
   }
   
 
@@ -164,7 +185,7 @@ public class CafeJsonControl {
   }
   
   @RequestMapping(value = {"/admin/likes/count"})
-  public AjaxResult count(int cafeMemberNo) throws Exception {
+  public AjaxResult likesCount(int cafeMemberNo) throws Exception {
   	int num = likesService.count(cafeMemberNo);
     Likes likes = new Likes();
     likes.setNum(num);
