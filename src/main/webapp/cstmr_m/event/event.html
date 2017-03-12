@@ -23,9 +23,6 @@
     <div class='con'>
 
 
-      <div class='eventBn'>
-        <button class="btn btn-default btn-lg btn-block add-new-btn">새 이벤트 등록</button>
-      </div>
 
     </div>
     <!-- //con -->
@@ -37,10 +34,10 @@
 {{#each list}}
 <div class="one-event">
   <div class= "img-box">
-    <img src='../../upload/1488867227521_0' class="img-src">
+    <img src=../../upload/{{eventPhotoPath}} class="img-src" style="width:100%">
   </div>
   <div class="text-div">
-    <span class="title">{{eventTitle}} / {{eventNo}}</span><br>
+    <span class="title" data-no={{eventNo}}>{{eventTitle}} / {{eventNo}}</span><br>
     <span class="store">{{cafeName}}</span><br>
     <span class="blank"></span>
     <span class="daterange">{{startDate}} ~ {{endDate}}</span><br>

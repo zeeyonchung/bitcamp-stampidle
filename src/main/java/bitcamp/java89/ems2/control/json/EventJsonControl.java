@@ -81,7 +81,7 @@ public class EventJsonControl {
   }
   
   
-  @RequestMapping(value = "/admin/event/detail")
+  @RequestMapping(value ={"/admin/event/detail", "/cstmr_m/event/detail"})
   public AjaxResult detail(int eventNo) throws Exception {
     Event event = eventService.getDetail(eventNo);
     
