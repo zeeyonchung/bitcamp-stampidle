@@ -226,6 +226,14 @@
 	top: 55px;
 }
 
+.info-size {
+	font-size: 11px;
+	color: gray;
+	position: absolute;
+	right: -10px;
+	top: 100px;
+}
+
 
 
 /*--fianl--*/
@@ -288,7 +296,7 @@
 	margin-top: 10px;
 	margin-right: 50px;
 }
-.info {
+.info-name {
 	font-size: 11px;
 	color: gray;
 }
