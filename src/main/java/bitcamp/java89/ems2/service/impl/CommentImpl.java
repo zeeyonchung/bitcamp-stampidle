@@ -17,9 +17,6 @@ public class CommentImpl implements CommentService {
   	return commentDao.getList(cafeMemberNo);
   }
   
-  public int count(int cafeMemberNo) throws Exception {
-  	return commentDao.count(cafeMemberNo);
-  }
 }
 
 

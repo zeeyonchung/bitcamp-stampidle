@@ -28,9 +28,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var comments = ajaxResult.data;
 
-	$.getJSON(serverRoot + '/comment/count.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-		var commentsCount = ajaxResult.data;
-		
+	
 			$('.cafeLogo img').attr('src', '../../upload/' + cafe.logPath);
 			$('.cafeName').text(cafe.cafeName);
 			var tag_arr = tag.tagName.split(" ");
@@ -54,7 +52,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$('.seat').text(cafe.chairNo);
 			$('.tel').text(cafe.cafeTel);
 			$('.addr').text(cafe.address + " " + cafe.detailAddress);
-			console.log(cardinfo.backImgPath.slice(0,7));
 			if (cardinfo.backImgPath.slice(0,4) == "temp") {
 				$('.cardArea img').attr('src', '../image/' + cardinfo.backImgPath);
 			} else {
@@ -64,16 +61,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$('.stampNum .txt2 span').text(cardinfo.service);
 			
 			$.each(menus, function(i){
-				console.log(menus[i].path);
 				$("<div class='menu'><p class='mnImg'><img src='../../upload/" + menus[i].menuPath
 				+ "' alt='menu image'></p><p class='mnName'>" + menus[i].menuName
 				+ "</p><p class='price'>" + menus[i].menuName
 				+ "</p></div>").appendTo(".menuSlide");
 			});
 			
-			
 			$.each(comments, function(i){
-				console.log(comments[i].contents);
 				$("<li><div class='profileImg'><img src='" + membImg(i)
 			    + "'></div><div class='comment_txt'><strong>" + check_nickNull(i)
 				+ "</strong><p>" + comments[i].contents
@@ -81,7 +75,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				+ "</div><div class='star'><span class='" + "star4"
 				+ "'></span></div></div></li>").appendTo(".comment_list ul");
 			});
-			$('.total span').text(commentsCount.contsCount);
+			$('.total span').text(commentsCount());
+			$('.starScore .result span').text(averStarScore());
 			
 			function membImg(i) {
 				if (comments[i].photoPath == null) {
@@ -99,11 +94,26 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			    }
 			}
 			
+			function averStarScore() {
+				var sum = 0;
+				var aver = 0;
+				$.each(comments, function(i){
+					console.log(comments[i].star);
+					sum += comments[i].star;
+				});
+				aver = sum/commentsCount();
+				return aver;
+			}
+			
+			function commentsCount() {
+				var count = 0;
+				$.each(comments, function(i){
+					count++;
+				});
+				return count;
+			}
 			
 			
-			
-			
-	});	
 	});
 	});
 	});

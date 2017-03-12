@@ -31,9 +31,5 @@
     where cmno=#{value} 
   </select>
   
-  <select id="count" parameterType="int" resultType="int">
-  select count(*) from coments where 
-  	cmno=#{cafeMemberNo}
-  </select>
   
 </mapper>

@@ -7,15 +7,7 @@ public class Comment extends CustomMember {
   protected String contents;
   protected int star;
   protected String uploadDate;
-  protected int contsCount;
   
-  
-	public int getContsCount() {
-		return contsCount;
-	}
-	public void setContsCount(int contsCount) {
-		this.contsCount = contsCount;
-	}
 	public int getCommentNo() {
 		return commentNo;
 	}

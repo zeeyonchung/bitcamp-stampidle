@@ -6,7 +6,6 @@ import bitcamp.java89.ems2.domain.Comment;
 
 public interface CommentService {
 	List<Comment> getList(int cafeMemberNo) throws Exception;
-	int count(int cafeMemberNo) throws Exception;
 }
 
 
