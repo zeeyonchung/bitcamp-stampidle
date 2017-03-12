@@ -166,7 +166,7 @@ $('.btmsubmit').click (function() {
 			"cafeMemberNo": cafeMemberNo,
 			"stampCount": $('.midNum').text(),
 			"frontImgPath": $('#front-photo-path').val(),
-			"backImgPath": $('#back-photo-path').val(),
+			"backImgPath": $('#back-photo-path').val().slice(9),
 			"stampImgPath": $('#photo-path').val(),
 			"service": $('.service').text()
 	};
