@@ -72,11 +72,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			    + "'></div><div class='comment_txt'><strong>" + check_nickNull(i)
 				+ "</strong><p>" + comments[i].contents
 				+ "</p></div><div class='etcInfo'><div class='date'>" + comments[i].uploadDate
-				+ "</div><div class='star'><span class='" + "star4"
+				+ "</div><div class='star'><span class='" + starScoreCss(comments[i].star)
 				+ "'></span></div></div></li>").appendTo(".comment_list ul");
 			});
 			$('.total span').text(commentsCount());
 			$('.starScore .result span').text(averStarScore());
+			$('.starScore .star span').addClass();
 			
 			function membImg(i) {
 				if (comments[i].photoPath == null) {
@@ -98,7 +99,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				var sum = 0;
 				var aver = 0;
 				$.each(comments, function(i){
-					console.log(comments[i].star);
 					sum += comments[i].star;
 				});
 				aver = sum/commentsCount();
@@ -111,6 +111,43 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					count++;
 				});
 				return count;
+			}
+			alert("test");
+			function starScoreCss(num) {
+				switch(num) {
+					case 5: return "star5";
+					case 4: return "star4";
+					case 3: return "star3";
+					case 2: return "star2";
+					case 1: return "star1";
+					case 0: return "star0";
+				}
+			}
+			
+			function totalStarScoreCss(num) {
+				if (4.7 < averStarScore() <= 5) {
+					return "star5";
+				} else if (4.2 < averStarScore() <= 4.7) {
+					return "star4_5";
+				} else if (3.7 < averStarScore() <= 4.2) {
+					return "star4";
+				} else if (3.2 < averStarScore() <= 3.7) {
+					return "star3_5";
+				} else if (2.7 < averStarScore() <= 3.2) {
+					return "star3";
+				} else if (2.2 < averStarScore() <= 2.7) {
+					return "star2_5";
+				} else if (1.7 < averStarScore() <= 2.2) {
+					return "star2";
+				} else if (1.2 < averStarScore() <= 1.7) {
+					return "star1_5";
+				} else if (0.7 < averStarScore() <= 1.2) {
+					return "star1";
+				} else if (0.2 < averStarScore() <= 0.7) {
+					return "star0_5";
+				} else {
+					return "star0";
+				}
 			}
 			
 			
