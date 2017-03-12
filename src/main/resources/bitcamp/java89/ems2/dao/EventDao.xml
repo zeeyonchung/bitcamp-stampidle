@@ -52,6 +52,23 @@
     limit #{firstPost}, #{postNo}
   </select>
   
+  <select id="getListAllEvent" parameterType="java.util.Map" resultMap="event-map">
+    select 
+      e.eno,
+      e.titl,
+      e.econts,
+      e.ebirth,
+      e.epath,
+      e.eview,
+      e.sday,
+      e.eday,
+      c.cname
+    from event e
+      left outer join cafe c on e.cmno = c.cmno
+    order by e.eno desc
+    limit #{firstPost}, #{postNo}
+  </select>
+  
   <select id="getListByTitle" parameterType="java.util.Map" resultMap="event-map">
     select 
       e.eno,
@@ -178,6 +195,11 @@
     select count(*)
     from event
     where cmno=#{cafeMemberNo}
+  </select>
+  
+  <select id="getCountAll" resultType="int">
+    select count(*) from event
+    order by eday;
   </select>
   
   

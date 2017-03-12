@@ -8,7 +8,6 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java89.ems2.domain.CustomCard;
@@ -43,31 +42,19 @@ public class CustomCardJsonControl {
   }
   
   
-  @RequestMapping(value = "/admin/customCard/customList")
-  public AjaxResult customList(int cafeMemberNo, int pageNo, int pageSize) throws Exception {
-    if (pageNo < 1) {
-      pageNo = 1;
-    }
-    
-    List<CustomCard> list = customCardService.getList(cafeMemberNo, pageNo, pageSize);
-    int totalCount = customCardService.getSize(cafeMemberNo);
-    HashMap<String,Object> resultMap = new HashMap<>();
-    resultMap.put("list", list);
-    resultMap.put("totalCount", totalCount);
-    
-    
-    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
-  }
   
   
   @RequestMapping(value = "/admin/customCard/customListSelect")
-  public AjaxResult customList(int cafeMemberNo, String selectCafeList,
-      @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="5") int pageSize) throws Exception {
+  public AjaxResult customList(int cafeMemberNo, String selectCafeList, int pageNo, int pageSize) throws Exception {
     if (pageNo < 1) {
       pageNo = 1;
     }
-    List<CustomCard> list = customCardService.getListSelect(cafeMemberNo, selectCafeList, pageNo, pageSize);
+    List<CustomCard> list = null;
+    if(selectCafeList == null) {
+      list = customCardService.getList(cafeMemberNo, pageNo, pageSize);
+    } else {
+      list = customCardService.getListSelect(cafeMemberNo, selectCafeList, pageNo, pageSize);
+    }
     int totalCount = customCardService.getSize(cafeMemberNo);
     
     HashMap<String,Object> resultMap = new HashMap<>();

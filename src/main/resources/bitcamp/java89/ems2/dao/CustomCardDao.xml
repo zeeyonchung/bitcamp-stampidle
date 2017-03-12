@@ -251,7 +251,7 @@
   where
     cafe.cmno=#{cafeMemberNo}
   group by mcard.mno
-  order by #{selectCafeList} asc
+  order by #{selectCafeList}
   limit #{startRowIndex}, #{rowSize}
   
   </select>
