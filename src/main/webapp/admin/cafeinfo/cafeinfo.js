@@ -112,7 +112,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				});
 				return count;
 			}
-			alert("test");
+			
 			function starScoreCss(num) {
 				switch(num) {
 					case 5: return "star5";
