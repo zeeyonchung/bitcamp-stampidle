@@ -24,6 +24,7 @@ function updateStmpsideSize() {
 function updateMidtopSize() {
 	var height = $('.backcard').css('height');
 	$('.mid-top').css('height', height);
+	console.log(height);
 }
 /** btmLine 높이 조정 **/
 function updateBtmlineSize() {

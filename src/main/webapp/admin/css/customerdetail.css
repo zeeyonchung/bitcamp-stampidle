@@ -113,15 +113,22 @@ hr {
   border:1px solid gray; 
   border-width:1px 1px; 
   width:400px; 
+  padding-left: 25px; 
+  padding-right: 25px; 
+  padding-top:10px; 
+  padding-bottom:10px;
+}
+
+#card-back {
+	position: absolute;
+  width:350px; 
 }
 
 .stmpside {
     position: absolute;
     display: inline;
-    min-height: 127px;
+    min-height: 160px;
     padding: 6px;
-    top: 10px;
-    left: 25px;
 }
 
 .stmpare {
@@ -135,14 +142,6 @@ hr {
     border-radius: 5px;
 }
 
-#card-back {
-  height:220px; 
-  width:350px; 
-  margin-left: 25px; 
-  margin-right: 25px; 
-  margin-top:10px; 
-  margin-bottom:10px;
-}
 .current-stamp {
   float: left; 
   width: 400px; 

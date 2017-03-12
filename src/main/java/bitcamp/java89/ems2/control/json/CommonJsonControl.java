@@ -22,7 +22,6 @@ public class CommonJsonControl {
     ArrayList<String> filenames = new ArrayList<>();
     
     // 페이지 컨트롤러는 입력 파라미터 값을 가공하여 모델 객체에게 전달하는 일을 한다.
-    System.out.println(files.length + "................");
     if (files != null && files.length > 0) {
       for (MultipartFile file : files) {
         if (file.getSize() > 0) {

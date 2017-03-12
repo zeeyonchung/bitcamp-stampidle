@@ -147,6 +147,10 @@
 
 
 
+
+
+/***  auto complete 고객검색 자동완성 ***/
+
 .ui-menu
 {
     position: relative;
@@ -179,10 +183,13 @@
     background-color: #555;
 }
 
+.ui-widget-content.ui-autocomplete {
+	position:absolute!important;
+	max-height: 250px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
 
-
-
-/***  auto complete 고객검색 자동완성 ***/
 .ac_results {
 	clear: both;
     padding: 0px;
@@ -229,10 +236,6 @@
 
 .ui-helper-hidden-accessible {
     display:none!important;
-}
-
-.ui-widget-content.ui-autocomplete {
-	position:absolute!important;
 }
 
 /************ logon-div ************/

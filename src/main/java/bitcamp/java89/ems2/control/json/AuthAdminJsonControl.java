@@ -21,8 +21,6 @@ public class AuthAdminJsonControl {
       HttpServletResponse response, HttpSession session, Model model) throws Exception {
     
     CafeMember cafeMember = authService.getCafeMemberInfo(id, password);
-    System.out.println(cafeMember);
-    
     if (cafeMember == null) {
       return new AjaxResult(AjaxResult.FAIL, "아이디 또는 암호가 틀리거나, 가입된 회원이 아닙니다.2");
     }

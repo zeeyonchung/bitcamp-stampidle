@@ -181,6 +181,7 @@
 	  mcard.mcuse,
 	  stamp.stno,
 	  stamp.many,
+	  stamp.stime,
 	  scinfo.stnum
 	from memb
 	  left outer join mcard on memb.mno=mcard.mno
@@ -274,9 +275,28 @@
     left outer join cafe on scinfo.cmno=cafe.cmno
   where
     cafe.cmno=#{cafeMemberNo}
+    </select>
+  <select id='getMyCardCount' parameterType="int" resultType="int">
+  select count(*) from mcard where mno=#{customMemberNo}
   </select>
   
-
+  <select id='getMyCardNo' parameterType="int" resultType="int">
+    select mcno from mcard where mno=#{customMemberNo}
+  </select>
+  
+  <select id='getCafeNo' parameterType='int' resultType='int'>
+  select scinfo.cmno from scinfo join mcard on scinfo.scno=mcard.scno where mcard.mcno=#{customCardNo}
+  </select>  
+  
+  <select id='getStampNo' parameterType='int' resultType='java.util.Map'>
+  select
+    many,
+    stnum
+  from mcard m
+  left outer join stamp s on m.mcno=s.mcno
+  left outer join scinfo sc on m.scno= sc.scno
+  where m.mcno=#{customCardNo}
+  </select>
 </mapper>
 
 

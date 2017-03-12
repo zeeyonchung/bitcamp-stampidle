@@ -155,3 +155,29 @@ hr {
 	 margin-left:10px;
    height:28px;
 }
+
+
+.banner-img-div {
+	height: 150px;
+	margin-bottom: 20px;
+	margin-top: 30px;
+}
+
+.banner-img-div p.name {
+	font-size: 1em;
+	float: left;
+}
+
+.banner-img-div p.info {
+  font-size: 0.8em;
+  color: gray;
+  margin-top: 10px;
+}
+
+.banner-img-div .banner-img {
+	width: 550px;
+	height: 130px;
+	border: 1px solid #ddd;
+  margin: 0 20px;
+	float: left;
+}
