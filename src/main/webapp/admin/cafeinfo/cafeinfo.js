@@ -71,10 +71,11 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				+ "</p></div>").appendTo(".menuSlide");
 			});
 			
+			
 			$.each(comments, function(i){
 				console.log(comments[i].contents);
 				$("<li><div class='profileImg'><img src='" + membImg(i)
-			    + "'></div><div class='comment_txt'><strong>" + comments[i].name
+			    + "'></div><div class='comment_txt'><strong>" + check_nickNull(i)
 				+ "</strong><p>" + comments[i].contents
 				+ "</p></div><div class='etcInfo'><div class='date'>" + comments[i].uploadDate
 				+ "</div><div class='star'><span class='" + "star4"
@@ -82,13 +83,20 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			});
 			$('.total span').text(commentsCount.contsCount);
 			
-			
 			function membImg(i) {
 				if (comments[i].photoPath == null) {
 					return clientRoot + '/image/comment_default.png';
 				} else {
 					return comments[i].photoPath;
 				}
+			}
+			
+			function check_nickNull(i) {
+				if (comments[i].nick == null) {
+			    	return "익명고객"
+			    } else {
+			    	return comments[i].nick;
+			    }
 			}
 			
 			
