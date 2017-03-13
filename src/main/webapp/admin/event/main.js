@@ -139,7 +139,7 @@ function loadButton(allEventNo) {
 
 /* 검색조건 */
 $(".event-btns .dropdown-menu li").click(function(){
-	$(".event-btns .btn.dropdown-toggle:first-child").text($(this).text());
+	$(".event-btns .dropdown-toggle:first-child").text($(this).text());
 	if ($(this).text() == "제목") {
 		searchCondition = "e.titl"
 	} else if ($(this).text() == "카페명") {

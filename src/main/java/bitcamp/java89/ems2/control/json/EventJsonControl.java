@@ -37,17 +37,24 @@ public class EventJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   @RequestMapping(value ="/cstmr_m/event/getAllList")
-  public AjaxResult getAllList(int pageCount, int postNo) throws Exception {
-    List<Event> list = eventService.getAllListInfinityScroll(pageCount, postNo);
+  public AjaxResult getAllList(int pageCount, int postNo, String searchCondition) throws Exception {
+    List<Event> list = null;
+    if(searchCondition == null) {
+      System.out.println("aaaaaaaaaaaaaaaaaa");
+      System.out.println(searchCondition);
+      list = eventService.getAllListInfinityScroll(pageCount, postNo);
+    } else {
+      System.out.println("bbbbbbbbbbbbbbbbbbbbbbbb");
+      System.out.println(searchCondition);
+      list = eventService.getAllListInfinityScrollSearchCondition(pageCount, postNo,searchCondition);
+    }
     
     if (list.size() == 0) {
       return new AjaxResult(AjaxResult.FAIL, "페이지가 존재하지 않습니다.");
     }
     
-    HashMap<String,Object> resultMap = new HashMap<>();
-    resultMap.put("list", list);
     
-    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
   @RequestMapping(value = { "/admin_m/event/list"})

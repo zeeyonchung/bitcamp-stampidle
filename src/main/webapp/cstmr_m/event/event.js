@@ -9,8 +9,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var memberNo = member.memberNo;
 	var postNo=10;
     var i = 1;
-    loadPage(i)
-    
+    var searchCondition = null;
+    console.log(searchCondition);
+    loadPage(i);
 	$(window).scroll(function(){
 		{
 	      if($(window).scrollTop()+100 >= $(document).height() - $(window).height())
@@ -20,30 +21,62 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    		  
 	    }
 	});
-	
+    
+    
+    $(".eventBn .dropdown-menu li").click(function(){
+	  	$(".btn.dropdown-toggle:first-child").text($(this).text());
+	  	 i =1;
+	  	if ($(this).text() == "가까운순") {
+	  		searchCondition = "e.titl"
+	  	} else if ($(this).text() == "등록순") {
+	  		searchCondition = "e.ebirth"
+	  	} else if ($(this).text() == "이름순") {
+	  		searchCondition = "e.titl"
+	  	}
+	  	
+	  	
+	  	loadPage(i,searchCondition)
+	    
+		$(window).scroll(function(){
+			{
+		      if($(window).scrollTop()+100 >= $(document).height() - $(window).height())
+		    	  {
+		    	  loadPage(++i,searchCondition);
+		    	  }
+		    		  
+		    }
+		});
+	  });
 
-	function loadPage(pageCount) {
+	function loadPage(pageCount,searchCondition) {
+			
+		console.log(searchCondition);
 	$.getJSON(
 	serverRoot + '/event/getAllList.json',
 	{
 	 'pageCount': pageCount,
 	 'postNo': postNo,
+	 'searchCondition':searchCondition
 	 }, 
 	function(ajaxResult) {
 	  var status = ajaxResult.status;
 	  if (status != "success") {console.log(ajaxResult.data); return;}
-	  var list = ajaxResult.data.list;
-
+	  console.log(ajaxResult.data);
+	  var list = ajaxResult.data;
 	  var eventdiv = $('#container');
 	  var template = Handlebars.compile($('#trTemplate').html());
-	  $('#container').append(template({"list": list}));
-	  
+      if(i == 1) {
+    	  $('#container').html(template({"list": list}));
+      } else {
+		  $('#container').append(template({"list": list}));
+      }
 	  $('.title').click(function(event) {
 		event.preventDefault();
 		$.getJSON(serverRoot + '/event/updateView.json?eventNo=' + $(this).attr("data-no"));
 		
 	  	location.href = 'eventdetail.html?eventNo=' + $(this).attr("data-no");
 	  });
+	  /* 검색조건 */
 	  
 	  
 	});
@@ -55,5 +88,16 @@ $('#top-btn').click(function(event) {
 	$(window).scrollTop($(window).height);
 });
 
-	
+
+
+
+
+$("#search-event-btn").click(function(){
+	searchKeyword = $('.keyword-event').val();
+	if (searchCondition == '') {alert('검색 조건 설정하세요');}
+	loadPage(1, searchCondition, searchKeyword);
+});
+
+
+
 	

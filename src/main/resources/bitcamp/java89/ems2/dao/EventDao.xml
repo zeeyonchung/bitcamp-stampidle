@@ -71,6 +71,23 @@
     limit #{firstPost}, #{postNo}
   </select>
   
+  <select id="getListAllEventSearchCondition" parameterType="java.util.Map" resultMap="event-map">
+    select 
+      e.eno,
+      e.titl,
+      e.econts,
+      e.ebirth,
+      e.epath,
+      e.eview,
+      e.sday,
+      e.eday,
+      c.cname
+    from event e
+      left outer join cafe c on e.cmno = c.cmno
+    order by #{searchCondition} desc
+    limit #{firstPost}, #{postNo}
+  </select>
+  
   <select id="getListByTitle" parameterType="java.util.Map" resultMap="event-map">
     select 
       e.eno,

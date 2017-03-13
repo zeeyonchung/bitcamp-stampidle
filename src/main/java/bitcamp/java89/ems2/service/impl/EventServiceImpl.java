@@ -70,14 +70,20 @@ public class EventServiceImpl implements EventService {
   public List<Event> getAllListInfinityScroll(int pageCount, int postNo) throws Exception {
     Map<String, Object> paramMap = new HashMap<>();
     int firstPost = (pageCount - 1) * postNo;
-    int allEventNo = eventDao.getCountAll();
-    if (firstPost > allEventNo) {
-      firstPost = (pageCount - 2) * postNo;
-    }
     
     paramMap.put("firstPost", firstPost);
     paramMap.put("postNo", postNo);
     return eventDao.getListAllEvent(paramMap);
+  }
+  
+  public List<Event> getAllListInfinityScrollSearchCondition(int pageCount, int postNo,String searchCondition) throws Exception {
+    Map<String, Object> paramMap = new HashMap<>();
+    int firstPost = (pageCount - 1) * postNo;
+    
+    paramMap.put("firstPost", firstPost);
+    paramMap.put("postNo", postNo);
+    paramMap.put("searchCondition", searchCondition);
+    return eventDao.getListAllEventSearchCondition(paramMap);
   }
   
   
