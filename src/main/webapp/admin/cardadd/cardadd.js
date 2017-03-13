@@ -8,6 +8,34 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		/*로그인 안 했으면 로그인 페이지로 보내기*/
 	}
 	cafeMemberNo = ajaxResult.data.cafeMemberNo;
+	
+	
+	
+	/*******************이전에 저장된 데이터 가져오기********************/
+	$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json',
+		{cafeMemberNo: cafeMemberNo},
+		function(ajaxResult) {
+			if (ajaxResult.data.length > 0) {
+				var stampCardInfo = ajaxResult.data[0];
+				console.log(stampCardInfo);
+				
+				$('.front-img-div img').attr('src', '../../upload/' + stampCardInfo.frontImgPath);
+				$('.frontFile front-photo-path').val(stampCardInfo.frontImgPath);
+				
+				$('img.backcard').attr('src', '../../upload/' + stampCardInfo.backImgPath);
+				$('#back-photo-path').val(stampCardInfo.backImgPath);
+				
+				$('.stmpshape #photo-img').attr('src', '../../upload/' + stampCardInfo.stampImgPath);
+				$('.stmpshape #photo-path').val(stampCardInfo.stampImgPath);
+				
+				$('img.backcard').load(function() {
+					updateStmpsideSize();
+					updateMidtopSize();
+					updateBtmlineSize();
+					updateFrontimgdivSize();
+				});
+			}
+	});
 });
 
 

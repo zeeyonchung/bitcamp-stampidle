@@ -1,5 +1,7 @@
 package bitcamp.java89.ems2.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +34,12 @@ public class CafeCardServiceImpl implements CafeCardService {
   @Override
   public StampCardInfo getCardInfo(int cafeMemberNo) throws Exception {
   	return stampCardInfoDao.getCardInfo(cafeMemberNo);
+  }
+
+
+  @Override
+  public List<StampCardInfo> getCafeCardDetail(int cafeMemberNo) throws Exception {
+    return stampCardInfoDao.getCafeCardDetail(cafeMemberNo);
   }
 }
 

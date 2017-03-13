@@ -27,7 +27,13 @@ public class CafeCardJsonControl {
   public AjaxResult add(StampPosition stampPosition) throws Exception {
 	cafeCardService.addPosition(stampPosition);
     
-    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+  
+  @RequestMapping(value = "/admin/cardadd/getCafeCardDetail")
+  public AjaxResult getCafeCardDetail(int cafeMemberNo) throws Exception {
+    return new AjaxResult(AjaxResult.SUCCESS, cafeCardService.getCafeCardDetail(cafeMemberNo));
   }
   
 }
