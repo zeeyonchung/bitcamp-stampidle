@@ -126,15 +126,6 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
-  
-  @RequestMapping(value = {"/admin/comment/count"})
-  public AjaxResult contsCount(int cafeMemberNo) throws Exception {
-  	int num = commentService.count(cafeMemberNo);
-    Comment comment = new Comment();
-    comment.setContsCount(num);
-    return new AjaxResult(AjaxResult.SUCCESS, comment);
-  }
-  
 
   @RequestMapping(value = {"/admin/cafe/update"})
   public AjaxResult update(Cafe cafe) throws Exception {

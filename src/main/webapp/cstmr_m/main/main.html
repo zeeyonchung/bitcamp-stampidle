@@ -33,39 +33,6 @@
                 
 	            <!-- latelyCard slide -->
 	            <section class="latelyCardSlide slider">
-	                <div>
-		                <div class='cafeTxt'>
-		                    <h3 class='cafeName'><img class='cafeLogo' src='../image/logo_sample.png' alt='cafe logo'>카페 프레스코</h3>
-		                    <p class='timeArea'><span class='date'>02-10-2017</span> / <span class='time'>17:35</span></p>
-		                </div>
-		                <div class='cardArea'>
-		                    <img src='../image/card_sample.jpg' alt='stamp card'>
-		                </div>
-		                <div class='stampNumS'><span class='history'>5</span>/<span class='numAll'>10</span></div>
-	                </div>
-	                
-	                <div>
-                        <div class='cafeTxt'>
-                            <h3 class='cafeName'><img class='cafeLogo' src='../image/logo_sample.png' alt='cafe logo'>카페 프레스코</h3>
-                            <p class='timeArea'><span class='date'>02-10-2017</span> / <span class='time'>17:35</span></p>
-                        </div>
-                        <div class='cardArea'>
-                            <img src='../image/card_sample.jpg' alt='stamp card'>
-                        </div>
-                        <div class='stampNumS'><span class='history'>8</span>/<span class='numAll'>10</span></div>
-                    </div>
-                    
-                    <div>
-                        <div class='cafeTxt'>
-                            <h3 class='cafeName'><img class='cafeLogo' src='../image/logo_sample.png' alt='cafe logo'>카페 프레스코</h3>
-                            <p class='timeArea'><span class='date'>02-10-2017</span> / <span class='time'>17:35</span></p>
-                        </div>
-                        <div class='cardArea'>
-                            <img src='../image/card_sample.jpg' alt='stamp card'>
-                        </div>
-                        <div class='stampNumS'><span class='history'>3</span>/<span class='numAll'>10</span></div>
-                    </div>
-                    
 	            </section>
 	            <!-- //latelyCard slide -->
                
@@ -91,60 +58,38 @@
 		</div>
 		<!-- //con -->
 	</div>
+	
+	<!-- 스탬프 하나하나 템플릿 -->
+    <script id="trTemplate" type="text/x-handlebars-template">
+     {{#each customCardList}}
+       <div>
+         <div class='cafeTxt'>
+           <h3 class='cafeName' data-no="{{cafeMemberNo}}"><img class='cafeLogo' src='../../upload/{{logPath}}' alt='cafe logo'>{{cafeName}}</h3>
+           <p class='timeArea'><span class='date'>{{recentStampDate}}</span></p>
+         </div>
+         <div class='cardArea'>
+           <img src='../../upload/{{frontImgPath}}' alt='stamp card'>
+         </div>
+         <div class='stampNumS'><span class='history'>{{currentStampCount}}</span>/<span class='numAll'>{{stampCount}}</span></div>
+      </div>
+    {{/each}}
+    </script>
 
   <script src="../js/context.js"></script>
+  <script src="../../node_modules/handlebars/dist/handlebars.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.js"></script>
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="../js/bit.js"></script>
 	<script src="../js/common.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/main.js"></script>
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
-  <script src="../js/main.js"></script>
 	
-    <script>
-        /* show hide latelyCardSlide */
-        $(document).ready(function() {
-            $('.btn_show').click(function() {
-            	$('.btn_show').hide();
-            	$('.btn_hide').show();
-                $('.latelyCardSlide').slideDown(00);
-                $('.stampNum').slideDown(00);
-                $('.latelyCard h2').removeClass('hidden');
-            });
 
-            $('.btn_hide').click(function() {
-            	$('.btn_hide').hide();
-                $('.btn_show').show();
-                $('.latelyCardSlide').slideUp(00);
-                $('.stampNum').slideUp(00);
-                $('.latelyCard h2').addClass('hidden');
-            });
-        });
-    </script>
 
-    <!-- slide images -->
-    <script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
-        $(document).on('ready', function() {
 
-            /* latelyCard slide */
-            $(".latelyCardSlide").slick({
-                dots : true,
-                infinite : true,
-                slidesToShow : 1,
-                slidesToScroll : 1
-            });
-            
-         // stampNumS 스탬프개수 stampNum에 넣기(at loading)
-            var stampNumHistoryString = $(".slick-current .stampNumS .history").text();
-            var stampNumNumAllString = $(".slick-current .stampNumS .numAll").text();
-            $(".stampNum .history").text(stampNumHistoryString);
-            $(".stampNum .numAll").text(stampNumNumAllString);
-            
-         // stampNumS 스탬프개수 stampNum에 넣기(at sliding : search 'for cstmr_m/main.html by sinae' in slick.js)
-        });
-    </script>
 </body>
 </html>
 

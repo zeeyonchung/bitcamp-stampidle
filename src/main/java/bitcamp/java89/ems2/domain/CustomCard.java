@@ -19,7 +19,22 @@ public class CustomCard extends StampCardInfo {
   protected String customNick;
   protected String customPhoto;
   
+  protected int currentStampCount;
+  protected String recentStampDate;
   
+  
+public String getRecentStampDate() {
+    return recentStampDate;
+  }
+  public void setRecentStampDate(String recentStampDate) {
+    this.recentStampDate = recentStampDate;
+  }
+public int getCurrentStampCount() {
+    return currentStampCount;
+  }
+  public void setCurrentStampCount(int currentStampCount) {
+    this.currentStampCount = currentStampCount;
+  }
 public String getCardUseDate() {
     return cardUseDate;
   }

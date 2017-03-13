@@ -28,9 +28,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var comments = ajaxResult.data;
 
-	$.getJSON(serverRoot + '/comment/count.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-		var commentsCount = ajaxResult.data;
-		
+	
 			$('.cafeLogo img').attr('src', '../../upload/' + cafe.logPath);
 			$('.cafeName').text(cafe.cafeName);
 			var tag_arr = tag.tagName.split(" ");
@@ -54,7 +52,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$('.seat').text(cafe.chairNo);
 			$('.tel').text(cafe.cafeTel);
 			$('.addr').text(cafe.address + " " + cafe.detailAddress);
-			console.log(cardinfo.backImgPath.slice(0,7));
 			if (cardinfo.backImgPath.slice(0,4) == "temp") {
 				$('.cardArea img').attr('src', '../image/' + cardinfo.backImgPath);
 			} else {
@@ -64,7 +61,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$('.stampNum .txt2 span').text(cardinfo.service);
 			
 			$.each(menus, function(i){
-				console.log(menus[i].path);
 				$("<div class='menu'><p class='mnImg'><img src='../../upload/" + menus[i].menuPath
 				+ "' alt='menu image'></p><p class='mnName'>" + menus[i].menuName
 				+ "</p><p class='price'>" + menus[i].menuName
@@ -72,16 +68,16 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			});
 			
 			$.each(comments, function(i){
-				console.log(comments[i].contents);
 				$("<li><div class='profileImg'><img src='" + membImg(i)
-			    + "'></div><div class='comment_txt'><strong>" + comments[i].name
+			    + "'></div><div class='comment_txt'><strong>" + check_nickNull(i)
 				+ "</strong><p>" + comments[i].contents
 				+ "</p></div><div class='etcInfo'><div class='date'>" + comments[i].uploadDate
-				+ "</div><div class='star'><span class='" + "star4"
+				+ "</div><div class='star'><span class='" + starScoreCss(comments[i].star)
 				+ "'></span></div></div></li>").appendTo(".comment_list ul");
 			});
-			$('.total span').text(commentsCount.contsCount);
-			
+			$('.total span').text(commentsCount());
+			$('.starScore .result span').text(averStarScore());
+			$('.starScore .star span').addClass();
 			
 			function membImg(i) {
 				if (comments[i].photoPath == null) {
@@ -91,11 +87,70 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				}
 			}
 			
+			function check_nickNull(i) {
+				if (comments[i].nick == null) {
+			    	return "익명고객"
+			    } else {
+			    	return comments[i].nick;
+			    }
+			}
+			
+			function averStarScore() {
+				var sum = 0;
+				var aver = 0;
+				$.each(comments, function(i){
+					sum += comments[i].star;
+				});
+				aver = sum/commentsCount();
+				return aver;
+			}
+			
+			function commentsCount() {
+				var count = 0;
+				$.each(comments, function(i){
+					count++;
+				});
+				return count;
+			}
+			
+			function starScoreCss(num) {
+				switch(num) {
+					case 5: return "star5";
+					case 4: return "star4";
+					case 3: return "star3";
+					case 2: return "star2";
+					case 1: return "star1";
+					case 0: return "star0";
+				}
+			}
+			
+			function totalStarScoreCss(num) {
+				if (4.7 < averStarScore() <= 5) {
+					return "star5";
+				} else if (4.2 < averStarScore() <= 4.7) {
+					return "star4_5";
+				} else if (3.7 < averStarScore() <= 4.2) {
+					return "star4";
+				} else if (3.2 < averStarScore() <= 3.7) {
+					return "star3_5";
+				} else if (2.7 < averStarScore() <= 3.2) {
+					return "star3";
+				} else if (2.2 < averStarScore() <= 2.7) {
+					return "star2_5";
+				} else if (1.7 < averStarScore() <= 2.2) {
+					return "star2";
+				} else if (1.2 < averStarScore() <= 1.7) {
+					return "star1_5";
+				} else if (0.7 < averStarScore() <= 1.2) {
+					return "star1";
+				} else if (0.2 < averStarScore() <= 0.7) {
+					return "star0_5";
+				} else {
+					return "star0";
+				}
+			}
 			
 			
-			
-			
-	});	
 	});
 	});
 	});

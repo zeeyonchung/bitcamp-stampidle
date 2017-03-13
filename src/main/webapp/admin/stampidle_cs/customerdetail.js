@@ -35,7 +35,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var currentStampCount = ajaxResult.data.currentStampCount;
 		
 		
-		console.log(cardDetail);
 		console.log(cardDetail.backImgPath);
 		
 		$('#card-back').attr('src', serverRoot + '/../upload/' + cardDetail.backImgPath); /* 하... 경로가.....ㅠㅠ */

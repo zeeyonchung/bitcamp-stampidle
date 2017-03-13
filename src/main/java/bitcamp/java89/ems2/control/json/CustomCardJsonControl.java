@@ -122,6 +122,11 @@ public class CustomCardJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, stampNo);
   }
   
+  @RequestMapping(value = "/cstmr_m/customCard/getRecentCard")
+  public AjaxResult getRecentCard(int customMemberNo) throws Exception {
+    List<CustomCard> customCardList = customCardService.getRecentCard(customMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, customCardList);
+  }
 }
 
 

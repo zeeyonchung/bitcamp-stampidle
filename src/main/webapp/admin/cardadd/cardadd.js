@@ -161,12 +161,11 @@ var stampCafeCardNo = 0;
 
 $('.btmsubmit').click (function() {
 	
-	
 	var paramCard = {
 			"cafeMemberNo": cafeMemberNo,
 			"stampCount": $('.midNum').text(),
 			"frontImgPath": $('#front-photo-path').val(),
-			"backImgPath": $('#back-photo-path').val().slice(9),
+			"backImgPath": $('#back-photo-path').val(),
 			"stampImgPath": $('#photo-path').val(),
 			"service": $('.service').text()
 	};
