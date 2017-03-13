@@ -9,6 +9,9 @@ $( function() {
 		var userName = userData.name;
 		var userNo1 = userData.customMemberNo;
 		
+		if (userNo1 != null) {
+			$('.profileArea #logoff-div').css('display','none');
+		}
 		$('.cafeNm > span').append(userName);
 		
 		$.getJSON(serverRoot + '/customMember/getOne.json?customMemberNo=' + userNo1, function(ajaxResult) {
