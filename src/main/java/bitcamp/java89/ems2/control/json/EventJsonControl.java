@@ -40,12 +40,8 @@ public class EventJsonControl {
   public AjaxResult getAllList(int pageCount, int postNo, String searchCondition) throws Exception {
     List<Event> list = null;
     if(searchCondition == null) {
-      System.out.println("aaaaaaaaaaaaaaaaaa");
-      System.out.println(searchCondition);
       list = eventService.getAllListInfinityScroll(pageCount, postNo);
     } else {
-      System.out.println("bbbbbbbbbbbbbbbbbbbbbbbb");
-      System.out.println(searchCondition);
       list = eventService.getAllListInfinityScrollSearchCondition(pageCount, postNo,searchCondition);
     }
     
