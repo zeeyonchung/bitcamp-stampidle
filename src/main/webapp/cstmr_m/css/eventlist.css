@@ -1,0 +1,92 @@
+
+.eventlist #container {
+    padding: 20px 3% 0 3%;
+}
+
+.secTit {
+	margin-bottom:5px;
+}
+
+
+
+
+/************ 이벤트배너영역 `Bn ************/
+.eventBn {
+	 height: 20%;
+	margin-top:0px;
+	text-align: center;
+}
+
+.eventBn .one-event {
+  padding-top:15px;
+  clear: both;
+}
+.img-box{
+	      display: inline-block;
+    height: 150px;
+    width: 40%;
+    border: 1px solid black;
+        margin-top: 10px;
+}
+.img-box .img-src {
+	    height: 100%;
+    width: 100%;
+}
+.one-event {
+	margin-top:10px;
+	position: relative;
+    height: 150px;
+    width: 100%;
+}
+.eventBn {
+  padding-left: 75%;
+}
+.eventBn .one-event img {
+    width:100%;
+}
+
+
+.text-div {
+	width: 55%;
+    display: inline-block;
+    left: 50%;
+}
+
+.eventBn .one-event .text-div .title {
+	display: inline-block;
+	width: 100%;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: 500;
+}
+
+.eventBn .one-event .text-div .store {
+  font-size: 0.9em;
+}
+
+.eventBn .one-event .text-div .blank {
+	display: inline-block;
+  width: 5%;
+}
+
+.eventBn .one-event .text-div .daterange {
+  font-size: 0.85em;
+  color: tomato;
+}
+
+
+#top-btn {
+	float:right;
+}
+
+
+.add-new-btn {
+	  display: inline-block;
+    background: #ffffff;
+    color: #333;
+    border: 3px solid #ff5948;
+    border-radius: 100px;
+    width: 60%;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
