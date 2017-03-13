@@ -23,6 +23,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 
 	function loadPage(pageCount) {
+		console.log(pageCount)
 	$.getJSON(
 	serverRoot + '/event/getAllList.json',
 	{

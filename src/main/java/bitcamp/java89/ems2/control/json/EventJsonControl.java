@@ -39,7 +39,6 @@ public class EventJsonControl {
   @RequestMapping(value ="/cstmr_m/event/getAllList")
   public AjaxResult getAllList(int pageCount, int postNo) throws Exception {
     List<Event> list = eventService.getAllListInfinityScroll(pageCount, postNo);
-    
     if (list.size() == 0) {
       return new AjaxResult(AjaxResult.FAIL, "페이지가 존재하지 않습니다.");
     }
