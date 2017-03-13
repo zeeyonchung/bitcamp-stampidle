@@ -22,6 +22,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			var customCardList = ajaxResult.data;
 			
 			console.log(customCardList);
+			if (customCardList == null) {
+				$('.btn_show').css('display', 'none');
+				$('.btn_hide').css('display', 'none');
+				$('.latelyCardSlide').css('display', 'none');
+				$('.stampNum').css('display', 'none');
+				$('.latelyCard h2').text('새로운 카페에 방문해보세요!');
+			}
 			
 			var latelyCardSlide = $('.latelyCardSlide');
 			var template = Handlebars.compile($('#trTemplate').html());
@@ -34,8 +41,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			
 			
 			slide();
-			
-			
 	});
 	
 });
