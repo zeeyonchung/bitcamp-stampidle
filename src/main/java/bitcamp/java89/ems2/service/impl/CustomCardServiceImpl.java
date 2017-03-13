@@ -277,7 +277,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
   
   @Override
-  public int getMyCardNo(int customMemberNo) throws Exception {
+  public List<CustomCard> getMyCardNo(int customMemberNo) throws Exception {
     return customCardDao.getMyCardNo(customMemberNo);
   }
   
@@ -337,6 +337,11 @@ public class CustomCardServiceImpl implements CustomCardService {
     
     
     return returnCustomCardList;
+  }
+  
+  @Override
+  public List<CustomCard> getStampInfo(int customCardNo) throws Exception {
+    return customCardDao.getStampInfo(customCardNo);
   }
 
 }

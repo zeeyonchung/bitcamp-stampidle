@@ -1,5 +1,7 @@
 package bitcamp.java89.ems2.domain;
 
+import java.util.List;
+
 public class Cafe extends CafeMember {
   private static final long serialVersionUID = 1L;
   
@@ -12,13 +14,8 @@ public class Cafe extends CafeMember {
   protected int chairNo;
   protected String logPath;
   
-  
-  public String getPostCode() {
-		return postCode;
-	}
-	public void setPostCode(String postCode) {
-		this.postCode = postCode;
-	}
+  protected List<Tag> tagList;
+  protected List<CafeTime> cafeTimeList;
   public String getCafeTel() {
     return cafeTel;
   }
@@ -36,6 +33,12 @@ public class Cafe extends CafeMember {
   }
   public void setIntro(String intro) {
     this.intro = intro;
+  }
+  public String getPostCode() {
+    return postCode;
+  }
+  public void setPostCode(String postCode) {
+    this.postCode = postCode;
   }
   public String getAddress() {
     return address;
@@ -61,9 +64,20 @@ public class Cafe extends CafeMember {
   public void setLogPath(String logPath) {
     this.logPath = logPath;
   }
-  public static long getSerialversionuid() {
-    return serialVersionUID;
+  public List<Tag> getTagList() {
+    return tagList;
   }
+  public void setTagList(List<Tag> tagList) {
+    this.tagList = tagList;
+  }
+  public List<CafeTime> getCafeTimeList() {
+    return cafeTimeList;
+  }
+  public void setCafeTimeList(List<CafeTime> cafeTimeList) {
+    this.cafeTimeList = cafeTimeList;
+  }
+  
+ 
   
   
   
