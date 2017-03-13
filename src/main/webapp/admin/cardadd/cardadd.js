@@ -1,5 +1,6 @@
 /*로그인 정보를 가져와서*/
 var cafeMemberNo = "";
+var stampNo = 0;
 
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
@@ -51,6 +52,33 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					updateFrontimgdivSize();
 				});
 			}
+			
+			
+			/**** 이전에 저장된 스탬프 영역 가져오기 ****/
+			// positionOrder대로 재정렬
+			stampCardInfo.stampPositionList.sort(function (a, b) { 
+				return a.positionOrder > b.positionOrder;
+			});
+			
+			
+			/** 스탬프 영역 가져오기 **/
+			for (var i = 0; i < stampCardInfo.stampPositionList.length; i++) {
+				var positionOrder = stampCardInfo.stampPositionList[i].positionOrder;
+				var positionX = parseFloat(stampCardInfo.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
+				var positionY = parseFloat(stampCardInfo.stampPositionList[i].positionY) * $('.stmpside').css('height').split("px")[0];
+				
+				$('<div>')
+				.addClass('stmpare')
+				.addClass('stampNo' + (positionOrder - 1))
+				.appendTo("#stmpside")
+				.text(positionOrder)
+				.draggable({containment : 'parent'})
+				.css({top: positionY, left: positionX})
+				.addTouch();
+			}
+			
+			stampNo = stampCardInfo.stampPositionList.length;
+			
 	});
 });
 
@@ -87,13 +115,11 @@ updateStmpsideSize();
 
 
 /*******************스탬프 영역 추가하기*********************/
-var stampNo = 0;
-
 
 $(document.body).on('click', '.pbtn', function(event) {
   if (stampNo + 1 > 20) {$('.cd_alert2').css('display', 'inline-block'); return;}
   $('<div>')
-    .addClass('stmpare')
+    .addClass('new-stmpare')
     .addClass('stampNo' + stampNo)
     .appendTo("#stmpside")
     .draggable({containment : 'parent'})
