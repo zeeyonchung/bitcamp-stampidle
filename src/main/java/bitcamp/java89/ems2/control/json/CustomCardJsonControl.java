@@ -106,7 +106,7 @@ public class CustomCardJsonControl {
   
   @RequestMapping(value = "/cstmr_m/customCard/getMyCardNo")
   public AjaxResult cardNo(int customMemberNo) throws Exception {
-     int myCardNo = customCardService.getMyCardCount(customMemberNo);
+    List<CustomCard> myCardNo = customCardService.getMyCardNo(customMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, myCardNo);
   }
   
@@ -126,6 +126,12 @@ public class CustomCardJsonControl {
   public AjaxResult getRecentCard(int customMemberNo) throws Exception {
     List<CustomCard> customCardList = customCardService.getRecentCard(customMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, customCardList);
+  }
+  
+  @RequestMapping(value = "/cstmr_m/customCard/getStampInfo")
+  public AjaxResult stampInfo(int customCardNo) throws Exception {
+    List<CustomCard> stampNo = customCardService.getStampInfo(customCardNo);
+    return new AjaxResult(AjaxResult.SUCCESS, stampNo);
   }
 }
 
