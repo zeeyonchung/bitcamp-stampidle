@@ -24,41 +24,51 @@
 		<!-- con -->
 		<div class='con'>
 
-      <div class="listback"> <div class="verarr">
-        <img class="back-btn" src="../image/icon_arrow.png">
-        <span class="floatright">스탬프 개수를 선택하세요</span>
-      </div> </div>
+			<div class="listback">
+				<div class="verarr">
+					<img class="back-btn" src="../image/icon_arrow.png">
+					<!-- <span class="floatright">스탬프 개수를 선택하세요</span> -->
+				</div>
+			</div>
+            
+
+            <div class="descrip2">
+                <h5>선물하실 친구를 검색해주세요.</h5>
+                <span>카페이름</span>에 등록된 친구이름만 검색할 수 있습니다.
+            </div>
+			<div class="padding">
+				<div class='search'>
+					<form name="form1" class='inputArea' method="post">
+						<input type="text" id="searchbox" class='srchBar' placeholder='이름 또는 전화번호'> 
+						<!-- <input type="submit" id="sumit" class='btn_srch' value="검색"> -->
+					</form>
+				</div>
 
 
+				<div class="descrip1">
+	                <div class='stampNum numBox'>
+	                    <span>선물가능한 스탬프 수</span>
+	                    <p>5개</p>
+	                    <input type="text">
+	                </div>
+	                <div class='freeNum numBox'>
+	                    <span>선물가능한 무료서비스 수</span>
+	                    <p>1개</p>
+	                    <input type="text">
+	                </div>
+	            </div>
+				
+				<textarea class="gift-msg"></textarea>
 
-      <div class="padding">
-				<form class="search-form">
-					<input type="text" class="form-control" placeholder="찾으실 고객명 or 전화번호">
-					<button type="button" class="btn btn-default search">검색</button>
-				</form>
-	
-	      
-	      <div class="card">
-	        <div class="card-tmp">
-	          <img class="card-img">
-	        </div>
-	        <div class="stamp">
-	          <img class="stamp-img">
-	          <img class="check-icon" src="../image/icon_check.png">
-	        </div>
-	      </div>
-	      
-	      <textarea class="gift-msg"></textarea>
-	      
-	      <button type="button" class="btn btn-default send">보내기</button>
-	      
-      </div>
+				<button type="button" class="btn send">보내기</button>
+
+			</div>
 
 		</div>
 		<!-- //con -->
 	</div>
 
-
+    <script src="../js/context.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.js"></script>
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="../js/bit.js"></script>
@@ -66,40 +76,8 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
+	<script src="srchCstmr.js"></script>
 
-  <!-- 화면 사이즈 조정 -->
-	<script>
-    function size() {
-      // Get the dimensions of the viewport
-      var width = $(window).width();
-      var height = $(window).height() - 50;
-      
-      $('.con').css({
-        "height" : height
-      });
-      
-      $('.listback').css({
-        "height" : height * 0.1
-      });
-      
-      $('.gift-msg').css({
-        "height" : height * 0.17
-      });
-      
-      $('.card').css({
-        "min-height" : height * 0.35,
-      });
-      
-      $('.card-img').css({
-        "min-height" : height * 0.35,
-        "max-width" : $('.card-tmp').css('width')
-      });
-      
-    }
-    $(document).ready(size); // When the page first loads
-    $(window).resize(size); // When the browser changes size
-  </script>
-  
   
   <!-- 페이지 연결 -->
   <script>
@@ -122,22 +100,11 @@
   </script>
   
   
-  <!-- 스탬프 클릭 시 체크 표시하기 -->
-  <script>
-    $(function() {
-    	var stampimage = $('.stamp-img');
-    	
-    	$('.stamp').click(function() {
-    		if (stampimage.css('opacity') == 1) {
-    		  stampimage.css({opacity: 0.5});
-    		  $('.check-icon').css('display', 'inline');
-    		} else {
-    			stampimage.css({opacity: 1});
-    			$('.check-icon').css('display', 'none');
-    		}
-    	});
-    });
-  </script>
+  
+  <!-- auto complete 고객검색 자동완성 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../js/srchCstmr.js"></script>
+<!-- //auto complete 고객검색 자동완성 -->
   
 </body>
 </html>

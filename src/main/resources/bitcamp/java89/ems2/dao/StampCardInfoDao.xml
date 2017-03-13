@@ -54,6 +54,25 @@
   	* 
   	from scinfo where cmno=#{value} 
   </select>
+  
+  <select id="getCafeCardDetail" parameterType="int" resultMap="stampCardInfo-map">
+    select
+	  scinfo.bpath,
+	  scinfo.fpath,
+	  scinfo.stnum,
+	  scinfo.shape,
+	  scinfo.service,
+	  stposi.posino,
+	  stposi.stampod,
+	  stposi.posix,
+	  stposi.posiy,
+	  stposi.scno
+	from scinfo
+	  left outer join stposi on stposi.scno=scinfo.scno
+	where scinfo.cmno=#{cafeMemberNo}
+	order by scinfo.scno desc
+  </select>
+  
 </mapper>
 
 

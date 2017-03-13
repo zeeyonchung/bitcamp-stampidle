@@ -1,4 +1,3 @@
-
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
 		console.log(ajaxResult.data);

@@ -9,7 +9,7 @@
 
 .listback {
   display: table;
-  border-bottom: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
   font-size: 1.2em;
   padding: 0 3%;
   width: 100%;
@@ -20,6 +20,7 @@
 .listback .verarr {
   display: table-cell;
   vertical-align: middle;
+  height:50px;
   
 }
 
@@ -34,10 +35,6 @@
 	position: relative;
   top: 5px;
 }
-
-
-
-
 
 
 
@@ -94,39 +91,209 @@
 
 
 .btn.send {
-  vertical-align: inherit;
-  width: 80%;
-  height: 40px;
-  color: #fff;
-  background-color: #444;
-  border-color: #444;
+	position:fixed;
+	bottom:15px;
+	left:0;
+	width: 92%;
+	margin:0 4%;
+	height: 50px;
+	color: #fff;
+	background-color: #444;
 }
 
 
-/******************* 스탬프 선택하기 **********************/
 
 
-.card {
-	background-size: contain;
-	background-repeat: no-repeat;
-  background-position: center;
-	position: relative;
+/************ search ************/
+.search {
+	width:80%;
+    margin: auto;
 }
 
-.card .stamp {
-	position: absolute;
-	display: inline-block;
-	width: 15%;
+.search .inputArea {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 30px;
+    border: 1px solid #b2b2b2;
+    border-radius: 20px;
+    background: #fff;
 }
 
-.card .stamp .stamp-img {
-  width: 100%;
+.search .inputArea .srchBar {
+    float: left;
+    width: 100%;
+    padding: 0 20px;
+    height:50px;
+    font-size: 1.1em;
+    color: #555;
+    text-align:center;
+    background: transparent;
 }
 
-.card .stamp .check-icon {
-	display: none;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
+.search .inputArea .btn_srch {
+    float:right;
+    width: 40px;
+    height: 38px;
+    margin:3px 10px 0 0;
+    background: url(../image/btn_searchB.png) no-repeat center center;
+    font-size: 0;
+}
+
+.descrip1 {
+    width:100%;
+    text-align:center;
+    height:130px;
+    margin-top:30px;
+}
+
+
+.numBox {
+	border: 1px solid #eee;
+	width:48%;
+    margin:0 1%;
+	height:130px;
+	float:left;
+    background:#f4f4f4;
+}
+
+.numBox input {
+	margin-top:10px;
+    border: 1px solid #ececec;
+    width:70%;
+    margin:10px 15% 0 15%;
+    height:50px;
+    background:#fff;
+    border-radius:5px;
+    text-align:center;
+    font-size:1.3em;
+    color:#ff5948;
+}
+
+.numBox.stampNum {
+	margin:0 1% 0 1.5%;
+}
+
+.numBox.freeNum {
+    margin:0 1.5% 0 0;
+}
+
+.numBox span {
+	display:block;
+	margin-top:7px;
+	font-size:0.8em;
+	color:#888;
+}
+
+.numBox p {
+	margin-top:7px;
+    font-size:1.6em;
+    color:#333;
+}
+
+
+
+.descrip2 {
+	clear:both;
+    width:100%;
+    margin-top:10px;
+    text-align:center;
+    font-size:0.9em;
+    color:#888;
+}
+
+.descrip2 h5 { 
+	font-size:1.3em;
+	color:#555;
+	margin-bottom:5px;
+}
+
+
+/***  auto complete 고객검색 자동완성 ***/
+
+.ui-menu
+{
+    position: relative;
+    list-style: none;
+    background-color: white;
+    border-radius: 18px;
+    z-index:100000000000000;
+    box-shadow: 5px 0px 8px white;
+    width: 290px;
+    line-height: 200%;
+    font-size: 1em;
+    padding: 15px 0;
+    border: 1px solid #b2b2b2;
+
+}
+
+.ui-menu .ui-menu-item
+{
+    margin: none;
+    padding-left: 15px;
+    padding-right:10px;
+}
+
+.ui-menu .ui-menu-item:hover
+{
+    margin: none;
+    padding-left: 15px;
+    padding-right:10px;
+    color: white;
+    background-color: #555;
+}
+
+.ui-widget-content.ui-autocomplete {
+    position:absolute!important;
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.ac_results {
+    clear: both;
+    padding: 0px;
+    overflow: hidden;
+    z-index: 99999;
+    width:290px!important;
+    border:1px solid #b2b2b2;
+    border-radius:20px;
+    z-index:1000000;
+    background:#fff;
+}
+
+.ac_results ul {
+    list-style-position: outside;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width:290px;
+}
+.ac_results li {
+    margin: 0px;
+    cursor: default;
+    display: block;
+    font-size: 1.4em;
+    padding: 0 20px;
+    overflow: hidden;
+    height:40px;
+    line-height:40px;
+    font-size:1em;
+    text-align:center;
+}
+
+.ac_results li strong {
+    font-weight:normal;
+}
+
+.ac_odd {
+    background-color: #f7f7f7;
+}
+
+.ac_over {
+    background-color: #444;
+    color: white;
+}
+
+.ui-helper-hidden-accessible {
+    display:none!important;
 }

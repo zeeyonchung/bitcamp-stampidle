@@ -316,8 +316,8 @@ public class CustomCardServiceImpl implements CustomCardService {
     int count = 0;
     
     for (CustomCard customCard : customCardList) {
-      if (count == 3) {System.out.println("break..."); break;}
-      if(cafeMemberNos.contains(customCard.getCafeMemberNo())) {System.out.println(cafeMemberNo+"..."+"continue..."); continue;}
+      if (count == 3) {break;}
+      if(cafeMemberNos.contains(customCard.getCafeMemberNo())) {continue;}
       
       currentStampCount = 0;
       cafeMemberNos.add(customCard.getCafeMemberNo());

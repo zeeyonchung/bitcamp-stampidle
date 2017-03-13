@@ -109,7 +109,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		});
 		
 		
-		
 		/**** 스탬프 등록 버튼 클릭 이벤트 (스탬프 추가) ****/
 		$('.stamp-btn').click(function(e) {
 			var stampIssueCount = $('#stmpside').children('.add-check').length;
@@ -129,7 +128,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				console.log('아직 리셋 안 됨...');
 				return;
 			}
-			
 			$.getJSON(serverRoot + '/customCard/addNewCustomCard.json', 
 					{'customMemberNo': customMemberNo,
 					'cafeMemberNo': cafeMemberNo},

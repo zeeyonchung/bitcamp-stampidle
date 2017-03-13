@@ -1,5 +1,6 @@
 /*로그인 정보를 가져와서*/
 var cafeMemberNo = "";
+var stampNo = 0;
 
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
@@ -8,6 +9,77 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		/*로그인 안 했으면 로그인 페이지로 보내기*/
 	}
 	cafeMemberNo = ajaxResult.data.cafeMemberNo;
+	
+	
+	
+	/*******************이전에 저장된 데이터 가져오기********************/
+	$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json',
+		{cafeMemberNo: cafeMemberNo},
+		function(ajaxResult) {
+			if (ajaxResult.data.length > 0) {
+				var stampCardInfo = ajaxResult.data[0];
+				console.log(stampCardInfo);
+				
+				$('.front-img-div img').attr('src', '../../upload/' + stampCardInfo.frontImgPath);
+				$('.frontFile front-photo-path').val(stampCardInfo.frontImgPath);
+				
+				$('img.backcard').attr('src', '../../upload/' + stampCardInfo.backImgPath);
+				$('#back-photo-path').val(stampCardInfo.backImgPath);
+				
+				$('.stmpshape #photo-img').attr('src', '../../upload/' + stampCardInfo.stampImgPath);
+				$('.stmpshape #photo-path').val(stampCardInfo.stampImgPath);
+				
+				$('img.backcard').load(function() {
+					updateStmpsideSize();
+					updateMidtopSize();
+					updateBtmlineSize();
+					updateFrontimgdivSize();
+				});
+			} else {
+				$('.front-img-div img').attr('src', '../image/xbox.png');
+				$('.frontFile front-photo-path').val('../image/xbox.png');
+				
+				$('img.backcard').attr('src', '../image/template1.jpg');
+				$('#back-photo-path').val('../image/template1.jpg');
+				
+				$('.stmpshape #photo-img').attr('src', '../image/stmp4.png');
+				$('.stmpshape #photo-path').val('../image/stmp4.png');
+				
+				$('img.backcard').load(function() {
+					updateStmpsideSize();
+					updateMidtopSize();
+					updateBtmlineSize();
+					updateFrontimgdivSize();
+				});
+			}
+			
+			
+			/**** 이전에 저장된 스탬프 영역 가져오기 ****/
+			// positionOrder대로 재정렬
+			stampCardInfo.stampPositionList.sort(function (a, b) { 
+				return a.positionOrder > b.positionOrder;
+			});
+			
+			
+			/** 스탬프 영역 가져오기 **/
+			for (var i = 0; i < stampCardInfo.stampPositionList.length; i++) {
+				var positionOrder = stampCardInfo.stampPositionList[i].positionOrder;
+				var positionX = parseFloat(stampCardInfo.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
+				var positionY = parseFloat(stampCardInfo.stampPositionList[i].positionY) * $('.stmpside').css('height').split("px")[0];
+				
+				$('<div>')
+				.addClass('stmpare')
+				.addClass('stampNo' + (positionOrder - 1))
+				.appendTo("#stmpside")
+				.text(positionOrder)
+				.draggable({containment : 'parent'})
+				.css({top: positionY, left: positionX})
+				.addTouch();
+			}
+			
+			stampNo = stampCardInfo.stampPositionList.length;
+			
+	});
 });
 
 
@@ -43,13 +115,11 @@ updateStmpsideSize();
 
 
 /*******************스탬프 영역 추가하기*********************/
-var stampNo = 0;
-
 
 $(document.body).on('click', '.pbtn', function(event) {
   if (stampNo + 1 > 20) {$('.cd_alert2').css('display', 'inline-block'); return;}
   $('<div>')
-    .addClass('stmpare')
+    .addClass('new-stmpare')
     .addClass('stampNo' + stampNo)
     .appendTo("#stmpside")
     .draggable({containment : 'parent'})

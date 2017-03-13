@@ -23,7 +23,7 @@ public class CustomMemberJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, customMemberNo);
   }
   
-  @RequestMapping(value = {"/admin/customMember/srchList"})
+  @RequestMapping(value = {"/admin/customMember/srchList", "/cstmr_m/customMember/srchList"})
   public AjaxResult srchList(int cafeMemberNo) throws Exception {
     List<CustomMember> srchList = customMemberService.getSrchListCustomMember(cafeMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, srchList);

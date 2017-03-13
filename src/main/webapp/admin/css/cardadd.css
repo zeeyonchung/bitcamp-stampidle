@@ -128,7 +128,7 @@
 }
 
 .stmpare {
-	position: relative;
+	position: absolute;
 	display: inline-block;
 	/*border: 1px solid red;*/
 	width: 40px;
@@ -137,7 +137,19 @@
 	margin-bottom: 2px;
 	background-color: white;
 	border-radius: 5px;
-	
+}
+
+
+.new-stmpare {
+  position: relative;
+  display: inline-block;
+  /*border: 1px solid red;*/
+  width: 40px;
+  height: 40px;
+  margin-right: 3px;
+  margin-bottom: 2px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 
