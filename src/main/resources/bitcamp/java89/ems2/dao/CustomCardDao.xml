@@ -21,8 +21,14 @@
     
     <result column="scno"       property="stampCafeCardNo"/>
     <result column="bpath"       property="backImgPath"/>
+    <result column="fpath"       property="frontImgPath"/>
     <result column="stnum"       property="stampCount"/>
     <result column="shape"       property="stampImgPath"/>
+    
+    <result column="cname"       property="cafeName"/>
+    <result column="logo"       property="logPath"/>
+    
+    <result column="cmno"       property="cafeMemberNo"/>
     
     <collection property="stampList" ofType="stamp">
       <id     column="stno"     property="stampNo"/>
@@ -296,6 +302,25 @@
   left outer join stamp s on m.mcno=s.mcno
   left outer join scinfo sc on m.scno= sc.scno
   where m.mcno=#{customCardNo}
+  </select>
+  
+  <select id='getRecentCard' parameterType='int' resultMap='customCard-map'>
+	  select
+	  mcard.mno,
+	  cafe.cmno,
+	  cafe.cname,
+	  cafe.logo,
+	  scinfo.fpath,
+	  scinfo.stnum,
+	  stamp.many,
+	  stamp.mcno,
+	  stamp.stime
+	  from mcard
+	    left outer join scinfo on scinfo.scno=mcard.scno
+	    left outer join cafe on cafe.cmno=scinfo.cmno
+	    left outer join stamp on stamp.mcno=mcard.mcno
+	  where mcard.mno=#{customMemberNo}
+	  order by stamp.stno desc
   </select>
 </mapper>
 

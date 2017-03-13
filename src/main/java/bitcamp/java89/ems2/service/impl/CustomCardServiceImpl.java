@@ -296,5 +296,47 @@ public class CustomCardServiceImpl implements CustomCardService {
   public int getSize(int cafeMemberNo) throws Exception {
     return customCardDao.countAll(cafeMemberNo);
   }
+  
+  
+  @Override
+  public List<CustomCard> getRecentCard(int customMemberNo) throws Exception {
+    List<CustomCard> customCardList = customCardDao.getRecentCard(customMemberNo);
+    if (customCardList.size() <= 0) {return null;}
+    
+    
+    List<CustomCard> returnCustomCardList = new ArrayList<>();
+    
+    // 현재 모인 스탬프 수
+    int currentStampCount = 0;
+    // 최근 방문일
+    String recentStampDate = "";
+    // 같은 카페의 카드는 중복시키지 않음
+    List<Integer> cafeMemberNos = new ArrayList<>();
+    // 최근 방문 기록 3개만 뽑을 거임
+    int count = 0;
+    
+    for (CustomCard customCard : customCardList) {
+      if (count == 3) {System.out.println("break..."); break;}
+      if(cafeMemberNos.contains(customCard.getCafeMemberNo())) {System.out.println(cafeMemberNo+"..."+"continue..."); continue;}
+      
+      currentStampCount = 0;
+      cafeMemberNos.add(customCard.getCafeMemberNo());
+      
+      int currentCardSize = customCard.getStampList().size();
+      for (int j = 0; j < currentCardSize; j++) {
+        currentStampCount += customCard.getStampList().get(j).getStampIssueCount();
+        recentStampDate = customCard.getStampList().get(j).getStampIssueDate();
+      }
+      
+      customCard.setCurrentStampCount(currentStampCount);
+      customCard.setRecentStampDate(recentStampDate);
+      
+      returnCustomCardList.add(customCard);
+      count++;
+    }
+    
+    
+    return returnCustomCardList;
+  }
 
 }
