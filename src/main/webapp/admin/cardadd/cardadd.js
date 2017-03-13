@@ -34,6 +34,22 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					updateBtmlineSize();
 					updateFrontimgdivSize();
 				});
+			} else {
+				$('.front-img-div img').attr('src', '../image/xbox.png');
+				$('.frontFile front-photo-path').val('../image/xbox.png');
+				
+				$('img.backcard').attr('src', '../image/template1.jpg');
+				$('#back-photo-path').val('../image/template1.jpg');
+				
+				$('.stmpshape #photo-img').attr('src', '../image/stmp4.png');
+				$('.stmpshape #photo-path').val('../image/stmp4.png');
+				
+				$('img.backcard').load(function() {
+					updateStmpsideSize();
+					updateMidtopSize();
+					updateBtmlineSize();
+					updateFrontimgdivSize();
+				});
 			}
 	});
 });
