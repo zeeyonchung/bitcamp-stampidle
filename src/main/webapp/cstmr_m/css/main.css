@@ -26,7 +26,8 @@
     border-radius:0 0 25% 25%;
 }
 
-.latelyCard h2 { 
+.latelyCard h2 {
+	
 	margin:auto;
 	width:53%;
     padding:30px 0 2px 0;
@@ -39,7 +40,7 @@
     transition: all 0.5s ease .03s;
 }
 
-.latelyCard h2 span {
+.latelyCard h2 #user-name {
 	font-size:1.3em;
 	font-weight:bold;
 }
@@ -62,7 +63,7 @@
 }
 
 .latelyCard .btn_hide {
-    display:block;
+    display:none;
     width:25px;
     height:20px;
     overflow:hidden;
@@ -148,6 +149,7 @@
 }
 	
 .stampNum {
+	display: none;
 	position:absolute;
 	bottom:-15px;
 	right:20px;

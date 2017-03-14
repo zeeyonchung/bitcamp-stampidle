@@ -42,6 +42,18 @@
       <result column="posiy"     property="positionY"/>
       <result column="stampod"     property="positionOrder"/>
     </collection>
+    
+    <collection property="cafeTimeList" ofType="cafeTime">
+      <id     column="wtno"     property="timeNo"/>
+      <result column="wday"     property="day"/>
+      <result column="stime"     property="startTime"/>
+      <result column="etime"     property="endTime"/>
+    </collection>
+    
+    <collection property="tagList" ofType="tag">
+      <id     column="tno"     property="tagNo"/>
+      <result column="tname"     property="tagName"/>
+    </collection>
   </resultMap>
   
   
@@ -286,7 +298,7 @@
   select count(*) from mcard where mno=#{customMemberNo}
   </select>
   
-  <select id='getMyCardNo' parameterType="int" resultType="int">
+  <select id='getMyCardNo' parameterType="int" resultType='java.util.Map'>
     select mcno from mcard where mno=#{customMemberNo}
   </select>
   
@@ -321,6 +333,17 @@
 	    left outer join stamp on stamp.mcno=mcard.mcno
 	  where mcard.mno=#{customMemberNo}
 	  order by stamp.stno desc
+  </select>
+  
+  <select id='getStampInfo' parameterType='int' resultType ='java.util.Map'>
+    select many, stnum, cname,logo,wday,wtime.stime,wtime.etime,tname,cafe.cmno
+    from mcard m 
+    left outer join stamp s on m.mcno=s.mcno 
+    left outer join scinfo sc on m.scno= sc.scno
+    left outer join cafe on sc.cmno=cafe.cmno
+    left outer join wtime on cafe.cmno= wtime.cmno
+    left outer join tag on cafe.cmno = tag.cmno
+    where m.mcno=#{customCardNo}
   </select>
 </mapper>
 

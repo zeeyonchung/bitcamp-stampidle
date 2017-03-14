@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>Stampidle</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<meta name="viewport"
+  content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="stylesheet"
+  href="../../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/pushy.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/tab_swipe.css">
@@ -14,265 +16,348 @@
 
 </head>
 <body class='mystamp'>
-	<div class="side-left-pushy-button">menu btn</div>
-	<div id='header'></div>
-	<div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
+  <div class="side-left-pushy-button">menu btn</div>
+  <div id='header'></div>
+  <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
 
-	<div id="container">
-	   <h2 id='pageTit'>나의 스탬프</h2>
-	   
-		<!-- con -->
-		<div class='con'>
+  <div id="container">
+    <h2 id='pageTit'>나의 스탬프</h2>
 
-			<div class='swipe_nav'>
-				<ul id="tab_swipe">
-					<li class="tab1 on"><a href="#" onclick="areaSwipe.slide(0);return false;">전체카드</a></li>
-					<li class='tab2'><a href="#" onclick="areaSwipe.slide(1);return false;">즐겨찾는 카드</a></li>
-					<li class='tab3'><a href="#" onclick="areaSwipe.slide(2);return false;">다모은 카드</a></li>
-				</ul>
-			</div>
+    <!-- con -->
+    <div class='con'>
 
-			<div id="swipe">
-				<div class="swWrap">
+      <div class='swipe_nav'>
+        <ul id="tab_swipe">
+          <li class="tab1 on"><a href="#"
+            onclick="areaSwipe.slide(0);return false;">전체카드</a></li>
+          <li class='tab2'><a href="#"
+            onclick="areaSwipe.slide(1);return false;">즐겨찾는 카드</a></li>
+          <li class='tab3'><a href="#"
+            onclick="areaSwipe.slide(2);return false;">다모은 카드</a></li>
+        </ul>
+      </div>
 
-                    <!-- section1 -->
-					<div class='section all'>
-						<h4 class='secTit'>
-							보유중인 쿠폰 총 <span class='num' id='num'></span>개
-						</h4>
-						<div class="btn-group">
-							<button class="btn btn-default btn-sm dropdown-toggle"
-								type="button" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
-								정렬조건 <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li>가까운순</li>
-								<li>스탬프개수</li>
-								<li>등록일순</li>
-								<li>이름순</li>
-							</ul>
-						</div>
-						
-						<div class='list'>
-							<div class='cardArea'><img alt='stamp card'></div>
-		                    <div class='cafeTxt'>
-		                        <h2 class='cafeName'></h2>
-		                        <p class='tag'><span></span></p>
-		                        <p class='time'></p>
-		                        <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-		                    </div>
-		                    <div class='stampNum'><span></span></div>
-						</div>
-					</div>
-                    <!-- //section1 -->
-                    
-                    
-                    <!-- section2 -->
-					<div class='section favorite'>
-                        <h4 class='secTit'>
-                       즐겨찾는 쿠폰 <span class='num'>5</span>개
-                        </h4>
-                        <div class="btn-group">
-                            <button class="btn btn-default btn-sm dropdown-toggle"
-                                type="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                정렬조건 <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>가까운순</li>
-                                <li>스탬프개수</li>
-                                <li>등록일순</li>
-                                <li>이름순</li>
-                            </ul>
-                        </div>
-                        
-                        <div class='list'>
-                            <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                            <div class='cafeTxt'>
-                                <h2 class='cafeName'>카페 프레스코</h2>
-                                <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                                <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                                <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-                            </div>
-                            <div class='stampNum'><span>8</span>/10</div>
-                        </div>
-                        
-                        <div class='list'>
-                            <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                            <div class='cafeTxt'>
-                                <h2 class='cafeName'>카페 프레스코</h2>
-                                <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                                <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                                <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-                            </div>
-                            <div class='stampNum'><span>8</span>/10</div>
-                        </div>
-                        
-                        <div class='list'>
-                            <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                            <div class='cafeTxt'>
-                                <h2 class='cafeName'>카페 프레스코</h2>
-                                <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                                <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                                <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-                            </div>
-                            <div class='stampNum'><span>8</span>/10</div>
-                        </div>
-                        
-                        <div class='list'>
-                            <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                            <div class='cafeTxt'>
-                                <h2 class='cafeName'>카페 프레스코</h2>
-                                <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                                <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                                <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-                            </div>
-                            <div class='stampNum'><span>8</span>/10</div>
-                        </div>
-                        
-                        <div class='list'>
-                            <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                            <div class='cafeTxt'>
-                                <h2 class='cafeName'>카페 프레스코</h2>
-                                <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                                <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                                <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-                            </div>
-                            <div class='stampNum'><span>8</span>/10</div>
-                        </div>
-                    </div>
-                    <!-- //section2 -->
-                    
-                    
-                    <!-- section3 -->
-					<div class='section done'>
-                        <h4 class='secTit'>
-                        다 모은 쿠폰 <span class='num'>2</span>개
-                        </h4>
-                        <div class="btn-group">
-                            <button class="btn btn-default btn-sm dropdown-toggle"
-                                type="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                정렬조건 <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>가까운순</li>
-                                <li>스탬프개수</li>
-                                <li>등록일순</li>
-                                <li>이름순</li>
-                            </ul>
-                        </div>
-                        
-                        <div class='list'>
-                            <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                            <div class='cafeTxt'>
-                                <h2 class='cafeName'>카페 프레스코</h2>
-                                <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                                <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                                <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-                            </div>
-                            <div class='stampNum'><span>8</span>/10</div>
-                        </div>
-                        
-                        <div class='list'>
-                            <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                            <div class='cafeTxt'>
-                                <h2 class='cafeName'>카페 프레스코</h2>
-                                <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                                <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                                <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-                            </div>
-                            <div class='stampNum'><span>8</span>/10</div>
-                        </div>
-                        
-                        
-                    </div>
-                    <!-- //section3 -->
+      <div id="swipe">
+        <div class="swWrap">
 
-				</div>
-			</div>
+          <!-- section1 -->
+          <div class='section all'>
+            <h4 class='secTit'>
+              보유중인 쿠폰 총 <span class='num' id='num'></span>개
+            </h4>
+            <div class="btn-group">
+              <button class="btn btn-default btn-sm dropdown-toggle"
+                type="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                정렬조건 <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>가까운순</li>
+                <li>스탬프개수</li>
+                <li>등록일순</li>
+                <li>이름순</li>
+              </ul>
+            </div>
+            <div class='infodiv'/>
+          </div>
+          <!-- //section1 -->
 
 
-		</div>
-		<!-- //con -->
-	</div>
+          <!-- section2 -->
+          <div class='section favorite'>
+            <h4 class='secTit'>
+              즐겨찾는 쿠폰 <span class='num'>5</span>개
+            </h4>
+            <div class="btn-group">
+              <button class="btn btn-default btn-sm dropdown-toggle"
+                type="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                정렬조건 <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>가까운순</li>
+                <li>스탬프개수</li>
+                <li>등록일순</li>
+                <li>이름순</li>
+              </ul>
+            </div>
+            <div>
+              <div class='list'>
+                <div class='cardArea'>
+                  <img src='../image/card_sample.jpg' alt='stamp card'>
+                </div>
+                <div class='cafeTxt'>
+                  <h2 class='cafeName'>카페 프레스코</h2>
+                  <p class='tag'>
+                    <span>#스터디카페</span><span>#24시간카페</span>
+                  </p>
+                  <p class='time'>
+                    평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00
+                  </p>
+                  <p class='issue'>
+                    <span class='free'>무료</span><span class='event'>이벤트</span>
+                  </p>
+                </div>
+                <div class='stampNum'>
+                  <span>8</span>/10
+                </div>
+              </div>
 
-	<script src="../../node_modules/jquery/dist/jquery.js"></script>
-	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-	<script src="../js/bit.js"></script>
+              <div class='list'>
+                <div class='cardArea'>
+                  <img src='../image/card_sample.jpg' alt='stamp card'>
+                </div>
+                <div class='cafeTxt'>
+                  <h2 class='cafeName'>카페 프레스코</h2>
+                  <p class='tag'>
+                    <span>#스터디카페</span><span>#24시간카페</span>
+                  </p>
+                  <p class='time'>
+                    평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00
+                  </p>
+                  <p class='issue'>
+                    <span class='free'>무료</span><span class='event'>이벤트</span>
+                  </p>
+                </div>
+                <div class='stampNum'>
+                  <span>8</span>/10
+                </div>
+              </div>
+
+              <div class='list'>
+                <div class='cardArea'>
+                  <img src='../image/card_sample.jpg' alt='stamp card'>
+                </div>
+                <div class='cafeTxt'>
+                  <h2 class='cafeName'>카페 프레스코</h2>
+                  <p class='tag'>
+                    <span>#스터디카페</span><span>#24시간카페</span>
+                  </p>
+                  <p class='time'>
+                    평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00
+                  </p>
+                  <p class='issue'>
+                    <span class='free'>무료</span><span class='event'>이벤트</span>
+                  </p>
+                </div>
+                <div class='stampNum'>
+                  <span>8</span>/10
+                </div>
+              </div>
+
+              <div class='list'>
+                <div class='cardArea'>
+                  <img src='../image/card_sample.jpg' alt='stamp card'>
+                </div>
+                <div class='cafeTxt'>
+                  <h2 class='cafeName'>카페 프레스코</h2>
+                  <p class='tag'>
+                    <span>#스터디카페</span><span>#24시간카페</span>
+                  </p>
+                  <p class='time'>
+                    평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00
+                  </p>
+                  <p class='issue'>
+                    <span class='free'>무료</span><span class='event'>이벤트</span>
+                  </p>
+                </div>
+                <div class='stampNum'>
+                  <span>8</span>/10
+                </div>
+              </div>
+
+              <div class='list'>
+                <div class='cardArea'>
+                  <img src='../image/card_sample.jpg' alt='stamp card'>
+                </div>
+                <div class='cafeTxt'>
+                  <h2 class='cafeName'>카페 프레스코</h2>
+                  <p class='tag'>
+                    <span>#스터디카페</span><span>#24시간카페</span>
+                  </p>
+                  <p class='time'>
+                    평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00
+                  </p>
+                  <p class='issue'>
+                    <span class='free'>무료</span><span class='event'>이벤트</span>
+                  </p>
+                </div>
+                <div class='stampNum'>
+                  <span>8</span>/10
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //section2 -->
+
+
+          <!-- section3 -->
+          <div class='section done'>
+            <h4 class='secTit'>
+              다 모은 쿠폰 <span class='num'>2</span>개
+            </h4>
+            <div class="btn-group">
+              <button class="btn btn-default btn-sm dropdown-toggle"
+                type="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                정렬조건 <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>가까운순</li>
+                <li>스탬프개수</li>
+                <li>등록일순</li>
+                <li>이름순</li>
+              </ul>
+            </div>
+
+            <div class='list'>
+              <div class='cardArea'>
+                <img src='../image/card_sample.jpg' alt='stamp card'>
+              </div>
+              <div class='cafeTxt'>
+                <h2 class='cafeName'>카페 프레스코</h2>
+                <p class='tag'>
+                  <span>#스터디카페</span><span>#24시간카페</span>
+                </p>
+                <p class='time'>
+                  평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00
+                </p>
+                <p class='issue'>
+                  <span class='free'>무료</span><span class='event'>이벤트</span>
+                </p>
+              </div>
+              <div class='stampNum'>
+                <span>8</span>/10
+              </div>
+            </div>
+
+            <div class='list'>
+              <div class='cardArea'>
+                <img src='../image/card_sample.jpg' alt='stamp card'>
+              </div>
+              <div class='cafeTxt'>
+                <h2 class='cafeName'>카페 프레스코</h2>
+                <p class='tag'>
+                  <span>#스터디카페</span><span>#24시간카페</span>
+                </p>
+                <p class='time'>
+                  평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00
+                </p>
+                <p class='issue'>
+                  <span class='free'>무료</span><span class='event'>이벤트</span>
+                </p>
+              </div>
+              <div class='stampNum'>
+                <span>8</span>/10
+              </div>
+            </div>
+
+
+          </div>
+          <!-- //section3 -->
+
+        </div>
+      </div>
+
+
+    </div>
+    <!-- //con -->
+  </div>
+
+  <script src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../js/bit.js"></script>
   <script src="../js/context.js"></script>
-	<script src="../js/common.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="../js/pushy.js"></script>
-	<script src="../js/pushy_stampidle.js"></script>
-<script src="../js/mystamp.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../../node_modules/handlebars/dist/handlebars.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="../js/pushy.js"></script>
+  <script src="../js/pushy_stampidle.js"></script>
+  <script type="text/javascript" src="../js/jquery-latest.js"></script>
+  <script type="text/javascript" src="../js/tab_swipe.js"></script>
+  <script src="../js/mystamp.js"></script>
 
-	
-	
-<!--  Swipe -->
-<script type="text/javascript" src="../js/jquery-latest.js"></script>
-<script type="text/javascript" src="../js/tab_swipe.js"></script>
-<script type="text/javascript">
-$(window).load(function(){
-    if (!document.getElementById('tab_swipe')) return false;
-    var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
-    var elem = document.getElementById('swipe');
-    
-    
-    window.areaSwipe = Swipe(elem, {
-        startSlide: 0,
-        continuous: true,
-        callback: function(pos) {
-            var currentSlide = areaSwipe.getPos() + 1;
-            var n = mnTab.length;
-            while (n--) {
+
+
+  <!--  Swipe -->
+  <script type="text/javascript">
+    $(window).load(
+        function() {
+          if (!document.getElementById('tab_swipe'))
+            return false;
+          var mnTab = document.getElementById('tab_swipe')
+              .getElementsByTagName('li');
+          var elem = document.getElementById('swipe');
+
+          window.areaSwipe = Swipe(elem, {
+            startSlide : 0,
+            continuous : true,
+            callback : function(pos) {
+              var currentSlide = areaSwipe.getPos() + 1;
+              var n = mnTab.length;
+              while (n--) {
                 mnTab[n].className = ' ';
+              }
+              mnTab[pos].className = 'on';
+
+              console.log(currentSlide);
+              var secH = $(
+                  ".section:nth-of-type(" + currentSlide
+                      + ")").outerHeight();
+              console.log(secH);
+              $("#swipe .swWrap").css('height', secH);
             }
-            mnTab[pos].className = 'on';
-            
-            console.log(currentSlide);
-                var secH = $(".section:nth-of-type(" + currentSlide + ")").outerHeight();
-            console.log(secH);
-            $("#swipe .swWrap").css('height', secH);
-        }
-    });
-});
-</script>
-<!-- // Swipe -->
+          });
+        });
+  </script>
+  <!-- // Swipe -->
 
 
-<!-- Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
-<script>
-$(document).ready(function() {
-    var secH1 = $(".section:nth-child(1)").outerHeight();
-    var secH2 = $(".section:nth-child(2)").outerHeight();
-    var secH3 = $(".section:nth-child(3)").outerHeight();
-    
-    $("#swipe .swWrap").css('height', secH1);
+  <!-- Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
+  <script>
+    $(document).ready(function() {
+      var secH1 = $(".section:nth-child(1)").outerHeight();
+      var secH2 = $(".section:nth-child(2)").outerHeight();
+      var secH3 = $(".section:nth-child(3)").outerHeight();
 
-    $('.tab1 a').click(function(e) {
+      $("#swipe .swWrap").css('height', secH1);
+
+      $('.tab1 a').click(function(e) {
         $("#swipe .swWrap").css('height', secH1);
-    });
-    $('.tab2 a').click(function(e) {
+      });
+      $('.tab2 a').click(function(e) {
         $("#swipe .swWrap").css('height', secH2);
-    });
-    $('.tab3 a').click(function(e) {
+      });
+      $('.tab3 a').click(function(e) {
         $("#swipe .swWrap").css('height', secH3);
+      });
     });
-});
+  </script>
+  <!-- //Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
+
+
+  <!-- 임시링크 -->
+  <script>
+    $('.list').click(function(e) {
+      location.href = '../cafeinfo/cafeinfo.html'
+    });
+  </script>
+  <!-- //임시링크 -->
+
+<script id="infoTemplate" type="text/x-handlebars-template">
+{{#each list}}
+<div class='list'>
+  <div class='cardArea'><img alt='stamp card' src='/bitcamp_stampidle/upload/{{logo}}'></div>
+  <div class='cafeTxt'>
+    <h2 class='cafeName'>{{cname}}</h2>
+    <p class='tag'><span>#{{tname}}</span></p>
+    <p class='time'>{{wday}}&nbsp{{stime}} ~ {{etime}}</p>
+    <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
+  </div>
+  <div class='stampNum'><span>{{many}}</span>/{{stnum}}</div>
+</div>
+{{/each}}
 </script>
-<!-- //Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
-
-
-<!-- 임시링크 -->
-<script>
-$('.list').click(function(e) {
-    location.href = '../cafeinfo/cafeinfo.html'
-});
-</script>
-<!-- //임시링크 -->
-
 </body>
 </html>
 

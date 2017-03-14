@@ -269,7 +269,7 @@ $('.btmsubmit').click (function() {
 			}, 'json');
 		}
 	}, 'json');
-	
+	alert("카드등록완료");
 });
 
 

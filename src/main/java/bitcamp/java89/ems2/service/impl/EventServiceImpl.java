@@ -83,7 +83,9 @@ public class EventServiceImpl implements EventService {
     paramMap.put("firstPost", firstPost);
     paramMap.put("postNo", postNo);
     paramMap.put("searchCondition", searchCondition);
-    return eventDao.getListAllEventSearchCondition(paramMap);
+    
+    List<Event> eventList = eventDao.getListAllEventSearchCondition(paramMap);
+    return eventList;
   }
   
   

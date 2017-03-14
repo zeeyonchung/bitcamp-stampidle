@@ -73,18 +73,18 @@
   
   <select id="getListAllEventSearchCondition" parameterType="java.util.Map" resultMap="event-map">
     select 
-      e.eno,
-      e.titl,
-      e.econts,
-      e.ebirth,
-      e.epath,
-      e.eview,
-      e.sday,
-      e.eday,
-      c.cname
-    from event e
-      left outer join cafe c on e.cmno = c.cmno
-    order by #{searchCondition} desc
+      event.eno,
+      event.titl,
+      event.econts,
+      event.ebirth,
+      event.epath,
+      event.eview,
+      event.sday,
+      event.eday,
+      cafe.cname
+    from event
+      left outer join cafe on event.cmno = cafe.cmno
+    order by ${searchCondition} asc
     limit #{firstPost}, #{postNo}
   </select>
   
