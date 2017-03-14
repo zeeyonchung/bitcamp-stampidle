@@ -37,13 +37,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var menuInfo = (ajaxResult.data);
-		console.log(menuInfo);
-		$.each(menuInfo, function(m) {
-			var menuList = menuInfo;
 			var menudiv = $('.menuList');
 			var template = Handlebars.compile($('#menuTemplate').html());
-			menudiv.append(template({"list":menuList}));
-		});
+			menudiv.append(template({"list":menuInfo}));
 	});
 });
 
