@@ -335,7 +335,7 @@
   </select>
   
   <select id='getStampInfo' parameterType='int' resultType ='java.util.Map'>
-    select many, stnum, cname,logo,wday,wtime.sitime,wtime.etime,tname,cafe.cmno
+    select many, stnum, cname,logo,wday,wtime.stime,wtime.etime,tname,cafe.cmno
     from mcard m 
     left outer join stamp s on m.mcno=s.mcno 
     left outer join scinfo sc on m.scno= sc.scno

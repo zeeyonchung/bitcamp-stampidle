@@ -1,12 +1,19 @@
 package bitcamp.java89.ems2.domain;
 
 public class CafeTime {
-  
+
+  protected int cafeMemberNo;
   protected int timeNo;
   protected String day;
   protected String startTime;
   protected String endTime;
   
+  public int getCafeMemberNo() {
+    return cafeMemberNo;
+  }
+  public void setCafeMemberNo(int cafeMemberNo) {
+    this.cafeMemberNo = cafeMemberNo;
+  }
   public int getTimeNo() {
     return timeNo;
   }
