@@ -10,7 +10,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var userName = userData.name;
 	var customMemberNo = userData.customMemberNo;
 	
-	$('h2 > span').append(userName);
 	
 	
 
@@ -27,7 +26,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				$('.btn_hide').css('display', 'none');
 				$('.latelyCardSlide').css('display', 'none');
 				$('.stampNum').css('display', 'none');
-				$('.latelyCard h2').text('새로운 카페에 방문해보세요!');
+				$('.latelyCard h2 .titl').text('새로운 카페에 방문해보세요!');
+			} else {
+				$('.latelyCard h2 .titl').html('님의 최근이용 스탬프카드');
+				$('h2 > #user-name').append(userName);
+				$('.stampNum').css('display', 'inline-block');
+				$('.btn_hide').css('display', 'block');
 			}
 			
 			var latelyCardSlide = $('.latelyCardSlide');
