@@ -30,10 +30,13 @@
     
     <result column="cmno"       property="cafeMemberNo"/>
     
+    <result column="tno"     property="tagNo"/>
+    <result column="tname"     property="tagName"/>
+    
     <collection property="stampList" ofType="stamp">
       <id     column="stno"     property="stampNo"/>
       <result column="many"     property="stampIssueCount"/>
-      <result column="stime"     property="stampIssueDate"/>
+      <result column="sitime"     property="stampIssueDate"/>
     </collection>
     
     <collection property="stampPositionList" ofType="stampPosition">
@@ -50,10 +53,6 @@
       <result column="etime"     property="endTime"/>
     </collection>
     
-    <collection property="tagList" ofType="tag">
-      <id     column="tno"     property="tagNo"/>
-      <result column="tname"     property="tagName"/>
-    </collection>
   </resultMap>
   
   
@@ -80,7 +79,7 @@
   
   
   <insert id="insertStamp" parameterType="java.util.Map">
-    insert into stamp(mcno, many, stime) 
+    insert into stamp(mcno, many, sitime) 
     values(
       (select mcno from mcard
         inner join scinfo on scinfo.scno=mcard.scno
@@ -98,7 +97,7 @@
     select 
       stamp.stno,
       stamp.many,
-      stamp.stime,
+      stamp.sitime,
       memb.mno,
       memb.name,
       memb.tel
@@ -118,7 +117,7 @@
     select 
       stamp.stno,
       stamp.many,
-      stamp.stime,
+      stamp.sitime,
       memb.mno,
       memb.name,
       memb.tel
@@ -139,7 +138,7 @@
     select 
       stamp.stno,
       stamp.many,
-      stamp.stime,
+      stamp.sitime,
       memb.mno,
       memb.name,
       memb.tel
@@ -199,7 +198,7 @@
 	  mcard.mcuse,
 	  stamp.stno,
 	  stamp.many,
-	  stamp.stime,
+	  stamp.sitime,
 	  scinfo.stnum
 	from memb
 	  left outer join mcard on memb.mno=mcard.mno
@@ -326,7 +325,7 @@
 	  scinfo.stnum,
 	  stamp.many,
 	  stamp.mcno,
-	  stamp.stime
+	  stamp.sitime
 	  from mcard
 	    left outer join scinfo on scinfo.scno=mcard.scno
 	    left outer join cafe on cafe.cmno=scinfo.cmno
@@ -336,7 +335,7 @@
   </select>
   
   <select id='getStampInfo' parameterType='int' resultType ='java.util.Map'>
-    select many, stnum, cname,logo,wday,wtime.stime,wtime.etime,tname,cafe.cmno
+    select many, stnum, cname,logo,wday,wtime.sitime,wtime.etime,tname,cafe.cmno
     from mcard m 
     left outer join stamp s on m.mcno=s.mcno 
     left outer join scinfo sc on m.scno= sc.scno
@@ -344,6 +343,32 @@
     left outer join wtime on cafe.cmno= wtime.cmno
     left outer join tag on cafe.cmno = tag.cmno
     where m.mcno=#{customCardNo}
+  </select>
+  
+  
+  <select id='getMyCardList' parameterType='int' resultMap='customCard-map'>
+	  select
+	  cafe.cname,
+	  cafe.cmno,
+	  tag.tname,
+	  wtime.wday,
+	  wtime.stime,
+	  wtime.etime,
+	  scinfo.fpath,
+	  scinfo.stnum,
+	  scinfo.service,
+	  mcard.mcuse,
+	  stamp.mcno,
+	  stamp.many
+	from mcard
+	  left outer join stamp on stamp.mcno=mcard.mcno
+	  left outer join scinfo on mcard.scno=scinfo.scno
+	  left outer join cafe on scinfo.cmno=cafe.cmno
+	  left outer join tag on tag.cmno=cafe.cmno
+	  left outer join wtime on wtime.cmno=cafe.cmno
+	where mcard.mno=#{customMemberNo} and
+	  mcard.mcuse != 1
+	limit 0, 5
   </select>
 </mapper>
 

@@ -58,7 +58,7 @@
                 <li>이름순</li>
               </ul>
             </div>
-            <div class='infodiv'/>
+            <div class='infodiv'></div>
           </div>
           <!-- //section1 -->
 
@@ -264,6 +264,26 @@
     <!-- //con -->
   </div>
 
+
+
+<!-- 보유 중 쿠폰 하나하나 템플릿 -->
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each myCardList}}
+<div class='list'>
+  <div class='cardArea'><img alt='stamp card' src='/bitcamp_stampidle/upload/{{frontImgPath}}'></div>
+  <div class='cafeTxt'>
+    <h2 class='cafeName'>{{cafeName}}</h2>
+    <p class='tag'><span>#{{tagName}}</span></p>
+    {{#each cafeTimeList}}
+      <p class='time'>{{day}}&nbsp{{startTime}} ~ {{endTime}}</p>
+    {{/each}}
+    <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
+  </div>
+  <div class='stampNum'><span>{{currentStampCount}}</span>/{{stampCount}}</div>
+</div>
+{{/each}}
+</script>
+
   <script src="../../node_modules/jquery/dist/jquery.js"></script>
   <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src="../js/bit.js"></script>
@@ -344,20 +364,9 @@
   </script>
   <!-- //임시링크 -->
 
-<script id="infoTemplate" type="text/x-handlebars-template">
-{{#each list}}
-<div class='list'>
-  <div class='cardArea'><img alt='stamp card' src='/bitcamp_stampidle/upload/{{logo}}'></div>
-  <div class='cafeTxt'>
-    <h2 class='cafeName'>{{cname}}</h2>
-    <p class='tag'><span>#{{tname}}</span></p>
-    <p class='time'>{{wday}}&nbsp{{stime}} ~ {{etime}}</p>
-    <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-  </div>
-  <div class='stampNum'><span>{{many}}</span>/{{stnum}}</div>
-</div>
-{{/each}}
-</script>
+
+
+
 </body>
 </html>
 
