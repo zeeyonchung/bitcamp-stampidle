@@ -347,7 +347,7 @@
   
   
   <select id='getMyCardList' parameterType='int' resultMap='customCard-map'>
-	  select
+	select
 	  cafe.cname,
 	  cafe.cmno,
 	  tag.tname,
@@ -358,6 +358,7 @@
 	  scinfo.stnum,
 	  scinfo.service,
 	  mcard.mcuse,
+	  stamp.stno,
 	  stamp.mcno,
 	  stamp.many
 	from mcard
