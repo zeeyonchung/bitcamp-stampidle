@@ -98,13 +98,16 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			function averStarScore() {
 				var sum = 0;
 				var aver = 0;
-				$.each(comments, function(i){
-					sum += comments[i].star;
-				});
+				if (comments.length != 0) {
+					$.each(comments, function(i){
+						sum += comments[i].star;
+					});
+				} else {
+					return 0;
+				}
 				aver = sum/commentsCount();
 				return aver;
 			}
-			
 			function commentsCount() {
 				var count = 0;
 				$.each(comments, function(i){
