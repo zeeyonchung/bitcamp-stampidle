@@ -20,45 +20,53 @@
   <div id="container" style="padding:0px;">
   <h2 id='pageTit'>이벤트</h2>
      <!-- con -->
+     <p class="info">이벤트 이미지</p>
     <div class="imgbox" id="upfile1" >
-      <img id='photo-img' height='100%' width='100%'>
+      <img id='photo-img' >
         <label for="photo" class="col-sm-2 control-label"></label>
           <div class="col-sm-10">
-              <span class="btn btn-success fileinput-button" >
-                  <i class="glyphicon glyphicon-plus"></i>
+              <span class="btn btn-success2 fileinput-button" >
+                  <p class="file-btn">파일 선택</p>
                   <input id='photo' class='form-control' type='file' name='files'>
               </span>
               <input id='photo-path' type='hidden'>
           </div>
         <input type="file" id="file1"  name="file1" style="display:none" />
+        
     </div>
-     <div class="banner-img-div">
-        <p class="name">배너 이미지</p>
-        <img class='banner-img' id='banner-img'>
-        <input id='banner-photo-path' type='hidden'>
-        <input id='banner-fileupload' type='file' name='files'>
-        <p class="info">550 * 130 사이즈의 이미지를 권장합니다.</p>
+    <p class="name banner-name info">배너 이미지</p>
+    <div class='banner-img-box'>
+      <img class='banner-img' id='banner-img'>
+    </div>
+       <p class="info2">550 * 130 사이즈의 이미지를 권장합니다.</p>
+    <div class="banner-img-div">
+       
+       <span class="btn btn-success2 fileinput-button">
+		     <p class="file-btn">파일 선택</p>
+		     <input id='banner-fileupload'class='form-control' type='file' name='files'>
+       </span>
+       <input id='banner-photo-path' type='hidden'>
+     </div>
+     <!-- 이벤트 타이틀 -->
+     <div class='location-div'>
+        <input type="text" class="form-control event-title" placeholder="행사 이름" >
+        
       </div>
-			<!-- 장소 -->
-			<div class='location-div'>
-			  <input type="text" class="form-control" placeholder="장소" >
-			  
-			</div>
 			<!-- 시작일 -->
 			<div class='date-div'>
         <div class="startdiv">
-          <input type="text" id="datepicker" class="form-control" placeholder="시작일" >
+          <input type="text" id="datepicker" class="form-control startDate" placeholder="시작일" >
         </div>
       </div>
       <!-- 종료일 -->
       <div class='date-div'>
         <div class="startdiv">
-          <input type="text" id="datepicker2" class="form-control" placeholder="종료일" >
+          <input type="text" id="datepicker2" class="form-control endDate" placeholder="종료일" >
         </div>
       </div>
       <!-- 내용 -->
       <div class='contents-div location-div'>
-        <input type="text" class="form-control" placeholder="내용" >
+        <input type="text" class="form-control event-contents" placeholder="내용" >
       </div>
         <button class="btn btn-default btn-lg btn-block add-new-btn">새 이벤트 등록</button>
       <!-- con -->

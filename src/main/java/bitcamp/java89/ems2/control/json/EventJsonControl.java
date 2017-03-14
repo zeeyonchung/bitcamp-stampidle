@@ -68,7 +68,7 @@ public class EventJsonControl {
   }
   
   
-  @RequestMapping(value = "/admin/event/add")
+  @RequestMapping(value = {"/admin/event/add", "/admin_m/event/add"})
   public AjaxResult add(Event event, MultipartFile photo) throws Exception {
     
     // 페이지 컨트롤러는 입력 파라미터 값을 가공하여 모델 객체에게 전달하는 일을 한다.

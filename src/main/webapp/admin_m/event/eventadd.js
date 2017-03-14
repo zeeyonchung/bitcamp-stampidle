@@ -1,13 +1,12 @@
  /*로그인 정보를 가져와서*/
-$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+
+$.getJSON(serverRoot + '/admin_m/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
 		console.log(ajaxResult.data);
-		/*location.href = clientRoot + "/auth/login.html";
-		로그인 안 했으면 로그인 페이지로 보내기*/
+		location.href = clientRoot + "/admin_m/auth/login.html";
+		
 	}
-	
-	var cafeMember = ajaxResult.data;
-	var cafeMemberNo = cafeMember.cafeMemberNo;
+	var cafeMemberNo = ajaxResult.data.cafeMemberNo;
 
 
 var now = new Date();
@@ -16,22 +15,23 @@ var now = new Date();
       var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
               
       var chan_val = year + '-' + mon + '-' + day;
-});
 
-$('.event-regi-btn').click(function() {
+
+$('.add-new-btn').click(function() {
     var param = {
 		"cafeMemberNo": cafeMemberNo,
 		"eventTitle": $('.event-title').val(),
 		"eventContents": $('.event-contents').val(),
 		"registDate": chan_val,
 		"eventPhotoPath": $('#photo-path').val(),
+		"eventBannerPhotoPath": $('#banner-photo-path').val(),
 		"eventView": 0,
 		"startDate": $('.startDate').val(),
 		"endDate": $('.endDate').val() 
     };
     console.log(param);
     
-    $.post(serverRoot + '/event/add.json', param, function(ajaxResult) {
+    $.post(serverRoot + '/admin_m/event/add.json', param, function(ajaxResult) {
     	if (ajaxResult.status != "success") {
     		alert(ajaxResult.data);
     		return;
@@ -41,6 +41,7 @@ $('.event-regi-btn').click(function() {
     
 }); // click()
 
+});
 
 
 $('#photo').fileupload({
@@ -66,7 +67,7 @@ $('#photo').fileupload({
       	console.log('미리보기 처리...');
 	        var canvas = data.files[0].preview;
 	        var dataURL = canvas.toDataURL();
-	        img.attr('src', dataURL).css('width', '80%');
+	        img.attr('src', dataURL).css('width', '100%');
 	        img.attr('src', dataURL).css('height', '100%');
 	        $('#photo-label').css('display', '');
       }
@@ -94,7 +95,8 @@ processalways: function(e, data) {
     console.log('미리보기 처리...');
     var canvas = data.files[0].preview;
     var dataURL = canvas.toDataURL();
-    img.attr('src', dataURL).css('width', '300px');
+    img.attr('src', dataURL).css('height', '100%');
+    img.attr('src', dataURL).css('width', '100%');
  }
 }
 });
