@@ -78,6 +78,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			}
 			
 			stampNo = stampCardInfo.stampPositionList.length;
+			$('.midNum').text(stampNo);
 			
 	});
 });
