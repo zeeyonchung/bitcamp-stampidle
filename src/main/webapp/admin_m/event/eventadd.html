@@ -10,38 +10,35 @@
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/eventadd.css">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<link rel="stylesheet" href="../../node_modules/blueimp-file-upload/css/jquery.fileupload.css">
 
 </head>
 <body class="eventadd">
   <div class="side-left-pushy-button" >menu btn</div>
   <div id='header'></div>
-  <div class="imgbox" id="upfile1" >
-        <img id='photo-img' height='100%' width='100%'>
-          <label for="photo" class="col-sm-2 control-label"></label>
-            <div class="col-sm-10">
-                <span class="btn btn-success fileinput-button" >
-                    <i class="glyphicon glyphicon-plus"></i>
-                    <input id='photo' class='form-control' type='file' name='files'>
-                </span>
-                <input id='photo-path' type='hidden'>
-            </div>
-          <input type="file" id="file1"  name="file1" style="display:none" />
-      </div>
-  <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
   
   <div id="container" style="padding:0px;">
   <h2 id='pageTit'>이벤트</h2>
      <!-- con -->
-       <!-- 이미지 슬라이더 -->
-    <div class='con cafe-pic'>
-	    <section class="cafeImgSlide slider">
-	      <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
-	      <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
-	      <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
-	    </section>
-	      <button class='camera1 glyphicon glyphicon-camera' ></button>
+    <div class="imgbox" id="upfile1" >
+      <img id='photo-img' height='100%' width='100%'>
+        <label for="photo" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+              <span class="btn btn-success fileinput-button" >
+                  <i class="glyphicon glyphicon-plus"></i>
+                  <input id='photo' class='form-control' type='file' name='files'>
+              </span>
+              <input id='photo-path' type='hidden'>
+          </div>
+        <input type="file" id="file1"  name="file1" style="display:none" />
     </div>
-			<div class="clear"></div>
+     <div class="banner-img-div">
+        <p class="name">배너 이미지</p>
+        <img class='banner-img' id='banner-img'>
+        <input id='banner-photo-path' type='hidden'>
+        <input id='banner-fileupload' type='file' name='files'>
+        <p class="info">550 * 130 사이즈의 이미지를 권장합니다.</p>
+      </div>
 			<!-- 장소 -->
 			<div class='location-div'>
 			  <input type="text" class="form-control" placeholder="장소" >
@@ -67,8 +64,7 @@
       <!-- con -->
   </div>
     
-  <script src="../js/context.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+ <script src="../js/context.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.js"></script>
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
@@ -80,49 +76,22 @@
 <script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
 <script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
 <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
-<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
 <script src="../js/bit.js"></script>
 <script src="../js/common.js"></script>
-<script src="../js/pushy.js"></script>
-<script src="../js/pushy_stampidle.js"></script>
 <script src="../js/link.js"></script>
 <script src="eventadd.js"></script>
 
 
 <!--jQuery 기본 js파일 -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
 <!--jQuery UI 라이브러리 js파일 -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(document).on('ready', function() {
 
-      /* menu images slide */
-      $(".menuSlide").slick({
-        dots : true,
-        infinite : true,
-        slidesToShow : 3,
-        slidesToScroll : 3
-      });
-
-      /* cafe interior images slide */
-      $(".cafeImgSlide").slick({
-        dots : true,
-        infinite : true,
-        slidesToShow : 1,
-        slidesToScroll : 1
-      });
-
-    });
-  </script>
-<a>
-</a><script>
- /*이미지
- $("#upfile1").click(function () {
-    $("#file1").trigger('click');
-});*/
+<script>
    /* 달력*/
   $(function() {
     $( "#datepicker" ).datepicker({

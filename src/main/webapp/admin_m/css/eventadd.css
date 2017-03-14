@@ -18,6 +18,25 @@
   height: 60px;
   right:0px;
 }
+#upfile1 {
+	height:200px;
+	margin-bottom:0px;
+}
+
+.col-sm-10 {
+	padding-left:80%;
+	margin-top:0px;
+}
+.col-sm-2 {
+display: inherit;
+	
+}
+.banner-img-div {
+  height: 150px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
 
 .glyphicon {
   top: 10px;
