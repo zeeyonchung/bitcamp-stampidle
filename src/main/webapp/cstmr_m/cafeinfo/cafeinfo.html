@@ -82,12 +82,9 @@
                         </div>
                         
 					   <div class='menuList'>
-	                       <div class='menu'>
-	                           <p class='mnImg'><img src="../image/menu_sample.png"></p>
-	                           <p class='mnName'>아메리카노</p>
-	                           <p class='mnPrice'>3500원</p>
-	                       </div>
-	                    </div>
+					   </div>
+	                       
+	                    
                     </div>
                     <!-- //section2 -->
                     
@@ -204,6 +201,7 @@
 	</div>
 
   <script src="../js/context.js"></script>
+  <script src="../../node_modules/handlebars/dist/handlebars.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.js"></script>
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="../js/bit.js"></script>
@@ -212,11 +210,11 @@
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
 	<script src="cafeinfo.js"></script>
+	
 
-	
-	
 <!--  Swipe -->
 <script type="text/javascript" src="../js/jquery-latest.js"></script>
+
 <script type="text/javascript" src="../js/tab_swipe.js"></script>
 <script type="text/javascript">
 $(window).load(function(){
@@ -271,7 +269,7 @@ $(document).ready(function() {
 <script>
 var $imgList = $('.bgwrap>div');      // bgwrap div 안에 있는 div 자식들을 가져옴
 var nImgCount = $imgList.children().length; // 위에서 가져온 div 자식들의 개수
-var nDuration = 3000;         // 이미지를 변경할 시간 (3000 = 3초)
+var nDuration = 1500;         // 이미지를 변경할 시간 (3000 = 3초)
 var bAuto = true;           // 자동으로 변경할 지 여부
 var nIndex = 0;           // 변경할 이미지의 Index
 
@@ -302,6 +300,15 @@ function autoSlide() {
   $($imgList.get(next)).fadeIn(1000);
 }
 </script>
+<script id="menuTemplate" type="text/x-handlebars-template">
+{{#each list}}
+<div class='menu'>
+  <p class='mnImg'><img src="../../upload/{{menuPath}}"></p>
+  <p class='mnName'>{{menuName}}</p>
+  <p class='mnPrice'>{{price}}</p>
+ </div>
+{{/each}}
+</script> 
 </body>
 </html>
 
