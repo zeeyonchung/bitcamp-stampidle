@@ -21,7 +21,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				console.log(stampCardInfo);
 				
 				$('.front-img-div img').attr('src', '../../upload/' + stampCardInfo.frontImgPath);
-				$('.frontFile front-photo-path').val(stampCardInfo.frontImgPath);
+				$('.frontFile #front-photo-path').val(stampCardInfo.frontImgPath);
 				
 				$('img.backcard').attr('src', '../../upload/' + stampCardInfo.backImgPath);
 				$('#back-photo-path').val(stampCardInfo.backImgPath);
