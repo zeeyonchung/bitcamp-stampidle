@@ -20,7 +20,8 @@ public interface CustomCardService {
   int getCafeNo(int customCardNo) throws Exception;
   List<CustomCard> getStampNo(int customCardNo) throws Exception;
   public List<CustomCard> getRecentCard(int customMemberNo) throws Exception;
-  List<CustomCard> getStampInfo(int customCardNo) throws Exception;
+  
+  List<CustomCard> getMyCardList(int customMemberNo) throws Exception;
 }
 
 

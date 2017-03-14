@@ -38,20 +38,25 @@
                     <!-- section1 -->
 	               <div class='section intro'>
 	                  <div class='cafe-card'>
-	                     <div class='stmp-circle'>5/10</div>
-	                     <img class='stmpcard' src='../image/stmpcard.png'>
+	                     <div class='stmp-circle'></div>
+	                     <div class="intro-wrap">
+	                     <div class='bgwrap'>
+	                     <div style="display:block">
+	                     <img class='stmpcard'>
+	                     </div>
+	                     <div style="display:none">
+                       <img class='stmpcard2'>
+                       </div>
+	                     </div>
+	                     </div>
 	                  </div>
 	                  <div class='cafe-text'>
-	                     <div class='cafe-name'>Cafe name</div>
+	                     <div class='cafe-name'></div>
 	                     <div class='like select'>259</div>
-	                     <div class='cafe-tag'>#24시 #스터디카페</div>
-	                     <div class='cafe-addr'>
-                        경기도 성남시 중원구 금광2동 0000번지 00건물 2층
-	                     </div>
-	                     <div class='cafe-tel'>031) 736-0000</div>
-	                     <div class='cafe-info'>
-	                        12번 음료 구매 후 13번째 구매시<br> 모든 음료 regular 사이즈 중 한 가지 무료
-	                     </div>
+	                     <div class='cafe-tag'></div>
+	                     <div class='cafe-addr'></div>
+	                     <div class='cafe-tel'></div>
+	                     <div class='cafe-info'></div>
 	                  </div>
 	                  <button class='btn-gift' type='button' onclick="location.href='gift.html'"></button>
 	                  <button class='btn-message' type='button' onclick="location.href='../message/message.html'"></button>
@@ -80,51 +85,6 @@
 	                       <div class='menu'>
 	                           <p class='mnImg'><img src="../image/menu_sample.png"></p>
 	                           <p class='mnName'>아메리카노</p>
-	                           <p class='mnPrice'>3500원</p>
-	                       </div>
-	                       <div class='menu'>
-	                           <p class='mnImg'><img src="../image/menu_sample2.png"></p>
-	                           <p class='mnName'>카라멜마끼아또</p>
-	                           <p class='mnPrice'>3500원</p>
-	                       </div>
-	                       <div class='menu'>
-	                           <p class='mnImg'><img src="../image/menu_sample.png"></p>
-	                           <p class='mnName'>아메리카노</p>
-	                           <p class='mnPrice'>3500원</p>
-	                       </div>
-	                       <div class='menu'>
-	                           <p class='mnImg'><img src="../image/menu_sample2.png"></p>
-	                           <p class='mnName'>카라멜마끼아또</p>
-	                           <p class='mnPrice'>3500원</p>
-	                       </div>
-	                       <div class='menu'>
-	                           <p class='mnImg'><img src="../image/menu_sample.png"></p>
-	                           <p class='mnName'>아메리카노</p>
-	                           <p class='mnPrice'>3500원</p>
-	                       </div>
-	                       <div class='menu'>
-	                           <p class='mnImg'><img src="../image/menu_sample2.png"></p>
-	                           <p class='mnName'>카라멜마끼아또</p>
-	                           <p class='mnPrice'>3500원</p>
-	                       </div>
-	                       <div class='menu'>
-	                           <p class='mnImg'><img src="../image/menu_sample.png"></p>
-	                           <p class='mnName'>아메리카노</p>
-	                           <p class='mnPrice'>3500원</p>
-	                       </div>
-	                       <div class='menu'>
-	                           <p class='mnImg'><img src="../image/menu_sample2.png"></p>
-	                           <p class='mnName'>카라멜마끼아또</p>
-	                           <p class='mnPrice'>3500원</p>
-	                       </div>
-	                       <div class='menu'>
-	                           <p class='mnImg'><img src="../image/menu_sample.png"></p>
-	                           <p class='mnName'>아메리카노</p>
-	                           <p class='mnPrice'>3500원</p>
-	                       </div>
-	                       <div class='menu'>
-	                           <p class='mnImg'><img src="../image/menu_sample2.png"></p>
-	                           <p class='mnName'>카라멜마끼아또</p>
 	                           <p class='mnPrice'>3500원</p>
 	                       </div>
 	                    </div>
@@ -243,7 +203,7 @@
 		<!-- //con -->
 	</div>
 
-    <script src="../js/context.js"></script>
+  <script src="../js/context.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.js"></script>
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="../js/bit.js"></script>
@@ -308,7 +268,40 @@ $(document).ready(function() {
 });
 </script>
 <!-- //Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
+<script>
+var $imgList = $('.bgwrap>div');      // bgwrap div 안에 있는 div 자식들을 가져옴
+var nImgCount = $imgList.children().length; // 위에서 가져온 div 자식들의 개수
+var nDuration = 3000;         // 이미지를 변경할 시간 (3000 = 3초)
+var bAuto = true;           // 자동으로 변경할 지 여부
+var nIndex = 0;           // 변경할 이미지의 Index
 
+if(bAuto == true) {
+  setInterval(autoSlide, nDuration);    // Javascript setInterval 함수 호출
+}
+
+function autoSlide() {
+  /* 3초마다 이 함수에 들어오게 됨 */
+  // % 연산은 나누기를 한 후 나머지 값을 가져오는 연산입니다.
+  // nImgCount = 4
+  /*
+    nIndex = 0
+    ++nIndex = 1
+    (++nIndex % nImageCount) = (1 % 4 = 1)
+    $($imgList.get(0)).fadeOut(1000); // 0 Index에 있는 이미지를 fadeOut
+    $($imgList.get(1)).fadeIn(1000);  // 1 Index에 있는 이미지를 fadeIn
+  */
+  /*
+    nIndex = 1
+    ++nIndex = 2
+    (++nIndex % nImageCount) = (2 % 4 = 2)
+    $($imgList.get(1)).fadeOut(1000); // 1 Index에 있는 이미지를 fadeOut
+    $($imgList.get(2)).fadeIn(1000);  // 2 Index에 있는 이미지를 fadeIn
+  */
+  var next = (++nIndex % nImgCount);
+  $($imgList.get(next - 1)).fadeOut(1000);
+  $($imgList.get(next)).fadeIn(1000);
+}
+</script>
 </body>
 </html>
 

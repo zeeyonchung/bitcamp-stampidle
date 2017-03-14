@@ -21,7 +21,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				console.log(stampCardInfo);
 				
 				$('.front-img-div img').attr('src', '../../upload/' + stampCardInfo.frontImgPath);
-				$('.frontFile front-photo-path').val(stampCardInfo.frontImgPath);
+				$('.frontFile #front-photo-path').val(stampCardInfo.frontImgPath);
 				
 				$('img.backcard').attr('src', '../../upload/' + stampCardInfo.backImgPath);
 				$('#back-photo-path').val(stampCardInfo.backImgPath);
@@ -37,7 +37,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				});
 			} else {
 				$('.front-img-div img').attr('src', '../image/xbox.png');
-				$('.frontFile front-photo-path').val('../image/xbox.png');
+				$('.frontFile #front-photo-path').val('../image/xbox.png');
 				
 				$('img.backcard').attr('src', '../image/template1.jpg');
 				$('#back-photo-path').val('../image/template1.jpg');
@@ -78,6 +78,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			}
 			
 			stampNo = stampCardInfo.stampPositionList.length;
+			$('.midNum').text(stampNo);
 			
 	});
 });

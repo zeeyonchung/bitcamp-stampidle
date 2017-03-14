@@ -8,6 +8,11 @@
     height: 630px;
 }
 
+.intro-wrap{
+	margin-top: 40px;
+	
+}
+
 .cafe-card {
     width: 100%;
     height: 200px;
@@ -33,7 +38,15 @@
 
 .stmpcard {
     margin-top: 25px;
-    position: relative;
+    position: absolute;
+    margin-left: 58px;
+    width: 70%;
+    z-index: 1;
+}
+
+.stmpcard2 {
+    margin-top: 25px;
+    position: absolute;
     margin-left: 58px;
     width: 70%;
     z-index: 1;
@@ -444,3 +457,5 @@
     border: 0;
     padding: 12px 0 12px 0;
 }
+
+.intro-wrap {position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden;}

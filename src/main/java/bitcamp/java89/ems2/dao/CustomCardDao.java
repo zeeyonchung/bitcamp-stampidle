@@ -38,4 +38,6 @@ public interface CustomCardDao {
   List<CustomCard> getRecentCard(int customMemberNo) throws Exception;
   
   List<CustomCard> getStampInfo(int customCardNo) throws Exception;
+  
+  List<CustomCard> getMyCardList(int customMemberNo) throws Exception;
 }
