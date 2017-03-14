@@ -106,21 +106,21 @@ public class CafeJsonControl {
   }
   
   
-  @RequestMapping(value = {"/admin/menu/detail"})
+  @RequestMapping(value = {"/admin/menu/detail", "/cstmr_m/menu/detail"})
   public AjaxResult detailMenu(int cafeMemberNo) throws Exception {
   	List<Menu> list = menuService.detailMenu(cafeMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
   
-  @RequestMapping(value = {"/admin/cardinfo/detail"})
+  @RequestMapping(value = {"/admin/cardinfo/detail", "/cstmr_m/cardinfo/detail"})
   public AjaxResult detailCardInfo(int cafeMemberNo) throws Exception {
   	StampCardInfo stampCardInfo = (StampCardInfo)cafeCardService.getCardInfo(cafeMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, stampCardInfo);
   }
   
   
-  @RequestMapping(value = {"/admin/comment/detail"})
+  @RequestMapping(value = {"/admin/comment/detail", "/cstmr_/comment/detail"})
   public AjaxResult getList(int cafeMemberNo) throws Exception {
   	List<Comment> list = commentService.getList(cafeMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
@@ -175,7 +175,7 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "변경 성공입니다.");
   }
   
-  @RequestMapping(value = {"/admin/likes/count"})
+  @RequestMapping(value = {"/admin/likes/count", "/cstmr_m/likes/count"})
   public AjaxResult likesCount(int cafeMemberNo) throws Exception {
   	int num = likesService.count(cafeMemberNo);
     Likes likes = new Likes();
