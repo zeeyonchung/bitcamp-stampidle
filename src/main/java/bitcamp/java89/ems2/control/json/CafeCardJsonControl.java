@@ -31,7 +31,7 @@ public class CafeCardJsonControl {
   }
   
   
-  @RequestMapping(value = "/admin/cardadd/getCafeCardDetail")
+  @RequestMapping(value = {"/admin/cardadd/getCafeCardDetail", "/cstmr_m/cardadd/getCafeCardDetail"})
   public AjaxResult getCafeCardDetail(int cafeMemberNo) throws Exception {
     return new AjaxResult(AjaxResult.SUCCESS, cafeCardService.getCafeCardDetail(cafeMemberNo));
   }
