@@ -37,7 +37,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				});
 			} else {
 				$('.front-img-div img').attr('src', '../image/xbox.png');
-				$('.frontFile front-photo-path').val('../image/xbox.png');
+				$('.frontFile #front-photo-path').val('../image/xbox.png');
 				
 				$('img.backcard').attr('src', '../image/template1.jpg');
 				$('#back-photo-path').val('../image/template1.jpg');
