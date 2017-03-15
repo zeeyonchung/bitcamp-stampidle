@@ -17,6 +17,9 @@ public class AuthServiceImpl implements AuthService {
   @Autowired CafeMemberDao cafeMemberDao;
   @Autowired CustomMemberDao customMemberDao;
   
+  
+  
+  @Override
   public CafeMember getCafeMemberInfo(String id, String password) throws Exception {
     HashMap<String,String> paramMap = new HashMap<>();
     paramMap.put("id", id);

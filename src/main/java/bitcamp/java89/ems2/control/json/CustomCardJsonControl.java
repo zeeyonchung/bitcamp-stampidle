@@ -128,7 +128,6 @@ public class CustomCardJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, customCardList);
   }
   
-  
   @RequestMapping(value = "/cstmr_m/customCard/getMyCardList")
   public AjaxResult getMyCardList(int customMemberNo) throws Exception {
     List<CustomCard> myCardList = customCardService.getMyCardList(customMemberNo);

@@ -117,7 +117,7 @@
     select 
       stamp.stno,
       stamp.many,
-      stamp.sitime,
+      stamp.stime,
       memb.mno,
       memb.name,
       memb.tel
@@ -351,9 +351,6 @@
 	  cafe.cname,
 	  cafe.cmno,
 	  tag.tname,
-	  wtime.wday,
-	  wtime.stime,
-	  wtime.etime,
 	  scinfo.fpath,
 	  scinfo.stnum,
 	  scinfo.service,
@@ -371,6 +368,22 @@
 	  mcard.mcuse != 1
 	limit 0, 5
   </select>
+  
+  <select id='getMyCardList' parameterType='int' resultMap='customCard-map'>
+  
+select
+    wtime.wday,
+    wtime.stime,
+    wtime.etime
+  from mcard
+    left outer join scinfo on mcard.scno=scinfo.scno
+    left outer join cafe on scinfo.cmno=cafe.cmno
+    left outer join wtime on wtime.cmno=cafe.cmno
+  where mcard.mno=#{customMemberNo} and
+    mcard.mcuse != 1
+  limit 0, 5
+  </select>
+  
 </mapper>
 
 
