@@ -7,6 +7,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var userNo = ajaxResult.data.customMemberNo;
 	var cafeMembNo = 1
 
+	// 1페이지
 	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var cafe = ajaxResult.data;
 		$('.cafe-name').text(cafe.cafeName);
@@ -22,14 +23,23 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 				$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 					var cardInfo = ajaxResult.data;
+					console.log(cardInfo);
 					$.each(cardInfo, function(i) {
 						$('.stmpcard').attr('src', '../'+cardInfo[i].backImgPath);
-						$('.stmpcard2').attr('src', '../'+cardInfo[i].frontImgPath);
+						$('.stmpcard2').attr('src', '../../upload/' +cardInfo[i].frontImgPath);
 						var many = cardInfo[i].stampCount;
 						$('.stmp-circle').text(stmpNo + "/" + many);
 					});
 				});
 			});
+	});
+	// 1페이지 끝
+	
+	$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var menuInfo = (ajaxResult.data);
+			var menudiv = $('.menuList');
+			var template = Handlebars.compile($('#menuTemplate').html());
+			menudiv.append(template({"list":menuInfo}));
 	});
 });
 

@@ -266,18 +266,17 @@
 
 
 
-<!-- 보유 중 쿠폰 하나하나 템플릿 -->
+<!-- section1 보유 중 쿠폰 하나하나 템플릿 -->
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each myCardList}}
 <div class='list'>
   <div class='cardArea'><img alt='stamp card' src='/bitcamp_stampidle/upload/{{frontImgPath}}'></div>
   <div class='cafeTxt'>
-    <h2 class='cafeName'>{{cafeName}}</h2>
+    <h2 class='cafeName'>{{cafeName}}</h2><p class='issue' style="display:inline-block"><span class='event'>이벤트</span></p>
     <p class='tag'><span>#{{tagName}}</span></p>
     {{#each cafeTimeList}}
       <p class='time'>{{day}}&nbsp{{startTime}} ~ {{endTime}}</p>
     {{/each}}
-    <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
   </div>
   <div class='stampNum'><span>{{currentStampCount}}</span>/{{stampCount}}</div>
 </div>
@@ -332,28 +331,6 @@
   </script>
   <!-- // Swipe -->
 
-
-  <!-- Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
-  <script>
-    $(document).ready(function() {
-      var secH1 = $(".section:nth-child(1)").outerHeight();
-      var secH2 = $(".section:nth-child(2)").outerHeight();
-      var secH3 = $(".section:nth-child(3)").outerHeight();
-
-      $("#swipe .swWrap").css('height', secH1);
-
-      $('.tab1 a').click(function(e) {
-        $("#swipe .swWrap").css('height', secH1);
-      });
-      $('.tab2 a').click(function(e) {
-        $("#swipe .swWrap").css('height', secH2);
-      });
-      $('.tab3 a').click(function(e) {
-        $("#swipe .swWrap").css('height', secH3);
-      });
-    });
-  </script>
-  <!-- //Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
 
 
   <!-- 임시링크 -->
