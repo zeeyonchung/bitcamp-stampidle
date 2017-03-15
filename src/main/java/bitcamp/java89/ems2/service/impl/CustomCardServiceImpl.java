@@ -343,34 +343,31 @@ public class CustomCardServiceImpl implements CustomCardService {
   
   @Override
   public List<CustomCard> getMyCardList(int customMemberNo) throws Exception {
-    List<CustomCard> customCardList = customCardDao.getMyCardList(customMemberNo);
-    
-    if (customCardList.size() <= 0) {return null;}
-    
     List<CustomCard> returnCustomCardList = new ArrayList<>();
     
-    // 현재 모인 스탬프 수
-    int currentStampCount = 0;
+    List<CustomCard> myCardDetailList = customCardDao.getMyCardDetailList(customMemberNo);
+    
     // 같은 카페의 카드는 중복시키지 않음
     List<Integer> cafeMemberNos = new ArrayList<>();
     
-    for (CustomCard customCard : customCardList) {
+    for (CustomCard customCard : myCardDetailList) {
       if(cafeMemberNos.contains(customCard.getCafeMemberNo())) {continue;}
-      
-      currentStampCount = 0;
       cafeMemberNos.add(customCard.getCafeMemberNo());
+      int customCardNo = customCard.getCustomCardNo();
       
-      int currentCardSize = customCard.getStampList().size();
-      for (int j = 0; j < currentCardSize; j++) {
-        currentStampCount += customCard.getStampList().get(j).getStampIssueCount();
+      // 이 카드의 스탬프 리스트를 뽑아와서 현재 카드의 스탬스 수 구하기
+      List<Stamp> myCardStampList = customCardDao.getMyCardStampList(customCardNo);
+      
+      int currentStampCount = 0;
+      for (Stamp stamp : myCardStampList) {
+        currentStampCount += stamp.getStampIssueCount();
       }
       
       customCard.setCurrentStampCount(currentStampCount);
-      
       returnCustomCardList.add(customCard);
     }
     
     return returnCustomCardList;
   }
-
+  
 }

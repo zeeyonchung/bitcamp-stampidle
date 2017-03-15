@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import bitcamp.java89.ems2.domain.CustomCard;
+import bitcamp.java89.ems2.domain.Stamp;
 
 public interface CustomCardDao {
   List<CustomCard> getStampList(Map<String, Object> paramMap) throws Exception;
@@ -39,5 +40,7 @@ public interface CustomCardDao {
   
   List<CustomCard> getStampInfo(int customCardNo) throws Exception;
   
-  List<CustomCard> getMyCardList(int customMemberNo) throws Exception;
+  
+  List<CustomCard> getMyCardDetailList(int customMemberNo) throws Exception;
+  List<Stamp> getMyCardStampList(int customCardNo) throws Exception;
 }

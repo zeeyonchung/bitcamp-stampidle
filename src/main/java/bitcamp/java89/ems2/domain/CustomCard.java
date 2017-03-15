@@ -21,8 +21,17 @@ public class CustomCard extends StampCardInfo {
   
   protected int currentStampCount;
   protected String recentStampDate;
+  protected int currentEventCount;
   
   
+  
+  
+public int getCurrentEventCount() {
+    return currentEventCount;
+  }
+  public void setCurrentEventCount(int currentEventCount) {
+    this.currentEventCount = currentEventCount;
+  }
 public String getRecentStampDate() {
     return recentStampDate;
   }

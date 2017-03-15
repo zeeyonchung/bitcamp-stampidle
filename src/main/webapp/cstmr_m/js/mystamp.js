@@ -23,9 +23,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var template = Handlebars.compile($('#trTemplate').html());
 		infodiv.html(template({"myCardList": myCardList}));
 		
-//		$('.tr-link').click(function(event) {
-//			event.preventDefault();
-//			location.href = '../stampidle_cs/customerdetail.html?customMemberNo=' + $(this).attr("data-no");
-//		});
+		if (myCardList.currentEventCount > 0) {
+			$('p.issue').html('<span class="event">이벤트</span>');
+		}
+		
 	});
 });
