@@ -194,7 +194,7 @@
           <!-- section3 -->
           <div class='section done'>
             <h4 class='secTit'>
-              다 모은 쿠폰 <span class='num'>2</span>개
+              다 모은 쿠폰 <span class='num' id='num'></span>개
             </h4>
             <div class="btn-group">
               <button class="btn btn-default btn-sm dropdown-toggle"
@@ -210,48 +210,7 @@
               </ul>
             </div>
 
-            <div class='list'>
-              <div class='cardArea'>
-                <img src='../image/card_sample.jpg' alt='stamp card'>
-              </div>
-              <div class='cafeTxt'>
-                <h2 class='cafeName'>카페 프레스코</h2>
-                <p class='tag'>
-                  <span>#스터디카페</span><span>#24시간카페</span>
-                </p>
-                <p class='time'>
-                  평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00
-                </p>
-                <p class='issue'>
-                  <span class='free'>무료</span><span class='event'>이벤트</span>
-                </p>
-              </div>
-              <div class='stampNum'>
-                <span>8</span>/10
-              </div>
-            </div>
-
-            <div class='list'>
-              <div class='cardArea'>
-                <img src='../image/card_sample.jpg' alt='stamp card'>
-              </div>
-              <div class='cafeTxt'>
-                <h2 class='cafeName'>카페 프레스코</h2>
-                <p class='tag'>
-                  <span>#스터디카페</span><span>#24시간카페</span>
-                </p>
-                <p class='time'>
-                  평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00
-                </p>
-                <p class='issue'>
-                  <span class='free'>무료</span><span class='event'>이벤트</span>
-                </p>
-              </div>
-              <div class='stampNum'>
-                <span>8</span>/10
-              </div>
-            </div>
-
+            <div class='infodiv3'></div>
 
           </div>
           <!-- //section3 -->
@@ -267,18 +226,44 @@
 
 
 <!-- section1 보유 중 쿠폰 하나하나 템플릿 -->
-<script id="trTemplate" type="text/x-handlebars-template">
+<script id="trTemplate1" type="text/x-handlebars-template">
 {{#each myCardList}}
 <div class='list'>
   <div class='cardArea'><img alt='stamp card' src='/bitcamp_stampidle/upload/{{frontImgPath}}'></div>
   <div class='cafeTxt'>
-    <h2 class='cafeName'>{{cafeName}}</h2><p class='issue' style="display:inline-block"><span class='event'>이벤트</span></p>
+    <h2 class='cafeName'>{{cafeName}}</h2><p class='issue'>
+    {{#if currentEventCount}}
+      <span class="event">이벤트</span>
+    {{/if}}
+    </p>
     <p class='tag'><span>#{{tagName}}</span></p>
     {{#each cafeTimeList}}
       <p class='time'>{{day}}&nbsp{{startTime}} ~ {{endTime}}</p>
     {{/each}}
   </div>
   <div class='stampNum'><span>{{currentStampCount}}</span>/{{stampCount}}</div>
+</div>
+{{/each}}
+</script>
+
+
+
+<!-- section3 다 모은 쿠폰 하나하나 템플릿 -->
+<script id="trTemplate3" type="text/x-handlebars-template">
+{{#each myFinishCardList}}
+<div class='list'>
+  <div class='cardArea'><img alt='stamp card' src='/bitcamp_stampidle/upload/{{frontImgPath}}'></div>
+  <div class='cafeTxt'>
+    <h2 class='cafeName'>{{cafeName}}</h2><p class='issue'>
+    {{#if currentEventCount}}
+      <span class="event">이벤트</span>
+    {{/if}}
+    </p>
+    <p class='tag'><span>#{{tagName}}</span></p>
+    {{#each cafeTimeList}}
+      <p class='time'>{{day}}&nbsp{{startTime}} ~ {{endTime}}</p>
+    {{/each}}
+  </div>
 </div>
 {{/each}}
 </script>
@@ -319,11 +304,9 @@
               }
               mnTab[pos].className = 'on';
 
-              console.log(currentSlide);
               var secH = $(
                   ".section:nth-of-type(" + currentSlide
                       + ")").outerHeight();
-              console.log(secH);
               $("#swipe .swWrap").css('height', secH);
             }
           });

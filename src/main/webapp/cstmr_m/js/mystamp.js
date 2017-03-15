@@ -8,24 +8,39 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var userData = ajaxResult.data;
 	var userNo = userData.customMemberNo;
 	
-	
+	/********************* section1 전체 카드 리스트 *************************/
 	$.getJSON(serverRoot + '/customCard/getMyCardList.json?customMemberNo=' + userNo, function(ajaxResult) {
 		var myCardList = ajaxResult.data;
 		console.log(myCardList);
 		
 		if (myCardList == null) {
-			$('#num').text(0);
+			$('.section.all #num').text(0);
 		} else {
-			$('#num').text(myCardList.length);
+			$('.section.all #num').text(myCardList.length);
 		}
 		
 		var infodiv = $('.infodiv');
-		var template = Handlebars.compile($('#trTemplate').html());
+		var template = Handlebars.compile($('#trTemplate1').html());
 		infodiv.html(template({"myCardList": myCardList}));
-		
-//		$('.tr-link').click(function(event) {
-//			event.preventDefault();
-//			location.href = '../stampidle_cs/customerdetail.html?customMemberNo=' + $(this).attr("data-no");
-//		});
 	});
+	
+	
+	
+	/********************* section3 다 모은 카드 리스트 *************************/
+	$.getJSON(serverRoot + '/customCard/getMyFinishCardList.json?customMemberNo=' + userNo, function(ajaxResult) {
+		var myFinishCardList = ajaxResult.data;
+		console.log(myFinishCardList);
+		
+		if (myFinishCardList == null) {
+			$('.section.done #num').text(0);
+		} else {
+			$('.section.done #num').text(myFinishCardList.length);
+		}
+		
+		var infodiv = $('.infodiv3');
+		var template = Handlebars.compile($('#trTemplate3').html());
+		infodiv.html(template({"myFinishCardList": myFinishCardList}));
+	});
+	
+	
 });

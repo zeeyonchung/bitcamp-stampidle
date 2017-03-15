@@ -460,3 +460,20 @@
 }
 
 .intro-wrap {position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden;}
+
+/**********별점매기기********/
+.star_rating {
+	width: 40%;
+	float: right;
+}
+.star_rating {font-size:0; letter-spacing:-4px;}
+.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:rgb(255,89,72);}

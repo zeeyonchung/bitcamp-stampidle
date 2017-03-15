@@ -5,9 +5,10 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		/*로그인 안 했으면 로그인 페이지로 보내기*/
 	}
 	var userNo = ajaxResult.data.customMemberNo;
+	var userName = ajaxResult.data.name;
 	var cafeMembNo = 1
 
-	// 1페이지
+	// 1페이지 시작
 	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var cafe = ajaxResult.data;
 		$('.cafe-name').text(cafe.cafeName);
@@ -23,7 +24,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 				$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 					var cardInfo = ajaxResult.data;
-					console.log(cardInfo);
 					$.each(cardInfo, function(i) {
 						$('.stmpcard').attr('src', '../'+cardInfo[i].backImgPath);
 						$('.stmpcard2').attr('src', '../../upload/' +cardInfo[i].frontImgPath);
@@ -35,11 +35,35 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	});
 	// 1페이지 끝
 	
+	// 2페이지 시작
 	$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var menuInfo = (ajaxResult.data);
 			var menudiv = $('.menuList');
 			var template = Handlebars.compile($('#menuTemplate').html());
 			menudiv.append(template({"list":menuInfo}));
 	});
+	
+	// 2페이지 끝
+	
+	// 3페이지 시작
+	// 총 코멘트 수
+	$.getJSON(serverRoot + '/comment/count.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		$('.total>span').text(ajaxResult.data + "건");
+	});
+	// 코멘트 리스트 가져오기(핸들바스)
+	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var comment = (ajaxResult.data);
+		console.log(comment);
+		var commentdiv = $('.comment_list ul');
+		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
+		commentdiv.append(commentTemplate({"commentList":comment}));
+	});
+	$('.comment_form input').attr('placeholder',userName);
+	$( ".star_rating a" ).click(function() {
+	     $(this).parent().children("a").removeClass("on");
+	     $(this).addClass("on").prevAll("a").addClass("on");
+	     return false;
+	});
+
 });
 

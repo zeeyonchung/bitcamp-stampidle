@@ -75,6 +75,7 @@
     font-size:0.9em;
     margin-right:2%;
     height:20px;
+    display:inline-block
 }
 
 .issue .free {
