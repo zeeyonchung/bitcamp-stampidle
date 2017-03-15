@@ -24,6 +24,7 @@
 }
 #name {
   font-size:1.5em;
+  margin-left: 10px;
 }
 .use-cafe-crr{
 	float: left; 
@@ -37,6 +38,7 @@
 }
 
 #phone-number {
+	margin-left: 10px;
   font-size:1em;
 }
 

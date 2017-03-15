@@ -22,10 +22,5 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var infodiv = $('.infodiv');
 		var template = Handlebars.compile($('#trTemplate').html());
 		infodiv.html(template({"myCardList": myCardList}));
-		
-		if (myCardList.currentEventCount > 0) {
-			$('p.issue').html('<span class="event">이벤트</span>');
-		}
-		
 	});
 });
