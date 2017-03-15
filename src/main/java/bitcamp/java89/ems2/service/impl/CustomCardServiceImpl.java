@@ -357,10 +357,12 @@ public class CustomCardServiceImpl implements CustomCardService {
       
       // 이 카드의 스탬프 리스트를 뽑아와서 현재 카드의 스탬스 수 구하기
       List<Stamp> myCardStampList = customCardDao.getMyCardStampList(customCardNo);
-      
       int currentStampCount = 0;
-      for (Stamp stamp : myCardStampList) {
-        currentStampCount += stamp.getStampIssueCount();
+      
+      if (myCardStampList.get(0) != null) {
+        for (Stamp stamp : myCardStampList) {
+          currentStampCount += stamp.getStampIssueCount();
+        }
       }
       
       customCard.setCurrentStampCount(currentStampCount);
