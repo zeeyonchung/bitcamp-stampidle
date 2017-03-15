@@ -372,4 +372,12 @@ public class CustomCardServiceImpl implements CustomCardService {
     return returnCustomCardList;
   }
   
+  
+  
+  
+  @Override
+  public List<CustomCard> getMyFinishCardList(int customMemberNo) throws Exception {
+    return customCardDao.getMyFinishCardDetailList(customMemberNo);
+  }
+  
 }

@@ -22,6 +22,7 @@ public interface CustomCardService {
   public List<CustomCard> getRecentCard(int customMemberNo) throws Exception;
   
   List<CustomCard> getMyCardList(int customMemberNo) throws Exception;
+  List<CustomCard> getMyFinishCardList(int customMemberNo) throws Exception;
 }
 
 

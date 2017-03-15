@@ -341,17 +341,6 @@
 	  order by stamp.stno desc
   </select>
   
-  <select id='getStampInfo' parameterType='int' resultType ='java.util.Map'>
-    select many, stnum, cname,logo,wday,wtime.stime,wtime.etime,tname,cafe.cmno
-    from mcard m 
-    left outer join stamp s on m.mcno=s.mcno 
-    left outer join scinfo sc on m.scno= sc.scno
-    left outer join cafe on sc.cmno=cafe.cmno
-    left outer join wtime on cafe.cmno= wtime.cmno
-    left outer join tag on cafe.cmno = tag.cmno
-    where m.mcno=#{customCardNo}
-  </select>
-  
   
   <select id='getMyCardDetailList' parameterType='int' resultMap='customCard-map'>
 	select
@@ -389,6 +378,31 @@
 	where mcard.mcno=#{customCardNo} and
 	  mcard.mcuse = 0
 	order by mcard.mcno desc
+  </select>
+  
+  
+  <select id='getMyFinishCardDetailList' parameterType='int' resultMap='customCard-map'>
+  select
+    cafe.cname,
+    cafe.cmno,
+    tag.tname,
+    wtime.wday,
+    wtime.stime,
+    wtime.etime,
+    scinfo.fpath,
+    scinfo.stnum,
+    scinfo.service,
+    mcard.mcno,
+    mcard.mcuse,
+    (select count(eno) from event where event.eday>=curDate() and event.cmno=cafe.cmno) as eventCount
+  from cafe
+    left outer join tag on tag.cmno=cafe.cmno
+    left outer join wtime on wtime.cmno=cafe.cmno
+    left outer join scinfo on scinfo.cmno=cafe.cmno
+    left outer join mcard on mcard.scno=scinfo.scno
+  where mcard.mno=#{customMemberNo} and
+    mcard.mcuse != 0
+  order by mcard.mcno desc
   </select>
 </mapper>
 
