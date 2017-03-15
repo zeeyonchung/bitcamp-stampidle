@@ -139,6 +139,13 @@ public class CustomCardJsonControl {
   public AjaxResult getMyFinishCardList(int customMemberNo) throws Exception {
     return new AjaxResult(AjaxResult.SUCCESS, customCardService.getMyFinishCardList(customMemberNo));
   }
+  
+  
+  @RequestMapping(value = "/cstmr_m/customCard/getMyFavoriteCardList")
+  public AjaxResult getMyFavoriteCardList(int customMemberNo) throws Exception {
+    List<CustomCard> myCardList = customCardService.getMyFavoriteCardList(customMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, myCardList);
+  }
 }
 
 

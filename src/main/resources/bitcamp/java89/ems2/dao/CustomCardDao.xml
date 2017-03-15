@@ -404,6 +404,34 @@
     mcard.mcuse != 0
   order by mcard.mcno desc
   </select>
+  
+  
+  <select id='getMyFavoriteCardDetailList' parameterType='int' resultMap='customCard-map'>
+   select
+    cafe.cname,
+    cafe.cmno,
+    tag.tname,
+    wtime.wday,
+    wtime.stime,
+    wtime.etime,
+    scinfo.fpath,
+    scinfo.stnum,
+    scinfo.service,
+    mcard.mcno,
+    mcard.mcuse,
+    (select count(eno) from event where event.eday>=curDate() and event.cmno=cafe.cmno) as eventCount
+  from cafe
+    left outer join tag on tag.cmno=cafe.cmno
+    left outer join wtime on wtime.cmno=cafe.cmno
+    left outer join scinfo on scinfo.cmno=cafe.cmno
+    left outer join mcard on mcard.scno=scinfo.scno
+  where 
+    (select count(*) as cnt from favrit where favrit.mno=12 and favrit.cmno=cafe.cmno) > 0 and
+    mcard.mno=12 and
+    mcard.mcuse = 0
+  order by mcard.mcno desc
+  </select>
+  
 </mapper>
 
 

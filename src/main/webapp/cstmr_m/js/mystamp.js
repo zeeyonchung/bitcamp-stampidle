@@ -25,6 +25,22 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	});
 	
 	
+	/********************* section2 즐겨 찾는 카드 리스트 *************************/
+	$.getJSON(serverRoot + '/customCard/getMyFavoriteCardList.json?customMemberNo=' + userNo, function(ajaxResult) {
+		var myFavoriteCardList = ajaxResult.data;
+		console.log(myFavoriteCardList);
+		
+		if (myFavoriteCardList == null) {
+			$('.section.favorite #num').text(0);
+		} else {
+			$('.section.favorite #num').text(myFavoriteCardList.length);
+		}
+		
+		var infodiv = $('.infodiv2');
+		var template = Handlebars.compile($('#trTemplate2').html());
+		infodiv.html(template({"myFavoriteCardList": myFavoriteCardList}));
+	});
+	
 	
 	/********************* section3 다 모은 카드 리스트 *************************/
 	$.getJSON(serverRoot + '/customCard/getMyFinishCardList.json?customMemberNo=' + userNo, function(ajaxResult) {
