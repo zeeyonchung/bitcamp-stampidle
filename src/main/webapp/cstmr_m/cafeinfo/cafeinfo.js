@@ -135,12 +135,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var param = {
 			customMemberNo: userNo,
 			name: userName,
-			cconts: $('.commentText').val(),
+			contents: $('.commentText').val(),
 			star: star,
 			cafeMemberNo : cafeMembNo
 		};
 		console.log(param);
-		$.post(serverRoot + '/comment/add', param, function(ajaxResult) {
+		$.post(serverRoot + '/comment/add.json', param, function(ajaxResult) {
 			if (ajaxResult.status != "success") {
 				alert(ajaxResult.data);
 				return;
