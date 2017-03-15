@@ -29,12 +29,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		} else if ($(this).text() == "최근방문순") {
 			selectCafeList = "memb.tel"
 		}
-		console.log(selectCafeList);
-		console.log(cafeMemberNo);
-		console.log(pageSize);
-		console.log(currPageNo);
 		getListSelect(cafeMemberNo, selectCafeList, currPageNo, pageSize);
-		
 	});
 	
 	

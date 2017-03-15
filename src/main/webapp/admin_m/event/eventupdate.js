@@ -1,23 +1,55 @@
-
-/*로그인 정보를 가져와서*/
-$.getJSON(serverRoot + '/admin_m/auth/loginUser.json', function(ajaxResult) {
-	if (ajaxResult.status != "success") {
-		console.log(ajaxResult.data);
-		location.href = clientRoot + "/admin_m/auth/login.html";
-		
-	}
-	var cafeMemberNo = ajaxResult.data.cafeMemberNo;
-
-
+try {
+  var eventNo = location.href.split('?')[1].split('=')[1];
+  console.log(eventNo);
+  
+} catch (error) {
+	var eventNo = -1;
+}
 var now = new Date();
-      var year= now.getFullYear();
-      var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
-      var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
-              
-      var chan_val = year + '-' + mon + '-' + day;
+var year= now.getFullYear();
+var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+        
+var chan_val = year + '-' + mon + '-' + day;
+
+/*
+if (eventNo > 0) {
+	prepareViewForm();
+} else {
+	prepareNewForm();
+}
+*/
 
 
-$('.add-new-btn').click(function() {
+$.getJSON(serverRoot + '/admin_m/event/detail.json?eventNo=' + eventNo, function(ajaxResult) {
+  var status = ajaxResult.status;
+  
+  if (status != "success") {
+	  alert(ajaxResult.data);
+	  return;
+  }
+  
+  var event = ajaxResult.data;
+  console.log(event);
+  
+  $('#photo-img').attr('src', '../../upload/' + event.eventPhotoPath);
+  $('#banner-img').attr('src', '../../upload/' + event.eventBannerPhotoPath);
+  $('.location-div .event-title').val(event.eventTitle);
+  $('.startdiv .startDate').val(event.startDate);
+  $('.endDate').val(event.endDate);
+  $('.event-contents').val(event.eventContents);
+
+
+$('.edit-event').click(function() {
+	$.getJSON(serverRoot + '/admin_m/auth/loginUser.json', function(ajaxResult) {
+		if (ajaxResult.status != "success") {
+			console.log(ajaxResult.data);
+			location.href = clientRoot + "/admin_m/auth/login.html";
+			
+		}
+		var cafeMemberNo = ajaxResult.data.cafeMemberNo;
+
+
     var param = {
 		"cafeMemberNo": cafeMemberNo,
 		"eventTitle": $('.event-title').val(),
@@ -27,11 +59,11 @@ $('.add-new-btn').click(function() {
 		"eventBannerPhotoPath": $('#banner-photo-path').val(),
 		"eventView": 0,
 		"startDate": $('.startDate').val(),
-		"endDate": $('.endDate').val() 
+		"endDate": $('.endDate').val(),
+		"eventNo":eventNo
     };
-    console.log(param.eventBannerPhotoPath);
     
-    $.post(serverRoot + '/admin_m/event/add.json', param, function(ajaxResult) {
+    $.post(serverRoot + '/admin_m/event/update.json', param, function(ajaxResult) {
     	if (ajaxResult.status != "success") {
     		alert(ajaxResult.data);
     		return;
@@ -42,6 +74,25 @@ $('.add-new-btn').click(function() {
 }); // click()
 
 });
+});
+$('#use-btn-delete').click(function() {
+  $.getJSON(serverRoot + '/admin_m/event/delete.json?eventNo=' + eventNo, function(ajaxResult) {
+	  if (ajaxResult.status != "success") { 
+		  alert(ajaxResult.data);
+		  return;
+	  }
+	  location.href = clientRoot + '/admin_m/event/eventlist.html';
+  });
+});
+
+
+$('#use-btn-edit').click(function(e) {
+	e.preventDefault();
+    location.href = clientRoot + '/admin_m/event/eventupdate.html?eventNo='+ eventNo
+});
+
+
+
 
 
 $('#photo').fileupload({
@@ -76,7 +127,7 @@ $('#photo').fileupload({
 
 /************ 배너 이미지 저장 **************/
 $('#banner-fileupload').fileupload({
-url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
+url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
 dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
 sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
 singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
@@ -86,7 +137,6 @@ disableImageResize: /Android(?!.*Chrome)|Opera/
 done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 	console.log('done()...');
 	console.log(data.result);
-	console.log(data.result.data[0]);
     $('#banner-photo-path').val(data.result.data[0]);
 }, 
 processalways: function(e, data) {
