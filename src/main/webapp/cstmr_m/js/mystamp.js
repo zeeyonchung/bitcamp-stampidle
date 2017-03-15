@@ -13,7 +13,11 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var myCardList = ajaxResult.data;
 		console.log(myCardList);
 		
-		$('#num').text(myCardList.length);
+		if (myCardList == null) {
+			$('#num').text(0);
+		} else {
+			$('#num').text(myCardList.length);
+		}
 		
 		var infodiv = $('.infodiv');
 		var template = Handlebars.compile($('#trTemplate').html());
