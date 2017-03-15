@@ -17,6 +17,11 @@ public class CommentImpl implements CommentService {
   	return commentDao.getList(cafeMemberNo);
   }
   
+  @Override
+  public int commentCount(int cafeMemberNo) throws Exception {
+    return commentDao.commentCount(cafeMemberNo);
+  }
+  
 }
 
 
