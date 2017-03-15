@@ -189,6 +189,11 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, count);
   }
   
+  @RequestMapping(value = "/cstmr_m/comment/add")
+  public AjaxResult commentAdd(Comment comment) throws Exception {
+    commentService.add(comment);
+    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
 }
 
 
