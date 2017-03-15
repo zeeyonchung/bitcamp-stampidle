@@ -52,10 +52,70 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	});
 	// 코멘트 리스트 가져오기(핸들바스)
 	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-		var comment = (ajaxResult.data);
+		var comments = (ajaxResult.data);
 		var commentdiv = $('.comment_list ul');
 		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
-		commentdiv.append(commentTemplate({"commentList":comment}));
+		commentdiv.append(commentTemplate({"commentList":comments}));
+		$('.result').text("평점 (" + averStarScore() +"/5.0)");
+		$('.star span').attr('class',starScoreCss());
+		function averStarScore() {
+			var sum = 0;
+			var aver = 0;
+			if (comments.length != 0) {
+				$.each(comments, function(i){
+					sum += comments[i].star;
+				});
+			} else {
+				return 0;
+			}
+			aver = sum/commentsCount();
+			return aver;
+		}
+		
+		function commentsCount() {
+			var count = 0;
+			$.each(comments, function(i){
+				count++;
+			});
+			return count;
+		}
+		
+		function starScoreCss(num) {
+			switch(num) {
+				case 5: return "star5";
+				case 4: return "star4";
+				case 3: return "star3";
+				case 2: return "star2";
+				case 1: return "star1";
+				case 0: return "star0";
+			}
+		}
+		
+		function totalStarScoreCss(num) {
+			if (4.7 < averStarScore() <= 5) {
+				return "star5";
+			} else if (4.2 < averStarScore() <= 4.7) {
+				return "star4_5";
+			} else if (3.7 < averStarScore() <= 4.2) {
+				return "star4";
+			} else if (3.2 < averStarScore() <= 3.7) {
+				return "star3_5";
+			} else if (2.7 < averStarScore() <= 3.2) {
+				return "star3";
+			} else if (2.2 < averStarScore() <= 2.7) {
+				return "star2_5";
+			} else if (1.7 < averStarScore() <= 2.2) {
+				return "star2";
+			} else if (1.2 < averStarScore() <= 1.7) {
+				return "star1_5";
+			} else if (0.7 < averStarScore() <= 1.2) {
+				return "star1";
+			} else if (0.2 < averStarScore() <= 0.7) {
+				return "star0_5";
+			} else {
+				return "star0";
+			}
+		}
 	});
 	$('.comment_form input').attr('placeholder',userName);
 	
