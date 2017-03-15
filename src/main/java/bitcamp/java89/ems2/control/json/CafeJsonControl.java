@@ -120,7 +120,7 @@ public class CafeJsonControl {
   }
   
   
-  @RequestMapping(value = {"/admin/comment/detail", "/cstmr_/comment/detail"})
+  @RequestMapping(value = {"/admin/comment/detail", "/cstmr_m/comment/detail"})
   public AjaxResult getList(int cafeMemberNo) throws Exception {
   	List<Comment> list = commentService.getList(cafeMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
@@ -183,7 +183,11 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, likes);
   }
   
-  
+  @RequestMapping(value = {"/admin/comment/count", "/cstmr_m/comment/count"})
+  public AjaxResult commentCount(int cafeMemberNo) throws Exception {
+    int count = commentService.commentCount(cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, count);
+  }
   
 }
 

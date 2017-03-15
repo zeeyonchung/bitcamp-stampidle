@@ -7,7 +7,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var userNo = ajaxResult.data.customMemberNo;
 	var cafeMembNo = 1
 
-	// 1페이지
+	// 1페이지 시작
 	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var cafe = ajaxResult.data;
 		$('.cafe-name').text(cafe.cafeName);
@@ -35,11 +35,28 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	});
 	// 1페이지 끝
 	
+	// 2페이지 시작
 	$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var menuInfo = (ajaxResult.data);
 			var menudiv = $('.menuList');
 			var template = Handlebars.compile($('#menuTemplate').html());
 			menudiv.append(template({"list":menuInfo}));
+	});
+	
+	// 2페이지 끝
+	
+	// 3페이지 시작
+	// 총 코멘트 수
+	$.getJSON(serverRoot + '/comment/count.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		$('.total>span').text(ajaxResult.data + "건");
+	});
+	// 코멘트 리스트 가져오기(핸들바스)
+	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var comment = (ajaxResult.data);
+		console.log(comment);
+		var commentdiv = $('.comment_list ul');
+		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
+		commentdiv.append(commentTemplate({"commentList":comment}));
 	});
 });
 

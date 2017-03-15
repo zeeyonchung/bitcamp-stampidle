@@ -124,64 +124,9 @@
 	                    </div>
 	                    <div class="comment_list">
 	                        <p class="total">
-	                            댓글 <span>100건</span>
+	                            댓글 <span></span>
 	                        </p>
 	                        <ul>
-	                            <li><div class='profileImg'><img src='../image/cstmerPic_sample.png' alt='profile Img'></div>
-	                                 <div class="comment_txt">
-	                                    <strong>캡틴아메리카</strong>
-	                                    <p>인생에 가치를 주는 원질이 되는 것이다</p>
-	                                </div>
-	                                <div class='etcInfo'>
-	                                    <div class="date">07/07/2015</div>
-	                                    <div class="star"><span class='star4'>별4개</span></div>
-	                                </div>
-	                            </li>
-	                            <li><div class='profileImg'><img src='../image/cstmerPic_sample.png' alt='profile Img'></div>
-	                                 <div class="comment_txt">
-	                                    <strong>캡틴아메리카</strong>
-	                                    <p>인생에 가치를 주는 원질이 되는 것이다 그들은 앞이 긴지라 착목한는 곳이 원대하고 그들은 피가 더운지라
-	실현에 대한 자신과 용기가 있다 그러므로 그들은 이상의 보배를 능히 품으며 그들의 이상은 아름답고 소담스러운 열매를 맺어</p>
-	                                </div>
-	                                <div class='etcInfo'>
-	                                    <div class="date">07/07/2015</div>
-	                                    <div class="star"><span class='star4'>별4개</span></div>
-	                                </div>
-	                            </li>
-	                            <li><div class='profileImg'><img src='../image/cstmerPic_sample.png' alt='profile Img'></div>
-	                                 <div class="comment_txt">
-	                                    <strong>캡틴아메리카</strong>
-	                                    <p>인생에 가치를 주는 원질이 되는 것이다 그들은 앞이 긴지라 착목한는 곳이 원대하고 그들은 피가 더운지라
-	실현에 대한 자신과 용기가 있다</p>
-	                                </div>
-	                                <div class='etcInfo'>
-	                                    <div class="date">07/07/2015</div>
-	                                    <div class="star"><span class='star3_5'>별4개</span></div>
-	                                </div>
-	                            </li>
-	                            <li><div class='profileImg'><img src='../image/cstmerPic_sample.png' alt='profile Img'></div>
-	                                 <div class="comment_txt">
-	                                    <strong>캡틴아메리카</strong>
-	                                    <p>인생에 가치를 주는 원질이 되는 것이다 그들은 앞이 긴지라 착목한는 곳이 원대하고 그들은 피가 더운지라
-	실현에 대한 자신과 용기가 있다 그러므로 그들은 이상의 보배를 능히 품으며 그들의 이상은 아름답고 소담스러운 열매를 맺어</p>
-	                                </div>
-	                                <div class='etcInfo'>
-	                                    <div class="date">07/07/2015</div>
-	                                    <div class="star"><span class='star3'>별4개</span></div>
-	                                </div>
-	                            </li>
-	                            <li><div class='profileImg'><img src='../image/cstmerPic_sample.png' alt='profile Img'></div>
-	                                 <div class="comment_txt">
-	                                    <strong>캡틴아메리카</strong>
-	                                    <p>인생에 가치를 주는 원질이 되는 것이다 그들은 앞이 긴지라 착목한는 곳이 원대하고 그들은 피가 더운지라
-	실현에 대한 자신과 용기가 있다 그러므로 그들은 이상의 보배를 능히 품으며 그들의 이상은 아름답고 소담스러운 열매를 맺어</p>
-	                                </div>
-	                                <div class='etcInfo'>
-	                                    <div class="date">07/07/2015</div>
-	                                    <div class="star"><span class='star4_5'>별4개</span></div>
-	                                </div>
-	                            </li>
-	                            
 	                            
 	                        </ul>
 	                    </div>
@@ -243,29 +188,6 @@ $(window).load(function(){
 });
 </script>
 <!-- // Swipe -->
-
-<!-- Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
-<script>
-$(document).ready(function() {
-	var secH1 = $(".section:nth-child(1)").outerHeight();
-	var secH2 = $(".section:nth-child(2)").outerHeight();
-	var secH3 = $(".section:nth-child(3)").outerHeight();
-	
-	$("#swipe .swWrap").css('height', secH1);
-
-	$('.tab1 a').click(function(e) {
-	    $("#swipe .swWrap").css('height', secH1);
-	});
-	$('.tab2 a').click(function(e) {
-        $("#swipe .swWrap").css('height', secH2);
-    });
-	$('.tab3 a').click(function(e) {
-        $("#swipe .swWrap").css('height', secH3);
-    });
-	
-});
-</script>
-<!-- //Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
 <script>
 var $imgList = $('.bgwrap>div');      // bgwrap div 안에 있는 div 자식들을 가져옴
 var nImgCount = $imgList.children().length; // 위에서 가져온 div 자식들의 개수
@@ -308,7 +230,25 @@ function autoSlide() {
   <p class='mnPrice'>{{price}}</p>
  </div>
 {{/each}}
-</script> 
+</script>
+
+<script id="commentTemplate" type="text/x-handlebars-template">
+{{#each commentList}}
+<li>
+  <div class='profileImg'>
+    <img src='../image/cstmerPic_sample.png' alt='profile Img'>
+  </div>
+  <div class="comment_txt">
+    <strong>{{nick}}</strong>
+    <p>{{contents}}</p>
+  </div>
+  <div class='etcInfo'>
+    <div class="date">{{uploadDate}}</div>
+    <div class="star"><span class='star2'>별{{star}}개</span></div>
+  </div>
+</li>
+{{/each}}
+</script>
 </body>
 </html>
 

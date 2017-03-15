@@ -26,9 +26,13 @@
   
   <select id="getList" parameterType="int" resultMap="comment-map">
     select 
-      c.cono, c.cconts, c.star, c.ctime, m.nick from coments c 
+      c.cono, c.cconts, c.star, c.ctime, m.name, m.nick, m.cphoto from coments c 
 	  left outer join memb m on c.mno = m.mno
-    where cmno=#{value} 
+    where c.cmno=#{value}
+  </select>
+  
+  <select id="commentCount" parameterType="int" resultType="int">
+    select count(*) from coments where cmno=#{value};
   </select>
   
   
