@@ -115,19 +115,9 @@
 				        <!-- list -->
 	                    <div class='starScore'>
 	                        <div class='star'>
-	                            <!-- <span class='star0'>별0개</span>
-	                            <span class='star0_5'>별0.5개</span>
-	                            <span class='star1'>별1개</span>
-	                            <span class='star1_5'>별1.5개</span>
-	                            <span class='star2'>별2개</span>
-	                            <span class='star2_5'>별2.5개</span>
-	                            <span class='star3'>별3개</span> -->
-	                            <span class='star3_5'>별3.5개</span>
-	                            <!-- <span class='star4'>별4개</span>
-	                            <span class='star4_5'>별4.5개</span>
-	                            <span class='star5'>별5개</span> -->
+	                            <span class='star3'></span>
 	                        </div>
-	                        <p class='result'>(3.2/5.0) <span>50명</span>이 참여</p>
+	                        <div class='result'>(3.2/5.0)</div>
 	                    </div>
 	                    <div class="comment_list">
 	                        <p class="total">
@@ -251,7 +241,7 @@ function autoSlide() {
   </div>
   <div class='etcInfo'>
     <div class="date">{{uploadDate}}</div>
-    <div class="star"><span class='star2'>별{{star}}개</span></div>
+    <div class="star"><span class='star{{star}}'></span></div>
   </div>
 </li>
 {{/each}}
