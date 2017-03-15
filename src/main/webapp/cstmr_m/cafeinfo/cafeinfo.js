@@ -53,11 +53,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	// 코멘트 리스트 가져오기(핸들바스)
 	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var comments = (ajaxResult.data);
+		console.log(comments);
 		var commentdiv = $('.comment_list ul');
 		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
 		commentdiv.append(commentTemplate({"commentList":comments}));
 		$('.result').text("평점 (" + averStarScore() +"/5.0)");
 		$('.star span').attr('class',starScoreCss());
+		// 가져온 별점 갯수,평균 구하기
 		function averStarScore() {
 			var sum = 0;
 			var aver = 0;
@@ -116,6 +118,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				return "star0";
 			}
 		}
+		// 평균 구하기 끝
 	});
 	$('.comment_form input').attr('placeholder',userName);
 	
