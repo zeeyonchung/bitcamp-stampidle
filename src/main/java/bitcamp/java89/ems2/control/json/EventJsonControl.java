@@ -53,6 +53,18 @@ public class EventJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  @RequestMapping(value ="/cstmr_m/event/getAllListBanner")
+  public AjaxResult getAllList() throws Exception {
+    List<Event> list = eventService.getAllListBanner();
+    
+    if (list.size() == 0) {
+      return new AjaxResult(AjaxResult.FAIL, "페이지가 존재하지 않습니다.");
+    }
+    
+    
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
   @RequestMapping(value = { "/admin_m/event/list"})
   public AjaxResult list(int cafeMemberNo, int pageCount, int postNo) throws Exception {
     List<Event> list = eventService.getListInfinityScroll(cafeMemberNo, pageCount, postNo);
