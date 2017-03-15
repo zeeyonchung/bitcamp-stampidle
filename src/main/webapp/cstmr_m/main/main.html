@@ -42,10 +42,7 @@
             
             <div class='eventBn'>
                 <h3>카페별 이벤트로 더욱 신나게!</h3>
-                <ul>
-                    <li><img src='../image/bn_sample1.jpg' alt='stamp card'></li>
-                    <li><img src='../image/bn_sample2.jpg' alt='stamp card'></li>
-                    <li><img src='../image/bn_sample1.jpg' alt='stamp card'></li>
+                <ul class="event-div">
                 </ul>
             </div>
             
@@ -73,6 +70,12 @@
          <div class='stampNumS'><span class='history'>{{currentStampCount}}</span>/<span class='numAll'>{{stampCount}}</span></div>
       </div>
     {{/each}}
+    </script>
+    
+    <script id="trTemplate2" type="text/x-handlebars-template">
+{{#each list}}
+       <li style="height:100px"><img  style="height:100%" src='../../upload/{{eventBannerPhotoPath}}' alt='stamp card'></li>
+{{/each}}
     </script>
 
   <script src="../js/context.js"></script>

@@ -51,7 +51,9 @@ public class EventServiceImpl implements EventService {
     }
     return eventDao.getList(paramMap);
   }
-  
+  public List<Event> getAllListBanner() throws Exception {
+    return eventDao.getListAllBanner();
+  }
   
   public List<Event> getListInfinityScroll(int cafeMemberNo, int pageCount, int postNo) throws Exception {
     Map<String, Object> paramMap = new HashMap<>();

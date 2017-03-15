@@ -7,6 +7,7 @@ import bitcamp.java89.ems2.domain.Event;
 
 public interface EventDao {
   ArrayList<Event> getList(Map<String, Object> paramMap) throws Exception;
+  ArrayList<Event> getListAllBanner() throws Exception;
   ArrayList<Event> getListAllEvent(Map<String, Object> paramMap) throws Exception;
   ArrayList<Event> getListAllEventSearchCondition(Map<String, Object> paramMap) throws Exception;
   ArrayList<Event> getListByTitle(Map<String, Object> paramMap) throws Exception;

@@ -54,6 +54,12 @@
     limit #{firstPost}, #{postNo}
   </select>
   
+  <select id="getListAllBanner" parameterType="java.util.Map" resultMap="event-map">
+    select 
+      *
+    from event 
+  </select>
+  
   <select id="getListAllEvent" parameterType="java.util.Map" resultMap="event-map">
     select 
       e.eno,
