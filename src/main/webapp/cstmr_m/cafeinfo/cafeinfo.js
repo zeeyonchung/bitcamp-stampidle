@@ -56,9 +56,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		console.log(comments);
 		var commentdiv = $('.comment_list ul');
 		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
+		for (var i in comments) {
+			if (comments[i].nick == null) {
+				comments[i].nick = comments[i].name;
+			}
+		}
 		commentdiv.append(commentTemplate({"commentList":comments}));
 		$('.result').text("평점 (" + averStarScore() +"/5.0)");
-		$('.star span').attr('class',starScoreCss());
+		$('.star span').attr('class','star3');
 		// 가져온 별점 갯수,평균 구하기
 		function averStarScore() {
 			var sum = 0;
