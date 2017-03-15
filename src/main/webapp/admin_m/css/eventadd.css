@@ -79,6 +79,13 @@ display: inherit;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
+.add-btn{
+  width: 96%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-left: 4%;
+}
+	
 
 
 /*이미지 슬라이더*/

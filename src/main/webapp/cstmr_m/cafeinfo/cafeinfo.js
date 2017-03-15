@@ -53,17 +53,37 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	// 코멘트 리스트 가져오기(핸들바스)
 	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var comment = (ajaxResult.data);
-		console.log(comment);
 		var commentdiv = $('.comment_list ul');
 		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
 		commentdiv.append(commentTemplate({"commentList":comment}));
 	});
 	$('.comment_form input').attr('placeholder',userName);
+	
+	// 별점매기기
 	$( ".star_rating a" ).click(function() {
 	     $(this).parent().children("a").removeClass("on");
 	     $(this).addClass("on").prevAll("a").addClass("on");
 	     return false;
 	});
-
+	// 별점매기기 끝
+	$('.submit').click(function(event) {
+		var star = $('.star_rating > .on').length;
+		event.preventDefault();
+		var param = {
+			customMemberNo: userNo,
+			name: userName,
+			cconts: $('.commentText').val(),
+			star: star,
+			cafeMemberNo : cafeMembNo
+		};
+		console.log(param);
+		$.post(serverRoot + '/comment/add', param, function(ajaxResult) {
+			if (ajaxResult.status != "success") {
+				alert(ajaxResult.data);
+				return;
+			}
+			alert('리뷰 등록이 완료되었습니다.');
+		}, 'json'); 
+	});
 });
 

@@ -138,11 +138,8 @@ $('.cardadd .btmsubmit').click(function() {
 
 /********* event/eventlist.html ***********/
 
-$('.eventlist .one-event').click(function() {
-	location.href = clientRoot + "/admin_m/event/eventdetail.html";
-});
 
-$('.eventlist .add-new-btn').click(function() {
+$('.eventBn .add-new-btn').click(function() {
 	location.href = clientRoot + "/admin_m/event/eventadd.html";
 });
 
@@ -150,13 +147,6 @@ $('.eventlist .add-new-btn').click(function() {
 /********* event/eventdetail.html ***********/
 
 
-$('.eventdetail .glyphicon-pencil').click(function() {
-	location.href = clientRoot + "/admin_m/event/eventadd.html";
-});
-
-$('.eventdetail .glyphicon-trash').click(function() {
-	location.href = clientRoot + "/admin_m/event/eventlist.html";
-});
 
 
 /********* event/eventadd.html ***********/

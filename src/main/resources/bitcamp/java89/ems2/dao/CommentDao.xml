@@ -35,5 +35,14 @@
     select count(*) from coments where cmno=#{value};
   </select>
   
+  <insert id='commentAdd' parameterType='comment'>
+    insert into coments (mno, cconts, star,ctime,cmno)
+     values(#{customMemberNo},
+            #{cconts},
+            #{star},
+            now(),
+            #{cafeMemberNo})
+  </insert>
+  
   
 </mapper>

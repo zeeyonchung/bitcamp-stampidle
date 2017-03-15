@@ -55,11 +55,7 @@ public class EventServiceImpl implements EventService {
   
   public List<Event> getListInfinityScroll(int cafeMemberNo, int pageCount, int postNo) throws Exception {
     Map<String, Object> paramMap = new HashMap<>();
-    int firstPost = (pageCount - 1) * postNo;
-    int allEventNo = eventDao.getCount(cafeMemberNo);
-    if (firstPost > allEventNo) {
-      firstPost = (pageCount - 2) * postNo;
-    }
+    int firstPost = (pageCount - 1) * postNo; //10
     
     paramMap.put("cafeMemberNo", cafeMemberNo);
     paramMap.put("firstPost", firstPost);

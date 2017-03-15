@@ -84,7 +84,7 @@ public class EventJsonControl {
   }
   
   
-  @RequestMapping(value ={"/admin/event/detail", "/cstmr_m/event/detail"})
+  @RequestMapping(value ={"/admin/event/detail", "/cstmr_m/event/detail", "/admin_m/event/detail"})
   public AjaxResult detail(int eventNo) throws Exception {
     Event event = eventService.getDetail(eventNo);
     
@@ -96,7 +96,7 @@ public class EventJsonControl {
   }
   
   
-  @RequestMapping(value = "/admin/event/delete")
+  @RequestMapping(value = {"/admin/event/delete", "/admin_m/event/delete"})
   public AjaxResult delete(int eventNo) throws Exception {
     int count = eventService.delete(eventNo);
     if (count == 0) {
@@ -110,7 +110,7 @@ public class EventJsonControl {
     eventService.updateView(eventNo);
   }
   
-  @RequestMapping(value="/admin/event/update")
+  @RequestMapping(value={"/admin/event/update","/admin_m/event/update"})
   public AjaxResult update(Event event) throws Exception {
 
     int count = eventService.update(event);

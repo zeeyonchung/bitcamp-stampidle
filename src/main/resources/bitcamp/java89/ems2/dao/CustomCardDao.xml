@@ -124,7 +124,7 @@
     select 
       stamp.stno,
       stamp.many,
-      stamp.sitime,
+      stamp.stime,
       memb.mno,
       memb.name,
       memb.tel
@@ -276,7 +276,7 @@
   where
     cafe.cmno=#{cafeMemberNo}
   group by mcard.mno
-  order by #{selectCafeList}
+  order by ${selectCafeList} asc
   limit #{startRowIndex}, #{rowSize}
   
   </select>
@@ -347,9 +347,6 @@
 	  cafe.cname,
 	  cafe.cmno,
 	  tag.tname,
-	  wtime.wday,
-	  wtime.stime,
-	  wtime.etime,
 	  scinfo.fpath,
 	  scinfo.stnum,
 	  scinfo.service,

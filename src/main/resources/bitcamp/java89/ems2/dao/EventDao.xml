@@ -187,6 +187,7 @@
       e.ebirth,
       e.epath,
       e.eview,
+      e.bpath,
       e.sday,
       e.eday,
       c.cname

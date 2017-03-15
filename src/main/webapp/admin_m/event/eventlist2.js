@@ -13,10 +13,13 @@ $.getJSON(serverRoot + '/admin_m/auth/loginUser.json', function(ajaxResult) {
     
 	$(window).scroll(function(){
 		{
-	      if($(window).scrollTop()+100 >= $(document).height() - $(window).height())
+			++i;
+			console.log(i);
+	      if($(window).scrollTop()+20 >= $(document).height() - $(window).height())
 	    	  {
-	    	  loadPage(++i);
+	    	  loadPage(i);
 	    	  }
+	      
 	    		  
 	    }
 	});
@@ -38,11 +41,9 @@ $.getJSON(serverRoot + '/admin_m/auth/loginUser.json', function(ajaxResult) {
 	  var template = Handlebars.compile($('#trTemplate').html());
 	  $('#container').append(template({"list": list}));
 	  
-	  $('.event-title').click(function(event) {
-		event.preventDefault();
-		$.getJSON(serverRoot + '/event/updateView.json?eventNo=' + $(this).attr("data-no"));
+	  $('.eventlist .one-event').click(function(event) {
 		
-	  	location.href = 'eventdetail.html?eventNo=' + $(this).attr("data-no");
+	  	location.href = 'eventdetail.html?eventNo=' + $('.title').attr("data-no");
 	  });
 	  
 	  
@@ -51,6 +52,7 @@ $.getJSON(serverRoot + '/admin_m/auth/loginUser.json', function(ajaxResult) {
 	
 	
 });
+
 $('#top-btn').click(function(event) {
 	$(window).scrollTop($(window).height);
 });

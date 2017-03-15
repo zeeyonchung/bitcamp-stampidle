@@ -1,5 +1,6 @@
 try {
   var eventNo = location.href.split('?')[1].split('=')[1];
+  
 } catch (error) {
 	var eventNo = -1;
 }
@@ -13,7 +14,8 @@ if (eventNo > 0) {
 */
 
 
-$.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxResult) {
+$.getJSON(serverRoot + '/admin_m/event/detail.json?eventNo=' + eventNo, function(ajaxResult) {
+	console.log(eventNo);
   var status = ajaxResult.status;
   
   if (status != "success") {
@@ -23,27 +25,27 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
   
   var event = ajaxResult.data;
   
-  $('.eventdetail .title').text(event.eventTitle);
+  $('.title span').text(event.eventTitle);
   $('.eventdetail .table1 .tabletd2').text(event.registDate);
-  $('.eventdetail .table2 .tabletd2').text(event.startDate + " ~ " + event.endDate);
+  $('.span-period1').text(event.startDate + " ~ " + event.endDate);
   $('.eventdetail .table3 .tabletd4').text(event.eventView);
-  $('.eventdetail #evnet-img').attr('src', '../../upload/' + event.eventPhotoPath);
+  $('.event-img').attr('src', '../../upload/' + event.eventPhotoPath);
   $('.event-cont-div .div-contents').text(event.eventContents);
 });
 
 
 
 $('#use-btn-delete').click(function() {
-  $.getJSON('delete.json?eventNo=' + eventNo, function(ajaxResult) {
+  $.getJSON(serverRoot + '/admin_m/event/delete.json?eventNo=' + eventNo, function(ajaxResult) {
 	  if (ajaxResult.status != "success") { 
 		  alert(ajaxResult.data);
 		  return;
 	  }
-	  location.href = clientRoot + '/event/main.html';
+	  location.href = clientRoot + '/admin_m/event/eventlist.html';
   });
 });
 
 $('#use-btn-edit').click(function(e) {
 	e.preventDefault();
-    location.href = clientRoot + '/event/eventupdate.html?eventNo='+ eventNo
+    location.href = clientRoot + '/admin_m/event/eventupdate.html?eventNo='+ eventNo
 });
