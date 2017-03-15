@@ -5,6 +5,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		/*로그인 안 했으면 로그인 페이지로 보내기*/
 	}
 	var userNo = ajaxResult.data.customMemberNo;
+	var userName = ajaxResult.data.name;
 	var cafeMembNo = 1
 
 	// 1페이지 시작
@@ -23,7 +24,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 				$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 					var cardInfo = ajaxResult.data;
-					console.log(cardInfo);
 					$.each(cardInfo, function(i) {
 						$('.stmpcard').attr('src', '../'+cardInfo[i].backImgPath);
 						$('.stmpcard2').attr('src', '../../upload/' +cardInfo[i].frontImgPath);
@@ -58,5 +58,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
 		commentdiv.append(commentTemplate({"commentList":comment}));
 	});
+	$('.comment_form input').attr('placeholder',userName);
+	$( ".star_rating a" ).click(function() {
+	     $(this).parent().children("a").removeClass("on");
+	     $(this).addClass("on").prevAll("a").addClass("on");
+	     return false;
+	});
+
 });
 

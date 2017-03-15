@@ -97,8 +97,15 @@
 						<h3>내 의견쓰기</h3>
 					        <fieldset>
 					        <div class="comment_form">
-				                <label>이름</label><input type="text" maxlength="20" placeholder="이름" />
-				                <textarea maxlength="100" placeholder="내용"></textarea>
+				                <label>이름</label><input type="text" maxlength="20" readonly="readonly">
+				                <p class="star_rating">
+                          <a href="#" class="on">★</a>
+											    <a href="#" class="on">★</a>
+											    <a href="#" class="on">★</a>
+											    <a href="#">★</a>
+											    <a href="#">★</a>
+                        </p>
+				                <textarea class='commentText' maxlength="100" placeholder="내용"></textarea>
 					        </div>
 					        <button class="submit">글 올리기</button>
 					        </fieldset>
