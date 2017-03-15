@@ -201,39 +201,6 @@
 
 
 
-  <!--  Swipe -->
-  <script type="text/javascript">
-    $(window).load(
-        function() {
-          if (!document.getElementById('tab_swipe'))
-            return false;
-          var mnTab = document.getElementById('tab_swipe')
-              .getElementsByTagName('li');
-          var elem = document.getElementById('swipe');
-
-          window.areaSwipe = Swipe(elem, {
-            startSlide : 0,
-            continuous : true,
-            callback : function(pos) {
-              var currentSlide = areaSwipe.getPos() + 1;
-              var n = mnTab.length;
-              while (n--) {
-                mnTab[n].className = ' ';
-              }
-              mnTab[pos].className = 'on';
-
-              var secH = $(
-                  ".section:nth-of-type(" + currentSlide
-                      + ")").outerHeight();
-              $("#swipe .swWrap").css('height', secH);
-            }
-          });
-        });
-  </script>
-  <!-- // Swipe -->
-
-
-
   <!-- 임시링크 -->
   <script>
     $('.list').click(function(e) {
