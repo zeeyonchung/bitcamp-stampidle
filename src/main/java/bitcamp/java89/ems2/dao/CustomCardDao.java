@@ -39,6 +39,7 @@ public interface CustomCardDao {
   List<CustomCard> getRecentCard(int customMemberNo) throws Exception;
   
   List<CustomCard> getMyCardDetailList(int customMemberNo) throws Exception;
-  List<Stamp> getMyCardStampList(int customCardNo) throws Exception;
   List<CustomCard> getMyFinishCardDetailList(int customMemberNo) throws Exception;
+  List<CustomCard> getMyFavoriteCardDetailList(int customMemberNo) throws Exception;
+  List<Stamp> getMyCardStampList(int customCardNo) throws Exception;
 }
