@@ -20,6 +20,11 @@ public class FavoriteImpl implements FavoriteService {
     return favoriteDao.getFavoriteCount(favorite);
   }
   
+  @Override
+  public int delete(Favorite favorite) throws Exception {
+    return favoriteDao.delete(favorite);
+  }
+  
   
 }
 

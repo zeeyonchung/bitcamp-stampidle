@@ -16,4 +16,8 @@
     cmno=#{cafeMemberNo}
   </select>
   
+  <delete id='delete' parameterType="favorite">
+  delete from favrit where mno=#{customMemberNo} and cmno=#{cafeMemberNo};
+  </delete>
+  
 </mapper>

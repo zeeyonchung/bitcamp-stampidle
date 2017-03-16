@@ -51,6 +51,17 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		  } else {
 			  $(this).removeClass();
 			  $(this).toggleClass('no');
+			  var param2 = {
+						customMemberNo: userNo,
+						cafeMemberNo : cafeMembNo
+					};
+			  $.post(serverRoot + '/favorite/delete.json', param2, function(ajaxResult) {
+					if (ajaxResult.status != "success") {
+						alert(ajaxResult.data);
+						return;
+					}
+					alert('즐겨찾기 취소되었습니다.');
+				}, 'json'); 
 		  }
 		});
 		
