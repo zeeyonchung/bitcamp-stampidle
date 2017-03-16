@@ -15,13 +15,26 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		$('.cafe-info').text(cafe.intro);
 		$('.cafe-addr').text(cafe.address +" "+ cafe.detailAddress);
 		$('.cafe-tel').text(cafe.cafeTel);
-
+		// 즐겨찾기 상태 가져와서 별에 불킬지 말지 결정하는 부분//
+		$.getJSON(serverRoot + '/favorite/getFavoriteCount.json', 
+			    {'customMemberNo': userNo,
+			    'cafeMemberNo': cafeMembNo
+			    }, function(ajaxResult) {
+			        if (ajaxResult.data > 0) {
+			        	$('#favorite').removeClass();
+						$('#favorite').toggleClass('yes');
+						$('#favorite').addClass('yes');
+			        } else {
+			        	$('#favorite').removeClass();
+			        	$('#favorite').toggleClass('no');
+			        }
+			    });
+		// 즐겨찾기//
 		$("#favorite").click(function() {
 		  if ($(this).hasClass('no')) {
 			$(this).removeClass();
 			$(this).toggleClass('yes');
 			$('#favorite').addClass('yes');
-			// 즐겨찾기 추가//
 			var param1 = {
 					customMemberNo: userNo,
 					cafeMemberNo : cafeMembNo
@@ -34,14 +47,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				}
 				alert('즐겨찾기 추가되었습니다.');
 			}, 'json'); 
-			
+			//즐겨찾기 삭제//
 		  } else {
 			  $(this).removeClass();
 			  $(this).toggleClass('no');
 		  }
 		});
 		
-		
+		// 카드 앞면 뒷면 가져오기//
 		$.getJSON(serverRoot + '/customCard/customDetail.json', 
 				{'customMemberNo': userNo,
 			'cafeMemberNo': cafeMembNo},
@@ -148,17 +161,15 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			     return "star0";
 			}
 		}
-		// 평균 구하기 끝
 	});
 	$('.comment_form input').attr('placeholder',userName);
 	
-	// 별점매기기
+	// 별점매기기//
 	$( ".star_rating a" ).click(function() {
 	     $(this).parent().children("a").removeClass("on");
 	     $(this).addClass("on").prevAll("a").addClass("on");
 	     return false;
 	});
-	// 별점매기기 끝
 	$('.submit').click(function(event) {
 		var star = $('.star_rating > .on').length;
 		event.preventDefault();
@@ -179,7 +190,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		}, 'json'); 
 	});
 	
-	// 좋아요
+	// 좋아요//
 	$.getJSON(serverRoot + '/likes/getLikesCount.json', 
 		    {'customMemberNo': userNo,
 		    'cafeMemberNo': cafeMembNo

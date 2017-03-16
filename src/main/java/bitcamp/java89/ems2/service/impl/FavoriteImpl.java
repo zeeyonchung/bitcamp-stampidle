@@ -15,6 +15,10 @@ public class FavoriteImpl implements FavoriteService {
   public int add(Favorite favorite) throws Exception {
     return favoriteDao.insert(favorite);
   }
+  @Override
+  public int getFavoriteCount(Favorite favorite) throws Exception {
+    return favoriteDao.getFavoriteCount(favorite);
+  }
   
   
 }
