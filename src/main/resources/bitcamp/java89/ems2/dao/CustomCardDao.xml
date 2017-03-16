@@ -486,6 +486,7 @@
     select count(cafe.cmno)
     from cafe
       left outer join tag on tag.cmno=cafe.cmno
+      inner join scinfo on scinfo.cmno=cafe.cmno
     where 
       (cafe.cname like concat('%', #{searchKeyword}, '%')
       OR tag.tname like concat('%', #{searchKeyword}, '%'))
