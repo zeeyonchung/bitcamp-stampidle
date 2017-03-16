@@ -7,6 +7,7 @@ public class Comment extends CustomMember {
   protected String contents;
   protected int star;
   protected String uploadDate;
+  protected int cafeMemberNo;
   
 	public int getCommentNo() {
 		return commentNo;
@@ -32,5 +33,11 @@ public class Comment extends CustomMember {
 	public void setUploadDate(String uploadDate) {
 		this.uploadDate = uploadDate;
 	}
+  public int getCafeMemberNo() {
+    return cafeMemberNo;
+  }
+  public void setCafeMemberNo(int cafeMemberNo) {
+    this.cafeMemberNo = cafeMemberNo;
+  }
   
 }

@@ -18,6 +18,20 @@ public class Cafe extends CafeMember {
   protected String tagName;
   
   protected List<CafeTime> cafeTimeList;
+  
+  protected int likesCount;
+  
+  
+  
+  
+
+  public int getLikesCount() {
+    return likesCount;
+  }
+
+  public void setLikesCount(int likesCount) {
+    this.likesCount = likesCount;
+  }
 
   public String getCafeTel() {
     return cafeTel;

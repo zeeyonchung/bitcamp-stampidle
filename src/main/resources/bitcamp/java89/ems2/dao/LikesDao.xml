@@ -10,4 +10,18 @@
   	cmno=#{cafeMemberNo}
   </select>
   
+  <insert id="insert" parameterType="java.util.Map">
+  insert into likes(mno, cmno) values 
+(#{customMemberNo},#{cafeMemberNo});
+  </insert>
+  
+  <select id="getLikesCount" parameterType="java.util.Map" resultType="int">
+  select count(*) from likes where 
+    mno=#{customMemberNo} and 
+    cmno=#{cafeMemberNo}
+  </select>
+  
+    <delete id="delete" parameterType="java.util.Map">
+  delete from likes where mno=#{customMemberNo} and cmno=#{cafeMemberNo}
+  </delete>
 </mapper>

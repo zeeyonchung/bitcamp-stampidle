@@ -22,6 +22,18 @@
     <result column="daddr"       property="detailAddress"/>
     <result column="chair"       property="chairNo"/>
     <result column="logo"       property="logPath"/>
+    <result column="likesCount"       property="likesCount"/>
+    
+    <result column="tno"     property="tagNo"/>
+    <result column="tname"     property="tagName"/>
+    
+    <collection property="cafeTimeList" ofType="cafeTime">
+      <id     column="wtno"     property="timeNo"/>
+      <result column="wday"     property="day"/>
+      <result column="stime"     property="startTime"/>
+      <result column="etime"     property="endTime"/>
+    </collection>
+    
   </resultMap>
   
   
@@ -53,6 +65,7 @@
     from cafe
     where cmno=#{cafeMemberNo}
   </select>
+
   
   <update id="update" parameterType="cafe">
     update cafe set

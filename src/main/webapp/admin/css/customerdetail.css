@@ -119,11 +119,13 @@ hr {
   padding-right: 25px; 
   padding-top:10px; 
   padding-bottom:10px;
+  min-height:180px; 
 }
 
 #card-back {
 	position: absolute;
   width:350px; 
+  min-height:180px; 
 }
 
 .stmpside {

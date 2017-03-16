@@ -31,6 +31,9 @@ public interface CustomCardDao {
   void updatePlusMcuse(int currentCustomCardNo) throws Exception;
   void updateMinusMcuse(int usedCustomCardNo) throws Exception;
   
+  int insertGift(Map<String, Object> paramMap) throws Exception;
+  void updateGift3Mcuse(int usedCustomCardNo) throws Exception;
+  
   int getMyCardCount(int customMemberNo) throws Exception;
   List<CustomCard> getMyCardNo(int customMemberNo) throws Exception;
   int getCafeNo(int customCardNo) throws Exception;
@@ -43,4 +46,7 @@ public interface CustomCardDao {
   List<CustomCard> getMyFinishCardDetailList(int customMemberNo) throws Exception;
   List<CustomCard> getMyFavoriteCardDetailList(int customMemberNo) throws Exception;
   List<Stamp> getMyCardStampList(int customCardNo) throws Exception;
+  
+  List<CustomCard> getCafeList(Map<String, Object> paramMap) throws Exception;
+  int getCafeCountByKeyword(String searchKeyword) throws Exception;
 }

@@ -22,10 +22,17 @@ public class CustomCard extends StampCardInfo {
   protected int currentStampCount;
   protected String recentStampDate;
   protected int currentEventCount;
+  protected int canUseCount;
   
   
   
   
+public int getCanUseCount() {
+    return canUseCount;
+  }
+  public void setCanUseCount(int canUseCount) {
+    this.canUseCount = canUseCount;
+  }
 public int getCurrentEventCount() {
     return currentEventCount;
   }

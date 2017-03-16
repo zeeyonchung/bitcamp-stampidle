@@ -38,12 +38,6 @@
 
 
 
-.padding {
-	 padding: 0 2%;
-	 text-align: center;
-}
-
-
 .search-form {
 	margin: 10% 2%;
 }
@@ -77,13 +71,12 @@
 
 
 .gift-msg {
-	width: 100%;
-	margin-top: 8%;
-	margin-bottom: 5%;
+	width: 92%;
+	margin: 8% 4% 5% 4%;
 	border-radius: 5px;
 	border: 1px solid #ccc;
 	padding: 10px;
-	
+	height:200px;
 }
 
 .gift-msg:focus {
@@ -149,12 +142,12 @@
 
 
 .numBox {
+	display:none;
 	border: 1px solid #eee;
 	width:48%;
-    margin:0 1%;
 	height:130px;
-	float:left;
     background:#f4f4f4;
+    margin:0 auto;
 }
 
 .numBox input {
@@ -170,14 +163,6 @@
     color:#ff5948;
 }
 
-.numBox.stampNum {
-	margin:0 1% 0 1.5%;
-}
-
-.numBox.freeNum {
-    margin:0 1.5% 0 0;
-}
-
 .numBox span {
 	display:block;
 	margin-top:7px;
@@ -191,7 +176,14 @@
     color:#333;
 }
 
+.numBox.noFree {
+	width:70%;
+}
 
+.numBox.noFree p {
+    font-size:1.3em;
+    padding-top:30px;
+}
 
 .descrip2 {
 	clear:both;
@@ -206,6 +198,10 @@
 	font-size:1.3em;
 	color:#555;
 	margin-bottom:5px;
+}
+
+.descrip2 .cafeNm { 
+	color:#333;
 }
 
 

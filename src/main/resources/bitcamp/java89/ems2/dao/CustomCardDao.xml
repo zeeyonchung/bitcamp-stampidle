@@ -27,6 +27,7 @@
     
     <result column="cname"       property="cafeName"/>
     <result column="logo"       property="logPath"/>
+    <result column="likesCount"       property="likesCount"/>
     
     <result column="cmno"       property="cafeMemberNo"/>
     
@@ -34,6 +35,7 @@
     <result column="tname"     property="tagName"/>
     
     <result column="eventCount"     property="currentEventCount"/>
+    <result column="canUseCount"     property="canUseCount"/>
     
     <collection property="stampList" ofType="stamp" resultMap="stamp-map">
     </collection>
@@ -71,6 +73,18 @@
   </insert>
   
   
+  <insert id="insertGift" parameterType="java.util.Map">
+    insert into mcard(mno, scno, birth, mcuse) 
+    values(#{customMemberNo}, #{stampCafeCardNo}, curdate(), 2)
+  </insert>
+  
+  <update id="updateGift3Mcuse" parameterType="int">
+    UPDATE mcard 
+    SET mcuse = 3
+    WHERE mcno=#{usedCustomCardNo}
+  </update>
+  
+  
   <update id="updatePlusMcuse" parameterType="int">
     UPDATE mcard 
     SET mcuse = 1
@@ -90,7 +104,10 @@
     values(
       (select mcno from mcard
         inner join scinfo on scinfo.scno=mcard.scno
-        where mcard.mno=#{customMemberNo} and scinfo.cmno=#{cafeMemberNo}
+        where 
+          mcard.mno=#{customMemberNo} 
+          and scinfo.cmno=#{cafeMemberNo}
+          and mcard.mcuse=0
         order by mcard.mcno desc
         limit 1), 
        #{stampIssueCount}, 
@@ -233,14 +250,17 @@ where
 	  stamp.stno,
 	  stamp.many,
 	  stamp.sitime,
-	  scinfo.stnum
+	  scinfo.stnum,
+	  scinfo.scno,
+	  (select count(mcard.mcuse) from mcard where mcard.mcuse in (1, 2) and mcard.mno=memb.mno and mcard.scno=scinfo.scno) as canUseCount
 	from memb
 	  left outer join mcard on memb.mno=mcard.mno
 	  left outer join stamp on stamp.mcno=mcard.mcno
 	  left outer join scinfo on scinfo.scno=mcard.scno
-	where scinfo.cmno=#{cafeMemberNo}
+	where 
+	  scinfo.cmno=#{cafeMemberNo}
 	  and memb.mno=#{customMemberNo}
-	order by mcard.mcno asc 
+	order by mcard.mcno desc
   </select>
   
    <select id="getCustomCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
@@ -252,7 +272,11 @@ where
 		from mcard
 			left outer join scinfo on scinfo.scno=mcard.scno
 			left outer join stamp on mcard.mcno=stamp.mcno
-		where scinfo.cmno=#{cafeMemberNo} and mcard.mno=#{customMemberNo}
+		where 
+		  scinfo.cmno=#{cafeMemberNo} 
+		  and mcard.mno=#{customMemberNo}
+		  and mcard.mcuse=0
+		order by mcard.mcno desc
   </select>
   
   <select id="getCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
@@ -267,7 +291,11 @@ where
 	from mcard
 		inner join scinfo on mcard.scno=scinfo.scno
 		inner join stposi on stposi.scno=scinfo.scno
-	where scinfo.cmno=#{cafeMemberNo} and mcard.mno=#{customMemberNo}
+	where 
+	  scinfo.cmno=#{cafeMemberNo} 
+	  and mcard.mno=#{customMemberNo}
+	  and mcard.mcuse=0
+	order by mcard.mcno desc
   </select>
   
   
@@ -428,7 +456,7 @@ where
     left outer join scinfo on scinfo.cmno=cafe.cmno
     left outer join mcard on mcard.scno=scinfo.scno
   where mcard.mno=#{customMemberNo} and
-    mcard.mcuse != 0
+    mcard.mcuse in (1, 2)
   order by mcard.mcno desc
   </select>
   
@@ -453,11 +481,44 @@ where
     left outer join scinfo on scinfo.cmno=cafe.cmno
     left outer join mcard on mcard.scno=scinfo.scno
   where 
-    (select count(*) as cnt from favrit where favrit.mno=12 and favrit.cmno=cafe.cmno) > 0 and
-    mcard.mno=12 and
+    (select count(*) as cnt from favrit where favrit.mno=#{customMemberNo} and favrit.cmno=cafe.cmno) > 0 and
+    mcard.mno=#{customMemberNo} and
     mcard.mcuse = 0
   order by mcard.mcno desc
   </select>
+  
+    
+  
+  <select id='getCafeList' parameterType='java.util.Map' resultMap='customCard-map'>
+  select
+    cafe.cname,
+    cafe.cmno,
+    tag.tname,
+    scinfo.fpath,
+    (select count(eno) from event where event.eday>=curDate() and event.cmno=cafe.cmno) as eventCount,
+    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount
+  from cafe
+    left outer join tag on tag.cmno=cafe.cmno
+    left outer join scinfo on scinfo.cmno=cafe.cmno
+  where
+    (cafe.cname like concat('%', #{searchKeyword}, '%')
+    OR tag.tname like concat('%', #{searchKeyword}, '%'))
+    and scinfo.scno = (select max(scno) from scinfo where scinfo.cmno=cafe.cmno)
+  order by cafe.cname asc
+  limit #{firstPost}, #{postNo}
+  </select>
+  
+  
+   <select id="getCafeCountByKeyword" parameterType="String" resultType="int">
+    select count(cafe.cmno)
+    from cafe
+      left outer join tag on tag.cmno=cafe.cmno
+    where 
+      (cafe.cname like concat('%', #{searchKeyword}, '%')
+      OR tag.tname like concat('%', #{searchKeyword}, '%'))
+  </select>
+  
+  
   
 </mapper>
 

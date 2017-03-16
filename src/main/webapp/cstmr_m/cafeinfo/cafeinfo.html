@@ -37,6 +37,7 @@
 
                     <!-- section1 -->
 	               <div class='section intro'>
+	               <a id='favorite' class='no'></a>
 	                  <div class='cafe-card'>
 	                     <div class='stmp-circle'></div>
 	                     <div class="intro-wrap">
@@ -50,9 +51,9 @@
 	                     </div>
 	                     </div>
 	                  </div>
+	                     <div class='like'>259</div>
 	                  <div class='cafe-text'>
 	                     <div class='cafe-name'></div>
-	                     <div class='like select'>259</div>
 	                     <div class='cafe-tag'></div>
 	                     <div class='cafe-addr'></div>
 	                     <div class='cafe-tel'></div>
@@ -115,9 +116,9 @@
 				        <!-- list -->
 	                    <div class='starScore'>
 	                        <div class='star'>
-	                            <span class='star3'></span>
+	                            <span></span>
 	                        </div>
-	                        <div class='result'>(3.2/5.0)</div>
+	                        <div class='result'></div>
 	                    </div>
 	                    <div class="comment_list">
 	                        <p class="total">
@@ -233,10 +234,10 @@ function autoSlide() {
 {{#each commentList}}
 <li>
   <div class='profileImg'>
-    <img src='../image/cstmerPic_sample.png' alt='profile Img'>
+    <img src='../../upload/{{photoPath}}' alt='profile Img'>
   </div>
   <div class="comment_txt">
-    <strong>{{nick}}</strong>
+      <strong>{{nick}}</strong>
     <p>{{contents}}</p>
   </div>
   <div class='etcInfo'>
