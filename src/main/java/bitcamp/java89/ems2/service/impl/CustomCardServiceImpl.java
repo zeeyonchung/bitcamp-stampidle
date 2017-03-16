@@ -548,7 +548,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
   @Override
-  public List<CustomCard> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount) throws Exception {
+  public Map<String, Object> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount) throws Exception {
     
     Map<String, Object> returnMap = new HashMap<>();
     returnMap.put("allCafeCount", customCardDao.getCafeCountByKeyword(searchKeyword));
@@ -579,8 +579,9 @@ public class CustomCardServiceImpl implements CustomCardService {
       returnCafeList.add(customCard);
     }
     
+    returnMap.put("cafeList", returnCafeList);
      
-    return returnCafeList;
+    return returnMap;
   }
   
 }
