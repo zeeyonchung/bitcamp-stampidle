@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.CafeDao;
 import bitcamp.java89.ems2.dao.CafeMemberDao;
+import bitcamp.java89.ems2.dao.CafeTimeDao;
 import bitcamp.java89.ems2.dao.CustomCardDao;
+import bitcamp.java89.ems2.dao.LikesDao;
 import bitcamp.java89.ems2.domain.CustomCard;
 import bitcamp.java89.ems2.domain.Stamp;
 import bitcamp.java89.ems2.service.CustomCardService;
@@ -20,6 +22,8 @@ public class CustomCardServiceImpl implements CustomCardService {
   @Autowired CafeMemberDao cafeMemberNo;
   @Autowired CafeDao cafeDao;
   @Autowired CustomCardDao customCardDao;
+  @Autowired LikesDao likesDao;
+  @Autowired CafeTimeDao cafeTimeDao;
   
   public Map<String, Object> getStampList(
 		int cafeMemberNo,
@@ -425,6 +429,43 @@ public class CustomCardServiceImpl implements CustomCardService {
   @Override
   public List<CustomCard> getMyFinishCardList(int customMemberNo) throws Exception {
     return customCardDao.getMyFinishCardDetailList(customMemberNo);
+  }
+
+
+  @Override
+  public List<CustomCard> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount) throws Exception {
+    
+    Map<String, Object> returnMap = new HashMap<>();
+    returnMap.put("allCafeCount", customCardDao.getCafeCountByKeyword(searchKeyword));
+    
+    int firstPost = (pageCount - 1) * postNo;
+    
+    Map<String, Object> paramMap = new HashMap<>();
+    paramMap.put("searchKeyword", searchKeyword);
+    paramMap.put("firstPost", firstPost);
+    paramMap.put("postNo", postNo);
+    List<CustomCard> cafeList = customCardDao.getCafeList(paramMap);
+    
+    List<CustomCard> returnCafeList = new ArrayList<>();
+    for (CustomCard customCard : cafeList) {
+      customCard.setCafeTimeList(cafeTimeDao.getOne(customCard.getCafeMemberNo()));
+      
+      Map<String, Object> paramMap2 = new HashMap<>();
+      paramMap2.put("customMemberNo", customMemberNo);
+      paramMap2.put("cafeMemberNo", customCard.getCafeMemberNo());
+      List<CustomCard> customCardDetailList = customCardDao.getCustomDetail(paramMap2);
+      
+      System.out.println(customCardDetailList);
+      if (customCardDetailList.size() != 0) {
+        customCard.setCanUseCount(customCardDetailList.get(0).getCanUseCount());
+        customCard.setCustomCardNo(customCardDetailList.get(0).getCustomCardNo());
+      }
+      
+      returnCafeList.add(customCard);
+    }
+    
+     
+    return returnCafeList;
   }
   
 }

@@ -27,6 +27,7 @@
     
     <result column="cname"       property="cafeName"/>
     <result column="logo"       property="logPath"/>
+    <result column="likesCount"       property="likesCount"/>
     
     <result column="cmno"       property="cafeMemberNo"/>
     
@@ -416,7 +417,7 @@
     left outer join scinfo on scinfo.cmno=cafe.cmno
     left outer join mcard on mcard.scno=scinfo.scno
   where mcard.mno=#{customMemberNo} and
-    mcard.mcuse != 0
+    mcard.mcuse in (1, 2)
   order by mcard.mcno desc
   </select>
   
@@ -446,6 +447,39 @@
     mcard.mcuse = 0
   order by mcard.mcno desc
   </select>
+  
+    
+  
+  <select id='getCafeList' parameterType='java.util.Map' resultMap='customCard-map'>
+  select
+    cafe.cname,
+    cafe.cmno,
+    tag.tname,
+    scinfo.fpath,
+    (select count(eno) from event where event.eday>=curDate() and event.cmno=cafe.cmno) as eventCount,
+    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount
+  from cafe
+    left outer join tag on tag.cmno=cafe.cmno
+    left outer join scinfo on scinfo.cmno=cafe.cmno
+  where
+    (cafe.cname like concat('%', #{searchKeyword}, '%')
+    OR tag.tname like concat('%', #{searchKeyword}, '%'))
+    and scinfo.scno = (select max(scno) from scinfo where scinfo.cmno=cafe.cmno)
+  order by cafe.cname asc
+  limit #{firstPost}, #{postNo}
+  </select>
+  
+  
+   <select id="getCafeCountByKeyword" parameterType="String" resultType="int">
+    select count(cafe.cmno)
+    from cafe
+      left outer join tag on tag.cmno=cafe.cmno
+    where 
+      (cafe.cname like concat('%', #{searchKeyword}, '%')
+      OR tag.tname like concat('%', #{searchKeyword}, '%'))
+  </select>
+  
+  
   
 </mapper>
 

@@ -39,7 +39,7 @@
 			<!-- cafeListArea -->
 			<div class='cafeListArea'>
 				<h4 class='secTit'>
-	             검색 결과 총 <span class='num'>30</span>개
+	             검색 결과 총 <span class='num' id='num'></span>개
 	            </h4>
 	            <div class="btn-group">
 	                <button class="btn btn-default btn-sm dropdown-toggle"
@@ -56,84 +56,6 @@
 	            </div>
 	            
 	            <div class='listArea'>
-	                <div class='list'>
-	                      <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-	                      <div class='cafeTxt'>
-	                          <h2 class='cafeName'>카페 프레스코</h2>
-	                          <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-	                          <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-	                          <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-	                          <p class='like select'>259<br>좋아요</p>
-	                      </div>
-	                      <div class='myCard select'>담기</div>
-	                      <div class='distance'>20m</div>
-	                  </div>
-	                  
-	                  <div class='list'>
-	                      <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-	                      <div class='cafeTxt'>
-	                          <h2 class='cafeName'>카페 프레스코</h2>
-	                          <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-	                          <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-	                          <p class='issue'><span class='free'>무료</span></p>
-	                          <p class='like select'>259<br>좋아요</p>
-	                      </div>
-	                      <div class='myCard select'>담기</div>
-	                      <div class='distance'>20m</div>
-	                  </div>
-	                  
-	                  <div class='list'>
-	                      <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-	                      <div class='cafeTxt'>
-	                          <h2 class='cafeName'>카페 프레스코</h2>
-	                          <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-	                          <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-	                          <p class='issue'><span class='event'>이벤트</span></p>
-	                          <p class='like select'>259<br>좋아요</p>
-	                      </div>
-	                      <div class='myCard'>담기</div>
-	                       <div class='distance'>20m</div>
-	                  </div>
-	                  
-	                  <div class='list'>
-	                      <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-	                      <div class='cafeTxt'>
-	                          <h2 class='cafeName'>카페 프레스코</h2>
-	                          <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-	                          <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-	                          <p class='issue'></p>
-	                          <p class='like'>139<br>좋아요</p>
-	                      </div>
-	                      <div class='myCard select'>담기</div>
-	                      <div class='distance'>1km</div>
-	                  </div>
-	                  
-	                  <div class='list'>
-                          <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                          <div class='cafeTxt'>
-                              <h2 class='cafeName'>카페 프레스코</h2>
-                              <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                              <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                              <p class='issue'></p>
-                              <p class='like'>139<br>좋아요</p>
-                          </div>
-                          <div class='myCard select'>담기</div>
-                          <div class='distance'>1km</div>
-                      </div>
-                      
-                      <div class='list'>
-                          <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                          <div class='cafeTxt'>
-                              <h2 class='cafeName'>카페 프레스코</h2>
-                              <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                              <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                              <p class='issue'></p>
-                              <p class='like'>139<br>좋아요</p>
-                          </div>
-                          <div class='myCard select'>담기</div>
-                          <div class='distance'>1km</div>
-                      </div>
-	                  
 	            </div>
 	        </div>
 	        <!-- //cafeListArea -->
@@ -142,15 +64,53 @@
 		</div>
 		<!-- //con -->
 	</div>
+	
+	
+	
+	
+<!-- 카페 목록 하나하나 템플릿 -->
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each cafeList}}
+  <div class='list'>
+    <div class='cardArea'><img src='/bitcamp_stampidle/upload/{{frontImgPath}}' alt='stamp card'></div>
+    <div class='cafeTxt'>
+      <h2 class='cafeName'>{{cafeName}}</h2>
+      <p class='tag'><span>#{{tagName}}</span></p>
+      <p class='time'>
+      {{#each cafeTimeList}}
+        {{day}} {{startTime}}~{{endTime}}<br>
+      {{/each}}
+      </p>
+      <p class='issue'>
+        {{#if canUseCount}}
+          <span class='free'>무료</span>
+        {{/if}}
+        {{#if currentEventCount}}
+          <span class='event'>이벤트</span>
+        {{/if}}
+      </p>
+      <p class='like select'>{{likesCount}}<br>좋아요</p>
+    </div>
+    {{#if customCardNo}}
+      <div class='myCard select'>담기</div>
+      {{else}}
+      <div class='myCard'>담기</div>
+    {{/if}}
+    <div class='distance'>20m</div>
+  </div>
+{{/each}}
+</script>
 
-
+  <script src="../js/context.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.js"></script>
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="../js/bit.js"></script>
 	<script src="../js/common.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
+	<script src="../js/findcafe.js"></script>
 
 
 <!-- when mapArea open, btn_prev control  -->

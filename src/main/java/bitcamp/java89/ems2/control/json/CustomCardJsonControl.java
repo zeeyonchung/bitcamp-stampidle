@@ -145,6 +145,13 @@ public class CustomCardJsonControl {
     List<CustomCard> myCardList = customCardService.getMyFavoriteCardList(customMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, myCardList);
   }
+  
+  
+  @RequestMapping(value = "/cstmr_m/customCard/findCafe")
+  public AjaxResult findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount) throws Exception {
+    List<CustomCard> cafeList = customCardService.findCafe(customMemberNo, searchKeyword, postNo, pageCount);
+    return new AjaxResult(AjaxResult.SUCCESS, cafeList);
+  }
 }
 
 

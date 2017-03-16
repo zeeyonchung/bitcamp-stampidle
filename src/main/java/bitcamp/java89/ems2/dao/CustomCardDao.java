@@ -42,4 +42,7 @@ public interface CustomCardDao {
   List<CustomCard> getMyFinishCardDetailList(int customMemberNo) throws Exception;
   List<CustomCard> getMyFavoriteCardDetailList(int customMemberNo) throws Exception;
   List<Stamp> getMyCardStampList(int customCardNo) throws Exception;
+  
+  List<CustomCard> getCafeList(Map<String, Object> paramMap) throws Exception;
+  int getCafeCountByKeyword(String searchKeyword) throws Exception;
 }
