@@ -126,7 +126,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
 
-  @Override//////////////////////////////////////////////////////////끝
+  @Override
   public Map<String, Object> getCustomDetail(int customMemberNo, int cafeMemberNo) throws Exception {
     HashMap<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
@@ -195,7 +195,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
 
-  @Override///////////////////////////////////////////////////////////끝
+  @Override
   public Map<String, Object> getCustomCardDetail(int customMemberNo, int cafeMemberNo) throws Exception {
     
     HashMap<String, Object> paramMap = new HashMap<>();
@@ -227,7 +227,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
 
-  @Override////////////////////////////////////////////////끝
+  @Override
   public void addStamp(int customMemberNo, int cafeMemberNo, int stampIssueCount) throws Exception {
     HashMap<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
@@ -238,7 +238,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
 
-  @Override//////////////////////////////////////////////////끝
+  @Override
   public void addNewCustomCard(int cafeMemberNo, int customMemberNo) throws Exception {
     Map<String, Object> paramMap0 = new HashMap<>();
     paramMap0.put("customMemberNo", customMemberNo);
@@ -263,7 +263,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
   
   
-  @Override////////////////////////////////////////////////////////끝
+  @Override
   public void useCustomCard(int cafeMemberNo, int customMemberNo, int usedCardCount) throws Exception {
     Map<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);

@@ -441,8 +441,8 @@
     left outer join scinfo on scinfo.cmno=cafe.cmno
     left outer join mcard on mcard.scno=scinfo.scno
   where 
-    (select count(*) as cnt from favrit where favrit.mno=12 and favrit.cmno=cafe.cmno) > 0 and
-    mcard.mno=12 and
+    (select count(*) as cnt from favrit where favrit.mno=#{customMemberNo} and favrit.cmno=cafe.cmno) > 0 and
+    mcard.mno=#{customMemberNo} and
     mcard.mcuse = 0
   order by mcard.mcno desc
   </select>
