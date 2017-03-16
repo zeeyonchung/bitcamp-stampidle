@@ -17,7 +17,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	cafeMemberNo = cafeMember.cafeMemberNo;
 	var selectCafeList = null;
 
-	getListSelect(cafeMemberNo, selectCafeList, currPageNo, pageSize);
+	getListSelect(cafeMemberNo, currPageNo, pageSize);
 	
 	
 	$(".dropdown .dropdown-menu .dropdown-item ").click(function(){
@@ -29,34 +29,34 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		} else if ($(this).text() == "최근방문순") {
 			selectCafeList = "memb.tel"
 		}
-		getListSelect(cafeMemberNo, selectCafeList, currPageNo, pageSize);
+		getListSelect(cafeMemberNo, currPageNo, pageSize, selectCafeList);
 	});
 	
 	
 	$('#prevPgBtn').click(function() {
 		if (currPageNo > 1) {
 			console.log(cafeMemberNo);
-			getListSelect(cafeMemberNo, selectCafeList, --currPageNo, 5);
+			getListSelect(cafeMemberNo, --currPageNo, 5, selectCafeList);
 		}
 	});
 
 	$('#nextPgBtn').click(function() {
 		
-		getListSelect(cafeMemberNo, selectCafeList, ++currPageNo, 5);
+		getListSelect(cafeMemberNo, ++currPageNo, 5, selectCafeList);
 	});
 });
 
 
 
 
-function getListSelect(cafeMemberNo,selectCafeList, pageNo, pageSize) {
+function getListSelect(cafeMemberNo, pageNo, pageSize,selectCafeList) {
 	$.getJSON(
 		serverRoot + '/customCard/customListSelect.json',
 		{
 			'cafeMemberNo': cafeMemberNo,
-			'selectCafeList': selectCafeList,
 			"pageNo": pageNo,
-			"pageSize": pageSize
+			"pageSize": pageSize,
+			'selectCafeList': selectCafeList
 		}, 
 		function(ajaxResult) {
 		 if (ajaxResult.status != "success") {

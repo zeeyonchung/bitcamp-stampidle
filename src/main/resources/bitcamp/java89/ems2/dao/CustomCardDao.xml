@@ -10,7 +10,7 @@
     
     <result column="birth"       property="cardIssueDate"/>
     <result column="mcuse"       property="cardState"/>
-    <result column="death"       property="cardUseDate"/>
+    <result column="usedate"       property="cardUseDate"/>
     
     <result column="mno"       property="customMemberNo"/>
     <result column="tel"       property="customTel"/>
@@ -98,7 +98,25 @@
      )
   </insert>
   
+  <select id="getAllStampList" parameterType="int" resultMap="customCard-map">
   
+  select 
+      stamp.stno,
+      stamp.many,
+      stamp.sitime,
+      mcard.birth,
+      mcard.usedate,
+      mcard.mcuse,
+      memb.mno,
+      memb.name,
+      memb.tel
+    from mcard
+      left outer join stamp on stamp.mcno = mcard.mcno
+      left outer join memb on mcard.mno = memb.mno
+      left outer join scinfo on mcard.scno = scinfo.scno
+      left outer join cafe on scinfo.cmno = cafe.cmno
+    where cafe.cmno=#{cafeMemberNo}
+  </select>
   
   <select id="getStampList" parameterType="java.util.Map" resultMap="customCard-map">
     select 
@@ -114,8 +132,8 @@
       left outer join scinfo on mcard.scno = scinfo.scno
     	left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo}
-      and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
-      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
+      and stamp.sitime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
+      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.sitime
     order by stamp.stno desc
     limit #{firstPost}, #{postNo}
   </select>
@@ -124,7 +142,7 @@
     select 
       stamp.stno,
       stamp.many,
-      stamp.stime,
+      stamp.sitime,
       memb.mno,
       memb.name,
       memb.tel
@@ -134,8 +152,8 @@
       left outer join scinfo on mcard.scno = scinfo.scno
     	left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo}
-      and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
-      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
+      and stamp.sitime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
+      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.sitime
       and memb.name like concat('%', #{searchKeyword}, '%')
     order by stamp.stno desc
     limit #{firstPost}, #{postNo}
@@ -155,8 +173,8 @@
       left outer join scinfo on mcard.scno = scinfo.scno
     	left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo}
-      and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
-      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
+      and stamp.sitime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
+      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.sitime
       and memb.tel like concat('%', #{searchKeyword}, '%')
     order by stamp.stno desc
     limit #{firstPost}, #{postNo}
@@ -170,10 +188,19 @@
     	left outer join scinfo on mcard.scno = scinfo.scno
     	left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo} 
-      and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
-      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
+      and stamp.sitime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
+      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.sitime
   </select>
   
+  <select id ="getCardCountAll" parameterType="java.util.Map" resultType="int">
+  select count(*)
+from mcard
+left outer join scinfo on mcard.scno=scinfo.scno
+left outer join cafe on scinfo.cmno=cafe.cmno
+where
+ mcard.mno=#{cardMember} and
+ cafe.cmno=#{cafeMemberNo}
+  </select>
   
   <select id="getStampCountByKeyword" parameterType="java.util.Map" resultType="int">
 		select count(*)
@@ -183,8 +210,8 @@
     	left outer join scinfo on mcard.scno = scinfo.scno
     	left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo}
-      and stamp.stime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
-      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.stime
+      and stamp.sitime>=STR_TO_DATE(#{searchFirstDate}, '%Y-%m-%d') 
+      and STR_TO_DATE(#{searchLastDate}, '%Y-%m-%d')>=stamp.sitime
       and
         CASE
         WHEN #{searchCondition}="memb.name" THEN  memb.name

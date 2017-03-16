@@ -41,6 +41,16 @@ public class CustomCardJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
+  @RequestMapping(value = "/admin/customCard/getAllStampList")
+  public AjaxResult getAllstampList(int cafeMemberNo) throws Exception {
+    Map<String, Object> list = customCardService.getAllStampList(cafeMemberNo);
+    
+    if (list.size() == 0) {
+      return new AjaxResult(AjaxResult.FAIL, "페이지가 존재하지 않습니다.");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
   
   
   

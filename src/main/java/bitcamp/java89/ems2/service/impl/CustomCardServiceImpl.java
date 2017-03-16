@@ -1,6 +1,8 @@
 package bitcamp.java89.ems2.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -125,7 +127,7 @@ public class CustomCardServiceImpl implements CustomCardService {
     return returnMap;
   }
 
-
+  
   @Override
   public Map<String, Object> getCustomDetail(int customMemberNo, int cafeMemberNo) throws Exception {
     HashMap<String, Object> paramMap = new HashMap<>();
@@ -410,6 +412,96 @@ public class CustomCardServiceImpl implements CustomCardService {
   @Override
   public List<CustomCard> getMyFinishCardList(int customMemberNo) throws Exception {
     return customCardDao.getMyFinishCardDetailList(customMemberNo);
+  }
+
+  
+  
+  
+  
+  @Override
+  public Map<String, Object> getAllStampList(int cafeMemberNo) throws Exception {
+    List<CustomCard> list = customCardDao.getAllStampList(cafeMemberNo);
+    SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
+    String time = dayTime.format(new Date());
+    
+    Map<String, Object> paramMap = new HashMap<>();
+    int visitMember = 0; // use date가 현재날짜와 같은경우의 방문자
+    int visitMember2 = 0; //stamp 생성일이 현재날짜와 같은경우
+    int visitMember3 = 0; // use date와 stamp생성일이 현재날짜 같은경우의 방문자
+    int stampMany = 0; // 발급 스탬프 수
+    int newMember =0; // 신규회원
+    int freeItem = 0; // 무료 제공 서비스
+    int finishCard = 0;
+    
+    
+    for(CustomCard cardList : list) {
+      List<Stamp> stampList =  cardList.getStampList();
+      System.out.println("1111111111111111111111111111");
+      System.out.println("자바 메서드 :"+time);
+      System.out.println("카드생성일 : " + cardList.getCardIssueDate());
+      
+      
+      
+      //카드 생성일 >> 신규회원 
+      if((time).equals(cardList.getCardIssueDate())) {
+        System.out.println("22222222222222222222222222222");
+        int cardMember=cardList.getCustomMemberNo();
+        paramMap.put("cafeMemberNo", cafeMemberNo);
+        paramMap.put("cardMember", cardMember);
+        int count = customCardDao.getCardCountAll(paramMap);
+        if(count == 1) {
+          ++newMember;
+        }
+      }
+      
+      
+      System.out.println("카드사용날짜 : " + cardList.getCardUseDate());
+      // usedate 가 현재 날짜와 같은경우
+      if((time).equals(cardList.getCardUseDate())) {
+        ++visitMember;
+        ++freeItem;
+      //stamp 생성일과 usedate가 현재 날짜와 같은경우
+        for(Stamp stList : stampList) {
+          if(stList.getStampIssueDate() == time) {
+            ++visitMember3;
+           
+          }
+        }
+      }
+    //stamp 생성일이 현재날짜와 같은경우
+      for(Stamp stList : stampList) {
+        if((time).equals(stList.getStampIssueDate())) {
+          ++visitMember2;
+          stampMany += stList.getStampIssueCount();
+        }
+        
+      }
+      
+      if(Integer.parseInt(cardList.getCardState()) == 1) {
+        System.out.println("44444444444444444444444444444444");
+        for(Stamp stList : stampList) {
+          if((time).equals(stList.getStampIssueDate())) {
+            ++finishCard;
+          }
+        }
+      }
+     
+    }
+    
+    visitMember = visitMember + visitMember2 - visitMember3;
+    System.out.println("방문자: " + visitMember);
+    System.out.println("발급 스템프 수: " + stampMany);
+    System.out.println("신규회원수: " + newMember);
+    System.out.println("무료제공서비스: " + freeItem);
+    System.out.println("다 채운 카드 수: " + finishCard);
+    Map<String, Object> resultMap = new HashMap<>();
+    
+    resultMap.put("visitMember", visitMember);
+    resultMap.put("stampMany", stampMany);
+    resultMap.put("newMember", newMember);
+    resultMap.put("freeItem", freeItem);
+    resultMap.put("finishCard", finishCard);
+    return resultMap;
   }
   
 }

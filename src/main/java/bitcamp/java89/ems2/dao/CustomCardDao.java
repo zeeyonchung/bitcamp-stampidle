@@ -8,6 +8,7 @@ import bitcamp.java89.ems2.domain.Stamp;
 
 public interface CustomCardDao {
   List<CustomCard> getStampList(Map<String, Object> paramMap) throws Exception;
+  List<CustomCard> getAllStampList(int cafeMemberNo) throws Exception;
   List<CustomCard> getStampListByName(Map<String, Object> paramMap) throws Exception;
   List<CustomCard> getStampListByTel(Map<String, Object> paramMap) throws Exception;
   
@@ -19,7 +20,7 @@ public interface CustomCardDao {
   List<CustomCard> getList(Map<String, Object> paramMap) throws Exception;
   List<CustomCard> getListSelect(Map<String, Object> paramMap) throws Exception;
   int countAll(int cafeMemberNo) throws Exception;
-  
+  int getCardCountAll(Map<String, Object> paramMap) throws Exception;
   List<CustomCard> getCustomCardDetail(Map<String, Object> paramMap) throws Exception;
   List<CustomCard> getCardDetail(Map<String, Object> paramMap) throws Exception;
   int insert(Map<String, Object> paramMap) throws Exception;
