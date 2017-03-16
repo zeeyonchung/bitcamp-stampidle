@@ -215,6 +215,18 @@ public class CafeJsonControl {
     favoriteService.add(favorite);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
+  
+  @RequestMapping(value = {"/cstmr_m/favorite/getFavoriteCount"})
+  public AjaxResult getLikesCount(Favorite favorite) throws Exception {
+    int countResult = favoriteService.getFavoriteCount(favorite);
+    return new AjaxResult(AjaxResult.SUCCESS, countResult);
+  }
+  
+  @RequestMapping(value = "/cstmr_m/favorite/delete")
+  public AjaxResult favoriteDelete(Favorite favorite) throws Exception {
+    favoriteService.delete(favorite);
+    return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
+  }
 }
 
 

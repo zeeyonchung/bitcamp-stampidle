@@ -5,12 +5,19 @@
   
 <mapper namespace="bitcamp.java89.ems2.dao.FavoriteDao">
   
+  <!-- 즐겨찾기 추가 -->
   <insert id="insert" parameterType="favorite">
     insert into favrit(mno,cmno) values(#{customMemberNo},#{cafeMemberNo});
   </insert>
+  <!-- 즐겨찾기 상태 가져오기 -->
+  <select id="getFavoriteCount" parameterType="favorite" resultType="int">
+  select count(*) from favrit where 
+    mno=#{customMemberNo} and 
+    cmno=#{cafeMemberNo}
+  </select>
   
-  <delete id="delete" parameterType='int'>
-    delete from favrit where mno=#{customMemberNo};
+  <delete id='delete' parameterType="favorite">
+  delete from favrit where mno=#{customMemberNo} and cmno=#{cafeMemberNo};
   </delete>
   
 </mapper>

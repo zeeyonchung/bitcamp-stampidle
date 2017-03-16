@@ -21,5 +21,7 @@
     cmno=#{cafeMemberNo}
   </select>
   
-  
+    <delete id="delete" parameterType="java.util.Map">
+  delete from likes where mno=#{customMemberNo} and cmno=#{cafeMemberNo}
+  </delete>
 </mapper>

@@ -33,6 +33,15 @@ public class LikesImpl implements LikesService {
     paramMap.put("cafeMemberNo", cafeMemberNo);
     return likesDao.getLikesCount(paramMap);
   }
+  
+  @Override
+  public void deleteLikes(int customMemberNo, int cafeMemberNo) throws Exception {
+    System.out.println("addLikes*****" + customMemberNo + cafeMemberNo);
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("customMemberNo", customMemberNo);
+    paramMap.put("cafeMemberNo", cafeMemberNo);
+    likesDao.delete(paramMap);
+  }
 }
 
 
