@@ -202,22 +202,34 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	});
 	
 	// 좋아요//
-	$.getJSON(serverRoot + '/likes/getLikesCount.json', 
-		    {'customMemberNo': userNo,
-		    'cafeMemberNo': cafeMembNo
-		    }, function(ajaxResult) {
+	$.getJSON(serverRoot + '/likes/getLikesCount.json', {'customMemberNo': userNo,'cafeMemberNo': cafeMembNo}, function(ajaxResult) {
 		        if (ajaxResult.data > 0) {
-		            $('.like').addClass("select");
-		            return;
-		        }  
-		            $('.like').click(function(e) {
-		                $('.like').addClass("select");
-		                $.post(serverRoot + '/likes/addLikes.json', 
-		                    {'customMemberNo': userNo,
-		                    'cafeMemberNo': cafeMembNo
-		                    }, function(ajaxResult) {});
-		            });
-		});
+		        	$('#like').removeClass();
+		        	$('#like').toggleClass('yes');
+		        	$('#like').addClass('yes');
+		        }   else {
+		        	$('#like').removeClass();
+		        	$('#like').toggleClass('no');
+		        }
+	  });
+		            $('#like').click(function() {
+		            	if ($(this).hasClass('no')) {
+		            		$(this).removeClass();
+		        			$(this).toggleClass('yes');
+		        			$('#like').addClass('yes');
+		        			$.post(serverRoot + '/likes/addLikes.json', 
+		        					{'customMemberNo': userNo,
+		        				'cafeMemberNo': cafeMembNo
+		        					}, function(ajaxResult) {});
+		            	} else {
+		            		$(this).removeClass();
+		      			    $(this).toggleClass('no');
+		      			  $.post(serverRoot + '/likes/deleteLikes.json', 
+				                    {'customMemberNo': userNo,
+				                    'cafeMemberNo': cafeMembNo
+				                    }, function(ajaxResult) {});
+		            	}
+			            });
 });
 
 
