@@ -12,8 +12,10 @@ import bitcamp.java89.ems2.dao.CafeDao;
 import bitcamp.java89.ems2.dao.CafeMemberDao;
 import bitcamp.java89.ems2.dao.CafeTimeDao;
 import bitcamp.java89.ems2.dao.CustomCardDao;
+import bitcamp.java89.ems2.dao.CustomMemberDao;
 import bitcamp.java89.ems2.dao.LikesDao;
 import bitcamp.java89.ems2.domain.CustomCard;
+import bitcamp.java89.ems2.domain.CustomMember;
 import bitcamp.java89.ems2.domain.Stamp;
 import bitcamp.java89.ems2.service.CustomCardService;
 
@@ -24,7 +26,9 @@ public class CustomCardServiceImpl implements CustomCardService {
   @Autowired CustomCardDao customCardDao;
   @Autowired LikesDao likesDao;
   @Autowired CafeTimeDao cafeTimeDao;
-  
+  @Autowired CustomMemberDao customMemberDao;
+
+
   public Map<String, Object> getStampList(
 		int cafeMemberNo,
 		int pageCount, 
@@ -264,6 +268,34 @@ public class CustomCardServiceImpl implements CustomCardService {
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("stampCafeCardNo", stampCafeCardNo);
     customCardDao.insert(paramMap);
+  }
+  
+  
+  @Override
+  public void addGiftNewCustomCard(int cafeMemberNo, String name, String tel, int usedFreeNum, int giveCustomMemberNo) throws Exception {
+    Map<String, Object> paramMap0 = new HashMap<>();
+    paramMap0.put("customMemberNo", giveCustomMemberNo);
+    paramMap0.put("cafeMemberNo", cafeMemberNo);
+    List<CustomCard> customCardList = customCardDao.getCustomDetail(paramMap0);
+    Map<String, String> paramMapForNo = new HashMap<>();
+    paramMapForNo.put("name", name);
+    paramMapForNo.put("tel", tel);
+    CustomMember customMember = customMemberDao.getOneByNameTel(paramMapForNo);
+    
+    int count = 0;
+    for (CustomCard customCard : customCardList) {
+    	if (Integer.parseInt(customCard.getCardState()) == 1) {
+    		Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("customMemberNo", customMember.getCustomMemberNo());
+        paramMap.put("stampCafeCardNo", customCard.getStampCafeCardNo());
+        customCardDao.insertGift(paramMap);
+        customCardDao.updateGift3Mcuse(customCard.getCustomCardNo());
+        count++;
+        if (usedFreeNum == count) {
+        	break;
+        }
+    	}
+    }
   }
   
   

@@ -12,6 +12,7 @@ import bitcamp.java89.ems2.domain.Cafe;
 import bitcamp.java89.ems2.domain.CafePhoto;
 import bitcamp.java89.ems2.domain.CafeTime;
 import bitcamp.java89.ems2.domain.Comment;
+import bitcamp.java89.ems2.domain.Favorite;
 import bitcamp.java89.ems2.domain.Likes;
 import bitcamp.java89.ems2.domain.Menu;
 import bitcamp.java89.ems2.domain.StampCardInfo;
@@ -21,6 +22,7 @@ import bitcamp.java89.ems2.service.CafePhotoService;
 import bitcamp.java89.ems2.service.CafeService;
 import bitcamp.java89.ems2.service.CafeTimeService;
 import bitcamp.java89.ems2.service.CommentService;
+import bitcamp.java89.ems2.service.FavoriteService;
 import bitcamp.java89.ems2.service.LikesService;
 import bitcamp.java89.ems2.service.MenuService;
 import bitcamp.java89.ems2.service.TagService;
@@ -38,6 +40,7 @@ public class CafeJsonControl {
   @Autowired MenuService menuService;
   @Autowired LikesService likesService;
   @Autowired CafeCardService cafeCardService;
+  @Autowired FavoriteService favoriteService;
   
   
   @RequestMapping("/admin/cafe/add")
@@ -177,10 +180,22 @@ public class CafeJsonControl {
   
   @RequestMapping(value = {"/admin/likes/count", "/cstmr_m/likes/count"})
   public AjaxResult likesCount(int cafeMemberNo) throws Exception {
-  	int num = likesService.count(cafeMemberNo);
+    int num = likesService.count(cafeMemberNo);
     Likes likes = new Likes();
     likes.setNum(num);
     return new AjaxResult(AjaxResult.SUCCESS, likes);
+  }
+  
+  @RequestMapping(value = {"/cstmr_m/likes/addLikes"})
+  public AjaxResult addLikes(int customMemberNo, int cafeMemberNo) throws Exception {
+    likesService.addLikes(customMemberNo, cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, "좋아요 등록 성공입니다.");
+  }
+  
+  @RequestMapping(value = {"/cstmr_m/likes/getLikesCount"})
+  public AjaxResult getLikesCount(int customMemberNo, int cafeMemberNo) throws Exception {
+    int countResult = likesService.getLikesCount(customMemberNo, cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, countResult);
   }
   
   @RequestMapping(value = {"/admin/comment/count", "/cstmr_m/comment/count"})
@@ -192,6 +207,12 @@ public class CafeJsonControl {
   @RequestMapping(value = "/cstmr_m/comment/add")
   public AjaxResult commentAdd(Comment comment) throws Exception {
     commentService.add(comment);
+    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+  @RequestMapping(value = "/cstmr_m/favorite/add")
+  public AjaxResult favoriteAdd(Favorite favorite) throws Exception {
+    favoriteService.add(favorite);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
 }

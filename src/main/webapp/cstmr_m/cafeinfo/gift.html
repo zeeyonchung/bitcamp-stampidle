@@ -20,7 +20,6 @@
 	<div id="container">
 	   <h2 id='pageTit'>선물하기</h2>
 	   
-	   <div class='test'></div>
 		<!-- con -->
 		<div class='con'>
 
@@ -45,16 +44,15 @@
 
 
 				<div class="descrip1">
-	                <div class='stampNum numBox'>
-	                    <span>선물가능한 스탬프 수</span>
-	                    <p>7개</p>
-	                    <input type="text">
-	                </div>
 	                <div class='freeNum numBox'>
 	                    <span>선물가능한 무료쿠폰 수</span>
-	                    <p>2개</p>
+	                    <p></p>
 	                    <input type="text">
 	                </div>
+	                <div class='noFree numBox'>
+                        <p>선물가능한 무료쿠폰이 없습니다.</p>
+                        <span>쿠폰을 모아서 다시 시도해주세요.</span>
+                    </div>
 	            </div>
 				
 				<textarea class="gift-msg"></textarea>
@@ -75,6 +73,10 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
+	<!-- auto complete 고객검색 자동완성 -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- <script src="srchCstmr.js"></script> // gift.js로 옮김
+	//auto complete 고객검색 자동완성 -->
 	<script src="gift.js"></script>
 
   
@@ -100,10 +102,7 @@
   
   
   
-  <!-- auto complete 고객검색 자동완성 -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="srchCstmr.js"></script>
-<!-- //auto complete 고객검색 자동완성 -->
+
   
 </body>
 </html>

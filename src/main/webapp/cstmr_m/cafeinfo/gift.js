@@ -8,74 +8,92 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var loginUser = ajaxResult.data;
 	var cafeMemberNo = 11;
 	
+	if (loginUser.customMemberNo == null) {
+		location.href = clientRoot + '/auth/login.html'
+	}	
+	
+	$.getJSON(serverRoot + '/customMember/srchList.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult) {
+        var status = ajaxResult.status;
+        if (status != "success") {
+        	return;
+        }
+        
+        var availableTags = [];
+        $.each( ajaxResult.data, function(index, value) {
+        	if (value.customMemberNo != loginUser.customMemberNo) {
+        		availableTags.push({"label": value.name + "  (" + value.tel + ")", "value":  value.customMemberNo}) 
+        	}
+        });
+        
+        $("#searchbox").autocomplete({
+            source: availableTags,
+            select: function( event, ui ) {
+              return false;
+            },
+            focus: function(event, ui) {
+                $("#searchbox").val(ui.item.label);
+                return false;
+            }
+        });
+    });
+	
 	$.getJSON(serverRoot + '/customCard/customDetail.json', 
 			{'customMemberNo': loginUser.customMemberNo,
 			'cafeMemberNo': cafeMemberNo},function(ajaxResult) {
 		var customCard = ajaxResult.data;
 	
-	$.getJSON(serverRoot + '/customCard/customCardDetail.json', 
+	/*$.getJSON(serverRoot + '/customCard/customCardDetail.json', 
 			{'customMemberNo': loginUser.customMemberNo,
 			'cafeMemberNo': cafeMemberNo},function(ajaxResult) {
-		var cardDetail = ajaxResult.data;
+		var cardDetail = ajaxResult.data;*/
 			
 	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult) {
 		var cafe = ajaxResult.data;
 		
 		$('.cafeNm').text(cafe.cafeName);
-		$('.stampNum p').text(cardDetail.currentStampCount + "개");
-		$('.freeNum p').text(customCard.finishCardCount + "개");
+		//$('.stampNum p').text(cardDetail.currentStampCount + "개");
+		if (customCard.finishCardCount != 0) {
+			$('.freeNum p').text(customCard.finishCardCount + "개");
+			$('.freeNum').css('display', 'block');
+		} else {
+			$('.noFree').css('display', 'block');
+		}
 		
-		
-
-		alert("t23t");
 		$('.send').click(function(e) {
-			var usedStampNum = parseInt($('.stampNum input').val());
 			var usedFreeNum = parseInt($('.freeNum input').val());
-			var customNm = $('.srchBar').val().split(" ")[1];
-			console.log($('.srchBar').val().split("  ")[1]);
-			
-			if (customNm == null) {
+			if ($('.srchBar').val() == "") {
 				alert("선물하실 친구를 선택해주세요.");
-				$('.srchBar').focus();
+				return $('.srchBar').focus();
 			} 
-			if (usedStampNum > parseInt($('.freeNum p').text())) {
-				alert("사용 가능한 스탬프 수를 초과하여 입력하셨습니다.");
-				return;
-			} else if (usedFreeNum > parseInt($('.freeNum p').text())) {
+			var customName = $('.srchBar').val().split("  ")[0];
+			var customTel = $('.srchBar').val().split("  ")[1].slice(1,-1);
+			
+			if (usedFreeNum > parseInt($('.freeNum p').text())) {
 				alert("사용 가능한 무료쿠폰 수를 초과하여 입력하셨습니다.");
 				return;
-			} else if (usedStampNum == "" && usedFreeNum == "") {
+			} else if ($('.freeNum input').val() == "") {
 				alert("사용 할 스탬프/무료쿠폰 수를 입력해 주세요.");
-				return;
-			} else if (usedStampNum <= 0 || usedFreeNum <= 0) {
+				return $('.freeNum input').focus();
+			} else if (usedFreeNum <= 0) {
 				alert("값을 잘못 입력하셨습니다.");
 				return;
 			}
 			
-			/*if (usedFreeNum != "") {
-				$.getJSON(serverRoot + '/customCard/useCustomCard.json', 
-						{'customMemberNo': loginUser.customMemberNo,
-						'cafeMemberNo': cafeMemberNo,
-						'usedCardCount': usedFreeNum
-						}, function(ajaxResult) {
-					}
-				);
-			}
-			
-			if (usedFreeNum != "") {
-				$.post(serverRoot + '/customCard/addStamp.json', 
-						{'customMemberNo': loginUser.customMemberNo, //////
-						'cafeMemberNo': cafeMemberNo,
-						'stampIssueCount' : usedStampNum
-						}, function(ajaxResult) {
-				});
-			}
-			alert("발송을 완료하였습니다.")*/
-			
+			$.getJSON(serverRoot + '/customCard/addGiftNewCustomCard.json', 
+				{'name': customName,
+				'tel': customTel,
+				'cafeMemberNo': cafeMemberNo,
+				'usedFreeNum' : usedFreeNum,
+				'customMemberNo': loginUser.customMemberNo},
+				function(ajaxResult) {}
+			);
+		
+			alert("발송을 완료하였습니다.");
+			location.href="";
 			
 		});
 	});
-	});
+	/*});*/
 	});
 });
 

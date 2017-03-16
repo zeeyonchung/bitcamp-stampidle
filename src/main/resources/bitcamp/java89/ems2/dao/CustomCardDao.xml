@@ -73,6 +73,18 @@
   </insert>
   
   
+  <insert id="insertGift" parameterType="java.util.Map">
+    insert into mcard(mno, scno, birth, mcuse) 
+    values(#{customMemberNo}, #{stampCafeCardNo}, curdate(), 2)
+  </insert>
+  
+  <update id="updateGift3Mcuse" parameterType="int">
+    UPDATE mcard 
+    SET mcuse = 3
+    WHERE mcno=#{usedCustomCardNo}
+  </update>
+  
+  
   <update id="updatePlusMcuse" parameterType="int">
     UPDATE mcard 
     SET mcuse = 1

@@ -92,6 +92,12 @@ public class CustomCardJsonControl {
   }
   
   
+  @RequestMapping(value = "/cstmr_m/customCard/addGiftNewCustomCard")
+  public AjaxResult addGiftNewCustomCard(int cafeMemberNo, String name, String tel, int usedFreeNum, int customMemberNo) throws Exception {
+    customCardService.addGiftNewCustomCard(cafeMemberNo, name, tel, usedFreeNum, customMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, "선물 스탬프카드 추가 성공");
+  }
+  
   @RequestMapping(value = {"/admin/customCard/useCustomCard", "/cstmr_m/customCard/useCustomCard"})
   public AjaxResult useCustomCard(int cafeMemberNo, int customMemberNo, int usedCardCount) throws Exception {
     customCardService.useCustomCard(cafeMemberNo, customMemberNo, usedCardCount);
