@@ -45,7 +45,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					alert(ajaxResult.data);
 					return;
 				}
-				alert('즐겨찾기 추가되었습니다.');
 			}, 'json'); 
 			//즐겨찾기 삭제//
 		  } else {
@@ -60,7 +59,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 						alert(ajaxResult.data);
 						return;
 					}
-					alert('즐겨찾기 취소되었습니다.');
 				}, 'json'); 
 		  }
 		});
