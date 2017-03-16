@@ -125,7 +125,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		/**** 리셋 버튼 클릭 이벤트 (새 카드 발행) ****/
 		$('#reset-btn').click(function(e) {
 			if ($('#stmpside').children('.add-check').length + currentStampCount != $('.stmpare').length) {
-				console.log('아직 리셋 안 됨...');
+				console.log('아직 리셋 할 수 없음...');
 				return;
 			}
 			$.getJSON(serverRoot + '/customCard/addNewCustomCard.json', 

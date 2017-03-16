@@ -2,7 +2,7 @@ $(window).load(function(){
     if (!document.getElementById('tab_swipe')) return false;
     var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
     var elem = document.getElementById('swipe');
-    
+
     window.areaSwipe = Swipe(elem, {
         startSlide: 0,
         continuous: true,
@@ -21,7 +21,6 @@ $(window).load(function(){
         }
     });
 });
-
 
 /*로그인 정보를 가져와서*/
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {

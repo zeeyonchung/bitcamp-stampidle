@@ -126,7 +126,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
 
-  @Override
+  @Override//////////////////////////////////////////////////////////끝
   public Map<String, Object> getCustomDetail(int customMemberNo, int cafeMemberNo) throws Exception {
     HashMap<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
@@ -136,29 +136,39 @@ public class CustomCardServiceImpl implements CustomCardService {
     
     HashMap<String, Object> resultMap = new HashMap<>();
     if (customDetailList.size() > 0) {
-      resultMap.put("customPhoto", customDetailList.get(customDetailList.size() - 1).getCustomPhoto());
+      resultMap.put("customPhoto", customDetailList.get(0).getCustomPhoto());
     }
-    resultMap.put("customName", customDetailList.get(customDetailList.size() - 1).getCustomName());
-    resultMap.put("customTel", customDetailList.get(0).getCustomTel());
-    resultMap.put("firstVisitDate", customDetailList.get(0).getCardIssueDate());
+    resultMap.put("customName", customDetailList.get(0).getCustomName());
+    resultMap.put("customTel", customDetailList.get(customDetailList.size() - 1).getCustomTel());
+    resultMap.put("firstVisitDate", customDetailList.get(customDetailList.size() - 1).getCardIssueDate());
     
-    List<Stamp> stampList = customDetailList.get(customDetailList.size() - 1).getStampList();
+    
     String lastVisitDate;
-    if (stampList.size() != 0) {
-      lastVisitDate = stampList.get(stampList.size() - 1).getStampIssueDate();
-    } else {
-      lastVisitDate = customDetailList.get(customDetailList.size() - 1).getCardIssueDate();
+    List<Stamp> stampList = new ArrayList<>();
+
+    for (CustomCard customCard : customDetailList) {
+      if (Integer.parseInt(customCard.getCardState()) == 0) {
+        stampList = customCard.getStampList();
+        
+        if (stampList.size() != 0) {
+          lastVisitDate = stampList.get(stampList.size() - 1).getStampIssueDate();
+        } else {
+          lastVisitDate = customDetailList.get(0).getCardIssueDate();
+        }
+        resultMap.put("lastVisitDate", lastVisitDate);
+        
+        break;
+      }
     }
-    resultMap.put("lastVisitDate", lastVisitDate);
+    
     
     int stampCount = 0;
-    int finishCardCount = 0;
+    int finishCardCount = customDetailList.get(0).getCanUseCount();
     
     for (CustomCard customCard : customDetailList) {
       for (Stamp stamp : customCard.getStampList()) {
         stampCount += stamp.getStampIssueCount();
       }
-      finishCardCount += Integer.parseInt(customCard.getCardState());
     }
     
     resultMap.put("allStampCount", stampCount);
@@ -185,7 +195,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
 
-  @Override
+  @Override///////////////////////////////////////////////////////////끝
   public Map<String, Object> getCustomCardDetail(int customMemberNo, int cafeMemberNo) throws Exception {
     
     HashMap<String, Object> paramMap = new HashMap<>();
@@ -194,20 +204,18 @@ public class CustomCardServiceImpl implements CustomCardService {
     
     
     List<CustomCard> cardDetails = customCardDao.getCardDetail(paramMap);
-    CustomCard cardDetail = cardDetails.get(cardDetails.size() - 1);
-    List<CustomCard> customCardDetail = customCardDao.getCustomCardDetail(paramMap);
-    
+    CustomCard cardDetail = cardDetails.get(0);
     HashMap<String, Object> resultMap = new HashMap<>();
-    
     resultMap.put("cardDetail", cardDetail);
     
+    List<CustomCard> customCardDetailList = customCardDao.getCustomCardDetail(paramMap);
     
     // 현재 모인 스탬프 수
     int currentStampCount = 0;
-    if (customCardDetail.size() > 0) {
-      int currentCardSize = customCardDetail.get(customCardDetail.size() - 1).getStampList().size();
+    if (customCardDetailList.size() > 0) {
+      int currentCardSize = customCardDetailList.get(0).getStampList().size();
       for (int i = 0; i < currentCardSize; i++) {
-        currentStampCount += customCardDetail.get(customCardDetail.size() - 1).getStampList().get(i).getStampIssueCount();
+        currentStampCount += customCardDetailList.get(0).getStampList().get(i).getStampIssueCount();
       }
     } else {
       currentStampCount = 0;
@@ -219,7 +227,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
 
-  @Override
+  @Override////////////////////////////////////////////////끝
   public void addStamp(int customMemberNo, int cafeMemberNo, int stampIssueCount) throws Exception {
     HashMap<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
@@ -230,26 +238,32 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
 
-  @Override
+  @Override//////////////////////////////////////////////////끝
   public void addNewCustomCard(int cafeMemberNo, int customMemberNo) throws Exception {
     Map<String, Object> paramMap0 = new HashMap<>();
     paramMap0.put("customMemberNo", customMemberNo);
     paramMap0.put("cafeMemberNo", cafeMemberNo);
     List<CustomCard> customCardList = customCardDao.getCustomDetail(paramMap0);
-    int currentCustomCardNo = customCardList.get(customCardList.size() - 1).getCustomCardNo();
+    
+    int currentCustomCardNo = 0;
+    for (CustomCard customCard : customCardList) {
+      if (Integer.parseInt(customCard.getCardState()) == 0) {
+        currentCustomCardNo = customCard.getCustomCardNo();
+        break;
+      }
+    }
+    customCardDao.updatePlusMcuse(currentCustomCardNo);
+
     
     int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
-    
     Map<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("stampCafeCardNo", stampCafeCardNo);
     customCardDao.insert(paramMap);
-    
-    customCardDao.updatePlusMcuse(currentCustomCardNo);
   }
   
   
-  @Override
+  @Override////////////////////////////////////////////////////////끝
   public void useCustomCard(int cafeMemberNo, int customMemberNo, int usedCardCount) throws Exception {
     Map<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
@@ -259,7 +273,8 @@ public class CustomCardServiceImpl implements CustomCardService {
     int count = 0;
     
     for (CustomCard customCard : customDetailList) {
-      if (Integer.parseInt(customCard.getCardState()) == 1) {
+      int cardState = Integer.parseInt(customCard.getCardState());
+      if (cardState == 1 || cardState == 2) {
         int usedCustomCardNo = customCard.getCustomCardNo();
         customCardDao.updateMinusMcuse(usedCustomCardNo);
         count++;

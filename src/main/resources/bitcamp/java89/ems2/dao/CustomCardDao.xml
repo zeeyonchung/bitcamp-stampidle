@@ -34,6 +34,7 @@
     <result column="tname"     property="tagName"/>
     
     <result column="eventCount"     property="currentEventCount"/>
+    <result column="canUseCount"     property="canUseCount"/>
     
     <collection property="stampList" ofType="stamp" resultMap="stamp-map">
     </collection>
@@ -90,7 +91,10 @@
     values(
       (select mcno from mcard
         inner join scinfo on scinfo.scno=mcard.scno
-        where mcard.mno=#{customMemberNo} and scinfo.cmno=#{cafeMemberNo}
+        where 
+          mcard.mno=#{customMemberNo} 
+          and scinfo.cmno=#{cafeMemberNo}
+          and mcard.mcuse=0
         order by mcard.mcno desc
         limit 1), 
        #{stampIssueCount}, 
@@ -206,14 +210,17 @@
 	  stamp.stno,
 	  stamp.many,
 	  stamp.sitime,
-	  scinfo.stnum
+	  scinfo.stnum,
+	  scinfo.scno,
+	  (select count(mcard.mcuse) from mcard where mcard.mcuse in (1, 2) and mcard.mno=memb.mno and mcard.scno=scinfo.scno) as canUseCount
 	from memb
 	  left outer join mcard on memb.mno=mcard.mno
 	  left outer join stamp on stamp.mcno=mcard.mcno
 	  left outer join scinfo on scinfo.scno=mcard.scno
-	where scinfo.cmno=#{cafeMemberNo}
+	where 
+	  scinfo.cmno=#{cafeMemberNo}
 	  and memb.mno=#{customMemberNo}
-	order by mcard.mcno asc 
+	order by mcard.mcno desc
   </select>
   
    <select id="getCustomCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
@@ -225,7 +232,11 @@
 		from mcard
 			left outer join scinfo on scinfo.scno=mcard.scno
 			left outer join stamp on mcard.mcno=stamp.mcno
-		where scinfo.cmno=#{cafeMemberNo} and mcard.mno=#{customMemberNo}
+		where 
+		  scinfo.cmno=#{cafeMemberNo} 
+		  and mcard.mno=#{customMemberNo}
+		  and mcard.mcuse=0
+		order by mcard.mcno desc
   </select>
   
   <select id="getCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
@@ -240,7 +251,11 @@
 	from mcard
 		inner join scinfo on mcard.scno=scinfo.scno
 		inner join stposi on stposi.scno=scinfo.scno
-	where scinfo.cmno=#{cafeMemberNo} and mcard.mno=#{customMemberNo}
+	where 
+	  scinfo.cmno=#{cafeMemberNo} 
+	  and mcard.mno=#{customMemberNo}
+	  and mcard.mcuse=0
+	order by mcard.mcno desc
   </select>
   
   
