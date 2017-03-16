@@ -96,6 +96,10 @@
     color:#ff5948;
 }
 
+.like.select {
+  cursor:default;
+}
+
 .cafe-tag {
     color: gray;
 }

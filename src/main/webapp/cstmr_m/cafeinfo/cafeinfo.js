@@ -21,6 +21,19 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$(this).removeClass();
 			$(this).toggleClass('yes');
 			$('#favorite').addClass('yes');
+			// 즐겨찾기 추가//
+			var param1 = {
+					customMemberNo: userNo,
+					cafeMemberNo : cafeMembNo
+				};
+			console.log(param1);
+			$.post(serverRoot + '/favorite/add.json', param1, function(ajaxResult) {
+				if (ajaxResult.status != "success") {
+					alert(ajaxResult.data);
+					return;
+				}
+				alert('즐겨찾기 추가되었습니다.');
+			}, 'json'); 
 			
 		  } else {
 			  $(this).removeClass();
@@ -165,6 +178,24 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			alert('리뷰 등록이 완료되었습니다.');
 		}, 'json'); 
 	});
+	
+	// 좋아요
+	$.getJSON(serverRoot + '/likes/getLikesCount.json', 
+		    {'customMemberNo': userNo,
+		    'cafeMemberNo': cafeMembNo
+		    }, function(ajaxResult) {
+		        if (ajaxResult.data > 0) {
+		            $('.like').addClass("select");
+		            return;
+		        }  
+		            $('.like').click(function(e) {
+		                $('.like').addClass("select");
+		                $.post(serverRoot + '/likes/addLikes.json', 
+		                    {'customMemberNo': userNo,
+		                    'cafeMemberNo': cafeMembNo
+		                    }, function(ajaxResult) {});
+		            });
+		});
 });
 
 
