@@ -16,6 +16,19 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		$('.cafe-addr').text(cafe.address +" "+ cafe.detailAddress);
 		$('.cafe-tel').text(cafe.cafeTel);
 
+		$("#favorite").click(function() {
+		  if ($(this).hasClass('no')) {
+			$(this).removeClass();
+			$(this).toggleClass('yes');
+			$('#favorite').addClass('yes');
+			
+		  } else {
+			  $(this).removeClass();
+			  $(this).toggleClass('no');
+		  }
+		});
+		
+		
 		$.getJSON(serverRoot + '/customCard/customDetail.json', 
 				{'customMemberNo': userNo,
 			'cafeMemberNo': cafeMembNo},
