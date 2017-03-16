@@ -311,9 +311,9 @@
 }
 
 .starScore .result {
-	  width: 20%;
+	  width: 25%;
     font-size:0.9em;
-    margin:5px 0 5px 32px;
+    margin:5px 0 5px 24px;
 }
 
 .starScore .star {

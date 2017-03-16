@@ -63,7 +63,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		}
 		commentdiv.append(commentTemplate({"commentList":comments}));
 		$('.result').text("평점 (" + averStarScore() +"/5.0)");
-		$('.star span').attr('class','star3');
+		$('.star span').addClass(totalStarScoreCss());
 		// 가져온 별점 갯수,평균 구하기
 		function averStarScore() {
 			var sum = 0;
@@ -97,30 +97,29 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				case 0: return "star0";
 			}
 		}
-		
-		function totalStarScoreCss(num) {
-			if (4.7 < averStarScore() <= 5) {
+		function totalStarScoreCss() {
+			if (4.7 < averStarScore() && averStarScore() <= 5) {
 				return "star5";
-			} else if (4.2 < averStarScore() <= 4.7) {
+			} else if (4.2 < averStarScore() && averStarScore() <=4.7) {
 				return "star4_5";
-			} else if (3.7 < averStarScore() <= 4.2) {
+			} else if (3.7 < averStarScore() && averStarScore() <= 4.2) {
 				return "star4";
-			} else if (3.2 < averStarScore() <= 3.7) {
+			} else if (3.2 < averStarScore() && averStarScore() <= 3.7) {
 				return "star3_5";
-			} else if (2.7 < averStarScore() <= 3.2) {
+			} else if (2.7 < averStarScore() && averStarScore() <= 3.2) {
 				return "star3";
-			} else if (2.2 < averStarScore() <= 2.7) {
+			} else if (2.2 < averStarScore() && averStarScore() <= 2.7) {
 				return "star2_5";
-			} else if (1.7 < averStarScore() <= 2.2) {
+			} else if (1.7 < averStarScore() && averStarScore() <= 2.2) {
 				return "star2";
-			} else if (1.2 < averStarScore() <= 1.7) {
+			} else if (1.2 < averStarScore() && averStarScore() <= 1.7) {
 				return "star1_5";
-			} else if (0.7 < averStarScore() <= 1.2) {
+			} else if (0.7 < averStarScore() && averStarScore() <= 1.2) {
 				return "star1";
-			} else if (0.2 < averStarScore() <= 0.7) {
+			} else if (0.2 < averStarScore() && averStarScore() <= 0.7) {
 				return "star0_5";
-			} else {
-				return "star0";
+			}  else {
+			     return "star0";
 			}
 		}
 		// 평균 구하기 끝
