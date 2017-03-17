@@ -525,6 +525,7 @@ public class CustomCardServiceImpl implements CustomCardService {
         for(Stamp stList : stampList) {
           if((time).equals(stList.getStampIssueDate())) {
             ++finishCard;
+            break;
           }
         }
       }

@@ -9,18 +9,87 @@
   <body>
     <div id="map"></div>
     <script type="text/javascript">
+    function initMap() {
+    	var map = new google.maps.Map(document.getElementById('map'), {
+    	    center: {lat: 37.466851, lng: 127.049543}, //  시작 위치
+    	    zoom: 17 // 처음 화면 줌 
+    	    mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+    	  
+    	
+    	// Create the search box and link it to the UI element.
+    	  var input = document.getElementById('pac-input');
+    	  var searchBox = new google.maps.places.SearchBox(input);
+    	  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    	  
+    	  
+      var infowindow = new google.maps.InfoWindow();
+      
+      var service = new google.maps.places.PlacesService(map);
 
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
-  });
-}
+      service.nearbySearch({
+        location: center,
+        radius: 500,
+        types: ['store']
+      }, processResults);
+    }
 
+    function callback(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          createMarker(results[i]);
+        }
+      }
+    }
+    function processResults(results, status, pagination) {
+    	  if (status !== google.maps.places.PlacesServiceStatus.OK) {
+    	    return;
+    	  } else {
+    	    createMarkers(results);
+
+    	    if (pagination.hasNextPage) {
+    	      var moreButton = document.getElementById('more');
+
+    	      moreButton.disabled = false;
+
+    	      moreButton.addEventListener('click', function() {
+    	        moreButton.disabled = true;
+    	        pagination.nextPage();
+    	      });
+    	    }
+    	  }
+    	}
+
+     function createMarkers(places) {
+   	  var bounds = new google.maps.LatLngBounds();
+   	  var placesList = document.getElementById('places');
+
+   	  for (var i = 0, place; place = places[i]; i++) {
+   	    var image = {
+   	      url: place.icon,
+   	      size: new google.maps.Size(71, 71),
+   	      origin: new google.maps.Point(0, 0),
+   	      anchor: new google.maps.Point(17, 34),
+   	      scaledSize: new google.maps.Size(25, 25)
+   	    };
+
+   	    var marker = new google.maps.Marker({
+   	      map: map,
+   	      icon: image,
+   	      title: place.name,
+   	      position: place.geometry.location
+   	    });
+
+   	    placesList.innerHTML += '<li>' + place.name + '</li>';
+
+   	    bounds.extend(place.geometry.location);
+   	  }
+   	  map.fitBounds(bounds);
+   	}
     </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg&callback=initMap">
     </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg&libraries=places"></script>
   </body>
 </html>
