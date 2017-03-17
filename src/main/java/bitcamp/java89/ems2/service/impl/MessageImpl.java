@@ -28,6 +28,7 @@ public class MessageImpl implements MessageService {
   	Map<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("cafeMemberNo", cafeMemberNo);
+  	System.out.println(customMemberNo + " +++++++im " + cafeMemberNo);
     return messageDao.getMsgList(paramMap);
   }
   

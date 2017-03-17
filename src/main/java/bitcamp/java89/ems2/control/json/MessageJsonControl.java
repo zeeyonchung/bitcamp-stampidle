@@ -1,5 +1,7 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.List;
+
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +30,11 @@ public class MessageJsonControl {
   }
   */
   
-  /*@RequestMapping(value = "/cstmr_m/message/getMsgList")
+  @RequestMapping(value = "/cstmr_m/message/getMsgList")
   public AjaxResult getMsgList(int customMemberNo, int cafeMemberNo) throws Exception {
-  	messageService.getMsgList(customMemberNo, cafeMemberNo);
-  	return new AjaxResult(AjaxResult.SUCCESS, "메시지리스트 get 성공");
-  }*/
+  	List<Message> list = messageService.getMsgList(customMemberNo, cafeMemberNo);
+  	return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
 }
 
 

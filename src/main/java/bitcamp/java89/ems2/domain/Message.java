@@ -9,21 +9,9 @@ public class Message extends CustomMember {
   protected String uploadTime;
   protected int cafeMemberNo;
   protected String cafeName;
-  protected String cafeLogoPath;
+  protected String logoPath;
   
   
-	public String getCafeLogoPath() {
-		return cafeLogoPath;
-	}
-	public void setCafeLogoPath(String cafeLogoPath) {
-		this.cafeLogoPath = cafeLogoPath;
-	}
-	public String getCafeName() {
-		return cafeName;
-	}
-	public void setCafeName(String cafeName) {
-		this.cafeName = cafeName;
-	}
 	public int getMessageNo() {
 		return messageNo;
 	}
@@ -54,5 +42,23 @@ public class Message extends CustomMember {
 	public void setCafeMemberNo(int cafeMemberNo) {
 		this.cafeMemberNo = cafeMemberNo;
 	}
+	public String getCafeName() {
+		return cafeName;
+	}
+	public void setCafeName(String cafeName) {
+		this.cafeName = cafeName;
+	}
+	public String getLogoPath() {
+		return logoPath;
+	}
+	public void setLogoPath(String logoPath) {
+		this.logoPath = logoPath;
+	}
+	
+  
+  
+	
+  
+	
   
 }
