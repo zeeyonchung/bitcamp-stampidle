@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.MessageDao">
+
+  <resultMap type="message" id="message-map">
+    <id     column="msno"        property="messageNo"/>
+
+    <result column="mno"      property="customMemberNo"/>
+    <result column="tel"       property="tel"/>
+    <result column="email"     property="email"/>
+    <result column="name"     property="name"/>
+    <result column="nick"      property="nick"/>
+    <result column="spot"      property="spot"/>
+    <result column="allow"      property="allow"/>
+    <result column="cphoto"      property="photoPath"/>
+    
+    <result column="sdmemb"       property="sendMember"/>
+    <result column="mconts"       property="contents"/>
+    <result column="mstime"      property="uploadTime"/>
+    <result column="cmno"        property="cafeMemberNo"/>
+  </resultMap>
+  
+  
+  <insert id="insertCustomMsg" parameterType="message">
+    insert into msg(mno, cmno, sdmemb, mconts, mstime) values 
+    (#{customMemberNo},#{cafeMemberNo},#{customMemberNo},#{contents},curdate());
+  </insert>  
+
+  
+</mapper>
+
+
+
+
+
+
+
+
