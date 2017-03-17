@@ -203,7 +203,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		}, 'json'); 
 	});
 	
-	// 좋아요//
+	/// 좋아요///
+	// 좋아요 div상태//
 	$.getJSON(serverRoot + '/likes/getLikesCount.json', {'customMemberNo': userNo,'cafeMemberNo': cafeMembNo}, function(ajaxResult) {
 		        if (ajaxResult.data > 0) {
 		        	$('#like').removeClass();
@@ -214,6 +215,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		        	$('#like').toggleClass('no');
 		        }
 	  });
+	// 좋아요 갯수 입력//
+	$.getJSON(serverRoot + '/likes/count.json', {'cafeMemberNo': cafeMembNo}, function(ajaxResult) {
+		 var likeCount = (ajaxResult.data);
+		 $('#like').text(likeCount);
+	});
+	// 좋아요 클릭 이벤트//
 		            $('#like').click(function() {
 		            	if ($(this).hasClass('no')) {
 		            		$(this).removeClass();
@@ -223,6 +230,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		        					{'customMemberNo': userNo,
 		        				'cafeMemberNo': cafeMembNo
 		        					}, function(ajaxResult) {});
+		        			location.reload();
 		            	} else {
 		            		$(this).removeClass();
 		      			    $(this).toggleClass('no');
@@ -230,6 +238,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				                    {'customMemberNo': userNo,
 				                    'cafeMemberNo': cafeMembNo
 				                    }, function(ajaxResult) {});
+		      			location.reload();
 		            	}
 			            });
 });

@@ -13,7 +13,6 @@ import bitcamp.java89.ems2.domain.CafePhoto;
 import bitcamp.java89.ems2.domain.CafeTime;
 import bitcamp.java89.ems2.domain.Comment;
 import bitcamp.java89.ems2.domain.Favorite;
-import bitcamp.java89.ems2.domain.Likes;
 import bitcamp.java89.ems2.domain.Menu;
 import bitcamp.java89.ems2.domain.StampCardInfo;
 import bitcamp.java89.ems2.domain.Tag;
@@ -181,9 +180,7 @@ public class CafeJsonControl {
   @RequestMapping(value = {"/admin/likes/count", "/cstmr_m/likes/count"})
   public AjaxResult likesCount(int cafeMemberNo) throws Exception {
     int num = likesService.count(cafeMemberNo);
-    Likes likes = new Likes();
-    likes.setNum(num);
-    return new AjaxResult(AjaxResult.SUCCESS, likes);
+    return new AjaxResult(AjaxResult.SUCCESS, num);
   }
   
   @RequestMapping(value = {"/cstmr_m/likes/addLikes"})
