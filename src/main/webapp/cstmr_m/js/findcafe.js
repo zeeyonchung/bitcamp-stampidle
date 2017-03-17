@@ -57,7 +57,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			  
 			  $(window).scroll(function() {
 				   if($(window).scrollTop() + $(window).height() == $(document).height()) {loadPage(++pageCount);}
-				   console.log(pageCount)
 				});
 			});
 	};

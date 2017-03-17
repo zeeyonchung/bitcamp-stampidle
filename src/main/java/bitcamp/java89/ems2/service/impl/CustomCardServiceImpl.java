@@ -378,7 +378,7 @@ public class CustomCardServiceImpl implements CustomCardService {
       int currentCardSize = customCard.getStampList().size();
       for (int j = 0; j < currentCardSize; j++) {
         currentStampCount += customCard.getStampList().get(j).getStampIssueCount();
-        recentStampDate = customCard.getStampList().get(j).getStampIssueDate();
+        recentStampDate = customCard.getStampList().get(0).getStampIssueDate();
       }
       
       customCard.setCurrentStampCount(currentStampCount);
