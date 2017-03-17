@@ -6,6 +6,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var customMember = ajaxResult.data;
 	var customMemberNo = customMember.customMemberNo;
 	
+
 	
 	
 	
@@ -63,8 +64,11 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	
 	
-	$('#sb-search .btn_search').click(function() {
-		console.log('검색..................!');
-	});
 	
 });
+
+
+function searchLink() {
+	console.log('111111111111');
+	location.href = 'http://www.naver.com';
+}

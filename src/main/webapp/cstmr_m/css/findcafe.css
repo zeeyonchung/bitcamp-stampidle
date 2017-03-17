@@ -110,6 +110,7 @@
 
 /* sub guide style */
 .listArea {
+	min-height: 600px;
 	padding:0 3%;
 	overflow-y:scroll;
 }

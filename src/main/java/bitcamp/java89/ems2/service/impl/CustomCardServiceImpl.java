@@ -551,7 +551,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   public Map<String, Object> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount) throws Exception {
     
     Map<String, Object> returnMap = new HashMap<>();
-    returnMap.put("allCafeCount", customCardDao.getCafeCountByKeyword(searchKeyword));
+    returnMap.put("allCafeCount", customCardDao.getCafeCountByKeyword(searchKeyword).size());
     
     int firstPost = (pageCount - 1) * postNo;
     

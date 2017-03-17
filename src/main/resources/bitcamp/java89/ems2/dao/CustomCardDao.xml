@@ -28,6 +28,7 @@
     <result column="cname"       property="cafeName"/>
     <result column="logo"       property="logPath"/>
     <result column="likesCount"       property="likesCount"/>
+    <result column="cafeCount"       property="cafeCount"/>
     
     <result column="cmno"       property="cafeMemberNo"/>
     
@@ -509,14 +510,15 @@ where
   </select>
   
   
-   <select id="getCafeCountByKeyword" parameterType="String" resultType="int">
-    select count(cafe.cmno)
-    from cafe
-      left outer join tag on tag.cmno=cafe.cmno
-      inner join scinfo on scinfo.cmno=cafe.cmno
-    where 
-      (cafe.cname like concat('%', #{searchKeyword}, '%')
-      OR tag.tname like concat('%', #{searchKeyword}, '%'))
+  <select id="getCafeCountByKeyword" parameterType="String" resultMap="customCard-map">
+	select count(scinfo.cmno) as cafeCount
+	from scinfo
+	  left outer join cafe on cafe.cmno=scinfo.cmno
+	  left outer join tag on tag.cmno=cafe.cmno
+	where
+	  (cafe.cname like concat('%', '', '%')
+	  OR tag.tname like concat('%', '', '%'))
+	group by scinfo.cmno
   </select>
   
   
