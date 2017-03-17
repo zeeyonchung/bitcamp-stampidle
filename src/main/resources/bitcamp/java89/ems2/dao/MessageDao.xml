@@ -34,7 +34,7 @@
     (#{customMemberNo},#{cafeMemberNo},#{cafeMemberNo},#{contents},curdate());
   </insert>  
 
-  <select id="getMsgList" parameterType="message" resultMap="message-map">
+  <select id="getMsgList" parameterType="java.util.Map" resultMap="message-map">
     select * from msg where 
   	#{customMemberNo} and #{cafeMemberNo} 
   	order by mstime desc;

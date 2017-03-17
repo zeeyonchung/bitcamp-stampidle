@@ -18,8 +18,21 @@ public class MessageJsonControl {
   @RequestMapping(value = "/cstmr_m/message/addCustom")
   public AjaxResult addCustom(Message message) throws Exception {
   	messageService.addCustom(message);
-    return new AjaxResult(AjaxResult.SUCCESS, "스탬프 추가 성공");
+    return new AjaxResult(AjaxResult.SUCCESS, "메시지 추가 성공");
   }
+  
+  /*@RequestMapping(value = "/cstmr_m/message/addCafe")
+  public AjaxResult addCafe(Message message) throws Exception {
+  	messageService.addCustom(message);
+    return new AjaxResult(AjaxResult.SUCCESS, "메시지 추가 성공");
+  }
+  */
+  
+  /*@RequestMapping(value = "/cstmr_m/message/getMsgList")
+  public AjaxResult getMsgList(int customMemberNo, int cafeMemberNo) throws Exception {
+  	messageService.getMsgList(customMemberNo, cafeMemberNo);
+  	return new AjaxResult(AjaxResult.SUCCESS, "메시지리스트 get 성공");
+  }*/
 }
 
 
