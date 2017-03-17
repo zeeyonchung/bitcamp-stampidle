@@ -577,8 +577,32 @@ public class CustomCardServiceImpl implements CustomCardService {
       
       if (customCardDetailList.size() != 0) {
         customCard.setCanUseCount(customCardDetailList.get(0).getCanUseCount());
-        customCard.setCustomCardNo(customCardDetailList.get(0).getCustomCardNo());
+        
+        
+        // 이 카페에서 고객이 지금 진행 중인 카드 번호
+        int currentCustomCardNo = 0;
+        
+        for (CustomCard customCardDetail : customCardDetailList) {
+          if (Integer.parseInt(customCardDetail.getCardState()) == 0) {
+            currentCustomCardNo = customCardDetail.getCustomCardNo();
+            break;
+          }
+        }
+        customCard.setCustomCardNo(currentCustomCardNo);
+        
+        // 현재 모인 스탬프 수
+        int currentStampCount = 0;
+        
+        for (CustomCard customCardDetail : customCardDetailList) {
+          if (Integer.parseInt(customCardDetail.getCardState()) == 0) {
+            for (Stamp stamp : customCardDetail.getStampList()) {
+              currentStampCount += stamp.getStampIssueCount();
+            }
+          }
+        }
+        customCard.setCurrentStampCount(currentStampCount);
       }
+      
       
       returnCafeList.add(customCard);
     }
