@@ -184,6 +184,7 @@
 
 .menuArea .menu .mnImg img {
     width:100%;
+    min-height: 103px;
 }
 
 .menuArea .menu .mnName {
