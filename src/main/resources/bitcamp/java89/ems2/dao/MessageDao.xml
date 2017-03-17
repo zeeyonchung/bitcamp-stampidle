@@ -28,6 +28,11 @@
     insert into msg(mno, cmno, sdmemb, mconts, mstime) values 
     (#{customMemberNo},#{cafeMemberNo},#{customMemberNo},#{contents},curdate());
   </insert>  
+  
+  <insert id="insertCafeMsg" parameterType="message">
+    insert into msg(mno, cmno, sdmemb, mconts, mstime) values 
+    (#{customMemberNo},#{cafeMemberNo},#{cafeMemberNo},#{contents},curdate());
+  </insert>  
 
   <select id="getMsgList" parameterType="message" resultMap="message-map">
     select * from msg where 
