@@ -1,15 +1,6 @@
 var customMember = "";
 var customMemberNo = 0;
 
-/*로그인 정보*/
-$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-	if (ajaxResult.status != "success") {
-		location.href = clientRoot + "/auth/login.html";
-	}
-	customMember = ajaxResult.data;
-	customMemberNo = customMember.customMemberNo;
-});
-
 
 
 /*게시글 몇 개씩 보여줄 건지 설정*/
@@ -20,12 +11,24 @@ var searchKeyword = "";
 
 var pageCount = 1;
 
-/*제일 먼저 보여지는 1페이지*/
-loadPage(pageCount);
-
-
-
 var allCafeCount = 0;
+
+
+
+
+/*로그인 정보*/
+$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+	if (ajaxResult.status != "success") {
+		location.href = clientRoot + "/auth/login.html";
+	}
+	customMember = ajaxResult.data;
+	customMemberNo = customMember.customMemberNo;
+	
+	/*제일 먼저 보여지는 1페이지*/
+	loadPage(pageCount);
+});
+
+
 
 
 
@@ -55,7 +58,7 @@ function loadPage(pageCount) {
 			var listArea = $('.listArea');
 			var template = Handlebars.compile($('#trTemplate').html());
 			
-			if (pageCount == 1 && searchKeyword != "") {
+			if (pageCount == 1) {
 				listArea.html(template({"cafeList": cafeList}));
 			} else {
 				listArea.append(template({"cafeList": cafeList}));
