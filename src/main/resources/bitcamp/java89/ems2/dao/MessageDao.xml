@@ -29,6 +29,11 @@
     (#{customMemberNo},#{cafeMemberNo},#{customMemberNo},#{contents},curdate());
   </insert>  
 
+  <select id="getMsgList" parameterType="message" resultMap="message-map">
+    select * from msg where 
+  	#{customMemberNo} and #{cafeMemberNo} 
+  	order by mstime desc;
+  </select>
   
 </mapper>
 
