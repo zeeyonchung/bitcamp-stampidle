@@ -173,11 +173,16 @@ public class CustomCardServiceImpl implements CustomCardService {
     
     
     int stampCount = 0;
-    int finishCardCount = customDetailList.get(0).getCanUseCount();
+    int finishCardCount = 0;
     
     for (CustomCard customCard : customDetailList) {
       for (Stamp stamp : customCard.getStampList()) {
         stampCount += stamp.getStampIssueCount();
+      }
+      
+      int cardState = Integer.parseInt(customCard.getCardState());
+      if (cardState == 1 || cardState == 2) {
+        finishCardCount += 1;
       }
     }
     
