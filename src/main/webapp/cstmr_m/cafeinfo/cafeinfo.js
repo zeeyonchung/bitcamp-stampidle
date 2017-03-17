@@ -102,81 +102,10 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	// 3페이지 시작
 	// 총 코멘트 수
-	$.getJSON(serverRoot + '/comment/count.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-		$('.total>span').text(ajaxResult.data + "건");
-	});
+	commemntNumber();
 	// 코멘트 리스트 가져오기(핸들바스)
-	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-		var comments = (ajaxResult.data);
-		var commentdiv = $('.comment_list ul');
-		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
-		for (var i in comments) {
-			if (comments[i].nick == null) {
-				comments[i].nick = comments[i].name;
-			}
-		}
-		commentdiv.append(commentTemplate({"commentList":comments}));
-		$('.result').text("평점 (" + averStarScore() +"/5.0)");
-		$('.star span').addClass(totalStarScoreCss());
-		// 가져온 별점 갯수,평균 구하기
-		function averStarScore() {
-			var sum = 0;
-			var aver = 0;
-			if (comments.length != 0) {
-				$.each(comments, function(i){
-					sum += comments[i].star;
-				});
-			} else {
-				return 0;
-			}
-			aver = sum/commentsCount();
-			return aver;
-		}
-		
-		function commentsCount() {
-			var count = 0;
-			$.each(comments, function(i){
-				count++;
-			});
-			return count;
-		}
-		
-		function starScoreCss(num) {
-			switch(num) {
-				case 5: return "star5";
-				case 4: return "star4";
-				case 3: return "star3";
-				case 2: return "star2";
-				case 1: return "star1";
-				case 0: return "star0";
-			}
-		}
-		function totalStarScoreCss() {
-			if (4.7 < averStarScore() && averStarScore() <= 5) {
-				return "star5";
-			} else if (4.2 < averStarScore() && averStarScore() <=4.7) {
-				return "star4_5";
-			} else if (3.7 < averStarScore() && averStarScore() <= 4.2) {
-				return "star4";
-			} else if (3.2 < averStarScore() && averStarScore() <= 3.7) {
-				return "star3_5";
-			} else if (2.7 < averStarScore() && averStarScore() <= 3.2) {
-				return "star3";
-			} else if (2.2 < averStarScore() && averStarScore() <= 2.7) {
-				return "star2_5";
-			} else if (1.7 < averStarScore() && averStarScore() <= 2.2) {
-				return "star2";
-			} else if (1.2 < averStarScore() && averStarScore() <= 1.7) {
-				return "star1_5";
-			} else if (0.7 < averStarScore() && averStarScore() <= 1.2) {
-				return "star1";
-			} else if (0.2 < averStarScore() && averStarScore() <= 0.7) {
-				return "star0_5";
-			}  else {
-			     return "star0";
-			}
-		}
-	});
+	commentList();
+	
 	$('.comment_form input').attr('placeholder',userName);
 	
 	// 별점매기기//
@@ -202,7 +131,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				return;
 			}
 			alert('리뷰 등록이 완료되었습니다.');
-		}, 'json'); 
+		}, 'json');
+		commemntNumber();
+		commentList();
 	});
 	
 	clickLike();
@@ -264,8 +195,89 @@ function clickLike2() {
         	$('#like').toggleClass('no');
         }
         
-        
 	});
+}
+
+function commemntNumber() {
+$.getJSON(serverRoot + '/comment/count.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+	$('.total>span').text(ajaxResult.data + "건");
+});
+};
+
+function commentList() {
+	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var comments = (ajaxResult.data);
+		var commentdiv = $('.comment_list ul');
+		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
+		for (var i in comments) {
+			if (comments[i].nick == null) {
+				comments[i].nick = comments[i].name;
+			}
+		}
+		commentdiv.append(commentTemplate({"commentList":comments}));
+		$('.result').text("평점 (" + averStarScore() +"/5.0)");
+		$('.star span').addClass(totalStarScoreCss());
+		// 가져온 별점 갯수,평균 구하기
+		function averStarScore() {
+			var sum = 0;
+			var aver = 0;
+			if (comments.length != 0) {
+				$.each(comments, function(i){
+					sum += comments[i].star;
+				});
+			} else {
+				return 0;
+			}
+			aver = sum/commentsCount();
+			
+			return aver.toFixed(2);
+		}
+		
+		function commentsCount() {
+			var count = 0;
+			$.each(comments, function(i){
+				count++;
+			});
+			return count;
+		}
+		
+		function starScoreCss(num) {
+			switch(num) {
+				case 5: return "star5";
+				case 4: return "star4";
+				case 3: return "star3";
+				case 2: return "star2";
+				case 1: return "star1";
+				case 0: return "star0";
+			}
+		}
+		function totalStarScoreCss() {
+			if (4.7 < averStarScore() && averStarScore() <= 5) {
+				return "star5";
+			} else if (4.2 < averStarScore() && averStarScore() <=4.7) {
+				return "star4_5";
+			} else if (3.7 < averStarScore() && averStarScore() <= 4.2) {
+				return "star4";
+			} else if (3.2 < averStarScore() && averStarScore() <= 3.7) {
+				return "star3_5";
+			} else if (2.7 < averStarScore() && averStarScore() <= 3.2) {
+				return "star3";
+			} else if (2.2 < averStarScore() && averStarScore() <= 2.7) {
+				return "star2_5";
+			} else if (1.7 < averStarScore() && averStarScore() <= 2.2) {
+				return "star2";
+			} else if (1.2 < averStarScore() && averStarScore() <= 1.7) {
+				return "star1_5";
+			} else if (0.7 < averStarScore() && averStarScore() <= 1.2) {
+				return "star1";
+			} else if (0.2 < averStarScore() && averStarScore() <= 0.7) {
+				return "star0_5";
+			}  else {
+			     return "star0";
+			}
+		}
+	});
+	
 }
 
 
