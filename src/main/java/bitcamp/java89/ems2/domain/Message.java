@@ -8,8 +8,22 @@ public class Message extends CustomMember {
   protected String contents;
   protected String uploadTime;
   protected int cafeMemberNo;
+  protected String cafeName;
+  protected String cafeLogoPath;
   
   
+	public String getCafeLogoPath() {
+		return cafeLogoPath;
+	}
+	public void setCafeLogoPath(String cafeLogoPath) {
+		this.cafeLogoPath = cafeLogoPath;
+	}
+	public String getCafeName() {
+		return cafeName;
+	}
+	public void setCafeName(String cafeName) {
+		this.cafeName = cafeName;
+	}
 	public int getMessageNo() {
 		return messageNo;
 	}

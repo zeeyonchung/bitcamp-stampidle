@@ -28,7 +28,17 @@
     insert into msg(mno, cmno, sdmemb, mconts, mstime) values 
     (#{customMemberNo},#{cafeMemberNo},#{customMemberNo},#{contents},curdate());
   </insert>  
+  
+  <insert id="insertCafeMsg" parameterType="message">
+    insert into msg(mno, cmno, sdmemb, mconts, mstime) values 
+    (#{customMemberNo},#{cafeMemberNo},#{cafeMemberNo},#{contents},curdate());
+  </insert>  
 
+  <select id="getMsgList" parameterType="java.util.Map" resultMap="message-map">
+    select * from msg where 
+  	#{customMemberNo} and #{cafeMemberNo} 
+  	order by mstime desc;
+  </select>
   
 </mapper>
 
