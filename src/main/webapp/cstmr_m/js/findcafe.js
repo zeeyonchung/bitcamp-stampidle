@@ -1,3 +1,4 @@
+var customMember = "";
 var customMemberNo = 0;
 
 /*로그인 정보*/
@@ -30,7 +31,6 @@ var allCafeCount = 0;
 
 /**** 글 불러오기 ****/
 function loadPage(pageCount) {
-	console.log(customMemberNo, searchKeyword, postNo, pageCount);
 	// 나중에 파라미터로 나의 현재 위치도 넘겨야 함. 지금은 그냥 목록 다 꺼내오는 것.
 	$.getJSON(
 		serverRoot + '/customCard/findCafe.json',
@@ -75,9 +75,18 @@ function loadPage(pageCount) {
 			$(window).scroll(function() {
 				if($(window).scrollTop() + $(window).height() == $(document).height()) {loadPage(++pageCount);}
 			}); // 스크롤 이벤트가 반복되어 일어나고 있음. 수정 필요.
+			//console.log(customMemberNo, searchKeyword, postNo, pageCount);
+			
+			
+			$('.myCard').click(function() {
+				if (!$(this).hasClass('select')) {
+					addMyCard($(this).attr("data-no"));
+				}
+			});
 		}
 	);
 };
+
 
 
 
@@ -87,4 +96,19 @@ function searchLink() {
 	pageCount = 1;
 	allCafeCount = 0;
 	loadPage(pageCount);
+}
+
+
+
+/* 내 카드로 담기 */
+function addMyCard(cafeMemberNo) {
+	console.log(customMember);
+	$.post(serverRoot + '/customMember/addMyCard.json',
+			{name: customMember.name,
+			tel: customMember.tel,
+			cafeMemberNo: cafeMemberNo},
+		function(ajaxResult) {
+			$('.myCard[data-no=' + cafeMemberNo + ']').addClass('select');
+		}
+	);
 }

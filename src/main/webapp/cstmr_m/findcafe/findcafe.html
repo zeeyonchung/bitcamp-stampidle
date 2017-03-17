@@ -92,9 +92,9 @@
       <p class='like select'>{{likesCount}}<br>좋아요</p>
     </div>
     {{#if customCardNo}}
-      <div class='myCard select'>담기</div>
+      <div class='myCard select' data-no="{{cafeMemberNo}}">담기</div>
       {{else}}
-      <div class='myCard'>담기</div>
+      <div class='myCard' data-no="{{cafeMemberNo}}">담기</div>
     {{/if}}
     <div class='distance'>20m</div>
   </div>

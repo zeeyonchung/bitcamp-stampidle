@@ -82,9 +82,6 @@ $('.eventdetail #use-btn').click(function(e) {
 
 
 /** *** findcafe/findcafe.html **** */
-$('.findCafe .list').click(function(e) {
-	location.href = '../cafeinfo/cafeinfo.html'
-});
 
 
 /** *** likecafe/likecafe.html **** */

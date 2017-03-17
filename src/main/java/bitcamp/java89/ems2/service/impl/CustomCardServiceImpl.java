@@ -575,7 +575,6 @@ public class CustomCardServiceImpl implements CustomCardService {
       paramMap2.put("cafeMemberNo", customCard.getCafeMemberNo());
       List<CustomCard> customCardDetailList = customCardDao.getCustomDetail(paramMap2);
       
-      System.out.println(customCardDetailList);
       if (customCardDetailList.size() != 0) {
         customCard.setCanUseCount(customCardDetailList.get(0).getCanUseCount());
         customCard.setCustomCardNo(customCardDetailList.get(0).getCustomCardNo());
