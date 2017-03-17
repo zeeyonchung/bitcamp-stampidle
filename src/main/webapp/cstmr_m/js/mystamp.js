@@ -27,14 +27,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
 		//console.log(ajaxResult.data);
 		location.href = clientRoot + "/auth/login.html";
-		
 	}
+	
 	var userData = ajaxResult.data;
 	var userNo = userData.customMemberNo;
 	
-	/********************* section1 전체 카드 리스트 *************************/
 	$.getJSON(serverRoot + '/customCard/getMyCardList.json?customMemberNo=' + userNo, function(ajaxResult) {
-		var myCardList = ajaxResult.data;
+		/********************* section1 전체 카드 리스트 *************************/
+		var myCardList = ajaxResult.data.myCardList;
 		console.log(myCardList);
 		if (myCardList == null) {
 			$('.section.all #num').text(0);
@@ -42,15 +42,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$('.section.all #num').text(myCardList.length);
 		}
 		
-		var infodiv = $('.infodiv');
+		var infodiv1 = $('.infodiv');
 		var template = Handlebars.compile($('#trTemplate1').html());
-		infodiv.html(template({"myCardList": myCardList}));
-	});
-	
-	
-	/********************* section2 즐겨 찾는 카드 리스트 *************************/
-	$.getJSON(serverRoot + '/customCard/getMyFavoriteCardList.json?customMemberNo=' + userNo, function(ajaxResult) {
-		var myFavoriteCardList = ajaxResult.data;
+		infodiv1.html(template({"myCardList": myCardList}));
+		
+		
+		
+		/********************* section2 즐겨 찾는 카드 리스트 *************************/
+		var myFavoriteCardList = ajaxResult.data.myFavoriteCardList;
 		console.log(myFavoriteCardList);
 		if (myFavoriteCardList == null) {
 			$('.section.favorite #num').text(0);
@@ -58,15 +57,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$('.section.favorite #num').text(myFavoriteCardList.length);
 		}
 		
-		var infodiv = $('.infodiv2');
+		var infodiv2 = $('.infodiv2');
 		var template = Handlebars.compile($('#trTemplate2').html());
-		infodiv.html(template({"myFavoriteCardList": myFavoriteCardList}));
-	});
-	
-	
-	/********************* section3 다 모은 카드 리스트 *************************/
-	$.getJSON(serverRoot + '/customCard/getMyFinishCardList.json?customMemberNo=' + userNo, function(ajaxResult) {
-		var myFinishCardList = ajaxResult.data;
+		infodiv2.html(template({"myFavoriteCardList": myFavoriteCardList}));
+		
+		
+		
+		/********************* section3 다 모은 카드 리스트 *************************/
+		var myFinishCardList = ajaxResult.data.myFinishCardList;
 		console.log(myFinishCardList);
 		if (myFinishCardList == null) {
 			$('.section.done #num').text(0);
@@ -74,9 +72,15 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$('.section.done #num').text(myFinishCardList.length);
 		}
 		
-		var infodiv = $('.infodiv3');
+		var infodiv3 = $('.infodiv3');
 		var template = Handlebars.compile($('#trTemplate3').html());
-		infodiv.html(template({"myFinishCardList": myFinishCardList}));
+		infodiv3.html(template({"myFinishCardList": myFinishCardList}));
+		
+		
+		$('.cafeName').click(function(event) {
+			event.preventDefault();
+			location.href = '../cafeinfo/cafeinfo.html?cafeMemberNo=' + $(this).attr("data-no");
+		});
 	});
 	
 	
