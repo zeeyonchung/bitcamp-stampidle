@@ -17,10 +17,14 @@
     <result column="allow"      property="allow"/>
     <result column="cphoto"      property="photoPath"/>
     
-    <result column="sdmemb"       property="sendMember"/>
+    <result column="sdmemb"       property="sendMemberNo"/>
     <result column="mconts"       property="contents"/>
     <result column="mstime"      property="uploadTime"/>
     <result column="cmno"        property="cafeMemberNo"/>
+    
+    <result column="cname"        property="cafeName"/>
+    <result column="logo"        property="logoPath"/>
+    
   </resultMap>
   
   
@@ -35,8 +39,14 @@
   </insert>  
 
   <select id="getMsgList" parameterType="java.util.Map" resultMap="message-map">
-    select * from msg where 
-  	#{customMemberNo} and #{cafeMemberNo} 
+    select 
+  	msg.mno, msg.cmno, msg.sdmemb, msg.mconts, msg.mstime, 
+  	memb.nick, memb.name, memb.cphoto, 
+  	cafe.logo, cafe.cname 
+  	from msg 
+	left outer join memb on msg.mno=memb.mno
+	left outer join cafe on msg.cmno=cafe.cmno
+	where msg.mno=#{customMemberNo} and msg.cmno=#{cafeMemberNo} 
   	order by mstime desc;
   </select>
   

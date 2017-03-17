@@ -6,6 +6,24 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var userNo = userData.customMemberNo;
 	var cafeMemberNo = 1;
 	
+
+	//메시지 리스트받아오기
+	$.getJSON(serverRoot + '/message/getMsgList.json', 
+	    {'customMemberNo': userNo,
+	    'cafeMemberNo': cafeMemberNo
+	    }, function(ajaxResult) {
+    	var message = ajaxResult.data;
+
+    	$.each(message, function(i){
+    		$("<div class='one-msg'><span class='msg-date'>" + message[i].uploadTime
+    		+ "</span><div class='msg-left'><span class='button__badge'>0</span>"
+    		+"<img src='../../upload/" +  message[i].logoPath
+    		+ "' alt='cafeLogo' class='img-circle'></div>"
+    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'>"  + message[i].cafeName
+    		+ "</span></div><div class='pre-msg'>" + message[i].contents
+    		+ "</div></div></div>").appendTo(".msgArea");
+		});
+	});
 	
 	//메시지 입력
 	$('.btn-send').click(function() {
@@ -29,23 +47,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    }, 'json');
 	});
 	
-	
-	//메시지 리스트받아오기
-	/*$.getJSON(serverRoot + '/cstmr_m/message/getMsgList.json', 
-	    {'customMemberNo': userNo,
-	    'cafeMemberNo': cafeMembNo
-	    }, function(ajaxResult) {
-    	var message = ajaxResult.data;
-    	$('.'pre-msg'').text(message.message);
-    	$('.cafe-name').text(message.cafeName);
-    	$('.'pre-msg'').text(message.uploadTime);
-    	$('.cafe-name').text(message.cafeLogoPath);
-    	
-    	//sendMemberNo
-    	
-		    	
-		    	
-	});*/
 	
 	
 });
