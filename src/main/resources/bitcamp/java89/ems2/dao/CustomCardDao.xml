@@ -516,8 +516,8 @@ where
 	  left outer join cafe on cafe.cmno=scinfo.cmno
 	  left outer join tag on tag.cmno=cafe.cmno
 	where
-	  (cafe.cname like concat('%', '', '%')
-	  OR tag.tname like concat('%', '', '%'))
+	  (cafe.cname like concat('%', #{searchKeyword}, '%')
+	  OR tag.tname like concat('%', #{searchKeyword}, '%'))
 	group by scinfo.cmno
   </select>
   
