@@ -34,7 +34,13 @@
 
 
 
-
+.btn-send {
+	background:#ddd;
+	width:20%;
+	height:50px;
+	float:left;
+	cursor:pointer;
+}
 
 
 .search-msg {
@@ -283,11 +289,8 @@
 
 
 .inputwrap .chat-input.form-control {
-  position: absolute;
-  height: 80%;
+  height: 100px;
   width: 80%;
-  top: 9%;
-  left: 3%;
   padding: 5px;
   border-radius: initial;
 }
