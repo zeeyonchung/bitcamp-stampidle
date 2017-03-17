@@ -91,15 +91,6 @@
 					ev.stopPropagation();
 					// trim its value
 					self.inputEl.value = self.inputEl.value.trim();
-					
-					if( !classie.has( self.el, 'sb-search-open' ) ) { // open it
-						ev.preventDefault();
-						self.open();
-					}
-					else if( classie.has( self.el, 'sb-search-open' ) && /^\s*$/.test( self.inputEl.value ) ) { // close it
-						ev.preventDefault();
-						self.close();
-					}
 				}
 
 			this.el.addEventListener( 'click', initSearchFn );
