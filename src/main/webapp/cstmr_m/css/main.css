@@ -183,6 +183,7 @@
     border-radius:25px;
     border:7px solid #fff;
     box-shadow:0 0 5px rgba(0,0,0,0.1);
+    max-height: 181px;
 }
 
 .latelyCardSlide .slick-dots {
