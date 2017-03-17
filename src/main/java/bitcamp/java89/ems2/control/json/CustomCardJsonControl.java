@@ -160,8 +160,8 @@ public class CustomCardJsonControl {
   
   
   @RequestMapping(value = "/cstmr_m/customCard/findCafe")
-  public AjaxResult findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount) throws Exception {
-    Map<String, Object> resultMap = customCardService.findCafe(customMemberNo, searchKeyword, postNo, pageCount);
+  public AjaxResult findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount, String orderBy) throws Exception {
+    Map<String, Object> resultMap = customCardService.findCafe(customMemberNo, searchKeyword, postNo, pageCount, orderBy);
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
 }

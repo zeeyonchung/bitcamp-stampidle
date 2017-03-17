@@ -553,7 +553,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
   @Override
-  public Map<String, Object> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount) throws Exception {
+  public Map<String, Object> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount, String orderBy) throws Exception {
     
     Map<String, Object> returnMap = new HashMap<>();
     returnMap.put("allCafeCount", customCardDao.getCafeCountByKeyword(searchKeyword).size());
@@ -564,10 +564,39 @@ public class CustomCardServiceImpl implements CustomCardService {
     paramMap.put("searchKeyword", searchKeyword);
     paramMap.put("firstPost", firstPost);
     paramMap.put("postNo", postNo);
+    
+    switch (orderBy) {
+      case "이름순":
+        paramMap.put("orderBy", "cafe.cname");
+        paramMap.put("ascORdesc", "asc");
+        break;
+      case "가까운순":
+        paramMap.put("orderBy", "cafe.cname"); ////// 지도 적용 후 값 바꿔주세요...
+        paramMap.put("ascORdesc", "asc");
+        break; 
+      case "내도장순":
+        paramMap.put("orderBy", "currentStampCount");
+        paramMap.put("ascORdesc", "desc");
+        break;
+      case "좋아요순":
+        paramMap.put("orderBy", "likesCount");
+        paramMap.put("ascORdesc", "desc");
+        break;
+    }
+    
+    paramMap.put("postNo", postNo);
+    
     List<CustomCard> cafeList = customCardDao.getCafeList(paramMap);
+    
+    // 같은 카페의 카드는 중복시키지 않음
+    List<Integer> cafeMemberNos = new ArrayList<>();
     
     List<CustomCard> returnCafeList = new ArrayList<>();
     for (CustomCard customCard : cafeList) {
+      if(cafeMemberNos.contains(customCard.getCafeMemberNo())) {continue;}
+      cafeMemberNos.add(customCard.getCafeMemberNo());
+      
+      
       customCard.setCafeTimeList(cafeTimeDao.getOne(customCard.getCafeMemberNo()));
       
       Map<String, Object> paramMap2 = new HashMap<>();
@@ -589,18 +618,6 @@ public class CustomCardServiceImpl implements CustomCardService {
           }
         }
         customCard.setCustomCardNo(currentCustomCardNo);
-        
-        // 현재 모인 스탬프 수
-        int currentStampCount = 0;
-        
-        for (CustomCard customCardDetail : customCardDetailList) {
-          if (Integer.parseInt(customCardDetail.getCardState()) == 0) {
-            for (Stamp stamp : customCardDetail.getStampList()) {
-              currentStampCount += stamp.getStampIssueCount();
-            }
-          }
-        }
-        customCard.setCurrentStampCount(currentStampCount);
       }
       
       

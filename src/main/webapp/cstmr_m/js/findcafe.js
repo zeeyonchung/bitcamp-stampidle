@@ -3,16 +3,20 @@ var customMemberNo = 0;
 
 
 
-/*게시글 몇 개씩 보여줄 건지 설정*/
+/*게시글 몇 개씩 불러올 건지 설정*/
 var postNo = 7;
 
 /* 검색어 */
 var searchKeyword = "";
 
+/* 로딩할 페이지 수 */
 var pageCount = 1;
 
-var allCafeCount = 0;
+/* 정렬 기준 */
+var orderBy = "이름순";
 
+/* 검색 결과 총 개수 */
+var allCafeCount = 0;
 
 
 
@@ -34,13 +38,15 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 /**** 글 불러오기 ****/
 function loadPage(pageCount) {
+	console.log(customMemberNo, searchKeyword, postNo, pageCount, orderBy);
 	// 나중에 파라미터로 나의 현재 위치도 넘겨야 함. 지금은 그냥 목록 다 꺼내오는 것.
 	$.getJSON(
 		serverRoot + '/customCard/findCafe.json',
 		{customMemberNo: customMemberNo,
 		searchKeyword: searchKeyword,
 		postNo: postNo,
-		pageCount: pageCount},
+		pageCount: pageCount,
+		orderBy: orderBy},
 			
 		function(ajaxResult) {
 			var status = ajaxResult.status;
@@ -86,6 +92,15 @@ function loadPage(pageCount) {
 					addMyCard($(this).attr("data-no"));
 				}
 			});
+			
+			
+			$('.cafeListArea ul.dropdown-menu li').click(function() {
+				orderBy = $(this).text();
+				searchKeyword = $('.sb-search-input').val().trim();
+				pageCount = 1;
+				allCafeCount = 0;
+				loadPage(pageCount);
+			});
 		}
 	);
 };
@@ -95,6 +110,7 @@ function loadPage(pageCount) {
 
 /* 검색하기 */
 function searchLink() {
+	orderBy = "이름순";
 	searchKeyword = $('.sb-search-input').val().trim();
 	pageCount = 1;
 	allCafeCount = 0;
@@ -105,7 +121,6 @@ function searchLink() {
 
 /* 내 카드로 담기 */
 function addMyCard(cafeMemberNo) {
-	console.log(customMember);
 	$.post(serverRoot + '/customMember/addMyCard.json',
 			{name: customMember.name,
 			tel: customMember.tel,

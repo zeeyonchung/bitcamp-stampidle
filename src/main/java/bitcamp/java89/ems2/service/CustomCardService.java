@@ -27,7 +27,7 @@ public interface CustomCardService {
   List<CustomCard> getMyFinishCardList(int customMemberNo) throws Exception;
   List<CustomCard> getMyFavoriteCardList(int customMemberNo) throws Exception;
   
-  Map<String, Object> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount) throws Exception;
+  Map<String, Object> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount, String orderBy) throws Exception;
 }
 
 

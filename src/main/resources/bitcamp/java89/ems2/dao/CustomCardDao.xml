@@ -35,6 +35,7 @@
     <result column="tno"     property="tagNo"/>
     <result column="tname"     property="tagName"/>
     
+    <result column="currentStampCount"     property="currentStampCount"/>
     <result column="eventCount"     property="currentEventCount"/>
     <result column="canUseCount"     property="canUseCount"/>
     
@@ -495,17 +496,21 @@ where
     cafe.cname,
     cafe.cmno,
     tag.tname,
+    scinfo.scno,
     scinfo.fpath,
+    mcard.mcno,
     (select count(eno) from event where event.eday>=curDate() and event.cmno=cafe.cmno) as eventCount,
-    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount
+    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount,
+    (select sum(stamp.many) from stamp where stamp.mcno=mcard.mcno) as currentStampCount
   from cafe
     left outer join tag on tag.cmno=cafe.cmno
     left outer join scinfo on scinfo.cmno=cafe.cmno
+    left outer join mcard on scinfo.scno=mcard.scno
   where
     (cafe.cname like concat('%', #{searchKeyword}, '%')
     OR tag.tname like concat('%', #{searchKeyword}, '%'))
     and scinfo.scno = (select max(scno) from scinfo where scinfo.cmno=cafe.cmno)
-  order by cafe.cname asc
+  order by ${orderBy} ${ascORdesc}
   limit #{firstPost}, #{postNo}
   </select>
   
