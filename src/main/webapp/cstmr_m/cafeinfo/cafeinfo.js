@@ -105,7 +105,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	// 코멘트 리스트 가져오기(핸들바스)
 	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var comments = (ajaxResult.data);
-		console.log(comments);
 		var commentdiv = $('.comment_list ul');
 		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
 		for (var i in comments) {
