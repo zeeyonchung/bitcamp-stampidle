@@ -118,7 +118,9 @@
     <!-- //con -->
   </div>
 
-
+<div id="loading">
+<img id="loading-image" src="coffeecup.gif" alt="Loading..." />
+</div>
 
 <!-- section1 보유 중 쿠폰 하나하나 템플릿 -->
 <script id="trTemplate1" type="text/x-handlebars-template">
@@ -126,7 +128,7 @@
 <div class='list'>
   <div class='cardArea'><img alt='stamp card' src='/bitcamp_stampidle/upload/{{frontImgPath}}'></div>
   <div class='cafeTxt'>
-    <h2 class='cafeName'>{{cafeName}}</h2><p class='issue'>
+    <h2 class='cafeName' data-no="{{cafeMemberNo}}">{{cafeName}}</h2><p class='issue'>
     {{#if currentEventCount}}
       <span class="event">이벤트</span>
     {{/if}}
@@ -149,7 +151,7 @@
 <div class='list'>
   <div class='cardArea'><img alt='stamp card' src='/bitcamp_stampidle/upload/{{frontImgPath}}'></div>
   <div class='cafeTxt'>
-    <h2 class='cafeName'>{{cafeName}}</h2><p class='issue'>
+    <h2 class='cafeName' data-no="{{cafeMemberNo}}">{{cafeName}}</h2><p class='issue'>
     {{#if currentEventCount}}
       <span class="event">이벤트</span>
     {{/if}}
@@ -172,7 +174,7 @@
 <div class='list'>
   <div class='cardArea'><img alt='stamp card' src='/bitcamp_stampidle/upload/{{frontImgPath}}'></div>
   <div class='cafeTxt'>
-    <h2 class='cafeName'>{{cafeName}}</h2><p class='issue'>
+    <h2 class='cafeName' data-no="{{cafeMemberNo}}">{{cafeName}}</h2><p class='issue'>
     {{#if currentEventCount}}
       <span class="event">이벤트</span>
     {{/if}}
@@ -201,13 +203,12 @@
 
 
 
-  <!-- 임시링크 -->
-  <script>
-    $('.list').click(function(e) {
-      location.href = '../cafeinfo/cafeinfo.html'
-    });
-  </script>
-  <!-- //임시링크 -->
+<script>   
+$(window).load(function() {     
+ $('#loading').hide();   
+}); 
+</script>
+
 
 
 

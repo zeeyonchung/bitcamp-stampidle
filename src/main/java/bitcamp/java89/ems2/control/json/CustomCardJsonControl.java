@@ -147,25 +147,21 @@ public class CustomCardJsonControl {
   @RequestMapping(value = "/cstmr_m/customCard/getMyCardList")
   public AjaxResult getMyCardList(int customMemberNo) throws Exception {
     List<CustomCard> myCardList = customCardService.getMyCardList(customMemberNo);
-    return new AjaxResult(AjaxResult.SUCCESS, myCardList);
-  }
-  
-  @RequestMapping(value = "/cstmr_m/customCard/getMyFinishCardList")
-  public AjaxResult getMyFinishCardList(int customMemberNo) throws Exception {
-    return new AjaxResult(AjaxResult.SUCCESS, customCardService.getMyFinishCardList(customMemberNo));
-  }
-  
-  
-  @RequestMapping(value = "/cstmr_m/customCard/getMyFavoriteCardList")
-  public AjaxResult getMyFavoriteCardList(int customMemberNo) throws Exception {
-    List<CustomCard> myCardList = customCardService.getMyFavoriteCardList(customMemberNo);
-    return new AjaxResult(AjaxResult.SUCCESS, myCardList);
+    List<CustomCard> myFavoriteCardList = customCardService.getMyFavoriteCardList(customMemberNo);
+    List<CustomCard> myFinishCardList = customCardService.getMyFinishCardList(customMemberNo);
+    
+    Map<String, Object> resultMap = new HashMap<>();
+    resultMap.put("myCardList", myCardList);
+    resultMap.put("myFavoriteCardList", myFavoriteCardList);
+    resultMap.put("myFinishCardList", myFinishCardList);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
   
   @RequestMapping(value = "/cstmr_m/customCard/findCafe")
-  public AjaxResult findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount) throws Exception {
-    Map<String, Object> resultMap = customCardService.findCafe(customMemberNo, searchKeyword, postNo, pageCount);
+  public AjaxResult findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount, String orderBy) throws Exception {
+    Map<String, Object> resultMap = customCardService.findCafe(customMemberNo, searchKeyword, postNo, pageCount, orderBy);
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
 }

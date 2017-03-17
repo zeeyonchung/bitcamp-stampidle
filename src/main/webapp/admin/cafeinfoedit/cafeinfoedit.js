@@ -27,16 +27,16 @@ function prepareViewForm() {
 		$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 			var cafe = ajaxResult.data;
 			
-		/*$.getJSON(serverRoot + '/cafeTime/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-			var cafeTime = ajaxResult.data;*/
+		$.getJSON(serverRoot + '/cafeTime/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+			var cafeTime = ajaxResult.data;
 		
 		$.getJSON(serverRoot + '/tag/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 			var tag = ajaxResult.data;
 			
-		/*$.getJSON(serverRoot + '/cafePhoto/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-			var cafePhoto = ajaxResult.data;*/
+		$.getJSON(serverRoot + '/cafePhoto/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+			var cafePhoto = ajaxResult.data;
 			
-		/*$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {*/
+		$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 				$('#cafeName').val(cafe.cafeName);
 				var tag_arr = tag.tagName.split(" ");
 				var tags = $('.tag .checkbox label input[type=checkbox]');
@@ -69,10 +69,10 @@ function prepareViewForm() {
 				$('#chairNo').val(cafe.chairNo);
 				$('#photo-img').attr('src', '../../upload/' + cafe.logPath);
 			
-		/*});*/
-		/*});*/
 		});
-		/*});*/
+		});
+		});
+		});
 		});
 	});
 	

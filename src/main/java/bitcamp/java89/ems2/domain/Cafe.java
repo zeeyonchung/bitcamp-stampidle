@@ -20,10 +20,18 @@ public class Cafe extends CafeMember {
   protected List<CafeTime> cafeTimeList;
   
   protected int likesCount;
+  protected int cafeCount;
   
   
   
-  
+
+  public int getCafeCount() {
+    return cafeCount;
+  }
+
+  public void setCafeCount(int cafeCount) {
+    this.cafeCount = cafeCount;
+  }
 
   public int getLikesCount() {
     return likesCount;

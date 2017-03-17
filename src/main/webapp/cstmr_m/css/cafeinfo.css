@@ -34,6 +34,7 @@
     color: white;
     font-weight: bold;
     font-size: 20px;
+    display: none;
 }
 
 .stmpcard {
@@ -63,41 +64,6 @@
 .cafe-name {
     font-weight: bold;
     font-size: 40px;
-}
-
-.like {
-  position:absolute;
-    top:237px;
-    right:4%;
-  width:60px;
-  height:60px;
-    border:3px solid #f0f0f0;
-    border-radius: 50px;
-    text-align:center;
-    background:#fff;
-    cursor:pointer;
-    z-index:50;
-    font-size:0.8em;
-}
-
-.like:before {
-  text-align:center;
-  display:block;
-  margin-top:10px;
-  height:30px;
-    font-family:"FontAwesome";
-    font-size:2em;
-    content: "\f08a";
-    color:#ff5948;
-}
-
-.like.select:before {
-    content: "\f004";
-    color:#ff5948;
-}
-
-.like.select {
-  cursor:default;
 }
 
 .cafe-tag {
@@ -218,6 +184,8 @@
 
 .menuArea .menu .mnImg img {
     width:100%;
+    min-height: 103px;
+    max-height: 103px;
 }
 
 .menuArea .menu .mnName {
@@ -480,6 +448,7 @@
 .star_rating a:first-child {margin-left:0;}
 .star_rating a.on {color:rgb(255,89,72);}
 
+/*****즐겨찾기******/
 #favorite:before {
 	  float: right;
     width: 60px;
@@ -498,3 +467,37 @@
     content: "\f005";
     color: #F4D03F;
 }
+
+/*********좋아요*********/
+
+#like {
+  position:absolute;
+    top:237px;
+    right:4%;
+  width:60px;
+  height:60px;
+    border:3px solid #f0f0f0;
+    border-radius: 50px;
+    text-align:center;
+    background:#fff;
+    cursor:pointer;
+    z-index:50;
+    font-size:0.8em;
+}
+
+#like:before {
+  text-align:center;
+  display:block;
+  margin-top:10px;
+  height:30px;
+    font-family:"FontAwesome";
+    font-size:2em;
+    content: "\f08a";
+    color:#ff5948;
+}
+
+#like.yes:before {
+    content: "\f004";
+    color:#ff5948;
+}
+

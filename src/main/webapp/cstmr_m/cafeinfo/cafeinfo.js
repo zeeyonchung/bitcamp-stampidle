@@ -1,3 +1,4 @@
+var cafeMembNo = location.href.split('?')[1].split('=')[1];
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
 		console.log(ajaxResult.data);
@@ -6,7 +7,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	}
 	var userNo = ajaxResult.data.customMemberNo;
 	var userName = ajaxResult.data.name;
-	var cafeMembNo = 1
+	
 
 	// 1페이지 시작
 	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
@@ -45,7 +46,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					alert(ajaxResult.data);
 					return;
 				}
-				alert('즐겨찾기 추가되었습니다.');
 			}, 'json'); 
 			//즐겨찾기 삭제//
 		  } else {
@@ -60,7 +60,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 						alert(ajaxResult.data);
 						return;
 					}
-					alert('즐겨찾기 취소되었습니다.');
 				}, 'json'); 
 		  }
 		});
@@ -78,7 +77,10 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 						$('.stmpcard').attr('src', '../'+cardInfo[i].backImgPath);
 						$('.stmpcard2').attr('src', '../../upload/' +cardInfo[i].frontImgPath);
 						var many = cardInfo[i].stampCount;
-						$('.stmp-circle').text(stmpNo + "/" + many);
+						if (many != 0) {
+							$('.stmp-circle').css('display','block');
+							$('.stmp-circle').text(stmpNo + "/" + many);
+						}
 					});
 				});
 			});
@@ -103,7 +105,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	// 코멘트 리스트 가져오기(핸들바스)
 	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var comments = (ajaxResult.data);
-		console.log(comments);
 		var commentdiv = $('.comment_list ul');
 		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
 		for (var i in comments) {
@@ -201,23 +202,44 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		}, 'json'); 
 	});
 	
-	// 좋아요//
-	$.getJSON(serverRoot + '/likes/getLikesCount.json', 
-		    {'customMemberNo': userNo,
-		    'cafeMemberNo': cafeMembNo
-		    }, function(ajaxResult) {
+	/// 좋아요///
+	// 좋아요 div상태//
+	$.getJSON(serverRoot + '/likes/getLikesCount.json', {'customMemberNo': userNo,'cafeMemberNo': cafeMembNo}, function(ajaxResult) {
 		        if (ajaxResult.data > 0) {
-		            $('.like').addClass("select");
-		            return;
-		        }  
-		            $('.like').click(function(e) {
-		                $('.like').addClass("select");
-		                $.post(serverRoot + '/likes/addLikes.json', 
-		                    {'customMemberNo': userNo,
-		                    'cafeMemberNo': cafeMembNo
-		                    }, function(ajaxResult) {});
-		            });
-		});
+		        	$('#like').removeClass();
+		        	$('#like').toggleClass('yes');
+		        	$('#like').addClass('yes');
+		        }   else {
+		        	$('#like').removeClass();
+		        	$('#like').toggleClass('no');
+		        }
+	  });
+	// 좋아요 갯수 입력//
+	$.getJSON(serverRoot + '/likes/count.json', {'cafeMemberNo': cafeMembNo}, function(ajaxResult) {
+		 var likeCount = (ajaxResult.data);
+		 $('#like').text(likeCount);
+	});
+	// 좋아요 클릭 이벤트//
+		            $('#like').click(function() {
+		            	if ($(this).hasClass('no')) {
+		            		$(this).removeClass();
+		        			$(this).toggleClass('yes');
+		        			$('#like').addClass('yes');
+		        			$.post(serverRoot + '/likes/addLikes.json', 
+		        					{'customMemberNo': userNo,
+		        				'cafeMemberNo': cafeMembNo
+		        					}, function(ajaxResult) {});
+		        			location.reload();
+		            	} else {
+		            		$(this).removeClass();
+		      			    $(this).toggleClass('no');
+		      			  $.post(serverRoot + '/likes/deleteLikes.json', 
+				                    {'customMemberNo': userNo,
+				                    'cafeMemberNo': cafeMembNo
+				                    }, function(ajaxResult) {});
+		      			location.reload();
+		            	}
+			            });
 });
 
 

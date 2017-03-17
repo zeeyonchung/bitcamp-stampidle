@@ -28,12 +28,14 @@
     <result column="cname"       property="cafeName"/>
     <result column="logo"       property="logPath"/>
     <result column="likesCount"       property="likesCount"/>
+    <result column="cafeCount"       property="cafeCount"/>
     
     <result column="cmno"       property="cafeMemberNo"/>
     
     <result column="tno"     property="tagNo"/>
     <result column="tname"     property="tagName"/>
     
+    <result column="currentStampCount"     property="currentStampCount"/>
     <result column="eventCount"     property="currentEventCount"/>
     <result column="canUseCount"     property="canUseCount"/>
     
@@ -494,29 +496,34 @@ where
     cafe.cname,
     cafe.cmno,
     tag.tname,
+    scinfo.scno,
     scinfo.fpath,
+    mcard.mcno,
     (select count(eno) from event where event.eday>=curDate() and event.cmno=cafe.cmno) as eventCount,
-    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount
+    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount,
+    (select sum(stamp.many) from stamp where stamp.mcno=mcard.mcno) as currentStampCount
   from cafe
     left outer join tag on tag.cmno=cafe.cmno
     left outer join scinfo on scinfo.cmno=cafe.cmno
+    left outer join mcard on scinfo.scno=mcard.scno
   where
     (cafe.cname like concat('%', #{searchKeyword}, '%')
     OR tag.tname like concat('%', #{searchKeyword}, '%'))
     and scinfo.scno = (select max(scno) from scinfo where scinfo.cmno=cafe.cmno)
-  order by cafe.cname asc
+  order by ${orderBy} ${ascORdesc}
   limit #{firstPost}, #{postNo}
   </select>
   
   
-   <select id="getCafeCountByKeyword" parameterType="String" resultType="int">
-    select count(cafe.cmno)
-    from cafe
-      left outer join tag on tag.cmno=cafe.cmno
-      inner join scinfo on scinfo.cmno=cafe.cmno
-    where 
-      (cafe.cname like concat('%', #{searchKeyword}, '%')
-      OR tag.tname like concat('%', #{searchKeyword}, '%'))
+  <select id="getCafeCountByKeyword" parameterType="String" resultMap="customCard-map">
+	select count(scinfo.cmno) as cafeCount
+	from scinfo
+	  left outer join cafe on cafe.cmno=scinfo.cmno
+	  left outer join tag on tag.cmno=cafe.cmno
+	where
+	  (cafe.cname like concat('%', #{searchKeyword}, '%')
+	  OR tag.tname like concat('%', #{searchKeyword}, '%'))
+	group by scinfo.cmno
   </select>
   
   

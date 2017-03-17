@@ -173,11 +173,16 @@ public class CustomCardServiceImpl implements CustomCardService {
     
     
     int stampCount = 0;
-    int finishCardCount = customDetailList.get(0).getCanUseCount();
+    int finishCardCount = 0;
     
     for (CustomCard customCard : customDetailList) {
       for (Stamp stamp : customCard.getStampList()) {
         stampCount += stamp.getStampIssueCount();
+      }
+      
+      int cardState = Integer.parseInt(customCard.getCardState());
+      if (cardState == 1 || cardState == 2) {
+        finishCardCount += 1;
       }
     }
     
@@ -378,7 +383,7 @@ public class CustomCardServiceImpl implements CustomCardService {
       int currentCardSize = customCard.getStampList().size();
       for (int j = 0; j < currentCardSize; j++) {
         currentStampCount += customCard.getStampList().get(j).getStampIssueCount();
-        recentStampDate = customCard.getStampList().get(j).getStampIssueDate();
+        recentStampDate = customCard.getStampList().get(0).getStampIssueDate();
       }
       
       customCard.setCurrentStampCount(currentStampCount);
@@ -549,10 +554,10 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
 
   @Override
-  public Map<String, Object> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount) throws Exception {
+  public Map<String, Object> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount, String orderBy) throws Exception {
     
     Map<String, Object> returnMap = new HashMap<>();
-    returnMap.put("allCafeCount", customCardDao.getCafeCountByKeyword(searchKeyword));
+    returnMap.put("allCafeCount", customCardDao.getCafeCountByKeyword(searchKeyword).size());
     
     int firstPost = (pageCount - 1) * postNo;
     
@@ -560,10 +565,39 @@ public class CustomCardServiceImpl implements CustomCardService {
     paramMap.put("searchKeyword", searchKeyword);
     paramMap.put("firstPost", firstPost);
     paramMap.put("postNo", postNo);
+    
+    switch (orderBy) {
+      case "이름순":
+        paramMap.put("orderBy", "cafe.cname");
+        paramMap.put("ascORdesc", "asc");
+        break;
+      case "가까운순":
+        paramMap.put("orderBy", "cafe.cname"); ////// 지도 적용 후 값 바꿔주세요...
+        paramMap.put("ascORdesc", "asc");
+        break; 
+      case "내도장순":
+        paramMap.put("orderBy", "currentStampCount");
+        paramMap.put("ascORdesc", "desc");
+        break;
+      case "좋아요순":
+        paramMap.put("orderBy", "likesCount");
+        paramMap.put("ascORdesc", "desc");
+        break;
+    }
+    
+    paramMap.put("postNo", postNo);
+    
     List<CustomCard> cafeList = customCardDao.getCafeList(paramMap);
+    
+    // 같은 카페의 카드는 중복시키지 않음
+    List<Integer> cafeMemberNos = new ArrayList<>();
     
     List<CustomCard> returnCafeList = new ArrayList<>();
     for (CustomCard customCard : cafeList) {
+      if(cafeMemberNos.contains(customCard.getCafeMemberNo())) {continue;}
+      cafeMemberNos.add(customCard.getCafeMemberNo());
+      
+      
       customCard.setCafeTimeList(cafeTimeDao.getOne(customCard.getCafeMemberNo()));
       
       Map<String, Object> paramMap2 = new HashMap<>();
@@ -571,11 +605,22 @@ public class CustomCardServiceImpl implements CustomCardService {
       paramMap2.put("cafeMemberNo", customCard.getCafeMemberNo());
       List<CustomCard> customCardDetailList = customCardDao.getCustomDetail(paramMap2);
       
-      System.out.println(customCardDetailList);
       if (customCardDetailList.size() != 0) {
         customCard.setCanUseCount(customCardDetailList.get(0).getCanUseCount());
-        customCard.setCustomCardNo(customCardDetailList.get(0).getCustomCardNo());
+        
+        
+        // 이 카페에서 고객이 지금 진행 중인 카드 번호
+        int currentCustomCardNo = 0;
+        
+        for (CustomCard customCardDetail : customCardDetailList) {
+          if (Integer.parseInt(customCardDetail.getCardState()) == 0) {
+            currentCustomCardNo = customCardDetail.getCustomCardNo();
+            break;
+          }
+        }
+        customCard.setCustomCardNo(currentCustomCardNo);
       }
+      
       
       returnCafeList.add(customCard);
     }
