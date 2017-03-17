@@ -17,7 +17,7 @@
     <result column="allow"      property="allow"/>
     <result column="cphoto"      property="photoPath"/>
     
-    <result column="sdmemb"       property="sendMemberNo"/>
+    <result column="sdmemb"       property="sendMember"/>
     <result column="mconts"       property="contents"/>
     <result column="mstime"      property="uploadTime"/>
     <result column="cmno"        property="cafeMemberNo"/>
@@ -28,15 +28,10 @@
   </resultMap>
   
   
-  <insert id="insertCustomMsg" parameterType="message">
+  <insert id="insertMsg" parameterType="message">
     insert into msg(mno, cmno, sdmemb, mconts, mstime) values 
-    (#{customMemberNo},#{cafeMemberNo},#{customMemberNo},#{contents},curdate());
-  </insert>  
-  
-  <insert id="insertCafeMsg" parameterType="message">
-    insert into msg(mno, cmno, sdmemb, mconts, mstime) values 
-    (#{customMemberNo},#{cafeMemberNo},#{cafeMemberNo},#{contents},curdate());
-  </insert>  
+    (#{customMemberNo},#{cafeMemberNo},#{sendMember},#{contents}, now());
+  </insert> 
 
   <select id="getMsgList" parameterType="java.util.Map" resultMap="message-map">
     select 
@@ -47,6 +42,18 @@
 	left outer join memb on msg.mno=memb.mno
 	left outer join cafe on msg.cmno=cafe.cmno
 	where msg.mno=#{customMemberNo} and msg.cmno=#{cafeMemberNo} 
+  	order by mstime asc;
+  </select>
+  
+  <select id="getLastMsgList" parameterType="java.util.Map" resultMap="message-map">
+    select 
+  	msg.mno, msg.cmno, msg.sdmemb, msg.mconts, msg.mstime, 
+  	memb.nick, memb.name, memb.cphoto, 
+  	cafe.logo, cafe.cname 
+  	from msg 
+	left outer join memb on msg.mno=memb.mno
+	left outer join cafe on msg.cmno=cafe.cmno
+	where msg.mno=#{customMemberNo} and msg.cmno=#{cafeMemberNo} and msg.sdmemb=#{sendMember}
   	order by mstime desc;
   </select>
   

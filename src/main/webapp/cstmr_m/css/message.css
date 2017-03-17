@@ -144,7 +144,9 @@
 
 
 /*********************message detail****************************/
-
+.messageDetail {
+	overflow-y:hidden;
+}
 .listback {
 	display: table;
   border-bottom: 1px solid #eee;

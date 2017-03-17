@@ -16,12 +16,8 @@ public class MessageImpl implements MessageService {
   @Autowired MessageDao messageDao;
 
   @Override
-  public int addCustom(Message message) throws Exception {
-    return messageDao.insertCustomMsg(message);
-  }
-  @Override
-  public int addCafe(Message message) throws Exception {
-    return messageDao.insertCustomMsg(message);
+  public int insertMsg(Message message) throws Exception {
+    return messageDao.insertMsg(message);
   }
   @Override
   public List<Message> getMsgList(int customMemberNo, int cafeMemberNo) throws Exception {
@@ -29,6 +25,15 @@ public class MessageImpl implements MessageService {
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("cafeMemberNo", cafeMemberNo);
   	System.out.println(customMemberNo + " +++++++im " + cafeMemberNo);
+    return messageDao.getMsgList(paramMap);
+  }
+  
+  @Override
+  public List<Message> getLastMsgList(int customMemberNo, int cafeMemberNo, String sendMember) throws Exception {
+  	Map<String, Object> paramMap = new HashMap<>();
+    paramMap.put("customMemberNo", customMemberNo);
+    paramMap.put("cafeMemberNo", cafeMemberNo);
+    paramMap.put("sendMember", sendMember);
     return messageDao.getMsgList(paramMap);
   }
   

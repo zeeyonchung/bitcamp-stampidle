@@ -4,7 +4,7 @@ public class Message extends CustomMember {
   private static final long serialVersionUID = 1L;
   
   protected int messageNo;
-  protected int sendMemberNo;
+  protected String sendMember;
   protected String contents;
   protected String uploadTime;
   protected int cafeMemberNo;
@@ -18,11 +18,11 @@ public class Message extends CustomMember {
 	public void setMessageNo(int messageNo) {
 		this.messageNo = messageNo;
 	}
-	public int getSendMemberNo() {
-		return sendMemberNo;
+	public String getSendMember() {
+		return sendMember;
 	}
-	public void setSendMemberNo(int sendMemberNo) {
-		this.sendMemberNo = sendMemberNo;
+	public void setSendMember(String sendMember) {
+		this.sendMember = sendMember;
 	}
 	public String getContents() {
 		return contents;

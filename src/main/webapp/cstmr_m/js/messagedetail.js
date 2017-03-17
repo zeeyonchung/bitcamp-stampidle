@@ -8,20 +8,24 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 
 	//메시지 리스트받아오기
-	$.getJSON(serverRoot + '/message/getMsgList.json', 
+	$.getJSON(serverRoot + '/messageDetail/getMsgList.json', 
 	    {'customMemberNo': userNo,
 	    'cafeMemberNo': cafeMemberNo
 	    }, function(ajaxResult) {
-    	var message = ajaxResult.data;
+	   var message = ajaxResult.data;
 
-    	$.each(message, function(i){
-    		$("<div class='one-msg'><span class='msg-date'>" + message[i].uploadTime
-    		+ "</span><div class='msg-left'><span class='button__badge'>0</span>"
-    		+"<img src='../../upload/" +  message[i].logoPath
-    		+ "' alt='cafeLogo' class='img-circle'></div>"
-    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'>"  + message[i].cafeName
-    		+ "</span></div><div class='pre-msg'>" + message[i].contents
-    		+ "</div></div></div>").appendTo(".msgArea");
+	   $('.name').text(message[0].cafeName);
+       $.each(message, function(i){
+			if (message[i].sendMember == "cafe") {
+    			$("<div class='mewrap'><img class='img-circle' src='../../upload/" +  message[i].logoPath
+	    		+ "' alt='cafeLogo'><div class='bubble me'>" + message[i].contents
+	    		+"</div><div class='time'>" +  message[i].uploadTime
+	    		+ "</div></div>").appendTo(".chat");
+    		} else {
+    			$("<div class='youwrap'><div class='bubble you'>" +  message[i].contents
+	    		+ "</div><div class='time'>" + message[i].uploadTime
+	    		+ "</div></div>").appendTo(".chat");
+    		}
 		});
 	});
 	
@@ -32,13 +36,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			return $('.chat-input').focus();
 		}
     	var param = {
-    		"sendMemberNo": 0,// 0 고객 / 1: cafe
+    		"sendMember": 'cstmr',// cstmr/cafe
     		"cafeMemberNo": cafeMemberNo,
     		"customMemberNo": userNo,
     		"contents": $('.chat-input').val()
 	    };
     	
-	    $.post(serverRoot + '/message/addCustom.json', param, function(ajaxResult) {
+	    $.post(serverRoot + '/message/insertMsg.json', param, function(ajaxResult) {
 	        if (ajaxResult.status != "success") {
 	          alert(ajaxResult.data);
 	          return;
