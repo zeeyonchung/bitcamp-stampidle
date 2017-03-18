@@ -44,6 +44,8 @@ $('.srchList li a').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/stampidle_cs/customerdetail.html'
 });
+
+
 $('.btn-cafeInfo').click(function(e) {
    var cafeMemberNo = $('.cafeNm').attr("data-no");
    $.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult1) {
