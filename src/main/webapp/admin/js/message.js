@@ -3,7 +3,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		location.href = clientRoot + "/auth/login.html";
 	}
 	var userData = ajaxResult.data;
-	var userNo = userData.customMemberNo;
+	var userNo = userData.cafeMemberNo;
 	
 	
 	$(".inbox").css("display","block");
@@ -40,9 +40,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	//받은 메시지 받아오기
 	function getMsgInbox() {
-		$.getJSON(serverRoot + '/message/getMsgListCstmr.json', {
-			'customMemberNo': userNo,
-			'sendMember': 'cafe'
+		$.getJSON(serverRoot + '/message/getMsgListCafe.json', {
+			'cafeMemberNo': userNo,
+			'sendMember': 'cstmr'
 		}, function(ajaxResult) {
 	    	var message = ajaxResult.data;
 	    	var count = 0;
@@ -52,7 +52,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    		+ "</span><!--<div class='btn-delete'>x</div>--><div class='msg-left'>"
 	    		+"<img src='../../upload/" +  message[i].logoPath
 	    		+ "' alt='cafeLogo' class='img-circle'></div>"
-	    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'>"  + message[i].cafeName
+	    		+"<div class='msg-content'><div class='sub'><span class='cstmer-name'>"  + message[i].customName
 	    		+ "</span></div><div class='pre-msg'>" + message[i].contents
 	    		+ "</div></div></div>").appendTo(".msgArea.inbox");
 			});
@@ -61,9 +61,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	//보낸 메시지 받아오기
 	function getMsgSent() {
-		$.getJSON(serverRoot + '/message/getMsgListCstmr.json', {
-			'customMemberNo': userNo,
-			'sendMember': 'cstmr'
+		$.getJSON(serverRoot + '/message/getMsgListCafe.json', {
+			'cafeMemberNo': userNo,
+			'sendMember': 'cafe'
 		}, function(ajaxResult) {
 	    	var message = ajaxResult.data;
 	    	var count = 0;
@@ -73,7 +73,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    		+ "</span><!--<div class='btn-delete'>x</div>--><div class='msg-left'>"
 	    		+"<img src='../../upload/" +  message[i].photoPath
 	    		+ "' alt='customer photo' class='img-circle'></div>"
-	    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'>"  + message[i].cafeName
+	    		+"<div class='msg-content'><div class='sub'><span class='cstmer-name'>"  + message[i].cafeName
 	    		+ "</span></div><div class='pre-msg'>" + message[i].contents
 	    		+ "</div></div></div>").appendTo(".msgArea.sent");
 			});
@@ -98,7 +98,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		});
 	}*/
 	
-	//고객 카페리스트 get
+	/*//고객 카페리스트 get
 	$.getJSON(serverRoot + '/message/cafeNoNameList.json?customMemberNo=' + userNo, function(ajaxResult) {
 		var cafeNoNameList = ajaxResult.data;
 		$.each(cafeNoNameList, function(i){
@@ -109,7 +109,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	});
 		
 	
-	alert("tsft");
 	//메시지 입력
 	$('.btn-write').click(function() {
 		$('body.message').css("overflow-y","hidden");
@@ -149,6 +148,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	        getMsgSent();
 	    }, 'json');
 	});
-	
+	*/
 	
 });
