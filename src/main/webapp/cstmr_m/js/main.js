@@ -20,7 +20,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			
 			var customCardList = ajaxResult.data;
 			
-			console.log(customCardList);
 			if (customCardList == null) {
 				$('.btn_show').css('display', 'none');
 				$('.btn_hide').css('display', 'none');
@@ -53,7 +52,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					return;
 				}
 				var list = ajaxResult.data;
-				console.log(list);
 				var eventdiv = $('.event-div');
 				var template = Handlebars.compile($('#trTemplate2').html());
 				eventdiv.append(template({"list": list}));

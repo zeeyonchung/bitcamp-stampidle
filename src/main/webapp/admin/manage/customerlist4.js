@@ -64,8 +64,6 @@ function getListSelect(cafeMemberNo, pageNo, pageSize,selectCafeList) {
 		 }
 		  var list = ajaxResult.data.list;
 		  var tbody = $('#list-table > tbody');
-		  console.log(ajaxResult.data.list);
-		  console.log(ajaxResult.data);
 		  // 템플릿 텍스트를 처리하여 HTML을 생성해 줄 함수 얻기
 		  var template = Handlebars.compile($('#trTemplate').html());
 		  
@@ -78,7 +76,6 @@ function getListSelect(cafeMemberNo, pageNo, pageSize,selectCafeList) {
 		  });
 		  
 		  preparePagingButton(ajaxResult.data.totalCount);
-		  console.log(ajaxResult.data.list);
 	});
 	
 	

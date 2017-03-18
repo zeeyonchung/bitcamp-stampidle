@@ -55,6 +55,7 @@ $('.event a').click(function(e) {
     e.preventDefault();
     location.href = clientRoot + '/event/main.html'
 });
+
 $('.btn_cafeInfo').click(function(e) {
    var cafeMemberNo = $('.cafeNm').attr("data-no");
    $.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult1) {
