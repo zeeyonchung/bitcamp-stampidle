@@ -91,9 +91,9 @@ $('.likeCafe .list').click(function(e) {
 
 
 /** *** message/message.html **** */
-$('.message .one-msg').click(function(e) {
+/*$('.message .one-msg').click(function(e) {
 	location.href = '../message/messagedetail.html'
-});
+});*/
 
 
 /** *** messagedetail/messagedetail.html **** */

@@ -18,24 +18,28 @@ public class MessageJsonControl {
   @Autowired MessageService messageService;
   
   @RequestMapping(value = "/cstmr_m/message/insertMsg")
-  public AjaxResult getMsgList(Message message) throws Exception {
-  	System.out.println("-------" + message.getContents());
+  public AjaxResult insertMsg(Message message) throws Exception {
   	messageService.insertMsg(message);
     return new AjaxResult(AjaxResult.SUCCESS, "메시지 추가 성공");
   }
   
-  @RequestMapping(value = "/cstmr_m/messageDetail/getMsgList")
-  public AjaxResult getMsgList(int customMemberNo, int cafeMemberNo) throws Exception {
-  	List<Message> list = messageService.getMsgList(customMemberNo, cafeMemberNo);
+  /*@RequestMapping(value = "/cstmr_m/message/deleteMsg")
+  public AjaxResult deleteMsg(Message message) throws Exception {
+  	messageService.deleteMsg(message);
+  	return new AjaxResult(AjaxResult.SUCCESS, "메시지 삭제 성공");
+  }*/
+  
+  @RequestMapping(value = "/cstmr_m/message/getMsgListCstmr")
+  public AjaxResult getMsgListCstmr(int customMemberNo, String sendMember) throws Exception {
+  	List<Message> list = messageService.getMsgListCstmr(customMemberNo, sendMember);
   	return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
-  /*@RequestMapping(value = "/cstmr_m/message/getLastMsgList")
-  public AjaxResult getLastMsgList(int customMemberNo, int cafeMemberNo, String sendMember) throws Exception {
-  	List<Message> list = messageService.getLastMsgList(customMemberNo, cafeMemberNo, sendMember);
+  /*@RequestMapping(value = "/cstmr_m/message/getMsgListCafe")
+  public AjaxResult getMsgListCafe(int cafeMemberNo, String sendMember) throws Exception {
+  	List<Message> list = messageService.getMsgListCstmr(cafeMemberNo, sendMember);
   	return new AjaxResult(AjaxResult.SUCCESS, list);
   }*/
-  
   
 }
 

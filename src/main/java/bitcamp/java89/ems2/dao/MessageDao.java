@@ -7,6 +7,7 @@ import bitcamp.java89.ems2.domain.Message;
 
 public interface MessageDao {
 	int insertMsg(Message message) throws Exception;
-	ArrayList<Message> getMsgList(Map<String, Object> paramMap) throws Exception;
-	ArrayList<Message> getLastMsgList(Map<String, Object> paramMap) throws Exception;
+	ArrayList<Message> getMsgListCstmr(Map<String, Object> paramMap) throws Exception;
+	ArrayList<Message> getMsgListCafe(Map<String, Object> paramMap) throws Exception;
+	void deleteMsg(Message message) throws Exception;
 }

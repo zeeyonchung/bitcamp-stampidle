@@ -32,6 +32,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var userData = ajaxResult.data;
 	var userNo = userData.customMemberNo;
 	
+	
 	$.getJSON(serverRoot + '/customCard/getMyCardList.json?customMemberNo=' + userNo, function(ajaxResult) {
 		/********************* section1 전체 카드 리스트 *************************/
 		var myCardList = ajaxResult.data.myCardList;

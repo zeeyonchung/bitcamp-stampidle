@@ -49,4 +49,6 @@ public interface CustomCardDao {
   
   List<CustomCard> getCafeList(Map<String, Object> paramMap) throws Exception;
   List<CustomCard> getCafeCountByKeyword(String searchKeyword) throws Exception;
+  
+  List<CustomCard> cafeNoNameList(int customMemberNo) throws Exception;
 }

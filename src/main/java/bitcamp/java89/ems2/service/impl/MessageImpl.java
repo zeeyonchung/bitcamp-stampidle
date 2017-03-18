@@ -19,24 +19,27 @@ public class MessageImpl implements MessageService {
   public int insertMsg(Message message) throws Exception {
     return messageDao.insertMsg(message);
   }
+  
   @Override
-  public List<Message> getMsgList(int customMemberNo, int cafeMemberNo) throws Exception {
+  public List<Message> getMsgListCstmr(int customMemberNo, String sendMember) throws Exception {
   	Map<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
-    paramMap.put("cafeMemberNo", cafeMemberNo);
-  	System.out.println(customMemberNo + " +++++++im " + cafeMemberNo);
-    return messageDao.getMsgList(paramMap);
+    paramMap.put("sendMember", sendMember);
+    return messageDao.getMsgListCstmr(paramMap);
   }
   
   @Override
-  public List<Message> getLastMsgList(int customMemberNo, int cafeMemberNo, String sendMember) throws Exception {
+  public List<Message> getMsgListCafe(int cafeMemberNo, String sendMember) throws Exception {
   	Map<String, Object> paramMap = new HashMap<>();
-    paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("cafeMemberNo", cafeMemberNo);
     paramMap.put("sendMember", sendMember);
-    return messageDao.getMsgList(paramMap);
+    return messageDao.getMsgListCstmr(paramMap);
   }
   
+  @Override
+  public void deleteMsg(Message message) throws Exception {
+    messageDao.deleteMsg(message);
+  }
 }
 
 

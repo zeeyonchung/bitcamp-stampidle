@@ -527,7 +527,16 @@ where
   </select>
   
   
-  
+    <select id="cafeNoNameList" parameterType="int" resultMap="customCard-map">
+	select DISTINCT
+	memb.mno, scinfo.cmno, cafe.cname 
+	from memb 
+	left outer join mcard on memb.mno=mcard.mno
+	left outer join scinfo on mcard.scno=scinfo.scno 
+	left outer join cafe on scinfo.cmno=cafe.cmno
+	where memb.mno=#{customMemberNo}
+	order by cname
+  </select>
 </mapper>
 
 

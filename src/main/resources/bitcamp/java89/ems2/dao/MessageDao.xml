@@ -24,7 +24,7 @@
     
     <result column="cname"        property="cafeName"/>
     <result column="logo"        property="logoPath"/>
-    
+   
   </resultMap>
   
   
@@ -33,19 +33,18 @@
     (#{customMemberNo},#{cafeMemberNo},#{sendMember},#{contents}, now());
   </insert> 
 
-  <select id="getMsgList" parameterType="java.util.Map" resultMap="message-map">
-    select 
-  	msg.mno, msg.cmno, msg.sdmemb, msg.mconts, msg.mstime, 
-  	memb.nick, memb.name, memb.cphoto, 
-  	cafe.logo, cafe.cname 
-  	from msg 
-	left outer join memb on msg.mno=memb.mno
-	left outer join cafe on msg.cmno=cafe.cmno
-	where msg.mno=#{customMemberNo} and msg.cmno=#{cafeMemberNo} 
-  	order by mstime asc;
-  </select>
   
-  <select id="getLastMsgList" parameterType="java.util.Map" resultMap="message-map">
+  <delete id="deleteMsg" parameterType="message">
+  delete from msg where 
+	mno=#{customMemberNo} and 
+  	cmno=#{cafeMemberNo} and 
+  	sdmemb=#{sendMember} and 
+  	mconts=#{contents} and 
+  	mstime=#{uploadTime}
+  </delete>
+  
+  
+  <select id="getMsgListCstmr" parameterType="java.util.Map" resultMap="message-map">
     select 
   	msg.mno, msg.cmno, msg.sdmemb, msg.mconts, msg.mstime, 
   	memb.nick, memb.name, memb.cphoto, 
@@ -53,9 +52,23 @@
   	from msg 
 	left outer join memb on msg.mno=memb.mno
 	left outer join cafe on msg.cmno=cafe.cmno
-	where msg.mno=#{customMemberNo} and msg.cmno=#{cafeMemberNo} and msg.sdmemb=#{sendMember}
+	where msg.mno=#{customMemberNo} and msg.sdmemb=#{sendMember}
   	order by mstime desc;
   </select>
+  
+  
+  <select id="getMsgListCafe" parameterType="java.util.Map" resultMap="message-map">
+    select 
+  	msg.mno, msg.cmno, msg.sdmemb, msg.mconts, msg.mstime, 
+  	memb.nick, memb.name, memb.cphoto, 
+  	cafe.logo, cafe.cname 
+  	from msg 
+	left outer join memb on msg.mno=memb.mno
+	left outer join cafe on msg.cmno=cafe.cmno
+	where msg.cmno=#{cafeMemberNo} and msg.sdmemb=#{sendMember}
+  	order by mstime desc;
+  </select>
+  
   
 </mapper>
 

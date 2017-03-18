@@ -28,6 +28,8 @@ public interface CustomCardService {
   List<CustomCard> getMyFavoriteCardList(int customMemberNo) throws Exception;
   
   Map<String, Object> findCafe(int customMemberNo, String searchKeyword, int postNo, int pageCount, String orderBy) throws Exception;
+  
+  List<CustomCard> cafeNoNameList(int customMemberNo) throws Exception;
 }
 
 
