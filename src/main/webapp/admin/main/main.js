@@ -23,8 +23,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				$('#new-coupone h2').text(allStampList.finishCard + "개");
 				$('#give-stamp h2').text(allStampList.stampMany+ "개");
 				$('#new-member h2').text(allStampList.newMember+ "명");
-				$('#new-message h2').text(event.endDate);
-				$('#free-drink h3').text(allStampList.freeItem+ "개");
+				$('#new-message h2').text( "0개");
+				$('#free-drink h2').text(allStampList.freeItem+ "개");
 				$('.cafeImgSlide img').attr('src', '../../upload/' + event.eventPhotoPath);
 				$('.event-cont-div .span-contents').text(event.eventContents);
 			});

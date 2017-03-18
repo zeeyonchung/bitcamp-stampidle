@@ -205,6 +205,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		}, 'json'); 
 	});
 	
+	
+	
 	clickLike();
 	clickLike2();
 	// 좋아요 클릭 이벤트//
@@ -221,8 +223,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 						clickLike2();
 					});
 			
-    	
-    	
+			
     	} else {
     		$(this).removeClass();
 		    $(this).toggleClass('no');
