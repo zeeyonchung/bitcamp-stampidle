@@ -175,6 +175,7 @@
     height: 40px;
     cursor: pointer;
     text-align:center;
+    clear:both;
 }
 
 .writeArea .btn-send img {

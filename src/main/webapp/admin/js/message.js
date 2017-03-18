@@ -98,7 +98,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		});
 	}*/
 	
-	/*//고객 카페리스트 get
+	/*//고객리스트 get
 	$.getJSON(serverRoot + '/message/cafeNoNameList.json?customMemberNo=' + userNo, function(ajaxResult) {
 		var cafeNoNameList = ajaxResult.data;
 		$.each(cafeNoNameList, function(i){
@@ -106,13 +106,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
     	    + "'>" + cafeNoNameList[i].cafeName
     		+ "</option>").appendTo("#cafeNoNameList");
 		});
-	});
+	});*/
 		
 	
 	//메시지 입력
 	$('.btn-write').click(function() {
 		$('body.message').css("overflow-y","hidden");
-		var popTop = $(window).height()/2 - $(".writeArea").outerHeight()/2;
+		var popTop = $(".writeWrap").height()/2 - $(".writeArea").outerHeight()/2;
 		$('.writeWrap').fadeIn(300);
 	    $('.writeArea').fadeIn(500);
 	    $('.writeArea').css("margin-top",popTop);
@@ -148,6 +148,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	        getMsgSent();
 	    }, 'json');
 	});
-	*/
+
 	
 });

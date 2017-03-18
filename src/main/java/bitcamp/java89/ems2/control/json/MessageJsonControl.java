@@ -37,7 +37,6 @@ public class MessageJsonControl {
   
  @RequestMapping(value = {"/admin/message/getMsgListCafe", "/admin_m/message/getMsgListCafe"})
   public AjaxResult getMsgListCafe(int cafeMemberNo, String sendMember) throws Exception {
-	 System.out.println(cafeMemberNo + "ttttttt" + sendMember);
   	List<Message> list = messageService.getMsgListCafe(cafeMemberNo, sendMember);
   	return new AjaxResult(AjaxResult.SUCCESS, list);
   }

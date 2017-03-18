@@ -30,7 +30,6 @@ public class MessageImpl implements MessageService {
   
   @Override
   public List<Message> getMsgListCafe(int cafeMemberNo, String sendMember) throws Exception {
-  	System.out.println(cafeMemberNo + "iiiiii" + sendMember);
   	Map<String, Object> paramMap = new HashMap<>();
     paramMap.put("cafeMemberNo", cafeMemberNo);
     paramMap.put("sendMember", sendMember);

@@ -98,7 +98,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		});
 	}*/
 	
-	//고객 카페리스트 get
+	//카페리스트 get
 	$.getJSON(serverRoot + '/message/cafeNoNameList.json?customMemberNo=' + userNo, function(ajaxResult) {
 		var cafeNoNameList = ajaxResult.data;
 		$.each(cafeNoNameList, function(i){
@@ -109,7 +109,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	});
 		
 	
-	alert("tsft");
 	//메시지 입력
 	$('.btn-write').click(function() {
 		$('body.message').css("overflow-y","hidden");
