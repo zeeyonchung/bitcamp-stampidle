@@ -489,6 +489,18 @@ where
   order by mcard.mcno desc
   </select>
   
+  
+  <select id="getCafeCountByKeyword" parameterType="String" resultMap="customCard-map">
+	select count(scinfo.cmno) as cafeCount
+	from scinfo
+	  left outer join cafe on cafe.cmno=scinfo.cmno
+	  left outer join tag on tag.cmno=cafe.cmno
+	where
+	  (cafe.cname like concat('%', #{searchKeyword}, '%')
+	  OR tag.tname like concat('%', #{searchKeyword}, '%'))
+	group by scinfo.cmno
+  </select>
+  
     
   
   <select id='getCafeList' parameterType='java.util.Map' resultMap='customCard-map'>
@@ -515,15 +527,34 @@ where
   </select>
   
   
-  <select id="getCafeCountByKeyword" parameterType="String" resultMap="customCard-map">
-	select count(scinfo.cmno) as cafeCount
-	from scinfo
-	  left outer join cafe on cafe.cmno=scinfo.cmno
-	  left outer join tag on tag.cmno=cafe.cmno
-	where
-	  (cafe.cname like concat('%', #{searchKeyword}, '%')
-	  OR tag.tname like concat('%', #{searchKeyword}, '%'))
-	group by scinfo.cmno
+  <select id="getMyLikeCafeCount" parameterType="int" resultType="int">
+	select count(*)
+	from likes
+	where mno=#{customMemberNo}
+  </select>
+  
+  
+  <select id='getLikeCafeList' parameterType='java.util.Map' resultMap='customCard-map'>
+  select
+    cafe.cname,
+    cafe.cmno,
+    tag.tname,
+    scinfo.scno,
+    scinfo.fpath,
+    mcard.mcno,
+    (select count(eno) from event where event.eday>=curDate() and event.cmno=cafe.cmno) as eventCount,
+    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount,
+    (select sum(stamp.many) from stamp where stamp.mcno=mcard.mcno) as currentStampCount
+  from cafe
+    left outer join tag on tag.cmno=cafe.cmno
+    left outer join scinfo on scinfo.cmno=cafe.cmno
+    left outer join mcard on scinfo.scno=mcard.scno
+    left outer join likes on likes.cmno=cafe.cmno
+  where
+    scinfo.scno = (select max(scno) from scinfo where scinfo.cmno=cafe.cmno)
+    and likes.mno=#{customMemberNo}
+  order by ${orderBy} ${ascORdesc}
+  limit #{firstPost}, #{postNo}
   </select>
   
   

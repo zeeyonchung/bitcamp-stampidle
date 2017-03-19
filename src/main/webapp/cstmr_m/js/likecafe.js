@@ -6,9 +6,6 @@ var customMemberNo = 0;
 /*게시글 몇 개씩 불러올 건지 설정*/
 var postNo = 7;
 
-/* 검색어 */
-var searchKeyword = "";
-
 /* 로딩할 페이지 수 */
 var pageCount = 1;
 
@@ -38,12 +35,11 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 /**** 글 불러오기 ****/
 function loadPage(pageCount) {
-	console.log(customMemberNo, searchKeyword, postNo, pageCount, orderBy);
+	console.log(customMemberNo, postNo, pageCount, orderBy);
 	// 나중에 파라미터로 나의 현재 위치도 넘겨야 함. 지금은 그냥 목록 다 꺼내오는 것.
 	$.getJSON(
-		serverRoot + '/customCard/findCafe.json',
+		serverRoot + '/customCard/likeCafe.json',
 		{customMemberNo: customMemberNo,
-		searchKeyword: searchKeyword,
 		postNo: postNo,
 		pageCount: pageCount,
 		orderBy: orderBy},
@@ -54,12 +50,10 @@ function loadPage(pageCount) {
 			var cafeList = ajaxResult.data.cafeList;
 			console.log(cafeList);
 			
-			if (cafeList == null) {
-				$('.cafeListArea #num').text(allCafeCount);
-			} else {
+			if (cafeList != null) {
 				allCafeCount = ajaxResult.data.allCafeCount;
-				$('.cafeListArea #num').text(allCafeCount);
 			}
+			$('.likeCafe #num').text(allCafeCount);
 			
 			var listArea = $('.listArea');
 			var template = Handlebars.compile($('#trTemplate').html());

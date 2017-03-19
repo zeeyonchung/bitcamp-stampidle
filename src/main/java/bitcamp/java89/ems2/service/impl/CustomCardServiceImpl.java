@@ -585,7 +585,6 @@ public class CustomCardServiceImpl implements CustomCardService {
         break;
     }
     
-    paramMap.put("postNo", postNo);
     
     List<CustomCard> cafeList = customCardDao.getCafeList(paramMap);
     
@@ -631,6 +630,82 @@ public class CustomCardServiceImpl implements CustomCardService {
   }
   
   
+  
+  
+  @Override
+  public Map<String, Object> likeCafe(int customMemberNo, int postNo, int pageCount, String orderBy) throws Exception {
+    
+    Map<String, Object> returnMap = new HashMap<>();
+    returnMap.put("allCafeCount", customCardDao.getMyLikeCafeCount(customMemberNo));
+    
+    int firstPost = (pageCount - 1) * postNo;
+    
+    Map<String, Object> paramMap = new HashMap<>();
+    paramMap.put("customMemberNo", customMemberNo);
+    paramMap.put("firstPost", firstPost);
+    paramMap.put("postNo", postNo);
+    
+    switch (orderBy) {
+      case "이름순":
+        paramMap.put("orderBy", "cafe.cname");
+        paramMap.put("ascORdesc", "asc");
+        break;
+      case "가까운순":
+        paramMap.put("orderBy", "cafe.cname"); ////// 지도 적용 후 값 바꿔주세요...
+        paramMap.put("ascORdesc", "asc");
+        break; 
+      case "내도장순":
+        paramMap.put("orderBy", "currentStampCount");
+        paramMap.put("ascORdesc", "desc");
+        break;
+      case "좋아요순":
+        paramMap.put("orderBy", "likesCount");
+        paramMap.put("ascORdesc", "desc");
+        break;
+    }
+    
+    
+    List<CustomCard> cafeList = customCardDao.getLikeCafeList(paramMap);
+    
+    // 같은 카페의 카드는 중복시키지 않음
+    List<Integer> cafeMemberNos = new ArrayList<>();
+    
+    List<CustomCard> returnCafeList = new ArrayList<>();
+    for (CustomCard customCard : cafeList) {
+      if(cafeMemberNos.contains(customCard.getCafeMemberNo())) {continue;}
+      cafeMemberNos.add(customCard.getCafeMemberNo());
+      
+      customCard.setCafeTimeList(cafeTimeDao.getOne(customCard.getCafeMemberNo()));
+      
+      Map<String, Object> paramMap2 = new HashMap<>();
+      paramMap2.put("customMemberNo", customMemberNo);
+      paramMap2.put("cafeMemberNo", customCard.getCafeMemberNo());
+      List<CustomCard> customCardDetailList = customCardDao.getCustomDetail(paramMap2);
+      
+      if (customCardDetailList.size() != 0) {
+        customCard.setCanUseCount(customCardDetailList.get(0).getCanUseCount());
+        
+        
+        // 이 카페에서 고객이 지금 진행 중인 카드 번호
+        int currentCustomCardNo = 0;
+        
+        for (CustomCard customCardDetail : customCardDetailList) {
+          if (Integer.parseInt(customCardDetail.getCardState()) == 0) {
+            currentCustomCardNo = customCardDetail.getCustomCardNo();
+            break;
+          }
+        }
+        customCard.setCustomCardNo(currentCustomCardNo);
+      }
+      
+      
+      returnCafeList.add(customCard);
+    }
+    
+    returnMap.put("cafeList", returnCafeList);
+     
+    return returnMap;
+  }
   
   
   @Override

@@ -23,7 +23,7 @@
 		<div class='con'>
 		
             <h4 class='secTit'>
-             좋아요카페 전체 <span class='num'>30</span>개
+             좋아요카페 전체 <span class='num' id='num'></span>개
             </h4>
             <div class="btn-group">
                 <button class="btn btn-default btn-sm dropdown-toggle"
@@ -32,78 +32,14 @@
                     정렬조건 <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li>가까운순</li>
-                    <li>스탬프개수</li>
-                    <li>등록일순</li>
                     <li>이름순</li>
+                    <li>가까운순</li>
+                    <li>내도장순</li>
+                    <li>좋아요순</li>
                 </ul>
             </div>
 			
             <div class='listArea'>
-                <div class='list'>
-                      <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                      <div class='cafeTxt'>
-                          <h2 class='cafeName'>카페 프레스코</h2>
-                          <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                          <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                          <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-                          <p class='like select'>259<br>좋아요</p>
-                      </div>
-                      <div class='myCard select'>담기</div>
-                      <div class='distance'>20m</div>
-                  </div>
-                  
-                  <div class='list'>
-                      <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                      <div class='cafeTxt'>
-                          <h2 class='cafeName'>카페 프레스코</h2>
-                          <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                          <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                          <p class='issue'><span class='free'>무료</span></p>
-                          <p class='like select'>259<br>좋아요</p>
-                      </div>
-                      <div class='myCard select'>담기</div>
-                      <div class='distance'>20m</div>
-                  </div>
-                  
-                  <div class='list'>
-                      <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                      <div class='cafeTxt'>
-                          <h2 class='cafeName'>카페 프레스코</h2>
-                          <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                          <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                          <p class='issue'><span class='event'>이벤트</span></p>
-                          <p class='like select'>259<br>좋아요</p>
-                      </div>
-                      <div class='myCard'>담기</div>
-                       <div class='distance'>20m</div>
-                  </div>
-                  
-                  <div class='list'>
-                      <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                      <div class='cafeTxt'>
-                          <h2 class='cafeName'>카페 프레스코</h2>
-                          <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                          <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                          <p class='issue'></p>
-                          <p class='like'>139<br>좋아요</p>
-                      </div>
-                      <div class='myCard select'>담기</div>
-                      <div class='distance'>1km</div>
-                  </div>
-                  
-                  <div class='list'>
-                      <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
-                      <div class='cafeTxt'>
-                          <h2 class='cafeName'>카페 프레스코</h2>
-                          <p class='tag'><span>#스터디카페</span><span>#24시간카페</span></p>
-                          <p class='time'>평일 07:00 - 07:00<br>주말.공휴일 07:00 - 07:00</p>
-                          <p class='issue'><span class='free'>무료</span><span class='event'>이벤트</span></p>
-                          <p class='like select'>259<br>좋아요</p>
-                      </div>
-                      <div class='myCard'>담기</div>
-                       <div class='distance'>3km</div>
-                  </div>
             </div>
             
             
@@ -111,78 +47,55 @@
 		</div>
 		<!-- //con -->
 	</div>
+	
+	
+	
+	<!-- 카페 목록 하나하나 템플릿 -->
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each cafeList}}
+  <div class='list'>
+    <div class='cardArea'><img src='/bitcamp_stampidle/upload/{{frontImgPath}}' alt='stamp card'></div>
+    <div class='cafeTxt'>
+      <h2 class='cafeName' data-no="{{cafeMemberNo}}">{{cafeName}}</h2>
+      <p class='tag'><span>#{{tagName}}</span></p>
+      <p class='time'>
+      {{#each cafeTimeList}}
+        {{day}} {{startTime}}~{{endTime}}<br>
+      {{/each}}
+      </p>
+      <p class='issue'>
+        {{#if canUseCount}}
+          <span class='free'>무료</span>
+        {{/if}}
+        {{#if currentEventCount}}
+          <span class='event'>이벤트</span>
+        {{/if}}
+      </p>
+      <p class='like select'>{{likesCount}}<br>좋아요</p>
+    </div>
+    {{#if customCardNo}}
+      <div class='myCard select' data-no="{{cafeMemberNo}}">담기</div>
+      {{else}}
+      <div class='myCard' data-no="{{cafeMemberNo}}">담기</div>
+    {{/if}}
+    <div class='distance'>20m</div>
+  </div>
+{{/each}}
+</script>
 
-    <script src="../js/context.js"></script>
+	<script src="../js/context.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.js"></script>
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="../js/bit.js"></script>
 	<script src="../js/common.js"></script>
+  <script src="../../node_modules/handlebars/dist/handlebars.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
+	<script src="../js/likecafe.js"></script>
 
 	
-	
-<!--  Swipe -->
-<script type="text/javascript" src="../js/jquery-latest.js"></script>
-<script type="text/javascript" src="../js/tab_swipe.js"></script>
-<script type="text/javascript">
-$(window).load(function(){
-    if (!document.getElementById('tab_swipe')) return false;
-    var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
-    var elem = document.getElementById('swipe');
-    window.areaSwipe = Swipe(elem, {
-        startSlide: 0,
-        continuous: true,
-        callback: function(pos) {
-            var currentSlide = areaSwipe.getPos() + 1;
-            var totalSlides = areaSwipe.getNumSlides();
-            document.getElementById('b').innerHTML = currentSlide + ' / ' + totalSlides;
-            var n = mnTab.length;
-            while (n--) {
-                mnTab[n].className = ' ';
-            }
-            mnTab[pos].className = 'on';
-        }
-    });
-    var currentSlide = areaSwipe.getPos() + 1;
-    var totalSlides = areaSwipe.getNumSlides();
-    document.getElementById('b').innerHTML = currentSlide + ' / ' + totalSlides;
-});
-</script>
-<!-- // Swipe -->
 
-<!-- Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
-<script>
-$(document).ready(function() {
-	var secH1 = $(".section:nth-child(1)").outerHeight();
-	var secH2 = $(".section:nth-child(2)").outerHeight();
-	var secH3 = $(".section:nth-child(3)").outerHeight();
-	
-	$("#swipe .swWrap").css('height', secH1);
-
-	$('.tab1 a').click(function(e) {
-	    $("#swipe .swWrap").css('height', secH1);
-	});
-	$('.tab2 a').click(function(e) {
-        $("#swipe .swWrap").css('height', secH2);
-    });
-	$('.tab3 a').click(function(e) {
-        $("#swipe .swWrap").css('height', secH3);
-    });
-	
-/* 	$('#swipe .swWrap').on("swipe",function(){
-        $("#swipe .swWrap").css('height', secH1);
-    });
-    $('#swipe .swWrap').on("swipe",function(){
-        $("#swipe .swWrap").css('height', secH2);
-    });
-    $('#swipe .swWrap').on("swipe",function(){
-        $("#swipe .swWrap").css('height', secH3);
-    }); */
-});
-</script>
-<!-- //Swipe 클릭시 섹션별 컨텐츠 높이 별도인식 -->
 </body>
 </html>
 

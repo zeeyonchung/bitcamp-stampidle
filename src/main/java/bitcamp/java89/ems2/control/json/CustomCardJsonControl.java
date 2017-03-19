@@ -165,6 +165,14 @@ public class CustomCardJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
+  
+  @RequestMapping(value = "/cstmr_m/customCard/likeCafe")
+  public AjaxResult likeCafe(int customMemberNo, int postNo, int pageCount, String orderBy) throws Exception {
+    Map<String, Object> resultMap = customCardService.likeCafe(customMemberNo, postNo, pageCount, orderBy);
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+  }
+  
+  
   @RequestMapping(value = "/cstmr_m/message/cafeNoNameList")
   public AjaxResult cafeNoNameList(int customMemberNo) throws Exception {
   	List<CustomCard> cafeNoNameList = customCardService.cafeNoNameList(customMemberNo);
