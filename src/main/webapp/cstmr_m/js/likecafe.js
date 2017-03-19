@@ -91,10 +91,9 @@ function loadPage(pageCount) {
 			});
 			
 			
-			$('.cafeListArea ul.dropdown-menu li').click(function(event) {
+			$('.likeCafe ul.dropdown-menu li').click(function(event) {
 				event.stopImmediatePropagation();
 				orderBy = $(this).text();
-				searchKeyword = $('.sb-search-input').val().trim();
 				pageCount = 1;
 				allCafeCount = 0;
 				loadPage(pageCount);
@@ -103,17 +102,6 @@ function loadPage(pageCount) {
 	);
 };
 
-
-
-
-/* 검색하기 */
-function searchLink() {
-	orderBy = "이름순";
-	searchKeyword = $('.sb-search-input').val().trim();
-	pageCount = 1;
-	allCafeCount = 0;
-	loadPage(pageCount);
-}
 
 
 
