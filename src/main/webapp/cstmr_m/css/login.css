@@ -8,7 +8,7 @@
 
 
 .con {
-	background: url("../image/hotchocolate2.jpg") no-repeat;
+	background: url("../image/login_bg.png") no-repeat;
 	background-position: center center;
 	background-size: cover;
 	display: table;
@@ -23,77 +23,97 @@
   text-align: center;
 }
 
-
-.loginwrap .login-title {
-  font-size: 0;
-  height: 60px;
-  background: url("../image/logo.png") no-repeat center center;
+.loginwrap .logo {
+  background: url("../image/logoW_vertical.png") no-repeat center center;
+  background-size:30% auto;
   margin-bottom: 25px;
+  width:100%;
+  height:150px;
+  font-size:0;
+}
+.loginwrap .login-title {
+  height: 55px;
+  background:rgba(255,255,255,0.3);
+  color:#fff;
+  text-align:center;
+  line-height:55px;
+  font-size:1.4em;
 }
 
 
-
-.loginwrap .form-control {
-  display: inline-block;
-  height: 45px;
-  width: 282px;
-  border-radius: 2px;
-  margin-bottom: 5px;
-	background-color: rgba(0, 0, 0, 0.34);
-	color: white;
-	border: 0;
+.inputArea {
+	width:100%;
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
+.loginwrap .input-login {
+  height: 60px;
+  width: 80%;
+  margin:auto;
+  background-color: rgba(255,255,255,0);
+    color: white;
+	clear:both;
+	font-size:1.3em;
+}
 
-.form-control::-webkit-input-placeholder { color: #c2c2c2; }
+input:focus {
+  outline: none;
+}
 
+.inputArea .name {
+	border-bottom:1px solid rgba(255,255,255,0.2);
+}
 
-.loginwrap .login-btn, .register-ok-btn {
+.input-login::-webkit-input-placeholder  { color: #fff; }
+.input-login::-moz-placeholder  { color: #fff; }
+.input-login:-ms-input-placeholder { color: #fff; }
+
+.login-btn, .register-ok-btn {
   display: block;
-  clear: left;
+  clear: both;
   margin: auto;
-  margin-top: 15px;
-  border-radius: 5px;
+  margin-top: 20px;
+  border-radius: 150px;
   border: 0;
-  background-color: #ff5948;
+  background-color: #ff4040;
   color: white;
-  width: 280px;
-  height: 40px;
+  width: 110px;
+  height: 110px;
   text-align: center;
-  font-size: 1em;
+  font-size: 1.3em;
+}
+.login-btn, .register-ok-btn:focus {
+  outline: none;
 }
 
 
-.loginwrap .login-btn:hover, .register-ok-btn:hover {
-  background-color: rgba(255, 89, 72, 0.89);
-  color: white;
+
+.joinAra {
+	margin-top:55px;
 }
-
-
-.loginwrap .login-btn:active, .register-ok-btn:active {
-    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
-    box-shadow: inset 0 1px 4px rgba(255, 89, 72, 0.93);
-    background: tomato;
+.joinAra p {
+	font-size:1em;
+	color:#fff;
+	line-height:150%;
 }
-
-
-.loginwrap .register-btn {
+.joinAra .register-btn {
   display: block;
   clear: left;
   margin: auto;
-  margin-top: 25px;
-  border: 3px solid #efefef;
-  border-radius: 20px;
-  background-color: white;
-  color: #555;
-  font-weight: bold;
-  width: 280px;
-  height: 40px;
+  margin-top: 20px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  color: #fff;
+  background-color:rgba(255,255,255,0);
+  width: 60%;
+  height: 45px;
   text-align: center;
+  font-size:1.2em;
 }
 
-
+.joinAra .register-btn:focus {
+  outline: none;
+}
 
 
 .register {
@@ -108,13 +128,9 @@
   right: 10px;
 }
 
-.register .input-div {
-  margin-top: 20px;
-}
-
-.register .back-login {
-	margin-top: 5px;
-	font-size: 0.85em;
+.register .txt-back-login {
+	margin-top: 50px;
+	font-size: 1em;
 	color: white;
 }
 

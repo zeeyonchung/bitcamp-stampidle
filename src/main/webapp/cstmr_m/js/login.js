@@ -22,7 +22,6 @@ $('.register-ok-btn').click(function() {
 		name: $('#name').val(),
 		tel: $('#tel').val()
 	};
-
 	$.post(serverRoot + '/customMember/add.json', param, function(ajaxResult) {
 		console.log(ajaxResult);
 		if (ajaxResult.status == "success") {
