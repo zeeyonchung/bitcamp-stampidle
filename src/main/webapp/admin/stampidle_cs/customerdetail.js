@@ -1,10 +1,12 @@
+var customMemberNo = 0;
+var cafeMemberNo = 0;
+
+
 try {
-  var customMemberNo = location.href.split('?')[1].split('=')[1];
+  customMemberNo = location.href.split('?')[1].split('=')[1];
 } catch (error) {
-	var customMemberNo = -1;
+  customMemberNo = -1;
 }
-
-
 
 /*로그인 정보를 가져와서*/
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
@@ -14,11 +16,17 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		/*로그인 안 했으면 로그인 페이지로 보내기*/
 	}
 	var cafeMember = ajaxResult.data;
-	var cafeMemberNo = cafeMember.cafeMemberNo;
+	cafeMemberNo = cafeMember.cafeMemberNo;
 	
-	
-	
-	
+	loadPage();
+});
+
+
+
+var currentStampCount = 0;
+
+
+function loadPage(){
 	/******************* 오른쪽 영역 ********************/
 	$.getJSON(serverRoot + '/customCard/customCardDetail.json', 
 			{'customMemberNo': customMemberNo,
@@ -32,14 +40,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		}
 		
 		var cardDetail = ajaxResult.data.cardDetail;
-		var currentStampCount = ajaxResult.data.currentStampCount;
+		currentStampCount = ajaxResult.data.currentStampCount;
+		//console.log("currentStampCount: ", currentStampCount);
 		
-		
-		console.log(cardDetail.backImgPath);
 		
 		$('#card-back').attr('src', serverRoot + '/../upload/' + cardDetail.backImgPath); /* 하... 경로가.....ㅠㅠ */
 		$('.current-stamp-count').text(currentStampCount);
-
+	
 		
 		/**** 카드 뒷면 이미지 로드된 후 스탬프 영역, 찍힌 스탬프 가져오기 ****/
 		$('#card-back').load(function() {
@@ -48,11 +55,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			/** stmpside 넓이 조정 **/
 			$('.stmpside').css('width', width);
 			$('.stmpside').css('height', height);
-
+	
 			/** imgbox 높이 조정 **/
 			$('#imgbox').css('height', height + 20);
-			
-			console.log(width, height);
 			
 			
 			// positionOrder대로 재정렬
@@ -61,7 +66,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			});
 			
 			
+			
 			/** 스탬프 영역 가져오기 **/
+			
+			//가져오기 전에 이전에 만들어진 영역 삭제
+			$('.stmpare').remove();
+			//사용할 개수 적는 인풋 박스도 초기화하고
+			$('.usecp').val('');
+			
 			for (var i = 0; i < cardDetail.stampPositionList.length; i++) {
 				var positionOrder = cardDetail.stampPositionList[i].positionOrder;
 				var positionX = parseFloat(cardDetail.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
@@ -89,7 +101,11 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			
 			/** 스탬프 영역 클릭 이벤트 **/
 			$(document.body).on('click', '.stmpare', function(event) {
+				event.stopImmediatePropagation();
 				var stampNo = this.getAttribute('class').split(" ")[1].split("stampNo")[1];
+				//console.log('this stampNo... : ', stampNo);
+				//console.log('this.getAttribute("class").search("add-check"):', this.getAttribute('class').search('add-check'))
+				//console.log(currentStampCount)
 				if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') == -1) {
 					
 					$('<img>')
@@ -110,21 +126,24 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		
 		
 		/**** 스탬프 등록 버튼 클릭 이벤트 (스탬프 추가) ****/
-		$('.stamp-btn').click(function(e) {
+		$('.stamp-btn').click(function(event) {
+			event.stopImmediatePropagation();
 			var stampIssueCount = $('#stmpside').children('.add-check').length;
+			//console.log('stampIssueCount: ', stampIssueCount);
 			$.post(serverRoot + '/customCard/addStamp.json', 
 					{'customMemberNo': customMemberNo,
 					'cafeMemberNo': cafeMemberNo,
 					'stampIssueCount' : stampIssueCount},
 			function(ajaxResult) {
-				location.href="";
+				loadPage();
 			});
 		});
 		
 		
 		/**** 리셋 버튼 클릭 이벤트 (새 카드 발행) ****/
-		$('#reset-btn').click(function(e) {
-			if ($('#stmpside').children('.add-check').length + currentStampCount != $('.stmpare').length) {
+		$('#reset-btn').click(function(event) {
+			event.stopImmediatePropagation();
+			if (currentStampCount != $('.stmpare').length) {
 				console.log('아직 리셋 할 수 없음...');
 				return;
 			}
@@ -132,16 +151,16 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					{'customMemberNo': customMemberNo,
 					'cafeMemberNo': cafeMemberNo},
 				function(ajaxResult) {
-					location.href="";
+					loadPage();
 				}
 			);
 		});
 		
 	});
-
-
-
-
+	
+	
+	
+	
 	/******************* 왼쪽 영역 ********************/
 	$.getJSON(serverRoot + '/customCard/customDetail.json', 
 			{'customMemberNo': customMemberNo,
@@ -163,6 +182,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		} else {
 			$('#custom-photo').attr('src', '../../upload/' + customCard.customPhoto);
 		}
+		
 		$('#name').text(customCard.customName);
 		$('#phone-number').text(customCard.customTel);
 		$('.finish-coupon').text(customCard.finishCardCount);
@@ -172,7 +192,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		
 		
 		/**** 다 채운 카드 사용 버튼 클릭 이벤트 ****/
-		$('#use-btn').click(function(e) {
+		$('#use-btn').click(function(event) {
+			event.stopImmediatePropagation();
+			
 			//사용할 카드 개수
 			var usedCardCount = parseInt($('.usecp').val());
 			
@@ -191,11 +213,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					'usedCardCount': usedCardCount
 					},
 				function(ajaxResult) {
-					location.href="";
+					loadPage();
 				}
 			);
 		});
 	});
-	
-});
-
+}
