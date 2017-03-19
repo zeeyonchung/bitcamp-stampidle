@@ -31,15 +31,7 @@ $('.sidebar .msg a').click(function(e) {
 
 
 /** *** main/main.html **** */
-/*$('.main .cardArea img').click(function(e) {
-	location.href = '../cafeinfo/cafeinfo.html'
-});*/
-$('.main .eventBn li img').click(function(e) {
-	location.href = '../event/event.html'
-});
-$('.main .favor .mn').click(function(e) {
-	location.href = '../likecafe/likecafe.html'
-});
+
 $('.main .all .mn').click(function(e) {
 	location.href = '../mystamp/mystamp.html'
 });
@@ -109,9 +101,7 @@ $('.myPage .submit').click(function(e) {
 
 
 /** *** mystamp/mystamp.html **** */
-$('.mystamp .list').click(function(e) {
-	location.href = '../cafeinfo/cafeinfo.html'
-});
+
 
 
 /** *** header.html **** */
