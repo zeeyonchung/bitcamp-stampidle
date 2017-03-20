@@ -32,19 +32,23 @@ public class CustomMemberServiceImpl implements CustomMemberService {
       customMemberNo = oldCustomMember.getCustomMemberNo();
     }
     
-    int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
+    try {
+      int stampCafeCardNo = customCardDao.getStampCafeCardNo(cafeMemberNo);
     
-    Map<String, Object> paramMap2 = new HashMap<>();
-    paramMap2.put("cafeMemberNo", cafeMemberNo);
-    paramMap2.put("customMemberNo", customMemberNo);
-    if (customCardDao.getCustomCardDetail(paramMap2).size() > 0) {return customMemberNo;}
-    
-    Map<String, Object> paramMap3 = new HashMap<>();
-    paramMap3.put("customMemberNo", customMemberNo);
-    paramMap3.put("stampCafeCardNo", stampCafeCardNo);
-    customCardDao.insert(paramMap3);
-    
-    return customMemberNo;
+      Map<String, Object> paramMap2 = new HashMap<>();
+      paramMap2.put("cafeMemberNo", cafeMemberNo);
+      paramMap2.put("customMemberNo", customMemberNo);
+      if (customCardDao.getCustomCardDetail(paramMap2).size() > 0) {return customMemberNo;}
+      
+      Map<String, Object> paramMap3 = new HashMap<>();
+      paramMap3.put("customMemberNo", customMemberNo);
+      paramMap3.put("stampCafeCardNo", stampCafeCardNo);
+      customCardDao.insert(paramMap3);
+      
+      return customMemberNo;
+    } catch(Exception e) {
+      throw new Exception("카드를 먼저 등록해 주세요.");
+    }
   }
   
   public List<CustomMember> getSrchListCustomMember(int cafeMemberNo) throws Exception {

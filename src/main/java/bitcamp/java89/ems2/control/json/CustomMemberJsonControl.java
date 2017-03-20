@@ -19,8 +19,12 @@ public class CustomMemberJsonControl {
   
   @RequestMapping(value = {"/admin/customMember/add", "/cstmr_m/customMember/addMyCard"})
   public AjaxResult add(CustomMember customMember, int cafeMemberNo) throws Exception {
-    int customMemberNo = customMemberService.add(customMember, cafeMemberNo);
-    return new AjaxResult(AjaxResult.SUCCESS, customMemberNo);
+    try {
+      int customMemberNo = customMemberService.add(customMember, cafeMemberNo);
+      return new AjaxResult(AjaxResult.SUCCESS, customMemberNo);
+    } catch (Exception e) {
+      return new AjaxResult(AjaxResult.FAIL, e);
+    }
   }
   
   @RequestMapping(value = {"/admin/customMember/srchList", "/cstmr_m/customMember/srchList"})

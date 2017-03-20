@@ -15,12 +15,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			tel: $('#custom-tel').val(),
 			cafeMemberNo: cafeMemberNo
 	    };
-	    console.log(param);
 	    
 	    
 	    $.post(serverRoot + '/customMember/add.json', param, function(ajaxResult) {
 	    	if (ajaxResult.status != "success") {
-	    		alert("등록실패");
+	    		alert(ajaxResult.data.message);
+	    		console.log(ajaxResult.data.message)
 	    		return;
 	    	}
 	    	swal({
