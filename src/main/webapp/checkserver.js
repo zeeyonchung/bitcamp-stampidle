@@ -73,6 +73,25 @@ app.get('/bitcamp_stampidle/admin/auth/checkCRN.do', function(req, resp){
 });
 
 
+
+app.get('/bitcamp_stampidle/cstmr_m/auth/checkTel.do', function(req, resp){
+	resp.writeHead(200, {
+		'Content-Type': 'text/html;charset=UTF-8',
+		'Access-Control-Allow-Origin': '*'
+	});
+	connection.query(
+	  'select count(*) as count from memb where tel=?', [req.query.tel],
+	  function(err, rows, fields) { // 서버에서 결과를 받았을 때 호출되는 함수
+		  if (err) {
+			  console.log(err);
+			  resp.end('서버 실행중 오류 발생!');
+			  return;
+		  }
+		  resp.end(JSON.stringify(rows[0].count));
+	  });
+});
+
+
 app.listen(8888, function() {
 	console.log('노드 서버 실행중...');
 });
