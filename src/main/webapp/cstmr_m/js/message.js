@@ -149,14 +149,16 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    }, 'json');
 	});
 	
-	
-	 $(".btn-goTop").ready(function(){
-	    $(window).scrollTop(0);
-	});
+	var $target = $('.btn-goTop');
+    $target.on('click', function(){
+        $('html, body').animate({'scrollTop' : 0}, 200);
+        return false;
+    });
+    
 	 $(function(){
 	        $(window).scroll(function() {
 	            if($(this).scrollTop() > 70){
-	                 $(".category").css({ "position": "fixed", "top": "0px", "z-index":"1000000","height":"95px"});
+	                 $(".category").css({ "position": "fixed", "top": "0px", "z-index":"100","height":"95px"});
 	            }else{
 	                 $(".category").css({"position": "static","height":"60px"});
 	                 
