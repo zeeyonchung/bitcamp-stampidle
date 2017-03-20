@@ -275,7 +275,13 @@ $('.btmsubmit').click (function(e) {
 			  console.log(e);
 		  },
 		  success: function(msg) {
-			  alert("카드 등록 완료");
+			  swal({
+				  title:"카드 등록이 완료되었습니다.",
+				  closeOnConfirm: true,
+				  type: "success"},
+				  function(isConfirm) {
+				  	location.href = clientRoot + "/cafeinfo/cafeinfo.html";
+				  });
 		  }
 		});
 	

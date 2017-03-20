@@ -232,7 +232,6 @@ function prepareNewForm() {
 					alert(ajaxResult.data);
 					return;
 				}
-				alert('cafe정보등록이 완료되었습니다.');
 			}, 'json');
 			
 			
@@ -255,7 +254,6 @@ function prepareNewForm() {
 							alert(ajaxResult.data);
 							return;
 						}
-						alert('시간등록 완료되었습니다.');
 					}, 'json');
 				};
 				
@@ -280,7 +278,6 @@ function prepareNewForm() {
 						alert(ajaxResult.data);
 						return;
 					}
-					alert('태그등록 완료되었습니다.');
 				}, 'json');
 				
 				
@@ -298,7 +295,6 @@ function prepareNewForm() {
 							alert(ajaxResult.data);
 							return;
 						}
-						alert('매장사진등록이 완료되었습니다.');
 					}, 'json');
 				} 
 				
@@ -320,12 +316,15 @@ function prepareNewForm() {
 							alert(ajaxResult.data);
 							return;
 						}
-						alert('메뉴등록이 완료되었습니다.');
 					}, 'json');
 				}
-				
-			
-			 location.href = clientRoot + "/cardadd/cardadd.html";
+				swal({
+					title:"카페정보 등록이 완료되었습니다.",
+					closeOnConfirm: true,
+					type: "success"},
+					function(isConfirm) {
+						location.href = clientRoot + "/cardadd/cardadd.html";
+					});
 		}); // click()
 	});
 }

@@ -77,9 +77,6 @@ $('.eventdetail #use-btn').click(function(e) {
 
 
 /** *** likecafe/likecafe.html **** */
-$('.likeCafe .list').click(function(e) {
-	location.href = '../cafeinfo/cafeinfo.html'
-});
 
 
 /** *** message/message.html **** */

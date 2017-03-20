@@ -135,6 +135,8 @@ function loadPage(){
 					'cafeMemberNo': cafeMemberNo,
 					'stampIssueCount' : stampIssueCount},
 			function(ajaxResult) {
+						swal({title:"도장이 발급되었습니다.",
+						type:"success"});
 				loadPage();
 			});
 		});
@@ -144,13 +146,16 @@ function loadPage(){
 		$('#reset-btn').click(function(event) {
 			event.stopImmediatePropagation();
 			if (currentStampCount != $('.stmpare').length) {
-				console.log('아직 리셋 할 수 없음...');
+				swal({title:"도장을 다 모으지 않았습니다.",
+					type:"warning"});
 				return;
 			}
 			$.getJSON(serverRoot + '/customCard/addNewCustomCard.json', 
 					{'customMemberNo': customMemberNo,
 					'cafeMemberNo': cafeMemberNo},
 				function(ajaxResult) {
+						swal({title:"무료쿠폰이 추가되었습니다.",
+							type:"success"});
 					loadPage();
 				}
 			);
@@ -199,13 +204,17 @@ function loadPage(){
 			var usedCardCount = parseInt($('.usecp').val());
 			
 			if (usedCardCount > parseInt($('.finish-coupon').text())) {
-				alert("사용 가능한 쿠폰 수를 초과하여 입력하셨습니다.");
+				swal({title:"사용 가능한 쿠폰 수를<br> 초과하여 입력하셨습니다.",
+					type:"warning",
+					html: true});
 				return;
 			} else if (usedCardCount <= 0 || usedCardCount == "") {
-				alert("사용 할 쿠폰 수를 입력해 주세요.");
+				swal({title:"사용 할 쿠폰 수를 입력해 주세요.",
+					type:"warning",
+					html: true});
 				return;
 			}
-			
+		
 			
 			$.getJSON(serverRoot + '/customCard/useCustomCard.json', 
 					{'customMemberNo': customMemberNo,
@@ -213,6 +222,8 @@ function loadPage(){
 					'usedCardCount': usedCardCount
 					},
 				function(ajaxResult) {
+						swal({title:"무료 쿠폰을 사용하였습니다.",
+							type:"success"});
 					loadPage();
 				}
 			);

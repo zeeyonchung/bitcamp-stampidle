@@ -20,11 +20,17 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    
 	    $.post(serverRoot + '/customMember/add.json', param, function(ajaxResult) {
 	    	if (ajaxResult.status != "success") {
-	    		alert(ajaxResult.data);
+	    		alert("등록실패");
 	    		return;
 	    	}
-	    	location.href = serverRoot + '/stampidle_cs/customerdetail.html?customMemberNo=' + ajaxResult.data;
-	    	alert('등록이 완료되었습니다.');
+	    	swal({
+				  title: "고객이 등록되었습니다",
+				  closeOnConfirm: true,
+				  type:"success"
+				},
+				function(isConfirm) {
+					location.href = serverRoot + '/stampidle_cs/customerdetail.html?customMemberNo=' + ajaxResult.data;
+				});
 	    }, 'json');
 	    
 	}); // click()
