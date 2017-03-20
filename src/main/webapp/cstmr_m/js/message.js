@@ -49,7 +49,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    	$.each(message, function(i){
 	    		$("<div class='one-msg' data-no='" + count++
 	    		+ "'><span class='msg-date'>" + message[i].uploadTime.slice(0,-2)
-	    		+ "</span><!--<div class='btn-delete'>x</div>--><div class='msg-left'>"
+	    		+ "</span><div class='btn-delete'>x</div><div class='msg-left'>"
 	    		+"<img src='../../upload/" +  message[i].logoPath
 	    		+ "' alt='cafeLogo' class='img-circle'></div>"
 	    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'>"  + message[i].cafeName
@@ -73,7 +73,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    		+ "</span><!--<div class='btn-delete'>x</div>--><div class='msg-left'>"
 	    		+"<img src='../../upload/" +  message[i].photoPath
 	    		+ "' alt='customer photo' class='img-circle'></div>"
-	    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'>"  + message[i].cafeName
+	    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'><span class='to'>To. </span>"  + message[i].cafeName
 	    		+ "</span></div><div class='pre-msg'>" + message[i].contents
 	    		+ "</div></div></div>").appendTo(".msgArea.sent");
 			});
@@ -150,4 +150,17 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	});
 	
 	
+	 $(".btn-goTop").ready(function(){
+	    $(window).scrollTop(0);
+	});
+	 
+	 $(function(){
+	        $(window).scroll(function() {
+	            if($(this).scrollTop() > 70){
+	                 $(".category").css({ "position": "fixed", "top": "0px", "z-index":"1000000", "background": "url(../image/category_bg.png)"});
+	            }else{
+	                 $(".category").css({"position": "static", "background-url":"url(../image/category_bg.png)", "border":"20x solid red" });
+	            }
+	        });
+	    });
 });

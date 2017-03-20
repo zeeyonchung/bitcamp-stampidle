@@ -1,54 +1,91 @@
 @CHARSET "UTF-8";
 
+/* body {
+	background: url("../image/messagepage.png") no-repeat center -5px;
+    background-size: 100% 736px;
+} */
 #container {
 	padding: 0;
 }
 
+.con {
+	width:100%;
+    background: url("../image/login_bg.png") no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
 
+.category {
+	width:100%;
+  padding: 0 3% 10px 3%;
+  display:inline-block;
+  background: url("../image/category_bg.png") repeat-x left top;
+  height:60px;
+}
 
-.cafetype {
-  border-bottom: 1px solid #eee;
-  padding: 5px 10px;
+.category:after {
+  display:block;
+  content:" ";
+  clear:both;
 }
 
 
 .btn-inbox, .btn-sent {
-  width: 70px;
-  height: 30px;
+  padding:5px 10px; 
   color: gray;
-  padding: 0;
   border-radius:5px;
-  border:1px solid #cfcfcf;
   float:left;
   text-align:center;
   line-height:28px;
   margin-right:5px;
   cursor:pointer;
+  background:#ff887c;
+  font-size:1.2em;
+  color:#fff;
+  margin-top:14px;
 }
 
 .select-category {
   color: #fff;
-  background-color: #9c9c9c;
-  border-color: #9c9c9c;
+  background-color: #ff4040;
 }
 
-
+.btn-goTop {
+	float:right;
+    margin-top:5px;
+    padding:4%;
+    z-index:100;
+}
+.btn-goTop img {
+    width:30px;
+    height:auto;
+}
 
 
 .msgArea {
     clear:both;
     display:none;
+    padding:0 4%;
 }
 
 
 .one-msg {
-	cursor:pointer;
+	cursor: pointer;
 	position: relative;
-	padding: 10px;
-  height: 90px;
-  border-bottom: 1px solid #eee;
+	padding: 4% 4% 6% 4%;
+	background: #fff;
+	border-radius:10px;
+	margin-bottom:10px;
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 }
-
+.one-msg:after {
+	display:block;
+	clear:both;
+	content:" ";
+}
 .one-msg:active {
   background-color: #f3f3f3;
 }
@@ -56,13 +93,14 @@
 .one-msg .msg-left {
   position: relative;
   display: inline-block;
-  margin-right: 2%;
+  margin-right: 3%;
 }
 
 .msg-left img {
-	width:65px;
-    height: 65px;
+	width:75px;
+    height: 75px;
 	vertical-align: inherit;
+	background:#f0f0f0;
 }
 
 
@@ -75,33 +113,46 @@
 
 
 .msg-content .sub {
+	width:80%;
   margin-bottom: 5px;
 }
 
 
 .msg-content .sub .cafe-name {
-  font-size: 1.24em;
+	margin-top:3px;
   font-weight: bold;
+  color:#222;
+  font-size:1.6em;
 }
 
+.msg-content .sub .cafe-name .to {
+    
+  font-size:0.8em;
+}
 
 .msg-date {
 	position: absolute;
-	top: 10px;
-	right: 10px;
-  font-size: 0.9em;
+	bottom: 15px;
+	right: 4%;
+  font-size: 0.8em;
   color: #b9b9b9;
 }
 
 .btn-delete {
 	position: absolute;
-    top: 30px;
-    right: 10px;
+    top: 3px;
+    right: 7px;
+    font-size:1.5em;
+    color:#999;
+    padding:2%;
+    line-height:100%;
 }
 
 .msg-content .pre-msg {
   display: inline-block;
   max-height: 42px;
+  color:#666;
+  font-size:1em;
 }
 
 
@@ -112,18 +163,21 @@
 .btn-write {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 4%;
     display: block;
-    width: 100px;
-    height: 100px;
-    background: #ff5948;
+    width: 75px;
+    height: 75px;
     border-radius: 100px;
     text-align: center;
     color: #fff !important;
     text-shadow: none;
     line-height: 100px;
-    text-decoration: none;
+    font-size:0;
     z-index:100;
+    background: url('../image/icon_write.png') no-repeat center center #ff5948;
+    background-size: 48% auto;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+    
 }
 
 .writeWrap {
