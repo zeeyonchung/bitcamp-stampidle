@@ -31,7 +31,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				alert(ajaxResult.data);
 				return;
 			}
-			alert('개인정보 변경이 완료되었습니다.');
+			location.href=serverRoot + '/main/main.html'
 		}, 'json'); 
 	});
 	$.getJSON(serverRoot + '/customMember/getOne.json?customMemberNo=' + userNo, function(ajaxResult) {

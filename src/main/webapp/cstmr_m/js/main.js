@@ -45,6 +45,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			
 			slide();
 			
+			
+			
+			
 			$.getJSON(serverRoot + '/event/getAllListBanner.json', function(ajaxResult){
 				var status = ajaxResult.status;
 				if(status != "success") {
@@ -55,11 +58,19 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				var eventdiv = $('.event-div');
 				var template = Handlebars.compile($('#trTemplate2').html());
 				eventdiv.append(template({"list": list}));
+				
+				
+				$('.eventBanner').click(function(event) {
+					event.preventDefault();
+					location.href = '../event/eventdetail.html?eventNo=' + $(this).attr("data-no");
+				});
+				
 			});
 	});
 	
 	
 });
+
 
 
 
@@ -101,6 +112,12 @@ function slide() {
         $(".stampNum .numAll").text(stampNumNumAllString);
         
         // stampNumS 스탬프개수 stampNum에 넣기(at sliding : search 'for cstmr_m/main.html by sinae' in slick.js)
+       
+        
+        $('.cafeName').click(function(event) {
+			event.preventDefault();
+			location.href = '../cafeinfo/cafeinfo.html?cafeMemberNo=' + $(this).attr("data-no");
+		});
     });
     
     

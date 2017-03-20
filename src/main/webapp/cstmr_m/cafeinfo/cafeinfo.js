@@ -11,6 +11,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	userNo = ajaxResult.data.customMemberNo;
 	var userName = ajaxResult.data.name;
 	
+	
+	$(window).scrollTop($(window).height);
 
 	// 1페이지 시작
 	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
