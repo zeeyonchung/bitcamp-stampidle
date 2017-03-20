@@ -31,7 +31,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				alert(ajaxResult.data);
 				return;
 			}
-			swal({title:"정보가 등록되었습니다.",
+			swal({title:"정보가 변경되었습니다.",
 				  type:"success"},
 				  function(isConfirm) {
 					  location.href=serverRoot + '/main/main.html';
