@@ -27,6 +27,46 @@ $('.login-btn').click(function() {
 $('#id').val(getCookie('id').replace(/"/g, ''));
 
 
+
+/*** 존재 여부 확인 ***/
+// 아이디 확인
+$('.register #id').keyup(function() {
+	console.log($(this).val())
+	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkId.do?id=' + $(this).val(),
+		function(result) {
+			if (result != 0) {
+				alert("이미 사용 중인 아이디입니다!");
+				$(this).val('');
+			}
+	})
+});
+
+// 핸드폰번호 확인
+$('.register #phone').keyup(function() {
+	console.log($(this).val())
+	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkPhone.do?phone=' + $(this).val(),
+		function(result) {
+			if (result != 0) {
+				alert("이미 사용 중인 번호입니다!");
+				$(this).val('');
+			}
+	})
+});
+
+// 사업자번호 확인
+$('.register #companyNo').keyup(function() {
+	console.log($(this).val())
+	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkCRN.do?crn=' + $(this).val(),
+		function(result) {
+			if (result != 0) {
+				alert("이미 등록된 사업자등록번호입니다!");
+				$(this).val('');
+			}
+	})
+});
+
+
+
 //회원가입
 $('#add-btn').click(function(event) {
 	event.preventDefault();

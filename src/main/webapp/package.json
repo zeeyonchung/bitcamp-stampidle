@@ -14,6 +14,9 @@
     "jquery": "^1.12.4",
     "handlebars": "^4.0.6",
     "blueimp-file-upload": "^9.15.0",
-    "jquery.ui.touch":""
+    "jquery.ui.touch":"",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mysql": "^2.13.0"
   }
 }
