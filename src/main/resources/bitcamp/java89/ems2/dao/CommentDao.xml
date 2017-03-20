@@ -29,7 +29,7 @@
     select 
       c.cono, c.cconts, c.star, c.ctime, m.name, m.nick, m.cphoto from coments c 
 	  left outer join memb m on c.mno = m.mno
-    where c.cmno=#{value}
+    where c.cmno=#{value} order by c.cono desc;
   </select>
   
   <select id="commentCount" parameterType="int" resultType="int">
