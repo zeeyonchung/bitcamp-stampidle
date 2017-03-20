@@ -31,7 +31,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				alert(ajaxResult.data);
 				return;
 			}
-			location.href=serverRoot + '/main/main.html'
+			swal({title:"정보가 등록되었습니다.",
+				  type:"success"},
+				  function(isConfirm) {
+					  location.href=serverRoot + '/main/main.html';
+					});
+			
 		}, 'json'); 
 	});
 	$.getJSON(serverRoot + '/customMember/getOne.json?customMemberNo=' + userNo, function(ajaxResult) {
