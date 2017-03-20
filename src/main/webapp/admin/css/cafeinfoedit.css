@@ -401,7 +401,7 @@ ul a {
 }
 
 .checkbox {
-  display:inline-block;
+  display:inline-block!important;
   margin-right: 12px;
 }
 .pbtn {
