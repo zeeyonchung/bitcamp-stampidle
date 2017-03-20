@@ -20,7 +20,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    
 	    $.post(serverRoot + '/customMember/add.json', param, function(ajaxResult) {
 	    	if (ajaxResult.status != "success") {
-	    		alert(ajaxResult.data);
+	    		alert("등록실패");
 	    		return;
 	    	}
 	    	swal({
