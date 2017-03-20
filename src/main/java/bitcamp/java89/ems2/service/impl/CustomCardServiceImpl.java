@@ -507,15 +507,15 @@ public class CustomCardServiceImpl implements CustomCardService {
       System.out.println("카드사용날짜 : " + cardList.getCardUseDate());
       // usedate 가 현재 날짜와 같은경우
       if((time).equals(cardList.getCardUseDate())) {
+          ++freeItem;
         ++visitMember;
-        ++freeItem;
       //stamp 생성일과 usedate가 현재 날짜와 같은경우
         for(Stamp stList : stampList) {
-          if(stList.getStampIssueDate() == time) {
+          if((time).equals(stList.getStampIssueDate())) {
             ++visitMember3;
-           
           }
         }
+        
       }
     //stamp 생성일이 현재날짜와 같은경우
       for(Stamp stList : stampList) {

@@ -64,7 +64,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 });
 
 
-$('#top-btn').click(function(event) {
-	$(window).scrollTop($(window).height);
+$('#top-btn').on('click',function(event) {
+	$('html, body').animate({'scrollTop' : 0}, 200);
+    return false;
 });
 

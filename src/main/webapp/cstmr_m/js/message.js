@@ -12,6 +12,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	$('.btn-inbox').click(function() {
 		if (!$('.btn-inbox').hasClass("select-category")) {
+			$(".msgArea.sent").html("");
 			getMsgInbox();
 			$('.btn-inbox').addClass("select-category");
 			$('.btn-sent').removeClass("select-category");
@@ -23,10 +24,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		if (!$('.btn-sent').hasClass("select-category")) {
 			$('.btn-sent').addClass("select-category");
 			$('.btn-inbox').removeClass("select-category");
+			$(".msgArea.sent").html("");
 			getMsgSent();
 			$(".sent").fadeIn(300);
 			$(".inbox").fadeOut(300);
 		}
+		
+
+    	
 	});
 	
 	/*var allBtnsDelete = $('.btn-delete');
@@ -56,6 +61,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    		+ "</span></div><div class='pre-msg'>" + message[i].contents
 	    		+ "</div></div></div>").appendTo(".msgArea.inbox");
 			});
+	    	
 		});
 	}
 	
@@ -66,9 +72,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			'sendMember': 'cstmr'
 		}, function(ajaxResult) {
 	    	var message = ajaxResult.data;
-	    	var count = 0;
 	    	$.each(message, function(i){
-	    		$("<div class='one-msg' data-no='" + count++
+	    		$("<div class='one-msg' data-no='" + message[i].messageNo
 	    	    + "'><span class='msg-date'>" + message[i].uploadTime.slice(0,-2)
 	    		+ "</span><!--<div class='btn-delete'>x</div>--><div class='msg-left'>"
 	    		+"<img src='../../upload/" +  message[i].photoPath
@@ -77,6 +82,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    		+ "</span></div><div class='pre-msg'>" + message[i].contents
 	    		+ "</div></div></div>").appendTo(".msgArea.sent");
 			});
+	    	
+	    	
 		});
 	}
 	
