@@ -29,9 +29,9 @@
 			<form class='mypage'>
 				<div class='my-photo'>
 					<div class='photo-are'>
-						<div class="btn btn-success fileinput-button fileinput-bg ">
 						<img id='photo-img'> 
 						  <span>&nbsp;</span>
+						  <div class="btn btn-success fileinput-button fileinput-bg ">
 						  <input id='fileupload' type='file' name='files'>
 						</div>
 					</div>
@@ -86,11 +86,6 @@
 	<script
 		src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
 	<script>
-		$('#camera-btn').click(function() {
-			document.getElementById("fileupload").click();
-		});
-	</script>
-	<script>
 	alert("test");
 		$('#fileupload').fileupload({
 			url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
@@ -111,7 +106,7 @@
 							console.log('미리보기 처리...');
 							var canvas = data.files[0].preview;
 							var dataURL = canvas.toDataURL();
-							img.attr('src', dataURL).css('width', '120px');
+							img.attr('src', dataURL).css('width', '120px').css( 'height', '120px').css('border-radius','100%');
 						}
 					}
 				});
