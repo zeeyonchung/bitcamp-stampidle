@@ -41,6 +41,7 @@
 		   </div>
 		</div>
     <!-- //btn_message 메시지팝업 -->
+<script src="../../node_modules/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 //sidebar link*******************************************
 $('.searchCstmr a').click(function(e) {
@@ -60,8 +61,14 @@ $('.btn_cafeInfo').click(function(e) {
    var cafeMemberNo = $('.cafeNm').attr("data-no");
    $.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult1) {
        if (ajaxResult1.status == "fail") {
-		  alert('등록된 카페정보가 없습니다. 입력페이지로 이동합니다.');
-		  location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
+    	   swal({title:"등록된 카페정보가 없습니다",
+               text: "카페정보 등록 페이지로 이동합니다.",
+               closeOnConfirm: true,
+               type:"warning"},
+               function(isConfirm) {
+                        location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
+               });
+    	   
 	   } else {
 	           location.href = clientRoot + '/cafeinfo/cafeinfo.html'
        }

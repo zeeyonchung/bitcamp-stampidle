@@ -39,7 +39,7 @@ $('.event-regi-btn').click(function() {
 			swal({
 				title:"이벤트 등록이 완료되었습니다.",
 				type:"success",
-				closeOnConfirm: false
+				closeOnConfirm: true
 			},
 			function(isConfirm) {
 				location.href = 'main.html';
