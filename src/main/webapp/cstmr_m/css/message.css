@@ -1,20 +1,19 @@
 @CHARSET "UTF-8";
 
-/* body {
-	background: url("../image/messagepage.png") no-repeat center -5px;
-    background-size: 100% 736px;
-} */
+body {
+	width:100%;
+    background: url("../image/login_bg.png") no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-position: center 50px;
+    background-size: cover;
+}
 #container {
 	padding: 0;
 }
 
 .con {
 	width:100%;
-    background: url("../image/login_bg.png") no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    background-position: center center;
-    background-size: cover;
     position: relative;
     padding-bottom:10px;
 }
