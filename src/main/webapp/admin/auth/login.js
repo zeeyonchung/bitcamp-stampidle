@@ -31,7 +31,6 @@ $('#id').val(getCookie('id').replace(/"/g, ''));
 /*** 존재 여부 확인 ***/
 // 아이디 확인
 $('.register #id').keyup(function() {
-	console.log($(this).val())
 	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkId.do?id=' + $(this).val(),
 		function(result) {
 			if (result != 0) {
@@ -43,7 +42,6 @@ $('.register #id').keyup(function() {
 
 // 핸드폰번호 확인
 $('.register #phone').keyup(function() {
-	console.log($(this).val())
 	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkPhone.do?phone=' + $(this).val(),
 		function(result) {
 			if (result != 0) {
@@ -55,7 +53,6 @@ $('.register #phone').keyup(function() {
 
 // 사업자번호 확인
 $('.register #companyNo').keyup(function() {
-	console.log($(this).val())
 	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkCRN.do?crn=' + $(this).val(),
 		function(result) {
 			if (result != 0) {
@@ -71,7 +68,7 @@ $('.register #companyNo').keyup(function() {
 $('#add-btn').click(function(event) {
 	event.preventDefault();
     var param = {
-    		id: $('#id3').val(),
+    		id: $('#id').val(),
     		cellNo: $('.form-group #phone').val(),
     		companyNo: $('.form-group #companyNo').val(),
     		Email: $('.form-group #email').val(),
