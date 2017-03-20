@@ -13,11 +13,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    'cafeMemberNo': cafeMemberNo
 	    }, function(ajaxResult) {
 	   var message = ajaxResult.data;
+	   console.log(message);
 
 	   $('.name').text(message[0].cafeName);
        $.each(message, function(i){
 			if (message[i].sendMember == "cafe") {
-    			$("<div class='mewrap'><img class='img-circle' src='../../upload/" +  message[i].logoPath
+    			$("<div data-no:class='mewrap'><img class='img-circle' src='../../upload/" +  message[i].logoPath
 	    		+ "' alt='cafeLogo'><div class='bubble me'>" + message[i].contents
 	    		+"</div><div class='time'>" +  message[i].uploadTime
 	    		+ "</div></div>").appendTo(".chat");

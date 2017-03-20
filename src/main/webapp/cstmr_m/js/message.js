@@ -27,6 +27,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$(".sent").fadeIn(300);
 			$(".inbox").fadeOut(300);
 		}
+		
+
+    	
 	});
 	
 	/*var allBtnsDelete = $('.btn-delete');
@@ -47,15 +50,16 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	    	var message = ajaxResult.data;
 	    	var count = 0;
 	    	$.each(message, function(i){
-	    		$("<div class='one-msg' data-no='" + count++
-	    		+ "'><span class='msg-date'>" + message[i].uploadTime.slice(0,-2)
-	    		+ "</span><div class='btn-delete'>x</div><div class='msg-left'>"
-	    		+"<img src='../../upload/" +  message[i].logoPath
-	    		+ "' alt='cafeLogo' class='img-circle'></div>"
-	    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'>"  + message[i].cafeName
-	    		+ "</span></div><div class='pre-msg'>" + message[i].contents
-	    		+ "</div></div></div>").appendTo(".msgArea.inbox");
+	    		$(".msgArea.inbox").html("<div class='one-msg' data-no='" + count++
+	    	    		+ "'><span class='msg-date'>" + message[i].uploadTime.slice(0,-2)
+	    	    		+ "</span><div class='btn-delete'>x</div><div class='msg-left'>"
+	    	    		+"<img src='../../upload/" +  message[i].logoPath
+	    	    		+ "' alt='cafeLogo' class='img-circle'></div>"
+	    	    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'>"  + message[i].cafeName
+	    	    		+ "</span></div><div class='pre-msg'>" + message[i].contents
+	    	    		+ "</div></div></div>");
 			});
+	    	
 		});
 	}
 	
@@ -66,17 +70,18 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			'sendMember': 'cstmr'
 		}, function(ajaxResult) {
 	    	var message = ajaxResult.data;
-	    	var count = 0;
 	    	$.each(message, function(i){
-	    		$("<div class='one-msg' data-no='" + count++
-	    	    + "'><span class='msg-date'>" + message[i].uploadTime.slice(0,-2)
-	    		+ "</span><!--<div class='btn-delete'>x</div>--><div class='msg-left'>"
-	    		+"<img src='../../upload/" +  message[i].photoPath
-	    		+ "' alt='customer photo' class='img-circle'></div>"
-	    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'><span class='to'>To. </span>"  + message[i].cafeName
-	    		+ "</span></div><div class='pre-msg'>" + message[i].contents
-	    		+ "</div></div></div>").appendTo(".msgArea.sent");
+	    		$(".msgArea.sent").html("<div class='one-msg' data-no='" + message[i].messageNo
+	    	    	    + "'><span class='msg-date'>" + message[i].uploadTime.slice(0,-2)
+	    	    		+ "</span><!--<div class='btn-delete'>x</div>--><div class='msg-left'>"
+	    	    		+"<img src='../../upload/" +  message[i].photoPath
+	    	    		+ "' alt='customer photo' class='img-circle'></div>"
+	    	    		+"<div class='msg-content'><div class='sub'><span class='cafe-name'><span class='to'>To. </span>"  + message[i].cafeName
+	    	    		+ "</span></div><div class='pre-msg'>" + message[i].contents
+	    	    		+ "</div></div></div>");
 			});
+	    	
+	    	
 		});
 	}
 	
