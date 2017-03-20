@@ -96,7 +96,7 @@
   
   <update id="updateMinusMcuse" parameterType="int">
     UPDATE mcard 
-    SET mcuse = 0
+    SET mcuse = 0, usedate=curDate()
     WHERE mcno=#{usedCustomCardNo}
   </update>
   
