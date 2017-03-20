@@ -36,10 +36,23 @@ $('.event-regi-btn').click(function() {
     
     $.post(serverRoot + '/event/add.json', param, function(ajaxResult) {
     	if (ajaxResult.status != "success") {
-    		alert(ajaxResult.data);
-    		return;
+    		swal({title:"등록을 실패했습니다.",
+  			  type:"error",
+  			  closeOnConfirm: true},
+  			  function(isConfirm) {
+  				  return;
+  			  });
+  	} else {
+  		swal({
+				  title:"이벤트 등록이 완료되었습니다.",
+				  type:"success",
+				  closeOnConfirm: true,
+				  timer: 2000
+				},
+				function(isConfirm) {
+					location.href = 'main.html';
+				});
     	}
-    	location.href = 'main.html';
     }, 'json');
     
 }); // click()

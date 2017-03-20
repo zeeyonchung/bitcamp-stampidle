@@ -9,14 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "blueimp-file-upload": "^9.15.0",
+    "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "handlebars": "^4.0.6",
     "highcharts": "^5.0.7",
     "jquery": "^1.12.4",
-    "handlebars": "^4.0.6",
-    "blueimp-file-upload": "^9.15.0",
-    "jquery.ui.touch":"",
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2",
-    "mysql": "^2.13.0"
+    "jquery.ui.touch": "",
+    "mysql": "^2.13.0",
+    "sweetalert": "^1.1.3"
   }
 }

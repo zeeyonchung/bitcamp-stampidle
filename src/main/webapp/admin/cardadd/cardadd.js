@@ -270,7 +270,13 @@ $('.btmsubmit').click (function() {
 			}, 'json');
 		}
 	}, 'json');
-	alert("카드등록완료");
+	swal({
+		title:"카드 등록이 완료되었습니다.",
+		closeOnConfirm: true,
+		type: "success"},
+		function(isConfirm) {
+			location.href = clientRoot + "/cafeinfo/cafeinfo.html";
+		});
 });
 
 
