@@ -153,13 +153,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	 $(".btn-goTop").ready(function(){
 	    $(window).scrollTop(0);
 	});
-	 
 	 $(function(){
 	        $(window).scroll(function() {
 	            if($(this).scrollTop() > 70){
-	                 $(".category").css({ "position": "fixed", "top": "0px", "z-index":"1000000", "background": "url(../image/category_bg.png)"});
+	                 $(".category").css({ "position": "fixed", "top": "0px", "z-index":"1000000","height":"95px"});
 	            }else{
-	                 $(".category").css({"position": "static", "background-url":"url(../image/category_bg.png)", "border":"20x solid red" });
+	                 $(".category").css({"position": "static","height":"60px"});
+	                 
 	            }
 	        });
 	    });
