@@ -11,7 +11,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var userTel = userData.tel;
 	
 	console.log(userNo, userName, userTel);
-	
+	$('.nameTop').text(userName);
 	$('.name').val(userName);
 	$('.tel').val(userTel);
 	
@@ -41,9 +41,11 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var photo = myData.photoPath;
 		$('.nickname').val(nick);
 		$('.email').val(mail);
-		
-	    $('#photo-img').attr("src", '../../upload/' + myData.photoPath).css('width', '100%').css(
-			'max-height', '100px').css('border-radius','100%');
+		if (myData.photoPath == null) {
+			$('#photo-img').hide();
+		} else {
+			$('#photo-img').attr("src", '../../upload/' + myData.photoPath);
+		}
 	});
 });
 
