@@ -43,22 +43,18 @@
 						<div class="btn btn-success fileinput-button fileinput-bg ">
 						  <span>&nbsp;</span>
 						  <input id='fileupload' type='file' name='files'>
-						<!-- 	<img src='../image/w-camera.png' width='20' height='20'> -->
 						</div>
 					</div>
+					<div class='nameTop'></div>
 				</div>
 				<div class='input-are'>
 					<ul>
-						<li>*이름<input class='name'></li>
-						<div class='under-bar'></div>
-						<li>*전화번호<input class='tel'></li>
-						<div class='under-bar'></div>
-						<li>닉네임<input class='nickname' placeholder='닉네임을 입력해주세요'></li>
-						<div class='under-bar'></div>
-						<li>이메일<input class='email' placeholder='이메일을 입력해주세요'></li>
-						<div class='under-bar'></div>
-						<input id='photo-path' type='hidden'>
+						<li><input class='name' placeholder="이름"></li>
+						<li><input class='tel' placeholder="전화번호"></li>
+						<li><input class='nickname' placeholder="닉네임"placeholder='닉네임을 입력해주세요'></li>
+						<li><input class='email' placeholder='이메일'></li>
 					</ul>
+					<input id='photo-path' type='hidden'>
 				</div>
 				<button class='submit' type='submit'>변경사항 저장</button>
 			</form>
@@ -114,6 +110,7 @@
 		    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 		      console.log('done()...');
 		      console.log(data.result);
+              $('#photo-img').show();
 		        $('#photo-path').val(data.result.data[0]);
 					},
 					processalways : function(e, data) {
@@ -124,7 +121,7 @@
 							var canvas = data.files[0].preview;
 							var dataURL = canvas.toDataURL();
 							img.attr('src', dataURL).css('width', '100%').css(
-									'max-height', '100px').css('border-radius',
+									'max-height', '120px').css('border-radius',
 									'100%');
 						}
 					}

@@ -1,21 +1,27 @@
 @CHARSET "UTF-8";
-
+.body {
+	
+}/* 
+.con {
+	background: url('../image/profilepage.png') no-repeat;
+	background-size: 100% 100%;
+} */
 .my-photo {
   height: 230px;
   margin: auto;
   padding-top: 35px;
-  background-image: url('../image/coffee.jpg');
+  background-image: url('../image/profile_bg_top.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 .photo-are {
 	position:relative;
-	width: 100px;
-  height: 100px;
+	width: 120px;
+  height: 120px;
   margin: auto;
-  margin-top: 25px;
-  border-radius: 50px;
+  margin-top: 43px;
+  border-radius: 120px;
   background-color: #ddd;
   background-image: url('../image/profile.png');
   background-size: 60% 70%;
@@ -29,68 +35,112 @@
   top:0;
   left:0;
   z-index:100;
+  width:100%;
+  max-height:120px;
+  border-radius:120px;
 }
 
+.nameTop {
+	margin-top:15px;
+    text-align:center;
+   font-size:1.6em;
+   font-weight:bold;
+}
+
+.btn-success {
+    border:none;
+}
+.btn-success:hover {
+    border:none;
+    background-color:#ff4040;
+}
 .camera-btn {
 	position: absolute;
-	border: 1px solid gray;
 	border-radius: 100%;
-	width: 35px;
-	height: 35px;
+	width: 50px;
+	height: 50px;
 	background-color: gray;
-	margin-left: 90px;
-	margin-top: 40px;
+	margin-left: 50px;
+	margin-top: 00px;
 	box-shadow: 0px 0px 0px 5px rgb(255,255,255);
 }
-
 .input-are {
-	width: 90%;
+	clear:both;
+	width: 100%;
 	margin: auto;
-	margin-top: 20px;
+	padding-top: 100px;
 	margin-bottom: 60px;
 }
 
-.under-bar {
-	border: 1px solid #ddd;
-	margin-top: 15px;
-	margin-bottom: 15px;
+.input-are ul {
+	width:100%;
 }
-
-li {
+.input-are ul li {
+	positon:relative;
+	width:100%;
+	text-align:center;
+	height: 45px;
 	font-size: 15px;
-	color: gray;
+	color: #888;
+	border-top: 2px solid #eee;
+}
+.input-are ul li:after {
+	display:inline-block;
+    width:30px;
+    height:30px;
+    content:" ";
+    background: url('../image/icon_edit.png') no-repeat;
+    background-size: 70% 70%;
+}
+.input-are ul li input {
+	positon:absolute;
+	top:-22px;
+	display:inline-block;
+	margin-top:-0px;
+	width: 70%!important;
+	height: 45px;
+	width: 100%;
+	text-align:center;
+	font-size:1.2em;
 }
 
-input {
-	height: 40px;
-	width: 70%;
+.input-are ul li input:after {
+	
+    width:30px;
+    height:30px;
+    content:" ";
+    background: url('../image/icon_edit.png') no-repeat;
+    background-size: 70% 70%;
 }
 
-.name {
-	margin-left: 60px;
+.name:before {
+	font-family:"FontAwesome";
+    content: "/f005";
 }
 
 .tel {
-	margin-left: 30px;
+	font-family:"FontAwesome";
+    content: "/f005";
 }
 
 .nickname {
-	margin-left: 50px;
 }
 
 .email {
-	margin-left: 50px;
 }
 
 
 .submit {
-	display:inherit;
-	border: none;
-	margin: auto;
-	color: white;
-	background-color: rgb(255,90,73);
-	border-radius: 50px;
-	width: 60%;
-	height: 50px;
-	font-size: 17px;
+  display: block;
+  clear: left;
+  margin: auto;
+  margin-top: 20px;
+  border: 2px solid #ff5948;
+  border-radius: 10px;
+  color: #ff5948;
+  background-color:rgba(255,255,255,0);
+  width: 60%;
+  height: 45px;
+  text-align: center;
+  font-size:1.2em;
 }
