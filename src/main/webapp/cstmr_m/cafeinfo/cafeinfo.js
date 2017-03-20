@@ -94,6 +94,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	// 2페이지 시작
 	$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		
 		var menuInfo = (ajaxResult.data);
 			var menudiv = $('.menuList');
 			var template = Handlebars.compile($('#menuTemplate').html());
