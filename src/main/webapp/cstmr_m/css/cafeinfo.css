@@ -2,6 +2,10 @@
 	margin-bottom:5px;
 }
 
+body {
+    background: url("../image/detailpage.jpg") no-repeat center 0px;
+    background-size: 100% 667px;
+} 
 /************ 카페소개 ************/
 
 .intro {

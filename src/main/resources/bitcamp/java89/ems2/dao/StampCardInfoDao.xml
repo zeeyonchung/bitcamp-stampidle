@@ -44,9 +44,12 @@
     values(#{cafeMemberNo}, #{frontImgPath}, #{backImgPath}, #{stampCount}, #{stampImgPath}, #{service})
   </insert>
   
-  <insert id="insertPosition" parameterType="stampPosition">
+  <insert id="insertPosition" parameterType="stampCardInfo">
     insert into stposi(posix, posiy, stampod, scno)
-    values (#{positionX}, #{positionY}, #{positionOrder}, #{stampCafeCardNo})
+    values
+    <foreach collection="stampPositionList" item="stampPosition" separator=",">
+      (#{stampPosition.positionX}, #{stampPosition.positionY}, #{stampPosition.positionOrder}, #{stampCafeCardNo})
+    </foreach>
   </insert>
   
   <select id="getCardInfo" parameterType="int" resultMap="stampCardInfo-map">

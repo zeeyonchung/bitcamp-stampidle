@@ -230,53 +230,61 @@ var stampCafeCardNo = 0;
 
 
 
-$('.btmsubmit').click (function() {
+$('.btmsubmit').click (function(e) {
+	e.preventDefault();
+	e.stopImmediatePropagation();
 	
+	var stampPositionList = [];
+	
+	for(i=0; i < stampNo; i++) {
+		var p = $('.stampNo' + i);
+		var positionX = p.position().left / $('.stmpside').css('width').split('px')[0];
+		var positionY = p.position().top / $('.stmpside').css('height').split('px')[0];
+		var paramPosition = {
+				"stampCafeCardNo": stampCafeCardNo,
+				"positionX": positionX,
+				"positionY": positionY,
+				"positionOrder": $('.stampNo' + i).text()
+		};
+		
+		stampPositionList.push(paramPosition);
+	}
+
 	var paramCard = {
 			"cafeMemberNo": cafeMemberNo,
 			"stampCount": $('.midNum').text(),
 			"frontImgPath": $('#front-photo-path').val(),
 			"backImgPath": $('#back-photo-path').val(),
 			"stampImgPath": $('#photo-path').val(),
-			"service": $('.service').text()
+			"service": $('.service').text(),
+			"stampPositionList": stampPositionList
 	};
+	
 	console.log(paramCard);
-	$.post(serverRoot + '/cardadd/add.json', paramCard, function(ajaxResult) {
-		if (ajaxResult.status != "success") {
-			alert(ajaxResult.data);
-			return;
-		}
-		stampCafeCardNo = ajaxResult.data;
-		
-		
-		for(i=0; i < stampNo; i++) {
-			var p = $('.stampNo' + i);
-			var positionX = p.position().left / $('.stmpside').css('width').split('px')[0];
-			var positionY = p.position().top / $('.stmpside').css('height').split('px')[0];
-			var paramPosition = {
-					"stampCafeCardNo": stampCafeCardNo,
-					"positionX": positionX,
-					"positionY": positionY,
-					"positionOrder": $('.stampNo' + i).text()
-			};
-			
-			console.log(paramPosition);
-			$.post(serverRoot + '/cardadd/addStampPosition.json', paramPosition, function(ajaxResult) {
-				if (ajaxResult.status != "success") {
-					alert(ajaxResult.data);
-					return;
-				}
-				//location.href = '../cafeinfoedit/cafeinfoedit.html?cafeMemberNo=' + cafeMemberNo;
-			}, 'json');
-		}
-	}, 'json');
-	swal({
-		title:"카드 등록이 완료되었습니다.",
-		closeOnConfirm: true,
-		type: "success"},
-		function(isConfirm) {
-			location.href = clientRoot + "/cafeinfo/cafeinfo.html";
+	
+	$.ajaxSettings.traditional = true;
+	
+	$.ajax({
+		  type: 'POST',
+		  url: serverRoot + '/cardadd/add.json',
+		  data: JSON.stringify(paramCard),
+		  dataType: "json",
+		  accepts: 'application/json',
+		  contentType: "application/json; charset=UTF-8",
+		  error: function(e) {
+			  console.log(e);
+		  },
+		  success: function(msg) {
+			  swal({
+				  title:"카드 등록이 완료되었습니다.",
+				  closeOnConfirm: true,
+				  type: "success"},
+				  function(isConfirm) {
+				  	location.href = clientRoot + "/cafeinfo/cafeinfo.html";
+				  });
+		  }
 		});
+	
 });
 
 

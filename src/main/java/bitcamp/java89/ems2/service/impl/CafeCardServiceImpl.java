@@ -9,7 +9,6 @@ import bitcamp.java89.ems2.dao.CafeDao;
 import bitcamp.java89.ems2.dao.CafeMemberDao;
 import bitcamp.java89.ems2.dao.StampCardInfoDao;
 import bitcamp.java89.ems2.domain.StampCardInfo;
-import bitcamp.java89.ems2.domain.StampPosition;
 import bitcamp.java89.ems2.service.CafeCardService;
 
 @Service
@@ -22,15 +21,10 @@ public class CafeCardServiceImpl implements CafeCardService {
   @Override
   public int add(StampCardInfo stampCardInfo) throws Exception {
     stampCardInfoDao.insert(stampCardInfo);
+    stampCardInfoDao.insertPosition(stampCardInfo);
     return stampCardInfo.getStampCafeCardNo();
   }
 
-
-  @Override
-  public void addPosition(StampPosition stampPosition) throws Exception {
-	stampCardInfoDao.insertPosition(stampPosition);
-  }
-  
   @Override
   public StampCardInfo getCardInfo(int cafeMemberNo) throws Exception {
   	return stampCardInfoDao.getCardInfo(cafeMemberNo);

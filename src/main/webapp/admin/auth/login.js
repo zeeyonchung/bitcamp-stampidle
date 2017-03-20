@@ -95,12 +95,12 @@ $('#add-btn').click(function(event) {
     
     $.post(serverRoot + '/cafeMember/add.json', param, function(ajaxResult) {
     	if (ajaxResult.status != "success") {
-    		alert(ajaxResult.data);
+    		swal("이미 가입된 회원입니다.");
     		return;
     	}
     	$('.loginPop').fadeOut(200);
         $('.register').css('display', 'none');
-    	alert('등록이 완료되었습니다.');
+        swal("가입이 완료되었습니다.", "로그인하여 바로 스탬피들을 이용하세요", "success")
     }, 'json');
     
 }); // click()
