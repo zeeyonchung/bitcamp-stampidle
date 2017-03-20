@@ -14,16 +14,6 @@
 <link rel="stylesheet" href="../css/tab_swipe.css">
 <link rel="stylesheet" href="../css/mypage.css">
 <style>
-.fileinput-bg {
-  border-radius: 100%;
-  background: url('../image/w-camera.png') no-repeat;
-  background-size: 20px 20px;
-  background-color: gray;
-  background-position: center;
-  margin-left: 75px;
-  margin-top: 75px;
-  z-index: 10000;
-}
 </style>
 
 </head>
@@ -39,8 +29,8 @@
 			<form class='mypage'>
 				<div class='my-photo'>
 					<div class='photo-are'>
-						<img id='photo-img'> 
 						<div class="btn btn-success fileinput-button fileinput-bg ">
+						<img id='photo-img'> 
 						  <span>&nbsp;</span>
 						  <input id='fileupload' type='file' name='files'>
 						</div>
@@ -101,6 +91,7 @@
 		});
 	</script>
 	<script>
+	alert("test");
 		$('#fileupload').fileupload({
 			url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
 		    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
@@ -120,9 +111,7 @@
 							console.log('미리보기 처리...');
 							var canvas = data.files[0].preview;
 							var dataURL = canvas.toDataURL();
-							img.attr('src', dataURL).css('width', '100%').css(
-									'max-height', '120px').css('border-radius',
-									'100%');
+							img.attr('src', dataURL).css('width', '120px');
 						}
 					}
 				});

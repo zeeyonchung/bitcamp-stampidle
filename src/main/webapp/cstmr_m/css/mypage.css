@@ -1,10 +1,10 @@
 @CHARSET "UTF-8";
 .body {
-	
+    
 }/* 
 .con {
-	background: url('../image/profilepage.png') no-repeat;
-	background-size: 100% 100%;
+    background: url('../image/profilepage.png') no-repeat;
+    background-size: 100% 100%;
 } */
 .my-photo {
   height: 230px;
@@ -16,8 +16,8 @@
 }
 
 .photo-are {
-	position:relative;
-	width: 120px;
+    position:relative;
+    width: 120px;
   height: 120px;
   margin: auto;
   margin-top: 43px;
@@ -35,77 +35,95 @@
   top:0;
   left:0;
   z-index:100;
-  width:100%;
-  max-height:120px;
+  width:120px;
+  height:120px;
   border-radius:120px;
 }
 
 .nameTop {
-	margin-top:15px;
+    margin-top:15px;
     text-align:center;
    font-size:1.6em;
    font-weight:bold;
 }
-
 .btn-success {
-    border:none;
-}
-.btn-success:hover {
+    position: absolute;
+    top:-70px;
+    right:-20px;
     border:none;
     background-color:#ff4040;
+    width:50px;
+    height:50px;
+    
+}
+.btn-success:hover, .btn-success:active,  .btn-success:visited  {
+    border:none;
+    background-color:#ff4040!important;
 }
 .camera-btn {
-	position: absolute;
-	border-radius: 100%;
-	width: 50px;
-	height: 50px;
-	background-color: gray;
-	margin-left: 50px;
-	margin-top: 00px;
-	box-shadow: 0px 0px 0px 5px rgb(255,255,255);
+    border-radius: 100%;
+    width: 0;
+    height: 50px;
+    margin-top: 00px;
+    box-shadow: 0px 0px 0px 5px rgb(255,255,255);
+    background-color:#ff4040;
 }
+
+.fileinput-bg {
+  border-radius: 100%;
+  background: url('../image/w-camera.png') no-repeat;
+  background-size: 25px 25px;
+  background-position: center;
+  background-color:#ff4040;
+  margin-left: 75px;
+  margin-top: 75px;
+  z-index: 10000;
+}
+
+
 .input-are {
-	clear:both;
-	width: 100%;
-	margin: auto;
-	padding-top: 100px;
-	margin-bottom: 60px;
+    clear:both;
+    width: 100%;
+    margin: auto;
+    padding-top: 70px;
 }
 
 .input-are ul {
-	width:100%;
+    width:100%;
+    border-top: 2px solid #eee;
 }
 .input-are ul li {
-	positon:relative;
-	width:100%;
-	text-align:center;
-	height: 45px;
-	font-size: 15px;
-	color: #888;
-	border-top: 2px solid #eee;
+    positon:relative;
+    width:100%;
+    text-align:center;
+    height: 45px;
+    font-size: 15px;
+    color: #888;
+    border-bottom: 2px solid #eee;
+}
+.input-are ul li:last-child {
+    height: 47px;
 }
 .input-are ul li:after {
-	display:inline-block;
+    display:inline-block;
+    position:absolute;
     width:30px;
-    height:30px;
+    height:45px;
     content:" ";
-    background: url('../image/icon_edit.png') no-repeat;
-    background-size: 70% 70%;
+    background: url('../image/icon_edit.png') no-repeat center 10px;
+    background-size: 70% auto;
+    right:50px;
+    
 }
 .input-are ul li input {
-	positon:absolute;
-	top:-22px;
-	display:inline-block;
-	margin-top:-0px;
-	width: 70%!important;
-	height: 45px;
-	width: 100%;
-	text-align:center;
-	font-size:1.2em;
+    width: 70%!important;
+    height: 45px;
+    width: 100%;
+    text-align:center;
+    font-size:1.2em;
 }
 
 .input-are ul li input:after {
-	
     width:30px;
     height:30px;
     content:" ";
@@ -113,14 +131,17 @@
     background-size: 70% 70%;
 }
 
-.name:before {
-	font-family:"FontAwesome";
-    content: "/f005";
+.input-are ul li:nth-child(1):before, .input-are ul li:nth-child(2):before {
+    font-family:"FontAwesome";
+    content: "\f005";
+    line-height:42px;
+    color:#ff5948;
+}
+
+.name {
 }
 
 .tel {
-	font-family:"FontAwesome";
-    content: "/f005";
 }
 
 .nickname {
@@ -134,7 +155,7 @@
   display: block;
   clear: left;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 80px;
   border: 2px solid #ff5948;
   border-radius: 10px;
   color: #ff5948;
