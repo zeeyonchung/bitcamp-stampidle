@@ -17,264 +17,264 @@
 </head>
 
 <body>
-	<div class='container'>
-		<div id='header'></div>
-		<div id='sidebar'></div>
+  <div class='container'>
+    <div id='header'></div>
+    <div id='sidebar'></div>
 
 
-		<div id="content">
-			<div class='con'>
+    <div id="content">
+      <div class='con'>
 
-				<!-- 고객관리 메뉴 -->
-				<nav class='manage-navi'>
-					<ul>
-						<li class='title'><a href='#'>카페정보 <span class='add'>등록</span><span class='edit'>변경</span></a></li>
-						<li class="one"><a href="">기본정보</a></li>
-						<span style='color: rgb(190, 190, 190);'>|</span>
-						<li class="two"><a href="">카드정보</a></li>
-						<hr class='underline' />
-					</ul>
-					<hr>
-				</nav>
-				<!-- 고객관리 메뉴 -->
-				
-				
-				<!-- 카페이름 -->
-				<div class='cafe-name box'>
-					<div class="tit">카페이름*</div>
-					<div class="inputArea">
-						<input type="text" class="form-control" placeholder="내용을 입력해 주세요" id='cafeName'> 
-						<span class="info-subtext">(한글 기준 25자 이내)</span>
-					</div> 
-				</div>
-				<!-- 카페이름 -->
-				
-				
-				<!-- 카테고리 -->
-				<div class='tag box'>
-					<div class="tit">카테고리*</div>
-					<div class="checkbox">
+        <!-- 고객관리 메뉴 -->
+        <nav class='manage-navi'>
+          <ul>
+            <li class='title'><a href='#'>카페정보 <span class='add'>등록</span><span class='edit'>변경</span></a></li>
+            <li class="one"><a href="">기본정보</a></li>
+            <span style='color: rgb(190, 190, 190);'>|</span>
+            <li class="two"><a href="">카드정보</a></li>
+            <hr class='underline' />
+          </ul>
+          <hr>
+        </nav>
+        <!-- 고객관리 메뉴 -->
+        
+        
+        <!-- 카페이름 -->
+        <div class='cafe-name box'>
+          <div class="tit">카페이름*</div>
+          <div class="inputArea">
+            <input type="text" class="form-control" placeholder="내용을 입력해 주세요" id='cafeName'> 
+            <span class="info-subtext">(한글 기준 25자 이내)</span>
+          </div> 
+        </div>
+        <!-- 카페이름 -->
+        
+        
+        <!-- 카테고리 -->
+        <div class='tag box'>
+          <div class="tit">카테고리*</div>
+          <div class="checkbox">
                         <label><input type="checkbox" id="study" value='스터디' aria-label="..." > 스터디카페</label>
                     </div>
-					<div class="checkbox">
-						<label><input type="checkbox" id="24h" value='24시간' aria-label="..."> 24시간카페</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" id="book" value='북카페' aria-label="..."> 북카페</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" id="pet" value='애견카페' aria-label="..."> 애견카페</label>
-					</div>
+          <div class="checkbox">
+            <label><input type="checkbox" id="24h" value='24시간' aria-label="..."> 24시간카페</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" id="book" value='북카페' aria-label="..."> 북카페</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" id="pet" value='애견카페' aria-label="..."> 애견카페</label>
+          </div>
 
-					<div class="checkbox_self">
-						<label>
-						  <input type="checkbox" id="self" aria-label="..."> 
-						  직접입력 
-						  <input type="text" class="inperson" placeholder="내용을 입력해 주세요">
-						</label>
-					</div>
-				</div>
-				<!-- 카테고리 -->
-				<!-- 소개글 -->
-				<div class='cafe-name2 box'>
-					<div class="tit">소개글</div>
-					<div class='cafe-introdiv'>
-						<textarea id="introcafe" class="form-control" placeholder="내용을 입력해 주세요"></textarea>
-					</div>
-					<div class="intro-subtext">
-						<span class="info-subtext">카페 페이지 카페이름 아래에 반영됩니다.<br></span>
-						<span class="info-subtext">(한글 기준 200자 이내)</span>
-					</div>
-				</div>
-				<!-- 소개글 -->
-
-
-				<!-- 영업시간 -->
-				<div class="work-time box">
-					<div class="tit">영업시간</div>
-					<div class="inputArea pre-set-before">
-						<div id="pre_set">
-							<div class="select1">
-
-								<select class="form-control" id='day'>
-									<option>매일</option>
-									<option>평일</option>
-									<option>주말</option>
-									<option>월요일</option>
-									<option>화요일</option>
-									<option>수요일</option>
-									<option>목요일</option>
-									<option>금요일</option>
-									<option>토요일</option>
-									<option>일요일</option>
-								</select>
-							</div>
-							<div class="select1">
-								<select class="form-control" id='startTime1'>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-									<option>7</option>
-									<option>8</option>
-									<option>9</option>
-									<option>10</option>
-									<option>11</option>
-									<option>12</option>
-								</select>
-							</div>
-							:
-							<div class="select2">
-								<select class="form-control" id='startTime2'>
-									<option>00</option>
-									<option>10</option>
-									<option>20</option>
-									<option>30</option>
-									<option>40</option>
-									<option>50</option>
-								</select>
-							</div>
-							~
-							<div class="select2">
-								<select class="form-control" id='endTime1'>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-									<option>7</option>
-									<option>8</option>
-									<option>9</option>
-									<option>10</option>
-									<option>11</option>
-									<option>12</option>
-								</select>
-							</div>
-							:
-							<div class="select2">
-								<select class="form-control" id='endTime2'>
-									<option>00</option>
-									<option>10</option>
-									<option>20</option>
-									<option>30</option>
-									<option>40</option>
-									<option>50</option>
-								</select>
-							</div>
-							<input class="plusBtn remove" type="button" value="-" onclick="remove_item(this)">
-						</div>
-
-						<div id="field" class='field'></div>
-					</div>
-
-					<input class="plusBtn" type="button" value="+" onclick="add_item()"><br>
-					<span class="worktime-addtext">설정 시간에 따라 통계가 이루어 집니다.</span>
-				</div>
+          <div class="checkbox_self">
+            <label>
+              <input type="checkbox" id="self" aria-label="..."> 
+              직접입력 
+              <input type="text" class="inperson" placeholder="내용을 입력해 주세요">
+            </label>
+          </div>
+        </div>
+        <!-- 카테고리 -->
+        <!-- 소개글 -->
+        <div class='cafe-name2 box'>
+          <div class="tit">소개글</div>
+          <div class='cafe-introdiv'>
+            <textarea id="introcafe" class="form-control" placeholder="내용을 입력해 주세요"></textarea>
+          </div>
+          <div class="intro-subtext">
+            <span class="info-subtext">카페 페이지 카페이름 아래에 반영됩니다.<br></span>
+            <span class="info-subtext">(한글 기준 200자 이내)</span>
+          </div>
+        </div>
+        <!-- 소개글 -->
 
 
-				<!-- 매장 번호 -->
-				<div class="work-time box">
-					<div class="tit">매장번호</div>
-					
-					<div class="inputArea pre-set-before-num">
-							<div class="select1">
-								<select class="form-control" id='cafeTel1'>
-									<option value="02">02</option>
-									<option value="032">032</option>
-									<option value="031">031</option>
-									<option value="033">033</option>
-								</select>
-							</div>
-							<input type="text" id="number-input" class="form-control cafeTel2" placeholder="000"> - 
-							<input type="text" id="number-input" class="form-control cafeTel3" placeholder="0000"> 
-					</div>
-					
-				</div>
-				<!-- 매장 번호 -->
+        <!-- 영업시간 -->
+        <div class="work-time box">
+          <div class="tit">영업시간</div>
+          <div class="inputArea pre-set-before">
+            <div id="pre_set">
+              <div class="select1">
+
+                <select class="form-control" id='day'>
+                  <option>매일</option>
+                  <option>평일</option>
+                  <option>주말</option>
+                  <option>월요일</option>
+                  <option>화요일</option>
+                  <option>수요일</option>
+                  <option>목요일</option>
+                  <option>금요일</option>
+                  <option>토요일</option>
+                  <option>일요일</option>
+                </select>
+              </div>
+              <div class="select1">
+                <select class="form-control" id='startTime1'>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+              </div>
+              :
+              <div class="select2">
+                <select class="form-control" id='startTime2'>
+                  <option>00</option>
+                  <option>10</option>
+                  <option>20</option>
+                  <option>30</option>
+                  <option>40</option>
+                  <option>50</option>
+                </select>
+              </div>
+              ~
+              <div class="select2">
+                <select class="form-control" id='endTime1'>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+              </div>
+              :
+              <div class="select2">
+                <select class="form-control" id='endTime2'>
+                  <option>00</option>
+                  <option>10</option>
+                  <option>20</option>
+                  <option>30</option>
+                  <option>40</option>
+                  <option>50</option>
+                </select>
+              </div>
+              <input class="plusBtn remove" type="button" value="-" onclick="remove_item(this)">
+            </div>
+
+            <div id="field" class='field'></div>
+          </div>
+
+          <input class="plusBtn" type="button" value="+" onclick="add_item()"><br>
+          <span class="worktime-addtext">설정 시간에 따라 통계가 이루어 집니다.</span>
+        </div>
 
 
-				<!-- 주소 찾기 -->
-				<div class='cafe-name3 box'>
-					<div class="tit">주소*</div>
-
-					<div class='inputArea addr-div'>
-						<input class="inputaddr postNo" type="text" id="sample4_postcode" placeholder="우편번호"> 
-						<input class="inputaddr-btn" type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br> 
-						<input class="inputaddr addr" type="text" id="sample4_roadAddress" placeholder="도로명주소">
-						<input class="inputaddr daddr" type="text" id="sample4_jibunAddress" placeholder="지번주소"> 
-						<span id="guide"></span>
-					</div>
-
-				</div>
-				<!-- 주소 찾기 -->
-
-
-				<!-- 좌석 수 -->
-				<div class='cafe-name3 box'>
-					<div class="tit">좌석 수</div>
-					<div class="inputArea pre-set-before2">
-						<input class="form-control" id="chairNo" type="text">
-					</div>
-				</div>
-				<!-- 좌석 수 -->
+        <!-- 매장 번호 -->
+        <div class="work-time box">
+          <div class="tit">매장번호</div>
+          
+          <div class="inputArea pre-set-before-num">
+              <div class="select1">
+                <select class="form-control" id='cafeTel1'>
+                  <option value="02">02</option>
+                  <option value="032">032</option>
+                  <option value="031">031</option>
+                  <option value="033">033</option>
+                </select>
+              </div>
+              <input type="text" id="number-input" class="form-control cafeTel2" placeholder="000"> - 
+              <input type="text" id="number-input" class="form-control cafeTel3" placeholder="0000"> 
+          </div>
+          
+        </div>
+        <!-- 매장 번호 -->
 
 
-				<!-- 로고추가 -->
-				<div class='logoImg box'>
-					<div class="tit">로고추가</div>
+        <!-- 주소 찾기 -->
+        <div class='cafe-name3 box'>
+          <div class="tit">주소*</div>
+
+          <div class='inputArea addr-div'>
+            <input class="inputaddr postNo" type="text" id="sample4_postcode" placeholder="우편번호"> 
+            <input class="inputaddr-btn" type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br> 
+            <input class="inputaddr addr" type="text" id="sample4_roadAddress" placeholder="도로명주소">
+            <input class="inputaddr daddr" type="text" id="sample4_jibunAddress" placeholder="지번주소"> 
+            <span id="guide"></span>
+          </div>
+
+        </div>
+        <!-- 주소 찾기 -->
+
+
+        <!-- 좌석 수 -->
+        <div class='cafe-name3 box'>
+          <div class="tit">좌석 수</div>
+          <div class="inputArea pre-set-before2">
+            <input class="form-control" id="chairNo" type="text">
+          </div>
+        </div>
+        <!-- 좌석 수 -->
+
+
+        <!-- 로고추가 -->
+        <div class='logoImg box'>
+          <div class="tit">로고추가</div>
 
                     <div class="inputArea">
-						<div class="imgbox" id="upfile1">
-							<img id='photo-img'> 
-							<label for="photo" class="col-sm-2 control-label"></label> 
-							<input type="file" id="file1" name="file1" style="display: none;" />
-						</div>
-						<div class="btn-deco">
-							<span class="btn btn-success fileinput-button"> 
-							     <input id='photo' class='form-control' type='file' name='files'>
-							</span> 
-							<input id='photo-path' class='logPath' style='visibility: hidden;'>
-						</div>
-					</div>
-					
-				</div>
-				<!-- 로고추가-->
+            <div class="imgbox" id="upfile1">
+              <img id='photo-img'> 
+              <label for="photo" class="col-sm-2 control-label"></label> 
+              <input type="file" id="file1" name="file1" style="display: none;" />
+            </div>
+            <div class="btn-deco">
+              <span class="btn btn-success fileinput-button"> 
+                   <input id='photo' class='form-control' type='file' name='files'>
+              </span> 
+              <input id='photo-path' class='logPath' style='visibility: hidden;'>
+            </div>
+          </div>
+          
+        </div>
+        <!-- 로고추가-->
 
 
-				<!-- 매장 사진 -->
-				<div class="cafe-photo box">
-					<div class="tit">매장 사진</div>
+        <!-- 매장 사진 -->
+        <div class="cafe-photo box">
+          <div class="tit">매장 사진</div>
                     
                     <div id="cafeImg_set" class='inputArea'>
-						<div class="imgbox">
-							<img id='cafe-photo-img'> 
-							<input type="file" id="cf-file" name="cf-file" style="display: none;" />
-						</div>
-						<div class="btn-deco">
-							<span class="btn btn-success fileinput-button"> 
-							    <input id='cafe-photo' class='form-control' type='file' name='files'>
-							</span> 
-							<input id='cafe-photo-path' class='cafephotoPath' style='visibility: hidden;'>
-						</div>
-					   <input class="plusBtn remove" type="button" value="-" onclick="remove_cafeimg(this)">
-					</div>
-					<div id="field-cafeimg" class='inputArea field'></div>
-					
-					<input class="plusBtn" type="button" value="+" onclick="add_cafeImg()">
-					
-				</div>
-				<!-- //매장 사진 -->
+            <div class="imgbox">
+              <img id='cafe-photo-img'> 
+              <input type="file" id="cf-file" name="cf-file" style="display: none;" />
+            </div>
+            <div class="btn-deco">
+              <span class="btn btn-success fileinput-button"> 
+                  <input id='cafe-photo' class='form-control' type='file' name='files'>
+              </span> 
+              <input id='cafe-photo-path' class='cafephotoPath' style='visibility: hidden;'>
+            </div>
+             <input class="plusBtn remove" type="button" value="-" onclick="remove_cafeimg(this)">
+          </div>
+          <div id="field-cafeimg" class='inputArea field'></div>
+          
+          <input class="plusBtn" type="button" value="+" onclick="add_cafeImg()">
+          
+        </div>
+        <!-- //매장 사진 -->
 
 
-				<!-- 대표 메뉴 -->
-				<div class='cafe-menu box'>
-					<div class="tit">대표 메뉴</div>
-					
-					<div id="menu_set" class='inputArea'>
-						<div class="imgbox" id="mnBox">
+        <!-- 대표 메뉴 -->
+        <div class='cafe-menu box'>
+          <div class="tit">대표 메뉴</div>
+          
+          <div id="menu_set" class='inputArea'>
+            <div class="imgbox" id="mnBox">
                             <img id='menu-photo-img'> 
                             <input type="file" id="mn-file" name="mn-file" style="display: none;" />
                         </div>
@@ -290,22 +290,22 @@
                         </div>
                         <input class="plusBtn remove" type="button" value="-" onclick="remove_menu(this)">
                     </div>
-					<div id="field-menu" class='inputArea field'></div>
-					<input class="plusBtn" type="button" value="+" onclick="add_menu()">
-					
-				</div>
+          <div id="field-menu" class='inputArea field'></div>
+          <input class="plusBtn" type="button" value="+" onclick="add_menu()">
+          
+        </div>
                 <!-- //대표 메뉴 -->
-					
-				<!-- 다음단계입력-->
-				<div>
-					<div class='cafe-name4'>
-						<button type="button" class="btn btn-default btn-lg btn-block" id='btn-next'>다음단계</button>
-					</div>
-				</div>
-				<!-- 다음단계입력-->
+          
+        <!-- 다음단계입력-->
+        <div>
+          <div class='cafe-name4'>
+            <button type="button" class="btn btn-default btn-lg btn-block" id='btn-next'>다음단계</button>
+          </div>
+        </div>
+        <!-- 다음단계입력-->
 
-			</div>
-		</div>
+      </div>
+    </div>
 
     </div>
 
@@ -389,10 +389,6 @@ function sample4_execDaumPostcode() {
 <!-- //auto complete 고객검색 자동완성 -->
 </body>
 </html>
-
-
-
-
 
 
 

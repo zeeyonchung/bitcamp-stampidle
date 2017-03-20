@@ -1,534 +1,165 @@
-try {
-	var memberNo = location.href.split('?')[1].split('=')[1];
-} catch (error) {
-	var memberNo = -1;
-}
-
-if (memberNo > 0) {
-	prepareViewForm();
-} else {
-	prepareNewForm();
-}
-
-
-/******************  Edit page setting :prepareViewForm *****************/
-function prepareViewForm() {
-	$('#btn-next').addClass('btn-update');
-	$('.edit').show();
-	$('.add').hide();
+$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+	var loginUser = ajaxResult.data;
+	var cafeMembNo = loginUser.cafeMemberNo;
+	if (loginUser == null) {
+		location.href = clientRoot + '/auth/login.html'
+	}
+	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var cafe = ajaxResult.data;
+		
+	$.getJSON(serverRoot + '/cafeTime/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var cafeTime = ajaxResult.data;
 	
-	$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-		var loginUser = ajaxResult.data;
-		var cafeMembNo = loginUser.cafeMemberNo;
-		if (loginUser == null) {
-			location.href = clientRoot + '/auth/login.html'
-		}
+	$.getJSON(serverRoot + '/tag/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var tag = ajaxResult.data;
 		
-		$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-			var cafe = ajaxResult.data;
-			
-		$.getJSON(serverRoot + '/cafeTime/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-			var cafeTime = ajaxResult.data;
+	$.getJSON(serverRoot + '/cafePhoto/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var cafePhotos = ajaxResult.data;
 		
-		$.getJSON(serverRoot + '/tag/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-			var tag = ajaxResult.data;
-			
-		$.getJSON(serverRoot + '/cafePhoto/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-			var cafePhoto = ajaxResult.data;
-			
-		$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-				$('#cafeName').val(cafe.cafeName);
-				var tag_arr = tag.tagName.split(" ");
-				var tags = $('.tag .checkbox label input[type=checkbox]');
-				for (var i in tag_arr) {
-					for (var j in tags) {
-						if (tag_arr[i] == tags.eq(j).val()) {
-							tags.eq(j).attr('checked','checked');
-						} else {
-							$('#self').attr('checked','checked');
-							$('.tag .inperson').attr('value', tag_arr[i]);
-							if (tag_arr[i] == "")
-								$('#self').removeAttr('checked');
-						}
-					}
-				}
-				
-				$('#introcafe').text(cafe.intro);
-				var cafeTel_arr = cafe.cafeTel.split("-");
-				var tel1 = $('#cafeTel1 option');
-				for (var i in tel1) {
-					if (cafeTel_arr[0] == tel1.eq(i).text()) {
-						tel1.eq(i).attr('selected','selected');
-					}
-				}
-				$('.cafeTel2').val(cafeTel_arr[1]);
-				$('.cafeTel3').val(cafeTel_arr[2]);
-				$('.postNo').val(cafe.postCode);
-				$('.addr').val(cafe.address);
-				$('.daddr').val(cafe.detailAddress);
-				$('#chairNo').val(cafe.chairNo);
-				$('#photo-img').attr('src', '../../upload/' + cafe.logPath);
-			
-		});
-		});
-		});
-		});
-		});
-	});
+	$.getJSON(serverRoot + '/cardinfo/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+	var cardinfo = ajaxResult.data;
+		
+	$.getJSON(serverRoot + '/likes/count.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var likes = ajaxResult.data;
+		
+	$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var menus = ajaxResult.data;
+		
+	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var comments = ajaxResult.data;
+
 	
-	
-	
-
-	$('.btn-update').click(function() {
-		var cafeMemberNo = $('.cafeNm').attr("data-no");
-		
-		/* 카페정보 정보*/
-		var cafeinfo = {
-				cafeMemberNo: cafeMemberNo,
-				cafeName: $('#cafeName').val(),
-				intro: $('#introcafe').val(),
-				cafeTel: $('#cafeTel1').val() + "-" + $('.cafeTel2').val() + "-" + $('.cafeTel3').val(),
-				postCode: $('.postNo').val(),
-				address: $('.addr').val(),
-				detailAddress: $('.daddr').val(),
-				chairNo: parseInt($('#chairNo').val()),
-				logPath: $('#photo-path').val()
-		};
-		console.log(cafeinfo);
-		$.post(serverRoot + '/cafe/update.json', cafeinfo, function(ajaxResult) {
-			if (ajaxResult.status != "success") {
-				alert(ajaxResult.data);
-				return;
+			$('.cafeLogo img').attr('src', '../../upload/' + cafe.logPath);
+			$('.cafeName').text(cafe.cafeName);
+			var tag_arr = tag.tagName.split(" ");
+			for (var i in tag_arr) {
+				$('<span>').appendTo('.tag').text("#" + tag_arr[i]);
 			}
-			alert('cafe업데이트등록 완료되었습니다.');
-		}, 'json'); 
-
-		/* 영업시간 */
-		var days = $('select[id=day]')
-		var start1 = $('select[id=startTime1]');
-		var start2 = $('select[id=startTime2]');
-		var end1 = $('select[id=endTime1]');
-		var end2 = $('select[id=endTime2]');
-		for (var i=0; i < days.length; i++) {
-			var workTime = {
-					cafeMemberNo: cafeMemberNo,
-					day: days.eq(i).val(),
-					startTime: start1.eq(i).val() + ":" + start2.eq(i).val(),
-					endTime: end1.eq(i).val() + ":" + end2.eq(i).val()
-			}
-			console.log(workTime);
-			$.post(serverRoot + '/cafeTime/update.json', workTime, function(ajaxResult) {
-				if (ajaxResult.status != "success") {
-					alert(ajaxResult.data);
-					return;
-				}
-				alert('시간업데이트 완료되었습니다.');
-			}, 'json');
-		}; 
-		
-		
-		/* 카페종류 태그 */
-		var tags = [];
-		var checked = $(".tag input[type='checkbox']:checked");
-		for(var i=0; i<checked.length; i++){
-			if (checked.eq(i).attr('id') != 'self')
-				tags += checked.eq(i).val() + " ";
-		};
-		if($('.inperson').val() != null) {
-			tags += $('.inperson').val()
-		};
-		var cafeTag = {
-				cafeMemberNo: cafeMemberNo,
-				tagName: tags
-		}
-		console.log(cafeTag);
-		$.post(serverRoot + '/tag/update.json', cafeTag, function(ajaxResult) {
-			if (ajaxResult.status != "success") {
-				alert(ajaxResult.data);
-				return;
-			}
-			alert('태그업데이트 완료되었습니다.');
-		}, 'json');
-
-		
-		/* 매장사진 */
-		var cafefilepath = $('.cafephotoPath')
-		console.log($('.cafephotoPath').length);
-		for (var i=0; i < cafefilepath.length; i++) {
-			var cafe_photo = {
-					cafeMemberNo: cafeMemberNo,
-					path: cafefilepath.eq(i).val()
-			}
-			console.log(cafe_photo);
-			$.post(serverRoot + '/cafePhoto/update.json', cafe_photo, function(ajaxResult) {
-				if (ajaxResult.status != "success") {
-					alert(ajaxResult.data);
-					return;
-				}
-				alert('매장사진업데이트 완료되었습니다.');
-			}, 'json');
-		}  
-		
-		
-		/*  대표메뉴 */
-		var menufilepath = $('.menuphotoPath')
-		var menuNm = $('.mnNm')
-		var menuPrice = $('.mnPrice')
-		console.log($('.menuphotoPath').length);
-		for (var i=0; i < menufilepath.length; i++) {
-			var cafe_menu = {
-					cafeMemberNo: cafeMemberNo,
-					menuName: menuNm.eq(i).val(),
-					price: menuPrice.eq(i).val(),
-					menuPath: menufilepath.eq(i).val()
-			}
-			$.post(serverRoot + '/menu/update.json', cafe_menu, function(ajaxResult) {
-				if (ajaxResult.status != "success") {
-					alert(ajaxResult.data);
-					return;
-				}
-				alert('메뉴업데이트 완료되었습니다.');
-			}, 'json');
-		}
-		
-	}); // click()
-
-}
-/******************  //Edit page setting :prepareViewForm *****************/
-
-
-/******************  Add page setting :prepareNewForm *****************/
-function prepareNewForm() {
-	$('#btn-next').addClass('btn-add');
-	$('.add').show();
-	$('.edit').hide();
-
-	$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-		if (ajaxResult.status != "success") {
-			console.log(ajaxResult.data);
-			location.href = clientRoot + "/auth/login.html";
-		}
-		var cafeMember = ajaxResult.data;
-		var cafeMemberNo = cafeMember.cafeMemberNo;
-
-		
-		$('.btn-add').click(function(event) {
+			$('.txt').text(cafe.intro);
+			$('.like').text(likes.num);
 			
-			/* 카페정보 정보 */
-			var cafeinfo = {
-					cafeMemberNo: cafeMemberNo,
-					cafeName: $('#cafeName').val(),
-					intro: $('#introcafe').val(),
-					cafeTel: $('#cafeTel1').val() + "-" + $('.cafeTel2').val() + "-" + $('.cafeTel3').val(),
-					postCode: $('.postNo').val(),
-					address: $('.addr').val(),
-					detailAddress: $('.daddr').val(),
-					chairNo: parseInt($('#chairNo').val()),
-					logPath: $('#photo-path').val()
-			};
-			console.log(cafeinfo);
-			$.post(serverRoot + '/cafe/add.json', cafeinfo, function(ajaxResult) {
-				if (ajaxResult.status != "success") {
-					alert(ajaxResult.data);
-					return;
-				}
-			}, 'json');
+			$.each(cafePhotos, function(i){
+				console.log(cafePhotos[i].path);
+			    $("<div class='sl_li'><img src='../../upload/"+cafePhotos[i].path+"' alt='cafe photo image'></div>").appendTo(".cafeImgSlide");
+			});
 			
+			$.each(cafeTime, function(i){
+				console.log(cafeTime[i].path);
+				$('<span>').text(cafeTime[i].day + " " + cafeTime[i].startTime + " " + cafeTime[i].endTime + " ").appendTo(".time");
+				
+			});
 			
-			 /* 영업시간 */
-				var days = $('select[id=day]')
-				var start1 = $('select[id=startTime1]');
-				var start2 = $('select[id=startTime2]');
-				var end1 = $('select[id=endTime1]');
-				var end2 = $('select[id=endTime2]');
-				for (var i=0; i < days.length; i++) {
-					var workTime = {
-							cafeMemberNo: cafeMemberNo,
-							day: days.eq(i).val(),
-							startTime: start1.eq(i).val() + ":" + start2.eq(i).val(),
-							endTime: end1.eq(i).val() + ":" + end2.eq(i).val()
-					}
-					console.log(workTime);
-					$.post(serverRoot + '/cafeTime/add.json', workTime, function(ajaxResult) {
-						if (ajaxResult.status != "success") {
-							alert(ajaxResult.data);
-							return;
-						}
-					}, 'json');
-				};
-				
-				
-				/* 카페종류 태그 */
-				var tags = [];
-				var checked = $(".tag input[type='checkbox']:checked");
-				for(var i=0; i<checked.length; i++){
-					if (checked.eq(i).attr('id') != 'self')
-						tags += checked.eq(i).val() + " ";
-				};
-				if($('.inperson').val() != null) {
-					tags += $('.inperson').val()
-				};
-				var cafeTag = {
-						cafeMemberNo: cafeMemberNo,
-						tagName: tags
+			$('.seat').text(cafe.chairNo);
+			$('.tel').text(cafe.cafeTel);
+			$('.addr').text(cafe.address + " " + cafe.detailAddress);
+			if (cardinfo.backImgPath.slice(0,4) == "temp") {
+				$('.cardArea img').attr('src', '../image/' + cardinfo.backImgPath);
+			} else {
+				$('.cardArea img').attr('src', '../../upload/' + cardinfo.backImgPath);
+			}
+			$('.stampNum .txt1 span').text(cardinfo.stampCount);
+			$('.stampNum .txt2 span').text(cardinfo.service);
+			
+			$.each(menus, function(i){
+				$("<div class='menu'><p class='mnImg'><img src='../../upload/" + menus[i].menuPath
+				+ "' alt='menu image'></p><p class='mnName'>" + menus[i].menuName
+				+ "</p><p class='price'>" + menus[i].menuName
+				+ "</p></div>").appendTo(".menuSlide");
+			});
+			
+			$.each(comments, function(i){
+				$("<li><div class='profileImg'><img src='" + membImg(i)
+			    + "'></div><div class='comment_txt'><strong>" + check_nickNull(i)
+				+ "</strong><p>" + comments[i].contents
+				+ "</p></div><div class='etcInfo'><div class='date'>" + comments[i].uploadDate
+				+ "</div><div class='star'><span class='" + starScoreCss(comments[i].star)
+				+ "'></span></div></div></li>").appendTo(".comment_list ul");
+			});
+			$('.total span').text(commentsCount());
+			$('.starScore .result span').text(averStarScore());
+			$('.starScore .star span').addClass();
+			
+			function membImg(i) {
+				if (comments[i].photoPath == null) {
+					return clientRoot + '/image/comment_default.png';
+				} else {
+					return comments[i].photoPath;
 				}
-				console.log(cafeTag);
-				$.post(serverRoot + '/tag/add.json', cafeTag, function(ajaxResult) {
-					if (ajaxResult.status != "success") {
-						alert(ajaxResult.data);
-						return;
-					}
-				}, 'json');
-				
-				
-				/* 매장사진 */
-				var cafefilepath = $('.cafephotoPath')
-				console.log($('.cafephotoPath').length);
-				for (var i=0; i < cafefilepath.length; i++) {
-					var cafe_photo = {
-							cafeMemberNo: cafeMemberNo,
-							path: cafefilepath.eq(i).val()
-					}
-					console.log(cafe_photo);
-					$.post(serverRoot + '/cafePhoto/add.json', cafe_photo, function(ajaxResult) {
-						if (ajaxResult.status != "success") {
-							alert(ajaxResult.data);
-							return;
-						}
-					}, 'json');
-				} 
-				
-				
-				/*  대표메뉴 */
-				var menufilepath = $('.menuphotoPath')
-				var menuNm = $('.mnNm')
-				var menuPrice = $('.mnPrice')
-				console.log($('.menuphotoPath').length);
-				for (var i=0; i < menufilepath.length; i++) {
-					var cafe_menu = {
-							cafeMemberNo: cafeMemberNo,
-							menuName: menuNm.eq(i).val(),
-							price: menuPrice.eq(i).val(),
-							menuPath: menufilepath.eq(i).val()
-					}
-					$.post(serverRoot + '/menu/add.json', cafe_menu, function(ajaxResult) {
-						if (ajaxResult.status != "success") {
-							alert(ajaxResult.data);
-							return;
-						}
-					}, 'json');
-				}
-				swal({
-					title:"카페정보 등록이 완료되었습니다.",
-					closeOnConfirm: true,
-					type: "success"},
-					function(isConfirm) {
-						location.href = clientRoot + "/cardadd/cardadd.html";
+			}
+			
+			function check_nickNull(i) {
+				if (comments[i].nick == null) {
+			    	return "익명고객"
+			    } else {
+			    	return comments[i].nick;
+			    }
+			}
+			function averStarScore() {
+				var sum = 0;
+				var aver = 0;
+				if (comments.length != 0) {
+					$.each(comments, function(i){
+						sum += comments[i].star;
 					});
-		}); // click()
+				} else {
+					return 0;
+				}
+				aver = sum/commentsCount();
+				return aver;
+			}
+			
+			function commentsCount() {
+				var count = 0;
+				$.each(comments, function(i){
+					count++;
+				});
+				return count;
+			}
+			
+			function starScoreCss(num) {
+				switch(num) {
+					case 5: return "star5";
+					case 4: return "star4";
+					case 3: return "star3";
+					case 2: return "star2";
+					case 1: return "star1";
+					case 0: return "star0";
+				}
+			}
+			
+			function totalStarScoreCss(num) {
+				if (4.7 < averStarScore() <= 5) {
+					return "star5";
+				} else if (4.2 < averStarScore() <= 4.7) {
+					return "star4_5";
+				} else if (3.7 < averStarScore() <= 4.2) {
+					return "star4";
+				} else if (3.2 < averStarScore() <= 3.7) {
+					return "star3_5";
+				} else if (2.7 < averStarScore() <= 3.2) {
+					return "star3";
+				} else if (2.2 < averStarScore() <= 2.7) {
+					return "star2_5";
+				} else if (1.7 < averStarScore() <= 2.2) {
+					return "star2";
+				} else if (1.2 < averStarScore() <= 1.7) {
+					return "star1_5";
+				} else if (0.7 < averStarScore() <= 1.2) {
+					return "star1";
+				} else if (0.2 < averStarScore() <= 0.7) {
+					return "star0_5";
+				} else {
+					return "star0";
+				}
+			}
+			
+			
 	});
-}
-/******************  //Add page setting :prepareNewForm *****************/
-
-
-
-/* 영업시간 추가기능 */
-function add_item(){
-     // pre_set 에 있는 내용을 읽어와서 처리..
-     var div = document.createElement('div');
-     div.innerHTML = document.getElementById('pre_set').innerHTML;
-     document.getElementById('field').appendChild(div);
-}
-function remove_item(obj){
-     // obj.parentNode 를 이용하여 삭제
-     document.getElementById('field').removeChild(obj.parentNode);
-}
-/* //영업시간 추가기능 */
-
-
-
-/* 로고 업로드 */
-$('#photo').fileupload({
-    url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
-    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
-    autoUpload: true,        // 파일을 추가할 때 자동 업로딩 여부 설정. 기본은 true.
-    disableImageResize: /Android(?!.*Chrome)|Opera/
-        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-    previewMaxWidth: 800,   // 미리보기 이미지 너비
-    previewMaxHeight: 800,  // 미리보기 이미지 높이 
-    previewCrop: false,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-    	console.log('done()...');
-    	console.log(data.result);
-        $('#photo-path').val(data.result.data[0]);
-    }, 
-    processalways: function(e, data) {
-        console.log('fileuploadprocessalways()...', data.files.length, data.index);
-        var img = $('#photo-img');
-        if (data.index == 0) {
-        	console.log('미리보기 처리...');
-	        var canvas = data.files[0].preview;
-	        var dataURL = canvas.toDataURL();
-	        img.attr('src', dataURL).css('width', '100%');
-	        img.attr('src', dataURL).css('height', '100%');
-        }
-    } 
+	});
+	});
+	});
+	});
+	});
+	});
+	});
 });
-
-
-
-/* 매장사진 업로드 + 추가기능 */
-$('#cafe-photo').fileupload({
-    url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
-    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
-    autoUpload: true,        // 파일을 추가할 때 자동 업로딩 여부 설정. 기본은 true.
-    disableImageResize: /Android(?!.*Chrome)|Opera/
-        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-    previewMaxWidth: 800,   // 미리보기 이미지 너비
-    previewMaxHeight: 800,  // 미리보기 이미지 높이 
-    previewCrop: false,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-    	console.log('done()...');
-    	console.log(data.result);
-        $('#cafe-photo-path').val(data.result.data[0]);
-    }, 
-    processalways: function(e, data) {
-        console.log('fileuploadprocessalways()...', data.files.length, data.index);
-        var img = $('#cafe-photo-img');
-        if (data.index == 0) {
-        	console.log('미리보기 처리...');
-	        var canvas = data.files[0].preview;
-	        var dataURL = canvas.toDataURL();
-	        img.attr('src', dataURL).css('width', '100%');
-	        img.attr('src', dataURL).css('height', '100%');
-        }
-    } 
-});
-
- function add_cafeImg(){
-     var div = $('<div>');
-     var setHtml = $('#cafeImg_set').html();
-     div.html(setHtml);
-     $('#field-cafeimg').append(div);
-     $( "#field-cafeimg > div:last-child .imgbox img" ).attr("src", " ");
-     $( "#field-cafeimg > div:last-child .imgbox img" ).attr("id", "cafe-photo-img" + $( "#field-cafeimg > div").length);
-     $( "#field-cafeimg > div:last-child .imgbox input" ).attr("id", "cf-file" + $( "#field-cafeimg > div").length);
-     $( "#field-cafeimg > div:last-child .imgbox input" ).attr("name", "cf-file" + $( "#field-cafeimg > div").length);
-     $( "#field-cafeimg > div:last-child .fileinput-button input" ).attr("id", "cafe-photo" + $( "#field-cafeimg > div").length);
-     $( "#field-cafeimg > div:last-child .cafephotoPath" ).attr("id", "cafe-photo-path" + $( "#field-cafeimg > div").length);
-     
-     $('#cafe-photo' + $( "#field-cafeimg > div").length).fileupload({
-    	    url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
-    	    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-    	    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-    	    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
-    	    autoUpload: true,        // 파일을 추가할 때 자동 업로딩 여부 설정. 기본은 true.
-    	    disableImageResize: /Android(?!.*Chrome)|Opera/
-    	        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-    	    previewMaxWidth: 800,   // 미리보기 이미지 너비
-    	    previewMaxHeight: 800,  // 미리보기 이미지 높이 
-    	    previewCrop: false,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-    	    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-    	        console.log('done()...');
-    	        console.log(data.result);
-    	        $('#cafe-photo-path' + $( "#field-cafeimg > div").length).val(data.result.data[0]);
-    	    }, 
-    	    processalways: function(e, data) {
-    	        console.log('fileuploadprocessalways()...', data.files.length, data.index);
-    	        var img = $('#cafe-photo-img' + $( "#field-cafeimg > div").length);
-    	        if (data.index == 0) {
-    	            console.log('미리보기 처리...');
-    	            var canvas = data.files[0].preview;
-    	            var dataURL = canvas.toDataURL();
-    	            img.attr('src', dataURL).css('width', '100%');
-    	            img.attr('src', dataURL).css('height', '100%');
-    	        }
-    	    } 
-    	});
-}
-function remove_cafeimg(obj){
-	document.getElementById('field-cafeimg').removeChild(obj.parentNode);
-}
-/*//매장사진 업로드 + 추가기능 */
-
-
-
-/* 메뉴 업로드 + 추가기능 */
-$('#menu-photo').fileupload({
-    url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
-    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
-    autoUpload: true,        // 파일을 추가할 때 자동 업로딩 여부 설정. 기본은 true.
-    disableImageResize: /Android(?!.*Chrome)|Opera/
-        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-    previewMaxWidth: 800,   // 미리보기 이미지 너비
-    previewMaxHeight: 800,  // 미리보기 이미지 높이 
-    previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-    	console.log('done()...');
-    	console.log(data.result);
-        $('#menu-photo-path').val(data.result.data[0]);
-    }, 
-    processalways: function(e, data) {
-        console.log('fileuploadprocessalways()...', data.files.length, data.index);
-        var img = $('#menu-photo-img');
-        if (data.index == 0) {
-        	console.log('미리보기 처리...');
-	        var canvas = data.files[0].preview;
-	        var dataURL = canvas.toDataURL();
-	        img.attr('src', dataURL).css('width', '100%');
-	        img.attr('src', dataURL).css('height', '100%');
-        }
-    } 
-});
-
-function add_menu(){
-    var div = $('<div>');
-    var setHtml = $('#menu_set').html();
-    div.html(setHtml);
-    $('#field-menu').append(div);
-    $( "#field-menu > div:last-child .imgbox img" ).attr("src", " ");
-    $( "#field-menu > div:last-child .imgbox img" ).attr("id", "menu-photo-img" + $( "#field-menu > div").length);
-    $( "#field-menu > div:last-child .imgbox input" ).attr("id", "mn-file" + $( "#field-menu > div").length);
-    $( "#field-menu > div:last-child .imgbox input" ).attr("name", "mn-file" + $( "#field-menu > div").length);
-    $( "#field-menu > div:last-child .fileinput-button input" ).attr("id", "menu-photo" + $( "#field-menu > div").length);
-    $( "#field-menu > div:last-child .menuphotoPath" ).attr("id", "menu-photo-path" + $( "#field-menu > div").length);
-    
-    $('#menu-photo' + $( "#field-menu > div").length).fileupload({
-   	    url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
-   	    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-   	    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-   	    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
-   	    autoUpload: true,        // 파일을 추가할 때 자동 업로딩 여부 설정. 기본은 true.
-   	    disableImageResize: /Android(?!.*Chrome)|Opera/
-   	        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-   	    previewMaxWidth: 800,   // 미리보기 이미지 너비
-   	    previewMaxHeight: 800,  // 미리보기 이미지 높이 
-   	    previewCrop: true,      // 미리보기  nv    이미지를 출력할 때 원본에서 지정된 크기로 자르기
-   	    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-   	        console.log('done()...');
-   	        console.log(data.result);
-   	        $('#menu-photo-path' + $( "#field-menu > div").length).val(data.result.data[0]);
-   	    }, 
-   	    processalways: function(e, data) {
-   	        console.log('fileuploadprocessalways()...', data.files.length, data.index);
-   	        var img = $('#menu-photo-img' + $( "#field-menu > div").length);
-   	        if (data.index == 0) {
-   	            console.log('미리보기 처리...');
-   	            var canvas = data.files[0].preview;
-   	            var dataURL = canvas.toDataURL();
-   	            img.attr('src', dataURL).css('width', '100%');
-   	            img.attr('src', dataURL).css('height', '100%');
-   	        }
-   	    } 
-   	});
-}
-function remove_menu(obj){
-	document.getElementById('field-menu').removeChild(obj.parentNode);
-}
-/*//메뉴 업로드 + 추가기능 */
