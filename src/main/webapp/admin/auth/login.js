@@ -30,7 +30,7 @@ $('#id').val(getCookie('id').replace(/"/g, ''));
 
 /*** 존재 여부 확인 ***/
 // 아이디 확인
-$('.register #id').keyup(function() {
+$('.register #id3').keyup(function() {
 	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkId.do?id=' + $(this).val(),
 		function(result) {
 			if (result != 0) {
@@ -68,7 +68,7 @@ $('.register #companyNo').keyup(function() {
 $('#add-btn').click(function(event) {
 	event.preventDefault();
     var param = {
-    		id: $('#id').val(),
+    		id: $('#id3').val(),
     		cellNo: $('.form-group #phone').val(),
     		companyNo: $('.form-group #companyNo').val(),
     		Email: $('.form-group #email').val(),
