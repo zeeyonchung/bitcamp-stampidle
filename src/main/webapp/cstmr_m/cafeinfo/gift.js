@@ -1,12 +1,9 @@
-/*try {
+
   var cafeMemberNo = location.href.split('?')[1].split('=')[1];
-} catch (error) {
-	var cafeMemberNo = -1;
-}*/
 
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	var loginUser = ajaxResult.data;
-	var cafeMemberNo = 11;
+	
 	
 	if (loginUser.customMemberNo == null) {
 		location.href = clientRoot + '/auth/login.html'

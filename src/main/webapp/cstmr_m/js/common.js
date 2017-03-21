@@ -28,9 +28,14 @@ $( function() {
 			event.preventDefault()
 			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
 				swal({
-					  title: "스탬피들을 이용해주셔서 감사합니다.",
+					  title: "스탬피들을 이용해주셔서<br> 감사합니다.",
 					  closeOnConfirm: true,
+<<<<<<< HEAD
 					  imageUrl:"../../image/logo_markW.png"
+=======
+					  imageUrl:"../../image/pabi.png",
+					  html: true
+>>>>>>> c6672efd9f1269a1bc041eee232a7d743bee3d15
 					},
 					function(isConfirm) {
 						location.href = '../auth/login.html'

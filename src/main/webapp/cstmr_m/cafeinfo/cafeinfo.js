@@ -290,7 +290,10 @@ function commentList() {
 			}
 		}
 	});
-	
+	$('.gift').click(function(event) {
+		event.preventDefault();
+		location.href = 'gift.html?cafeMemberNo=' + cafeMembNo;
+	});
 }
 
 
