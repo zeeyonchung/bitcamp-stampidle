@@ -24,6 +24,7 @@
     background-size:250px 194px;
     background-attachment: fixed;
     border-radius:0 0 20% 20%;
+    height:352px;
 }
 
 .latelyCard h2 {
@@ -212,18 +213,20 @@
 /************ 이벤트배너영역 `Bn ************/
 .eventBn {
 	margin-top:30px;
+	text-align:center;
 }
 
 .eventBn h3 {
+	display:inline-block;
 	width:80%;
     font-size:1.2em;
-    margin:0 auto 10px auto;
+    margin:0 auto 15px auto;
     color: #444;
     font-weight:bold;
     letter-spacing:-1px;
     text-align:center;
     border:1px solid #333;
-    padding:5px 10px 3px 10px;
+    padding:5px 30px 3px 30px;
     border-radius:30px;
 }
 
