@@ -13,10 +13,6 @@ import bitcamp.java89.ems2.service.CafePhotoService;
 public class CafePhotoImpl implements CafePhotoService {
   @Autowired CafePhotoDao cafePhotoDao;
 
-  @Override
-  public int add(CafePhoto cafePhoto) throws Exception {
-    return cafePhotoDao.insert(cafePhoto);
-  }
   
   public List<CafePhoto> detailCafePhoto(int cafeMemberNo) throws Exception {
   	return cafePhotoDao.getOne(cafeMemberNo);

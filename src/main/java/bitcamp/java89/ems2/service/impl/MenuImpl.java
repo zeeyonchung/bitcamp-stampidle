@@ -13,10 +13,6 @@ import bitcamp.java89.ems2.service.MenuService;
 public class MenuImpl implements MenuService {
   @Autowired MenuDao menuDao;
 
-  @Override
-  public int add(Menu menu) throws Exception {
-    return menuDao.insert(menu);
-  }
   
   public List<Menu> detailMenu(int cafeMemberNo) throws Exception {
   	return menuDao.getOne(cafeMemberNo);

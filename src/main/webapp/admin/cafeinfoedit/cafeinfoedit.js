@@ -1,14 +1,154 @@
+var cafeMemberNo = 0;
+
 try {
-	var memberNo = location.href.split('?')[1].split('=')[1];
+	cafeMemberNo = location.href.split('?')[1].split('=')[1];
 } catch (error) {
-	var memberNo = -1;
+	cafeMemberNo = -1;
 }
 
-if (memberNo > 0) {
+if (cafeMemberNo > 0) {
 	prepareViewForm();
 } else {
 	prepareNewForm();
 }
+
+
+
+
+
+
+
+/******************  Add page setting :prepareNewForm *****************/
+function prepareNewForm() {
+	$('#btn-next').addClass('btn-add');
+	$('.add').show();
+	$('.edit').hide();
+
+		
+	$('.btn-add').click(function(event) {
+		
+		/* 카페정보 정보 */
+		var cafeinfo = {
+				cafeMemberNo: cafeMemberNo,
+				cafeName: $('#cafeName').val(),
+				intro: $('#introcafe').val(),
+				cafeTel: $('#cafeTel1').val() + "-" + $('.cafeTel2').val() + "-" + $('.cafeTel3').val(),
+				postCode: $('.postNo').val(),
+				address: $('.addr').val(),
+				detailAddress: $('.daddr').val(),
+				chairNo: parseInt($('#chairNo').val()),
+				logPath: $('#photo-path').val()
+		};
+		
+		
+		/* 영업시간 */
+		var workTimeList = [];
+		var days = $('select[id=day]')
+		var start1 = $('select[id=startTime1]');
+		var start2 = $('select[id=startTime2]');
+		var end1 = $('select[id=endTime1]');
+		var end2 = $('select[id=endTime2]');
+		for (var i=0; i < days.length; i++) {
+			var workTime = {
+					cafeMemberNo: cafeMemberNo,
+					day: days.eq(i).val(),
+					startTime: start1.eq(i).val() + ":" + start2.eq(i).val(),
+					endTime: end1.eq(i).val() + ":" + end2.eq(i).val()
+			}
+			workTimeList.push(workTime);
+		};
+		
+		
+		/* 카페종류 태그 */
+		var tags = [];
+		var checked = $(".tag input[type='checkbox']:checked");
+		for(var i=0; i<checked.length; i++){
+			if (checked.eq(i).attr('id') != 'self')
+				tags += checked.eq(i).val() + " ";
+		};
+		if($('.inperson').val() != null) {
+			tags += $('.inperson').val()
+		};
+		var cafeTag = {
+				cafeMemberNo: cafeMemberNo,
+				tagName: tags
+		}
+		
+		
+		/* 매장사진 */
+		var cafePhotoList = [];
+		var cafefilepath = $('.cafephotoPath')
+		for (var i=0; i < cafefilepath.length; i++) {
+			var cafe_photo = {
+					cafeMemberNo: cafeMemberNo,
+					path: cafefilepath.eq(i).val()
+			}
+			cafePhotoList.push(cafe_photo);
+		} 
+		
+		
+		/*  대표메뉴 */
+		var cafeMenuList = [];
+		var menufilepath = $('.menuphotoPath')
+		var menuNm = $('.mnNm')
+		var menuPrice = $('.mnPrice')
+		console.log($('.menuphotoPath').length);
+		for (var i=0; i < menufilepath.length; i++) {
+			var cafe_menu = {
+					cafeMemberNo: cafeMemberNo,
+					menuName: menuNm.eq(i).val(),
+					price: menuPrice.eq(i).val(),
+					menuPath: menufilepath.eq(i).val()
+			}
+			cafeMenuList.push(cafe_menu);
+		}
+		
+		
+		var param = {cafe: cafeinfo,
+					cafeTimeList: workTimeList,
+					tag: cafeTag,
+					cafePhotoList: cafePhotoList,
+					menuList: cafeMenuList}
+		
+		
+		console.log(param);
+		$.ajaxSettings.traditional = true;
+		
+		$.ajax({
+			  type: 'POST',
+			  url: serverRoot + '/cafe/add.json',
+			  data: JSON.stringify(param),
+			  dataType: "json",
+			  accepts: 'application/json',
+			  contentType: "application/json; charset=UTF-8",
+			  error: function(e) {
+				  console.log(e);
+			  },
+			  success: function(msg) {
+				  swal({
+						title:"카페정보 등록이 완료되었습니다.",
+						closeOnConfirm: true,
+						type: "success"},
+						function(isConfirm) {
+							location.href = clientRoot + "/cardadd/cardadd.html";
+					});
+			  }
+			});
+		
+		
+		
+		
+		
+	}); // click()
+}
+
+/******************  //Add page setting :prepareNewForm *****************/
+
+
+
+
+
+
 
 
 /******************  Edit page setting :prepareViewForm *****************/
@@ -17,26 +157,20 @@ function prepareViewForm() {
 	$('.edit').show();
 	$('.add').hide();
 	
-	$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-		var loginUser = ajaxResult.data;
-		var cafeMembNo = loginUser.cafeMemberNo;
-		if (loginUser == null) {
-			location.href = clientRoot + '/auth/login.html'
-		}
-		
-		$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+	
+		$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult) {
 			var cafe = ajaxResult.data;
 			
-		$.getJSON(serverRoot + '/cafeTime/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		$.getJSON(serverRoot + '/cafeTime/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult) {
 			var cafeTime = ajaxResult.data;
 		
-		$.getJSON(serverRoot + '/tag/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		$.getJSON(serverRoot + '/tag/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult) {
 			var tag = ajaxResult.data;
 			
-		$.getJSON(serverRoot + '/cafePhoto/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		$.getJSON(serverRoot + '/cafePhoto/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult) {
 			var cafePhoto = ajaxResult.data;
 			
-		$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		$.getJSON(serverRoot + '/menu/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult) {
 				$('#cafeName').val(cafe.cafeName);
 				var tag_arr = tag.tagName.split(" ");
 				var tags = $('.tag .checkbox label input[type=checkbox]');
@@ -74,9 +208,6 @@ function prepareViewForm() {
 		});
 		});
 		});
-	});
-	
-	
 	
 
 	$('.btn-update').click(function() {
@@ -197,138 +328,11 @@ function prepareViewForm() {
 /******************  //Edit page setting :prepareViewForm *****************/
 
 
-/******************  Add page setting :prepareNewForm *****************/
-function prepareNewForm() {
-	$('#btn-next').addClass('btn-add');
-	$('.add').show();
-	$('.edit').hide();
 
-	$.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-		if (ajaxResult.status != "success") {
-			console.log(ajaxResult.data);
-			location.href = clientRoot + "/auth/login.html";
-		}
-		var cafeMember = ajaxResult.data;
-		var cafeMemberNo = cafeMember.cafeMemberNo;
 
-		
-		$('.btn-add').click(function(event) {
-			
-			/* 카페정보 정보 */
-			var cafeinfo = {
-					cafeMemberNo: cafeMemberNo,
-					cafeName: $('#cafeName').val(),
-					intro: $('#introcafe').val(),
-					cafeTel: $('#cafeTel1').val() + "-" + $('.cafeTel2').val() + "-" + $('.cafeTel3').val(),
-					postCode: $('.postNo').val(),
-					address: $('.addr').val(),
-					detailAddress: $('.daddr').val(),
-					chairNo: parseInt($('#chairNo').val()),
-					logPath: $('#photo-path').val()
-			};
-			console.log(cafeinfo);
-			$.post(serverRoot + '/cafe/add.json', cafeinfo, function(ajaxResult) {
-				if (ajaxResult.status != "success") {
-					alert(ajaxResult.data);
-					return;
-				}
-			}, 'json');
-			
-			
-			 /* 영업시간 */
-				var days = $('select[id=day]')
-				var start1 = $('select[id=startTime1]');
-				var start2 = $('select[id=startTime2]');
-				var end1 = $('select[id=endTime1]');
-				var end2 = $('select[id=endTime2]');
-				for (var i=0; i < days.length; i++) {
-					var workTime = {
-							cafeMemberNo: cafeMemberNo,
-							day: days.eq(i).val(),
-							startTime: start1.eq(i).val() + ":" + start2.eq(i).val(),
-							endTime: end1.eq(i).val() + ":" + end2.eq(i).val()
-					}
-					console.log(workTime);
-					$.post(serverRoot + '/cafeTime/add.json', workTime, function(ajaxResult) {
-						if (ajaxResult.status != "success") {
-							alert(ajaxResult.data);
-							return;
-						}
-					}, 'json');
-				};
-				
-				
-				/* 카페종류 태그 */
-				var tags = [];
-				var checked = $(".tag input[type='checkbox']:checked");
-				for(var i=0; i<checked.length; i++){
-					if (checked.eq(i).attr('id') != 'self')
-						tags += checked.eq(i).val() + " ";
-				};
-				if($('.inperson').val() != null) {
-					tags += $('.inperson').val()
-				};
-				var cafeTag = {
-						cafeMemberNo: cafeMemberNo,
-						tagName: tags
-				}
-				console.log(cafeTag);
-				$.post(serverRoot + '/tag/add.json', cafeTag, function(ajaxResult) {
-					if (ajaxResult.status != "success") {
-						alert(ajaxResult.data);
-						return;
-					}
-				}, 'json');
-				
-				
-				/* 매장사진 */
-				var cafefilepath = $('.cafephotoPath')
-				console.log($('.cafephotoPath').length);
-				for (var i=0; i < cafefilepath.length; i++) {
-					var cafe_photo = {
-							cafeMemberNo: cafeMemberNo,
-							path: cafefilepath.eq(i).val()
-					}
-					console.log(cafe_photo);
-					$.post(serverRoot + '/cafePhoto/add.json', cafe_photo, function(ajaxResult) {
-						if (ajaxResult.status != "success") {
-							alert(ajaxResult.data);
-							return;
-						}
-					}, 'json');
-				} 
-				
-				
-				/*  대표메뉴 */
-				var menufilepath = $('.menuphotoPath')
-				var menuNm = $('.mnNm')
-				var menuPrice = $('.mnPrice')
-				console.log($('.menuphotoPath').length);
-				for (var i=0; i < menufilepath.length; i++) {
-					var cafe_menu = {
-							cafeMemberNo: cafeMemberNo,
-							menuName: menuNm.eq(i).val(),
-							price: menuPrice.eq(i).val(),
-							menuPath: menufilepath.eq(i).val()
-					}
-					$.post(serverRoot + '/menu/add.json', cafe_menu, function(ajaxResult) {
-						if (ajaxResult.status != "success") {
-							alert(ajaxResult.data);
-							return;
-						}
-					}, 'json');
-				}
-				swal({
-					title:"카페정보 등록이 완료되었습니다.",
-					closeOnConfirm: true,
-					type: "success"},
-					function(isConfirm) {
-						location.href = clientRoot + "/cardadd/cardadd.html";
-					});
-		}); // click()
-	});
-}
-/******************  //Add page setting :prepareNewForm *****************/
+
+
+
 
 
 

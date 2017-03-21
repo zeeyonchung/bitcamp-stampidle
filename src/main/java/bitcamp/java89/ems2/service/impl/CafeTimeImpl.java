@@ -12,11 +12,6 @@ import bitcamp.java89.ems2.service.CafeTimeService;
 @Service
 public class CafeTimeImpl implements CafeTimeService {
   @Autowired CafeTimeDao cafeTimeDao;
-
-  @Override
-  public int add(CafeTime cafeTime) throws Exception {
-    return cafeTimeDao.insert(cafeTime);
-  }
   
   @Override
   public int update(CafeTime cafeTime) throws Exception {

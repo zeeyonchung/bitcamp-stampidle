@@ -5,10 +5,12 @@ import java.util.List;
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java89.ems2.domain.Cafe;
+import bitcamp.java89.ems2.domain.CafeAdd;
 import bitcamp.java89.ems2.domain.CafePhoto;
 import bitcamp.java89.ems2.domain.CafeTime;
 import bitcamp.java89.ems2.domain.Comment;
@@ -43,38 +45,12 @@ public class CafeJsonControl {
   
   
   @RequestMapping("/admin/cafe/add")
-  public AjaxResult add(Cafe cafe) throws Exception {
+  public AjaxResult add(@RequestBody CafeAdd cafe) throws Exception {
     cafeService.add(cafe);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
   
   
-  @RequestMapping("/admin/cafeTime/add")
-  public AjaxResult add(CafeTime cafeTime) throws Exception {
-    cafeTimeService.add(cafeTime);
-    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
-  }
-  
-  
-  @RequestMapping("/admin/tag/add")
-  public AjaxResult add(Tag tag) throws Exception {
-    tagService.add(tag);
-    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
-  }
-  
-  
-  @RequestMapping("/admin/cafePhoto/add")
-  public AjaxResult add(CafePhoto cafePhoto) throws Exception {
-  	cafePhotoService.add(cafePhoto);
-  	return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
-  }
-  
-  
-  @RequestMapping("/admin/menu/add")
-  public AjaxResult add(Menu menu) throws Exception {
-  	menuService.add(menu);
-  	return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
-  }
   
 
   @RequestMapping(value ={"/admin/cafe/detail","/cstmr_m/cafe/detail"})
