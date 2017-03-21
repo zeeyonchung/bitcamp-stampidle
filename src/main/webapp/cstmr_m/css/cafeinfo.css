@@ -52,7 +52,6 @@
     text-align:center;
     color: #333;
     font-size: 1.2em;
-    display: none;
     top:15px;
     left:-15px;
 }
@@ -274,17 +273,17 @@
 	display: inline-block;
 	border: 3px solid #f0f0f0;
 	border-radius: 50px;
+	margin-left: 10px;
 	width: 70px;
 	height: 70px;
 	vertical-align: middle;
 }
 
 #favorite:before {
-	width: 60px;
-	height: 50px;
+	line-height: 65px;
 	font-family: "FontAwesome";
 	text-align: center;
-	font-size: 3em;
+	font-size: 2.5em;
 }
 
 #favorite.no:before {
@@ -294,7 +293,11 @@
 
 #favorite.yes:before {
 	content: "\f005";
-	color: #F4D03F;
+	color: #ff5948;
+}
+#favorite.yes {
+	border: 3px solid rgba(255,89,72, 0.8);
+	background:rgba(255,89,72, 0.8);
 }
 
 /* 좋아요 */
@@ -304,6 +307,7 @@
 	height: 70px;
 	border: 3px solid #f0f0f0;
 	border-radius: 50px;
+	margin-left: 10px;
 	text-align: center;
 	background: #fff;
 	cursor: pointer;
@@ -335,10 +339,11 @@
 	height: 70px;
 	border: 3px solid #f0f0f0;
 	border-radius: 50px;
+	margin-left: 10px;
 	background-image: url('../image/post.png');
 	background-size: 50% 50%;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center 13px;
 	vertical-align: middle;
 }
 
@@ -348,11 +353,10 @@
 	height: 70px;
 	border: 3px solid #f0f0f0;
 	border-radius: 50px;
-	margin-right: 10px;
 	margin-left: 10px;
 	border-radius: 50px;
 	background-image: url('../image/gift.png');
-	background-size: 50% 60%;
+	background-size: 50% 45%;
 	background-repeat: no-repeat;
 	background-position: center;
 	vertical-align: middle;

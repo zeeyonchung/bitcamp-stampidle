@@ -492,3 +492,16 @@ a {
 }
 
 
+
+/************ sweetalert ************/
+@media (max-width: 540px) {
+	.sweet-alert {
+	width:80!important;
+	}
+	.sweet-alert .confirm {
+	background-color:#ff5948!importnat;
+	}
+	.sweet-alert h2 {
+	font-size:25px;
+	}
+}
