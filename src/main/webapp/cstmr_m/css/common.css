@@ -237,7 +237,6 @@ a {
     background:#ddd;
     background: url('../image/profile.png') no-repeat center 15px #ddd;
     background-size: 60% 80%;
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
 }
 
 .sidebar .profileArea .profileImg img {
