@@ -42,7 +42,17 @@
   	mconts=#{contents} and 
   	mstime=#{uploadTime}
   </delete>
-  
+  <select id="getMsgListAllCstmr" parameterType="java.util.Map" resultMap="message-map">
+    select 
+    msg.mno, msg.cmno, msg.sdmemb, msg.mconts, msg.mstime, 
+    memb.nick, memb.name, memb.cphoto, 
+    cafe.logo, cafe.cname 
+    from msg 
+  left outer join memb on msg.mno=memb.mno
+  left outer join cafe on msg.cmno=cafe.cmno
+  where msg.cmno=#{cafeMemberNo} 
+    order by mstime desc;
+  </select>
   
   <select id="getMsgListCstmr" parameterType="java.util.Map" resultMap="message-map">
     select 

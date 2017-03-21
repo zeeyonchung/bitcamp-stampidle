@@ -16,8 +16,10 @@ import bitcamp.java89.ems2.dao.CafeTimeDao;
 import bitcamp.java89.ems2.dao.CustomCardDao;
 import bitcamp.java89.ems2.dao.CustomMemberDao;
 import bitcamp.java89.ems2.dao.LikesDao;
+import bitcamp.java89.ems2.dao.MessageDao;
 import bitcamp.java89.ems2.domain.CustomCard;
 import bitcamp.java89.ems2.domain.CustomMember;
+import bitcamp.java89.ems2.domain.Message;
 import bitcamp.java89.ems2.domain.Stamp;
 import bitcamp.java89.ems2.service.CustomCardService;
 
@@ -29,6 +31,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   @Autowired LikesDao likesDao;
   @Autowired CafeTimeDao cafeTimeDao;
   @Autowired CustomMemberDao customMemberDao;
+  @Autowired MessageDao messageDao;
 
 
   public Map<String, Object> getStampList(
@@ -477,6 +480,7 @@ public class CustomCardServiceImpl implements CustomCardService {
   @Override
   public Map<String, Object> getAllStampList(int cafeMemberNo) throws Exception {
     List<CustomCard> list = customCardDao.getAllStampList(cafeMemberNo);
+    List<Message> messageList = messageDao.getMsgListAllCstmr(cafeMemberNo);
     SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
     String time = dayTime.format(new Date());
     
@@ -488,9 +492,26 @@ public class CustomCardServiceImpl implements CustomCardService {
     int newMember =0; // 신규회원
     int freeItem = 0; // 무료 제공 서비스
     int finishCard = 0;
+    int messageCount = 0;
+    int membCardNo=0;
+    String[] array;
+    String cstmr = "cstmr";
+    for (Message mList : messageList) {
+      System.out.println("--------------------------");
+      System.out.println(mList.getUploadTime());
+      array = mList.getUploadTime().split(" ");
+      System.out.println(array[0]);
+      if((time).equals(array[0])) {
+        System.out.println("받은메세지: " + messageCount);
+        if((cstmr).equals(mList.getSendMember()))  {
+          ++messageCount;
+        }
+      }
+    }
     
     
     for(CustomCard cardList : list) {
+      
       List<Stamp> stampList =  cardList.getStampList();
       //카드 생성일 >> 신규회원 
       if((time).equals(cardList.getCardIssueDate())) {
@@ -507,7 +528,10 @@ public class CustomCardServiceImpl implements CustomCardService {
       System.out.println("카드사용날짜 : " + cardList.getCardUseDate());
       // usedate 가 현재 날짜와 같은경우
       if((time).equals(cardList.getCardUseDate())) {
+        
+        if(membCardNo!=cardList.getCustomCardNo()) {
           ++freeItem;
+        }
         ++visitMember;
       //stamp 생성일과 usedate가 현재 날짜와 같은경우
         for(Stamp stList : stampList) {
@@ -534,7 +558,7 @@ public class CustomCardServiceImpl implements CustomCardService {
           }
         }
       }
-     
+      membCardNo=cardList.getCustomCardNo();
     }
     
     visitMember = visitMember + visitMember2 - visitMember3;
@@ -543,8 +567,10 @@ public class CustomCardServiceImpl implements CustomCardService {
     System.out.println("신규회원수: " + newMember);
     System.out.println("무료제공서비스: " + freeItem);
     System.out.println("다 채운 카드 수: " + finishCard);
+    System.out.println("받은메세지: " + messageCount);
     Map<String, Object> resultMap = new HashMap<>();
     
+    resultMap.put("messageCount",messageCount);
     resultMap.put("visitMember", visitMember);
     resultMap.put("stampMany", stampMany);
     resultMap.put("newMember", newMember);

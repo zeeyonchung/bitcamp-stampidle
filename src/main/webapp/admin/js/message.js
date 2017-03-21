@@ -12,6 +12,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	$('.btn-inbox').click(function() {
 		if (!$('.btn-inbox').hasClass("select-category")) {
+			$(".msgArea.inbox").html("");
 			getMsgInbox();
 			$('.btn-inbox').addClass("select-category");
 			$('.btn-sent').removeClass("select-category");
@@ -23,6 +24,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		if (!$('.btn-sent').hasClass("select-category")) {
 			$('.btn-sent').addClass("select-category");
 			$('.btn-inbox').removeClass("select-category");
+			$(".one-msg").html("");
 			getMsgSent();
 			$(".sent").fadeIn(300);
 			$(".inbox").fadeOut(300);
