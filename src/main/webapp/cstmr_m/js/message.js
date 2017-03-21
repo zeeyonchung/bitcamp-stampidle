@@ -38,8 +38,8 @@ $('.btn-sent').click(function(event) {
 		getMsgSent();
 		$('.btn-sent').addClass("select-category");
 		$('.btn-inbox').removeClass("select-category");
-		$(".sent").fadeIn(300);
 		$(".inbox").fadeOut(300);
+		$(".sent").fadeIn(300);
 	}
 });
 

@@ -256,7 +256,8 @@ where
 	  stamp.sitime,
 	  scinfo.stnum,
 	  scinfo.scno,
-	  (select count(mcard.mcuse) from mcard where mcard.mcuse in (1, 2) and mcard.mno=memb.mno and mcard.scno=scinfo.scno) as canUseCount
+	  (select count(mcard.mcuse) from mcard where mcard.mcuse in (1, 2) and mcard.mno=memb.mno and mcard.scno=scinfo.scno) as canUseCount,
+    (select sum(stamp.many) from stamp where stamp.mcno=mcard.mcno) as currentStampCount
 	from memb
 	  left outer join mcard on memb.mno=mcard.mno
 	  left outer join stamp on stamp.mcno=mcard.mcno
@@ -512,14 +513,11 @@ where
     tag.tname,
     scinfo.scno,
     scinfo.fpath,
-    mcard.mcno,
     (select count(eno) from event where event.eday>=curDate() and event.cmno=cafe.cmno) as eventCount,
-    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount,
-    (select sum(stamp.many) from stamp where stamp.mcno=mcard.mcno) as currentStampCount
+    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount
   from cafe
     left outer join tag on tag.cmno=cafe.cmno
     left outer join scinfo on scinfo.cmno=cafe.cmno
-    left outer join mcard on scinfo.scno=mcard.scno
   where
     (cafe.cname like concat('%', #{searchKeyword}, '%')
     OR tag.tname like concat('%', #{searchKeyword}, '%'))
