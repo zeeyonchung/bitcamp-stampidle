@@ -20,7 +20,7 @@ var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
 var chan_val = year + '-' + mon + '-' + day;
 
 
-$('.event-regi-btn').click(function() {
+$('.event-update-btn').click(function() {
 	var param = {
 			"cafeMemberNo": cafeMemberNo,
 			"eventTitle": $('.event-title').val(),
@@ -40,10 +40,9 @@ $('.event-regi-btn').click(function() {
 				title:"이벤트 등록이 완료되었습니다.",
 				type:"success",
 				closeOnConfirm: true
-			},
-			function(isConfirm) {
-				location.href = 'main.html';
-			});
+			},function(isConfirm) {
+				location.href = clientRoot + "/event/main.html";}
+			);
 		} 
 	}, 'json');
 
