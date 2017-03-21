@@ -126,6 +126,7 @@
       mcard.birth,
       mcard.usedate,
       mcard.mcuse,
+      mcard.mcno,
       memb.mno,
       memb.name,
       memb.tel
@@ -135,6 +136,7 @@
       left outer join scinfo on mcard.scno = scinfo.scno
       left outer join cafe on scinfo.cmno = cafe.cmno
     where cafe.cmno=#{cafeMemberNo}
+    order by mcard.mcno
   </select>
   
   <select id="getStampList" parameterType="java.util.Map" resultMap="customCard-map">
