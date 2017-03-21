@@ -635,20 +635,26 @@ public class CustomCardServiceImpl implements CustomCardService {
       paramMap2.put("cafeMemberNo", customCard.getCafeMemberNo());
       List<CustomCard> customCardDetailList = customCardDao.getCustomDetail(paramMap2);
       
+      
+      
       if (customCardDetailList.size() != 0) {
         customCard.setCanUseCount(customCardDetailList.get(0).getCanUseCount());
         
         
         // 이 카페에서 고객이 지금 진행 중인 카드 번호
         int currentCustomCardNo = 0;
+        // 지금 진행 중인 카드의 스탬프 수
+        int currentStampCount = 0;
         
         for (CustomCard customCardDetail : customCardDetailList) {
           if (Integer.parseInt(customCardDetail.getCardState()) == 0) {
             currentCustomCardNo = customCardDetail.getCustomCardNo();
+            currentStampCount = customCardDetail.getCurrentStampCount();
             break;
           }
         }
         customCard.setCustomCardNo(currentCustomCardNo);
+        customCard.setCurrentStampCount(currentStampCount);
       }
       
       
