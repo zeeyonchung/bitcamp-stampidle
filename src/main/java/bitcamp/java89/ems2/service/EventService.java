@@ -12,6 +12,7 @@ public interface EventService {
   List<Event> getAllListBanner() throws Exception;
   int getCount(int cafeMemberNo, String searchCondition, String searchKeyword) throws Exception;
   int add(Event event) throws Exception;
+  int getCountAll() throws Exception;
   Event getDetail(int eventNo) throws Exception;
   int delete(int eventNo) throws Exception;
   int update(Event event) throws Exception;

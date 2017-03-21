@@ -129,8 +129,6 @@ function getMyCustomerList() {
 
 
 	
-
-	
 //메시지 입력 버튼
 function msgPopOpen() {
 	$('body.message').css("overflow-y","hidden");

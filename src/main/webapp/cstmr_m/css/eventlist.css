@@ -1,92 +1,118 @@
-
 .eventlist #container {
-    padding: 20px 3% 0 3%;
+	padding: 20px 3% 0 3%;
 }
 
 .secTit {
-	margin-bottom:5px;
+	margin-bottom: 5px;
 }
 
-
-
+hr {
+	border: 2px solid #f4f4f4;
+	margin-top: 5px;
+}
 
 /************ 이벤트배너영역 `Bn ************/
 .eventBn {
-	 height: 20%;
-	margin-top:0px;
+	height: 20%;
+	margin-top: 0px;
 	text-align: center;
 }
 
-.eventBn .one-event {
-  padding-top:15px;
-  clear: both;
-}
-.img-box{
-	      display: inline-block;
-    height: 150px;
-    width: 40%;
-    border: 1px solid black;
-        margin-top: 10px;
-}
-.img-box .img-src {
-	    height: 100%;
-    width: 100%;
-}
-.one-event {
-	margin-top:10px;
-	position: relative;
-    height: 150px;
-    width: 100%;
-}
-.eventBn {
-  padding-left: 75%;
-}
-.eventBn .one-event img {
-    width:100%;
+.eventNo {
+	float: left;
+	padding-top: 6px;
 }
 
+#countEvent {
+	margin-left: 5px;
+	color: red;
+}
+
+.eventBn .one-event {
+	padding-top: 15px;
+	clear: both;
+}
+
+.img-box {
+	display: inline-block;
+	height: 120px;
+	width: 100%;
+	border: 1px solid #555;
+	margin-top: 10px;
+}
+
+.img-box .img-src {
+	height: 100%;
+	width: 100%;
+}
+
+.one-event {
+	margin-top: 10px;
+	position: relative;
+	height: 220px;
+	width: 100%;
+}
+
+.eventBn {
+	padding-left: 75%;
+}
+
+.eventBn .one-event img {
+	width: 100%;
+}
+
+.title {
+	font-size: 1.5em;
+}
 
 .text-div {
-	width: 55%;
-    display: inline-block;
-    left: 50%;
+	width: 100%;
+	display: inline-block;
+	left: 50%;
+	margin-top: 7px;
+}
+
+.daterange {
+	color: #999
 }
 
 .eventBn .one-event .text-div .title {
 	display: inline-block;
 	width: 100%;
-  font-size: 1.1em;
-  text-align: center;
-  font-weight: 500;
+	font-size: 1.1em;
+	text-align: center;
+	font-weight: 500;
 }
 
 .eventBn .one-event .text-div .store {
-  font-size: 0.9em;
+	font-size: 0.9em;
 }
 
 .eventBn .one-event .text-div .blank {
 	display: inline-block;
-  width: 5%;
+	width: 5%;
 }
 
 .eventBn .one-event .text-div .daterange {
-  font-size: 0.85em;
-  color: tomato;
+	font-size: 0.85em;
+	color: tomato;
 }
-
 
 #top-btn {
-	float:right;
+	font-size: 1.5em;
+	float: right;
+	margin-bottom: 30px;
+	border: 1px solid #fff;
+	background-color: #fff
 }
 
-
 .add-new-btn {
-	  display: inline-block;
-    background: #ffffff;
-    color: #333;
-    border: 3px solid #ff5948;
-    border-radius: 100px;
-    width: 60%;
-    font-size: 1.1em;
-    margin-bottom: 5px;
+	display: inline-block;
+	background: #ffffff;
+	color: #333;
+	border: 3px solid #ff5948;
+	border-radius: 100px;
+	width: 60%;
+	font-size: 1.1em;
+	margin-bottom: 5px;
 }

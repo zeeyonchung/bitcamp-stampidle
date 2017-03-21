@@ -48,9 +48,13 @@ public class EventJsonControl {
     if (list.size() == 0) {
       return new AjaxResult(AjaxResult.FAIL, "페이지가 존재하지 않습니다.");
     }
-    
-    
     return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
+  @RequestMapping(value ="/cstmr_m/event/getAllListCount")
+  public AjaxResult getAllListCount() throws Exception {
+    int eventCountAll = eventService.getCountAll();
+    return new AjaxResult(AjaxResult.SUCCESS, eventCountAll);
   }
   
   @RequestMapping(value ="/cstmr_m/event/getAllListBanner")

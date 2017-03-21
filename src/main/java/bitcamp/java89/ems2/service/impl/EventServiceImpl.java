@@ -85,7 +85,9 @@ public class EventServiceImpl implements EventService {
     List<Event> eventList = eventDao.getListAllEventSearchCondition(paramMap);
     return eventList;
   }
-  
+  public int getCountAll() throws Exception {
+    return eventDao.getCountAll();
+  }
   
   public int getCount(int cafeMemberNo, String searchCondition, String searchKeyword) throws Exception {
     int allEventNo = 0;

@@ -17,10 +17,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	// 1페이지 시작
 	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var cafe = ajaxResult.data;
-		$('.cafe-name').text(cafe.cafeName);
-		$('.cafe-info').text(cafe.intro);
-		$('.cafe-addr').text(cafe.address +" "+ cafe.detailAddress);
-		$('.cafe-tel').text(cafe.cafeTel);
+		$('.cafeName').text(cafe.cafeName);
+		$('.txt').text(cafe.intro);
+		$('.addr').text(cafe.address +" "+ cafe.detailAddress);
+		$('.tel').text(cafe.cafeTel);
+		$('.seat').text(cafe.chairNo + "석");
+		
+		
 		// 즐겨찾기 상태 가져와서 별에 불킬지 말지 결정하는 부분//
 		$.getJSON(serverRoot + '/favorite/getFavoriteCount.json', 
 			    {'customMemberNo': userNo,
@@ -84,11 +87,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 						var many = cardInfo[i].stampCount;
 						if (many != 0) {
 							$('.stmp-circle').css('display','block');
-							$('.stmp-circle').text(stmpNo + "/" + many);
+							$('.stmp-circle .many').text(many);
+							$('.stmp-circle .stmpNo').text(stmpNo);
 						}
 					});
+					$('.service').text(cardInfo[0].service);
 				});
-			});
+		});
 	});
 	// 1페이지 끝
 	
