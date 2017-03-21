@@ -15,7 +15,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
     var searchCondition;
     
     $(".eventBn .dropdown-menu li").click(function(){
-	  	$(".btn.dropdown-toggle:first-child").text($(this).text());
+	  	$(".btn.dropdown-toggle:first-child").html($(this).text());
 	  	 i =1;
 	  	if ($(this).text() == "가까운순") {
 	  		searchCondition = "titl"

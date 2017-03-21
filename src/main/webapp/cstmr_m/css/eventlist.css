@@ -76,7 +76,12 @@
 
 
 #top-btn {
-	float:right;
+	  font-size: 1.5em;
+    float: right;
+    margin-bottom: 30px;
+    border: 1px solid #fff;
+    background-color: #fff
+	
 }
 
 
