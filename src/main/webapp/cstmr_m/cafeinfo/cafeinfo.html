@@ -36,52 +36,52 @@
 			<div id="swipe">
 				<div class="swWrap">
 
-					<!-- section1 -->
-					<div class='section intro'>
-					
-					
-                        <div class='cafe-card'>
-                            <div class='stmp-circle'><span class="stmpNo"></span>/<span class="many"></span></div>
-                            <div class="intro-wrap">
-                                <div class='bgwrap'>
-                                    <div style="display: block">
-                                        <img class='stmpcard' alt='card image'>
-                                    </div>
-                                    <div style="display: none">
-                                        <img class='stmpcard2'>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="service"></div>
-                        </div>
-                        
-						<div class='introArea'>
-							<div class='cafeLogo'>
-								<img src='../image/logo_sample.png' alt='cafe logo'>
-							</div>
-							<div class='cafeTxt'>
-								<h2 class='cafeName'>카페 프레스코</h2>
-								<div class='tag'></div>
-								<div class='txt'></div>
-							</div>
-						</div>
-						
-                        <div class='infoDetail'>
-                            <p class='time'>평일 07:00 - 07:00 / 주말.공휴일 07:00 - 07:00</p>
-                            <p class='seat'></p>
-                            <p class='tel'></p>
-                            <p class='addr'>경기도 성남시 중원구 금광2동 0000번지 00건물2층</p>
-                        </div>
-                        
-                        <div class="cstmr_action">
-						    <div id='favorite' class='no'></div>
-						    <div id='like' class='no'></div>
-	                        <button class='btn-gift' type='button' onclick="location.href='gift.html'"></button>
-	                        <button class='btn-message' type='button' onclick="location.href='../message/message.html'"></button>
-						</div>
-						
-					</div>
-					<!-- //section1 -->
+<!-- section1 -->
+          <div class='section intro'>
+           
+           
+                         <div class='cafe-card'>
+                             <div class='stmp-circle'><span class="stmpNo"></span>/<span class="many"></span></div>
+                             <div class="intro-wrap">
+                                 <div class='bgwrap'>
+                                     <div style="display: block">
+                                         <img class='stmpcard' alt='card image'>
+                                     </div>
+                                     <div style="display: none">
+                                         <img class='stmpcard2'>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="service"></div>
+                         </div>
+                         
+             <div class='introArea'>
+               <div class='cafeLogo'>
+                 <img src='../image/logo_sample.png' alt='cafe logo'>
+               </div>
+               <div class='cafeTxt'>
+                 <h2 class='cafeName'>카페 프레스코</h2>
+                 <div class='tag'></div>
+                 <div class='txt'></div>
+               </div>
+             </div>
+             
+                         <div class='infoDetail'>
+                             <p class='time'>평일 07:00 - 07:00 / 주말.공휴일 07:00 - 07:00</p>
+                             <p class='seat'></p>
+                             <p class='tel'></p>
+                             <p class='addr'>경기도 성남시 중원구 금광2동 0000번지 00건물2층</p>
+                         </div>
+                         
+                         <div class="cstmr_action">
+                 <div id='favorite' class='no'></div>
+                 <div id='like' class='no'></div>
+                           <button class='btn-gift' type='button' onclick="location.href='gift.html'"></button>
+                           <button class='btn-message' type='button' onclick="location.href='../message/message.html'"></button>
+             </div>
+             
+           </div>
+           <!-- //section1 -->
 
 
 					<!-- section2 -->
@@ -161,6 +161,9 @@
 		</div>
 		<!-- //con -->
 	</div>
+	<div id="loading">
+<img id="loading-image" src="coffeecup.gif" alt="Loading..." />
+</div>
   <script src="../../node_modules/sweetalert/dist/sweetalert.min.js"></script>
   <script src="../js/context.js"></script>
   <script src="../../node_modules/handlebars/dist/handlebars.js"></script>
@@ -265,6 +268,15 @@ function autoSlide() {
   </div>
 </li>
 {{/each}}
+</script>
+
+
+
+<script>   
+$(window).load(function() {     
+ $('#loading').hide();   
+}); 
+
 </script>
 </body>
 </html>
