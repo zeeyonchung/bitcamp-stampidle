@@ -549,6 +549,11 @@ public class CustomCardServiceImpl implements CustomCardService {
         }
         
       }
+      if(Integer.parseInt(cardList.getCardState()) == 0) {
+        if((time).equals(cardList.getCardUseDate())) {
+          ++finishCard;
+        }
+      }
       
       if(Integer.parseInt(cardList.getCardState()) == 1) {
         for(Stamp stList : stampList) {
