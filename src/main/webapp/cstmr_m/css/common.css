@@ -240,8 +240,8 @@ a {
 }
 
 .sidebar .profileArea .profileImg img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
 }
 
 .sidebar .profileArea .cafeNm {
@@ -513,4 +513,14 @@ a {
 	}
 	.sa-icon.sa-custom {
 		margin: 10px auto!important;
-	}}
+	}
+	#loading img {
+	   top:22%!important;
+	   position:absolute;
+	   left:50%;
+	   margin-left:-145px;
+		width: 70%;
+		height: auto;
+	}
+	
+}

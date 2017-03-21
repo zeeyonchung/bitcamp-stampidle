@@ -60,7 +60,7 @@
 .stmp-circle span {
 	display:inline;
 }
-.stmp-circle:first-letter {
+.stmp-circle .stmpNo {
 	font-weight:bold;
 	font-size:1.8em;
 }
@@ -575,7 +575,8 @@
 }
 
 .commentArea .comment_list li .profileImg img {
-    width: 100%;
+    width: auto;
+    height:100%;
     border-radius: 50px;
 }
 

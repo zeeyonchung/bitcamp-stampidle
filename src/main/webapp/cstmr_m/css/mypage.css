@@ -79,21 +79,23 @@ position: absolute;
 }
 
 .input-are ul {
-    width:100%;
-    border-top: 2px solid #eee;
+    width:auto;
+    height:100%;
 }
 .input-are ul li {
     positon:relative;
     width:100%;
     text-align:center;
-    height: 45px;
+    height: 47px;
     font-size: 15px;
     color: #888;
     border-bottom: 2px solid #eee;
 }
-.input-are ul li:last-child {
-    height: 47px;
+
+.input-are ul li:first-child {
+	border-top:none;
 }
+
 .input-are ul li:after {
     display:inline-block;
     position:absolute;
