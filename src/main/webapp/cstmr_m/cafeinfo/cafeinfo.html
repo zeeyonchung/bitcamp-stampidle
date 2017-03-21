@@ -36,53 +36,55 @@
 			<div id="swipe">
 				<div class="swWrap">
 
-                    <!-- section1 -->
-	               <div class='section intro'>
-	                   <div class='introArea'>
-	                    <div class='cafeLogo'><img src='../image/logo_sample.png' alt='cafe logo'></div>
-	                    <div class='cafeTxt'>
-	                        <h2 class='cafeName'>카페 프레스코</h2>
-	                        <div class='tag'><span>#스터디카페</span><span>#24시간카페</span></div>
-	                        <p class='txt'> 
-	                            달콤한 스낵과 샌드위치를 판매하는 편안한 분위기의 유럽풍 커피하우스 체인점입니다.
-	                        </p>
-	                    </div>
-	                    <div class='like select'></div>
-	                </div>
-	                
-	                
-	                
-	                
-	               <!-- <a id='favorite' class='no'></a>
-	                  <div class='cafe-card'>
-	                     <div class='stmp-circle'></div>
-	                     <div class="intro-wrap">
-	                     <div class='bgwrap'>
-	                     <div style="display:block">
-	                     <img class='stmpcard'>
-	                     </div>
-	                     <div style="display:none">
-                       <img class='stmpcard2'>
-                       </div>
-	                     </div>
-	                     </div>
-	                  </div>
-	                     <div id='like' class='no'></div>
-	                  <div class='cafe-text'>
-	                     <div class='cafe-name'></div>
-	                     <div class='cafe-tag'></div>
-	                     <div class='cafe-addr'></div>
-	                     <div class='cafe-tel'></div>
-	                     <div class='cafe-info'></div>
-	                  </div>
-	                  <button class='btn-gift' type='button' onclick="location.href='gift.html'"></button>
-	                  <button class='btn-message' type='button' onclick="location.href='../message/message.html'"></button> -->
-	                  
-	               </div>
-	               <!-- //section1 -->
-                    
-                    
-                    <!-- section2 -->
+					<!-- section1 -->
+					<div class='section intro'>
+					
+					
+                        <div class='cafe-card'>
+                            <div class='stmp-circle'><span class="stmpNo"></span>/<span class="many"></span></div>
+                            <div class="intro-wrap">
+                                <div class='bgwrap'>
+                                    <div style="display: block">
+                                        <img class='stmpcard' alt='card image'>
+                                    </div>
+                                    <div style="display: none">
+                                        <img class='stmpcard2'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service"></div>
+                        </div>
+                        
+						<div class='introArea'>
+							<div class='cafeLogo'>
+								<img src='../image/logo_sample.png' alt='cafe logo'>
+							</div>
+							<div class='cafeTxt'>
+								<h2 class='cafeName'>카페 프레스코</h2>
+								<div class='tag'></div>
+								<div class='txt'></div>
+							</div>
+						</div>
+						
+                        <div class='infoDetail'>
+                            <p class='time'>평일 07:00 - 07:00 / 주말.공휴일 07:00 - 07:00</p>
+                            <p class='seat'></p>
+                            <p class='tel'></p>
+                            <p class='addr'>경기도 성남시 중원구 금광2동 0000번지 00건물2층</p>
+                        </div>
+                        
+                        <div class="cstmr_action">
+						    <div id='favorite' class='no'></div>
+						    <div id='like' class='no'></div>
+	                        <button class='btn-gift' type='button' onclick="location.href='gift.html'"></button>
+	                        <button class='btn-message' type='button' onclick="location.href='../message/message.html'"></button>
+						</div>
+						
+					</div>
+					<!-- //section1 -->
+
+
+					<!-- section2 -->
 					<div class='section menuArea'>
 					   <h3>제조음료</h3>
 					   <div class="btn-group">
@@ -206,7 +208,7 @@ $(window).load(function(){
 <script>
 var $imgList = $('.bgwrap>div');      // bgwrap div 안에 있는 div 자식들을 가져옴
 var nImgCount = $imgList.children().length; // 위에서 가져온 div 자식들의 개수
-var nDuration = 1500;         // 이미지를 변경할 시간 (3000 = 3초)
+var nDuration = 4000;         // 이미지를 변경할 시간 (3000 = 3초)
 var bAuto = true;           // 자동으로 변경할 지 여부
 var nIndex = 0;           // 변경할 이미지의 Index
 
