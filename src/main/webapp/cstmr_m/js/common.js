@@ -24,7 +24,15 @@ $( function() {
 		$('#logout-btn').click(function(event) {
 			event.preventDefault()
 			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
-				location.href = '../auth/login.html'
+				swal({
+					  title: "간편한 도장관리 스탬피들",
+					  closeOnConfirm: true,
+					  imageUrl:"../../image/pabi.png"
+					},
+					function(isConfirm) {
+						location.href = '../auth/login.html'
+					});
+				
 			});
 		});
 	  });

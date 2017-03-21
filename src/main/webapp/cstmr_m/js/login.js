@@ -8,8 +8,23 @@ $('.login-btn').click(function() {
 	$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 		console.log(ajaxResult);
 		if (ajaxResult.status == "success") {
-			location.href = "../main/main.html";
-			return;
+			swal({
+				  title: param.name + "님 환영합니다.",
+				  closeOnConfirm: true,
+				  imageUrl:"../../image/pabi.png"
+				},
+				function(isConfirm) {
+					location.href = "../main/main.html";
+				});
+			} else {
+		swal({
+			  title: "가입된 회원이 아닙니다",
+		      text:"로그인 정보를 확인해주세요",
+			  closeOnConfirm: true,
+			  type: "error"
+			},
+			function(isConfirm) {
+				return;})
 		}
 	}, 'json');
 	
@@ -39,8 +54,7 @@ $('.register-ok-btn').click(function() {
 	$.post(serverRoot + '/customMember/add.json', param, function(ajaxResult) {
 		console.log(ajaxResult);
 		if (ajaxResult.status == "success") {
-			alert("등록이 완료되었습니다. 로그인하여 접속해주세요");
-			location.href = "login.html";
+			swal("가입이 완료되었습니다.", "로그인하여 바로 스탬피들을 이용하세요", "success")
 		}
 	}, 'json');
 }); // click()

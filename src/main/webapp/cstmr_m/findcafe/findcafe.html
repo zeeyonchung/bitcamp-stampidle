@@ -65,7 +65,9 @@
 		<!-- //con -->
 	</div>
 	
-	
+	<div id="loading">
+<img id="loading-image" src="coffeecup.gif" alt="Loading..." />
+</div>
 	
 	
 <!-- 카페 목록 하나하나 템플릿 -->
@@ -135,7 +137,12 @@
         });
     </script>
 <!-- //when mapArea open, btn_prev control  -->
+<script>   
+$(window).load(function() {     
+ $('#loading').hide();   
+}); 
 
+</script>
 </body>
 </html>
 
