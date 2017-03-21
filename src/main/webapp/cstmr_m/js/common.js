@@ -16,8 +16,11 @@ $( function() {
 		
 		$.getJSON(serverRoot + '/customMember/getOne.json?customMemberNo=' + userNo1, function(ajaxResult) {
 			var myData1 = ajaxResult.data;
-			$('#photo-sdimg').attr("src", '../../upload/' + myData1.photoPath).css('width', '100%').css(
-					'max-height', '100px').css('border-radius','100%');
+			if (myData1.photoPath == "") {
+				$('#photo-sdimg').hide();
+			} else {
+				$('#photo-sdimg').attr("src", '../../upload/' + myData1.photoPath);
+			}
 		});
 		
 		// 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
@@ -25,7 +28,7 @@ $( function() {
 			event.preventDefault()
 			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
 				swal({
-					  title: "간편한 도장관리 스탬피들",
+					  title: "스탬피들을 이용해주셔서 감사합니다.",
 					  closeOnConfirm: true,
 					  imageUrl:"../../image/pabi.png"
 					},

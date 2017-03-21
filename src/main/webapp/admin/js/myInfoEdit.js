@@ -34,7 +34,8 @@ $('.myeditPop .edit-btn').click(function() {
 			if (ajaxResult.status != "success") {
 				alert(ajaxResult.data);
 				return;
-			} 
+			}
+			swal("변경완료");
 		}, 'json');
 	});
 });

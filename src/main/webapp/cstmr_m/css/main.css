@@ -24,7 +24,6 @@
     background-size:250px 194px;
     background-attachment: fixed;
     border-radius:0 0 20% 20%;
-    height:352px;
 }
 
 .latelyCard h2 {
@@ -178,6 +177,7 @@
     text-align:center;
     padding-bottom:5px;
     margin-top:3px;
+    height:185px;
 }
 
 .cardArea span {
@@ -195,6 +195,9 @@
 	max-height: 168px;
 }
 
+.latelyCard {
+	padding-bottom:15px;
+}
 .latelyCardSlide .slick-dots {
     bottom:-20px;
     text-align: center;

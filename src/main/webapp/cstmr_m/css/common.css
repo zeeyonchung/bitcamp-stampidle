@@ -237,7 +237,6 @@ a {
     background:#ddd;
     background: url('../image/profile.png') no-repeat center 15px #ddd;
     background-size: 60% 80%;
-    box-shadow: 0px 0px 0px 3px rgb(255,255,255);
 }
 
 .sidebar .profileArea .profileImg img {
@@ -496,12 +495,22 @@ a {
 /************ sweetalert ************/
 @media (max-width: 540px) {
 	.sweet-alert {
-	width:80!important;
+		width: 80%!important;
+		margin-right:auto!important;
+		margin-left:auto!important;
+		box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
 	}
 	.sweet-alert .confirm {
-	background-color:#ff5948!importnat;
+		background-color: #ff5948 !important;
 	}
 	.sweet-alert h2 {
-	font-size:25px;
+		font-size: 1.2em!important;
+		margin: 15px 0!important;
+		font-weight:normal!important;
 	}
-}
+	.sweet-alert button {
+		margin: 10px 5px 0 5px !important;
+	}
+	.sa-icon.sa-custom {
+		margin: 10px auto!important;
+	}}

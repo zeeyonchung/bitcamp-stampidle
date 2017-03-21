@@ -71,7 +71,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				}, 'json'); 
 		  }
 		});
-		
 		// 카드 앞면 뒷면 가져오기//
 		$.getJSON(serverRoot + '/customCard/customDetail.json', 
 				{'customMemberNo': userNo,
@@ -91,7 +90,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 							$('.stmp-circle .stmpNo').text(stmpNo);
 						}
 					});
-					$('.service').text(cardInfo[0].service);
+					if (cardInfo[0].service != "") {
+						$('.service').text(cardInfo[0].service);
+					} else {
+						alert("null");
+						$('.service').text("등록되지 않은 내용입니다.");
+					}
 				});
 		});
 	});
