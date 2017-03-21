@@ -7,7 +7,10 @@
 	margin-bottom:5px;
 }
 
-
+hr {
+	  border:2px solid #f4f4f4;
+    margin-top: 5px;
+}
 
 
 /************ 이벤트배너영역 `Bn ************/
@@ -16,7 +19,14 @@
 	margin-top:0px;
 	text-align: center;
 }
-
+.eventNo {
+	float:left;
+	padding-top: 6px;
+}
+#countEvent {
+	  margin-left: 5px;
+    color: red;
+}
 .eventBn .one-event {
   padding-top:15px;
   clear: both;
@@ -24,7 +34,7 @@
 .img-box{
 	      display: inline-block;
     height: 150px;
-    width: 40%;
+    width: 100%;
     border: 1px solid black;
         margin-top: 10px;
 }
@@ -35,7 +45,7 @@
 .one-event {
 	margin-top:10px;
 	position: relative;
-    height: 150px;
+    height: 250px;
     width: 100%;
 }
 .eventBn {
@@ -44,12 +54,18 @@
 .eventBn .one-event img {
     width:100%;
 }
-
+.title {
+    font-size: 1.5em;
+}
 
 .text-div {
-	width: 55%;
+	  width: 100%;
     display: inline-block;
     left: 50%;
+    margin-top: 10px;
+}
+.daterange {
+	color:#999
 }
 
 .eventBn .one-event .text-div .title {

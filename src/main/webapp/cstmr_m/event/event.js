@@ -39,6 +39,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			var status = ajaxResult.status;
 			if (status != "success") {console.log(ajaxResult.data); return;}
 			var list = ajaxResult.data;
+			console.log(list);
 			var eventdiv = $('#event-div');
 			var template = Handlebars.compile($('#trTemplate').html());
 			if(pageCount == 1) {
@@ -46,8 +47,15 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			} else {
 				eventdiv.append(template({"list": list}));
 			}
+			$.getJSON(serverRoot+ '/event/getAllListCount.json', function(ajaxResult) {
+				var status = ajaxResult.status;
+				
+				if (status != 'success') {console.log(ajaxReust.data); return;}
+				var count = ajaxResult.data;
+				$('#countEvent').text(count);
+			});
 			
-			$('.title').click(function(event) {
+			$('.one-event').click(function(event) {
 				event.preventDefault();
 				$.getJSON(serverRoot + '/event/updateView.json?eventNo=' + $(this).attr("data-no"));
 				

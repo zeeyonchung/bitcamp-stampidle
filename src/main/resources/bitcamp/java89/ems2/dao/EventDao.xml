@@ -67,6 +67,7 @@
       e.econts,
       e.ebirth,
       e.epath,
+      e.bpath,
       e.eview,
       e.sday,
       e.eday,
