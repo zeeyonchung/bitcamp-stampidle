@@ -17,7 +17,7 @@ public class MessageJsonControl {
   
   @Autowired MessageService messageService;
   
-  @RequestMapping(value = "/cstmr_m/message/insertMsg")
+  @RequestMapping(value = "/message/insertMsg")
   public AjaxResult insertMsg(Message message) throws Exception {
   	messageService.insertMsg(message);
     return new AjaxResult(AjaxResult.SUCCESS, "메시지 추가 성공");

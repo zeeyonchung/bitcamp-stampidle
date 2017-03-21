@@ -54,4 +54,5 @@ public interface CustomCardDao {
   List<CustomCard> getLikeCafeList(Map<String, Object> paramMap) throws Exception;
   
   List<CustomCard> cafeNoNameList(int customMemberNo) throws Exception;
+  List<CustomCard> customerNoNameList(int customMemberNo) throws Exception;
 }

@@ -31,6 +31,7 @@ public interface CustomCardService {
   Map<String, Object> likeCafe(int customMemberNo, int postNo, int pageCount, String orderBy) throws Exception;
   
   List<CustomCard> cafeNoNameList(int customMemberNo) throws Exception;
+  List<CustomCard> customerNoNameList(int cafeMemberNo) throws Exception;
 }
 
 

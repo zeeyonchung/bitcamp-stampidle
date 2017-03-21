@@ -178,6 +178,12 @@ public class CustomCardJsonControl {
   	List<CustomCard> cafeNoNameList = customCardService.cafeNoNameList(customMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, cafeNoNameList);
   }
+  
+  @RequestMapping(value = "/admin/message/customerNoNameList")
+  public AjaxResult customerNoNameList(int cafeMemberNo) throws Exception {
+    List<CustomCard> customerNoNameList = customCardService.customerNoNameList(cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, customerNoNameList);
+  }
 }
 
 

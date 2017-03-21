@@ -46,6 +46,7 @@ h4 {
 
 
 .modal-content {
+	margin: auto;
   position: relative;
   width: 465px;
   min-height: 590px;
@@ -89,6 +90,7 @@ h4 {
 
 
 .cafetype {
+	height: 42px;
   border-bottom: 1px solid #eee;
   padding: 5px 10px;
 }
@@ -164,7 +166,7 @@ h4 {
 }
 
 
-.msg-content .sub .cafe-name {
+.msg-content .sub .custom-name {
   font-size: 1.24em;
   font-weight: bold;
 }
@@ -181,7 +183,16 @@ h4 {
 .btn-delete {
     position: absolute;
     top: 30px;
-    right: 10px;
+    right: 50px;
+    font-size: 1.7em;
+}
+
+.btn-reply {
+	position: absolute;
+	top: 35px;
+	right: 10px;
+	width: 30px;
+	height: 30px;
 }
 
 .msg-content .pre-msg {
@@ -201,7 +212,7 @@ h4 {
 .btn-write {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 100px;
     display: block;
     width: 100px;
     height: 100px;
@@ -218,9 +229,9 @@ h4 {
 .writeWrap {
     display:none;
     z-index:1000;
-    margin-top:-50px;
+    margin-top:-46px;
     background: rgba(0, 0, 0, .6);
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100%;
 }

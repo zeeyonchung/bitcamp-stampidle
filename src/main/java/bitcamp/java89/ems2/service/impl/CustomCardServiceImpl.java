@@ -743,6 +743,12 @@ public class CustomCardServiceImpl implements CustomCardService {
   public List<CustomCard> cafeNoNameList(int customMemberNo) throws Exception {
   	return customCardDao.cafeNoNameList(customMemberNo);
   }
+
+
+  @Override
+  public List<CustomCard> customerNoNameList(int cafeMemberNo) throws Exception {
+    return customCardDao.customerNoNameList(cafeMemberNo);
+  }
   
  
 }
