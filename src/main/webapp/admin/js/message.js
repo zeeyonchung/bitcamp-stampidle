@@ -126,10 +126,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
     
 	$('.btn-send').click(function() {
 		if ($('.chat-input').val() == "") {
-			alert("메시지를 입력해주세요.");
+			swal({title:"메시지를 입력해주세요.",
+				  type:"warning"});
 			return $('.chat-input').focus();
 		} else if ($('select[name=cafeNo]').val() == null){
-			alert("쪽지를 보내실 카페를 선택해주세요.")
+			swal({title:"쪽지를 보내실 카페를 선택해주세요.",
+				  type:"warning"});
 			return $('select[name=cafeNo]').focus();
 		}
     	var param = {
@@ -144,7 +146,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	          alert(ajaxResult.data);
 	          return;
 	        }
-	        alert("쪽지를 보냈습니다.");
+	        swal({title: "쪽지를 보냈습니다.",
+	        	  type: "success"});
+	        
 	        $('.chat-input').val("");
 	        $('.writeWrap').fadeOut(200);
 	        getMsgSent();
