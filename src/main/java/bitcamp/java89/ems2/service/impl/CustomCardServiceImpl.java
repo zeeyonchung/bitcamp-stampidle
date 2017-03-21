@@ -633,7 +633,7 @@ public class CustomCardServiceImpl implements CustomCardService {
       Map<String, Object> paramMap2 = new HashMap<>();
       paramMap2.put("customMemberNo", customMemberNo);
       paramMap2.put("cafeMemberNo", customCard.getCafeMemberNo());
-      List<CustomCard> customCardDetailList = customCardDao.getCustomDetail(paramMap2);
+      List<CustomCard> customCardDetailList = customCardDao.getFindCafeCustomDetail(paramMap2);
       
       
       

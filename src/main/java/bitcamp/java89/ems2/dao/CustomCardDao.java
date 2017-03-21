@@ -16,6 +16,7 @@ public interface CustomCardDao {
   int getStampCountByKeyword(Map<String, Object> paramMap) throws Exception;
   
   List<CustomCard> getCustomDetail(Map<String, Object> paramMap) throws Exception;
+  List<CustomCard> getFindCafeCustomDetail(Map<String, Object> paramMap) throws Exception;
   
   List<CustomCard> getList(Map<String, Object> paramMap) throws Exception;
   List<CustomCard> getListSelect(Map<String, Object> paramMap) throws Exception;
