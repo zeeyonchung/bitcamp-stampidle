@@ -364,9 +364,14 @@
 }
 
 /************ 대표메뉴 menuArea ************/
+.menu {
+    text-align: center;
+    width: 20%;
+    height: 100%;
+    display: inline-block;
+}
 .menuArea {
     padding:15px 0 20px 0;
-        display: inline-block;
 }
 
 .menuArea:after {
