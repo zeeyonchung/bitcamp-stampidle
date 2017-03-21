@@ -60,6 +60,14 @@
     font-weight:800;
 }
 
+
+
+
+.btn-list {
+    float: right;
+    margin-top: 75px;
+}
+
 .span-title {
 	font-align:center;
 	border-radius: 5px;
