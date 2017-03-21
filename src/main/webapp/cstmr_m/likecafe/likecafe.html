@@ -53,10 +53,10 @@
 	<!-- 카페 목록 하나하나 템플릿 -->
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each cafeList}}
-  <div class='list'>
+  <div class='list' data-no="{{cafeMemberNo}}">
     <div class='cardArea'><img src='/bitcamp_stampidle/upload/{{frontImgPath}}' alt='stamp card'></div>
     <div class='cafeTxt'>
-      <h2 class='cafeName' data-no="{{cafeMemberNo}}">{{cafeName}}</h2>
+      <h2 class='cafeName'>{{cafeName}}</h2>
       <p class='tag'><span>#{{tagName}}</span></p>
       <p class='time'>
       {{#each cafeTimeList}}

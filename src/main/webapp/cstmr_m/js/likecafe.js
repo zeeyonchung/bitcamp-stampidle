@@ -64,7 +64,7 @@ function loadPage(pageCount) {
 				listArea.append(template({"cafeList": cafeList}));
 			}
 			
-			$('.cafeName').click(function(event) {
+			$('.list').click(function(event) {
 				event.preventDefault();
 				event.stopImmediatePropagation();
 				location.href = '../cafeinfo/cafeinfo.html?cafeMemberNo=' + $(this).attr("data-no");

@@ -78,7 +78,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		infodiv3.html(template({"myFinishCardList": myFinishCardList}));
 		
 		
-		$('.cafeName').click(function(event) {
+		$('.list').click(function(event) {
 			event.preventDefault();
 			location.href = '../cafeinfo/cafeinfo.html?cafeMemberNo=' + $(this).attr("data-no");
 		});

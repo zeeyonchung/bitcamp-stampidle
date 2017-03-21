@@ -93,7 +93,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					if (cardInfo[0].service != "") {
 						$('.service').text(cardInfo[0].service);
 					} else {
-						alert("null");
 						$('.service').text("등록되지 않은 내용입니다.");
 					}
 				});
@@ -291,7 +290,10 @@ function commentList() {
 			}
 		}
 	});
-	
+	$('.gift').click(function(event) {
+		event.preventDefault();
+		location.href = 'gift.html?cafeMemberNo=' + cafeMembNo;
+	});
 }
 
 

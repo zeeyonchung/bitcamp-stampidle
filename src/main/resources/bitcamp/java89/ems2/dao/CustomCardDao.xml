@@ -245,28 +245,53 @@ where
   
   <select id="getCustomDetail" parameterType="java.util.Map" resultMap="customCard-map">
 	select
-	  memb.cphoto,
-	  memb.name,
-	  memb.tel,
-	  mcard.mcno,
-	  mcard.birth,
-	  mcard.mcuse,
-	  stamp.stno,
-	  stamp.many,
-	  stamp.sitime,
-	  scinfo.stnum,
-	  scinfo.scno,
-	  (select count(mcard.mcuse) from mcard where mcard.mcuse in (1, 2) and mcard.mno=memb.mno and mcard.scno=scinfo.scno) as canUseCount,
-    (select sum(stamp.many) from stamp where stamp.mcno=mcard.mcno) as currentStampCount
-	from memb
-	  left outer join mcard on memb.mno=mcard.mno
-	  left outer join stamp on stamp.mcno=mcard.mcno
-	  left outer join scinfo on scinfo.scno=mcard.scno
-	where 
-	  scinfo.cmno=#{cafeMemberNo}
-	  and memb.mno=#{customMemberNo}
-	order by mcard.mcno desc
+    memb.cphoto,
+    memb.name,
+    memb.tel,
+    mcard.mcno,
+    mcard.birth,
+    mcard.mcuse,
+    stamp.stno,
+    stamp.many,
+    stamp.sitime,
+    scinfo.stnum,
+    scinfo.scno,
+    (select count(mcard.mcuse) from mcard where mcard.mcuse in (1, 2) and mcard.mno=memb.mno and mcard.scno=scinfo.scno) as canUseCount
+  from memb
+    left outer join mcard on memb.mno=mcard.mno
+    left outer join stamp on stamp.mcno=mcard.mcno
+    left outer join scinfo on scinfo.scno=mcard.scno
+  where 
+    scinfo.cmno=#{cafeMemberNo}
+    and memb.mno=#{customMemberNo}
+  order by mcard.mcno desc
   </select>
+  
+  
+  
+   <select id="getFindCafeCustomDetail" parameterType="java.util.Map" resultMap="customCard-map">
+  select
+    memb.cphoto,
+    memb.name,
+    memb.tel,
+    mcard.mcno,
+    mcard.birth,
+    mcard.mcuse,
+    scinfo.stnum,
+    scinfo.scno,
+    (select count(mcard.mcuse) from mcard where mcard.mcuse in (1, 2) and mcard.mno=memb.mno and mcard.scno=scinfo.scno) as canUseCount,
+    (select sum(stamp.many) from stamp where stamp.mcno=mcard.mcno) as currentStampCount
+  from memb
+    left outer join mcard on memb.mno=mcard.mno
+    left outer join scinfo on scinfo.scno=mcard.scno
+  where 
+    scinfo.cmno=#{cafeMemberNo}
+    and memb.mno=#{customMemberNo}
+  order by mcard.mcno desc
+  </select>
+  
+  
+  
   
    <select id="getCustomCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
 	  select
