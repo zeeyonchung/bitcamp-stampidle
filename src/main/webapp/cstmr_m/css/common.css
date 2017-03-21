@@ -499,6 +499,7 @@ a {
 		margin-right:auto!important;
 		margin-left:auto!important;
 		box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+		font-family:"Noto Sans KR", "Nanum Gothic", "san-serif";
 	}
 	.sweet-alert .confirm {
 		background-color: #ff5948 !important;
@@ -508,19 +509,24 @@ a {
 		margin: 15px 0!important;
 		font-weight:normal!important;
 	}
-	.sweet-alert button {
-		margin: 10px 5px 0 5px !important;
-	}
+	
 	.sa-icon.sa-custom {
 		margin: 10px auto!important;
+		width:80px;
+		height:auto;
 	}
 	#loading img {
-	   top:22%!important;
-	   position:absolute;
-	   left:50%;
-	   margin-left:-145px;
+		top: 22% !important;
+		position: absolute;
+		left: 50%;
+		margin-left: -145px;
 		width: 70%;
 		height: auto;
 	}
-	
+	.sweet-alert .sa-confirm-button-container {
+	   width:70%!important;
+	}
+	sa-confirm-button-container .confirm {
+		width: 100%;
+	}
 }

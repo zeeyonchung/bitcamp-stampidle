@@ -30,7 +30,7 @@ $( function() {
 				swal({
 					  title: "스탬피들을 이용해주셔서 감사합니다.",
 					  closeOnConfirm: true,
-					  imageUrl:"../../image/pabi.png"
+					  imageUrl:"../../image/logo_markW.png"
 					},
 					function(isConfirm) {
 						location.href = '../auth/login.html'
