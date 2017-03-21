@@ -94,13 +94,16 @@ body {
   position: relative;
   display: inline-block;
   margin-right: 3%;
+   width:75px;
+   height: 75px;
+   background:#f0f0f0;
+   overflow:hidden;
+   border-radius:100px;
 }
 
 .msg-left img {
-	width:75px;
-    height: 75px;
-	vertical-align: inherit;
-	background:#f0f0f0;
+	width:auto;
+	height:100%;
 }
 
 
@@ -183,7 +186,7 @@ body {
     text-shadow: none;
     line-height: 100px;
     font-size:0;
-    z-index:100;
+    z-index:1000;
     background: url('../image/icon_write.png') no-repeat center center #ff5948;
     background-size: 48% auto;
     box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
@@ -231,11 +234,13 @@ body {
 	height:40px;
 	margin-bottom:5px;
 	font-size:1.2em;
-	border:1px solid solid #ddd; 
+	border:1px solid #ccc; 
+	border-radius:5px;
 }
 
-.inputWrap select  option { 
-	width:40px;
+.inputWrap select  option {
+	color:#555;
+	font-size:0.8em;
 }
 
 .inputWrap select:focus {
