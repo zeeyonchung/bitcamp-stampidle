@@ -152,7 +152,7 @@ $(".event-btns .dropdown-menu li").click(function(){
 
 $("#search-event-btn").click(function(){
 	searchKeyword = $('.keyword-event').val();
-	if (searchCondition == '') {alert('검색 조건 설정하세요');}
+	if (searchCondition == '') {swal({title:'검색 조건 설정하세요',type:'warning'});}
 	loadPage(1, searchCondition, searchKeyword);
 });
 

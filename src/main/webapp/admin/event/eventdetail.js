@@ -39,7 +39,12 @@ $('#use-btn-delete').click(function() {
 		  alert(ajaxResult.data);
 		  return;
 	  }
-	  location.href = clientRoot + '/event/main.html';
+	  swal({title:'삭제되었습니다', 
+		    type:'success'}, 
+		    function(isConfirm) {
+		    	location.href = clientRoot + '/event/main.html';}
+		);
+	  
   });
 });
 

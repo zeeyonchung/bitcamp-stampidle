@@ -33,7 +33,7 @@ var now = new Date();
   var chan_val = year + '-' + mon + '-' + day;
 
 
-$('.event-regi-btn').click(function() {
+$('.event-update-btn').click(function() {
     var param = {
 		"eventNo": eventNo,
 		"eventTitle": $('.event-title').val(),
@@ -51,7 +51,13 @@ $('.event-regi-btn').click(function() {
     		alert(ajaxResult.data);
     		return;
     	}
-    	location.href = 'main.html';
+    	swal({
+			title:"이벤트 수정이 완료되었습니다.",
+			type:"success",
+			closeOnConfirm: true
+		},function(isConfirm) {
+			location.href = 'main.html';}
+		);
     }, 'json');
     
 }); // click()
