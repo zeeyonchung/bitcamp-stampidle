@@ -75,7 +75,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 
 
-
 function slide() {
 
 	/* show hide latelyCardSlide */

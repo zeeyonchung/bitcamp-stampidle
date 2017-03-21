@@ -91,7 +91,11 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 							$('.stmp-circle .stmpNo').text(stmpNo);
 						}
 					});
-					$('.service').text(cardInfo[0].service);
+					if ($('.service') != "") {
+						$('.service').text(cardInfo[0].service);
+					} else {
+						$('.service').text("등록되지 않은 내용입니다.");
+					}
 				});
 		});
 	});
