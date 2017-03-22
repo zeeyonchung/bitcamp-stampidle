@@ -1,4 +1,4 @@
-$('.login-btn').click(function() {
+$('.login-btn2').click(function() {
 	// 이메일 저장이 체크되어 있으면 쿠키에 저장하고, 
 	// 체크되어 있지 않으면 쿠키에서 제거한다.
 	if ($('#save-id').is(':checked')) {
