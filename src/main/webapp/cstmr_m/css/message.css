@@ -250,6 +250,7 @@ body {
     height: 200px!important;
     width: 100%;
     padding: 5px;
+    font-size:1.2em;
 }
 writeArea .chat-input.input:focus {
   outline: none;

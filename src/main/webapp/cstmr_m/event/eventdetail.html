@@ -19,34 +19,30 @@
   <div id="container" style="padding:0px;">
      <!-- con -->
     <div class='con cafe-pic'>
-        <div class='cafe-name1'></div>
        <!-- 이미지 슬라이더 -->
-       <section class="cafeImgSlide slider">
-         <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>
+       <section class="eventImgSlide slider eventDetail-img">
+         <div><img src='' alt='cafe image'></div>
        </section>
     </div>
-			<div class="clear"></div>
-			<!-- 타이틀 -->
-			
-			<div class='title'>
-			  <span></span>
-			</div>
+	<div class="clear"></div>
+     <div class='cafe-name1'><span></span></div>
+	<!-- 타이틀 -->
+	
+	<div class='title'>
+	  <span></span>
+	</div>
 			
     <div class='cafe-name-before2'>
-      <div>
-	      <span class='span-title'>&nbsp;기간&nbsp;</span>
+      <div class="event-date">
 	      <span class='span-period1 startdate-period'></span> ~
 	      <span class='span-period1 span-period2 enddate-period'></span>
       </div>
       <div class='event-cont-div'>
-	      <span class='span-title'>&nbsp;내용&nbsp;</span>
 	      <span class='span-contents'></span>
       </div>
     </div>
     <hr>
-    <div class="btn btn-list">
-      <button id="use-btn" class="btn btn-default btn-sm" type="submit">목록</button>
-    </div>
+    <div id="use-btn" class="btn-list" type="submit">목록</div>
       <!-- con -->
   </div>
     
@@ -112,8 +108,8 @@ $('#btn1').toggle(function(){
         slidesToScroll : 3
       });
 
-      /* cafe interior images slide */
-      $(".cafeImgSlide").slick({
+      /* event interior images slide */
+      $(".eventImgSlide").slick({
         dots : true,
         infinite : true,
         slidesToShow : 1,

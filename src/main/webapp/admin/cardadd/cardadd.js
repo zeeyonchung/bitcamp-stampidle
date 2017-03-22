@@ -35,7 +35,36 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					updateBtmlineSize();
 					updateFrontimgdivSize();
 				});
+				
+				/**** 이전에 저장된 스탬프 영역 가져오기 ****/
+				// positionOrder대로 재정렬
+				stampCardInfo.stampPositionList.sort(function (a, b) { 
+					return a.positionOrder > b.positionOrder;
+				});
+				
+				
+				/** 스탬프 영역 가져오기 **/
+				for (var i = 0; i < stampCardInfo.stampPositionList.length; i++) {
+					var positionOrder = stampCardInfo.stampPositionList[i].positionOrder;
+					var positionX = parseFloat(stampCardInfo.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
+					var positionY = parseFloat(stampCardInfo.stampPositionList[i].positionY) * $('.stmpside').css('height').split("px")[0];
+					
+					$('<div>')
+					.addClass('stmpare')
+					.addClass('stampNo' + (positionOrder - 1))
+					.appendTo("#stmpside")
+					.text(positionOrder)
+					.draggable({containment : 'parent'})
+					.css({top: positionY, left: positionX})
+					.addTouch();
+				}
+				
+				stampNo = stampCardInfo.stampPositionList.length;
+				$('.midNum').text(stampNo);
+
+				
 			} else {
+				console.log("카드 등록은 처음입니다..")
 				$('.front-img-div img').attr('src', '../image/xbox.png');
 				$('.frontFile #front-photo-path').val('../image/xbox.png');
 				
@@ -52,33 +81,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					updateFrontimgdivSize();
 				});
 			}
-			
-			
-			/**** 이전에 저장된 스탬프 영역 가져오기 ****/
-			// positionOrder대로 재정렬
-			stampCardInfo.stampPositionList.sort(function (a, b) { 
-				return a.positionOrder > b.positionOrder;
-			});
-			
-			
-			/** 스탬프 영역 가져오기 **/
-			for (var i = 0; i < stampCardInfo.stampPositionList.length; i++) {
-				var positionOrder = stampCardInfo.stampPositionList[i].positionOrder;
-				var positionX = parseFloat(stampCardInfo.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
-				var positionY = parseFloat(stampCardInfo.stampPositionList[i].positionY) * $('.stmpside').css('height').split("px")[0];
-				
-				$('<div>')
-				.addClass('stmpare')
-				.addClass('stampNo' + (positionOrder - 1))
-				.appendTo("#stmpside")
-				.text(positionOrder)
-				.draggable({containment : 'parent'})
-				.css({top: positionY, left: positionX})
-				.addTouch();
-			}
-			
-			stampNo = stampCardInfo.stampPositionList.length;
-			$('.midNum').text(stampNo);
 			
 	});
 });
@@ -208,9 +210,8 @@ $(document).ready( function(){
 	$('.stmp_are .button').click(function(){
 		$('.tempPop').fadeOut(200);
 		var cardPath = $('.mySlides[style*="display: block"] img').attr('src');
-		$('.backcard').remove();
-		$('<img>').attr("class","backcard").attr("src",cardPath).prependTo(".mid");
-		$('#back-photo-path').val($(".mid").children(".backcard").attr("src"));
+		$('#back-photo-img').attr("src",cardPath);
+		$('#back-photo-path').val($(".mid-top").children(".backcard").attr("src"));
 		
 		var stmpPath = $(':checked + img').attr('src');
 		$('.selectimg').attr("src",stmpPath);

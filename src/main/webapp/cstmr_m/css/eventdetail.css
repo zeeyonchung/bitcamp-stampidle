@@ -30,43 +30,50 @@
     -webkit-font-smoothing: antialiased;
 }
 /*이미지 슬라이더*/
-.slick-slide img {
-        display: block;
-    width: 95%;
-    margin-left: 2%;
+.eventDetail-img img {
+    width: 100%;
+	margin:auto;
+	min-height:200px;
+	background:#f4f4f4;
 }
-
 
 .title {
-  margin-top: 5%;
-  border-bottom: 3px solid #e9e9e9;
-  padding-bottom: 3%;
-  width: 95%;
-  margin-left: 2%;
-}
-
-.title > span {
-	text-align: center;
-  padding-top: 10px;
-  font-size: 1.5em;
-  font-weight: 500;
+  margin: 5% auto 0 auto; 
+  padding-bottom: 2%;
+  width: 90%;
+  text-align:center;
+  font-size:1.6em;
 }
 .cafe-name1 {
-	font-size: 1.5em;
-    display: inline-block;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    font-weight:800;
+	width:100%;
+	text-align:center;
 }
-
-
-
+.cafe-name1 span {
+	display:inline-block;
+	font-size: 1.2em;
+    margin: 15px auto 0 auto;
+    text-align:center;
+    border:1px solid #333;
+    padding:3px 30px 4px 30px;
+    border-radius:30px;
+}
 
 .btn-list {
-    float: right;
-    margin-top: 75px;
+	font-size:1.2em;
+    display:block;
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    text-align: center;
+    color: #fff !important;
+    text-shadow: none;
+    line-height: 75px;
+    background:#555;
+    border:0;
+    margin:50px auto 0 auto;
+    cursor:pointer;
 }
+
 
 .span-title {
 	font-align:center;
@@ -75,20 +82,24 @@
 	color:white;
 	font-size:1.2em;
 }
-.span-period1 {
-	font-size:1.2em;
-	margin-left:1%;
+.cafe-name-before2 .event-date .span-period1 {
+	font-size:1em;
 }
-.cafe-name-before2 {
-  margin-top: 5%;
-  margin-left: 5%;
+.cafe-name-before2 .event-date {
+  text-align:center;
+  color:#ff5948;
+  
 }
-.event-cont-div {
-	margin-top:2%
+ .cafe-name-before2 .event-cont-div {
+ padding-top:20px;
+ border-top:2px solid #ddd;
+ text-align:center;
+	margin:20px auto 0 auto;
+	width:90%;
+	
 }
 .span-contents {
-	font-size:1.2em;
-  margin-left: 1%;
+	font-size:1.1em;
 }
 .page-move {
 	margin-top:5%;

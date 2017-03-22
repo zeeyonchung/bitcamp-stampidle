@@ -11,7 +11,7 @@ $('.login-btn').click(function() {
 			swal({
 				  title: param.name + "님 환영합니다.",
 				  closeOnConfirm: true,
-				  imageUrl:"../../image/pabi.png"
+				  imageUrl:"../../image/logo_markW.png"
 				},
 				function(isConfirm) {
 					location.href = "../main/main.html";

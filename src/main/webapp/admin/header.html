@@ -131,6 +131,28 @@
 
 
 <script>
+/*카페 정보 변경*/
+$('.btn-cafeInfo').click(function(e) {
+   var cafeMemberNo = $('.cafeNm').attr("data-no");
+   $.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult1) {
+       if (ajaxResult1.status == "fail") {
+         swal({title:"등록된 카페정보가 없습니다",
+               text: "카페정보 등록 페이지로 이동합니다.",
+               closeOnConfirm: true,
+               type:"warning"},
+               function(isConfirm) {
+                        location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
+               });
+         
+       } else {
+    	   location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html?cafeMemberNo=' + $('.cafeNm').attr("data-no");
+       }
+   });
+});
+</script>
+
+
+<script>
   /* myeditPop */
   $(document).ready(function() {
     $('.btn-joinInfo').click(function(event) {

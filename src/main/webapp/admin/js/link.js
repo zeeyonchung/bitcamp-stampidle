@@ -46,19 +46,6 @@ $('.srchList li a').click(function(e) {
 });
 
 
-$('.btn-cafeInfo').click(function(e) {
-   var cafeMemberNo = $('.cafeNm').attr("data-no");
-   $.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult1) {
-       if (ajaxResult1.status == "fail") {
-           //alert('카페정보를 입력해주세요.');
-		  alert('등록된 카페정보가 없습니다. 입력페이지로 이동합니다.');
-		  location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
-	   } else {
-		   location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html?cafeMemberNo=' + $('.cafeNm').attr("data-no");
-       }
-   });
-});
-
 
 // event page link ********************************************
 $('#add-event').click(function(e) {
