@@ -55,7 +55,9 @@
   <select id="getCardInfo" parameterType="int" resultMap="stampCardInfo-map">
     select 
   	* 
-  	from scinfo where cmno=#{value} 
+  	from scinfo where cmno=#{value}
+  	order by scinfo.scno desc
+  	limit 1
   </select>
   
   <select id="getCafeCardDetail" parameterType="int" resultMap="stampCardInfo-map">
