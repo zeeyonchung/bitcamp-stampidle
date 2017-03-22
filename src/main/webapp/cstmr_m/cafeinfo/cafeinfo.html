@@ -163,7 +163,6 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="../js/pushy.js"></script>
 	<script src="../js/pushy_stampidle.js"></script>
-	<script src="cafeinfo.js"></script>
 	
 
 <!--  Swipe -->
@@ -172,13 +171,16 @@
 <script type="text/javascript" src="../js/tab_swipe.js"></script>
 <script type="text/javascript">
 $(window).load(function(){
-    if (!document.getElementById('tab_swipe')) return false;
+    swipeSection(0);
+    
+});
+
+function swipeSection(no) {
+	if (!document.getElementById('tab_swipe')) return false;
     var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
     var elem = document.getElementById('swipe');
-    
-    
-    window.areaSwipe = Swipe(elem, {
-        startSlide: 0,
+	window.areaSwipe = Swipe(elem, {
+        startSlide: no,
         continuous: true,
         callback: function(pos) {
             var currentSlide = areaSwipe.getPos() + 1;
@@ -194,9 +196,14 @@ $(window).load(function(){
             $("#swipe .swWrap").css('height', secH);
         }
     });
-});
+}
+
 </script>
 <!-- // Swipe -->
+
+    <script src="cafeinfo.js"></script>
+    
+    
 <script>
 var $imgList = $('.bgwrap>div');      // bgwrap div 안에 있는 div 자식들을 가져옴
 var nImgCount = $imgList.children().length; // 위에서 가져온 div 자식들의 개수
