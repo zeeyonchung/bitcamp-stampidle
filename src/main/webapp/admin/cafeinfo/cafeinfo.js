@@ -51,7 +51,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			
 			$('.seat').text(cafe.chairNo);
 			$('.tel').text(cafe.cafeTel);
-			$('.addr').text(cafe.address + " " + cafe.detailAddress);
+			$('.addr').text(cafe.address/* + " " + cafe.detailAddress*/);
 			if (cardinfo.backImgPath.slice(0,4) == "temp") {
 				$('.cardArea img').attr('src', '../image/' + cardinfo.backImgPath);
 			} else {
@@ -63,7 +63,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			$.each(menus, function(i){
 				$("<div class='menu'><p class='mnImg'><img src='../../upload/" + menus[i].menuPath
 				+ "' alt='menu image'></p><p class='mnName'>" + menus[i].menuName
-				+ "</p><p class='price'>" + menus[i].menuName
+				+ "</p><p class='price'>￦" + menus[i].price
 				+ "</p></div>").appendTo(".menuSlide");
 			});
 			
