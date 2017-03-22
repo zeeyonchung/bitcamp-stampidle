@@ -141,6 +141,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				alert(ajaxResult.data);
 				return;
 			}
+			swipeSection(2);
 			swal({title:'리뷰 등록이 완료되었습니다.',
 				  type:"success"});
 			commentList();}, 'json');

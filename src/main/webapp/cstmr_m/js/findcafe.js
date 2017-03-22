@@ -134,3 +134,83 @@ function addMyCard(cafeMemberNo) {
 		}
 	);
 }
+
+
+
+/*************************** 지도 ****************************/
+
+var showMap = function() {
+	var map;
+	var marker;
+	var infowindow;
+	var loginMember;
+	var filename;
+	var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	var labelIndex = 0;
+
+	var lat;
+	var lng;
+	var contentString;
+	var currentLatLng;
+	
+	initMap();
+	
+	
+	$.getJSON(serverRoot + '/cafe/getCafeMapList.json', function(ajaxResult) {
+		var cafeList = ajaxResult.data;
+		for (var i = 0; i < cafeList.length; i++) {
+			var address = cafeList[i].address;
+			$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg', function(ajaxResult) {
+				console.log(ajaxResult);
+				lat = parseFloat(ajaxResult.results[0].geometry.location.lat);
+				lng = parseFloat(ajaxResult.results[0].geometry.location.lng);
+				contentString = '<div id="content">'+
+								'<div id="siteNotice">'+
+								'</div>'+
+								'<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+								'<div id="bodyContent">'+
+								'<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+								'sandstone rock formation in the southern part of the '+
+								'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+								'south west of the nearest large town, Alice Springs; 450&#160;km '+
+								'(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+								'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+								'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+								'Aboriginal people of the area. It has many springs, waterholes, '+
+								'rock caves and ancient paintings. Uluru is listed as a World '+
+								'Heritage Site.</p>'+
+								'<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+								'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+								'(last visited June 22, 2009).</p>'+
+								'</div>'+
+								'</div>';
+				
+				currentLatLng = {lat: lat, lng: lng};
+				
+				var infowindow = new google.maps.InfoWindow();
+				
+				marker = new google.maps.Marker({
+					position: currentLatLng,
+					map: map,
+					title: 'Hello World!',
+					label: labels[labelIndex++ % labels.length]
+				});
+				console.log(i);
+				marker.addListener('click', function(i) {
+					infowindow.setContent(contentString);
+					infowindow.open(map, marker);
+				});
+				
+			});
+		}
+	});
+	
+
+	function initMap() {
+		map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: 37.4945723, lng: 127.02757780000002},
+			zoom: 16
+		});
+	}//initMap
+
+}
