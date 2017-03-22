@@ -11,9 +11,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	userNo = ajaxResult.data.customMemberNo;
 	var userName = ajaxResult.data.name;
 	
-	
 	$(window).scrollTop($(window).height);
-
+	
 	// 1페이지 시작
 	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var cafe = ajaxResult.data;
@@ -183,6 +182,30 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		  
     	}
     });
+    
+    $(document.body).on('click', '.delete-comments', function(event) {
+    	var commentsWritter = $(this).attr("data-no");
+    	var commentsNo2 = $('.comment_txt').attr("data-no");
+    	if(userNo == commentsWritter) {
+    		$.post(serverRoot + '/comment/delete.json', 
+				{
+					'commentsNo' : commentsNo2
+				}, function(ajaxResult) {
+    			
+					commentList();
+    		});
+    	} else {
+    		alert('삭제할수 없습니다.');
+    	}
+    });
+    
+    $('.delete-comments').addClass('active');
+    var arr_delComments = $('.delete-comments');
+    for (var i in arr_delComments) {
+    	arr_delComments.eq(i).attr("data-no");
+    	console.log(arr_delComments.eq(i).attr("data-no"));
+    }
+    
 });
 
 
@@ -297,5 +320,4 @@ function commentList() {
 		location.href = 'gift.html?cafeMemberNo=' + cafeMembNo;
 	});
 }
-
 

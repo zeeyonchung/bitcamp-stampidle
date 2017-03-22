@@ -104,6 +104,12 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  @RequestMapping(value = {"/cstmr_m/comment/delete"})
+  public AjaxResult delete(int commentsNo) throws Exception {
+    commentService.delete(commentsNo);
+    return new AjaxResult(AjaxResult.SUCCESS, "좋아요 삭제 성공입니다.");
+  }
+  
 
   @RequestMapping(value = {"/admin/cafe/update"})
   public AjaxResult update(Cafe cafe) throws Exception {

@@ -8,4 +8,5 @@ public interface CommentDao {
   ArrayList<Comment> getList(int cafeMemberNo) throws Exception;
   int commentCount(int cafeMemberNo) throws Exception;
   int commentAdd(Comment comment) throws Exception;
+  int commentDelete(int cmmentsNo) throws Exception;
 }
