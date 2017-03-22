@@ -29,7 +29,7 @@ var contentString = '<div id="content">'+
 
 var lat2;
 var lng2;
-
+var currentLatLng
 
 var address = "서울특별시+서초구+강남대로53길+8";
 
@@ -38,11 +38,11 @@ $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'
 	
 	lat2 = parseFloat(ajaxResult.results[0].geometry.location.lat);
 	lng2 = parseFloat(ajaxResult.results[0].geometry.location.lng);
+	currentLatLng = {lat: lat2, lng: lng2};
+	initMap();
 })
 
-function initMap() {
-	
-	var currentLatLng = {lat: lat2, lng: lng2};
+var initMap = function() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: currentLatLng,
 		zoom: 17
