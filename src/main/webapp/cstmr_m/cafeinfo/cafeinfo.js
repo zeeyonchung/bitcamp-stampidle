@@ -143,9 +143,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			}
 			swal({title:'리뷰 등록이 완료되었습니다.',
 				  type:"success"});
-		}, 'json');
+			commentList();}, 'json');
 		commemntNumber();
-		commentList();
 	});
 	
 	
@@ -221,6 +220,8 @@ function commentList() {
 	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var comments = (ajaxResult.data);
 		var commentdiv = $('.comment_list ul');
+		$('.commentText').val("");
+		commentdiv.html("")
 		var commentTemplate = Handlebars.compile($('#commentTemplate').html());
 		for (var i in comments) {
 			if (comments[i].nick == null) {
