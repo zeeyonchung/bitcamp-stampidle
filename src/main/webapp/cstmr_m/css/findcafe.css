@@ -355,3 +355,20 @@
  left: -2%;   
  z-index: 1000; 
  } 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+/** 지도 마커 **/
+.findCafe .marker .firstHeading {
+	display: inline;
+	margin-right: 5px;
+	vertical-align: sub;
+}
+
+.findCafe .marker p {
+	margin-top: 5px;
+}

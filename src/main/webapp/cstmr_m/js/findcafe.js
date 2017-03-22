@@ -141,70 +141,67 @@ function addMyCard(cafeMemberNo) {
 
 var showMap = function() {
 	var map;
-	var marker;
 	var infowindow;
 	var loginMember;
 	var filename;
 	var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	var labelIndex = 0;
 
-	var lat;
-	var lng;
-	var contentString;
-	var currentLatLng;
+	var address;
+	var cafeList;
 	
 	initMap();
 	
 	
 	$.getJSON(serverRoot + '/cafe/getCafeMapList.json', function(ajaxResult) {
-		var cafeList = ajaxResult.data;
+		cafeList = ajaxResult.data;
+		console.log(cafeList);
 		for (var i = 0; i < cafeList.length; i++) {
-			var address = cafeList[i].address;
-			$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg', function(ajaxResult) {
-				console.log(ajaxResult);
-				lat = parseFloat(ajaxResult.results[0].geometry.location.lat);
-				lng = parseFloat(ajaxResult.results[0].geometry.location.lng);
-				contentString = '<div id="content">'+
-								'<div id="siteNotice">'+
-								'</div>'+
-								'<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-								'<div id="bodyContent">'+
-								'<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-								'sandstone rock formation in the southern part of the '+
-								'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-								'south west of the nearest large town, Alice Springs; 450&#160;km '+
-								'(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-								'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-								'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-								'Aboriginal people of the area. It has many springs, waterholes, '+
-								'rock caves and ancient paintings. Uluru is listed as a World '+
-								'Heritage Site.</p>'+
-								'<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-								'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-								'(last visited June 22, 2009).</p>'+
-								'</div>'+
-								'</div>';
-				
-				currentLatLng = {lat: lat, lng: lng};
-				
-				var infowindow = new google.maps.InfoWindow();
-				
-				marker = new google.maps.Marker({
-					position: currentLatLng,
-					map: map,
-					title: 'Hello World!',
-					label: labels[labelIndex++ % labels.length]
-				});
-				console.log(i);
-				marker.addListener('click', function(i) {
-					infowindow.setContent(contentString);
-					infowindow.open(map, marker);
-				});
-				
-			});
+			address = cafeList[i].address;
+			initMaker(cafeList[i]);
 		}
+		
+		
+		$(document.body).on('click', '.firstHeading', function(event) {
+			console.log("클릭...........")
+			location.href= serverRoot + "/cafeinfo/cafeinfo.html?cafeMemberNo=" + $(this).attr('data-no');
+		});
+		
 	});
 	
+	
+	function initMaker(cafeList) {
+		$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg', function(ajaxResult2) {
+			var lat = parseFloat(ajaxResult2.results[0].geometry.location.lat);
+			var lng = parseFloat(ajaxResult2.results[0].geometry.location.lng);
+			var contentString = '<div class="content marker">'+
+			'<div class="siteNotice">'+
+			'</div>'+
+			'<h1 class="firstHeading"'+ ' data-no="'+ cafeList.cafeMemberNo +'"' +'>'+ cafeList.cafeName +'</h1>'+ '〉' +
+			'<div class="bodyContent">'+
+			'<p>'+ cafeList.intro +'</p>' +
+			'<p>TEL) ' + cafeList.cafeTel + '</p>' +
+			'</div>'+
+			'</div>';
+			
+			var currentLatLng = {lat: lat, lng: lng};
+			
+			var infowindow = new google.maps.InfoWindow();
+			
+			var marker = new google.maps.Marker({
+				position: currentLatLng,
+				map: map,
+				title: 'Hello World!',
+				label: labels[labelIndex++ % labels.length]
+			});
+			
+			marker.addListener('click', function(i) {
+				infowindow.setContent(contentString);
+				infowindow.open(map, marker);
+			});
+			
+		});
+	}
 
 	function initMap() {
 		map = new google.maps.Map(document.getElementById('map'), {
