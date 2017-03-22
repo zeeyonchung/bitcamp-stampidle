@@ -36,7 +36,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 										$('<span>').appendTo('.tag').text("#" + tag_arr[i]);
 									}
 									$('.txt').text(cafe.intro);
-									$('.like').text(likes.num);
+									$('.like').text(likes);
 
 									$.each(cafePhotos, function(i){
 										console.log(cafePhotos[i].path);
