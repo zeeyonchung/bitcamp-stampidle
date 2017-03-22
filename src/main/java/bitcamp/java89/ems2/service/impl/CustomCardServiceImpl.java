@@ -150,47 +150,47 @@ public class CustomCardServiceImpl implements CustomCardService {
     HashMap<String, Object> resultMap = new HashMap<>();
     if (customDetailList.size() > 0) {
       resultMap.put("customPhoto", customDetailList.get(0).getCustomPhoto());
-    }
-    resultMap.put("customName", customDetailList.get(0).getCustomName());
-    resultMap.put("customTel", customDetailList.get(customDetailList.size() - 1).getCustomTel());
-    resultMap.put("firstVisitDate", customDetailList.get(customDetailList.size() - 1).getCardIssueDate());
-    
-    
-    String lastVisitDate;
-    List<Stamp> stampList = new ArrayList<>();
-
-    for (CustomCard customCard : customDetailList) {
-      if (Integer.parseInt(customCard.getCardState()) == 0) {
-        stampList = customCard.getStampList();
-        
-        if (stampList.size() != 0) {
-          lastVisitDate = stampList.get(stampList.size() - 1).getStampIssueDate();
-        } else {
-          lastVisitDate = customDetailList.get(0).getCardIssueDate();
+      resultMap.put("customName", customDetailList.get(0).getCustomName());
+      resultMap.put("customTel", customDetailList.get(customDetailList.size() - 1).getCustomTel());
+      resultMap.put("firstVisitDate", customDetailList.get(customDetailList.size() - 1).getCardIssueDate());
+      
+      
+      String lastVisitDate;
+      List<Stamp> stampList = new ArrayList<>();
+  
+      for (CustomCard customCard : customDetailList) {
+        if (Integer.parseInt(customCard.getCardState()) == 0) {
+          stampList = customCard.getStampList();
+          
+          if (stampList.size() != 0) {
+            lastVisitDate = stampList.get(stampList.size() - 1).getStampIssueDate();
+          } else {
+            lastVisitDate = customDetailList.get(0).getCardIssueDate();
+          }
+          resultMap.put("lastVisitDate", lastVisitDate);
+          
+          break;
         }
-        resultMap.put("lastVisitDate", lastVisitDate);
-        
-        break;
-      }
-    }
-    
-    
-    int stampCount = 0;
-    int finishCardCount = 0;
-    
-    for (CustomCard customCard : customDetailList) {
-      for (Stamp stamp : customCard.getStampList()) {
-        stampCount += stamp.getStampIssueCount();
       }
       
-      int cardState = Integer.parseInt(customCard.getCardState());
-      if (cardState == 1 || cardState == 2) {
-        finishCardCount += 1;
+      
+      int stampCount = 0;
+      int finishCardCount = 0;
+      
+      for (CustomCard customCard : customDetailList) {
+        for (Stamp stamp : customCard.getStampList()) {
+          stampCount += stamp.getStampIssueCount();
+        }
+        
+        int cardState = Integer.parseInt(customCard.getCardState());
+        if (cardState == 1 || cardState == 2) {
+          finishCardCount += 1;
+        }
       }
+      
+      resultMap.put("allStampCount", stampCount);
+      resultMap.put("finishCardCount", finishCardCount);
     }
-    
-    resultMap.put("allStampCount", stampCount);
-    resultMap.put("finishCardCount", finishCardCount);
     
     return resultMap;
   }

@@ -41,7 +41,6 @@ function loadPage(){
 		
 		var cardDetail = ajaxResult.data.cardDetail;
 		currentStampCount = ajaxResult.data.currentStampCount;
-		//console.log("currentStampCount: ", currentStampCount);
 		
 		
 		$('#card-back').attr('src', serverRoot + '/../upload/' + cardDetail.backImgPath); /* 하... 경로가.....ㅠㅠ */
@@ -50,6 +49,7 @@ function loadPage(){
 		
 		/**** 카드 뒷면 이미지 로드된 후 스탬프 영역, 찍힌 스탬프 가져오기 ****/
 		$('#card-back').load(function() {
+			event.stopImmediatePropagation()
 			var width = $('#card-back').width();
 			var height = $('#card-back').height();
 			/** stmpside 넓이 조정 **/
@@ -64,7 +64,6 @@ function loadPage(){
 			cardDetail.stampPositionList.sort(function (a, b) { 
 				return a.positionOrder > b.positionOrder;
 			});
-			
 			
 			
 			/** 스탬프 영역 가져오기 **/
@@ -99,8 +98,10 @@ function loadPage(){
 			}
 			
 			
+			
+			
 			/** 스탬프 영역 클릭 이벤트 **/
-			$(document.body).on('click', '.stmpare', function(event) {
+			$(document).on('click', '.stmpare', function(event) {
 				event.stopImmediatePropagation();
 				var stampNo = this.getAttribute('class').split(" ")[1].split("stampNo")[1];
 				//console.log('this stampNo... : ', stampNo);
@@ -113,7 +114,6 @@ function loadPage(){
 					.appendTo('.stampNo' + stampNo)
 					.attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
 					.css('width', 40);
-					
 					$(this).addClass('add-check');
 					
 				} else if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') != -1) {
@@ -228,5 +228,6 @@ function loadPage(){
 				}
 			);
 		});
+		
 	});
 }
