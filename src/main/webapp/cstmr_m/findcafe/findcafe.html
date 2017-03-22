@@ -27,8 +27,8 @@
 
             <!-- mapArea -->
 			<div id="sideTopPushy" class='pushy pushy-top mapArea'>
-                <iframe class='map' src="https://m.map.daum.net/actions/searchView?q=%EA%B0%95%EB%82%A8+%EC%B9%B4%ED%8E%98#!/all/map/place"></iframe> 
-            </div>
+			  <div id="map" class='map'></div>
+			</div>
 			<!-- //mapArea -->
 			
 			
@@ -112,6 +112,7 @@
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="../js/pushy.js"></script>
   <script src="../js/pushy_stampidle.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg" async defer></script>
   <script src="../js/findcafe.js"></script>
 
 
@@ -122,6 +123,7 @@
             $('.side-top-pushy-button').click(function() {
                 $('.findCafe .side-left-pushy-button').hide();
                 $('.findCafe .btn_prev').addClass('active');
+                showMap();
             });
 
             $('.findCafe .btn_prev').click(function() {
@@ -143,6 +145,8 @@ $(window).load(function() {
 }); 
 
 </script>
+
+
 </body>
 </html>
 
