@@ -25,14 +25,14 @@ function getPreDate() {
 				var stampCardInfo = ajaxResult.data[0];
 				console.log(stampCardInfo);
 				
-				$('.front-img-div img').attr('src', '../../upload/' + stampCardInfo.frontImgPath);
-				$('.frontFile #front-photo-path').val(stampCardInfo.frontImgPath);
+				$('#front-photo-img').attr('src', '../../upload/' + stampCardInfo.frontImgPath);
+				$('#front-photo-path').val(stampCardInfo.frontImgPath);
 				
-				$('img.backcard').attr('src', '../../upload/' + stampCardInfo.backImgPath);
+				$('#back-photo-img').attr('src', '../../upload/' + stampCardInfo.backImgPath);
 				$('#back-photo-path').val(stampCardInfo.backImgPath);
 				
-				$('.stmpshape #photo-img').attr('src', '../../upload/' + stampCardInfo.stampImgPath);
-				$('.stmpshape #photo-path').val(stampCardInfo.stampImgPath);
+				$('#photo-img').attr('src', '../../upload/' + stampCardInfo.stampImgPath);
+				$('#photo-path').val(stampCardInfo.stampImgPath);
 				
 				$('img.backcard').load(function() {
 					updateStmpsideSize();
@@ -72,14 +72,14 @@ function getPreDate() {
 				
 			} else {
 				console.log("카드 등록은 처음입니다..")
-				$('.front-img-div img').attr('src', '../image/xbox.png');
-				$('.frontFile #front-photo-path').val('../image/xbox.png');
+				$('#front-photo-img').attr('src', '../image/xbox.png');
+				$('#front-photo-path').val('../image/xbox.png');
 				
-				$('img.backcard').attr('src', '../image/template1.jpg');
+				$('#back-photo-img').attr('src', '../image/template1.jpg');
 				$('#back-photo-path').val('../image/template1.jpg');
 				
-				$('.stmpshape #photo-img').attr('src', '../image/stmp4.png');
-				$('.stmpshape #photo-path').val('../image/stmp4.png');
+				$('#photo-img').attr('src', '../image/stmp4.png');
+				$('#photo-path').val('../image/stmp4.png');
 				
 				$('img.backcard').load(function() {
 					updateStmpsideSize();
