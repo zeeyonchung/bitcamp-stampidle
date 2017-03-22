@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>관리자 페이지 - 기본정보관리</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/sidebar.css">
+<link rel="stylesheet" href="basicinfo.css">
+
+</head>
+<body>
+<div class="container">
+
+  <div id='header'></div>
+  
+  <div id='header_sub'>
+    <span id='header_sub_event_title'>EVENT</span>
+    <span id='header_sub_event_content'>전 예약자 쿠폰 지급</span>
+    <span id='header_sub_navi'>
+      <a id='header_sub_a_home' href='#'>홈</a> > <a id='header_sub_a_mgrpage' href='#'>관리자페이지</a> > <a id='header_sub_a_mgrbaseinfo' href='#'>기본정보관리</a>
+    </span>
+  </div>
+  
+  <div id='sidebar'>
+    <span class='sidebar_title'>관리자 페이지</span>
+
+    <span id='sb-basicinfo' class='sidebar_menu selected'>기본정보 관리</span>
+    <span id='sb-itemManage' class='sidebar_menu'>상품정보 관리</span>
+    <span id='sb-infopicture' class='sidebar_menu'>정보 및 사진 관리</span>
+    <span id='sb-pricetime' class='sidebar_menu'>요금 및 시간 관리</span>
+    <span id='sb-notice' class='sidebar_menu'>공지사항 관리</span>
+    <span class='sidebar_menu'>리뷰 관리</span>
+    <span id='sb-bookingManage'class='sidebar_menu'>예약내역 관리</span>
+    
+  </div>
+
+  <div id='content'>
+    <span class='content_title'>기본정보 관리</span>
+    <hr class='content_hr' color='#e0e0e0'>
+    <div id='content_main'>
+      <div class='inputgroup'>
+        <label>업체이름</label>
+        <input id='corporate-name' class='form-control short' placeholder="이름을 입력해 주세요">
+      </div>
+      
+      <div class='inputgroup'>
+        <label>우편번호</label>
+        <input id='corporate-postcode' class='form-control short' placeholder="검색 버튼을 눌러주세요" readonly>
+        <button id='address-search-btn' class='btn btn-default btn-search'>찾기</button><br>
+      </div>
+      <div class='inputgroup'>
+        <label>기본주소</label>
+        <input id='corporate-address-base' class='form-control long' placeholder="검색 버튼을 눌러주세요" readonly><br>
+      </div>
+      <div class='inputgroup'>
+        <label>상세주소</label>
+        <input id='corporate-address-detail' class='form-control long' placeholder="상세 주소를 입력해 주세요">
+      </div>
+      
+      <div id='tel-group' class='inputgroup'>
+        <div>
+          <label>업체전화</label>
+          <input class='form-control short' name='corporateTel' placeholder="업체 전화번호를 입력해 주세요">
+          <button id='add-telform' type='button' class='btn btn-default btn-change'><span class='fa fa-plus'></span></button>
+          <button id='remove-telform' type='button' class='btn btn-default btn-change'><span class='fa fa-minus'></span></button>
+        </div>
+      </div>
+      
+      <div class='inputgroup'>
+        <div class='labelbox'>
+          <label id='infoform-folder'>
+            <button id='infoform-btn' type="button" class='btn-nodecoration'  data-toggle="collapse" data-target="#collapseEditor" aria-expanded="false" aria-controls="collapseEditor">
+              추가정보 <span id='infoform-icon' class='glyphicon glyphicon-chevron-down'></span>
+            </button>
+          </label>
+        </div>
+        <div class="collapse" id="collapseEditor">
+          <div id="infoEditor"></div>
+        </div>
+      </div>
+      
+      <div class='inputgroup'>
+        <div class='labelbox'>
+          <label>지도</label>
+        </div>
+        <div id="CorporaterMap">
+        </div>
+      </div>
+      
+      <div class='inputgroup'>
+        <button id='submit-btn' class='btn btn-default btn-submit'>등록</button>
+      </div>
+      
+      <input id='corporateRegistrationNumber' class='hidden'>
+      <input id='corporateConfirm' class='hidden'>
+      <input id='corporateType' class='hidden'>
+      <input id='detail' class='hidden'>
+      <input id='notice' class='hidden'>
+      
+    </div>
+    
+  </div>
+
+
+</div>
+
+<!-- <div id='footer' class="container-fluid"></div> -->
+
+<script src="../js/context.js"></script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<!-- <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script> -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+<script src='../js/editerutil.js'></script>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+<script src='../js/common.js'></script>
+<script src='basicinfo.js'></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTT3c0CS6sgPYcloGmGqL0OfZGjFsqHZM&callback=initMap&libraries=places"></script>
+
+</body>
+</html>

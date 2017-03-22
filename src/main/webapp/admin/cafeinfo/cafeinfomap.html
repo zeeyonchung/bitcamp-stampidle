@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Stampidle</title>
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/cafeinfo.css">
+<link rel="shortcut icon" href="../../image/pabi.png" type="image/x-icon" />
+<link rel="icon" href="../../image/pabi.png" type="image/x-icon" />
+ <script src="../js/context.js"></script>
+  <script src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../js/bit.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="cafeinfo.js"></script>
+</head>
+
+
+<body>
+  <div class='container'>
+    <div id='header'></div>
+    <div id='sidebar'></div>
+    <div id='content'>
+    
+        <!-- con -->
+      <div class='con'>
+          
+          <!-- introArea -->
+          <div class='introArea'>
+              <div class='cafeLogo'><img alt='cafe logo'></div>
+              <div class='cafeTxt'>
+              <h2 class='cafeName'></h2>
+              <div class='tag'></div>
+              <a class='btn-edit' href=''>카페정보수정</a>
+                    <p class='txt'> 
+                        
+                    </p>
+                  </div>
+                  <div class='like select'></div>
+                </div>
+                
+                             <div id="map" style="width:500px; height:500px;"></div>
+                
+                <!-- imgInfoArea -->
+                <div class='imgInfoArea'>
+                    <div class='card'>
+                        <div class='cardArea'><img src='../image/card_sample.jpg' alt='stamp card'></div>
+                        
+                        <div class='cardInfo'>
+                            <div class='stampNum'>
+                                <p class='txt1'><span>8</span></p>
+                                <p class='txt2'>모든 스탬프를 채우시면 <span>아메리카노(Regular사이즈)</span> 무료로 제공됩니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class='imgInfo'>
+                        <div class='cafeImg'>
+                            
+                            <div class='cafeImgWrap'>
+                            <!-- cafe interior images slide -->
+                            <section class="cafeImgSlide slider">
+                            <!-- <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>-->
+                        </section>
+                            <!-- //cafe interior images slide -->
+                            </div>
+                        </div>
+                        <div class='infoDetail'>
+                            <p class='time'></p>
+                            <p class='seat'>40석</p>
+                            <p class='tel'>031) 736-0000</p>
+                            <p class='addr'>경기도 성남시 중원구 금광2동 0000번지 00건물2층 </p>
+                            <button type='button' class='btn-showMap'>Map보기</button>
+                        </div>
+
+                         <div class='map'>
+                            <button type='button' class='btn-hideMap'>Map그만보기</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- menuArea -->
+        <div class='menuArea'>
+          <h3>대표메뉴</h3>
+          <section class="menuSlide slider">
+              
+          </section>
+
+        </div>
+
+
+        <!-- commentArea -->
+        <div class='commentArea'>
+          <h3>평점 및 리뷰</h3>
+                    
+                    <div class='starScore'>
+                        <div class='star'>
+                            <!-- <span class='star0'>별0개</span>
+                            <span class='star0_5'>별0.5개</span>
+                            <span class='star1'>별1개</span>
+                            <span class='star1_5'>별1.5개</span>
+                            <span class='star2'>별2개</span>
+                            <span class='star2_5'>별2.5개</span>
+                            <span class='star3'>별3개</span> -->
+                            <span class='star3_5'>별3.5개</span>
+                            <!-- <span class='star4'>별4개</span>
+                            <span class='star4_5'>별4.5개</span>
+                            <span class='star5'>별5개</span> -->
+                        </div>
+                        <p class='result'>(<span>3.2</span>/5.0)</p>
+                    </div>
+          <div class="comment_list">
+            <p class="total">
+              댓글 <span>100건</span>
+            </p>
+            <ul>
+            </ul>
+          </div>
+
+          <button class="brn_more">더보기</button>
+
+        </div>
+
+      </div>
+      <!-- //con -->
+    </div>
+  </div>
+  
+ 
+    
+<!-- slide images -->
+  <script src="../js/slick.js" defer="defer" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" async="async">
+  $(window).load(function() {
+        
+     /* menu images slide */
+     $(".menuSlide").slick({
+       dots: true,
+       infinite: true,
+       slidesToShow: 5,
+       slidesToScroll: 5
+     });
+    
+    /* cafe interior images slide */
+    $(".cafeImgSlide").slick({
+      dots: true,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1
+   });
+    
+  });
+  </script>
+
+    <script>
+    /* cafeinfo map */
+    $(document).ready(function() {
+        $('.btn-showMap').click(function() {
+            $('.map').slideDown(200);
+        });
+        $('.btn-hideMap').click(function() {
+            $('.map').slideUp(200);
+        });
+    });
+</script>
+
+  
+
+
+
+<!-- auto complete 고객검색 자동완성 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../js/srchCstmr.js"></script>
+<!-- //auto complete 고객검색 자동완성 -->
+  <script src="map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg&callback=initMap"
+      async defer></script>
+</body>
+</html>

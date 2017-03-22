@@ -10,9 +10,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	}
 	cafeMemberNo = ajaxResult.data.cafeMemberNo;
 	
+	getPreDate();
+	updateStmpsideSize();
+});
 	
 	
-	/*******************이전에 저장된 데이터 가져오기********************/
+
+/*******************이전에 저장된 데이터 가져오기********************/
+function getPreDate() {
 	$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json',
 		{cafeMemberNo: cafeMemberNo},
 		function(ajaxResult) {
@@ -20,14 +25,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				var stampCardInfo = ajaxResult.data[0];
 				console.log(stampCardInfo);
 				
-				$('.front-img-div img').attr('src', '../../upload/' + stampCardInfo.frontImgPath);
-				$('.frontFile #front-photo-path').val(stampCardInfo.frontImgPath);
+				$('#front-photo-img').attr('src', '../../upload/' + stampCardInfo.frontImgPath);
+				$('#front-photo-path').val(stampCardInfo.frontImgPath);
 				
-				$('img.backcard').attr('src', '../../upload/' + stampCardInfo.backImgPath);
+				$('#back-photo-img').attr('src', '../../upload/' + stampCardInfo.backImgPath);
 				$('#back-photo-path').val(stampCardInfo.backImgPath);
 				
-				$('.stmpshape #photo-img').attr('src', '../../upload/' + stampCardInfo.stampImgPath);
-				$('.stmpshape #photo-path').val(stampCardInfo.stampImgPath);
+				$('#photo-img').attr('src', '../../upload/' + stampCardInfo.stampImgPath);
+				$('#photo-path').val(stampCardInfo.stampImgPath);
 				
 				$('img.backcard').load(function() {
 					updateStmpsideSize();
@@ -62,17 +67,19 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				stampNo = stampCardInfo.stampPositionList.length;
 				$('.midNum').text(stampNo);
 
+				clickStampPosition();
+				save();
 				
 			} else {
 				console.log("카드 등록은 처음입니다..")
-				$('.front-img-div img').attr('src', '../image/xbox.png');
-				$('.frontFile #front-photo-path').val('../image/xbox.png');
+				$('#front-photo-img').attr('src', '../image/xbox.png');
+				$('#front-photo-path').val('../image/xbox.png');
 				
-				$('img.backcard').attr('src', '../image/template1.jpg');
+				$('#back-photo-img').attr('src', '../image/template1.jpg');
 				$('#back-photo-path').val('../image/template1.jpg');
 				
-				$('.stmpshape #photo-img').attr('src', '../image/stmp4.png');
-				$('.stmpshape #photo-path').val('../image/stmp4.png');
+				$('#photo-img').attr('src', '../image/stmp4.png');
+				$('#photo-path').val('../image/stmp4.png');
 				
 				$('img.backcard').load(function() {
 					updateStmpsideSize();
@@ -80,10 +87,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					updateBtmlineSize();
 					updateFrontimgdivSize();
 				});
+				
+				clickStampPosition();
+				save();
 			}
 			
 	});
-});
+}
 
 
 
@@ -112,55 +122,125 @@ function updateFrontimgdivSize() {
 	$('.front-img-div').css('height', height);
 }
 
-updateStmpsideSize();
+
 
 
 
 
 /*******************스탬프 영역 추가하기*********************/
+function clickStampPosition() {
+	$(document.body).on('click', '.pbtn', function(event) {
+	  if (stampNo + 1 > 20) {$('.cd_alert2').css('display', 'inline-block'); return;}
+	  $('<div>')
+	    .addClass('new-stmpare')
+	    .addClass('stampNo' + stampNo)
+	    .appendTo("#stmpside")
+	    .draggable({containment : 'parent'})
+	    .text(stampNo+1)
+	    .addTouch();
+	
+	  
+	
+	  stampNo++;
+	  $('.midNum').text(stampNo);
+	});
+	
+	$(document.body).on('click', '.mbtn', function(event) {
+		if (stampNo - 1 < 0) {$('.cd_alert1').css('display', 'inline-block'); return;}
+		stampNo--;
+		$('.stampNo' + stampNo).remove();
+		$('.midNum').text(stampNo);
+	});
+}
 
-$(document.body).on('click', '.pbtn', function(event) {
-  if (stampNo + 1 > 20) {$('.cd_alert2').css('display', 'inline-block'); return;}
-  $('<div>')
-    .addClass('new-stmpare')
-    .addClass('stampNo' + stampNo)
-    .appendTo("#stmpside")
-    .draggable({containment : 'parent'})
-    .text(stampNo+1)
-    .addTouch();
-
-  
-
-  stampNo++;
-  $('.midNum').text(stampNo);
-});
 
 
 
-$(document.body).on('click', '.mbtn', function(event) {
-  if (stampNo - 1 < 0) {$('.cd_alert1').css('display', 'inline-block'); return;}
-  stampNo--;
-  $('.stampNo' + stampNo).remove();
-  $('.midNum').text(stampNo);
-});
+
+
+
+
+
+
+
+/*********************** 저장 *************************/
+function save() {
+	
+	var stampCafeCardNo = 0;
+	
+	
+	$('.btmsubmit').click (function(e) {
+		e.preventDefault();
+		e.stopImmediatePropagation();
+		
+		var stampPositionList = [];
+		
+		for(i=0; i < stampNo; i++) {
+			var p = $('.stampNo' + i);
+			var positionX = p.position().left / $('.stmpside').css('width').split('px')[0];
+			var positionY = p.position().top / $('.stmpside').css('height').split('px')[0];
+			var paramPosition = {
+					"stampCafeCardNo": stampCafeCardNo,
+					"positionX": positionX,
+					"positionY": positionY,
+					"positionOrder": $('.stampNo' + i).text()
+			};
+			
+			stampPositionList.push(paramPosition);
+		}
+	
+		var paramCard = {
+				"cafeMemberNo": cafeMemberNo,
+				"stampCount": $('.midNum').text(),
+				"frontImgPath": $('#front-photo-path').val(),
+				"backImgPath": $('#back-photo-path').val(),
+				"stampImgPath": $('#photo-path').val(),
+				"service": $('.service').text(),
+				"stampPositionList": stampPositionList
+		};
+		
+		console.log(paramCard);
+		
+		$.ajaxSettings.traditional = true;
+		
+		$.ajax({
+			  type: 'POST',
+			  url: serverRoot + '/cardadd/add.json',
+			  data: JSON.stringify(paramCard),
+			  dataType: "json",
+			  accepts: 'application/json',
+			  contentType: "application/json; charset=UTF-8",
+			  error: function(e) {
+				  console.log(e);
+			  },
+			  success: function(msg) {
+				  swal({
+					  title:"카드 등록이 완료되었습니다.",
+					  closeOnConfirm: true,
+					  type: "success"},
+					  function(isConfirm) {
+					  	location.href = clientRoot + "/cafeinfo/cafeinfo.html";
+					  });
+			  }
+			});
+		
+	});
+}
+
+
 
 
 
 
 /* 경고창 */
-$(document).ready(function() {
-	$('.close_alert1').click(function() {
-		//$('.alert').css("display","none");
-		$('.cd_alert1').fadeOut(100);
-	});
-	$('.close_alert2').click(function() {
-		//$('.alert').css("display","none");
-		$('.cd_alert2').fadeOut(100);
-	});
+$('.close_alert1').click(function() {
+	//$('.alert').css("display","none");
+	$('.cd_alert1').fadeOut(100);
 });
-
-
-
+$('.close_alert2').click(function() {
+	//$('.alert').css("display","none");
+	$('.cd_alert2').fadeOut(100);
+});
 
 
 
@@ -199,7 +279,6 @@ function showSlides(n) {
 
 /* 탬플릿 이용버튼 클릭시 팝업관련 script */
 /* pulldownPop */
-$(document).ready( function(){
 	$('#btn-pop').click(function(){
 		$('.tempPop').fadeIn(200);
 	});
@@ -217,78 +296,6 @@ $(document).ready( function(){
 		$('.selectimg').attr("src",stmpPath);
 		$('#photo-path').val($('.selectimg').attr("src"));
 	});
-});
-
-
-
-
-
-
-/*********************** 저장 *************************/
-
-
-var stampCafeCardNo = 0;
-
-
-
-$('.btmsubmit').click (function(e) {
-	e.preventDefault();
-	e.stopImmediatePropagation();
-	
-	var stampPositionList = [];
-	
-	for(i=0; i < stampNo; i++) {
-		var p = $('.stampNo' + i);
-		var positionX = p.position().left / $('.stmpside').css('width').split('px')[0];
-		var positionY = p.position().top / $('.stmpside').css('height').split('px')[0];
-		var paramPosition = {
-				"stampCafeCardNo": stampCafeCardNo,
-				"positionX": positionX,
-				"positionY": positionY,
-				"positionOrder": $('.stampNo' + i).text()
-		};
-		
-		stampPositionList.push(paramPosition);
-	}
-
-	var paramCard = {
-			"cafeMemberNo": cafeMemberNo,
-			"stampCount": $('.midNum').text(),
-			"frontImgPath": $('#front-photo-path').val(),
-			"backImgPath": $('#back-photo-path').val(),
-			"stampImgPath": $('#photo-path').val(),
-			"service": $('.service').text(),
-			"stampPositionList": stampPositionList
-	};
-	
-	console.log(paramCard);
-	
-	$.ajaxSettings.traditional = true;
-	
-	$.ajax({
-		  type: 'POST',
-		  url: serverRoot + '/cardadd/add.json',
-		  data: JSON.stringify(paramCard),
-		  dataType: "json",
-		  accepts: 'application/json',
-		  contentType: "application/json; charset=UTF-8",
-		  error: function(e) {
-			  console.log(e);
-		  },
-		  success: function(msg) {
-			  swal({
-				  title:"카드 등록이 완료되었습니다.",
-				  closeOnConfirm: true,
-				  type: "success"},
-				  function(isConfirm) {
-				  	location.href = clientRoot + "/cafeinfo/cafeinfo.html";
-				  });
-		  }
-		});
-	
-});
-
-
 
 
 
