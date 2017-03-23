@@ -27,7 +27,8 @@
 					<br>
 					<br> <img class="img-circle" id="custom-photo"><br>
 					<span id="name"></span>
-					<button class="btn btn-default btn-sm" id="send-text" type="submit">Button</button>
+					<button class="btn btn-default btn-sm" id="send-text" type="button" data-toggle="modal"  data-target="#myModal"  data-remote="../message.html">메시지</button>
+					
 					<br> <span id="phone-number"></span><br>
 					<br>
 					<hr>
@@ -88,7 +89,7 @@
 						<div class="float-right">
 							<div class="cp-question">
 								<button id="cp-question-btn" type="button"
-									class="btn btn-default btn-xs" type="submit">?</button>
+									class="btn btn-default btn-xs">?</button>
 							</div>
 							<div class="regist-stamp-div">
 								원하시는 개수만큼<br> 스탬프 영역을 클릭하신 후<br> 아래 버튼을 눌러주세요<br>
@@ -112,6 +113,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../js/bit.js"></script>
 <script src="../js/common.js"></script>
+<script src="../js/message.js"></script>
 <script src="main.js"></script>
 
 <!-- auto complete 고객검색 자동완성 -->
