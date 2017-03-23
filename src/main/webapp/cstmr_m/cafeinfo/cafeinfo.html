@@ -116,7 +116,7 @@
                         </p>
 				                <textarea class='commentText' maxlength="100" placeholder="내용"></textarea>
 					        </div>
-					        <button class="submit">글 올리기</button>
+					        <button class="submit" type="button">글 올리기</button>
 					        </fieldset>
 				        </form>
 				        <!-- //input -->
@@ -172,7 +172,6 @@
 <script type="text/javascript">
 $(window).load(function(){
     swipeSection(0);
-    
 });
 
 function swipeSection(no) {
@@ -190,12 +189,12 @@ function swipeSection(no) {
             }
             mnTab[pos].className = 'on';
             
-            console.log(currentSlide);
-                var secH = $(".section:nth-of-type(" + currentSlide + ")").outerHeight();
-            console.log(secH);
-            $("#swipe .swWrap").css('height', secH);
+            secH = $(".section[data-index='" + pos + "']").outerHeight();
+            $('#swipe .swWrap').height(secH);
+            $(window).scrollTop(0);
         }
     });
+	 $('#swipe .swWrap').css('height', $(".section[data-index='"+ no +"']").outerHeight(true));
 }
 
 </script>

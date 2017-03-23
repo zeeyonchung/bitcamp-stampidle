@@ -127,6 +127,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	$('.submit').click(function(event) {
 		var star = $('.star_rating > .on').length;
 		event.preventDefault();
+		event.stopImmediatePropagation();
 		var param = {
 			customMemberNo: userNo,
 			name: userName,
@@ -140,10 +141,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				alert(ajaxResult.data);
 				return;
 			}
+			swal({title:'리뷰 등록이 완료되었습니다.', type:"success"});
+			commentList(cafeMembNo,userNo);
 			swipeSection(2);
-			swal({title:'리뷰 등록이 완료되었습니다.',
-				  type:"success"});
-			commentList(cafeMembNo,userNo);}, 'json');
+			$('#swipe .swWrap').css('height', $(".section[data-index='2']").outerHeight(true) + 120);
+		}, 'json');
+		
 		commemntNumber();
 	});
 	
@@ -254,6 +257,8 @@ var commentList = function(cafeMembNo,userNo) {
 			}
 		}
 		commentdiv.append(commentTemplate({"commentList":comments}));
+		
+		
 		
 		$("button[data-no='"+ userNo +"']").addClass('active');
 		
