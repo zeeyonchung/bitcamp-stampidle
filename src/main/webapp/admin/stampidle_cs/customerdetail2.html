@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>고객 상세 정보</title>
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/customerdetail2.css">
+<link rel="shortcut icon" href="../../image/pabi.png" type="image/x-icon" />
+<link rel="icon" href="../../image/pabi.png" type="image/x-icon" />
+<link rel="stylesheet" href="../../node_modules/sweetalert/dist/sweetalert.css">
+</head>
+
+<body>
+	<div class='container'>
+		<div id='header'></div>
+		<div id='sidebar'></div>
+		<div id='content'>
+
+			<!-- con -->
+			<div class='con'>
+				<div id="content2">
+                    <h2>고객 검색</h2>
+                    <div class="profileArea">
+                        <div class="imgBox">
+                            <img class="img-circle" id="custom-photo">
+                        </div>
+                        <p id="name"></p>
+                        <p id="phone-number"></p>
+                    </div>
+                    <div class="statistics">
+                        <h3 id="current-use">이 고객님의 카페 이용 현황</h3>
+                        <ul>
+	                        <li>카페 첫 방문일<div class="first-visit-date"></div></li>
+	                        <li>최근 방문일<div class="last-visit-date"></div></li>
+	                        <li>누적 도장 개수<div class="all-stamp"></div></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="etc">
+                        <h3>기타 정보</h3>
+                        <ul>
+                            <li>이메일<div id="email"></div></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+                <div id="content3">
+                    <div id='imgbox'>
+                        <img id="card-back">
+                        <div id='stmpside' class='stmpside'></div>
+                    </div>
+                    <div class="current-stamp">
+                        <div class="current-type">
+                            <p class="current-save-stamp">현재 모인 스탬프 수</p>
+                            <span class="cpall-name current-stamp-count"></span>개
+                        </div>
+                        <button id="reset-btn" type="button" class="btn btn-default btn-sm">카드리셋</button>
+                        <div class="float-right">
+                            <div class="cp-question">
+                               <button id="cp-question-btn" type="button" class="btn btn-default btn-xs" type="submit">?</button>
+                            </div>
+                            <div class="regist-stamp-div">
+                                원하시는 개수만큼<br> 스탬프 영역을 클릭하신 후<br> 아래 버튼을 눌러주세요<br>
+                                <button type="button" class="btn btn-default btn-sm stamp-btn">도장등록</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-default btn-sm" id="send-text" type="submit">Button</button>
+                    <div class="cpnumber-table">
+                        <div class="cpnumber">
+                            <div class="cpall">
+                                다 채운 쿠폰 카드 수<br> <span class="cpall-name finish-coupon"><b></b></span>
+                            </div>
+                        </div>
+                        <div class="usecp-div">
+                            <input class="usecp" type="text" name="text" size="20"> <b>개</b>
+                        </div>
+                        <div class="use-btn-div">
+                            <button id="use-btn" class="btn btn-default btn-sm" type="button">사용</button>
+                        </div>
+                    </div>
+                </div>
+
+					
+
+            </div>
+            <!-- //con -->
+		</div>
+	</div>
+<script src="../../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../js/context.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../../node_modules/jquery.ui.touch/jquery.ui.touch.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+<script src="main.js"></script>
+
+<!-- auto complete 고객검색 자동완성 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../js/srchCstmr.js"></script>
+<script src="customerdetail.js"></script>
+<!-- //auto complete 고객검색 자동완성 -->
+</body>
+</html>

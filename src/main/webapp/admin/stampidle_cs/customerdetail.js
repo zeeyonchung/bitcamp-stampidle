@@ -188,7 +188,9 @@ function loadPage(){
 			$('#custom-photo').attr('src', '../../upload/' + customCard.customPhoto);
 		}
 		
+		$('#send-text').attr('data-no', customMemberNo);
 		$('#name').text(customCard.customName);
+		$('#email').text(customCard.email);
 		$('#phone-number').text(customCard.customTel);
 		$('.finish-coupon').text(customCard.finishCardCount);
 		$('.first-visit-date').text(customCard.firstVisitDate);
@@ -227,6 +229,29 @@ function loadPage(){
 					loadPage();
 				}
 			);
+		});
+		
+		
+		
+		/**** 메시지 버튼 ****/
+		$('#send-text').click(function() {
+			event.stopImmediatePropagation();
+    		var no = $(this).attr('data-no')
+    		
+    		$('#myModal').modal({
+    	        show: true,
+    	        remote: '../message.html'
+    		});
+    		
+    		$('#myModal').on('shown.bs.modal', function (e) {
+    			$('body.message').css("overflow-y","hidden");
+    			var popTop = $(window).height()/2 - $(".writeArea").outerHeight()/2 - 150;
+    			$('.writeWrap').fadeIn(800);
+    			$('.writeArea').fadeIn(600);
+    			$('.writeArea').css("margin-top",popTop);
+    			$('select[name=customerNo]').val(no);
+			})
+    		
 		});
 		
 	});
