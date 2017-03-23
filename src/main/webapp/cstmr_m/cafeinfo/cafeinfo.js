@@ -114,7 +114,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	// 총 코멘트 수
 	commemntNumber();
 	// 코멘트 리스트 가져오기(핸들바스)
-	commentList();
+	commentList(cafeMembNo,userNo);
 	
 	$('.comment_form input').attr('placeholder',userName);
 	
@@ -143,7 +143,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			swipeSection(2);
 			swal({title:'리뷰 등록이 완료되었습니다.',
 				  type:"success"});
-			commentList();}, 'json');
+			commentList(cafeMembNo,userNo);}, 'json');
 		commemntNumber();
 	});
 	
@@ -192,19 +192,15 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					'commentsNo' : commentsNo2
 				}, function(ajaxResult) {
     			
-					commentList();
+					commentList(cafeMembNo,userNo);
     		});
     	} else {
     		alert('삭제할수 없습니다.');
     	}
     });
     
-    $('.delete-comments').addClass('active');
-    var arr_delComments = $('.delete-comments');
-    for (var i in arr_delComments) {
-    	arr_delComments.eq(i).attr("data-no");
-    	console.log(arr_delComments.eq(i).attr("data-no"));
-    }
+    
+    	
     
 });
 
@@ -240,8 +236,13 @@ $.getJSON(serverRoot + '/comment/count.json?cafeMemberNo=' + cafeMembNo, functio
 });
 };
 
-function commentList() {
-	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+var commentList = function(cafeMembNo,userNo) {
+	$.getJSON(serverRoot + '/comment/detail.json',
+		{
+		'cafeMemberNo' : cafeMembNo,
+		'customMeberNo' : userNo
+	    }
+	, function(ajaxResult) {
 		var comments = (ajaxResult.data);
 		var commentdiv = $('.comment_list ul');
 		$('.commentText').val("");
@@ -253,6 +254,9 @@ function commentList() {
 			}
 		}
 		commentdiv.append(commentTemplate({"commentList":comments}));
+		
+		$("button[data-no='"+ userNo +"']").addClass('active');
+		
 		$('.result').text("평점 (" + averStarScore() +"/5.0)");
 		$('.star span').addClass(totalStarScoreCss());
 		// 가져온 별점 갯수,평균 구하기
@@ -319,5 +323,7 @@ function commentList() {
 		event.preventDefault();
 		location.href = 'gift.html?cafeMemberNo=' + cafeMembNo;
 	});
+	
+    
 }
 

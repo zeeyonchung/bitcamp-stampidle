@@ -1,5 +1,7 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -99,8 +101,8 @@ public class CafeJsonControl {
   
   
   @RequestMapping(value = {"/admin/comment/detail", "/cstmr_m/comment/detail"})
-  public AjaxResult getList(int cafeMemberNo) throws Exception {
-  	List<Comment> list = commentService.getList(cafeMemberNo);
+  public AjaxResult getList(int cafeMemberNo, int customMeberNo) throws Exception {
+    List<Comment> list = commentService.getList(cafeMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
