@@ -163,7 +163,6 @@ var showMap = function() {
 		
 		
 		$(document.body).on('click', '.firstHeading', function(event) {
-			console.log("클릭...........")
 			location.href= serverRoot + "/cafeinfo/cafeinfo.html?cafeMemberNo=" + $(this).attr('data-no');
 		});
 		
@@ -172,6 +171,7 @@ var showMap = function() {
 	
 	function initMaker(cafeList) {
 		$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg', function(ajaxResult2) {
+			console.log(ajaxResult2)
 			var lat = parseFloat(ajaxResult2.results[0].geometry.location.lat);
 			var lng = parseFloat(ajaxResult2.results[0].geometry.location.lng);
 			var contentString = '<div class="content marker">'+

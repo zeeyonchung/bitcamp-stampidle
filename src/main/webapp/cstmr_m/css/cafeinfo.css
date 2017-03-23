@@ -703,3 +703,13 @@
  left: -2%;   
  z-index: 1000; 
  } 
+ 
+ 
+.delete-comments {
+  float:right;
+  display:none;
+}
+
+.delete-comments.active {
+	display:block;
+}

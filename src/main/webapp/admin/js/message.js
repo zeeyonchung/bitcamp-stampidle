@@ -121,7 +121,7 @@ function getMyCustomerList() {
 		var customerNoNameList = ajaxResult.data;
 		$.each(customerNoNameList, function(i){
 			$("<option value='" + customerNoNameList[i].customMemberNo
-		    + "'>" + customerNoNameList[i].customName
+		    + "'>" + customerNoNameList[i].customName + " (" + customerNoNameList[i].customTel + ")"
 			+ "</option>").appendTo("#customerNoNameList");
 		});
 	});
