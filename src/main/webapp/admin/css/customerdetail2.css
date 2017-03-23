@@ -3,42 +3,85 @@
   background-attackment: fixed;
 }
 
+body {
+	background:url(../image/admin_detailpage.jpg) no-repeat center top;
+}
+
+#content {
+	padding-top:0;
+}
+.con {
+	position:relative;
+}
+
+h2 {
+	margin-top:30px!important;
+	text-align:underline;
+	font-weight:normal;
+	color:#333;
+}
+
 #content2 {
-  width:450px; 
-  margin-left: 10px;
-  display:inline-block;
+  width:440px; 
   float:left;
 }
 #content3 {
-  width:450px;
-  margin-left: 30px;
-  margin-right: 20px;
-  display:inline-block;
-  
+	position: absolute; 
+	right:0;
+	top:0;
+	width : 520px;
+	padding: 25px 20px;
+	box-shadow: 0 0 10px 0px rgba(120, 120, 120, 0.1);
+	border:1px solid #e4e4e4;
+	border-top:0;
+	border-bottom:0;
+	height: 100%;
 }
-.img-circle {
-  float:left;
-  height:85px;
+
+.profileArea {
+	margin-top:20px;
+	padding-top:15px;
+	/* background:#f9f9f9; */
+	width:100%;
+	height:280px;
+	text-align:center;
 }
-#name {
-  font-size:1.5em;
-  margin-left: 10px;
+
+.profileArea .imgBox {
+	margin:auto;
+	height:150px;
+	width:150px;
+	overflow:hidden;
+	border:10px solid rgba(0, 0, 0, 0.05);
+	border-radius:300px;
+	box-sizing:initial;
 }
-.use-cafe-crr{
-	float: left; 
-	height: 30px; 
-	margin-top: 30px;
+
+.profileArea .imgBox .img-circle {
+	width: auto;
+	height: 150px;
+	border-radius:0;
 }
+
+.profileArea #name {
+	margin:5px 0 10px 0;
+  font-size:2em;
+  font-weight:500;
+  margin-bottom:0;
+}
+
+.profileArea #phone-number {
+  font-size:1.3em;
+  color:#ff4040;
+  margin-bottom:0;
+}
+
 #send-text {
   float :right;
   margin-right: 5px; 
   margin-top: 10px;
 }
 
-#phone-number {
-	margin-left: 10px;
-  font-size:1em;
-}
 
 hr {
   width:30px;
@@ -96,34 +139,39 @@ hr {
   margin-right: 5px; 
   margin-top: 3px;
 }
-#current-use {
-  font-size:1em; 
-  background-color:gray; 
-  margin-top: 10px;
-  float:left;
+
+.statistics {
 }
-#current-table {
-  float :left; 
-  font-size:0.9em; 
-  margin-top: 10px;
+.statistics #current-use {
+	text-align:center;
+  font-size:1.3em; 
+  margin:20px;
 }
+
+.statistics ul li {
+	border:1px solid #f0f0f0;
+	color:#888888;
+	padding:5px 20px;
+	margin:0 10px 5px 10px;
+	height:30px;
+}
+.statistics ul li div {
+	float:right;
+	width:55%;
+}
+
 #imgbox {
-	position: relative;
-  float: left; 
-  border:1px solid gray; 
-  border-width:1px 1px; 
-  width:400px; 
-  padding-left: 25px; 
-  padding-right: 25px; 
-  padding-top:10px; 
-  padding-bottom:10px;
-  min-height:180px; 
+/* 	border: 1px solid #caa8a8; */
+	width: 480px;
+	min-height: 275px;
+	margin-bottom:35px;
 }
 
 #card-back {
 	position: absolute;
-  width:350px; 
-  min-height:180px; 
+	width: 480px;
+	min-height: 275px;
+	background:#f4f4f4;
 }
 
 .stmpside {
@@ -145,18 +193,13 @@ hr {
 }
 
 .current-stamp {
-  float: left; 
-  width: 400px; 
-  border:1px solid gray;
-  border-width:1px 1px; 
-  padding: 10px;
+  width: 100%; 
+  margin-top:35px;
 }
 
 .current-type {
   float: left; 
-  width: 150px; 
-  padding-left:10px; 
-  padding-right:10px;
+  width: 220px; 
 }
 .current-table2 {
   width:150px;
@@ -166,6 +209,7 @@ hr {
 .current-save-stamp {
   border-right:1px solid gray; 
   text-align:center;
+  width:220px;
 }
 
 #reset-btn {

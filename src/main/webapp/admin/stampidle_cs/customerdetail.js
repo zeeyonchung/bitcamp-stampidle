@@ -189,6 +189,7 @@ function loadPage(){
 		}
 		
 		$('#name').text(customCard.customName);
+		$('#email').text(customCard.email);
 		$('#phone-number').text(customCard.customTel);
 		$('.finish-coupon').text(customCard.finishCardCount);
 		$('.first-visit-date').text(customCard.firstVisitDate);
