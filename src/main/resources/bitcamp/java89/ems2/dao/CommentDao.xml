@@ -27,7 +27,7 @@
   
   <select id="getList" parameterType="int" resultMap="comment-map">
     select 
-      c.cono, c.cconts, c.star, c.ctime, m.name, m.nick, m.cphoto from coments c 
+      m.mno,c.cono, c.cconts, c.star, c.ctime, m.name, m.nick, m.cphoto from coments c 
 	  left outer join memb m on c.mno = m.mno
     where c.cmno=#{value} order by c.cono desc;
   </select>
@@ -44,6 +44,11 @@
             now(),
             #{cafeMemberNo})
   </insert>
+  
+  <delete id='commentDelete' parameterType='int'>
+    delete from coments 
+    where coments.cono=#{commentsNo}
+  </delete>
   
   
 </mapper>

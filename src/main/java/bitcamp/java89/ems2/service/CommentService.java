@@ -8,6 +8,7 @@ public interface CommentService {
 	List<Comment> getList(int cafeMemberNo) throws Exception;
 	int commentCount(int cafeMemberNo) throws Exception;
 	int add(Comment comment) throws Exception;
+	int delete(int commentsNo) throws Exception;
 }
 
 

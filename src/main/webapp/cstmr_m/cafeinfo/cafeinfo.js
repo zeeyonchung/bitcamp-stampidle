@@ -11,9 +11,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	userNo = ajaxResult.data.customMemberNo;
 	var userName = ajaxResult.data.name;
 	
-	
 	$(window).scrollTop($(window).height);
-
+	
 	// 1페이지 시작
 	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 		var cafe = ajaxResult.data;
@@ -115,7 +114,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	// 총 코멘트 수
 	commemntNumber();
 	// 코멘트 리스트 가져오기(핸들바스)
-	commentList();
+	commentList(cafeMembNo,userNo);
 	
 	$('.comment_form input').attr('placeholder',userName);
 	
@@ -144,7 +143,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			swipeSection(2);
 			swal({title:'리뷰 등록이 완료되었습니다.',
 				  type:"success"});
-			commentList();}, 'json');
+			commentList(cafeMembNo,userNo);}, 'json');
 		commemntNumber();
 	});
 	
@@ -183,6 +182,26 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		  
     	}
     });
+    
+    $(document.body).on('click', '.delete-comments', function(event) {
+    	var commentsWritter = $(this).attr("data-no");
+    	var commentsNo2 = $('.comment_txt').attr("data-no");
+    	if(userNo == commentsWritter) {
+    		$.post(serverRoot + '/comment/delete.json', 
+				{
+					'commentsNo' : commentsNo2
+				}, function(ajaxResult) {
+    			
+					commentList(cafeMembNo,userNo);
+    		});
+    	} else {
+    		alert('삭제할수 없습니다.');
+    	}
+    });
+    
+    
+    	
+    
 });
 
 
@@ -217,8 +236,13 @@ $.getJSON(serverRoot + '/comment/count.json?cafeMemberNo=' + cafeMembNo, functio
 });
 };
 
-function commentList() {
-	$.getJSON(serverRoot + '/comment/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+var commentList = function(cafeMembNo,userNo) {
+	$.getJSON(serverRoot + '/comment/detail.json',
+		{
+		'cafeMemberNo' : cafeMembNo,
+		'customMeberNo' : userNo
+	    }
+	, function(ajaxResult) {
 		var comments = (ajaxResult.data);
 		var commentdiv = $('.comment_list ul');
 		$('.commentText').val("");
@@ -230,6 +254,9 @@ function commentList() {
 			}
 		}
 		commentdiv.append(commentTemplate({"commentList":comments}));
+		
+		$("button[data-no='"+ userNo +"']").addClass('active');
+		
 		$('.result').text("평점 (" + averStarScore() +"/5.0)");
 		$('.star span').addClass(totalStarScoreCss());
 		// 가져온 별점 갯수,평균 구하기
@@ -296,6 +323,7 @@ function commentList() {
 		event.preventDefault();
 		location.href = 'gift.html?cafeMemberNo=' + cafeMembNo;
 	});
+	
+    
 }
-
 
