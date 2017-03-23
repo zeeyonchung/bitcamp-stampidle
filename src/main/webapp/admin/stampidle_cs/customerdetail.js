@@ -48,7 +48,7 @@ function loadPage(){
 	
 		
 		/**** 카드 뒷면 이미지 로드된 후 스탬프 영역, 찍힌 스탬프 가져오기 ****/
-		$('#card-back').load(function() {
+		$('#card-back').load(function(event) {
 			event.stopImmediatePropagation()
 			var width = $('#card-back').width();
 			var height = $('#card-back').height();
@@ -190,7 +190,7 @@ function loadPage(){
 		
 		$('#send-text').attr('data-no', customMemberNo);
 		$('#name').text(customCard.customName);
-		$('#email').text(customCard.email);
+		$('#email').text(customCard.customEmail);
 		$('#phone-number').text(customCard.customTel);
 		$('.finish-coupon').text(customCard.finishCardCount);
 		$('.first-visit-date').text(customCard.firstVisitDate);

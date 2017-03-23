@@ -95,6 +95,10 @@
     background: transparent;
 }
 
+#header .top .search .inputArea .srchBar:focus {
+	outline:none;
+}
+
 #header .top .search .inputArea .btn_srch {
 	float:left;
     width: 40px;
