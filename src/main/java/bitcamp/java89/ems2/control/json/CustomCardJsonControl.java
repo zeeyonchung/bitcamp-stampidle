@@ -62,8 +62,11 @@ public class CustomCardJsonControl {
     List<CustomCard> list = null;
     if(selectCafeList == null) {
       list = customCardService.getList(cafeMemberNo, pageNo, pageSize);
+    } else if(selectCafeList == ""){
+      list = customCardService.getList(cafeMemberNo, pageNo, pageSize);
     } else {
       list = customCardService.getListSelect(cafeMemberNo, selectCafeList, pageNo, pageSize);
+      
     }
     int totalCount = customCardService.getSize(cafeMemberNo);
     
