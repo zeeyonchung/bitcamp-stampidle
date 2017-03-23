@@ -648,13 +648,25 @@
 .comment_list .star span.star4_5 {width:90%;}
 .comment_list .star span.star5 {width:100%;}
 
-.commentArea .brn_more {
+.commentArea .btn-top:before {
     width: 100%;
     margin-top: 15px;
     background: #f6f6f6;
     text-align: center;
     color: #888;
-    font-size: 1em;
+    font-size: 1.5em;
+    border: 0;
+    padding: 12px 0 12px 0;
+    font-family:"FontAwesome";
+    content: "\f139";
+}
+.commentArea .btn-top {
+    width: 100%;
+    margin-top: 15px;
+    background: #f6f6f6;
+    text-align: center;
+    color: #888;
+    font-size: 1.2em;
     border: 0;
     padding: 12px 0 12px 0;
 }
