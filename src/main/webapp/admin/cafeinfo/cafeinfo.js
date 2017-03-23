@@ -45,7 +45,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 									$.each(cafeTime, function(i){
 										console.log(cafeTime[i].path);
-										$('<span>').text(cafeTime[i].day + " " + cafeTime[i].startTime + " " + cafeTime[i].endTime + " ").appendTo(".time");
+										$('<span>').text(cafeTime[i].day + " " + cafeTime[i].startTime + "~" + cafeTime[i].endTime + " ").appendTo(".time");
 
 									});
 									

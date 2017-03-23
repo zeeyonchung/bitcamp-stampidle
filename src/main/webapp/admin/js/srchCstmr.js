@@ -35,8 +35,8 @@ $(function() {
 	        });
 	        
 	        $("#searchbox-main").autocomplete({
-	        	source: availableTags,
-	            select: function(event, ui) {
+	            source: availableTags,
+	            select: function( event, ui ) {
 	              location.href = serverRoot + '/stampidle_cs/customerdetail.html?customMemberNo=' + ui.item.value;
 	              return false;
 	            },

@@ -1,26 +1,5 @@
-$(window).load(function(){
-    if (!document.getElementById('tab_swipe')) return false;
-    var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
-    var elem = document.getElementById('swipe');
+var userNo;
 
-    window.areaSwipe = Swipe(elem, {
-        startSlide: 0,
-        continuous: true,
-        callback: function(pos) {
-            var currentSlide = areaSwipe.getPos() + 1;
-            var n = mnTab.length;
-            while (n--) {
-                mnTab[n].className = ' ';
-            }
-            mnTab[pos].className = 'on';
-            
-			var secH = $(".section:nth-of-type(" + currentSlide + ")").outerHeight();
-            $("#swipe .swWrap").css('height', secH);
-            $(window).scrollTop(0);
-            console.log(currentSlide, $(".section:nth-of-type(1)").outerHeight(), $(".section:nth-of-type(2)").outerHeight(), $(".section:nth-of-type(3)").outerHeight());
-        }
-    });
-});
 
 /*로그인 정보를 가져와서*/
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
@@ -30,9 +9,15 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	}
 	
 	var userData = ajaxResult.data;
-	var userNo = userData.customMemberNo;
+	userNo = userData.customMemberNo;
+	loadPage();
+});
 	
-	
+
+
+
+
+function loadPage() {
 	$.getJSON(serverRoot + '/customCard/getMyCardList.json?customMemberNo=' + userNo, function(ajaxResult) {
 		/********************* section1 전체 카드 리스트 *************************/
 		var myCardList = ajaxResult.data.myCardList;
@@ -82,7 +67,43 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			event.preventDefault();
 			location.href = '../cafeinfo/cafeinfo.html?cafeMemberNo=' + $(this).attr("data-no");
 		});
+		
+		loadSwipe();
 	});
+}
+
+
+
+
+function loadSwipe() {
+	$('#swipe .swWrap').css('min-height', window.innerHeight - 100);
 	
 	
-});
+    if (!document.getElementById('tab_swipe')) return false;
+    var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
+    var elem = document.getElementById('swipe');
+    var secH;
+    window.areaSwipe = Swipe(elem, {
+        startSlide: 0,
+        continuous: true,
+        stopPropagation: true,
+        callback: function(pos) {
+            var currentSlide = pos + 1;
+            var n = mnTab.length;
+            while (n--) {
+                mnTab[n].className = ' ';
+            }
+            mnTab[pos].className = 'on';
+            
+            
+            secH = $(".section[data-index='" + pos + "']").outerHeight();
+            $('#swipe .swWrap').height(secH);
+            $(window).scrollTop(0);
+            console.log(currentSlide, $(".section[data-index='0']").outerHeight(), $(".section:nth-of-type(2)").outerHeight(), $(".section:nth-of-type(3)").outerHeight());
+        }
+    });
+    
+    $('#swipe .swWrap').css('height', $(".section[data-index='0']").outerHeight(true) + 40);
+    
+}
+
