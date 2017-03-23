@@ -596,7 +596,7 @@ where
   
     <select id="customerNoNameList" parameterType="int" resultMap="customCard-map">
   select DISTINCT
-  memb.mno, memb.name, scinfo.cmno, cafe.cname 
+  memb.mno, memb.name, memb.tel, scinfo.cmno, cafe.cname 
   from memb 
   left outer join mcard on memb.mno=mcard.mno
   left outer join scinfo on mcard.scno=scinfo.scno 
