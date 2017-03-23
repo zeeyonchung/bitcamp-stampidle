@@ -340,8 +340,6 @@
 }
 
 #header .top .profilePop #logout-btn {
-    float: left;
-    display: inline-block;
     padding: 1px 15px 3px 15px;
     margin-top: 2px;
     border: 2px solid #e0e0e0;
@@ -351,7 +349,6 @@
 }
 
 #header .top .profilePop .btnInfo .btn-joinInfo {
-    float: left;
     width:49%;
     padding: 3px 0 5px 0;
     font-size: 14px;
@@ -360,7 +357,6 @@
 }
 
 #header .top .profilePop .btnInfo .btn-cafeInfo {
-    float: left;
     width:49%;
     padding: 3px 0 5px 0;
     margin-left: 2%;
@@ -609,7 +605,7 @@
 
 .slideArea .sidebar {
     padding-top: 30px;
-    height: 330px;
+    /* height: 330px; */
     background: #ff5948;
     padding-left: 20px;
 }

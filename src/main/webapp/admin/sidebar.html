@@ -3,31 +3,47 @@
         <div class='sidebar'>
             <!-- navigation -->
             <ul class='slideMn'>
-                <li role="presentation" class='treeview searchCstmr active'>
+                
+                <li role="presentation" class='treeview searchCstmr'>
                     <a href=''>고객검색</a>
                     <ul class='treeview-menu'>
                     </ul>
-                </li>
-                <li role="presentation" class='treeview statistics'>
-                    <a href=''>방문통계</a>
+                </li> 
+                <li role="presentation" class='treeview customerlist'>
+                    <a href=''>고객리스트</a>
                     <ul class='treeview-menu'>
                     </ul>
-                </li> 
+                </li>
+                <li role="presentation" class='treeview stamplog'>
+                    <a href=''>도장발급내역</a>
+                    <ul class='treeview-menu'>
+                    </ul>
+                </li>
+                <li role="presentation" class='treeview cafeInfo'>
+                    <a href=''>카페정보</a>
+                    <ul class='treeview-menu'>
+                    </ul>
+                </li>
                 <li role="presentation" class='treeview event'>
                     <a href=''>이벤트</a>
+                    <ul class='treeview-menu'>
+                    </ul>
+                </li>
+                <li role="presentation" class='treeview event'>
+                    <a class="message" data-toggle="modal"  data-target="#myModal"  data-remote="../message.html">메시지함</a>
                     <ul class='treeview-menu'>
                     </ul>
                 </li>
             </ul>
         </div>
         <!-- //navigation -->
-        
+        <!-- 
         <a class='btn_cafeInfo'>카페정보</a>
         <a class="btn_message" data-toggle="modal"  data-target="#myModal"  data-remote="../message.html">Click to open Modal
           메시지함<span class='newMsg'>10</span>
-        </a>
-        <a href='../../admin_m/auth/main.html' class='btn_mobile'>모바일<br>사이트</a>
-        <a href='' class='btn_guide'>스탬피들<br>가이드</a>
+        </a> -->
+        <!-- <a href='../../admin_m/auth/main.html' class='btn_mobile'>모바일<br>사이트</a>
+        <a href='' class='btn_guide'>스탬피들<br>가이드</a> -->
         <div class='footer'>Copyright (c)<br> Stampidle</div>
     </div>
     <!-- //slide left menu area -->
@@ -49,16 +65,19 @@ $('.searchCstmr a').click(function(e) {
     e.preventDefault();
     location.href = clientRoot + '/stampidle_cs/customerdetail.html'
 });
-$('.statistics a').click(function(e) {
+$('.customerlist a').click(function(e) {
     e.preventDefault();
-    location.href = clientRoot + '/manage/statistics.html'
+    location.href = clientRoot + '/manage/customerlist.html'
 });
 $('.event a').click(function(e) {
     e.preventDefault();
     location.href = clientRoot + '/event/main.html'
 });
-
-$('.btn_cafeInfo').click(function(e) {
+$('.stamplog a').click(function(e) {
+    e.preventDefault();
+    location.href = clientRoot + '/manage/stamplog.html'
+});
+$('.cafeInfo a').click(function(e) {
    var cafeMemberNo = $('.cafeNm').attr("data-no");
    $.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult1) {
        if (ajaxResult1.status == "fail") {
