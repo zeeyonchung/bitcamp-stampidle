@@ -330,5 +330,9 @@ var commentList = function(cafeMembNo,userNo) {
 	});
 	
     
-}
+};
+$('.btn-top').on('click',function(event) {
+	$('html, body').animate({'scrollTop' : 0}, 200);
+    return false;
+});
 
