@@ -96,15 +96,28 @@
 	width: 220px;
 }
 
+.today h4 {
+	font-size:1.7em;
+}
+
 .dayTime {
 	margin: 10px auto 10px;
 	padding-left: 320px;
 	width: 900px;
+	font-size:1.1em;
 }
-
+ 
 .dayTime .btn_end {
 	float: right;
 	margin: 4px;
+}
+
+.todayTime {
+	color:#999;
+}
+
+.todayDate {
+    color:#777;
 }
 
 .stat1 {
@@ -118,6 +131,9 @@
 	background:#fff;
 }
 
+.stat1 h2:first-letter {
+	font-size:1.3em;
+}
 .stat1 .stat2 {
 	float: left;
 	border-right: 1px solid lightgray;
