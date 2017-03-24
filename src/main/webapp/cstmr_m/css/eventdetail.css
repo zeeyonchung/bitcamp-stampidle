@@ -50,7 +50,7 @@
 }
 .cafe-name1 span {
 	display:inline-block;
-	font-size: 1.2em;
+	font-size: 1.1em;
     margin: 15px auto 0 auto;
     text-align:center;
     border:1px solid #333;
@@ -92,9 +92,9 @@
 }
  .cafe-name-before2 .event-cont-div {
  padding-top:20px;
- border-top:2px solid #ddd;
+ border-top:2px solid #ececec;
  text-align:center;
-	margin:20px auto 0 auto;
+	margin:10px auto 0 auto;
 	width:90%;
 	
 }
