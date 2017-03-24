@@ -78,6 +78,7 @@ $('.stamplog a').click(function(e) {
     location.href = clientRoot + '/manage/stamplog.html'
 });
 $('.cafeInfo a').click(function(e) {
+	e.preventDefault();
    var cafeMemberNo = $('.cafeNm').attr("data-no");
    $.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult1) {
        if (ajaxResult1.status == "fail") {
@@ -88,7 +89,6 @@ $('.cafeInfo a').click(function(e) {
                function(isConfirm) {
                         location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
                });
-    	   
 	   } else {
 	           location.href = clientRoot + '/cafeinfo/cafeinfo.html'
        }
