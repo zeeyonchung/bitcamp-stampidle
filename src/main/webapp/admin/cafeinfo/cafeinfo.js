@@ -39,12 +39,10 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 									$('.like').text(likes);
 
 									$.each(cafePhotos, function(i){
-										console.log(cafePhotos[i].path);
 										$("<div class='sl_li'><img src='../../upload/"+cafePhotos[i].path+"' alt='cafe photo image'></div>").appendTo(".cafeImgSlide");
 									});
 
 									$.each(cafeTime, function(i){
-										console.log(cafeTime[i].path);
 										$('<span>').text(cafeTime[i].day + " " + cafeTime[i].startTime + "~" + cafeTime[i].endTime + " ").appendTo(".time");
 
 									});
@@ -66,8 +64,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 												+ "</p><p class='price'>￦" + menus[i].price
 												+ "</p></div>").appendTo(".menuSlide");
 									});
-
+									
+									var totalStar = 0;
+									
 									$.each(comments, function(i){
+										totalStar += comments[i].star;
+										
 										$("<li><div class='profileImg'><img src='" + membImg(i)
 												+ "'></div><div class='comment_txt'><strong>" + check_nickNull(i)
 												+ "</strong><p>" + comments[i].contents
@@ -75,6 +77,10 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 												+ "</div><div class='star'><span class='" + starScoreCss(comments[i].star)
 												+ "'></span></div></div></li>").appendTo(".comment_list ul");
 									});
+									
+									totalStarAverage = totalStar / comments.length;
+									$('<span class="' + totalStarScoreCss(totalStarAverage) + '">').appendTo(".starScore .star");
+									
 									$('.total span').text(commentsCount());
 									$('.starScore .result span').text(averStarScore());
 									$('.starScore .star span').addClass();
@@ -128,25 +134,25 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 									}
 
 									function totalStarScoreCss(num) {
-										if (4.7 < averStarScore() <= 5) {
+										if (4.7 < num && num <= 5) {
 											return "star5";
-										} else if (4.2 < averStarScore() <= 4.7) {
+										} else if (4.2 < num && num <= 4.7) {
 											return "star4_5";
-										} else if (3.7 < averStarScore() <= 4.2) {
+										} else if (3.7 < num && num <= 4.2) {
 											return "star4";
-										} else if (3.2 < averStarScore() <= 3.7) {
+										} else if (3.2 < num && num  <= 3.7) {
 											return "star3_5";
-										} else if (2.7 < averStarScore() <= 3.2) {
+										} else if (2.7 < num && num  <= 3.2) {
 											return "star3";
-										} else if (2.2 < averStarScore() <= 2.7) {
+										} else if (2.2 < num && num  <= 2.7) {
 											return "star2_5";
-										} else if (1.7 < averStarScore() <= 2.2) {
+										} else if (1.7 < num && num  <= 2.2) {
 											return "star2";
-										} else if (1.2 < averStarScore() <= 1.7) {
+										} else if (1.2 < num && num  <= 1.7) {
 											return "star1_5";
-										} else if (0.7 < averStarScore() <= 1.2) {
+										} else if (0.7 < num && num  <= 1.2) {
 											return "star1";
-										} else if (0.2 < averStarScore() <= 0.7) {
+										} else if (0.2 < num && num  <= 0.7) {
 											return "star0_5";
 										} else {
 											return "star0";

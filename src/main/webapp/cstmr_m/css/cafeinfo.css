@@ -2,7 +2,13 @@
 	margin-bottom:5px;
 }
 
+.cafeinfo .sweet-alert button.cancel {
+    width: 120px!important;
+}
 
+.cafeinfo .sweet-alert .sa-confirm-button-container {
+	width: 120px!important;
+}
 
 
 /* /************ 카페소개 ************/
