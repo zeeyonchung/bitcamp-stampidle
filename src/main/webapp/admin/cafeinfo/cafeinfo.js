@@ -111,7 +111,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 											return 0;
 										}
 										aver = sum/commentsCount();
-										return aver;
+										return aver.toFixed(2);
 									}
 
 									function commentsCount() {
