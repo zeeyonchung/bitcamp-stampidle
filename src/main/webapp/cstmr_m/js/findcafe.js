@@ -48,8 +48,12 @@ function getDistance(origins, destinations, cafeMemberNo) {
 				 lat2: lat2,
 				 lon2: lng2},
 			function(distance) {
-					 console.log(distance);
-					 $('.distance[data-no=' + cafeMemberNo +']').text(distance + 'm');
+					if(distance > 1000) {
+						distance = (distance / 10000).toFixed(1) + 'km';
+					} else {
+						distance += 'm';
+					}
+					$('.distance[data-no=' + cafeMemberNo +']').text(distance);
 		})
 	});
 }
@@ -95,7 +99,6 @@ function loadPage(pageCount) {
 			for (var i in cafeList) {
 				var origins = {lat:37.4945723, lng:127.02757780000002}; //비트컴퓨터 - gps로 가져오기
 				var destinations = cafeList[i].address;
-				console.log(cafeList[i].cafeMemberNo);
 				
 				getDistance(origins, destinations, cafeList[i].cafeMemberNo);
 			}

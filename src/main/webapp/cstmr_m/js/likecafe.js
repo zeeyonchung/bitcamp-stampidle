@@ -33,6 +33,33 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 
 
+
+/**** 거리 구하기 ****/
+function getDistance(origins, destinations, cafeMemberNo) {
+	//목적지의 위도경도 구한 후
+	$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+destinations+'&key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg', function(ajaxResult2) {
+		var lat2 = parseFloat(ajaxResult2.results[0].geometry.location.lat);
+		var lng2 = parseFloat(ajaxResult2.results[0].geometry.location.lng);
+		//거리 계산
+		$.get(serverRoot + '/../common/distance.json', 
+				{lat1: origins.lat,
+				 lon1: origins.lng,
+				 lat2: lat2,
+				 lon2: lng2},
+			function(distance) {
+				if(distance > 1000) {
+					distance = (distance / 10000).toFixed(1) + 'km';
+				} else {
+					distance += 'm';
+				}
+				$('.distance[data-no=' + cafeMemberNo +']').text(distance);
+		})
+	});
+}
+
+
+
+
 /**** 글 불러오기 ****/
 function loadPage(pageCount) {
 	console.log(customMemberNo, postNo, pageCount, orderBy);
@@ -63,6 +90,16 @@ function loadPage(pageCount) {
 			} else {
 				listArea.append(template({"cafeList": cafeList}));
 			}
+			
+			
+			// 거리 구하기
+			for (var i in cafeList) {
+				var origins = {lat:37.4945723, lng:127.02757780000002}; //비트컴퓨터 - gps로 가져오기
+				var destinations = cafeList[i].address;
+				
+				getDistance(origins, destinations, cafeList[i].cafeMemberNo);
+			}
+			
 			
 			$('.list').click(function(event) {
 				event.preventDefault();
