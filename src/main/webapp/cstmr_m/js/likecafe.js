@@ -48,7 +48,7 @@ function getDistance(origins, destinations, cafeMemberNo) {
 				 lon2: lng2},
 			function(distance) {
 				if(distance > 1000) {
-					distance = (distance / 10000).toFixed(1) + 'km';
+					distance = (distance / 1000).toFixed(1) + 'km';
 				} else {
 					distance += 'm';
 				}

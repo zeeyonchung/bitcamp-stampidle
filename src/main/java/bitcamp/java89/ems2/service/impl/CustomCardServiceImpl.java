@@ -765,20 +765,22 @@ public class CustomCardServiceImpl implements CustomCardService {
     Map<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("cafeMemberNo", cafeMemberNo);
-    CustomCard customCard = customCardDao.getOneCafeStampNo(paramMap);
+    List<CustomCard> customCardList = customCardDao.getOneCafeStampNo(paramMap);
     
-    if (customCard == null) {return null;}
+    if (customCardList == null) {return null;}
     
     // 현재 모인 스탬프 수
     int currentStampCount = 0;
     
-    List<Stamp> stampList = customCard.getStampList();
-    for (int i = 0; i < stampList.size(); i++) {
-      currentStampCount += stampList.get(i).getStampIssueCount();
+    for (CustomCard customCard : customCardList) {
+      List<Stamp> stampList = customCard.getStampList();
+      for (int i = 0; i < stampList.size(); i++) {
+        currentStampCount += stampList.get(i).getStampIssueCount();
+      }
     }
     
     resultMap.put("currentStampCount", currentStampCount);
-    resultMap.put("stampCount", customCard.getStampCount());
+    resultMap.put("stampCount", customCardList.get(0).getStampCount());
     
     return resultMap;
     

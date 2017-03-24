@@ -587,6 +587,7 @@ where
     cafe.cname,
     cafe.cmno,
     cafe.logo,
+    cafe.addr,
     tag.tname,
     scinfo.scno,
     scinfo.fpath,

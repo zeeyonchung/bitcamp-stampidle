@@ -145,6 +145,33 @@ $('.btn-cafeInfo').click(function(e) {
        }
    });
 });
+
+
+//핸드폰번호 확인
+$('.myeditPop #phone').keyup(function() {
+  $.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkPhone.do?phone=' + $(this).val(),
+    function(result) {
+      if (result != 0) {
+         $('<span class="warn" style="position:absolute; right:10px; top:12px; color:#ff5948">사용 중인 번호</span>').appendTo($('#phone').parent('.form-group'));
+        $(this).val('');
+      } else {
+    	  $('#phone').parent('.form-group').children('.warn').remove();
+      }
+  })
+});
+
+// 사업자번호 확인
+$('.myeditPop #companyNo').keyup(function() {
+  $.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkCRN.do?crn=' + $(this).val(),
+    function(result) {
+      if (result != 0) {
+    	  $('<span class="warn" style="position:absolute; right:10px; top:12px; color:#ff5948">사용 중인 사업자번호</span>').appendTo($('#companyNo').parent('.form-group'));
+        $(this).val('');
+      } else {
+        $('#companyNo').parent('.form-group').children('.warn').remove();
+      }
+  })
+});
 </script>
 
 
