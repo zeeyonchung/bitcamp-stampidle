@@ -137,7 +137,7 @@
 	                        </ul>
 	                    </div>
 	
-	                    <button class="btn-top">맨위로</button>
+	                    <button class="btn-top"> 맨위로</button>
                         <!-- //list -->
                         
                     </div>
@@ -259,12 +259,12 @@ function autoSlide() {
   <div class="comment_txt" data-no={{commentNo}}>
       <strong>{{nick}}</strong><br>
     <span>{{contents}}</span>
-    <button type="button" class= "delete-comments btn btn-default btn-xs" data-no={{customMemberNo}}>삭제</button>
   </div>
   <div class='etcInfo'>
     <div class="date">{{uploadDate}}</div>
     <div class="star"><span class='star{{star}}'></span></div>
   </div>
+  <button type="button" class= "delete-comments" data-no={{customMemberNo}}>x</button>
 </li>
 {{/each}}
 </script>

@@ -17,6 +17,7 @@
 
 .findCafe .menu-btn {
 	z-index:99901;
+	position:fixed;
 }
 .findCafe #container {
     padding:0;
@@ -85,8 +86,11 @@
 }
 
 .findCafe .srchMap.menu-btn {
+	margin-top:-60px;
 	padding:15px;
     margin-bottom:0;
+    position:absolute;
+    z-index:30;
 }
 
 .findCafe .srchMap .btn_show {
@@ -104,6 +108,7 @@
 /************ 카페리스트영역 cafeListArea ************/
 .cafeListArea {
 	width:100%;
+	margin-top:60px;
 }
 
 /* sub guide style */
@@ -129,6 +134,10 @@
     position:absolute;
     top:117px;
     right:3%;
+}
+
+.btn-group li {
+    cursor:pointer;
 }
 
 .btn-group > button {

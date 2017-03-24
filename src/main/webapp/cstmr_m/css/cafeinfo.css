@@ -573,6 +573,7 @@
     width: 100%;
     border-bottom: 1px solid #e7e8e9;
     padding:10px 3%;
+    position:relative;
 }
 
 .commentArea .comment_list li .profileImg {
@@ -654,7 +655,7 @@
     background: #f6f6f6;
     text-align: center;
     color: #888;
-    font-size: 1.5em;
+    font-size: 1.2em;
     border: 0;
     padding: 12px 0 12px 0;
     font-family:"FontAwesome";
@@ -718,10 +719,17 @@
  
  
 .delete-comments {
-  float:right;
-  display:none;
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	display: none;
+	background:#fff;
+	border:0;
+	box-shadow:none;
 }
 
 .delete-comments.active {
 	display:block;
+	background:#fff;
+	box-shadow:none;
 }
