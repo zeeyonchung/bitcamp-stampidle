@@ -84,6 +84,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					function(ajaxResult) {}
 				);
 			
+				
+			/*	$.getJSON(serverRoot + 'sms.json', 
+						{'customTel': customTel,
+						'text': $('.gift-msg').val()},
+						function(ajaxResult) {}
+					);*/
+				
 				alert("발송을 완료하였습니다.");
 				location.href='cafeinfo.html?cafeMemberNo=' + cafeMemberNo;
 			});
