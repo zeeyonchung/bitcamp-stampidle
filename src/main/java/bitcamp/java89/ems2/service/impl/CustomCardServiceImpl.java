@@ -149,6 +149,7 @@ public class CustomCardServiceImpl implements CustomCardService {
     
     HashMap<String, Object> resultMap = new HashMap<>();
     if (customDetailList.size() > 0) {
+    	resultMap.put("customEmail", customDetailList.get(0).getCustomEmail());
       resultMap.put("customPhoto", customDetailList.get(0).getCustomPhoto());
       resultMap.put("customName", customDetailList.get(0).getCustomName());
       resultMap.put("customTel", customDetailList.get(customDetailList.size() - 1).getCustomTel());

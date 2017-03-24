@@ -248,6 +248,7 @@ where
 	select
     memb.cphoto,
     memb.name,
+  	memb.email,
     memb.tel,
     mcard.mcno,
     mcard.birth,

@@ -47,7 +47,7 @@
 *************************************************/
 #header {position:fixed; width:100%; z-index:1030; background:url(../image/bg_con.png) no-repeat right top #fff; }
 #header .navbar {float:left; height:70px; margin-bottom:0; border:0;}
-#header .navbar .sidebar-toggle {float:left; width:120px; height:120px; color:#fff; background:url(../image/btn_navi.png) no-repeat center center #ff5948; background-size:25px 20px; font-size:0; transition:all 0.3s ease .05s;}
+#header .navbar .sidebar-toggle {float:left; width:130px; height:110px; color:#fff; background:url(../image/btn_navi.png) no-repeat center center #ff5948; background-size:25px 20px; font-size:0; transition:all 0.3s ease .05s;}
 #header .navbar .sidebar-toggle:hover {background-color:#ff4040; transition:all 0.3s ease .05s;}
 
 #header .top {
@@ -76,7 +76,7 @@
 
 #header .top .search .inputArea {
     position: absolute;
-    width: 290px;
+    width: 325px;
     min-height: 38px;
     margin-top: 20px;
     border: 1px solid #b2b2b2;
@@ -86,17 +86,22 @@
 
 #header .top .search .inputArea .srchBar {
     float: left;
-    width: 240px;
-    padding: 0 20px;
+    width: 275px;
+    padding: 0 0 0 20px;
     height:38px;
     line-height:38px;
-    font-size: 1.3em;
+    font-size: 1.25em;
     color: #555;
     background: transparent;
 }
 
+#header .top .search .inputArea .srchBar:focus {
+	outline:none;
+}
+
 #header .top .search .inputArea .btn_srch {
-	float:left;
+	float:right;
+	margin-right:5px;
     width: 40px;
     height: 38px;
     background: url(../image/btn_searchB.png) no-repeat center center;
@@ -135,7 +140,7 @@
 
 #header .top .search .btn_newCstmr_top {
     position: absolute;
-    left: 295px;
+    left: 330px;
     width: 100px;
     height: 40px;
     margin-top: 20px;
@@ -152,40 +157,38 @@
 
 /***  auto complete 고객검색 자동완성 ***/
 
-.ui-menu
-{
-    position: relative;
-    list-style: none;
-    background-color: white;
-    border-radius: 18px;
-    z-index:100000000000000;
-    box-shadow: 5px 0px 8px white;
-    width: 290px;
-    line-height: 200%;
-    font-size: 1em;
-    padding: 15px 0;
-    border: 1px solid #b2b2b2;
-
+.ui-menu {
+	position: relative;
+	list-style: none;
+	background-color: white;
+	border-radius: 18px;
+	z-index: 100000000000000;
+	box-shadow: 5px 0px 8px white;
+	width: 325px;
+	line-height: 200%;
+	padding: 15px 0;
+	border: 1px solid #b2b2b2;
+	box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.1);
 }
 
-.ui-menu .ui-menu-item
-{
-    margin: none;
-    padding-left: 15px;
-    padding-right:10px;
+.ui-menu .ui-menu-item {
+	padding:7px 15px;
+	font-size: 1.2em;
+	color: #777;
+	border-top:1px solid #e4e4e4;
+	cursor:pointer;
+}
+.ui-menu .ui-menu-item:first-child {
+	border-top: 0;
 }
 
-.ui-menu .ui-menu-item:hover
-{
-    margin: none;
-    padding-left: 15px;
-    padding-right:10px;
-    color: white;
-    background-color: #555;
+.ui-menu .ui-menu-item:hover {
+	color: #777;
+	background-color: #f6f6f6;
 }
 
 .ui-widget-content.ui-autocomplete {
-	position:absolute!important;
+	position: absolute !important;
 	max-height: 250px;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -193,14 +196,14 @@
 
 .ac_results {
 	clear: both;
-    padding: 0px;
-    overflow: hidden;
-    z-index: 99999;
-    width:290px!important;
-    border:1px solid #b2b2b2;
-    border-radius:20px;
-    z-index:1000000;
-    background:#fff;
+	padding: 0px;
+	overflow: hidden;
+	z-index: 99999;
+	width: 325px !important;
+	border: 1px solid #b2b2b2;
+	border-radius: 20px;
+	z-index: 1000000;
+	background: #fff;
 }
 
 .ac_results ul {
@@ -208,7 +211,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    width:290px;
+    width:325px;
 }
 .ac_results li {
     margin: 0px;
@@ -337,8 +340,6 @@
 }
 
 #header .top .profilePop #logout-btn {
-    float: left;
-    display: inline-block;
     padding: 1px 15px 3px 15px;
     margin-top: 2px;
     border: 2px solid #e0e0e0;
@@ -348,7 +349,6 @@
 }
 
 #header .top .profilePop .btnInfo .btn-joinInfo {
-    float: left;
     width:49%;
     padding: 3px 0 5px 0;
     font-size: 14px;
@@ -357,7 +357,6 @@
 }
 
 #header .top .profilePop .btnInfo .btn-cafeInfo {
-    float: left;
     width:49%;
     padding: 3px 0 5px 0;
     margin-left: 2%;
@@ -600,13 +599,13 @@
     left: -20px;
     height: 100%;
     min-height: 915px;
-    width: 140px;
+    width: 150px;
     background: #373737;
 }
 
 .slideArea .sidebar {
     padding-top: 30px;
-    height: 330px;
+    /* height: 330px; */
     background: #ff5948;
     padding-left: 20px;
 }
@@ -615,7 +614,7 @@
     position: absolute;
     bottom: 70px;
     left: 0;
-    width: 140px;
+    width: 150px;
     padding-top: 15px;
     padding-left: 20px;
     height: 80px;
@@ -632,7 +631,7 @@
 
 .slideMn li.treeview>a {
     display: block;
-    width: 120px;
+    width: 130px;
     height: 70px;
     font-size: 16px;
     border-bottom: 1px solid #f24e3f;

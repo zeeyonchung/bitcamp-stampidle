@@ -89,19 +89,12 @@ function loadPage(){
 			
 			
 			/** 찍힌 스탬프 가져오기 **/
-			/*for (var i = 0; i < currentStampCount; i++) {
+			for (var i = 0; i < currentStampCount; i++) {
 				$('<img>')
 				.addClass('stamp-img')
 				.appendTo('.stampNo' + i)
 				.attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
 				.css('width', 40)
-			}*/
-			for (var i = 0; i < currentStampCount; i++) {
-				$('<div>')
-				.addClass('stamp-img')
-				.appendTo('.stampNo' + i)
-				.css('background-image', 'url(' + serverRoot + '/../upload/' + cardDetail.stampImgPath + ')')
-				.css('width',54).css('height',54);
 			}
 			
 			
@@ -116,23 +109,16 @@ function loadPage(){
 				//console.log(currentStampCount)
 				if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') == -1) {
 					
-					$('<div>')
-					.addClass('stamp-img')
-					.appendTo('.stampNo' + stampNo)
-					.css('background-image', 'url(' + serverRoot + '/../upload/' + cardDetail.stampImgPath + ')')
-					.css('width',54).css('height',54);
-					
-					/*$('<img>')
+					$('<img>')
 					.addClass('stamp-img')
 					.appendTo('.stampNo' + stampNo)
 					.attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
-					.css('width', 40);*/
-					
+					.css('width', 40);
 					$(this).addClass('add-check');
 					
 				} else if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') != -1) {
 					
-					$('.stampNo' + stampNo).children('div').remove();
+					$('.stampNo' + stampNo).children('img').remove();
 					$(this).removeClass('add-check');
 				}
 			});
@@ -204,7 +190,7 @@ function loadPage(){
 		
 		$('#send-text').attr('data-no', customMemberNo);
 		$('#name').text(customCard.customName);
-		$('#customEmail').text(customCard.customEmail);
+		$('#email').text(customCard.email);
 		$('#phone-number').text(customCard.customTel);
 		$('.finish-coupon').text(customCard.finishCardCount);
 		$('.first-visit-date').text(customCard.firstVisitDate);
