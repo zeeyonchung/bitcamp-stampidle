@@ -433,6 +433,7 @@ where
   select
     cafe.cname,
     cafe.cmno,
+    cafe.logo,
     tag.tname,
     wtime.wday,
     wtime.stime,
@@ -472,6 +473,7 @@ where
   select
     cafe.cname,
     cafe.cmno,
+    cafe.logo,
     tag.tname,
     wtime.wday,
     wtime.stime,
@@ -497,6 +499,7 @@ where
    select
     cafe.cname,
     cafe.cmno,
+    cafe.logo,
     tag.tname,
     wtime.wday,
     wtime.stime,
@@ -538,6 +541,7 @@ where
     cafe.cname,
     cafe.cmno,
     cafe.addr,
+    cafe.logo,
     tag.tname,
     scinfo.scno,
     scinfo.fpath,
@@ -566,6 +570,7 @@ where
   select
     cafe.cname,
     cafe.cmno,
+    cafe.logo,
     tag.tname,
     scinfo.scno,
     scinfo.fpath,
