@@ -175,6 +175,9 @@ $(window).load(function(){
 });
 
 function swipeSection(no) {
+	$('#swipe .swWrap').css('min-height', window.innerHeight - 100);
+	
+	
 	if (!document.getElementById('tab_swipe')) return false;
     var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
     var elem = document.getElementById('swipe');
