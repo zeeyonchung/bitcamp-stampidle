@@ -197,7 +197,7 @@
 
 .cardArea img {
    width:100%;
-   height:auto;
+   height: 80px;
    max-height:100px;
    border-radius:5px;
 }
