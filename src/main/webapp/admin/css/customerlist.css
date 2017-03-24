@@ -4,7 +4,9 @@
 @import url("frame.css");
 
 
-
+table th {
+    text-align:center;
+}
 
 .manage-navi {
   border: 1px;
