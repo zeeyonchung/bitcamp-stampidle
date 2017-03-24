@@ -188,7 +188,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
     
     $(document.body).on('click', '.delete-comments', function(event) {
     	var commentsWritter = $(this).attr("data-no");
-    	var commentsNo2 = $('.comment_txt').attr("data-no");
+    	var commentsNo2 = $(this).attr("commentNo");
     	if(userNo == commentsWritter) {
     		swal({
 			  title: "삭제하시겠습니까?",
@@ -197,20 +197,19 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			  confirmButtonColor: "#DD6B55",
 			  confirmButtonText: "삭제",
 			  cancelButtonText: "취소",
-			  closeOnConfirm: false,
-			  closeOnCancel: true
+			  closeOnCancel: true,
+			  closeOnConfirm: false
 			}, function(isConfirm){
 				if (isConfirm) {
 					$.post(serverRoot + '/comment/delete.json', 
 						{'commentsNo' : commentsNo2},
 						function(ajaxResult) {
+							swal({title: "삭제되었습니다.", type: "success"});
 							commentList(cafeMembNo,userNo);
 							commentNumber();
 							swipeSection(2);
 							$('#swipe .swWrap').css('height', $('#swipe .swWrap').outerHeight(true) - $('.commentArea .comment_list li').height() -20);
 					});
-					
-					swal({title: "삭제되었습니다.", type: "success"});
 				}
 			});
     		
@@ -265,7 +264,6 @@ var commentList = function(cafeMembNo,userNo) {
 	    }
 	, function(ajaxResult) {
 		var comments = (ajaxResult.data);
-		console.log(comments);///////////////////////////////////
 		var commentdiv = $('.comment_list ul');
 		$('.commentText').val("");
 		commentdiv.html("")
@@ -282,6 +280,7 @@ var commentList = function(cafeMembNo,userNo) {
 		$("button[data-no='"+ userNo +"']").addClass('active');
 		
 		$('.result').text("평점 (" + averStarScore() +"/5.0)");
+		$('.starScore .star span').removeClass();
 		$('.starScore .star span').addClass(totalStarScoreCss());
 		// 가져온 별점 갯수,평균 구하기
 		function averStarScore() {
