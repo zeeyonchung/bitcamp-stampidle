@@ -39,9 +39,9 @@ function loadPage(){
 			return;
 		}
 		
-		var cardDetail = ajaxResult.data.cardDetail;
+		cardDetail = ajaxResult.data.cardDetail;
 		currentStampCount = ajaxResult.data.currentStampCount;
-		
+		console.log(cardDetail);
 		
 		$('#card-back').attr('src', serverRoot + '/../upload/' + cardDetail.backImgPath); /* 하... 경로가.....ㅠㅠ */
 		$('.current-stamp-count').text(currentStampCount);
@@ -72,6 +72,7 @@ function loadPage(){
 			$('.stmpare').remove();
 			//사용할 개수 적는 인풋 박스도 초기화하고
 			$('.usecp').val('');
+			
 			
 			for (var i = 0; i < cardDetail.stampPositionList.length; i++) {
 				var positionOrder = cardDetail.stampPositionList[i].positionOrder;
