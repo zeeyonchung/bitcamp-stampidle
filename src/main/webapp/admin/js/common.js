@@ -24,11 +24,9 @@ $(function() {
 			$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + loginUser.cafeMemberNo, function(ajaxResult1) {
 				var cafeinfo = ajaxResult1.data;
 				if (ajaxResult1.status == "fail") {
-					$('#logon-div .profileImg img').attr('src', clientRoot + '/image/profileImg_default.png');
-					$('.profilePop .profileImgB img').attr('src', clientRoot + '/image/profileImg_default.png');
+					$('#logon-div .profileImg img').attr('src', '../../image/logo_markW.png');
 				} else {
 					$('#logon-div .profileImg img').attr('src', '../../upload/' + cafeinfo.logPath);
-					$('.profilePop .profileImgB img').attr('src', '../../upload/' + cafeinfo.logPath);
 				}
 			});
 

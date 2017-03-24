@@ -23,7 +23,7 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
   
   var event = ajaxResult.data;
   
-  $('.eventdetail .title').text(event.eventTitle);
+  $('.eventdetail .eventTitle').text(event.eventTitle);
   $('.eventdetail .table1 .tabletd2').text(event.registDate);
   $('.eventdetail .table2 .tabletd2').text(event.startDate + " ~ " + event.endDate);
   $('.eventdetail .table3 .tabletd4').text(event.eventView);

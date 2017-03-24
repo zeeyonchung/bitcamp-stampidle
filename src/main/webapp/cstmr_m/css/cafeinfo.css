@@ -727,12 +727,13 @@
  
 .delete-comments {
 	position: absolute;
-	top: 7px;
-	right: 10px;
+	top: 3px;
+	right: 7px;
 	display: none;
 	background:#fff;
 	border:0;
 	box-shadow:none;
+	font-size:1.2em;
 }
 
 .delete-comments.active {

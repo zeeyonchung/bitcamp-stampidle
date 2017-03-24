@@ -66,7 +66,13 @@ a {
     max-width: 960px;	
 }
 
-
+.con .pageTitle {
+	font-size:30px;
+	border-bottom:2px solid #444;
+	padding-bottom:7px;
+	color:#444;
+	
+}
 
 /************ sweetalert ************/
 @media (max-width: 540px) {
