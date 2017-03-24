@@ -204,10 +204,20 @@ ul a {
 }
 .cafe-name4 {
   width:100%;
-  display:inline-block;
-  margin-top:10px;
+  display:block;
+  margin:10px auto 70px auto;
   position:relative;
   text-align:center;
+}
+
+.cafe-name4 button {
+    width:300px;
+  transition: all 0.5s ease .03s;
+}
+
+.cafe-name4 button:hover {
+  background:#444;
+  color:#ddd;
 }
 
 .logo-text-div {
@@ -283,9 +293,6 @@ ul a {
 }
 
 
-
-
-
 .underline {
   height: .25rem;
   width: 120px;
@@ -308,7 +315,6 @@ ul a {
     margin-top:10px;
     position:relative;
     display:inline-block;
-    
 }
 
 
