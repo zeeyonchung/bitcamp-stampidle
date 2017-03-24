@@ -50,8 +50,10 @@ $('.register #id3').keyup(function() {
 	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkId.do?id=' + $(this).val(),
 		function(result) {
 			if (result != 0) {
-				alert("이미 사용 중인 아이디입니다!");
+				$('<span class="warn" style="position:absolute; right:24px; top:18px; color:#ff5948">사용 중인 아이디</span>').appendTo($('#id3').parent('.form-group'));
 				$(this).val('');
+			} else {
+				$('#id3').parent('.form-group').children('.warn').remove();
 			}
 	})
 });
@@ -61,8 +63,10 @@ $('.register #phone').keyup(function() {
 	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkPhone.do?phone=' + $(this).val(),
 		function(result) {
 			if (result != 0) {
-				alert("이미 사용 중인 번호입니다!");
+				$('<span class="warn" style="position:absolute; right:24px; top:18px; color:#ff5948">사용 중인 번호</span>').appendTo($('#phone').parent('.form-group'));
 				$(this).val('');
+			} else {
+				$('#phone').parent('.form-group').children('.warn').remove();
 			}
 	})
 });
@@ -72,9 +76,11 @@ $('.register #companyNo').keyup(function() {
 	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkCRN.do?crn=' + $(this).val(),
 		function(result) {
 			if (result != 0) {
-				alert("이미 등록된 사업자등록번호입니다!");
+				$('<span class="warn" style="position:absolute; right:24px; top:18px; color:#ff5948">사용 중인 사업자번호</span>').appendTo($('#companyNo').parent('.form-group'));
 				$(this).val('');
-			}
+			} else {
+		        $('#companyNo').parent('.form-group').children('.warn').remove();
+		      }
 	})
 });
 

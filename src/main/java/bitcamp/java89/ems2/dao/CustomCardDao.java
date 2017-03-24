@@ -40,7 +40,7 @@ public interface CustomCardDao {
   int getCafeNo(int customCardNo) throws Exception;
   
   List<CustomCard> getStampNo(int customCardNo) throws Exception; 
-  CustomCard getOneCafeStampNo(Map<String, Object> paramMap) throws Exception; 
+  List<CustomCard> getOneCafeStampNo(Map<String, Object> paramMap) throws Exception; 
   
   List<CustomCard> getRecentCard(int customMemberNo) throws Exception;
   

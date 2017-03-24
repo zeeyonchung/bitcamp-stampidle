@@ -46,7 +46,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMemberNo, function(ajaxResult) {
 			var cafe = ajaxResult.data;
 			
-			$('.cafeNm').text(cafe.cafeName);
+			$('.cafeName').text(cafe.cafeName);
 			//$('.stampNum p').text(cardDetail.currentStampCount + "개");
 			if (customCard.finishCardCount != 0) {
 				$('.freeNum p').text(customCard.finishCardCount + "개");
