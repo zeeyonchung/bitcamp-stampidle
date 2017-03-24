@@ -200,11 +200,11 @@ h2 {
 }
 
 .current-stamp-count {
-	line-height:100%;
+	line-height: 100%;
 	font-size: 1.7em;
-	color:#333;
+	color: #333;
+	font-weight:500;
 }
-
 
 .regist-stamp-div {
 	text-align: center;
@@ -298,6 +298,7 @@ h2 {
     line-height:100%;
     font-size: 1.7em;
     color:#333;
+    font-weight:500;
 }
 
 .cpnumber-table {
