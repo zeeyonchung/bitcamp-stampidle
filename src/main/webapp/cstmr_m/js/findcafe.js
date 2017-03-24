@@ -35,6 +35,26 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 
 
+/**** 거리 구하기 ****/
+function getDistance(origins, destinations, cafeMemberNo) {
+	//목적지의 위도경도 구한 후
+	$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+destinations+'&key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg', function(ajaxResult2) {
+		var lat2 = parseFloat(ajaxResult2.results[0].geometry.location.lat);
+		var lng2 = parseFloat(ajaxResult2.results[0].geometry.location.lng);
+		//거리 계산
+		$.get(serverRoot + '/../common/distance.json', 
+				{lat1: origins.lat,
+				 lon1: origins.lng,
+				 lat2: lat2,
+				 lon2: lng2},
+			function(distance) {
+					 console.log(distance);
+					 $('.distance[data-no=' + cafeMemberNo +']').text(distance + 'm');
+		})
+	});
+}
+
+
 
 /**** 글 불러오기 ****/
 function loadPage(pageCount) {
@@ -70,6 +90,17 @@ function loadPage(pageCount) {
 				listArea.append(template({"cafeList": cafeList}));
 			}
 			
+			
+			// 거리 구하기
+			for (var i in cafeList) {
+				var origins = {lat:37.4945723, lng:127.02757780000002}; //비트컴퓨터 - gps로 가져오기
+				var destinations = cafeList[i].address;
+				console.log(cafeList[i].cafeMemberNo);
+				
+				getDistance(origins, destinations, cafeList[i].cafeMemberNo);
+			}
+			
+			
 			$('.cafeName').click(function(event) {
 				event.preventDefault();
 				event.stopImmediatePropagation();
@@ -85,8 +116,7 @@ function loadPage(pageCount) {
 			$(window).scroll(function(event) {
 				event.stopImmediatePropagation();
 				if($(window).scrollTop() + $(window).height() == $(document).height()) {loadPage(++pageCount);}
-			}); // 스크롤 이벤트가 반복되어 일어나고 있음. 수정 필요.
-			//console.log(customMemberNo, searchKeyword, postNo, pageCount);
+			}); 
 			
 			
 			$('.myCard').click(function(event) {

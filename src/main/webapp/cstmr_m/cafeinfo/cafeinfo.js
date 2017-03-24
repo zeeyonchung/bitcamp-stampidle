@@ -125,9 +125,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	     return false;
 	});
 	$('.submit').click(function(event) {
-		var star = $('.star_rating > .on').length;
 		event.preventDefault();
 		event.stopImmediatePropagation();
+		var star = $('.star_rating > .on').length;
 		var param = {
 			customMemberNo: userNo,
 			name: userName,
