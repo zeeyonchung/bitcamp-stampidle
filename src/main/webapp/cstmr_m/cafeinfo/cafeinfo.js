@@ -18,7 +18,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var cafe = ajaxResult.data;
 		$('.cafeName').text(cafe.cafeName);
 		$('.txt').text(cafe.intro);
-		$('.addr').text(cafe.address +" "+ cafe.detailAddress);
+		$('.addr').text(cafe.address);
 		$('.tel').text(cafe.cafeTel);
 		$('.seat').text(cafe.chairNo + "석");
 		
@@ -70,31 +70,36 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				}, 'json'); 
 		  }
 		});
-		// 카드 앞면 뒷면 가져오기//
-		$.getJSON(serverRoot + '/customCard/customDetail.json', 
+		
+		
+		
+		$.getJSON(serverRoot + '/customCard/getOneCafeStampNo.json', 
 				{'customMemberNo': userNo,
-			'cafeMemberNo': cafeMembNo},
+				 'cafeMemberNo': cafeMembNo},
 			function(ajaxResult) {
-				var stmpNo = ajaxResult.data.allStampCount;
-
-				$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
-					var cardInfo = ajaxResult.data;
-					$.each(cardInfo, function(i) {
-						$('.stmpcard').attr('src', '../'+cardInfo[i].backImgPath);
-						$('.stmpcard2').attr('src', '../../upload/' +cardInfo[i].frontImgPath);
-						var many = cardInfo[i].stampCount;
-						if (many != 0) {
-							$('.stmp-circle').css('display','block');
-							$('.stmp-circle .many').text(many);
-							$('.stmp-circle .stmpNo').text(stmpNo);
-						}
-					});
-					if (cardInfo[0].service != "") {
-						$('.service').text(cardInfo[0].service);
-					} else {
-						$('.service').text("등록되지 않은 내용입니다.");
-					}
-				});
+					 console.log(ajaxResult)
+				if (ajaxResult.data) {
+					$('.stmp-circle').css('display', 'block');
+					$('.stmp-circle .stampCount').text(ajaxResult.data.stampCount);
+					$('.stmp-circle .currentStampCount').text(ajaxResult.data.currentStampCount);
+				} else {
+					$('.stmp-circle').css('display', 'none');
+				}
+		});
+	
+	
+		// 카드 앞면 뒷면 가져오기//
+		$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+			var cardInfo = ajaxResult.data;
+			$.each(cardInfo, function(i) {
+				$('.stmpcard').attr('src', '../'+cardInfo[i].backImgPath);
+				$('.stmpcard2').attr('src', '../../upload/' +cardInfo[i].frontImgPath);
+			});
+			if (cardInfo[0].service != "") {
+				$('.service').text(cardInfo[0].service);
+			} else {
+				$('.service').text("등록되지 않은 내용입니다.");
+			}
 		});
 	});
 	// 1페이지 끝

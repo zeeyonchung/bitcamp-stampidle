@@ -44,28 +44,27 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			
 			
 			slide();
-			
-			
-			
-			
-			$.getJSON(serverRoot + '/event/getAllListBanner.json', function(ajaxResult){
-				var status = ajaxResult.status;
-				if(status != "success") {
-					console.log(ajaxResult.data);
-					return;
-				}
-				var list = ajaxResult.data;
-				var eventdiv = $('.event-div');
-				var template = Handlebars.compile($('#trTemplate2').html());
-				eventdiv.append(template({"list": list}));
-				
-				
-				$('.eventBanner').click(function(event) {
-					event.preventDefault();
-					location.href = '../event/eventdetail.html?eventNo=' + $(this).attr("data-no");
-				});
-				
-			});
+	});
+	
+	
+	
+	$.getJSON(serverRoot + '/event/getAllListBanner.json', function(ajaxResult){
+		var status = ajaxResult.status;
+		if(status != "success") {
+			console.log(ajaxResult.data);
+			return;
+		}
+		var list = ajaxResult.data;
+		var eventdiv = $('.event-div');
+		var template = Handlebars.compile($('#trTemplate2').html());
+		eventdiv.append(template({"list": list}));
+		
+		
+		$('.eventBanner').click(function(event) {
+			event.preventDefault();
+			location.href = '../event/eventdetail.html?eventNo=' + $(this).attr("data-no");
+		});
+		
 	});
 	
 	

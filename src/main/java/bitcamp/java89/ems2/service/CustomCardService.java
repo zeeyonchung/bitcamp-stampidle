@@ -21,7 +21,8 @@ public interface CustomCardService {
   List<CustomCard> getMyCardNo(int customMemberNo) throws Exception;
   int getCafeNo(int customCardNo) throws Exception;
   List<CustomCard> getStampNo(int customCardNo) throws Exception;
-  public List<CustomCard> getRecentCard(int customMemberNo) throws Exception;
+  Map<String, Object> getOneCafeStampNo(int customMemberNo, int cafeMemberNo) throws Exception;
+  List<CustomCard> getRecentCard(int customMemberNo) throws Exception;
   
   List<CustomCard> getMyCardList(int customMemberNo) throws Exception;
   List<CustomCard> getMyFinishCardList(int customMemberNo) throws Exception;

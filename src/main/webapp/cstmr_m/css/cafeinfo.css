@@ -49,6 +49,7 @@
 }
 
 .stmp-circle {
+	  display: none;
     position: absolute;
     border: none;
     border-radius: 100%;
@@ -67,9 +68,9 @@
 .stmp-circle span {
 	display:inline;
 }
-.stmp-circle .stmpNo {
+.stmp-circle .currentStampCount {
 	font-weight:bold;
-	font-size:1.8em;
+	font-size: 2em;
 }
 
 .bgwrap {
