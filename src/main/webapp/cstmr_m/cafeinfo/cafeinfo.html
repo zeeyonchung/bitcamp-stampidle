@@ -257,7 +257,7 @@ function autoSlide() {
   <div class='profileImg'>
     <img src='../../upload/{{photoPath}}' alt='profile Img'>
   </div>
-  <div class="comment_txt" data-no={{commentNo}}>
+  <div class="comment_txt">
       <strong>{{nick}}</strong><br>
     <span>{{contents}}</span>
   </div>
@@ -265,7 +265,7 @@ function autoSlide() {
     <div class="date">{{uploadDate}}</div>
     <div class="star"><span class='star{{star}}'></span></div>
   </div>
-  <button type="button" class= "delete-comments" data-no={{customMemberNo}}>x</button>
+  <button type="button" class= "delete-comments" data-no={{customMemberNo}} commentNo={{commentNo}}>x</button>
 </li>
 {{/each}}
 </script>

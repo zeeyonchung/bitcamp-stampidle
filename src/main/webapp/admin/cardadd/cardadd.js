@@ -175,6 +175,30 @@ function save() {
 		
 		var stampPositionList = [];
 		
+		//실패 : 도장영역안만들었음
+		if (stampNo < 1) {
+			swal({
+				title: "도장 영역을 안 만들셨습니다.",
+				text: "플러스 버튼을 눌러 도장 영역을 한 개 이상 지정해주세요.",
+				type: "warning",
+				confirmButtonColor: "#DD6B55",
+				closeOnConfirm: true
+			});
+			return;
+		}
+		
+		//실패 : 서비스내용안씀
+		if ($('.service').val().trim() == "") {
+			swal({
+				title: "서비스 내용을 입력해 주세요.",
+				type: "warning",
+				confirmButtonColor: "#DD6B55",
+				closeOnConfirm: true
+			});
+			return;
+		}
+		
+		
 		for(i=0; i < stampNo; i++) {
 			var p = $('.stampNo' + i);
 			var positionX = p.position().left / $('.stmpside').css('width').split('px')[0];
@@ -195,7 +219,7 @@ function save() {
 				"frontImgPath": $('#front-photo-path').val(),
 				"backImgPath": $('#back-photo-path').val(),
 				"stampImgPath": $('#photo-path').val(),
-				"service": $('.service').text(),
+				"service": $('.service').val(),
 				"stampPositionList": stampPositionList
 		};
 		
