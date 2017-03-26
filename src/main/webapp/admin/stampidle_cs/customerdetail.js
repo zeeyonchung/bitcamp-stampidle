@@ -205,7 +205,11 @@ function loadPage(){
 		
 		$('#send-text').attr('data-no', customMemberNo);
 		$('#name').text(customCard.customName);
-		$('#customEmail').text(customCard.customEmail);
+		if (customCard.customEmail != null) {
+			$('#customEmail').text(customCard.customEmail);
+		} else {
+			$('#customEmail').text("등록된 이메일이 없습니다.");
+		}
 		$('#phone-number').text(customCard.customTel);
 		$('.finish-coupon').text(customCard.finishCardCount);
 		$('.first-visit-date').text(customCard.firstVisitDate);

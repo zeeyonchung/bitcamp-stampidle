@@ -28,6 +28,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
             },
             focus: function(event, ui) {
                 $("#searchbox").val(ui.item.label);
+                $(".msgArea #friendNm").text($("#searchbox").val().split(" ")[0] + "님에게 ");
                 return false;
             }
         });
@@ -84,12 +85,13 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					function(ajaxResult) {}
 				);
 			
-				
-			/*	$.getJSON(serverRoot + 'sms.json', 
-						{'customTel': customTel,
+				/*if ($('.gift-msg').val() != "") {
+					$.getJSON(serverRoot + '/sms.json', 
+						{'customTel': customTel.split("-").join(""),
 						'text': $('.gift-msg').val()},
 						function(ajaxResult) {}
-					);*/
+					);
+				} */
 				
 				alert("발송을 완료하였습니다.");
 				location.href='cafeinfo.html?cafeMemberNo=' + cafeMemberNo;

@@ -63,7 +63,7 @@
 *************************************************/
 #header {position:fixed; width:100%; z-index:1030; background:url(../image/bg_con.png) no-repeat right top #fff; }
 #header .navbar {float:left; height:70px; margin-bottom:0; border:0;}
-#header .navbar .sidebar-toggle {float:left; width:130px; height:110px; color:#fff; background:url(../image/btn_navi.png) no-repeat center center #ff5948; background-size:25px 20px; font-size:0; transition:all 0.3s ease .05s;}
+#header .navbar .sidebar-toggle {float:left; width:130px; height:75px; color:#fff; background:url(../image/btn_navi.png) no-repeat center center #ff5948; background-size:25px 20px; font-size:0; transition:all 0.3s ease .05s;}
 #header .navbar .sidebar-toggle:hover {background-color:#ff4040; transition:all 0.3s ease .05s;}
 
 #header .top {

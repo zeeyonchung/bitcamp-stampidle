@@ -3,7 +3,12 @@
 @import url("frame.css");
 
 
-
+cafeinfoedit input {
+	font-size:1.1em!important;
+}
+cafeinfoedit label {
+	font-weight:normal;
+}
 
 .manage-navi {
   border: 1px;
@@ -85,12 +90,12 @@ ul a {
 
 .form-control {
 	border: 1px solid #dedede;
-	border-radius: 5px;
+	border-radius: 5px!important;
 	display:inline-block;
 }
 
 .info-subtext {
-	margin-left:10px;
+	color:#999;
 }
 
 .checkbox_self {
@@ -107,11 +112,15 @@ ul a {
 	display:inline-block;
 	width:200px;
 	border:1px solid #dedede;
+	padding:6px 12px;
+	border-radius:5px!important;
+	margin-left:5px;
+	color:#999;
 }
 
 #introcafe {
-	width:350px;
-	height:200px;
+	width:66%;
+	height:120px;
 	border:1px solid #dedede;
 	border-radius: 5px;
 }
@@ -123,10 +132,9 @@ ul a {
 
 .intro-subtext {
 	display:inline-block;
-	color:#dedede;
-	position:relative;
+	color:#999;
 	top:-65px;
-	margin-left:20%;
+	margin:10px 0 15px 20%;
 }
 .work-time {
 	position:relative;
@@ -189,6 +197,7 @@ ul a {
 	height:40px;
 	border: 1px solid #dedede;
 	border-radius: 5px;
+	padding-left:10px;
 }
 
 
@@ -201,11 +210,12 @@ ul a {
 
 .cafe-name #cafeName {
 	width:300px;
+	margin-bottom:5px;
 }
 .cafe-name4 {
   width:100%;
   display:block;
-  margin:10px auto 70px auto;
+  margin:50px auto 70px auto;
   position:relative;
   text-align:center;
 }
@@ -213,6 +223,7 @@ ul a {
 .cafe-name4 button {
     width:300px;
   transition: all 0.5s ease .03s;
+  margin:auto;
 }
 
 .cafe-name4 button:hover {
@@ -576,4 +587,25 @@ ul a {
 
 .menuInfo #price {
 	width: 100px;
+}
+
+
+
+/* 카페정보등록 메뉴 */
+.mnArea-info {
+	width:40%;
+	float: right;
+	margin-top: -50px;
+	text-align:right;
+}
+
+.mnArea-info .mn-info {
+	font-size:1.2em;
+	border-radius:30px;
+	padding:4px 25px;
+	border:3px solid #333;
+	display:inline-block;
+}
+.mnArea-info .mn-info a {
+	color:#333;
 }

@@ -70,13 +70,21 @@
 }
 
 
-.gift-msg {
-	width: 92%;
-	margin: 8% 4% 5% 4%;
+.msgArea {
+	margin: 10% 4% 5% 4%;
+}
+
+.msgArea h5 {
+	font-size:1.1em;
+}
+
+.msgArea .gift-msg {
+	width:100%;
+	margin-top:5px;
 	border-radius: 5px;
 	border: 1px solid #ccc;
 	padding: 10px;
-	height:200px;
+	height:120px;
 }
 
 .gift-msg:focus {
@@ -159,7 +167,7 @@
     background:#fff;
     border-radius:5px;
     text-align:center;
-    font-size:1.3em;
+    font-size:2em;
     color:#ff5948;
 }
 
