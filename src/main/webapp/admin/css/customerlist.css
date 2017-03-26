@@ -41,13 +41,6 @@ table th {
   font-size: 2em;
 }
 
-ul li:nth-of-type(2), li:nth-of-type(3), li:nth-of-type(4) {
-	border: 1px;
-  display: inline;
-  font-size: 1.2em;
-}
-
-
 
 
 .one:hover ~ hr.underline {

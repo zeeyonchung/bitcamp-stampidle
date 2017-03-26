@@ -29,6 +29,4 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				$('.event-cont-div .span-contents').text(event.eventContents);
 			});
 	
-	
-	
 })

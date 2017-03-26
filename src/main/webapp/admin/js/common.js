@@ -53,3 +53,11 @@ $(function() {
 	});
 
 });
+
+//페이지인식
+$(document).ready(function() {
+	if ($('body').hasClass("sidebar")) {
+			
+	}
+});
+

@@ -6,6 +6,10 @@
 	background-position: center 10px;
 }
 
+.con h2 {
+	color:#444;
+}
+
 .con .text {
 	font-size: 1em;
 	margin: 20px auto 10px;
