@@ -51,7 +51,12 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			 }, 
 			function(ajaxResult) {
 			  var status = ajaxResult.status;
-			  if (status != "success") {console.log(ajaxResult.data); return;}
+			  if (status != "success") {
+				console.log(ajaxResult.data);
+				$('tbody').empty();
+				$('<tr><td colspan="5">검색 결과 없음</td></tr>').appendTo('tbody');
+				return;
+			  }
 			  var customCardList = ajaxResult.data.customCardList;
 			  
 			  /****** 글 목록 ******/
@@ -137,7 +142,15 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	$("#search-log-btn").click(function(){
 		searchKeyword = $('.input-name').val();
-		if (searchCondition == '') {alert('검색 조건 설정하세요'); return;}
+		if (searchCondition == '') {
+			swal({
+				title: "검색 조건을 설정하세요",
+				type: "warning",
+				confirmButtonColor: "#DD6B55",
+				closeOnConfirm: true
+			});
+			return;
+		}
 		
 		loadPage(1);
 	});
