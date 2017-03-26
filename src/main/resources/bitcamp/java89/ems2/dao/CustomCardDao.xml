@@ -335,34 +335,34 @@ where
   <select id="getList" parameterType="java.util.Map" resultMap="customCard-map">
 	select
 	  mcard.mno,
+	  mcard.mcno,
 	  memb.name,
 	  memb.tel,
-	  memb.email,
-	  mcard.mcno
+	  memb.email
 	from memb
 	  left outer join mcard on memb.mno=mcard.mno
 	  left outer join scinfo on mcard.scno=scinfo.scno
 	  left outer join cafe on scinfo.cmno=cafe.cmno
 	where
 	  cafe.cmno=#{cafeMemberNo}
-	group by mcard.mno
+	group by mcard.mno, mcard.mcno
 	limit #{startRowIndex}, #{rowSize}
   </select>
   
   <select id="getListSelect" parameterType="java.util.Map" resultMap="customCard-map">
   select
     mcard.mno,
+    mcard.mcno,
     memb.name,
     memb.tel,
-    memb.email,
-    mcard.mcno
+    memb.email
   from memb
     left outer join mcard on memb.mno=mcard.mno
     left outer join scinfo on mcard.scno=scinfo.scno
     left outer join cafe on scinfo.cmno=cafe.cmno
   where
     cafe.cmno=#{cafeMemberNo}
-  group by mcard.mno
+  group by mcard.mno, mcard.mcno
   order by ${selectCafeList} asc
   limit #{startRowIndex}, #{rowSize}
   
