@@ -50,14 +50,18 @@ $(function() {
 	// sidebar.html을 가져와서 붙인다.
 	$.get(clientRoot + '/sidebar.html', function(result) {
 		$('#sidebar').html(result);
+		
+		//페이지인식
+		var pageName = $('body').attr("data-pageName");
+		switch(pageName) {
+		case 'MAIN': $('.mnList .searchCstmr').addClass("active"); break;
+		case 'CUSTOMERLIST': $('.mnList .customerlist').addClass("active"); break;
+		case 'STAMPLOG': $('.mnList .stampLoglist').addClass("active"); break;
+		case 'CAFEINFO': $('.mnList .cafeInfo').addClass("active"); break;
+		case 'EVENT': $('.mnList .event').addClass("active"); break;
+		}
 	});
-
 });
 
-//페이지인식
-$(document).ready(function() {
-	if ($('body').hasClass("sidebar")) {
-			
-	}
-});
+
 

@@ -777,35 +777,81 @@
 
 /************ new Navigation ************/
 
-.mnList li {
-	width:110px;
-	height:110px;
-	border-radius:40px;
-	margin:10px 10px 10px 10px;
+.mnList .mn {
+	width:100px;
+	height:100px;
+	border-radius:20px;
+	margin:10px 10px 10px 15px;
 	background:#3d3d3d;
 	text-align:center;
-	line-height:160px;
+	line-height:32px;
 	border:1px solid #454545;
-	font-size:1.1em;
+	font-size:1em;
 	box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.1);
 	transition:all 0.3s ease .05s;
 	cursor:pointer;
 	color:#ddd;
 }
 
-.mnList li a {
+.mnList .mn a {
 	color:#ddd;
 }
 
-.mnList li:hover,  .mnList li.active {
+.mnList .mn:hover {
     background: #ff5948;
-    border-radius:0px;
-    color:#fff;
+	border-radius:30px 0px 30px 0px;
+    color:#e8e8e8;
+}
+.mnList .mn.active {
+	background: #ff4040;
+    border-radius:0px 30px 0px 30px;
+	color:#e8e8e8;
 }
 
-.mnList li:hover a, .mnList li.active a {
+.mnList .message:hover {
+    background: #ff5948;
+    border-radius:30px;
+    color:#e8e8e8;
+}
+
+.mnList .mn:hover a, .mnList .mn.active a {
 	color:#fff;
 }
+
+.mnList .searchCstmr .icon {
+	background:url(../image/icon_adminMn_searchCstmr.png) no-repeat center top;
+}
+.mnList .customerlist .icon {
+    background:url(../image/icon_adminMn_customerlist.png) no-repeat center top;
+}
+.mnList .stampLoglist .icon {
+    background:url(../image/icon_adminMn_stamplog.png) no-repeat center top;
+}
+.mnList .cafeInfo .icon {
+    background:url(../image/icon_adminMn_cafeinfo.png) no-repeat center top;
+}
+.mnList .event .icon {
+    background:url(../image/icon_adminMn_event.png) no-repeat center top;
+}
+.mnList .message .icon {
+    background:url(../image/icon_adminMn_message.png) no-repeat center top;
+}
+
+
+.mnList .mn .icon {
+    display: block;
+    width: 40px;
+    height: 39px;
+    margin: 18px auto 0 auto;
+    overflow: hidden;
+    background-size: 40px 78px;
+}
+.mnList .mn:hover .icon,
+.mnList .mn.active .icon {
+    background-position:center -39px;
+}
+
+
 
 /*************************************************
                                 sliding left menu     
@@ -826,6 +872,5 @@
 @media screen and (min-width:1000px){
     .sidebar-collapse, 
     .sidebar-collapse #content {margin-left:0px;}
-    .sidebar-collapse .slideArea {-webkit-transform:translate(-120px, 0); -ms-transform:translate(-120px, 0); -o-transform:translate(-120px, 0); transform:translate(-120px, 0)}
-    .sidebar-collapse .slideArea .btn_message .newMsg {margin: -13px 0 0 30px;}
+    .sidebar-collapse .slideArea {-webkit-transform:translate(-130px, 0); -ms-transform:translate(-130px, 0); -o-transform:translate(-130px, 0); transform:translate(-130px, 0)}
 }
