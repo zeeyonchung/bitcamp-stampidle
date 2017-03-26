@@ -7,7 +7,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	}
 	var cafeMember = ajaxResult.data;
 	var cafeMemberNo = cafeMember.cafeMemberNo;
-	console.log(cafeMemberNo);
 
 
 
@@ -21,7 +20,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (("" + month).length == 1) { month = "0" + month; }
 	if (("" + day).length   == 1) { day   = "0" + day;   }
 	   
-	$('#date-custom').val(2016 + "-" + month + "-" + day + " ~ " + year + "-" + month + "-" + day);
+	$('#date-custom').val(year + "-" + ("0" + (month-1)) + "-" + day + " ~ " + year + "-" + month + "-" + day);
 	
 	
 	
@@ -67,7 +66,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			  });
 			  
 			  var allStampIssueNo = ajaxResult.data.allStampIssueNo;
-			  console.log(allStampIssueNo + "개 있음....");
 			  
 			  
 			  /****** 글 번호 ******/

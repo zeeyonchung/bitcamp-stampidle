@@ -4,6 +4,12 @@
 @import url("frame.css");
 
 
+
+#customer-number span {
+	color: tomato;
+}
+
+
 table th {
     text-align:center;
 }

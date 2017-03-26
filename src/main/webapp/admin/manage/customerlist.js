@@ -63,6 +63,9 @@ function getListSelect(cafeMemberNo, pageNo, pageSize,selectCafeList) {
 			 return;
 		 }
 		  var list = ajaxResult.data.list;
+		  
+		  $('#customer-number span').text(list.length);
+		  
 		  var tbody = $('#list-table > tbody');
 		  // 템플릿 텍스트를 처리하여 HTML을 생성해 줄 함수 얻기
 		  var template = Handlebars.compile($('#trTemplate').html());
