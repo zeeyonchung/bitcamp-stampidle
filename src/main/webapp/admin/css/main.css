@@ -131,8 +131,11 @@
 	background:#fff;
 }
 
-.stat1 h2:first-letter {
-	font-size:1.3em;
+.stat1 h2, .stat2 h2 {
+	font-size:2em;
+}
+.stat1 h2 span, .stat2 h2 span {
+	font-size:1.4em;
 }
 .stat1 .stat2 {
 	float: left;
