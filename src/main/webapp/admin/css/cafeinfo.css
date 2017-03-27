@@ -549,15 +549,19 @@
 
 .commentArea .comment_list li .profileImg {
 	float: left;
-	width: 10%;
-	height: 10%;
-	padding: 2%;
+	width: 60px;
+	height: 60px;
 	overflow: hidden;
+	border-radius: 60px;
+	margin-top: 10px;
+  margin-right: 10px;
+  text-align: center;
+  background: #ececec;
 }
 
 .commentArea .comment_list li .profileImg img {
-	width: 100%;
-	border-radius: 50px;
+	width: auto;
+	height: 100%;
 }
 
 .commentArea .comment_list li .comment_txt {
