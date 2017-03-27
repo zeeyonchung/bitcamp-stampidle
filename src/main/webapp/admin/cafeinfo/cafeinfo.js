@@ -70,7 +70,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 									$.each(comments, function(i){
 										totalStar += comments[i].star;
 										
-										$("<li><div class='profileImg'><img src='" + membImg(i)
+										$("<li><div class='profileImg'><img src='../../upload/" + membImg(i)
 												+ "'></div><div class='comment_txt'><strong>" + check_nickNull(i)
 												+ "</strong><p>" + comments[i].contents
 												+ "</p></div><div class='etcInfo'><div class='date'>" + comments[i].uploadDate
@@ -89,6 +89,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 										if (comments[i].photoPath == null) {
 											return clientRoot + '/image/comment_default.png';
 										} else {
+											console.log(comments[i].photoPath);
 											return comments[i].photoPath;
 										}
 									}
