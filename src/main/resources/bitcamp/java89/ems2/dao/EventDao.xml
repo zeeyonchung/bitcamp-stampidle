@@ -197,7 +197,8 @@
       e.bpath,
       e.sday,
       e.eday,
-      c.cname
+      c.cname,
+      c.cmno
     from event e
       left outer join cafe c on e.cmno = c.cmno
     where e.eno=#{value}

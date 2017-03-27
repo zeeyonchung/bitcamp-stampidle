@@ -30,6 +30,14 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
   $('.eventdetail .table3 .tabletd4').text(event.eventView);
   $('.cafeImgSlide img').attr('src', '../../upload/' + event.eventPhotoPath);
   $('.event-cont-div .span-contents').text(event.eventContents);
+  $('.cafe-name1').attr('data-no', event.cafeMemberNo);
+  
+  
+  $('.cafe-name1').click(function(event) {
+		event.preventDefault();
+		location.href = '../cafeinfo/cafeinfo.html?cafeMemberNo=' + $(this).attr("data-no");
+	});
+  
 });
 
 
