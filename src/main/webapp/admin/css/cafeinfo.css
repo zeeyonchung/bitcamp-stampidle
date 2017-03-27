@@ -31,7 +31,7 @@
 
 .introArea .cafeTxt .cafeName {
 	float: left;
-	font-size: 2.2em;
+	font-size: 2.3em;
 	color: #333;
 	font-weight: bold;
 	letter-spacing: -1px;
@@ -438,6 +438,7 @@
 	width: 100%;
 	font-size: 0.8em;
 	padding-top: 60px;
+	margin-bottom:80px;
 }
 
 .commentArea h3 {
