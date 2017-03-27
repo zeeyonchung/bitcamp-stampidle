@@ -4,593 +4,641 @@
 
 /************ introArea ************/
 .introArea {
-  
+	padding-top:10px;
 }
 
 .introArea .cafeLogo {
-    float:left;
-    width:120px;
-    height:120px;
-    border:1px solid #ececec;
-    text-align:center;
-    border-radius:60px;
-    overflow:hidden;
+	float: left;
+	width: 120px;
+	height: 120px;
+	border: 1px solid #ececec;
+	text-align: center;
+	border-radius: 60px;
+	overflow: hidden;
 }
 
 .introArea .cafeLogo img {
-  line-height:120px;
-  height:100%;
-  width:auto;
+	line-height: 120px;
+	height: 100%;
+	width: auto;
 }
 
 .introArea .cafeTxt {
-    float:left;
-    width: 70%;
-    margin-top:15px;
-    margin-left:20px;
+	float: left;
+	width: 70%;
+	margin-left: 20px;
 }
 
 .introArea .cafeTxt .cafeName {
-  float:left;
-    font-size:2em;
-    color:#333;
-    font-weight:bold;
-    letter-spacing:-1px;
+	float: left;
+	font-size: 2.3em;
+	color: #333;
+	font-weight: bold;
+	letter-spacing: -1px;
 }
 
 .introArea .cafeTxt .tag {
-  float:left;
-  margin:7px 0 0 20px;
-    font-size:0.9em;
-    color:#999;
+	float: left;
+	margin: 7px 0 0 20px;
+	font-size: 1.1em;
+	color: #999;
 }
 
 .introArea .cafeTxt .tag span {
-    margin-right:10px;
+	margin-right: 10px;
 }
 
-.cafeinfo .introArea .cafeTxt .btn-edit {
-  display:inline-block!important;
-  width:80px;
-  float:left;
-  margin-left:20px;
-  padding:5px 15px;
-  background:#fff;
-    border:1px solid #e9e9e9;
-    border-radius: 10px;
-    color:#999;
+.introArea .btn-edit.btnStyle2 {
+	display: inline-block !important;
+	width: 150px!important;
+	margin-left: 10px;
+	background: #fff;
+	border: 1px solid #e9e9e9;
+	border-radius: 10px;
+	color: #999;
+	font-size:1.1em;
+	text-align:center;
 }
 
 .cafeinfo_cstmr .introArea .cafeTxt .btn-edit {
-  display:none;
+	display: none;
 }
-  
+
 .introArea .cafeTxt .btn-edit:after {
-  margin-left:5px;
-    font-family:"FontAwesome";
-    content: "\f040";
+	margin-left: 5px;
+	font-family: "FontAwesome";
+	content: "\f040";
 }
 
 .introArea .cafeTxt .txt {
-    clear:both;
-    padding-top:5px;
-    color:#808080;
-    font-size:0.9em;
-    height:40px;
+	clear: both;
+	padding-top: 5px;
+	color: #808080;
+	font-size: 0.9em;
+	height: 40px;
 }
 
 .introArea .like {
-  width:80px;
-  height:80px;
-    float:right;
-    border:3px solid #ececec;
-    border-radius: 50px;
-    text-align:center;
-    background:#fff;
-    cursor:pointer;
+	width: 80px;
+	height: 80px;
+	float: right;
+	border: 3px solid #ececec;
+	border-radius: 50px;
+	text-align: center;
+	background: #fff;
+	cursor: pointer;
 }
 
 .introArea .like:before {
-  text-align:center;
-  display:block;
-  margin-top:10px;
-  height:33px;
-    font-family:"FontAwesome";
-    font-size:2.1em;
-    content: "\f08a";
-    color:#ff5948;
+	text-align: center;
+	display: block;
+	margin-top: 10px;
+	height: 33px;
+	font-family: "FontAwesome";
+	font-size: 2.1em;
+	content: "\f08a";
+	color: #ff5948;
 }
 
 .introArea .like.select:before {
-    content: "\f004";
-    color:#ff5948;
+	content: "\f004";
+	color: #ff5948;
 }
-
-
 
 /************ imgInfoArea ************/
 .imgInfoArea {
-    clear:both;
-    padding-top:10px;
+	clear: both;
+	padding-top: 10px;
 }
 
 .imgInfoArea .card {
-  float:left;
-    width:54%;
-    height:380px;
-    border:1px solid #d6d6d6;
-    
+	float: left;
+	width: 54%;
+	height: 380px;
+	border: 1px solid #d6d6d6;
 }
 
 .imgInfoArea .card .cardArea {
-    background:#f0f0f0;
-    padding:10px 0;
-    text-align:center;
-    min-height: 250px;
+	background: #f0f0f0;
+	padding: 10px 0;
+	text-align: center;
+	min-height: 250px;
 }
 
 .imgInfoArea .card .cardArea img {
-    width:auto;
-    max-width:400px;
-    min-height: 230px;
+	width: auto;
+	max-width: 400px;
+	min-height: 230px;
 }
 
 .imgInfoArea .card .cardInfo {
-    padding:10px 20px;
-    text-align:center;
+	padding: 10px 20px;
+	text-align: center;
 }
 
 .imgInfoArea .card .cardInfo .stampNum {
-    padding-top:15px;
+	padding-top: 15px;
 }
 
 .imgInfoArea .card .cardInfo .stampNum .txt1 {
-    font-size:1.2em;
-    line-height:100%;
-    text-align:middle;
+	font-size: 1.2em;
+	line-height: 100%;
+	text-align: middle;
 }
 
 .imgInfoArea .card .cardInfo .stampNum .txt1 span {
-    font-size:2.5em;
-    color:#333;
+	font-size: 2.5em;
+	color: #333;
 }
 
 .imgInfoArea .card .cardInfo .stampNum .txt2 {
-    padding-top:7px;
+	padding-top: 7px;
 }
 
 .imgInfoArea .card .cardInfo .stampNum .txt2 span {
-    color:#333;
-    text-decoration: underline;
-    font-size:1.1em;
+	color: #333;
+	text-decoration: underline;
+	font-size: 1.1em;
 }
 
 .imgInfoArea .card .cardInfo {
-    
+	
 }
 
 .imgInfoArea .imgInfo {
-    position:relative;
-  float:left;
-    width:46%;
-    height:380px;
-    border:1px solid #d6d6d6;
-    border-left:0;
+	position: relative;
+	float: left;
+	width: 46%;
+	height: 380px;
+	border: 1px solid #d6d6d6;
+	border-left: 0;
 }
 
 .imgInfoArea .imgInfo .cafeImg {
-    height:280px;
-    margin-top:-30px;
+	height: 280px;
+	margin-top: -30px;
 }
+
 .imgInfoArea .imgInfo .cafeImgWrap {
-  height:280px;
-    overflow:hidden;
+	height: 280px;
+	overflow: hidden;
 }
 
 .cafeImgSlide {
-  margin-top:30px;
-    height:250px;
-    background:#f8f8f8;
+	margin-top: 30px;
+	height: 250px;
+	background: #f8f8f8;
 }
+
 .cafeImgSlide .slick-list {
-  max-height:250px;
+	max-height: 250px;
 }
-.cafeImgSlide > div {
-   height:250px;
-  overflow:hidden;
+
+.cafeImgSlide>div {
+	height: 250px;
+	overflow: hidden;
 }
 
 /* cafe interior images slide */
 .cafeImgSlide.slider .slick-slide {
-  box-sizing: border-box;
-    margin: 0px;
+	box-sizing: border-box;
+	margin: 0px;
 }
 
 .cafeImgSlide.slider .slick-slide img {
-    width: 100%;
+	width: 100%;
 }
 
 .cafeImgSlide .slick-prev {
-   background:rgba(255, 255, 255, 0.3);
-   width:auto;
-   height:auto;
-   padding:30px 10px;
-   left:0;
-   z-index:100;
+	background: rgba(255, 255, 255, 0.3);
+	width: auto;
+	height: auto;
+	padding: 30px 10px;
+	left: 0;
+	z-index: 100;
 }
 
 .cafeImgSlide .slick-next {
-   background:rgba(255, 255, 255, 0.3);
-   width:auto;
-   height:auto;
-   padding:30px 10px;
-   right:0;
-   z-index:100;
+	background: rgba(255, 255, 255, 0.3);
+	width: auto;
+	height: auto;
+	padding: 30px 10px;
+	right: 0;
+	z-index: 100;
 }
 
 .cafeImgSlide .slick-prev:hover, .cafeImgSlide .slick-next:hover {
-  background:rgba(255, 255, 255, 0.7);
+	background: rgba(255, 255, 255, 0.7);
 }
 
 .cafeImgSlide .slick-dots {
-    top:-35px;
-    background:#ddd;
-    height:0;
-    text-align: right;
+	top: -35px;
+	background: #ddd;
+	height: 0;
+	text-align: right;
 }
 
 .cafeImgSlide .slick-dots li {
-    margin:0;
+	margin: 0;
 }
 
-.cafeImgSlide .slick-dots li button { 
-  padding:0;
+.cafeImgSlide .slick-dots li button {
+	padding: 0;
 }
 
-.cafeImgSlide .slick-dots li button:before { 
-    padding:0;
-    font-size:40px;
+.cafeImgSlide .slick-dots li button:before {
+	padding: 0;
+	font-size: 40px;
 }
 /* //cafe interior images slide */
-
 .imgInfoArea .imgInfo .infoDetail {
-    padding:12px 15px;
-    width:85%;
+	padding: 12px 15px;
+	width: 85%;
 }
 
-.imgInfoArea .imgInfo .infoDetail .time:before,
-.imgInfoArea .imgInfo .infoDetail .seat:before,
+.imgInfoArea .imgInfo .infoDetail p {
+    margin-bottom: 0px!important;
+}
+
+.imgInfoArea .imgInfo .infoDetail .time:before, 
+.imgInfoArea .imgInfo .infoDetail .seat:before, 
 .imgInfoArea .imgInfo .infoDetail .tel:before,
-.imgInfoArea .imgInfo .infoDetail .addr:before
-{
-  width:20px;
-  padding-right:7px;
-    font-family:"FontAwesome";
-    color:#b4b4b4;
-    display:inline-block;
-    text-align:center;
+.imgInfoArea .imgInfo .infoDetail .addr:before {
+	width: 20px;
+	padding-right: 7px;
+	font-family: "FontAwesome";
+	color: #b4b4b4;
+	display: inline-block;
+	text-align: center;
 }
 
 .imgInfoArea .imgInfo .infoDetail .time span:after {
-    content: "/ ";
+	content: "/ ";
 }
 
 .imgInfoArea .imgInfo .infoDetail .time span:last-child:after {
-    content: " ";
+	content: " ";
 }
 
 .imgInfoArea .imgInfo .infoDetail .time:before {
-    content: "\f017";
+	content: "\f017";
 }
 
 .imgInfoArea .imgInfo .infoDetail .seat:before {
-    content: "\f007";
+	content: "\f007";
 }
 
 .imgInfoArea .imgInfo .infoDetail .tel:before {
-    content: "\f095";
+	content: "\f095";
 }
 
 .imgInfoArea .imgInfo .infoDetail .addr:before {
-    content: "\f041";
+	content: "\f041";
 }
 
 .imgInfoArea .imgInfo .infoDetail .btn-showMap {
-    position:absolute;
-    bottom:10px;
-    right:10px;
-    width:40px;
-    height:40px;
-    background:#666;
-    border-radius: 40px;
-    border:0;
-    font-size:0;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	background: #666;
+	border-radius: 40px;
+	border: 0;
+	font-size: 0;
 }
 
 .imgInfoArea .imgInfo .infoDetail .btn-showMap:before {
-    font-family:"FontAwesome";
-    content: "\f041";
-    color:#fff;
-    font-size:25px;
+	font-family: "FontAwesome";
+	content: "\f041";
+	color: #fff;
+	font-size: 25px;
 }
 
 .imgInfoArea .imgInfo .map {
-    display:none;
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 .imgInfoArea .imgInfo .btn-hideMap {
-    position:absolute;
-    top:10px;
-    right:10px;
-    width:40px;
-    height:40px;
-    background:#666;
-    border-radius: 40px;
-    border:0;
-    font-size:0;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	background: #666;
+	border-radius: 40px;
+	border: 0;
+	font-size: 0;
 }
 
 .imgInfoArea .imgInfo .btn-hideMap:before {
-    font-family:"FontAwesome";
-    content: "\f00d";
-    color:#fff;
-    font-size:25px;
+	font-family: "FontAwesome";
+	content: "\f00d";
+	color: #fff;
+	font-size: 25px;
 }
-
 
 /************ 대표메뉴 menuArea ************/
 .menuArea {
-    clear:both;
-    padding-top:40px;
-    max-height:300px;
+	clear: both;
+	padding-top: 40px;
+	max-height: 300px;
 }
 
-.menuArea h3 { 
-  margin-bottom:10px;
-  color: #444;
-    font-weight:bold;
-    letter-spacing:-1px;
+.menuArea h3 {
+	margin-bottom: 10px;
+	color: #444;
+	font-weight: bold;
+	letter-spacing: -1px;
 }
 
 /* cafe interior images slide */
 .menuArea .menuSlide.slider .slick-slide {
-    box-sizing: border-box;
-    margin: 0px;
+	box-sizing: border-box;
+	margin: 0px;
 }
 
 .menuArea .menuSlide.slider .menu {
-  text-align:center;
-  width:20%;
-  height:100%;
+	text-align: center;
+	width: 20%;
+	height: 100%;
 }
-  
+
 .menuArea .menuSlide.slider .menu .mnImg {
-  margin: 0 auto 10px auto;
-    width:150px;
-    height:150px;
-  border:1px solid #f0f0f0;
-  border-radius:100px;
-  overflow:hidden;
-  background:#f8f8f8;
+	margin: 0 auto 10px auto;
+	width: 150px;
+	height: 150px;
+	border: 1px solid #f0f0f0;
+	border-radius: 100px;
+	overflow: hidden;
+	background: #f8f8f8;
 }
 
 .menuArea .menuSlide.slider .menu .mnImg img {
-  width:100%;
+	width: 100%;
 }
 
 .menuArea .menuSlide.slider .menu .mnName {
-  color:#333;
-  font-size:1.2em;
-  font-weight:bold;
+	color: #333;
+	font-size: 1.2em;
+	font-weight: bold;
 }
 
 .menuArea .menuSlide.slider .menu .mnPrice {
+	
 }
 
 .slick-prev:before {
-  font-family:"FontAwesome";
-  color:#333;
-    content: "\f053";
+	font-family: "FontAwesome";
+	color: #333;
+	content: "\f053";
 }
 
 .slick-next:before {
-  font-family:"FontAwesome";
-  content: "\f054";
-    color:#333;
+	font-family: "FontAwesome";
+	content: "\f054";
+	color: #333;
 }
 
 .menuArea .slick-dots {
-    top:-40px;
-    right:0;
-    height:0;
-    text-align: right;
+	top: -40px;
+	right: 0;
+	height: 0;
+	text-align: right;
 }
 
 .menuArea .slick-dots li {
-    margin:0;
+	margin: 0;
 }
 
-.menuArea .slick-dots li button { 
-    padding:0;
+.menuArea .slick-dots li button {
+	padding: 0;
 }
 
-.menuArea .slick-dots li button:before { 
-    padding:0;
-    font-size:40px;
+.menuArea .slick-dots li button:before {
+	padding: 0;
+	font-size: 40px;
 }
 
 .menuArea .slick-dotted.slick-slider {
-    margin-bottom:0;
+	margin-bottom: 0;
 }
 /* //cafe interior images slide */
 
-
-
-
 /************ 평점 및 리뷰 commentArea ************/
 .commentArea {
-  position:relative;
-  clear: both;
-  width: 100%;
-  font-size: 0.8em;
-  padding-top: 60px;
+	position: relative;
+	clear: both;
+	width: 100%;
+	font-size: 0.8em;
+	padding-top: 60px;
+	margin-bottom:80px;
 }
 
 .commentArea h3 {
-  color: #444;
-  font-weight:bold;
-  letter-spacing:-1px;
+	color: #444;
+	font-weight: bold;
+	letter-spacing: -1px;
 }
 
 /* 별점 starScore */
 .commentArea .starScore {
-  position:absolute;
-  top:95px;
-  right:0;
-  margin-bottom:-10px;
+	position: absolute;
+	top: 95px;
+	right: 0;
+	margin-bottom: -10px;
 }
 
 .commentArea .starScore .result {
-    float: right;
-    font-size:1.25em;
-    margin:3px 10px 0 0;
+	float: right;
+	font-size: 1.25em;
+	margin: 3px 10px 0 0;
 }
 
 .commentArea .starScore .result span {
-  color:#ff5948;
+	color: #ff5948;
 }
 
 .starScore .star {
-  display: inline-block;
-  float: right;
-  width: 145px;
-  height: 25px;
-  background: url(../image/rate_star.png) no-repeat -145px 0;
+	display: inline-block;
+	float: right;
+	width: 145px;
+	height: 25px;
+	background: url(../image/rate_star.png) no-repeat -145px 0;
 }
 
 .starScore .star span {
-  display: block;
-  height: 25px;
-  background: url(../image/rate_star.png) no-repeat 0 0;
-  font-size:0;
+	display: block;
+	height: 25px;
+	background: url(../image/rate_star.png) no-repeat 0 0;
+	font-size: 0;
 }
 
-.starScore .star span.star0 {width:0%;}
-.starScore .star span.star0_5 {width:10%;}
-.starScore .star span.star1 {width:20%;}
-.starScore .star span.star1_5 {width:30%;}
-.starScore .star span.star2 {width:40%;}
-.starScore .star span.star2_5 {width:50%;}
-.starScore .star span.star3 {width:60%;}
-.starScore .star span.star3_5 {width:70%;}
-.starScore .star span.star4 {width:80%;}
-.starScore .star span.star4_5 {width:90%;}
-.starScore .star span.star5 {width:100%;}
+.starScore .star span.star0 {
+	width: 0%;
+}
 
+.starScore .star span.star0_5 {
+	width: 10%;
+}
+
+.starScore .star span.star1 {
+	width: 20%;
+}
+
+.starScore .star span.star1_5 {
+	width: 30%;
+}
+
+.starScore .star span.star2 {
+	width: 40%;
+}
+
+.starScore .star span.star2_5 {
+	width: 50%;
+}
+
+.starScore .star span.star3 {
+	width: 60%;
+}
+
+.starScore .star span.star3_5 {
+	width: 70%;
+}
+
+.starScore .star span.star4 {
+	width: 80%;
+}
+
+.starScore .star span.star4_5 {
+	width: 90%;
+}
+
+.starScore .star span.star5 {
+	width: 100%;
+}
 
 .commentArea .comment_list .total {
-  margin-top: 20px;
-  padding-bottom:5px;
-  border-bottom: 2px solid #555;
-  color: #666;
-  font-size:1.3em;
+	margin-top: 20px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #555;
+	color: #666;
+	font-size: 1.3em;
 }
 
 .commentArea .comment_list .total span {
-  font-weight: bold;
-  color: #ff5948;
+	font-weight: bold;
+	color: #ff5948;
 }
 
 .commentArea .comment_list ul:after {
-  clear: both;
+	clear: both;
 }
 
 .commentArea .comment_list li {
-  float: left;
-  width: 100%;
-  border-bottom: 1px solid #e7e8e9;
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #e7e8e9;
 }
 
 .commentArea .comment_list li .profileImg {
-  float: left;
-  width: 10%;
-  height: 10%;
-  padding: 2%;
-  overflow: hidden;
+	float: left;
+	width: 10%;
+	height: 10%;
+	padding: 2%;
+	overflow: hidden;
 }
 
 .commentArea .comment_list li .profileImg img {
-  width: 100%;
-  border-radius: 50px;
+	width: 100%;
+	border-radius: 50px;
 }
 
 .commentArea .comment_list li .comment_txt {
-  float: left;
-  width: 68%;
-  padding: 20px 0 30px;
+	float: left;
+	width: 68%;
+	padding: 20px 0 30px;
 }
 
 .commentArea .comment_list li .comment_txt strong {
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #333;
-  line-height: 100%;
+	font-size: 1.3em;
+	font-weight: bold;
+	color: #333;
+	line-height: 100%;
 }
 
 .commentArea .comment_list li .comment_txt p {
-  margin-top: 3px;
-  width: 100%;
-  font-size: 1.2em;
-  letter-spacing: -1px;
+	margin-top: 3px;
+	width: 100%;
+	font-size: 1.2em;
+	letter-spacing: -1px;
 }
 
 .commentArea .comment_list li .etcInfo {
-  width: 20%;
-  float: right;
-  padding: 15px 20px 15px 0;
-  text-align: right;
-  font-size: 1.1em;
+	width: 20%;
+	float: right;
+	padding: 15px 20px 15px 0;
+	text-align: right;
+	font-size: 1.1em;
 }
 
 .commentArea .comment_list li .date {
-  color: #a8a8a8;
+	color: #a8a8a8;
 }
 
 .comment_list .star {
-    display: inline-block;
-    float: right;
-    width: 100px;
-    height: 17px;
-    background: url(../image/rate_starS.png) no-repeat -100px 0;
+	display: inline-block;
+	float: right;
+	width: 100px;
+	height: 17px;
+	background: url(../image/rate_starS.png) no-repeat -100px 0;
 }
 
 .comment_list .star span {
-    display: block;
-    height: 17px;
-    background: url(../image/rate_starS.png) no-repeat 0 0;
-    font-size:0;
+	display: block;
+	height: 17px;
+	background: url(../image/rate_starS.png) no-repeat 0 0;
+	font-size: 0;
 }
 
-.comment_list .star span.star0 {width:0%;}
-.comment_list .star span.star1 {width:20%;}
-.comment_list .star span.star2 {width:40%;}
-.comment_list .star span.star3 {width:60%;}
-.comment_list .star span.star4 {width:80%;}
-.comment_list .star span.star5 {width:100%;}
+.comment_list .star span.star0 {
+	width: 0%;
+}
+
+.comment_list .star span.star1 {
+	width: 20%;
+}
+
+.comment_list .star span.star2 {
+	width: 40%;
+}
+
+.comment_list .star span.star3 {
+	width: 60%;
+}
+
+.comment_list .star span.star4 {
+	width: 80%;
+}
+
+.comment_list .star span.star5 {
+	width: 100%;
+}
 
 .commentArea .brn_more {
-  width: 100%;
-  margin-top: 20px; padding : 15px 0 17px 0;
-  background: #f6f6f6;
-  text-align: center;
-  color: #888;
-  font-size: 1.2em;
-  border: 0;
-  padding: 15px 0 17px 0;
+	width: 100%;
+	margin-top: 20px;
+	padding: 15px 0 17px 0;
+	background: #f6f6f6;
+	text-align: center;
+	color: #888;
+	font-size: 1.2em;
+	border: 0;
+	padding: 15px 0 17px 0;
 }
