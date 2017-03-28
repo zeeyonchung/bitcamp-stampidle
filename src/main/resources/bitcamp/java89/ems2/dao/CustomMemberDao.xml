@@ -43,7 +43,10 @@
     select 
       mno,
       name,
-      tel
+      tel,
+      nick,
+      cphoto,
+      email
     from memb
     where name=#{name}
       and tel=#{tel}
