@@ -1,9 +1,12 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import bitcamp.java89.ems2.domain.Message;
 import bitcamp.java89.ems2.service.CustomMemberService;
 import bitcamp.java89.ems2.service.MessageService;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @RestController
 public class MessageJsonControl {
@@ -43,7 +47,7 @@ public class MessageJsonControl {
   	return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
-/*
+
 @RequestMapping("/cstmr_m/sms")
  public AjaxResult sms(String customTel, String text) throws Exception {
 	 System.out.println(customTel + " " + text + "-----------------------------");
@@ -54,7 +58,7 @@ public class MessageJsonControl {
 	 params.put("to", customTel);
    params.put("from", "01032380192");
    params.put("type", "SMS");
-   params.put("text", text);
+   params.put("text", "[stampidle 선물] " + text);
    params.put("app_version", "test app 1.2");
 
    //params 키, 값 목록확인
@@ -72,7 +76,7 @@ public class MessageJsonControl {
      return new AjaxResult(AjaxResult.FAIL, e.getMessage());
    }
  }
- */
+ 
  
 }
 

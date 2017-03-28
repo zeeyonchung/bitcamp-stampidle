@@ -85,15 +85,20 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 					function(ajaxResult) {}
 				);
 			
-				/*if ($('.gift-msg').val() != "") {
+				if ($('.gift-msg').val() != "") {
 					$.getJSON(serverRoot + '/sms.json', 
 						{'customTel': customTel.split("-").join(""),
 						'text': $('.gift-msg').val()},
-						function(ajaxResult) {}
+						function(ajaxResult) {console.log(ajaxResult);}
 					);
-				} */
+				} 
 				
-				alert("발송을 완료하였습니다.");
+				swal({
+					title: "발송을 완료하였습니다.",
+					type: "success",
+					confirmButtonColor: "#DD6B55",
+					closeOnConfirm: true
+				});
 				location.href='cafeinfo.html?cafeMemberNo=' + cafeMemberNo;
 			});
 		});
