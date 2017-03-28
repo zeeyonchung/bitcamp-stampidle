@@ -16,7 +16,7 @@ $( function() {
 		
 		$.getJSON(serverRoot + '/customMember/getOne.json?customMemberNo=' + userNo1, function(ajaxResult) {
 			var myData1 = ajaxResult.data;
-			if (myData1.photoPath == "") {
+			if (myData1.photoPath == null) {
 				$('#photo-sdimg').hide();
 			} else {
 				$('#photo-sdimg').attr("src", '../../upload/' + myData1.photoPath);

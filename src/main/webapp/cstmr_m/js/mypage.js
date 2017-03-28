@@ -46,7 +46,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		var photo = myData.photoPath;
 		$('.nickname').val(nick);
 		$('.email').val(mail);
-		if (myData.photoPath == "") {
+		if (myData.photoPath == null) {
 			$('#photo-img').hide();
 		} else {
 			$('#photo-img').attr("src", '../../upload/' + myData.photoPath);
