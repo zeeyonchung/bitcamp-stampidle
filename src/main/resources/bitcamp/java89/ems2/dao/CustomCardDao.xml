@@ -345,7 +345,7 @@ where
 	  left outer join cafe on scinfo.cmno=cafe.cmno
 	where
 	  cafe.cmno=#{cafeMemberNo}
-	group by mcard.mno, mcard.mcno
+	group by mcard.mno
 	limit #{startRowIndex}, #{rowSize}
   </select>
   
@@ -362,7 +362,7 @@ where
     left outer join cafe on scinfo.cmno=cafe.cmno
   where
     cafe.cmno=#{cafeMemberNo}
-  group by mcard.mno, mcard.mcno
+  group by mcard.mno
   order by ${selectCafeList} asc
   limit #{startRowIndex}, #{rowSize}
   
