@@ -75,20 +75,6 @@ function reLogin(name, tel) {
 
 
 /*** 존재 여부 확인 ***/
-//아이디 확인
-$('input.name').keyup(function() {
-	var value = $(this).val();
-	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/cstmr_m/auth/checkName.do?name=' + value,
-		function(result) {
-			if (result != 0 && value != userName) {
-				$('<span class="warn" style="position:absolute; top: 10px; right:20px; color:#ff5948">X</span>').appendTo($('input.name').parent('.input-are li'));
-				$(this).val('');
-			} else {
-				$('input.name').parent('.input-are li').children('.warn').remove();
-			}
-	})
-});
-
 
 //전화번호 확인
 $('input.tel').keyup(function() {
