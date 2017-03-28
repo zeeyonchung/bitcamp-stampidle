@@ -1,6 +1,8 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 
@@ -50,10 +52,27 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
   
-  
+  @RequestMapping(value ={"/admin/cafe/getAllInfo"})
+  public AjaxResult getAllInfo(int cafeMemberNo) throws Exception {
+    Cafe cafe = (Cafe)cafeService.getDetail(cafeMemberNo);
+    if (cafe == null) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
+    }
+    Map<String,Object> dataMap = new HashMap<>();
+    dataMap.put("cafe", cafe);
+    dataMap.put("cafeTimeList", cafeTimeService.detailTime(cafeMemberNo));
+    dataMap.put("cafePhotoList", cafePhotoService.detailCafePhoto(cafeMemberNo));
+    dataMap.put("tag", tagService.detailTag(cafeMemberNo));
+    dataMap.put("stampCardInfo", cafeCardService.getCardInfo(cafeMemberNo));
+    dataMap.put("likeCount", likesService.count(cafeMemberNo));
+    dataMap.put("menuList", menuService.detailMenu(cafeMemberNo));
+    dataMap.put("commentList", commentService.getList(cafeMemberNo));
+    
+    return new AjaxResult(AjaxResult.SUCCESS, dataMap);
+  }
   
 
-  @RequestMapping(value ={"/admin/cafe/detail","/cstmr_m/cafe/detail"})
+  @RequestMapping(value ={"/cstmr_m/cafe/detail"})
   public AjaxResult detail(int cafeMemberNo) throws Exception {
     Cafe cafe = (Cafe)cafeService.getDetail(cafeMemberNo);
     if (cafe == null) {
