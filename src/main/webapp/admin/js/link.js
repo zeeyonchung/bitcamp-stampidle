@@ -94,12 +94,12 @@ $('.cafeTxt .btn-edit').click(function(e) {
 
 
 //cafeinfoedit page link ******************************
-$('.manage-navi ul .one').click(function(e) {
+$('.mn-info.general').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
 });
 
-$('.manage-navi ul .two').click(function(e) {
+$('.mn-info.card').click(function(e) {
 	e.preventDefault();
     location.href = clientRoot + '/cardadd/cardadd.html'
 });
