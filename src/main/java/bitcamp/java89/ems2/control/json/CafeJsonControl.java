@@ -72,7 +72,7 @@ public class CafeJsonControl {
   }
   
 
-  @RequestMapping(value ={"/cstmr_m/cafe/detail"})
+  @RequestMapping(value ={"/admin/cafe/detail","/cstmr_m/cafe/detail"})
   public AjaxResult detail(int cafeMemberNo) throws Exception {
     Cafe cafe = (Cafe)cafeService.getDetail(cafeMemberNo);
     if (cafe == null) {
