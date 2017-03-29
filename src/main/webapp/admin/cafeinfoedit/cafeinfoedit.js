@@ -536,3 +536,11 @@ function remove_menu(obj){
 	document.getElementById('field-menu').removeChild(obj.parentNode);
 }
 /*//메뉴 업로드 + 추가기능 */
+
+
+
+
+$('.mn-info.card').click(function(e) {
+	e.preventDefault();
+	location.href = "/admin/cardadd/cardadd.html";
+})
