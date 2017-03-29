@@ -163,9 +163,10 @@ h4 {
 }
 
 .msg-left img {
+	margin-top: 15px;
 	width:65px;
-    height: 65px;
-    vertical-align: inherit;
+	height: 65px;
+	vertical-align: inherit;
 }
 
 

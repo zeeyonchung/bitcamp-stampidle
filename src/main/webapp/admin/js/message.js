@@ -60,7 +60,12 @@ function getMsgInbox() {
 		'sendMember': 'cstmr'
 	}, function(ajaxResult) {
     	var message = ajaxResult.data;
+    	
     	$.each(message, function(i){
+    		if (message[i].photoPath == null || message[i].photoPath == "") {
+    			message[i].photoPath = "profile.png"
+    		}
+    		
     		$("<div class='one-msg'>"
     		+ "<span class='msg-date'>" + message[i].uploadTime.slice(0,-2)
     		+ "</span><div class='btn-delete'>x</div>"
@@ -98,6 +103,10 @@ function getMsgSent() {
 	}, function(ajaxResult) {
     	var message = ajaxResult.data;
     	$.each(message, function(i){
+    		if (message[i].photoPath == null || message[i].photoPath == "") {
+    			message[i].photoPath = "profile.png"
+    		}
+    		
     		$("<div class='one-msg' data-no='" + message[i].messageNo
     	    + "'><span class='msg-date'>" + message[i].uploadTime.slice(0,-2)
     		+ "</span><!--<div class='btn-delete'>x</div>--><div class='msg-left'>"

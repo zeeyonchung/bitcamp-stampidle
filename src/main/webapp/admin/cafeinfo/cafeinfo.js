@@ -36,7 +36,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 		$('.cafeLogo img').attr('src', '../../upload/' + cafe.logPath);
 		$('.cafeName').text(cafe.cafeName);
-		var tag_arr = tag.tagName.split(" ");
+		var tag_arr = tag.tagName.trim().split(" ");
 		for (var i in tag_arr) {
 			$('<span>').appendTo('.tag').text("#" + tag_arr[i]);
 		}

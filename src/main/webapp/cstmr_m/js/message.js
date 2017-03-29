@@ -59,6 +59,10 @@ function getMsgInbox() {
 	}, function(ajaxResult) {
     	var message = ajaxResult.data;
     	$.each(message, function(i){
+    		if (message[i].logoPath == null || message[i].logoPath == "") {
+    			message[i].logoPath = "logo_markW.png"
+    		}
+    		
     		$("<div class='one-msg'>"
     		+ "<span class='msg-date'>" + message[i].uploadTime.slice(0,-2)
     		+ "</span><div class='btn-delete'>x</div>"
@@ -94,6 +98,10 @@ function getMsgSent() {
 	}, function(ajaxResult) {
     	var message = ajaxResult.data;
     	$.each(message, function(i){
+    		if (message[i].photoPath == null || message[i].logoPath == "") {
+    			message[i].photoPath = "logo_markW.png"
+    		}
+    		
     		$("<div class='one-msg' data-no='" + message[i].messageNo
     	    + "'><span class='msg-date'>" + message[i].uploadTime.slice(0,-2)
     		+ "</span><!--<div class='btn-delete'>x</div>--><div class='msg-left'>"
