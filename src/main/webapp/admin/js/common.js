@@ -25,6 +25,8 @@ $(function() {
 				var cafeinfo = ajaxResult1.data;
 				if (ajaxResult1.status == "fail") {
 					$('#logon-div .profileImg img').attr('src', '../../image/logo_markW.png');
+				} else if (cafeinfo.logPath == null || cafeinfo.logPath == "") {
+					$('#logon-div .profileImg img').attr('src', '../../image/logo_markW.png');
 				} else {
 					$('#logon-div .profileImg img').attr('src', '../../upload/' + cafeinfo.logPath);
 				}
