@@ -255,7 +255,11 @@ function autoSlide() {
 {{#each commentList}}
 <li>
   <div class='profileImg'>
+  {{#photoPath}}
     <img src='../../upload/{{photoPath}}' alt='profile Img'>
+  {{else}}
+    <img src='../../image/profile_default.png' alt='profile Img'>
+  {{/photoPath}}
   </div>
   <div class="comment_txt">
       <strong>{{nick}}</strong><br>
