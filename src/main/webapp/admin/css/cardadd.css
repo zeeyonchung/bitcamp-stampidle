@@ -78,12 +78,29 @@
 .front-img-div {
 	min-height: 90px;
 }
+#front-fileupload {
+	width: 69px;
+  background: white;
+  margin-left: 50px;
+}
+
+#back-fileupload {
+  width: 69px;
+  background: white;
+}
+ 
+#fileupload {
+  width: 69px;
+  background: white;
+      margin: auto;
+    margin-top: 10px;
+}
 
 .front .text {
 	font-size: 12px;
 	color: gray;
 	margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 47px;
 }
 
 .xbox {
@@ -234,7 +251,7 @@
 
 #back-fileupload {
 	position: absolute;
-	right: 0px;
+	right: 11px;
 	top: 55px;
 }
 
@@ -242,7 +259,7 @@
 	font-size: 11px;
 	color: gray;
 	position: absolute;
-	right: -10px;
+	right: -37px;
 	top: 100px;
 }
 
