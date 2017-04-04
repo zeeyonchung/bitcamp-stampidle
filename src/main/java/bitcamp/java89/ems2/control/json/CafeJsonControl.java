@@ -16,6 +16,7 @@ import bitcamp.java89.ems2.domain.CafeAdd;
 import bitcamp.java89.ems2.domain.CafePhoto;
 import bitcamp.java89.ems2.domain.CafeTime;
 import bitcamp.java89.ems2.domain.Comment;
+import bitcamp.java89.ems2.domain.CustomCard;
 import bitcamp.java89.ems2.domain.Favorite;
 import bitcamp.java89.ems2.domain.Menu;
 import bitcamp.java89.ems2.domain.StampCardInfo;
@@ -25,6 +26,7 @@ import bitcamp.java89.ems2.service.CafePhotoService;
 import bitcamp.java89.ems2.service.CafeService;
 import bitcamp.java89.ems2.service.CafeTimeService;
 import bitcamp.java89.ems2.service.CommentService;
+import bitcamp.java89.ems2.service.CustomCardService;
 import bitcamp.java89.ems2.service.FavoriteService;
 import bitcamp.java89.ems2.service.LikesService;
 import bitcamp.java89.ems2.service.MenuService;
@@ -44,6 +46,7 @@ public class CafeJsonControl {
   @Autowired LikesService likesService;
   @Autowired CafeCardService cafeCardService;
   @Autowired FavoriteService favoriteService;
+  @Autowired CustomCardService customCardService;
   
   
   @RequestMapping("/admin/cafe/add")
@@ -73,12 +76,22 @@ public class CafeJsonControl {
   
 
   @RequestMapping(value ={"/admin/cafe/detail","/cstmr_m/cafe/detail"})
-  public AjaxResult detail(int cafeMemberNo) throws Exception {
+  public AjaxResult detail(int cafeMemberNo, int customMemberNo) throws Exception {
+    Map<String, Object> resultMap = new HashMap<>();
+    
+    CustomCard customCard = (CustomCard)customCardService.getCustomCardDetail(customMemberNo, cafeMemberNo).get("cardDetail");
+    if (customCard != null) {
+      int customCardNo = customCard.getCustomCardNo();
+      resultMap.put("customCardNo", customCardNo);
+    }
+    
     Cafe cafe = (Cafe)cafeService.getDetail(cafeMemberNo);
     if (cafe == null) {
-      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
+      return new AjaxResult(AjaxResult.FAIL, "해당 카페가 없습니다.");
     }
-    return new AjaxResult(AjaxResult.SUCCESS, cafe);
+    
+    resultMap.put("cafe", cafe);
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
   
