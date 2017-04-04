@@ -539,6 +539,8 @@
 
 .commentArea .comment_list ul:after {
 	clear: both;
+	display: block;
+	content: " ";
 }
 
 .commentArea .comment_list li {

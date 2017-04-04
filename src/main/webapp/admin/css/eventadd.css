@@ -1,3 +1,7 @@
+#content .con {
+	padding-bottom:80px;
+}
+
 .con span {
 	font-size:2em;
 }
@@ -8,12 +12,11 @@ hr {
 .imgbox {
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 30px;
-  width: 900px;
+  width: 100%;
   text-align:center;
-  border:1px solid #dedede;
-  height:400px;
-  background-color:#dedede;
+  min-height:400px;
+  background-color:#ececec;
+  border:1px solid #bcbcbc;
 }
 
 .control-label {
@@ -37,11 +40,15 @@ hr {
   display:inline-block;
 }
 
-.col-sm-10 {
-  float:right;
+.add-btnArea {
+	float:right;
+	margin-top:-5px;
+	margin-right:10px;
 }
-.col-sm-10 .fileinput-button {
-  float:right;
+
+.btn-success {
+	background-color:#555!important;
+	border:0!important;
 }
 .nameblock-div .form-control {
   width:89%;
@@ -124,12 +131,13 @@ hr {
   position:relative;
 }
 
-.eventup-contents .form-contents{
-	width:89%;
-	height:300px;
-	margin-left:1%;
+.eventup-contents .form-contents {
+	width: 89%;
+	height: 300px;
+	margin-left: 1%;
 	border-radius: 5px;
-  border:1px solid #dedede;
+	border: 1px solid #dedede;
+	padding:12px;
 }
 
 .pchar2 {
@@ -176,8 +184,8 @@ hr {
 
 .banner-img-div .banner-img {
 	width: 550px;
-	height: 130px;
-	border: 1px solid #ddd;
-  margin: 0 20px;
+	min-height: 130px;
+	margin: 0 20px;
 	float: left;
+	background:#ececec;
 }

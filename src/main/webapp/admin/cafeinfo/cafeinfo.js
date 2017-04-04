@@ -92,7 +92,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 
 		function membImg(i) {
 			if (comments[i].photoPath == null) {
-				return clientRoot + '/image/comment_default.png';
+				return '../../image/profile_default.png';
 			} else {
 				console.log(comments[i].photoPath);
 				return comments[i].photoPath;

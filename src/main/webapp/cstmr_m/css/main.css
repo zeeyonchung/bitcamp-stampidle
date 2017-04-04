@@ -19,7 +19,7 @@
     padding:0 0;
     box-shadow:0 3px 5px rgba(0,0,0,0.1);
     border-bottom:1px solid #cfcfcf;
-    padding-bottom:0;
+    padding-bottom:7px;
     background: url(../image/bg_con.png) no-repeat 220px -20px #fff;
     background-size:250px 194px;
     background-attachment: fixed;
@@ -196,9 +196,6 @@
 	max-height: 168px;
 }
 
-.latelyCard {
-	padding-bottom:15px;
-}
 .latelyCardSlide .slick-dots {
     bottom:-20px;
     text-align: center;

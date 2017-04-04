@@ -94,6 +94,11 @@ ul a {
 	display:inline-block;
 }
 
+.form-control:active {
+	background:#dedede!important;
+	border-color:#dedede;
+}
+
 .info-subtext {
 	color:#999;
 }
@@ -513,6 +518,11 @@ ul a {
 	background-color:#dedede;
 	border-color:#ddd;
 }
+
+.inputArea .btn-deco .btn-success:active {
+    background:#dedede!important;
+    border-color:#dedede;
+}
 .inputArea .btn-deco .btn-success:after {
     content:"File";
     color:#555;
@@ -603,7 +613,7 @@ ul a {
 	font-size:1.2em;
 	border-radius:30px;
 	padding:4px 25px;
-	border:3px solid #333;
+	border:2px solid #333;
 	display:inline-block;
 }
 .mnArea-info .mn-info a {

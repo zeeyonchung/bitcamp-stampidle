@@ -26,11 +26,12 @@
 	border: 0;
 	background: url('../image/btn_close.png');
 	background-repeat: no-repeat;
+	margin-top:3px;
 }
 
 .text_top {
 	clear: both;
-	padding: 10px  
+	padding: 0px 10px 10px 25px;
 }
 
 .card_are {
@@ -41,7 +42,7 @@
 }
 
 .text_btm {
-	padding: 10px
+	padding: 0px 10px 10px 25px;
 }
 
 .stmp_are {
@@ -50,6 +51,10 @@
   height: 130px;
   margin-left: 10px;
 }
+
+.stmp_are label img {
+	padding:3px;
+} 
 
 .label1 {
 	margin: 14px;
