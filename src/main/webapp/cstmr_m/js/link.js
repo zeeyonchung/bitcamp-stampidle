@@ -45,12 +45,6 @@ $('.main .favor .mn').click(function(e) {
 
 
 /** *** cafeinfo/cafeinfo.html **** */
-$('.cafeinfo .btn-gift').click(function(e) {
-	location.href = '../cafeinfo/gift.html'
-});
-$('.cafeinfo .btn-message').click(function(e) {
-	location.href = '../message/message.html'
-});
 
 
 /** *** cafeinfo/gift.html **** */

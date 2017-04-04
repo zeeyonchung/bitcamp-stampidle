@@ -15,6 +15,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	userTel = ajaxResult.data.tel;
 	
 	$(window).scrollTop($(window).height);
+	getMyCafeList();
 	
 	// 1페이지 시작
 	$.getJSON(serverRoot + '/cafe/detail.json', 
@@ -116,6 +117,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			}
 		});
 	});
+	
+	$('.btn-message').attr('data-no', cafeMembNo);
+	console.log(cafeMembNo);
 	// 1페이지 끝
 	
 	// 2페이지 시작
@@ -297,7 +301,7 @@ var commentList = function(cafeMembNo,userNo) {
 		
 		
 		
-		$("button[data-no='"+ userNo +"']").addClass('active');
+		$(".delete-comments[data-no='"+ userNo +"']").addClass('active');
 		
 		$('.result').text("평점 (" + averStarScore() +"/5.0)");
 		$('.starScore .star span').removeClass();
@@ -388,3 +392,81 @@ function addMyCard(cafeMemberNo) {
 		}
 	);
 }
+
+
+
+
+
+
+/*********************** 메시지 ***********************/
+//나의 카페리스트 가져오기
+function getMyCafeList() {
+	$.getJSON(serverRoot + '/message/cafeNoNameList.json?customMemberNo=' + userNo, function(ajaxResult) {
+		var cafeNoNameList = ajaxResult.data;
+		$.each(cafeNoNameList, function(i){
+			$("<option value='" + cafeNoNameList[i].cafeMemberNo
+		    + "'>" + cafeNoNameList[i].cafeName
+			+ "</option>").appendTo("#cafeNoNameList");
+		});
+	});
+}
+
+
+//메시지 입력 버튼
+function msgPopOpen() {
+	$('#cafeNoNameList').val(cafeMembNo);
+	
+	var popTop = $(window).height()/2 - $(".writeArea").outerHeight()/2;
+	$('.writeWrap').fadeIn(300);
+    $('.writeArea').fadeIn(500);
+    $('.writeArea').css("margin-top",popTop);
+}
+
+
+$('.btn-message').click(function(event) {
+	event.stopImmediatePropagation();
+	msgPopOpen();
+});
+
+
+$('.btn-close').click(function(event) {
+	event.stopImmediatePropagation();
+    $('.writeWrap').fadeOut(300);
+    $('body.message').css("overflow-y","scroll");
+});
+
+
+
+//보내기
+$('.btn-send').click(function(event) {
+	event.stopImmediatePropagation();
+	if ($('.chat-input').val() == "") {
+		swal({title:"메시지를 입력해주세요.",
+			  type:"warning"});
+		return $('.chat-input').focus();
+	} else if ($('select[name=cafeNo]').val() == null){
+		swal({title:"쪽지를 보내실 카페를<br>선택해주세요.",
+			  type:"warning",
+			  html: true})
+		return $('select[name=cafeNo]').focus();
+	}
+	var param = {
+		"sendMember": 'cstmr',// cstmr/cafe
+		"cafeMemberNo": $('select[name=cafeNo]').val(),
+		"customMemberNo": userNo,
+		"contents": $('.chat-input').val()
+    };
+	
+    $.post(serverRoot + '/../message/insertMsg.json', param, function(ajaxResult) {
+        if (ajaxResult.status != "success") {
+          alert(ajaxResult.data);
+          return;
+        }
+        swal({title:"전송 완료!",
+        	  type:"success"});
+        
+        $('.chat-input').val("");
+        $('.writeWrap').fadeOut(200);
+        getMsgSent();
+    }, 'json');
+});
