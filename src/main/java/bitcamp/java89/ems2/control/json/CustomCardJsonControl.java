@@ -41,7 +41,7 @@ public class CustomCardJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
-  @RequestMapping(value = "/admin/customCard/getAllStampList")
+  @RequestMapping(value = {"/admin/customCard/getAllStampList", "/admin_m/customCard/getAllStampList"})
   public AjaxResult getAllstampList(int cafeMemberNo) throws Exception {
     Map<String, Object> list = customCardService.getAllStampList(cafeMemberNo);
     

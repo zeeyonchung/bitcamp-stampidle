@@ -9,135 +9,60 @@
 <link rel="stylesheet" href="../css/pushy.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/message.css">
-
+<link rel="stylesheet" href="../../node_modules/sweetalert/dist/sweetalert.css">
 
 </head>
-<body class="message">
+<body class='message'>
+
   <div class="side-left-pushy-button">menu btn</div>
   <div id='header'></div>
   <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
 
   <div id="container">
-     <h2 id='pageTit'>메시지</h2>
-     
-    <!-- con -->
-    <div class='con'>
+    <h2 id='pageTit'>메시지</h2>
     
-      <div class="search-msg">
-        <img src="../image/btn_searchB.png"><input type="text" placeholder="채팅 고객 이름 검색">
-      </div>
+        <!-- con -->
+    <div class='con'>
 
-			<div class='one-msg'>
-			  <span class='msg-date'>21:55 - 2017/01/22</span>
-				<div class='msg-left'>
-					<span class="button__badge">4</span> <img src='../image/cstmerPic_sample.png' alt="..." class="cstmer-img img-circle">
-				</div>
-				<div class='msg-content'>
-					<div class='sub'>
-						<span class='cstmer-name'>홍길동</span> 
-					</div>
-					<div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주세요 오늘...</div>
-				</div>
-			</div>
-			
-			<div class='one-msg'>
-        <span class='msg-date'>21:55 - 2017/01/22</span>
-        <div class='msg-left'>
-          <span class="button__badge">4</span> <img src='../image/cstmerPic_sample.png' alt="..." class="cstmer-img img-circle">
-        </div>
-        <div class='msg-content'>
-          <div class='sub'>
-            <span class='cstmer-name'>홍길동</span> 
-          </div>
-          <div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주세요 오늘...</div>
-        </div>
+            <div class="btn-write">글쓰기</div>
+            <div class="writeWrap">
+                <div data-role="popup" class="writeArea">
+                    <div class='tit'>쪽지 글쓰기</div>
+                    <div class='btn-close'>x</div>
+                    <div class="inputWrap">
+                        <select name="cafeNo" id="customerNoNameList">
+                            <option disabled selected>고객검색</option>
+                        </select>
+                        <textarea class="chat-input form-control"></textarea>
+                        <div class="btn-send"><img src="../image/icon_send.png"> 쪽지보내기</div>
+                    </div>
+                </div>
+            </div>
+            
+            
+      <div class="category">
+        <div class="btn-inbox select-category">받은쪽지</div>
+        <div class="btn-sent">보낸쪽지</div>
+        <div class="btn-goTop">
+                  <img src='../image/btn-goTop.png' alt="goTop" class="img-circle">
+              </div>
       </div>
       
-      <div class='one-msg'>
-        <span class='msg-date'>21:55 - 2017/01/22</span>
-        <div class='msg-left'>
-          <span class="button__badge">4</span> <img src='../image/cstmerPic_sample.png' alt="..." class="cstmer-img img-circle">
-        </div>
-        <div class='msg-content'>
-          <div class='sub'>
-            <span class='cstmer-name'>홍길동</span> 
-          </div>
-          <div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주세요 오늘...</div>
-        </div>
+      
+      <div class='msgArea inbox'>
+        
       </div>
       
-      <div class='one-msg'>
-        <span class='msg-date'>21:55 - 2017/01/22</span>
-        <div class='msg-left'>
-          <span class="button__badge">4</span> <img src='../image/cstmerPic_sample.png' alt="..." class="cstmer-img img-circle">
-        </div>
-        <div class='msg-content'>
-          <div class='sub'>
-            <span class='cstmer-name'>홍길동</span> 
-          </div>
-          <div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주세요 오늘...</div>
-        </div>
-      </div>
-      
-      <div class='one-msg'>
-        <span class='msg-date'>21:55 - 2017/01/22</span>
-        <div class='msg-left'>
-          <span class="button__badge">4</span> <img src='../image/cstmerPic_sample.png' alt="..." class="cstmer-img img-circle">
-        </div>
-        <div class='msg-content'>
-          <div class='sub'>
-            <span class='cstmer-name'>홍길동</span> 
-          </div>
-          <div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주세요 오늘...</div>
-        </div>
-      </div>
-      
-      <div class='one-msg'>
-        <span class='msg-date'>21:55 - 2017/01/22</span>
-        <div class='msg-left'>
-          <span class="button__badge">4</span> <img src='../image/cstmerPic_sample.png' alt="..." class="cstmer-img img-circle">
-        </div>
-        <div class='msg-content'>
-          <div class='sub'>
-            <span class='cstmer-name'>홍길동</span> 
-          </div>
-          <div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주세요 오늘...</div>
-        </div>
-      </div>
-      
-      <div class='one-msg'>
-        <span class='msg-date'>21:55 - 2017/01/22</span>
-        <div class='msg-left'>
-          <span class="button__badge">4</span> <img src='../image/cstmerPic_sample.png' alt="..." class="cstmer-img img-circle">
-        </div>
-        <div class='msg-content'>
-          <div class='sub'>
-            <span class='cstmer-name'>홍길동</span> 
-          </div>
-          <div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주세요 오늘...</div>
-        </div>
-      </div>
-      
-      <div class='one-msg'>
-        <span class='msg-date'>21:55 - 2017/01/22</span>
-        <div class='msg-left'>
-          <span class="button__badge">4</span> <img src='../image/cstmerPic_sample.png' alt="..." class="cstmer-img img-circle">
-        </div>
-        <div class='msg-content'>
-          <div class='sub'>
-            <span class='cstmer-name'>홍길동</span> 
-          </div>
-          <div class='pre-msg'>지갑을 놓고 왔는데요 뒷쪽 창가테이블 확인 좀 해주세요 오늘...</div>
-        </div>
-      </div>
-			
-			
-			
+      <div class='msgArea sent'>
+                
+            </div>
 
+
+      
     </div>
     <!-- //con -->
   </div>
-
+<script src="../../node_modules/sweetalert/dist/sweetalert.min.js"></script>
   <script src="../js/context.js"></script>
   <script src="../../node_modules/jquery/dist/jquery.js"></script>
   <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -145,8 +70,8 @@
   <script src="../js/common.js"></script>
   <script src="../js/pushy.js"></script>
   <script src="../js/pushy_stampidle.js"></script>
-  <script src="../js/link.js"></script>
-
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="../js/message.js"></script>
 
 </body>
 </html>

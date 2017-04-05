@@ -1,8 +1,8 @@
 $( function() {
 	// header.html을 가져와서 붙인다.
-	$.get(clientRoot + '/admin_m/header.html', function(result) {
+	$.get(clientRoot + '/header.html', function(result) {
 	  // 서버에서 로그인 사용자 정보를 가져온다.
-	  $.getJSON(serverRoot + '/admin_m/auth/loginUser.json', function(ajaxResult) {
+	  $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		$('#header').html(result);
 
 		if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
@@ -26,15 +26,15 @@ $( function() {
 		// 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
 		$('#logout-btn').click(function(event) {
 			event.preventDefault()
-			$.getJSON(serverRoot + '/admin_m/auth/logout.json', function(ajaxResult) {
-				location.href = clientRoot + '/admin_m/auth/login.html'
+			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
+				location.href = clientRoot + '/auth/login.html'
 			});
 		});
 	  });
 	});
 	
 	// sidebar.html을 가져와서 붙인다.
-	$.get(clientRoot + '/admin_m/sidebar.html', function(result) {
+	$.get(clientRoot + '/sidebar.html', function(result) {
 	  $('.sidebar').html(result);
 	});
 	

@@ -45,8 +45,8 @@ public class CafeJsonControl {
   @Autowired MenuService menuService;
   @Autowired LikesService likesService;
   @Autowired CafeCardService cafeCardService;
-  @Autowired FavoriteService favoriteService;
   @Autowired CustomCardService customCardService;
+  @Autowired FavoriteService favoriteService;
   
   
   @RequestMapping("/admin/cafe/add")
@@ -74,8 +74,7 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, dataMap);
   }
   
-
-  @RequestMapping(value ={"/admin/cafe/detail","/cstmr_m/cafe/detail"})
+  @RequestMapping(value ={"/cstmr_m/cafe/detail"})
   public AjaxResult detail(int cafeMemberNo, int customMemberNo) throws Exception {
     Map<String, Object> resultMap = new HashMap<>();
     
@@ -92,6 +91,16 @@ public class CafeJsonControl {
     
     resultMap.put("cafe", cafe);
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+  }
+  
+  
+  @RequestMapping(value ={"/admin/cafe/detail"})
+  public AjaxResult detail(int cafeMemberNo) throws Exception {
+    Cafe cafe = (Cafe)cafeService.getDetail(cafeMemberNo);
+    if (cafe == null) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 카페가 없습니다.");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, cafe);
   }
   
   

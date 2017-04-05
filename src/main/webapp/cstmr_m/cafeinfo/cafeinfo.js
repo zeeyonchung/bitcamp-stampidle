@@ -1,8 +1,6 @@
 var cafeMembNo = location.href.split('?')[1].split('=')[1];
 
 var userNo = 0;
-var userName;
-var userTel;
 
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
@@ -11,31 +9,19 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		/*로그인 안 했으면 로그인 페이지로 보내기*/
 	}
 	userNo = ajaxResult.data.customMemberNo;
-	userName = ajaxResult.data.name;
-	userTel = ajaxResult.data.tel;
+	var userName = ajaxResult.data.name;
 	
 	$(window).scrollTop($(window).height);
 	
 	// 1페이지 시작
-	$.getJSON(serverRoot + '/cafe/detail.json', 
-			{cafeMemberNo: cafeMembNo,
-			 customMemberNo: userNo}, 
-	function(ajaxResult) {
-		var cafe = ajaxResult.data.cafe;
+	$.getJSON(serverRoot + '/cafe/detail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
+		var cafe = ajaxResult.data;
 		$('.cafeName').text(cafe.cafeName);
 		$('.txt').text(cafe.intro);
 		$('.addr').text(cafe.address);
 		$('.tel').text(cafe.cafeTel);
 		$('.seat').text(cafe.chairNo + "석");
 		
-		var customCardNo = ajaxResult.data.customCardNo;
-		if (customCardNo != null) {
-			$('.myCard').addClass('select');
-		} else {
-			$('.myCard').click(function() {
-				addMyCard(cafeMembNo);
-			});
-		}
 		
 		// 즐겨찾기 상태 가져와서 별에 불킬지 말지 결정하는 부분//
 		$.getJSON(serverRoot + '/favorite/getFavoriteCount.json', 
@@ -374,17 +360,3 @@ $('.btn-top').on('click',function(event) {
     return false;
 });
 
-
-
-
-/* 내 카드로 담기 */
-function addMyCard(cafeMemberNo) {
-	$.post(serverRoot + '/customMember/addMyCard.json',
-			{name: userName,
-			tel: userTel,
-			cafeMemberNo: cafeMemberNo},
-		function(ajaxResult) {
-			$('.myCard').addClass('select');
-		}
-	);
-}

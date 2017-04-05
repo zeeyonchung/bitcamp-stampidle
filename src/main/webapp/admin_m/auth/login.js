@@ -11,7 +11,7 @@ $('.login-btn').click(function() {
 		id: $('#id').val(),
 		password: $('#password').val()
 	};
-	$.post(serverRoot + '/admin_m/auth/login.json', param, function(ajaxResult) {
+	$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 		console.log(ajaxResult);
 		if (ajaxResult.status == "success") {
 			location.href = "../main/main.html";
@@ -43,7 +43,7 @@ $('.register-ok-btn').click(function(event) {
   
   if( param.id!="" && param.password == param.password2) {
 	  
-	  $.post(serverRoot + '/admin_m/cafeMember/add.json', param, function(ajaxResult) {
+	  $.post(serverRoot + '/cafeMember/add.json', param, function(ajaxResult) {
 		  if (ajaxResult.status != "success") {
 			  alert(ajaxResult.data);
 			  return;
