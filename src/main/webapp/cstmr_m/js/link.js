@@ -39,14 +39,12 @@ $('.main .msg .mn').click(function(e) {
 	location.href = '../message/message.html'
 });
 
+$('.main .favor .mn').click(function(e) {
+	location.href = '../mystamp/mystamp.html?startSlide=1'
+});
+
 
 /** *** cafeinfo/cafeinfo.html **** */
-$('.cafeinfo .btn-gift').click(function(e) {
-	location.href = '../cafeinfo/gift.html'
-});
-$('.cafeinfo .btn-message').click(function(e) {
-	location.href = '../message/message.html'
-});
 
 
 /** *** cafeinfo/gift.html **** */

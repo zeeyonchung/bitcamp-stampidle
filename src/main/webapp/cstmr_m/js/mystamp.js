@@ -1,4 +1,5 @@
 var userNo;
+var startSlide = 0;
 
 
 /*로그인 정보를 가져와서*/
@@ -10,9 +11,17 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	var userData = ajaxResult.data;
 	userNo = userData.customMemberNo;
+	
+	if (location.href.includes('?')) {
+		startSlide = location.href.split('?')[1].split('=')[1];
+		console.log(startSlide);
+	}
+	
 	loadPage();
 });
-	
+
+
+
 
 
 
@@ -21,7 +30,7 @@ function loadPage() {
 	$.getJSON(serverRoot + '/customCard/getMyCardList.json?customMemberNo=' + userNo, function(ajaxResult) {
 		/********************* section1 전체 카드 리스트 *************************/
 		var myCardList = ajaxResult.data.myCardList;
-		console.log(myCardList);
+		//console.log(myCardList);
 		if (myCardList == null) {
 			$('.section.all #num').text(0);
 		} else {
@@ -36,7 +45,7 @@ function loadPage() {
 		
 		/********************* section2 즐겨 찾는 카드 리스트 *************************/
 		var myFavoriteCardList = ajaxResult.data.myFavoriteCardList;
-		console.log(myFavoriteCardList);
+		//console.log(myFavoriteCardList);
 		if (myFavoriteCardList == null) {
 			$('.section.favorite #num').text(0);
 		} else {
@@ -51,7 +60,7 @@ function loadPage() {
 		
 		/********************* section3 다 모은 카드 리스트 *************************/
 		var myFinishCardList = ajaxResult.data.myFinishCardList;
-		console.log(myFinishCardList);
+		//console.log(myFinishCardList);
 		if (myFinishCardList == null) {
 			$('.section.done #num').text(0);
 		} else {
@@ -68,30 +77,30 @@ function loadPage() {
 			location.href = '../cafeinfo/cafeinfo.html?cafeMemberNo=' + $(this).attr("data-no");
 		});
 		
-		loadSwipe();
+		loadSwipe(startSlide);
 	});
 }
 
 
-
-
-function loadSwipe() {
+function loadSwipe(startSlide) {
 	$('#swipe .swWrap').css('min-height', window.innerHeight - 100);
 	
-	
     if (!document.getElementById('tab_swipe')) return false;
-    var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
+    var mnTab = $('#tab_swipe li');
     var elem = document.getElementById('swipe');
     var secH;
+    
+    mnTab[startSlide].className = 'on';
+    
     window.areaSwipe = Swipe(elem, {
-        startSlide: 0,
+        startSlide: startSlide,
         continuous: true,
         stopPropagation: true,
         callback: function(pos) {
             var currentSlide = pos + 1;
             var n = mnTab.length;
             while (n--) {
-                mnTab[n].className = ' ';
+                mnTab[n].className = '';
             }
             mnTab[pos].className = 'on';
             
@@ -99,7 +108,7 @@ function loadSwipe() {
             secH = $(".section[data-index='" + pos + "']").outerHeight();
             $('#swipe .swWrap').height(secH);
             $(window).scrollTop(0);
-            console.log(currentSlide, $(".section[data-index='0']").outerHeight(), $(".section:nth-of-type(2)").outerHeight(), $(".section:nth-of-type(3)").outerHeight());
+            //console.log(currentSlide, $(".section[data-index='0']").outerHeight(), $(".section:nth-of-type(2)").outerHeight(), $(".section:nth-of-type(3)").outerHeight());
         }
     });
     
