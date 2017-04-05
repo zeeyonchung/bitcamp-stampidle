@@ -270,31 +270,6 @@ where
   </select>
   
   
-  
-   <select id="getFindCafeCustomDetail" parameterType="java.util.Map" resultMap="customCard-map">
-  select
-    memb.cphoto,
-    memb.name,
-    memb.tel,
-    mcard.mcno,
-    mcard.birth,
-    mcard.mcuse,
-    scinfo.stnum,
-    scinfo.scno,
-    (select count(mcard.mcuse) from mcard where mcard.mcuse in (1, 2) and mcard.mno=memb.mno and mcard.scno=scinfo.scno) as canUseCount,
-    (select sum(stamp.many) from stamp where stamp.mcno=mcard.mcno) as currentStampCount
-  from memb
-    left outer join mcard on memb.mno=mcard.mno
-    left outer join scinfo on scinfo.scno=mcard.scno
-  where 
-    scinfo.cmno=#{cafeMemberNo}
-    and memb.mno=#{customMemberNo}
-  order by mcard.mcno desc
-  </select>
-  
-  
-  
-  
    <select id="getCustomCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
 	  select
 		  mcard.mcuse,
@@ -562,7 +537,11 @@ where
     scinfo.scno,
     scinfo.fpath,
     (select count(eno) from event where event.eday>=curDate() and event.cmno=cafe.cmno) as eventCount,
-    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount
+    (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount,
+    (select sum(stamp.many) 
+      from stamp
+        left outer join mcard on mcard.mcno=stamp.mcno
+      where mcard.mno=#{customMemberNo} and scinfo.scno=mcard.scno) as currentStampCount
   from cafe
     left outer join tag on tag.cmno=cafe.cmno
     left outer join scinfo on scinfo.cmno=cafe.cmno
@@ -572,6 +551,29 @@ where
     and scinfo.scno = (select max(scno) from scinfo where scinfo.cmno=cafe.cmno)
   order by ${orderBy} ${ascORdesc}
   limit #{firstPost}, #{postNo}
+  </select>
+  
+    
+  
+  <select id="getFindCafeCustomDetail" parameterType="java.util.Map" resultMap="customCard-map">
+  select
+    memb.cphoto,
+    memb.name,
+    memb.tel,
+    mcard.mcno,
+    mcard.birth,
+    mcard.mcuse,
+    scinfo.stnum,
+    scinfo.scno,
+    (select count(mcard.mcuse) from mcard where mcard.mcuse in (1, 2) and mcard.mno=memb.mno and mcard.scno=scinfo.scno) as canUseCount,
+    (select sum(stamp.many) from stamp where stamp.mcno=mcard.mcno) as currentStampCount
+  from memb
+    left outer join mcard on memb.mno=mcard.mno
+    left outer join scinfo on scinfo.scno=mcard.scno
+  where 
+    scinfo.cmno=#{cafeMemberNo}
+    and memb.mno=#{customMemberNo}
+  order by mcard.mcno desc
   </select>
   
   
