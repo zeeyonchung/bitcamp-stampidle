@@ -118,6 +118,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				$('.service').text("등록되지 않은 내용입니다.");
 			}
 		});
+		
+		$('.fb-share-button').attr('data-href', "http://b.bitcamp.com:8080/bitcamp_stampidle/cstmr_m/cafeinfo/cafeinfo.html?cafeMemberNo=" + cafeMembNo);
 	});
 	
 	$('.btn-message').attr('data-no', cafeMembNo);

@@ -304,7 +304,7 @@
 /* 고객액션 cstmr_action */
 .cstmr_action {
   text-align: center;
-  width: 100%; 
+  width: 100%;
   background: url("../image/gradient_bgW.png") repeat-x left -10px;
 }
 
@@ -866,4 +866,15 @@
   top:10px;
   right:20px;
   font-size:1.3em;
+}
+
+
+
+.share {
+	height: 50px;
+	padding: 20px;
+}
+
+.fb-share-button {
+	margin-left: 40%;
 }
