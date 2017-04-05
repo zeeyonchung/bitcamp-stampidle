@@ -15,17 +15,17 @@
 
 </head>
 <body class='cafeinfo'>
-	<div class="side-left-pushy-button">menu btn</div>
-	<div id='header'></div>
-	<div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
+  <div class="side-left-pushy-button">menu btn</div>
+  <div id='header'></div>
+  <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
 
-	<div id="container">
-	
-	   <h2 id='pageTit'>카페 정보</h2>
-	   
-		<!-- con -->
-		<div class='con'>
-		
+  <div id="container">
+  
+     <h2 id='pageTit'>카페 정보</h2>
+     
+    <!-- con -->
+    <div class='con'>
+    
        <div class="writeWrap">
         <div data-role="popup" class="writeArea">
           <div class='tit'>쪽지 글쓰기</div>
@@ -42,16 +42,16 @@
         </div>
       </div>
 
-			<div class='swipe_nav'>
-				<ul id="tab_swipe">
-					<li class="tab1 on"><a href="#" onclick="areaSwipe.slide(0);return false;">카페소개</a></li>
-					<li class='tab2'><a href="#" onclick="areaSwipe.slide(1);return false;">대표메뉴</a></li>
-					<li class='tab3'><a href="#" onclick="areaSwipe.slide(2);return false;">리뷰</a></li>
-				</ul>
-			</div>
+      <div class='swipe_nav'>
+        <ul id="tab_swipe">
+          <li class="tab1 on"><a href="#" onclick="areaSwipe.slide(0);return false;">카페소개</a></li>
+          <li class='tab2'><a href="#" onclick="areaSwipe.slide(1);return false;">대표메뉴</a></li>
+          <li class='tab3'><a href="#" onclick="areaSwipe.slide(2);return false;">리뷰</a></li>
+        </ul>
+      </div>
 
-			<div id="swipe">
-				<div class="swWrap">
+      <div id="swipe">
+        <div class="swWrap">
 
 <!-- section1 -->
           <div class='section intro'>
@@ -80,6 +80,7 @@
                  <h2 class='cafeName'>카페 프레스코</h2>
                  <div class='tag'></div>
                  <div class='txt'></div>
+                 <div class='myCard'>담기</div>
                </div>
              </div>
              
@@ -103,86 +104,86 @@
            <!-- //section1 -->
 
 
-					<!-- section2 -->
-					<div class='section menuArea'>
-					   <h3>제조음료</h3>
-					   <div class="btn-group">
+          <!-- section2 -->
+          <div class='section menuArea'>
+             <h3>제조음료</h3>
+             <div class="btn-group">
                         </div>
                         
-					   <div class='menuList'>
-					   </div>
-	                       
-	                    
+             <div class='menuList'>
+             </div>
+                         
+                      
                     </div>
                     <!-- //section2 -->
                     
                     
                     <!-- section3 -->
-					<div class='section commentArea'>
-	                    
-	                    <!-- input -->
-	                    <form class="formArea">
-						<h3>내 의견쓰기</h3>
-					        <fieldset>
-					        <div class="comment_form">
-				                <label>이름</label><input type="text" maxlength="20" readonly="readonly">
-				                <p class="star_rating">
+          <div class='section commentArea'>
+                      
+                      <!-- input -->
+                      <form class="formArea">
+            <h3>내 의견쓰기</h3>
+                  <fieldset>
+                  <div class="comment_form">
+                        <label>이름</label><input type="text" maxlength="20" readonly="readonly">
+                        <p class="star_rating">
                           <a href="#" class="on">★</a>
-											    <a href="#" class="on">★</a>
-											    <a href="#" class="on">★</a>
-											    <a href="#">★</a>
-											    <a href="#">★</a>
+                          <a href="#" class="on">★</a>
+                          <a href="#" class="on">★</a>
+                          <a href="#">★</a>
+                          <a href="#">★</a>
                         </p>
-				                <textarea class='commentText' maxlength="100" placeholder="내용"></textarea>
-					        </div>
-					        <button class="submit" type="button">글 올리기</button>
-					        </fieldset>
-				        </form>
-				        <!-- //input -->
-				        
-				        <!-- list -->
-	                    <div class='starScore'>
-	                        <div class='star'>
-	                            <span></span>
-	                        </div>
-	                        <div class='result'></div>
-	                    </div>
-	                    <div class="comment_list">
-	                        <p class="total">
-	                            댓글 <span></span>
-	                        </p>
-	                        <ul>
-	                            
-	                        </ul>
-	                    </div>
-	
-	                    <button class="btn-top"> 맨위로</button>
+                        <textarea class='commentText' maxlength="100" placeholder="내용"></textarea>
+                  </div>
+                  <button class="submit" type="button">글 올리기</button>
+                  </fieldset>
+                </form>
+                <!-- //input -->
+                
+                <!-- list -->
+                      <div class='starScore'>
+                          <div class='star'>
+                              <span></span>
+                          </div>
+                          <div class='result'></div>
+                      </div>
+                      <div class="comment_list">
+                          <p class="total">
+                              댓글 <span></span>
+                          </p>
+                          <ul>
+                              
+                          </ul>
+                      </div>
+  
+                      <button class="btn-top"> 맨위로</button>
                         <!-- //list -->
                         
                     </div>
                     <!-- //section3 -->
                     
-				</div>
-			</div>
+        </div>
+      </div>
 
 
-		</div>
-		<!-- //con -->
-	</div>
-	<div id="loading">
+    </div>
+    <!-- //con -->
+  </div>
+  <div id="loading">
 <img id="loading-image" src="coffeecup.gif" alt="Loading..." />
 </div>
   <script src="../../node_modules/sweetalert/dist/sweetalert.min.js"></script>
   <script src="../js/context.js"></script>
   <script src="../../node_modules/handlebars/dist/handlebars.js"></script>
-	<script src="../../node_modules/jquery/dist/jquery.js"></script>
-	<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-	<script src="../js/bit.js"></script>
-	<script src="../js/common.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="../js/pushy.js"></script>
-	<script src="../js/pushy_stampidle.js"></script>
-	
+  <script src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../js/bit.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="../js/pushy.js"></script>
+  <script src="../js/pushy_stampidle.js"></script>
+  
 
 <!--  Swipe -->
 <script type="text/javascript" src="../js/jquery-latest.js"></script>
@@ -192,15 +193,14 @@
 $(window).load(function(){
     swipeSection(0);
 });
-
 function swipeSection(no) {
-	$('#swipe .swWrap').css('min-height', window.innerHeight - 100);
-	
-	
-	if (!document.getElementById('tab_swipe')) return false;
+  $('#swipe .swWrap').css('min-height', window.innerHeight - 100);
+  
+  
+  if (!document.getElementById('tab_swipe')) return false;
     var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
     var elem = document.getElementById('swipe');
-	window.areaSwipe = Swipe(elem, {
+  window.areaSwipe = Swipe(elem, {
         startSlide: no,
         continuous: true,
         callback: function(pos) {
@@ -216,9 +216,8 @@ function swipeSection(no) {
             $(window).scrollTop(0);
         }
     });
-	 $('#swipe .swWrap').css('height', $(".section[data-index='"+ no +"']").outerHeight(true));
+   $('#swipe .swWrap').css('height', $(".section[data-index='"+ no +"']").outerHeight(true));
 }
-
 </script>
 <!-- // Swipe -->
 
@@ -231,11 +230,9 @@ var nImgCount = $imgList.children().length; // 위에서 가져온 div 자식들
 var nDuration = 4000;         // 이미지를 변경할 시간 (3000 = 3초)
 var bAuto = true;           // 자동으로 변경할 지 여부
 var nIndex = 0;           // 변경할 이미지의 Index
-
 if(bAuto == true) {
   setInterval(autoSlide, nDuration);    // Javascript setInterval 함수 호출
 }
-
 function autoSlide() {
   /* 3초마다 이 함수에 들어오게 됨 */
   // % 연산은 나누기를 한 후 나머지 값을 가져오는 연산입니다.
@@ -298,15 +295,8 @@ function autoSlide() {
 $(window).load(function() {     
  $('#loading').hide();   
 }); 
-
 </script>
 </body>
 </html>
-
-
-
-
-
-
 
 

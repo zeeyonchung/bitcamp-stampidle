@@ -1,5 +1,5 @@
 .secTit {
-	margin-bottom:5px;
+  margin-bottom:5px;
 }
 
 .cafeinfo .sweet-alert button.cancel {
@@ -7,7 +7,7 @@
 }
 
 .cafeinfo .sweet-alert .sa-confirm-button-container {
-	width: 120px!important;
+  width: 120px!important;
 }
 
 
@@ -21,8 +21,8 @@
 }
 
 .intro-wrap{
-	margin-top: 5px;
-	
+  margin-top: 5px;
+  
 }
 
 .cafe-card {
@@ -37,19 +37,19 @@
 }
 
 .cafe-card .service {
-	position: absolute;
-	top:82%;
-	left:0;
-	text-align:center;
-	width:100%;
-	z-index:10;
-	text-decoration:underline;
-	font-size:1.2em;
-	height:30px;
+  position: absolute;
+  top:82%;
+  left:0;
+  text-align:center;
+  width:100%;
+  z-index:10;
+  text-decoration:underline;
+  font-size:1.2em;
+  height:30px;
 }
 
 .stmp-circle {
-	  display: none;
+    display: none;
     position: absolute;
     border: none;
     border-radius: 100%;
@@ -66,11 +66,11 @@
     left:-15px;
 }
 .stmp-circle span {
-	display:inline;
+  display:inline;
 }
 .stmp-circle .currentStampCount {
-	font-weight:bold;
-	font-size: 2em;
+  font-weight:bold;
+  font-size: 2em;
 }
 
 .bgwrap {
@@ -92,20 +92,16 @@
     width: 80%;
     height: 250px;
 }
-
 .cafe-name {
     font-weight: bold;
     font-size: 40px;
 }
-
 .cafe-tag {
     color: gray;
 }
-
 .cafe-addr {
     margin-top: 10px;
 }
-
 .cafe-addr:before {
     width:20px;
   padding-right:7px;
@@ -115,11 +111,9 @@
   text-align:center;
     content: "\f041";
 }
-
 .cafe-tel {
     margin-top: 10px;
 }
-
 .cafe-tel:before {
     width:20px;
   padding-right:7px;
@@ -129,11 +123,9 @@
   text-align:center;
   content: "\f095";
 }
-
 .cafe-info {
     margin-top: 10px;
 }
-
 .cafe-info:before {
   width:20px;
   padding-right:7px;
@@ -146,11 +138,13 @@
  */
 
 
+
 /************ introArea ************/
 .introArea {
-	border-top: 10px solid #f4f4f4;
-	padding: 20px 6% 0 6%;
-	height: 120px;
+  position: relative;
+  border-top: 10px solid #f4f4f4;
+  padding: 20px 6% 0 6%;
+  height: 120px;
 }
 
 .introArea .cafeLogo {
@@ -219,8 +213,6 @@
     font-size:0.7em;
 }
 
-<<<<<<< HEAD
-=======
  
 .myCard {
     position:absolute;
@@ -261,11 +253,10 @@
     color:#ff5948;
 }
 
->>>>>>> b3f3e5f2eec314423bdb228f01f69bbc7732d7ee
 
 
 .infoDetail {
-	border-top:2px solid #f4f4f4;
+  border-top:2px solid #f4f4f4;
     padding:15px 6% 25px 6%;
     clear:both;
 }
@@ -312,105 +303,105 @@
 
 /* 고객액션 cstmr_action */
 .cstmr_action {
-	text-align: center;
-	width: 100%; 
-	background: url("../image/gradient_bgW.png") repeat-x left -10px;
+  text-align: center;
+  width: 100%; 
+  background: url("../image/gradient_bgW.png") repeat-x left -10px;
 }
 
 /*  즐겨찾기 */
 #favorite {
-	display: inline-block;
-	border: 3px solid #f0f0f0;
-	border-radius: 50px;
-	margin-left: 10px;
-	width: 70px;
-	height: 70px;
-	vertical-align: middle;
+  display: inline-block;
+  border: 3px solid #f0f0f0;
+  border-radius: 50px;
+  margin-left: 10px;
+  width: 70px;
+  height: 70px;
+  vertical-align: middle;
 }
 
 #favorite:before {
-	line-height: 65px;
-	font-family: "FontAwesome";
-	text-align: center;
-	font-size: 2.5em;
+  line-height: 65px;
+  font-family: "FontAwesome";
+  text-align: center;
+  font-size: 2.5em;
 }
 
 #favorite.no:before {
-	content: "\f005";
-	color: #ccc;
+  content: "\f005";
+  color: #ccc;
 }
 
 #favorite.yes:before {
-	content: "\f005";
-	color: #fff;
+  content: "\f005";
+  color: #fff;
 }
 #favorite.yes {
-	border: 3px solid rgba(255,89,72, 0.8);
-	background:rgba(255,89,72, 0.8);
+  border: 3px solid rgba(255,89,72, 0.8);
+  background:rgba(255,89,72, 0.8);
 }
 
 /* 좋아요 */
 #like {
-	display: inline-block;
-	width: 70px;
-	height: 70px;
-	border: 3px solid #f0f0f0;
-	border-radius: 50px;
-	margin-left: 7px;
-	text-align: center;
-	background: #fff;
-	cursor: pointer;
-	z-index: 50;
-	font-size: 0.9em;
-	vertical-align: middle;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border: 3px solid #f0f0f0;
+  border-radius: 50px;
+  margin-left: 7px;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+  z-index: 50;
+  font-size: 0.9em;
+  vertical-align: middle;
 }
 
 #like:before {
-	text-align: center;
-	display: block;
-	margin-top: 10px;
-	height: 30px;
-	font-family: "FontAwesome";
-	font-size: 2.1em;
-	content: "\f08a";
-	color: #ff5948;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  height: 30px;
+  font-family: "FontAwesome";
+  font-size: 2.1em;
+  content: "\f08a";
+  color: #ff5948;
 }
 
 #like.yes:before {
-	content: "\f004";
-	color: #ff5948;
+  content: "\f004";
+  color: #ff5948;
 }
 
 .btn-message {
-	display: inline-block;
-	border: none;
-	width: 70px;
-	height: 70px;
-	border: 3px solid #f0f0f0;
-	border-radius: 50px;
-	margin-left: 7px;
-	background-image: url('../image/post.png');
-	background-size: 50% 50%;
-	background-repeat: no-repeat;
-	background-position: center 13px;
-	vertical-align: middle;
-	background-color:#fff;
+  display: inline-block;
+  border: none;
+  width: 70px;
+  height: 70px;
+  border: 3px solid #f0f0f0;
+  border-radius: 50px;
+  margin-left: 7px;
+  background-image: url('../image/post.png');
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position: center 13px;
+  vertical-align: middle;
+  background-color:#fff;
 }
 
 .gift {
-	display: inline-block;
-	width: 70px;
-	height: 70px;
-	border: 3px solid #f0f0f0;
-	border-radius: 50px;
-	margin-left: 7px;
-	border-radius: 50px;
-	background-image: url('../image/gift.png');
-	background-size: 50% 45%;
-	background-repeat: no-repeat;
-	background-position: center 17px;
-	vertical-align: middle;
-	background-color:#fff;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border: 3px solid #f0f0f0;
+  border-radius: 50px;
+  margin-left: 7px;
+  border-radius: 50px;
+  background-image: url('../image/gift.png');
+  background-size: 50% 45%;
+  background-repeat: no-repeat;
+  background-position: center 17px;
+  vertical-align: middle;
+  background-color:#fff;
 }
 
 /************ 대표메뉴 menuArea ************/
@@ -431,7 +422,7 @@
 }
 
 .menuArea h3 { 
-	padding:0 3% 5px 3%;
+  padding:0 3% 5px 3%;
     font-size:1.4em;
     margin-bottom:10px;
     color: #444;
@@ -440,12 +431,12 @@
 }
 
 .menuArea .menuList {
-    padding:0 2%;	
+    padding:0 2%; 
 }
 
 .menuArea .menu {
-	margin-bottom:20px;
-	float:left;
+  margin-bottom:20px;
+  float:left;
     text-align:center;
     width:33.3%;
     height:100%;
@@ -473,7 +464,7 @@
 }
 
 .menuArea .menu .mnPrice {
-	line-height:100%;
+  line-height:100%;
 }
 
 
@@ -490,66 +481,66 @@
 }
 
 .commentArea h3 {
-	text-align:center;
-	padding:20px 3% 10px 3%;
+  text-align:center;
+  padding:20px 3% 10px 3%;
     color: #444;
     letter-spacing:-1px;
     font-size:1.6em;
 }
 
 .commentArea h3:after {
-	font-size:0.9em;
-	margin-left:5px;
-	color:#555;
+  font-size:0.9em;
+  margin-left:5px;
+  color:#555;
     font-family:"FontAwesome";
     content: "\f040";
     vertical-align:top;
 }
     
 .comment_form {
-	background: #f0f0f0;
-	padding: 7px 3% 4px 3%;
+  background: #f0f0f0;
+  padding: 7px 3% 4px 3%;
 }
 
 .comment_form input {
-	border: 1px solid #d3d3d3;
-	padding: 8px 7px 7px 7px;
-	font-size: 1.1em;
-	border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  padding: 8px 7px 7px 7px;
+  font-size: 1.1em;
+  border-radius: 5px;
 }
 
 .comment_form label {
-	overflow: hidden;
-	display: none;
+  overflow: hidden;
+  display: none;
 }
 
 .comment_form textarea {
-	width: 100%;
-	min-height: 100px;
-	margin-top: 5px;
-	border: 1px solid #d3d3d3;
-	padding: 8px;
-	font-size: 1.1em;
-	color: #444;
-	border-radius: 5px;
+  width: 100%;
+  min-height: 100px;
+  margin-top: 5px;
+  border: 1px solid #d3d3d3;
+  padding: 8px;
+  font-size: 1.1em;
+  color: #444;
+  border-radius: 5px;
 }
 
 .submit {
-	display:block;
-	background:#ff5948;
-	width:40%;
-	padding:10px 10px 9px 10px;
-	border:0;
-	border-radius:7px;
-	margin:10px auto 0 auto;
-	color:#fff;
-	font-size:1.2em;
+  display:block;
+  background:#ff5948;
+  width:40%;
+  padding:10px 10px 9px 10px;
+  border:0;
+  border-radius:7px;
+  margin:10px auto 0 auto;
+  color:#fff;
+  font-size:1.2em;
 }
 
 
 /* 별점 starScore */
 .starScore {
-	margin-top:40px;
+  margin-top:40px;
     padding:0 10px ;
     height:20px;
     margin-bottom:-15px;
@@ -562,7 +553,7 @@
 }
 
 .starScore .result {
-	  width: 25%;
+    width: 25%;
     font-size:0.9em;
     margin:5px 0 5px 7px;
     float:left;
@@ -601,7 +592,7 @@
     font-size: 0.8em;
 }
 .commentArea .comment_list .total {
-	float:right;
+  float:right;
     margin: 0 3% 2px 3%;
     color: #666;
     font-size:1.3em;
@@ -609,8 +600,8 @@
 }
 
 .commentArea .comment_list ul {
-	clear:both;
-	border-top: 2px solid #555;
+  clear:both;
+  border-top: 2px solid #555;
 }
 
 .commentArea .comment_list .total span {
@@ -730,9 +721,9 @@
 .star_rating {
     width: 40%;
     float: right;
-	font-size: 0;
-	letter-spacing: -4px;
-	text-align:center;
+  font-size: 0;
+  letter-spacing: -4px;
+  text-align:center;
 }
 
 .star_rating a {
@@ -769,20 +760,20 @@
  
  
 .delete-comments {
-	position: absolute;
-	top: 3px;
-	right: 7px;
-	display: none;
-	background:#fff;
-	border:0;
-	box-shadow:none;
-	font-size:1.2em;
+  position: absolute;
+  top: 3px;
+  right: 7px;
+  display: none;
+  background:#fff;
+  border:0;
+  box-shadow:none;
+  font-size:1.2em;
 }
 
 .delete-comments.active {
-	display:block;
-	background:#fff;
-	box-shadow:none;
+  display:block;
+  background:#fff;
+  box-shadow:none;
 }
 
 
