@@ -140,6 +140,8 @@ function loadPage(pageCount) {
 			});
 		}
 	);
+	
+	showMap();
 };
 
 
@@ -186,9 +188,9 @@ var showMap = function() {
 	initMap();
 	
 	
-	$.getJSON(serverRoot + '/cafe/getCafeMapList.json', function(ajaxResult) {
+	$.getJSON(serverRoot + '/cafe/getCafeMapList.json', {"searchKeyword": searchKeyword}, function(ajaxResult) {
 		cafeList = ajaxResult.data;
-		console.log(cafeList);
+		//console.log(cafeList);
 		for (var i = 0; i < cafeList.length; i++) {
 			address = cafeList[i].address;
 			initMaker(cafeList[i]);
@@ -204,7 +206,7 @@ var showMap = function() {
 	
 	function initMaker(cafeList) {
 		$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg', function(ajaxResult2) {
-			console.log(ajaxResult2)
+			//console.log(ajaxResult2)
 			var lat = parseFloat(ajaxResult2.results[0].geometry.location.lat);
 			var lng = parseFloat(ajaxResult2.results[0].geometry.location.lng);
 			var contentString = '<div class="content marker">'+
@@ -227,7 +229,6 @@ var showMap = function() {
 				title: 'Hello World!',
 				label: labels[labelIndex++ % labels.length]
 			});
-			
 			marker.addListener('click', function(i) {
 				infowindow.setContent(contentString);
 				infowindow.open(map, marker);

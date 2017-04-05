@@ -3,6 +3,7 @@ package bitcamp.java89.ems2.service;
 import java.util.List;
 import java.util.Map;
 
+import bitcamp.java89.ems2.domain.Cafe;
 import bitcamp.java89.ems2.domain.CustomCard;
 
 public interface CustomCardService {
@@ -33,6 +34,8 @@ public interface CustomCardService {
   
   List<CustomCard> cafeNoNameList(int customMemberNo) throws Exception;
   List<CustomCard> customerNoNameList(int cafeMemberNo) throws Exception;
+  
+  List<Cafe> getCafeMapList(String searchKeyword) throws Exception;
 }
 
 

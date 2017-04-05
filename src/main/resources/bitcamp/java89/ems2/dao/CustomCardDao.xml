@@ -26,6 +26,8 @@
     <result column="shape"       property="stampImgPath"/>
     
     <result column="cname"       property="cafeName"/>
+    <result column="cftel"       property="cafeTel"/>
+    <result column="intro"       property="intro"/>
     <result column="logo"       property="logPath"/>
     <result column="likesCount"       property="likesCount"/>
     <result column="cafeCount"       property="cafeCount"/>
@@ -553,7 +555,24 @@ where
   limit #{firstPost}, #{postNo}
   </select>
   
-    
+  
+  
+  <select id='getCafeMapList' parameterType='string' resultMap='customCard-map'>
+    select
+      cafe.cftel,
+      cafe.cname,
+      cafe.intro,
+      cafe.logo,
+      cafe.addr
+    from cafe
+      left outer join tag on tag.cmno=cafe.cmno
+      left outer join scinfo on scinfo.cmno=cafe.cmno
+    where
+	    (cafe.cname like concat('%', #{searchKeyword}, '%')
+	    OR tag.tname like concat('%', #{searchKeyword}, '%'))
+	    and scinfo.scno = (select max(scno) from scinfo where scinfo.cmno=cafe.cmno)
+  </select>
+  
   
   <select id="getFindCafeCustomDetail" parameterType="java.util.Map" resultMap="customCard-map">
   select

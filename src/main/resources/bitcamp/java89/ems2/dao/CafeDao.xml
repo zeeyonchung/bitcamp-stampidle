@@ -67,13 +67,6 @@
   </select>
   
   
-  <select id='getCafeMapList' parameterType='int' resultMap='cafe-map'>
-    select
-      *
-    from cafe
-  </select>
-
-  
   <update id="update" parameterType="cafe">
     update cafe set
       cftel=#{cafeTel},

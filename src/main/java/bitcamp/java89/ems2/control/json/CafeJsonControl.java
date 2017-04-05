@@ -260,10 +260,6 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
   }
   
-  @RequestMapping(value = "/cstmr_m/cafe/getCafeMapList")
-  public AjaxResult getCafeMapList() throws Exception {
-    return new AjaxResult(AjaxResult.SUCCESS, cafeService.getCafeMapList());
-  }
 }
 
 

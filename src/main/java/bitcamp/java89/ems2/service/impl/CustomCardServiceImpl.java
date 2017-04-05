@@ -17,6 +17,7 @@ import bitcamp.java89.ems2.dao.CustomCardDao;
 import bitcamp.java89.ems2.dao.CustomMemberDao;
 import bitcamp.java89.ems2.dao.LikesDao;
 import bitcamp.java89.ems2.dao.MessageDao;
+import bitcamp.java89.ems2.domain.Cafe;
 import bitcamp.java89.ems2.domain.CustomCard;
 import bitcamp.java89.ems2.domain.CustomMember;
 import bitcamp.java89.ems2.domain.Message;
@@ -788,5 +789,9 @@ public class CustomCardServiceImpl implements CustomCardService {
     
   }
   
- 
+
+  @Override
+  public List<Cafe> getCafeMapList(String searchKeyword) throws Exception {
+    return customCardDao.getCafeMapList(searchKeyword);
+  }
 }

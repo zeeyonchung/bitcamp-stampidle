@@ -196,6 +196,13 @@ public class CustomCardJsonControl {
     List<CustomCard> customerNoNameList = customCardService.customerNoNameList(cafeMemberNo);
     return new AjaxResult(AjaxResult.SUCCESS, customerNoNameList);
   }
+  
+  @RequestMapping(value = "/cstmr_m/cafe/getCafeMapList")
+  public AjaxResult getCafeMapList(String searchKeyword) throws Exception {
+    return new AjaxResult(AjaxResult.SUCCESS, customCardService.getCafeMapList(searchKeyword));
+  }
+
+  
 }
 
 

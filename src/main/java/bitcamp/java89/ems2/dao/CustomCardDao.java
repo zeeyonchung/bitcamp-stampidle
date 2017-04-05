@@ -3,6 +3,7 @@ package bitcamp.java89.ems2.dao;
 import java.util.List;
 import java.util.Map;
 
+import bitcamp.java89.ems2.domain.Cafe;
 import bitcamp.java89.ems2.domain.CustomCard;
 import bitcamp.java89.ems2.domain.Stamp;
 
@@ -57,4 +58,6 @@ public interface CustomCardDao {
   
   List<CustomCard> cafeNoNameList(int customMemberNo) throws Exception;
   List<CustomCard> customerNoNameList(int customMemberNo) throws Exception;
+  
+  List<Cafe> getCafeMapList(String searchKeyword) throws Exception;
 }

@@ -1,7 +1,5 @@
 package bitcamp.java89.ems2.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,11 +50,6 @@ public class CafeImpl implements CafeService {
       menuDao.insert(menu);
     }
     
-  }
-
-  @Override
-  public List<Cafe> getCafeMapList() throws Exception {
-    return cafeDao.getCafeMapList();
   }
 }
 
