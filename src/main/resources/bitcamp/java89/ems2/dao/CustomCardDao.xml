@@ -559,6 +559,7 @@ where
   
   <select id='getCafeMapList' parameterType='string' resultMap='customCard-map'>
     select
+      cafe.cmno,
       cafe.cftel,
       cafe.cname,
       cafe.intro,
@@ -615,7 +616,10 @@ where
     mcard.mcno,
     (select count(eno) from event where event.eday>=curDate() and event.cmno=cafe.cmno) as eventCount,
     (select count(*) from likes where likes.cmno=cafe.cmno) as likesCount,
-    (select sum(stamp.many) from stamp where stamp.mcno=mcard.mcno) as currentStampCount
+    (select sum(stamp.many) 
+      from stamp
+        left outer join mcard on mcard.mcno=stamp.mcno
+      where mcard.mno=#{customMemberNo} and scinfo.scno=mcard.scno) as currentStampCount
   from cafe
     left outer join tag on tag.cmno=cafe.cmno
     left outer join scinfo on scinfo.cmno=cafe.cmno

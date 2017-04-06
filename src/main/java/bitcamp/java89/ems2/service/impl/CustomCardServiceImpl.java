@@ -691,10 +691,6 @@ public class CustomCardServiceImpl implements CustomCardService {
         paramMap.put("orderBy", "cafe.cname");
         paramMap.put("ascORdesc", "asc");
         break;
-      case "가까운순":
-        paramMap.put("orderBy", "cafe.cname"); ////// 지도 적용 후 값 바꿔주세요...
-        paramMap.put("ascORdesc", "asc");
-        break; 
       case "내도장순":
         paramMap.put("orderBy", "currentStampCount");
         paramMap.put("ascORdesc", "desc");
