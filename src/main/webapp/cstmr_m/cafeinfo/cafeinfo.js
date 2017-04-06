@@ -24,7 +24,9 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			 customMemberNo: userNo}, 
 	function(ajaxResult) {
 		cafe = ajaxResult.data.cafe;
+		
 		showMap();
+		
 		$('.cafeLogo img').attr('src', '../../upload/'+cafe.logPath);
 		$('.cafeName').text(cafe.cafeName);
 		$('.txt').text(cafe.intro);
@@ -490,42 +492,44 @@ var showMap = function() {
 	var infowindow;
 	var loginMember;
 	var filename;
-	var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	var labelIndex = 0;
 
 	var address;
 	var cafeList;
 	
 	console.log(cafe);
 	address = cafe.address;
-	initMaker();
-	
-	function initMaker() {
-		$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg', function(ajaxResult2) {
-			console.log(ajaxResult2);
-			
-			var lat = parseFloat(ajaxResult2.results[0].geometry.location.lat);
-			var lng = parseFloat(ajaxResult2.results[0].geometry.location.lng);
-			var currentLatLng = {lat: lat, lng: lng};
-			
-			initMap();
-			
-			var infowindow = new google.maps.InfoWindow();
-			
-			var marker = new google.maps.Marker({
-				position: currentLatLng,
-				map: map,
-				title: 'Hello World!',
-				label: labels[labelIndex++ % labels.length]
-			});
-			
-			function initMap() {
-				map = new google.maps.Map(document.getElementById('map'), {
-					center: {lat: lat, lng: lng},
-					zoom: 16
-				});
-			}
-		});
-	}
-
+	initMaker(address);
 }
+
+
+function initMaker(address) {
+	$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg', function(ajaxResult2) {
+		console.log(ajaxResult2);
+		
+		var lat = parseFloat(ajaxResult2.results[0].geometry.location.lat);
+		var lng = parseFloat(ajaxResult2.results[0].geometry.location.lng);
+		var currentLatLng = {lat: lat, lng: lng};
+		
+		initMap(lat, lng);
+		
+		var infowindow = new google.maps.InfoWindow();
+		
+		var marker = new google.maps.Marker({
+			position: currentLatLng,
+			map: map
+		});
+		
+		$('#way-btn').click(function(event) {
+			window.open("http://map.daum.net/link/to/" + cafe.cafeName + "," + lat + "," + lng, "", "");
+		});
+		console.log(lat, lng);
+	});
+}
+
+function initMap(lat, lng) {
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: lat, lng: lng},
+		zoom: 16
+	});
+}
+
