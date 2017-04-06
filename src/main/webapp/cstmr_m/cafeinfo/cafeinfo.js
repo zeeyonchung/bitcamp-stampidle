@@ -3,6 +3,7 @@ var cafeMembNo = location.href.split('?')[1].split('=')[1];
 var userNo = 0;
 var userName;
 var userTel;
+var cafe;
 
 $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	if (ajaxResult.status != "success") {
@@ -22,8 +23,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			{cafeMemberNo: cafeMembNo,
 			 customMemberNo: userNo}, 
 	function(ajaxResult) {
-		var cafe = ajaxResult.data.cafe;
-		console.log(cafe);
+		cafe = ajaxResult.data.cafe;
+		showMap();
 		$('.cafeLogo img').attr('src', '../../upload/'+cafe.logPath);
 		$('.cafeName').text(cafe.cafeName);
 		$('.txt').text(cafe.intro);
@@ -94,7 +95,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 				{'customMemberNo': userNo,
 				 'cafeMemberNo': cafeMembNo},
 			function(ajaxResult) {
-					 console.log(ajaxResult)
 				if (ajaxResult.data) {
 					$('.stmp-circle').css('display', 'block');
 					$('.stmp-circle .stampCount').text(ajaxResult.data.stampCount);
@@ -123,6 +123,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	});
 	
 	$('.btn-message').attr('data-no', cafeMembNo);
+	
 	// 1페이지 끝
 	
 	// 2페이지 시작
@@ -473,3 +474,58 @@ $('.btn-send').click(function(event) {
         getMsgSent();
     }, 'json');
 });
+
+
+
+
+
+
+
+
+
+/*************************** 지도 ****************************/
+
+var showMap = function() {
+	var map;
+	var infowindow;
+	var loginMember;
+	var filename;
+	var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	var labelIndex = 0;
+
+	var address;
+	var cafeList;
+	
+	console.log(cafe);
+	address = cafe.address;
+	initMaker();
+	
+	function initMaker() {
+		$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg', function(ajaxResult2) {
+			console.log(ajaxResult2);
+			
+			var lat = parseFloat(ajaxResult2.results[0].geometry.location.lat);
+			var lng = parseFloat(ajaxResult2.results[0].geometry.location.lng);
+			var currentLatLng = {lat: lat, lng: lng};
+			
+			initMap();
+			
+			var infowindow = new google.maps.InfoWindow();
+			
+			var marker = new google.maps.Marker({
+				position: currentLatLng,
+				map: map,
+				title: 'Hello World!',
+				label: labels[labelIndex++ % labels.length]
+			});
+			
+			function initMap() {
+				map = new google.maps.Map(document.getElementById('map'), {
+					center: {lat: lat, lng: lng},
+					zoom: 16
+				});
+			}
+		});
+	}
+
+}
