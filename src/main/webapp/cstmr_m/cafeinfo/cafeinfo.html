@@ -204,8 +204,9 @@ function swipeSection(no) {
   
   
   if (!document.getElementById('tab_swipe')) return false;
-    var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
-    var elem = document.getElementById('swipe');
+  
+  var mnTab = document.getElementById('tab_swipe').getElementsByTagName('li');
+  var elem = document.getElementById('swipe');
   window.areaSwipe = Swipe(elem, {
         startSlide: no,
         continuous: true,

@@ -112,7 +112,7 @@ function loadSwipe(startSlide) {
         }
     });
     
-    $('#swipe .swWrap').css('height', $(".section[data-index='0']").outerHeight(true) + 40);
+    $('#swipe .swWrap').css('height', $(".section[data-index='" + startSlide + "']").outerHeight(true) + 40);
     
 }
 

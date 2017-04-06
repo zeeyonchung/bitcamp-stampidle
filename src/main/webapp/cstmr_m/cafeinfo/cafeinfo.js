@@ -123,7 +123,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	});
 	
 	$('.btn-message').attr('data-no', cafeMembNo);
-	console.log(cafeMembNo);
 	// 1페이지 끝
 	
 	// 2페이지 시작

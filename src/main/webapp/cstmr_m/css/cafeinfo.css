@@ -503,6 +503,7 @@
 }
 
 .comment_form input {
+  width: 70%;
   border: 1px solid #d3d3d3;
   padding: 8px 7px 7px 7px;
   font-size: 1.1em;
@@ -871,10 +872,12 @@
 
 
 .share {
-	height: 50px;
-	padding: 20px;
+    text-align: center;
+    height: 50px;
+    border-top: 3px solid #e2e2e2;
+    margin-top: 7px;
+    padding-top: 7px;
 }
 
 .fb-share-button {
-	margin-left: 40%;
 }
