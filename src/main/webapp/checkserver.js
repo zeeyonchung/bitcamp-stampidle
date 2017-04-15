@@ -150,15 +150,60 @@ app.get('/bitcamp_stampidle/cstmr_m/auth/checkEmail.do', function(req, resp){
 });
 
 
+app.get('/bitcamp-stampidle/admin/auth/sendverify.do', function(req, resp){
+	resp.writeHead(200, {
+		'Content-Type': 'text/html;charset=UTF-8',
+		'Access-Control-Allow-Origin': '*'
+	});
+	
+	generateCode(req.query.tel);
+	
+	connection.query(
+	  'insert into veri(verify, tel) values(?, ?)', [code, req.query.tel],
+	  function(err, rows, fields) { // 서버에서 결과를 받았을 때 호출되는 함수
+		if (err) {
+			console.log(err);
+			resp.end('서버 실행중 오류 발생!');
+			return;
+		}
+		
+		//GET
+		var request = require('request');
+		// 헤더 부분
+		var headers = {
+		    'User-Agent':       'Super Agent/0.0.1',
+		    'Content-Type':     'application/x-www-form-urlencoded'
+		}
+		// 요청 세부 내용
+		var options = {
+		    url: 'http://b.bitcamp.com:8080/bitcamp-stampidle/admin/verifyCodeSms.json',
+		    method: 'GET',
+		    headers: headers,
+		    qs: {'tel': req.query.tel, 'text': code}
+		}
+		// 요청 시작 받은값은 body
+		request(options, function (error, response, body) {
+		    if (!error && response.statusCode == 200) {
+		    	console.log("1")
+		    	resp.end(JSON.stringify('success'));
+		    }
+		    console.log("2")
+		})
+		
+		
+	  }
+	);
+});
+
 app.listen(8888, function() {
 	console.log('노드 서버 실행중...');
 });
 
 
 
+var code = "";
 
-
-
-
-
-
+function generateCode(tel) {
+	code += Math.floor(Math.random() * 10000) + 1;
+	code += tel.substr(tel.length - 5, 3);
+}

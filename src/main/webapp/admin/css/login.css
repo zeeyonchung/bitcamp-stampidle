@@ -88,13 +88,13 @@
 }
 
 
-.forgot .id {
+.forgot .find-id-btn {
   display: inline-block;
   float: left;
   color: white;
 }
 
-.forgot .password {
+.forgot .find-pwd-btn {
   display: inline-block;
   float: right;
   color: white;

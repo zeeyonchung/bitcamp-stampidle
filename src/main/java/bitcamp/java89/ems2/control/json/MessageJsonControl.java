@@ -50,32 +50,41 @@ public class MessageJsonControl {
 
 @RequestMapping("/cstmr_m/sms")
  public AjaxResult sms(String customTel, String text) throws Exception {
-	 System.out.println(customTel + " " + text + "-----------------------------");
-	 
-	 net.nurigo.java_sdk.api.Message coolsms = new net.nurigo.java_sdk.api.Message("NCS58D4D67BACF13", "C6AA1000E7622662A47428356D6B86EC");
-  
-	 HashMap<String, String> params = new HashMap<String, String>();
-	 params.put("to", customTel);
+   net.nurigo.java_sdk.api.Message coolsms = new net.nurigo.java_sdk.api.Message("NCS58D4D67BACF13", "C6AA1000E7622662A47428356D6B86EC");
+   HashMap<String, String> params = new HashMap<String, String>();
+   params.put("to", customTel);
    params.put("from", "01032380192");
    params.put("type", "SMS");
    params.put("text", "[stampidle 선물] " + text);
    params.put("app_version", "test app 1.2");
 
-   //params 키, 값 목록확인
-   for (Map.Entry<String, String> entry : params.entrySet()) {
-     System.out.println(entry.getKey() + ", " + entry.getValue());
-   }
-   
    try {
      JSONObject obj = (JSONObject)coolsms.send(params);
-     System.out.println(obj.toString());
      return new AjaxResult(AjaxResult.SUCCESS, obj);
    } catch (CoolsmsException e) {
-     System.out.println(e.getMessage() + "getMessage");
-     System.out.println(e.getCode() + "getCode");
      return new AjaxResult(AjaxResult.FAIL, e.getMessage());
    }
  }
+
+
+
+@RequestMapping("/admin/verifyCodeSms")
+public AjaxResult verifyCodeSms(String tel, String text) throws Exception {
+  net.nurigo.java_sdk.api.Message coolsms = new net.nurigo.java_sdk.api.Message("NCS58D4D67BACF13", "C6AA1000E7622662A47428356D6B86EC");
+  HashMap<String, String> params = new HashMap<String, String>();
+  params.put("to", tel);
+  params.put("from", "01032380192");
+  params.put("type", "SMS");
+  params.put("text", "[stampidle] 인증번호는 " + text +" 입니다. 정확히 입력해주세요.");
+  params.put("app_version", "test app 1.2");
+
+  try {
+    JSONObject obj = (JSONObject)coolsms.send(params);
+    return new AjaxResult(AjaxResult.SUCCESS, obj);
+  } catch (CoolsmsException e) {
+    return new AjaxResult(AjaxResult.FAIL, e.getMessage());
+  }
+}
  
  
 }

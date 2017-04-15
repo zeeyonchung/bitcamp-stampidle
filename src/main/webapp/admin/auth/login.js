@@ -113,3 +113,16 @@ $('#add-btn').click(function(event) {
 
 
 
+$('.verify-code .send-btn').click(function(event) {
+	event.preventDefault();
+	console.log('1')
+	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/sendverify.do?tel=' + $('#tel-input').val(),
+		function(result) {
+//			if (result == 'success') {
+//				$(this).val('');
+//			} else {
+//			}
+		console.log('2', result)
+			$('.send-btn').text('인증번호가 발송되었습니다.');
+	})
+})
