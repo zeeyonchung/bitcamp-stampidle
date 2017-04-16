@@ -57,7 +57,7 @@
 					<input id="tel-input" type="text" class="form-control" placeholder="'-'를 제외한 핸드폰번호">
 					<button type="button" class="send-btn">인증번호 발송</button>
 					<div class="left-time">2:58</div>
-					<input type="text" class="form-control">
+					<input id="code-input" type="text" class="form-control" placeholder="인증번호 입력">
 					<button type="button" class="ok-btn">인증번호 확인</button>
 				</div>
 
@@ -196,12 +196,6 @@
       $('.verify-code').css('display', 'none');
     });
     
-    $('.verify-code .ok-btn').click(function(event) {
-      event.preventDefault();
-      $('.verify-code').css('display', 'none');
-      $('.find-password').css('display', 'none');
-      $('.find-id').css('display', 'block');
-    });
     $('.find-id .login-btn').click(function(event) {
       event.preventDefault();
       $('.loginPop').fadeOut(200);

@@ -44,7 +44,7 @@ $('#id').val(getCookie('id').replace(/"/g, ''));
 
 
 
-/*** 존재 여부 확인 ***/
+/*********** 존재 여부 확인 **********/
 // 아이디 확인
 $('.register #id3').keyup(function() {
 	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/admin/auth/checkId.do?id=' + $(this).val(),
@@ -113,16 +113,47 @@ $('#add-btn').click(function(event) {
 
 
 
+/***** 인증번호 ******/
 $('.verify-code .send-btn').click(function(event) {
 	event.preventDefault();
-	console.log('1')
+	$('.send-btn').attr('disabled',true);
 	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/sendverify.do?tel=' + $('#tel-input').val(),
 		function(result) {
-//			if (result == 'success') {
-//				$(this).val('');
-//			} else {
-//			}
-		console.log('2', result)
 			$('.send-btn').text('인증번호가 발송되었습니다.');
 	})
-})
+});
+
+
+$('.verify-code .ok-btn').click(function(event) {
+	event.preventDefault();
+	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/checkverify.do?tel=' + $('#tel-input').val(),
+		function(result) {
+			if (result == $('#code-input').val()) {
+				/** 디비의 인증번호 삭제 **/
+				$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/deleteverify.do?tel=' + $('#tel-input').val(),
+					function(result) {
+				});
+				
+				swal (
+					{title: "인증 성공!",
+					closeOnConfirm: true,
+					type: "success"},
+					function(isConfirm) {
+						$('.verify-code').css('display', 'none');
+						$('.find-password').css('display', 'none');
+						$('.find-id').css('display', 'block');
+						return;
+					}
+				);
+			} else {
+				swal (
+						{title: "인증 실패",
+						closeOnConfirm: true,
+						type: "error"},
+						function(isConfirm) {
+							return;
+						}
+				);
+			}
+	})
+});

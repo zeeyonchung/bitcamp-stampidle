@@ -150,12 +150,17 @@ app.get('/bitcamp_stampidle/cstmr_m/auth/checkEmail.do', function(req, resp){
 });
 
 
+
+
+
+/***** 인증번호 보내기 *****/
 app.get('/bitcamp-stampidle/admin/auth/sendverify.do', function(req, resp){
 	resp.writeHead(200, {
 		'Content-Type': 'text/html;charset=UTF-8',
 		'Access-Control-Allow-Origin': '*'
 	});
 	
+	code = "";
 	generateCode(req.query.tel);
 	
 	connection.query(
@@ -184,16 +189,51 @@ app.get('/bitcamp-stampidle/admin/auth/sendverify.do', function(req, resp){
 		// 요청 시작 받은값은 body
 		request(options, function (error, response, body) {
 		    if (!error && response.statusCode == 200) {
-		    	console.log("1")
 		    	resp.end(JSON.stringify('success'));
 		    }
-		    console.log("2")
 		})
-		
-		
-	  }
-	);
+	  });
 });
+
+/** 인증번호 확인 **/
+app.get('/bitcamp-stampidle/admin/auth/checkverify.do', function(req, resp){
+	resp.writeHead(200, {
+		'Content-Type': 'text/html;charset=UTF-8',
+		'Access-Control-Allow-Origin': '*'
+	});
+	
+	connection.query(
+	  'select verify from veri where tel=?', [req.query.tel],
+	  function(err, rows, fields) { // 서버에서 결과를 받았을 때 호출되는 함수
+		if (err) {
+			console.log(err);
+			resp.end('서버 실행중 오류 발생!');
+			return;
+		}
+		resp.end(JSON.stringify(rows[0].verify));
+	});
+});
+
+/** 인증번호 삭제 **/
+app.get('/bitcamp-stampidle/admin/auth/deleteverify.do', function(req, resp){
+	resp.writeHead(200, {
+		'Content-Type': 'text/html;charset=UTF-8',
+		'Access-Control-Allow-Origin': '*'
+	});
+	
+	connection.query(
+	  'delete from veri where tel=?', [req.query.tel],
+	  function(err, rows, fields) { // 서버에서 결과를 받았을 때 호출되는 함수
+		if (err) {
+			console.log(err);
+			resp.end('서버 실행중 오류 발생!');
+			return;
+		}
+		resp.end();
+	});
+});
+
+
 
 app.listen(8888, function() {
 	console.log('노드 서버 실행중...');
@@ -204,6 +244,6 @@ app.listen(8888, function() {
 var code = "";
 
 function generateCode(tel) {
-	code += Math.floor(Math.random() * 10000) + 1;
+	code += Math.floor(Math.random() * 100);
 	code += tel.substr(tel.length - 5, 3);
 }
