@@ -160,6 +160,22 @@ app.get('/bitcamp-stampidle/admin/auth/sendverify.do', function(req, resp){
 		'Access-Control-Allow-Origin': '*'
 	});
 	
+	/* 해당 번호의 회원이 있는지 확인 */
+	connection.query(
+	  'select count(*) as count from cmemb where ctel=?', [req.query.tel],
+	  function(err, rows, fields) {
+		if (err) {
+			console.log(err);
+			resp.end('서버 실행중 오류 발생!');
+			return;
+		}
+		
+		if (rows[0].count == 0) {
+			resp.end(JSON.stringify('no-match'));
+		}
+	});
+	
+	/* 인증번호 발급 */
 	code = "";
 	generateCode(req.query.tel);
 	
@@ -172,6 +188,7 @@ app.get('/bitcamp-stampidle/admin/auth/sendverify.do', function(req, resp){
 			return;
 		}
 		
+		/* sms 전송 */
 		//GET
 		var request = require('request');
 		// 헤더 부분
@@ -223,14 +240,25 @@ app.get('/bitcamp-stampidle/admin/auth/deleteverify.do', function(req, resp){
 	
 	connection.query(
 	  'delete from veri where tel=?', [req.query.tel],
-	  function(err, rows, fields) { // 서버에서 결과를 받았을 때 호출되는 함수
+	  function(err, rows, fields) {
 		if (err) {
 			console.log(err);
 			resp.end('서버 실행중 오류 발생!');
 			return;
 		}
-		resp.end();
 	});
+	
+	connection.query(
+	  'select id from cmemb where ctel=?', [req.query.tel],
+	  function(err, rows, fields) {
+		if (err) {
+			console.log(err);
+			resp.end('서버 실행중 오류 발생!');
+			return;
+		}
+		resp.end(JSON.stringify(rows[0].id));
+	});
+	
 });
 
 
