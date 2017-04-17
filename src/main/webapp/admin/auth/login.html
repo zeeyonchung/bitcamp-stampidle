@@ -39,7 +39,7 @@
 			</div>
 			<button type="button" class="login-btn login-btn2">Login</button>
 			<div class="forgot">
-				<a class="find-id-btn">아이디 찾기</a> <span>/</span> <a class="find-pwd-btn">비밀번호 찾기</a>
+				<a class="find-id-btn" href="#id">아이디 찾기</a> <span>/</span> <a class="find-pwd-btn" href="#pwd">비밀번호 찾기</a>
 			</div>
 			<button type="button" class="register-btn">회원가입</button>
 
@@ -177,17 +177,16 @@
     });
     
     $('.forgot .find-id-btn').click(function(event) {
-      event.preventDefault();
       $('.register').css('display', 'none');
       $('.loginPop').fadeIn(200);
       $('.verify-code').css('display', 'block');
     });
     
     $('.forgot .find-pwd-btn').click(function(event) {
-      event.preventDefault();
       $('.register').css('display', 'none');
       $('.loginPop').fadeIn(200);
-      $('.find-password').css('display', 'block');
+      $('.verify-code').css('display', 'block');
+      //$('.find-password').css('display', 'block');
     });
     
     $('.verify-code .close').click(function(event) {
@@ -202,12 +201,6 @@
       $('.find-id').css('display', 'none');
     });
     
-    $('.find-password .login-btn').click(function(event) {
-      event.preventDefault();
-      $('.loginPop').fadeOut(200);
-      $('.find-password').css('display', 'none');
-    });
-   
   });
 </script>
 

@@ -189,7 +189,7 @@ app.get('/bitcamp-stampidle/admin/auth/sendverify.do', function(req, resp){
 		}
 		
 		/* sms 전송 */
-		//GET
+/*		//GET
 		var request = require('request');
 		// 헤더 부분
 		var headers = {
@@ -208,9 +208,10 @@ app.get('/bitcamp-stampidle/admin/auth/sendverify.do', function(req, resp){
 		    if (!error && response.statusCode == 200) {
 		    	resp.end(JSON.stringify('success'));
 		    }
-		})
+		})			*/resp.end(JSON.stringify('success'));// 문자 보내기 활성 시 위 주석을 해제하고 이 코드 삭제
 	  });
 });
+
 
 /** 인증번호 확인 **/
 app.get('/bitcamp-stampidle/admin/auth/checkverify.do', function(req, resp){
@@ -227,9 +228,10 @@ app.get('/bitcamp-stampidle/admin/auth/checkverify.do', function(req, resp){
 			resp.end('서버 실행중 오류 발생!');
 			return;
 		}
-		resp.end(JSON.stringify(rows[0].verify));
+		resp.end(JSON.stringify(rows[rows.length - 1].verify));
 	});
 });
+
 
 /** 인증번호 삭제 **/
 app.get('/bitcamp-stampidle/admin/auth/deleteverify.do', function(req, resp){
@@ -262,6 +264,25 @@ app.get('/bitcamp-stampidle/admin/auth/deleteverify.do', function(req, resp){
 });
 
 
+/** 비밀번호 변경 **/
+app.get('/bitcamp-stampidle/admin/auth/newPassword.do', function(req, resp){
+	resp.writeHead(200, {
+		'Content-Type': 'text/html;charset=UTF-8',
+		'Access-Control-Allow-Origin': '*'
+	});
+	connection.query(
+	  'update cmemb set pwd=password(?) where ctel=?', [req.query.pwd, req.query.tel],
+	  function(err, rows, fields) { // 서버에서 결과를 받았을 때 호출되는 함수
+		  if (err) {
+			  console.log(err);
+			  resp.end('서버 실행중 오류 발생!');
+			  return;
+		  }
+		  resp.end(JSON.stringify('success'));
+	  });
+});
+
+
 
 app.listen(8888, function() {
 	console.log('노드 서버 실행중...');
@@ -272,6 +293,6 @@ app.listen(8888, function() {
 var code = "";
 
 function generateCode(tel) {
-	code += Math.floor(Math.random() * 100);
-	code += tel.substr(tel.length - 5, 3);
+	code += Math.floor(Math.random() * 1000);
+	code += tel.substr(tel.length - 5, 2);
 }

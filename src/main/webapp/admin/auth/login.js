@@ -113,10 +113,15 @@ $('#add-btn').click(function(event) {
 
 
 
+
+
+
 /*********** 인증번호 ***********/
 $('.verify-code .send-btn').click(function(event) {
 	event.preventDefault();
-	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/sendverify.do?tel=' + $('#tel-input').val(),
+	tel = $('#tel-input').val();
+	
+	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/sendverify.do?tel=' + tel,
 		function(result) {
 			if (result == 'no-match') {
 				swal (
@@ -138,24 +143,28 @@ $('.verify-code .send-btn').click(function(event) {
 
 $('.verify-code .ok-btn').click(function(event) {
 	event.preventDefault();
-	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/checkverify.do?tel=' + $('#tel-input').val(),
+	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/checkverify.do?tel=' + tel,
 		function(result) {
 			if (result == $('#code-input').val()) {
-				/** 디비의 인증번호 삭제 및 아이디 구해오기**/
-				$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/deleteverify.do?tel=' + $('#tel-input').val(),
+				/** 디비의 인증번호 삭제 및 정보 구해오기**/
+				$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/deleteverify.do?tel=' + tel,
 					function(result) {
 						swal (
 							{title: "인증 성공!",
 							closeOnConfirm: true,
 							type: "success"},
 							function(isConfirm) {
-								$('#your-id').text(result);
-								$('.verify-code').css('display', 'none');
-								$('.find-password').css('display', 'none');
-								$('.find-id').css('display', 'block');
-								return;
-							}
-						);
+								var url = document.location.href.split("#")[1];
+								if (url == "id") {
+									$('#your-id').text(result);
+									$('.verify-code').css('display', 'none');
+									$('.find-id').css('display', 'block');
+									return;
+								} else if (url == "pwd") {
+									$('.verify-code').css('display', 'none');
+									$('.find-password').css('display', 'block');
+								}
+						});
 				});
 				
 			} else {
@@ -191,3 +200,35 @@ function makeTimer(time) {
 		}
 	}, 1000);
 }
+
+
+
+$('.find-password .login-btn').click(function(event) {
+	event.preventDefault();
+	
+	var newPassword = $('.find-password input:nth-of-type(1)').val();
+	if (newPassword != $('.find-password input:nth-of-type(2)').val()) {
+		swal (
+			{title: "비밀번호가 일치하지 않습니다.",
+			closeOnConfirm: true,
+			type: "error"},
+			function(isConfirm) {
+				return;
+			}
+		);
+	}
+	
+	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/newPassword.do?pwd=' + newPassword + "&tel=" + tel,
+		function(result) {
+			swal (
+				{title: "비밀번호가 변경되었습니다.",
+				closeOnConfirm: true,
+				type: "success"},
+				function(isConfirm) {
+					$('.loginPop').fadeOut(200);
+					$('.find-password').css('display', 'none');
+					return;
+				}
+			);
+	});
+});
