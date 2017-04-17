@@ -265,13 +265,13 @@ app.get('/bitcamp-stampidle/admin/auth/deleteverify.do', function(req, resp){
 
 
 /** 비밀번호 변경 **/
-app.get('/bitcamp-stampidle/admin/auth/newPassword.do', function(req, resp){
+app.post('/bitcamp-stampidle/admin/auth/newPassword.do', function(req, resp){
 	resp.writeHead(200, {
 		'Content-Type': 'text/html;charset=UTF-8',
 		'Access-Control-Allow-Origin': '*'
 	});
 	connection.query(
-	  'update cmemb set pwd=password(?) where ctel=?', [req.query.pwd, req.query.tel],
+	  'update cmemb set pwd=password(?) where ctel=?', [req.body.pwd, req.body.tel],
 	  function(err, rows, fields) { // 서버에서 결과를 받았을 때 호출되는 함수
 		  if (err) {
 			  console.log(err);

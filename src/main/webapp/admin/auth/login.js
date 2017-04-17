@@ -218,7 +218,8 @@ $('.find-password .login-btn').click(function(event) {
 		);
 	}
 	
-	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/newPassword.do?pwd=' + newPassword + "&tel=" + tel,
+	$.post('http://b.bitcamp.com:8888/bitcamp-stampidle/admin/auth/newPassword.do',
+		{pwd: newPassword, tel: tel},
 		function(result) {
 			swal (
 				{title: "비밀번호가 변경되었습니다.",
@@ -230,5 +231,5 @@ $('.find-password .login-btn').click(function(event) {
 					return;
 				}
 			);
-	});
+	}, "JSON");
 });
