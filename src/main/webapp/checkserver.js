@@ -189,7 +189,7 @@ app.get('/bitcamp-stampidle/admin/auth/sendverify.do', function(req, resp){
 		}
 		
 		/* sms 전송 */
-/*		//GET
+		//GET
 		var request = require('request');
 		// 헤더 부분
 		var headers = {
@@ -208,7 +208,7 @@ app.get('/bitcamp-stampidle/admin/auth/sendverify.do', function(req, resp){
 		    if (!error && response.statusCode == 200) {
 		    	resp.end(JSON.stringify('success'));
 		    }
-		})			*/resp.end(JSON.stringify('success'));// 문자 보내기 활성 시 위 주석을 해제하고 이 코드 삭제
+		})
 	  });
 });
 
