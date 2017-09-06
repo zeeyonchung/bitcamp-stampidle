@@ -26,12 +26,11 @@
 .cardArea {
 	float:left;
 	margin-right:3%;
-	width:30%;
 	max-width:120px;
 }
 
 .cardArea img {
-   width:100%;
+   width:80px;
    height:80px;
    max-height:70px;
    border-radius:5px;
@@ -109,7 +108,7 @@
 
 .stampNum {
 	position:absolute;
-	top:7px;
+	top:20px;
 	right:0;
     color:#666;
     font-size:1em!important;

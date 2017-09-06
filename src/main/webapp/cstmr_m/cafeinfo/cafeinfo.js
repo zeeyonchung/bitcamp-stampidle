@@ -111,7 +111,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 		$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json?cafeMemberNo=' + cafeMembNo, function(ajaxResult) {
 			var cardInfo = ajaxResult.data;
 			$.each(cardInfo, function(i) {
-				$('.stmpcard').attr('src', '../'+cardInfo[i].backImgPath);
+				$('.stmpcard').attr('src', '../../upload/'+cardInfo[i].backImgPath);
 				$('.stmpcard2').attr('src', '../../upload/' +cardInfo[i].frontImgPath);
 			});
 			if (cardInfo[0].service != "") {

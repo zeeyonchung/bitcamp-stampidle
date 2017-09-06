@@ -81,7 +81,6 @@
 
 .forgot {
   margin: auto;
-  width: 140px;
   font-size: 0.75em;
   margin-top: 5px;
   color: white;
@@ -90,13 +89,11 @@
 
 .forgot .find-id-btn {
   display: inline-block;
-  float: left;
   color: white;
 }
 
 .forgot .find-pwd-btn {
   display: inline-block;
-  float: right;
   color: white;
 }
 
