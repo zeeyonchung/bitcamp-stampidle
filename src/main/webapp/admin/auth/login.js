@@ -15,14 +15,14 @@ $('.login-btn2').click(function() {
 	$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 		console.log(ajaxResult);
 		if (ajaxResult.status == "success") {
-			swal({
-				  title: param.id + "님 환영합니다.",
-				  closeOnConfirm: true,
-				  imageUrl:"../../image/pabi.png"
-				},
-				function(isConfirm) {
+//			swal({
+//				  title: param.id + "님 환영합니다.",
+//				  closeOnConfirm: true,
+//				  imageUrl:"../../image/pabi.png"
+//				},
+//				function(isConfirm) {
 					location.href = "../main/main.html";
-				});
+//				});
 			} else {
 		
 		swal({
@@ -97,7 +97,6 @@ $('#add-btn').click(function(event) {
 			password: $('#password3').val()
 	};
 	console.log(param);
-	
 	
 	$.post(serverRoot + '/cafeMember/add.json', param, function(ajaxResult) {
 		if (ajaxResult.status != "success") {

@@ -79,7 +79,7 @@ function reLogin(name, tel) {
 //전화번호 확인
 $('input.tel').keyup(function() {
 	var value = $(this).val();
-	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/cstmr_m/auth/checkTel.do?tel=' + value,
+	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/cstmr_m/auth/checkTel.do?tel=' + value,
 		function(result) {
 			if (result != 0 && value != userTel) {
 				$('<span class="warn" style="position:absolute; top: 10px; right:20px; color:#ff5948">X</span>').appendTo($('input.tel').parent('.input-are li'));
@@ -94,7 +94,7 @@ $('input.tel').keyup(function() {
 //이메일 확인
 $('input.email').keyup(function() {
 	var value = $(this).val();
-	$.getJSON('http://b.bitcamp.com:8888/bitcamp_stampidle/cstmr_m/auth/checkEmail.do?email=' + value,
+	$.getJSON('http://b.bitcamp.com:8888/bitcamp-stampidle/cstmr_m/auth/checkEmail.do?email=' + value,
 		function(result) {
 			if (result != 0 && value != mail) {
 				$('<span class="warn" style="position:absolute; top: 10px; right:20px; color:#ff5948">X</span>').appendTo($('input.email').parent('.input-are li'));

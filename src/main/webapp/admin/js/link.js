@@ -62,18 +62,6 @@ $('#use-btn-list').click(function(e) {
 
 
 
-
-//eventupdate page link ****************************
-$('#cancle-btn2').click(function(e) {
-	e.preventDefault();
-    location.href = clientRoot + '/event/eventdetail.html'
-});
-
-$('.event-regi-btn').click(function(e) {
-	e.preventDefault();
-    location.href = clientRoot + '/event/main.html'
-});
-
 // statistics page link *****************************
 $('.statistics-one').click(function(e) {
     location.href = clientRoot + '/manage/statistics.html'

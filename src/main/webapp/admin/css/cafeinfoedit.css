@@ -500,8 +500,10 @@ ul a {
     margin-bottom:7px;
 }
 
-.inputArea .imgbox img {
+.inputArea .imgbox#upfile1 img {
     background:#fff;
+    width: 150px;
+    height: 150px;
 }
 .cafe-photo .inputArea .imgbox {
     width:220px;

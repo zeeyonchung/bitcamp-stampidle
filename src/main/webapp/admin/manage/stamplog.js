@@ -142,6 +142,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 	$("#search-log-btn").click(function(){
 		searchKeyword = $('.input-name').val();
+		searchDate = $('#date-custom').val();
 		if (searchCondition == '') {
 			swal({
 				title: "검색 조건을 설정하세요",

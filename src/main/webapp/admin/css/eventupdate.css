@@ -6,14 +6,25 @@ hr {
   border:1px solid #dedede;
 }
 .imgbox {
+  position: relative;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 30px;
   width: 900px;
   text-align:center;
   border:1px solid #dedede;
-  height:400px;
   background-color:#dedede;
+}
+
+.imgbox label {
+	width: 0;
+}
+
+.imgbox .btn-add {
+	position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 10;
 }
 
 .control-label {

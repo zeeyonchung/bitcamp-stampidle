@@ -353,7 +353,7 @@ function remove_item(obj){
 
 /* 로고 업로드 */
 $('#photo').fileupload({
-    url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
+    url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
     dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
     sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
     singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
@@ -385,7 +385,7 @@ $('#photo').fileupload({
 
 /* 매장사진 업로드 + 추가기능 */
 $('#cafe-photo').fileupload({
-    url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
+    url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
     dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
     sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
     singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
@@ -426,7 +426,7 @@ $('#cafe-photo').fileupload({
      $( "#field-cafeimg > div:last-child .cafephotoPath" ).attr("id", "cafe-photo-path" + $( "#field-cafeimg > div").length);
      
      $('#cafe-photo' + $( "#field-cafeimg > div").length).fileupload({
-    	    url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
+    	    url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
     	    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
     	    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
     	    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
@@ -463,7 +463,7 @@ function remove_cafeimg(obj){
 
 /* 메뉴 업로드 + 추가기능 */
 $('#menu-photo').fileupload({
-    url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
+    url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
     dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
     sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
     singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.
@@ -504,7 +504,7 @@ function add_menu(){
     $( "#field-menu > div:last-child .menuphotoPath" ).attr("id", "menu-photo-path" + $( "#field-menu > div").length);
     
     $('#menu-photo' + $( "#field-menu > div").length).fileupload({
-   	    url: 'http://b.bitcamp.com:8080/bitcamp_stampidle/common/fileupload.json', // 서버에 요청할 URL
+   	    url: serverRoot + '/../common/fileupload.json', // 서버에 요청할 URL
    	    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
    	    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
    	    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기. 기본은 true.

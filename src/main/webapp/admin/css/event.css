@@ -180,6 +180,10 @@
   vertical-align: text-top;
 }
 
+.event-content p {
+  width: 330px;
+}
+
 .event-box {
   display: inline-block;
   font-size: 10px;

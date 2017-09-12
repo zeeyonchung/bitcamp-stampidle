@@ -79,18 +79,15 @@
 	min-height: 90px;
 }
 #front-fileupload {
-	width: 69px;
   background: white;
   margin-left: 50px;
 }
 
 #back-fileupload {
-  width: 69px;
   background: white;
 }
  
 #fileupload {
-  width: 69px;
   background: white;
       margin: auto;
     margin-top: 10px;
@@ -154,6 +151,7 @@
 	margin-bottom: 2px;
 	background-color: white;
 	border-radius: 5px;
+	border: 1px solid #ccc;
 }
 
 
@@ -253,6 +251,7 @@
 	position: absolute;
 	right: 11px;
 	top: 55px;
+    right: -27px;
 }
 
 .info-size {

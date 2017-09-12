@@ -39,7 +39,7 @@
     select 
       e.eno,
       e.titl,
-      e.econts,
+      left(e.econts, 80) as econts,
       e.ebirth,
       e.epath,
       e.bpath,
@@ -99,7 +99,7 @@
     select 
       e.eno,
       e.titl,
-      e.econts,
+      left(e.econts, 80) as econts,
       e.ebirth,
       e.epath,
       e.bpath,
@@ -118,7 +118,7 @@
     select 
       e.eno,
       e.titl,
-      e.econts,
+      left(e.econts, 80) as econts,
       e.ebirth,
       e.epath,
       e.bpath,
@@ -137,7 +137,7 @@
     select 
       e.eno,
       e.titl,
-      e.econts,
+      left(e.econts, 80) as econts,
       e.ebirth,
       e.epath,
       e.bpath,
