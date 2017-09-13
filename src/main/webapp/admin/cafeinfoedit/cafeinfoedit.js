@@ -284,7 +284,6 @@ function prepareViewForm() {
 		}, 'json'); 
 		
 		
-		console.log(cafeMemberNo);
 		$.post(serverRoot + '/cafe/cafeAllDelete.json', {'cafeMemberNo' : cafeMemberNo}, function(ajaxResult) {
 			if (ajaxResult.status != "success") {
 				alert(ajaxResult.data);

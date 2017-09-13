@@ -57,7 +57,7 @@ function loadPage(){
 			$('.stmpside').css('height', height);
 	
 			/** imgbox 높이 조정 **/
-			$('#imgbox').css('height', height + 20);
+			$('#imgbox').css('height', height);
 			
 			
 			// positionOrder대로 재정렬

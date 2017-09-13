@@ -22,31 +22,31 @@
      
     <!-- con -->
     <div class='con'>
-        <span class="eventNo">총 이벤트 수 </span><span id="countEvent" class="eventNo"></span>
-        <span class="eventNo">개</span>
-      <div class='eventBn'>
-        <div class="btn-group two">
-           <button class="btn btn-default btn-sm dropdown-toggle"
-             type="button" data-toggle="dropdown" aria-haspopup="true"
-             aria-expanded="false">검색조건 <span class="caret"></span>
-           </button>
-           <ul class="dropdown-menu">
-             <li >가까운순</li>
-             <li>등록순</li>
-             <li>이름순</li>
-           </ul>
-         </div>
+    	<div class="top-wrapper">
+    		<div class="vertical-wrapper">
+		      <span class="eventNo">총 이벤트 수 </span><span id="countEvent" class="eventNo"></span>
+		      <span class="eventNo">개</span>
+		      <div class="btn-group">
+		        <button class="btn btn-default btn-sm dropdown-toggle"
+		          type="button" data-toggle="dropdown" aria-haspopup="true"
+		          aria-expanded="false">검색조건 <span class="caret"></span>
+		        </button>
+		        <ul class="dropdown-menu">
+		          <li >가까운순</li>
+		          <li>등록순</li>
+		          <li>이름순</li>
+		        </ul>
+	        </div>
+        </div>
       </div>
-      <hr>
       
       <div id="event-div"></div>
 
 
     </div>
     <!-- //con -->
-    <div id="footer"></div>
   </div>
-  <button id="top-btn" class="glyphicon glyphicon-chevron-up"></button>
+  <!-- <button id="top-btn" class="glyphicon glyphicon-chevron-up"></button> -->
 
  <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
@@ -55,10 +55,9 @@
     <img src=../../upload/{{eventBannerPhotoPath}} class="img-src" >
   </div>
   <div class="text-div">
-    <span class="title" >{{eventTitle}}</span><br>
-    <span class="store">{{cafeName}}</span><br>
-    <span class="blank"></span>
-    <span class="daterange">{{startDate}} ~ {{endDate}}</span><br>
+    <h4 class="title" >{{eventTitle}}</h4>
+    <span class="store">{{cafeName}}</span>
+    <span class="daterange">{{startDate}} ~ {{endDate}}</span>
   </div>
 </div>
 {{/each}}

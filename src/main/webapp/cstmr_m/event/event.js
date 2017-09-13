@@ -14,7 +14,8 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
     
     var searchCondition;
     
-    $(".eventBn .dropdown-menu li").click(function(){
+    $(".dropdown-menu li").click(function(){
+		event.stopPropagation();
 	  	$(".btn.dropdown-toggle:first-child").html($(this).text());
 	  	 i =1;
 	  	if ($(this).text() == "가까운순") {
@@ -24,8 +25,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	  	} else if ($(this).text() == "이름순") {
 	  		searchCondition = "titl"
 	  	}
-	  	
-	  	console.log(searchCondition);
+	  	$('.btn-group').removeClass('open');
 	  	loadPage(i);
 	  });
 
@@ -57,12 +57,14 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			
 			$('.one-event').click(function(event) {
 				event.preventDefault();
+				event.stopPropagation();
 				$.getJSON(serverRoot + '/event/updateView.json?eventNo=' + $(this).attr("data-no"));
 				
 				location.href = 'eventdetail.html?eventNo=' + $(this).attr("data-no");
 			});
 			
 			$(window).scroll(function(){
+				event.stopPropagation();
 				if($(window).scrollTop()+20 >= $(document).height() - $(window).height()) {loadPage(++i);}
 			});
 		});

@@ -40,7 +40,7 @@ h2 {
 	border: 1px solid #e4e4e4;
 	border-top: 0;
 	border-bottom: 0;
-	height: 100%;
+	/*height: 100%;*/
 }
 
 .profileArea {
@@ -130,7 +130,7 @@ h2 {
 #imgbox {
     outline: 1px solid #caa8a8;
 	width: 480px;
-	height: 275px!important;
+	height: 275px;
 }
 
 #card-back {

@@ -85,6 +85,7 @@
       event.econts,
       event.ebirth,
       event.epath,
+      event.bpath,
       event.eview,
       event.sday,
       event.eday,
