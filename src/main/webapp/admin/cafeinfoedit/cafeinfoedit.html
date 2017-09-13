@@ -91,7 +91,7 @@
             <div id="pre_set">
               <div class="select1">
 
-                <select class="form-control" id='day'>
+                <select class="form-control day">
                   <option>매일</option>
                   <option>평일</option>
                   <option>주말</option>
@@ -105,7 +105,7 @@
                 </select>
               </div>
               <div class="select1">
-                <select class="form-control" id='startTime1'>
+                <select class="form-control startTime1">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -122,7 +122,7 @@
               </div>
               :
               <div class="select2">
-                <select class="form-control" id='startTime2'>
+                <select class="form-control startTime2">
                   <option>00</option>
                   <option>10</option>
                   <option>20</option>
@@ -133,7 +133,7 @@
               </div>
               ~
               <div class="select2">
-                <select class="form-control" id='endTime1'>
+                <select class="form-control endTime1">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -150,7 +150,7 @@
               </div>
               :
               <div class="select2">
-                <select class="form-control" id='endTime2'>
+                <select class="form-control endTime2">
                   <option>00</option>
                   <option>10</option>
                   <option>20</option>
@@ -245,14 +245,14 @@
                     
                     <div id="cafeImg_set" class='inputArea'>
             <div class="imgbox">
-              <img id='cafe-photo-img'> 
+              <img id='cafe-photo-img0'> 
               <input type="file" id="cf-file" name="cf-file" style="display: none;" />
             </div>
             <div class="btn-deco">
               <span class="btn btn-success fileinput-button"> 
-                  <input id='cafe-photo' class='form-control' type='file' name='files'>
+                  <input id='cafe-photo0' class='form-control cafe-photo' type='file' name='files' data-value="0">
               </span> 
-              <input id='cafe-photo-path' class='cafephotoPath' style='visibility: hidden;'>
+              <input id='cafe-photo-path0' class='cafephotoPath cafe-photo-path' style='visibility: hidden;'>
             </div>
              <input class="plusBtn remove" type="button" value="-" onclick="remove_cafeimg(this)">
           </div>
@@ -270,14 +270,14 @@
           
           <div id="menu_set" class='inputArea'>
             <div class="imgbox" id="mnBox">
-                            <img id='menu-photo-img'> 
+                            <img id='menu-photo-img0'> 
                             <input type="file" id="mn-file" name="mn-file" style="display: none;" />
                         </div>
                         <div class="btn-deco">
                                <span class="btn btn-success fileinput-button"> 
-                                   <input id='menu-photo' class='form-control' type='file' name='files'>
+                                   <input id='menu-photo0' class='form-control' type='file' name='files'>
                                </span> 
-                               <input id='menu-photo-path' class='menuphotoPath' style='visibility: hidden;'>
+                               <input id='menu-photo-path0' class='menuphotoPath' style='visibility: hidden;'>
                         </div>     
                         <div class="menuInfo">
                         메뉴 <input id='menuNm' class='mnNm' type='text'> 

@@ -28,6 +28,11 @@
   </resultMap>
   
   
+  <delete id = "delete" parameterType = "int">
+      DELETE from tag WHERE CMNO = #{cafeMemberNo};
+  </delete>
+  
+  
   <insert id="insert" parameterType="tag">
   insert into tag(tno, cmno, tname)
   values(

@@ -35,7 +35,10 @@ public class CafeImpl implements CafeService {
   @Override
   public void add(CafeAdd cafe) throws Exception {
     
-    cafeDao.insert(cafe.getCafe());
+	if (cafe.getCafe() != null) {
+		cafeDao.insert(cafe.getCafe());
+	}
+    
     for (CafeTime cafeTime : cafe.getCafeTimeList()) {
       cafeTimeDao.insert(cafeTime);
     }
@@ -51,6 +54,15 @@ public class CafeImpl implements CafeService {
     }
     
   }
+
+	@Override
+	public void cafeAllDelete(int cafeMemberNo) throws Exception {
+		cafeTimeDao.delete(cafeMemberNo);
+		tagDao.delete(cafeMemberNo);
+		cafePhotoDao.delete(cafeMemberNo);
+		menuDao.delete(cafeMemberNo);
+		
+	}
 }
 
 

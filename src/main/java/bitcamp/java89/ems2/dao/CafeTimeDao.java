@@ -8,4 +8,5 @@ public interface CafeTimeDao {
   int insert(CafeTime cafeTime) throws Exception;
   ArrayList<CafeTime> getOne(int cafeMemberNo) throws Exception;
   int update(CafeTime cafeTime) throws Exception;
+  int delete(int cafeMemberNo) throws Exception;
 }

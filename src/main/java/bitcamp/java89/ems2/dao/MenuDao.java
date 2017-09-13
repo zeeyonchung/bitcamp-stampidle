@@ -8,4 +8,5 @@ public interface MenuDao {
 	int insert(Menu menu) throws Exception;
 	ArrayList<Menu> getOne(int cafeMemberNo) throws Exception;
 	int update(Menu menu) throws Exception;
+	int delete(int cafeMemberNo) throws Exception;
 }

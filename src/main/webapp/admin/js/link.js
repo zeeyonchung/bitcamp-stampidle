@@ -82,10 +82,6 @@ $('.cafeTxt .btn-edit').click(function(e) {
 
 
 //cafeinfoedit page link ******************************
-$('.mn-info.general').click(function(e) {
-	e.preventDefault();
-    location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
-});
 
 $('.mn-info.card').click(function(e) {
 	e.preventDefault();

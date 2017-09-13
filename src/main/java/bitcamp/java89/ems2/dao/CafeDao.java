@@ -6,4 +6,5 @@ public interface CafeDao {
   int insert(Cafe cafe) throws Exception;
   Cafe getOne(int cafeMemberNo) throws Exception;
   int update(Cafe cafe) throws Exception;
+  int delete(int cafeMemberNo) throws Exception;
 }

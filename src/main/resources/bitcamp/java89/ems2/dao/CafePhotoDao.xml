@@ -27,6 +27,9 @@
     <result column="path"       property="path"/>
   </resultMap>
   
+  <delete id = "delete" parameterType = "int">
+   DELETE from cpoto WHERE CMNO = #{cafeMemberNo};
+  </delete>
   
   <insert id="insert" parameterType="cafePhoto" useGeneratedKeys="true" keyProperty="cafePhotoNo">
   insert into cpoto(cmno, path)

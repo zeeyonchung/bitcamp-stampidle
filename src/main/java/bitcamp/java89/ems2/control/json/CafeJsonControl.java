@@ -55,6 +55,12 @@ public class CafeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
   
+  @RequestMapping("/admin/cafe/cafeAllDelete")
+  public AjaxResult cafeAllDelete(int cafeMemberNo) throws Exception {
+    cafeService.cafeAllDelete(cafeMemberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
   @RequestMapping(value ={"/admin/cafe/getAllInfo"})
   public AjaxResult getAllInfo(int cafeMemberNo) throws Exception {
     Cafe cafe = (Cafe)cafeService.getDetail(cafeMemberNo);

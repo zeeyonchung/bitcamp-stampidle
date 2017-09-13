@@ -29,6 +29,11 @@
     <result column="mepath"       property="menuPath"/>
   </resultMap>
   
+  <delete id = "delete" parameterType = "int">
+   DELETE from menu WHERE CMNO = #{cafeMemberNo};
+  </delete>
+  
+  
   <insert id="insert" parameterType="menu" useGeneratedKeys="true" keyProperty="menuNo">
   insert into menu(cmno, mena, price, mepath)
   values(

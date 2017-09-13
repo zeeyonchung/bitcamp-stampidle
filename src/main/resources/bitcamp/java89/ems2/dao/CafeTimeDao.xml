@@ -14,7 +14,10 @@
     <result column="etime"       property="endTime"/>
   </resultMap>
   
-  
+  <delete id = "delete" parameterType = "int">
+      DELETE from wtime WHERE CMNO = #{cafeMemberNo};
+   </delete>
+   
   <insert id="insert" parameterType="cafeTime">
   insert into wtime(wtno, cmno, wday, stime, etime)
   values(

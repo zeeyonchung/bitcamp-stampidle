@@ -585,6 +585,10 @@ ul a {
 	margin:107px 0 0 -70px;
 }
 
+.menuInfo input {
+    text-align: right;
+}
+
 .menuInfo #menuNm, .menuInfo #price {
     border:1px solid #cfcfcf;   
     height:40px;
