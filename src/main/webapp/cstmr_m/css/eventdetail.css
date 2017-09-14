@@ -30,20 +30,44 @@
     -webkit-font-smoothing: antialiased;
 }
 /*이미지 슬라이더*/
+.eventDetail-img {
+	padding: 10px 0;
+    background: #f1f1f1;
+    box-shadow: -1px 1px 1px #dedddd;
+}
+
 .eventDetail-img img {
-    width: 100%;
+    width: 95%;
 	margin:auto;
 	min-height:200px;
 	background:#f4f4f4;
 }
 
 .title {
-  margin: 5% auto 0 auto; 
-  padding-bottom: 2%;
-  width: 90%;
-  text-align:center;
-  font-size:1.6em;
 }
+
+.text-wrapper {
+    padding: 10px;
+    position: relative;
+    box-shadow: 1px 1px 1px #cecece;
+    z-index: 10;
+}
+
+.text-wrapper .ongoing {
+	border-radius: 10px;
+	height: 25px;
+    width: 60px;
+    position: absolute;
+    right: 10px;
+    top: 15px;    
+    font-size: 0.75em;
+    text-align: center;
+    line-height: 20px;
+}
+
+.text-wrapper .ongoing.on {border: 2px solid #fb6d5f;}
+.text-wrapper .ongoing.off {border: 2px solid #ccc;}
+
 .cafe-name1 {
 	width:100%;
 	text-align:center;
@@ -58,23 +82,6 @@
     border-radius:30px;
 }
 
-.btn-list {
-	font-size:1.2em;
-    display:block;
-    width: 75px;
-    height: 75px;
-    border-radius: 100px;
-    text-align: center;
-    color: #fff !important;
-    text-shadow: none;
-    line-height: 75px;
-    background:#555;
-    border:0;
-    margin:50px auto 0 auto;
-    cursor:pointer;
-}
-
-
 .span-title {
 	font-align:center;
 	border-radius: 5px;
@@ -86,20 +93,17 @@
 	font-size:1em;
 }
 .cafe-name-before2 .event-date {
-  text-align:center;
-  color:#ff5948;
-  
+    color: #afafaf;
+    font-size: 0.75em;
 }
  .cafe-name-before2 .event-cont-div {
- padding-top:20px;
- border-top:2px solid #ececec;
- text-align:center;
-	margin:10px auto 0 auto;
-	width:90%;
 	
 }
+.event-cont-div {
+	padding: 10px;
+}
 .span-contents {
-	font-size:1.1em;
+	font-size: 0.85em;
 }
 .page-move {
 	margin-top:5%;
@@ -123,5 +127,23 @@
 }
 /********************************************************/
 
+.btn-list {
+    color: #fff !important;
+    background:#555;
+    height: 40px;
+    padding: 0 10px;
+}
 
 
+.goto {
+    height: 40px;
+    width: 100px;
+    float: right;
+    line-height: 35px;
+    text-align: right;
+    color: #eaeaea;
+}
+
+.goto .cafe-name {
+	font-size: 0.8em;
+}

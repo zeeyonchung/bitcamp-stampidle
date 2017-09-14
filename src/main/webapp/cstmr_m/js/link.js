@@ -66,9 +66,6 @@ $('.eventadd .add-new-btn').click(function(e) {
 
 
 /** *** event/eventdetail.html **** */
-$('.eventdetail #use-btn').click(function(e) {
-	location.href = '../event/event.html'
-});
 
 
 /** *** findcafe/findcafe.html **** */

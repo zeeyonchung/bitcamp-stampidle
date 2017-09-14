@@ -54,7 +54,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			console.log(ajaxResult.data);
 			return;
 		}
-		var list = ajaxResult.data;
+		var list = ajaxResult.data.slice(0,3);
 		var eventdiv = $('.event-div');
 		var template = Handlebars.compile($('#trTemplate2').html());
 		eventdiv.append(template({"list": list}));

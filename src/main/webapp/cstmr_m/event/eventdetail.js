@@ -22,8 +22,7 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
   }
  
   var event = ajaxResult.data;
-  console.log(event.eventPhotoPath);
-  $('.cafe-name1 span').text(event.cafeName);
+  $('.cafe-name').text(event.cafeName);
   $('.title span').text(event.eventTitle);
   $('.eventdetail .table1 .tabletd2').text(event.registDate);
   $('.startdate-period').text(event.startDate);
@@ -31,13 +30,31 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
   $('.eventdetail .table3 .tabletd4').text(event.eventView);
   $('#eventImg').attr('src', "../../upload/" + event.eventPhotoPath);
   $('.event-cont-div .span-contents').text(event.eventContents);
-  $('.cafe-name1').attr('data-no', event.cafeMemberNo);
+  $('.goto').attr('data-no', event.cafeMemberNo);
   
+  var start = new Date(event.startDate);
+  var end = new Date(event.endDate);
+  var nowDate = new Date(); 
+  var date = nowDate.getFullYear()+'-'+(nowDate.getMonth()+1)+'-'+nowDate.getDate();
+  var today = new Date(date);
+  if (today >= start && today <= end) {
+	  $('.ongoing span').text("진행중");
+	  $('.ongoing').removeClass('off');
+	  $('.ongoing').addClass('on');
+  } else if (today < start) {
+	  $('.ongoing span').text("대기중");
+	  $('.ongoing').removeClass('on');
+	  $('.ongoing').addClass('off');
+  } else if (today > end) {
+	  $('.ongoing span').text("마감");
+	  $('.ongoing').removeClass('on');
+	  $('.ongoing').addClass('off');
+  }
   
-  $('.cafe-name1').click(function(event) {
+  $('.goto').click(function(event) {
 		event.preventDefault();
 		location.href = '../cafeinfo/cafeinfo.html?cafeMemberNo=' + $(this).attr("data-no");
-	});
+  });
   
 });
 

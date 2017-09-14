@@ -206,9 +206,11 @@ $target.on('click', function(){
 $(window).scroll(function(event) {
 	event.stopImmediatePropagation();
     if($(this).scrollTop() > 70){
-         $(".category").css({ "position": "fixed", "top": "0px", "z-index":"100","height":"95px"});
+    	 $(".category.original").css({"visibility": "hidden"});
+    	 $(".category.clone").css({"display": "block"});
     }else{
-         $(".category").css({"position": "static","height":"60px"});
+         $(".category.original").css({"visibility": "visible"});
+         $(".category.clone").css({"display": "none"});
     }
 });
 

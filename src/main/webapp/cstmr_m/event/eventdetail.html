@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../css/pushy.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/eventdetail.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body class='eventdetail'>
@@ -17,50 +18,48 @@
   <div id="sideLeftPushy" class="pushy pushy-left sidebar"></div>
   
   <div id="container" style="padding:0px;">
-  <h2 id='pageTit'>이벤트</h2>
+  <h2 id='pageTit' class="cafe-name"></h2>
      <!-- con -->
+     
+     <div class="text-wrapper">
+		<div class='title'>
+		  <span></span>
+		</div>
+				
+	    <div class='cafe-name-before2'>
+	      <div class="event-date">
+		      <span class='span-period1 startdate-period'></span> ~
+		      <span class='span-period1 span-period2 enddate-period'></span>
+	      </div>
+	    </div>
+	    
+	    <div class="ongoing on"><span></span>
+	    </div>
+    </div>
+    
     <div class='con cafe-pic'>
        <!-- 이미지 슬라이더 -->
        <section class="eventImgSlide slider eventDetail-img">
          <div><img id='eventImg' alt='cafe image'></div>
        </section>
     </div>
-	<div class="clear"></div>
-     <div class='cafe-name1' data-no=""><span></span></div>
-	<!-- 타이틀 -->
-	
-	<div class='title'>
-	  <span></span>
-	</div>
-			
-    <div class='cafe-name-before2'>
-      <div class="event-date">
-	      <span class='span-period1 startdate-period'></span> ~
-	      <span class='span-period1 span-period2 enddate-period'></span>
-      </div>
-      <div class='event-cont-div'>
-	      <span class='span-contents'></span>
-      </div>
+    
+    <div class='event-cont-div'>
+       <span class='span-contents'></span>
+     </div>
+    
+    <div id="use-btn" class="btn-list">
+    	 <div class='goto' data-no="">
+    	 	<span class='cafe-name' data-no=""></span>
+    	 	<i class="fa fa-sign-in" aria-hidden="true"></i>
+    	 </div>
     </div>
-    <hr>
-    <div id="use-btn" class="btn-list" type="submit">목록</div>
-      <!-- con -->
+    <!-- con -->
   </div>
     
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.js"></script>
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-<script src="../../node_modules/blueimp-load-image/js/load-image.js"></script>
-<script src="../../node_modules/blueimp-load-image/js/load-image-meta.js"></script>
-<script src="../../node_modules/blueimp-load-image/js/load-image-exif.js"></script>
-<script src="../../node_modules/blueimp-load-image/js/load-image-exif-map.js"></script>
-<script src="../../node_modules/blueimp-load-image/js/load-image-orientation.js"></script>
-<script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
-<script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
-<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
 <script src="../js/context.js"></script>
 <script src="../js/bit.js"></script>
 <script src="../js/common.js"></script>

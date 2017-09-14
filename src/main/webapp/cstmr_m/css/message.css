@@ -20,10 +20,22 @@ body {
 
 .category {
 	width:100%;
-  padding: 0 3% 10px 3%;
-  display:inline-block;
-  background: url("../image/category_bg.png") repeat-x left top;
-  height:60px;
+	padding: 0 3% 10px 3%;
+	display:inline-block;
+	background: url("../image/category_bg.png") repeat-x left top;
+	height:60px;
+}
+
+.category.original {
+	position: static;
+	height:60px;
+}
+.category.clone {
+	 position: fixed;
+	 top: 0px;
+	 z-index:100;
+	 height:95px;
+	 display: hidden;
 }
 
 .category:after {
@@ -54,10 +66,11 @@ body {
 }
 
 .btn-goTop {
-	float:right;
     margin-top:5px;
     padding:4%;
     z-index:100;
+    position: absolute;
+    right: 10px;
 }
 .btn-goTop img {
     width:30px;
