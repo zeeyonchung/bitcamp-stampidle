@@ -863,7 +863,7 @@
 /************ slide leftMenu ************/
 @media screen and (max-width:999px){
     #content {margin-left:0px; transition:all 0.5s ease .05s;}
-    .slideArea {-webkit-transform:translate(-120px, 0); -ms-transform:translate(-120px, 0); -o-transform:translate(-120px, 0);transform:translate(-120px, 0)}
+    .slideArea {-webkit-transform:translate(-130px, 0); -ms-transform:translate(-130px, 0); -o-transform:translate(-130px, 0);transform:translate(-130px, 0)}
     .slideArea .btn_message .newMsg {margin: -13px 0 0 30px;}
     .sidebar-open .slideArea {-webkit-transform:translate(0, 0); -ms-transform:translate(0, 0); -o-transform:translate(0, 0); transform:translate(0, 0)}
     .sidebar-open .slideArea .footer {-webkit-transform:translate(0, 0); -ms-transform:translate(0, 0); -o-transform:translate(0, 0); transform:translate(0, 0)}

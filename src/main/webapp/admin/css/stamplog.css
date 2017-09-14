@@ -115,8 +115,8 @@ table th {
   font-size:0.8em !important;
   width: 220px;
   height: 28px;
-  vertical-align: bottom;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 
@@ -126,7 +126,7 @@ table th {
   border: 1px solid #D0D0D0;
   width: 180px;
   height: 28px;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 .input-name::-webkit-input-placeholder {

@@ -26,7 +26,7 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	
 
 	/*게시글 몇 개씩 보여줄 건지 설정*/
-	var postNo = 7;
+	var postNo = 10;
 	
 	/* 검색 변수 */
 	var searchDate = $('#date-custom').val();

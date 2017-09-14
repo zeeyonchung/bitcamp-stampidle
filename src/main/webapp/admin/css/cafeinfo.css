@@ -128,7 +128,7 @@
 .imgInfoArea .card .cardArea img {
 	width: auto;
 	max-width: 400px;
-	min-height: 230px;
+	height: 230px;
 }
 
 .imgInfoArea .card .cardInfo {
