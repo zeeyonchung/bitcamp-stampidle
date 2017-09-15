@@ -21,6 +21,7 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
   $('.endDate').val(event.endDate);
   console.log('src', '../upload/' + event.eventPhotoPath);
   $('#photo-img').attr('src', '../../upload/' + event.eventPhotoPath);
+  $('#photo-path').val(event.eventPhotoPath);
 });
 
 

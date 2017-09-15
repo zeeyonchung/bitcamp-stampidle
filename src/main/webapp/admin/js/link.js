@@ -75,10 +75,7 @@ $('.statistics-three').click(function(e) {
 
 
 // cafeinfo page link ******************************
-$('.cafeTxt .btn-edit').click(function(e) {
-	e.preventDefault();
-    location.href = clientRoot + '/cafeinfoedit/cafeinfoedit.html'
-});
+
 
 
 //cafeinfoedit page link ******************************

@@ -302,7 +302,6 @@ var commentList = function(cafeMembNo,userNo) {
 				comments[i].nick = comments[i].name;
 			}
 		}
-
 		commentdiv.append(commentTemplate({"commentList":comments}));
 		
 		

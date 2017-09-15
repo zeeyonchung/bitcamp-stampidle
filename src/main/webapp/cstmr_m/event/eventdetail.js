@@ -30,7 +30,7 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
   $('.eventdetail .table3 .tabletd4').text(event.eventView);
   $('#eventImg').attr('src', "../../upload/" + event.eventPhotoPath);
   $('.event-cont-div .span-contents').text(event.eventContents);
-  $('.goto').attr('data-no', event.cafeMemberNo);
+  $('.goto .cafe-name').attr('data-no', event.cafeMemberNo);
   
   var start = new Date(event.startDate);
   var end = new Date(event.endDate);
@@ -51,9 +51,14 @@ $.getJSON(serverRoot + '/event/detail.json?eventNo=' + eventNo, function(ajaxRes
 	  $('.ongoing').addClass('off');
   }
   
-  $('.goto').click(function(event) {
+  $('.goto .cafe-name').click(function(event) {
 		event.preventDefault();
 		location.href = '../cafeinfo/cafeinfo.html?cafeMemberNo=' + $(this).attr("data-no");
+  });
+  
+  $('.goto .list').click(function(event) {
+		event.preventDefault();
+		location.href = '../event/event.html';
   });
   
 });
