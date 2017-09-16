@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta charset='UTF-8'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <title>고객 상세 정보</title>
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/default.css">
@@ -20,69 +22,71 @@
 
 			<!-- con -->
 			<div class='con'>
-				<div id="content2">
-                    <h2>고객 검색</h2>
-                    <div class="profileArea">
-                        <div class="photoBox">
-                            <img class="img-circle" id="custom-photo">
-                        </div>
-                        <p id="name"></p>
-                        <p id="phone-number"></p>
-                    </div>
-                    <div class="statistics">
-                        <h3 id="current-use">이 고객님의 카페 이용 현황</h3>
-                        <ul>
-	                        <li>카페 첫 방문일<div class="first-visit-date"></div></li>
-	                        <li>최근 방문일<div class="last-visit-date"></div></li>
-	                        <li>누적 도장 개수<div class="all-stamp"></div></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="etc">
-                        <h3>기타 정보</h3>
-                        <ul>
-                            <li>이메일<div id="customEmail"></div></li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-default btn-sm" id="send-text" type="button" data-toggle="modal"  data-target="#myModal"  data-remote="../message.html"> 메시지</button>
-                </div>
-                
-                <div id="content3">
-                    <div id='imgbox'>
-                        <img id="card-back">
-                        <div id='stmpside' class='stmpside'></div>
-                    </div>
-                    <div class="current-stamp">
-                        <div class="current-stampNum">
-                            <p class="current-save-stamp titS">현재 모인 스탬프 수</p>
-                            <p class="numBox"><span class="current-stamp-count"></span>개</p>
-                        </div>
-                        <div class="regist-stamp-div">
-                       원하시는 개수만큼<br> 스탬프 영역을 클릭하신 후<br> 아래 버튼을 눌러주세요<br>
-                            <button type="button" class="stamp-btn">도장등록</button>
-                        </div>
-                    </div>
-
-					<div class="cpnumber-table">
-						<button id="reset-btn" type="button">카드리셋</button>
-						<div class="cpnumber">
-							<p class="titS">다 채운 쿠폰 카드 수</p>
-							<p class="numBox"><span class="finish-coupon"></span>개</p>
+					<div class="row">
+						<div id="content2" class="col-sm-6">
+							<h2>고객 검색</h2>
+							<div class="profileArea">
+		              <div class="photoBox">
+		                  <img class="img-circle" id="custom-photo">
+		              </div>
+		              <p id="name"></p>
+		              <p id="phone-number"></p>
+							</div>
+							<div class="statistics">
+		              <h3 id="current-use">이 고객님의 카페 이용 현황</h3>
+		              <ul>
+		               <li><span>카페 첫 방문일</span><span class="first-visit-date"></span></li>
+		               <li><span>최근 방문일</span><span class="last-visit-date"></span></li>
+		               <li><span>누적 도장 개수</span><span class="all-stamp"></span></li>
+		              </ul>
+							</div>
+		          
+							<div class="etc">
+		            <h3>기타 정보</h3>
+		            <ul>
+		                <li>이메일<div id="customEmail"></div></li>
+		            </ul>
+							</div>
+							<button class="btn btn-default btn-sm" id="send-text" type="button" data-toggle="modal"  data-target="#myModal"  data-remote="../message.html"> 메시지</button>
 						</div>
-						<div class="use-btn-div">
-						    <p class="titS">사용할 무료 쿠폰카드 수</p>
-                            <p class="numBox"><input class="usecp" type="text" name="text" size="20"> 개</p>
-							<button id="use-btn" type="button">쿠폰사용</button>
+		
+						<div id="content3" class="col-sm-6">
+							<div id='imgbox'>
+								<img id="card-back">
+								<div id='stmpside' class='stmpside'></div>
+							</div>
+							<div class="current-stamp">
+								<div class="current-stampNum">
+									<p class="current-save-stamp titS">현재 모인 스탬프 수</p>
+									<p class="numBox"><span class="current-stamp-count"></span>개</p>
+								</div>
+								<div class="regist-stamp-div">
+									<span>원하시는 개수만큼<br> 스탬프 영역을 클릭하신 후<br> 아래 버튼을 눌러주세요<br></span>
+									<button type="button" class="stamp-btn">도장등록</button>
+								</div>
+							</div>
+				
+							<div class="cpnumber-table">
+								<div class="cpnumber">
+									<p class="titS">다 채운 쿠폰 카드 수</p>
+									<p class="numBox"><span class="finish-coupon"></span>개</p>
+								</div>
+								<div class="use-btn-div">
+									<button id="reset-btn" type="button">카드리셋</button>
+									<p class="titS">사용할 무료 쿠폰카드 수</p>
+									<p class="numBox"><input class="usecp" type="text" name="text" size="20"> 개</p>
+									<button id="use-btn" type="button">쿠폰사용</button>
+								</div>
+							</div>
+									
+						<!-- <button id="cp-question-btn" type="button" class="btn btn-default btn-xs">?</button> -->
 						</div>
 					</div>
-					
-					<!-- <button id="cp-question-btn" type="button" class="btn btn-default btn-xs">?</button> -->
-				</div>
-
-            </div>
-            <!-- //con -->
+			</div>
+			<!-- //con -->
 		</div>
-	</div>
+</div>
+
 <script src="../../node_modules/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../js/context.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.js"></script>
@@ -91,7 +95,6 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../js/bit.js"></script>
 <script src="../js/common.js"></script>
-<script src="main.js"></script>
 
 <!-- auto complete 고객검색 자동완성 -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

@@ -1,14 +1,25 @@
+* {
+	min-width: unset !important;
+}
+
+body {
+	overflow-x: scroll;
+}
+
 .container {
   background:url(../image/bg_con.png) no-repeat right top;
   background-attackment: fixed;
 }
-
 
 #content {
 	padding-top:0;
 }
 .con {
 	position:relative;
+}
+
+.con .row {
+	margin: 0 auto;
 }
 
 h2 {
@@ -23,18 +34,16 @@ h2 {
 
 #content2 {
 	position:relative;
-	width: 440px;
-	float: left;
+	/*width: 480px;*/
 	background: url(../image/profile_bg.png) no-repeat 300px 505px;
 	border-left:1px solid #eaeaea;
+	border-right: 1px solid #eaeaea;
 	height:100%;
+	padding-bottom: 20px;
 }
 
 #content3 {
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 520px;
+	/*width: 480px;*/
 	padding: 25px 20px;
 	box-shadow: 0 0 10px 0px rgba(100, 100, 100, 0.2);
 	border: 1px solid #e4e4e4;
@@ -111,9 +120,18 @@ h2 {
 	box-shadow:2px 2px 3px 0px rgba(180, 180, 180, 0.1);
 	border-radius:5px;
 }
+/*
 .statistics ul li div {
 	float:right;
 	width:55%;
+}
+*/
+.statistics ul li span:first-of-type {
+	width: 40%;
+}
+.statistics ul li span:nth-of-type(2) {
+	width: 50%;
+	float: right;
 }
 .etc {
 	padding:0 10px;
@@ -128,29 +146,34 @@ h2 {
 	width:75%;
 }
 #imgbox {
-    outline: 1px solid #caa8a8;
-	width: 480px;
-	height: 275px;
+	outline: 1px solid #caa8a8;
+	max-width: 440px;
+	width: 100%;
+	height: 230px;
+	margin: 0 auto;
+	position: relative;
 }
 
 #card-back {
-	position: absolute;
-	width: 480px;
-	min-height: 275px;
+	max-width: 440px;
+	width: 100%;
+	/*min-height: 230px;*/
 	background:#f4f4f4;
 }
 
 .stmpside {
     position: absolute;
     display: inline;
-    min-height: 160px;
+    /*min-height: 160px;*/
     padding: 6px;
+    left: 0;
+    top: 0;
 }
 
 .stmpare {
     position: absolute;
     display: inline-block;
-    width: 60px;
+    width: 15%;
     height: 60px;
     background-color: white;
     border-radius: 5px;
@@ -162,9 +185,11 @@ h2 {
 .stamp-img {
 	position:absolute;
 	top:3px;
-	background-size:40px auto;
+	background-size: contain;
 	background-position:center center;
 	background-repeat:no-repeat;
+	width: 100%;
+	height: 100%;
 }
 .stmpare:first-letter {
     position: absolute;
@@ -183,8 +208,8 @@ h2 {
 }
 
 .current-stampNum {
-	margin-top: 42px;
-	width: 220px;
+	margin-top: 30px;
+	width: 38%;
 	color: #555;
 	text-align: center;
 	float: left;
@@ -192,8 +217,8 @@ h2 {
 
 .current-stampNum .titS {
 	text-align: center;
-	width: 220px;
-    font-size: 1.2em;
+	width: 100%;
+  font-size: 1.2em;
 }
 
 .current-stamp .numBox {
@@ -213,12 +238,13 @@ h2 {
 	color: #999;
 	float: right;
 	padding-top: 20px;
-	width: 255px;
+	width: 60%;
 }
 
 .regist-stamp-div .stamp-btn {
-	margin-top: 25px;
-	width: 255px;
+	margin-top: 20px;
+	max-width: 255px;
+	width: 100%;
 	height: 45px;
 	border: 1px solid #e92c2c;
 	background-color: #ff5948;
@@ -234,30 +260,32 @@ h2 {
 
 #reset-btn {
 	clear:both;
-	width: 255px;
-    height: 35px;
-    border: 1px solid #cfcfcf;
-    background-color: #fff;
-    box-shadow: 2px 2px 3px 0px rgba(80, 80, 80, 0.1);
-    color: #444;
-    font-size:1.3em;
-    outline:none;
-    float:right;
-    border-radius:5px;
+	max-width: 255px;
+	width: 100%;
+	height: 35px;
+	border: 1px solid #cfcfcf;
+	background-color: #fff;
+	box-shadow: 2px 2px 3px 0px rgba(80, 80, 80, 0.1);
+	color: #444;
+	font-size:1.3em;
+	outline:none;
+	border-radius:5px;
+	margin-bottom: 25px;
 }
 
 
 
 .use-btn-div {
-	width:255px;
 	margin-top: 25px;
 	float:right;
 	text-align:center;
+	width: 60%;
 }
 
 .use-btn-div .titS {
     text-align: center;
-    width: 220px;
+    max-width: 220px;
+    width: 100%;
     font-size:1.2em;
     margin:auto;
 }
@@ -281,10 +309,10 @@ h2 {
 
 .cpnumber {
     margin-top: 50px;
-    width: 220px;
     color: #555;
     text-align: center;
     float: left;
+    width: 38%;
 }
 
 .cpnumber .titS {
@@ -314,7 +342,8 @@ h2 {
 
 
 #use-btn {
-    width: 255px;
+    max-width: 255px;
+    width: 100%;
     height: 45px;
     border: 1px solid #333;
     background-color: #373737;

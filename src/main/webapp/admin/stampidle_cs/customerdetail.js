@@ -49,94 +49,12 @@ function loadPage(){
 		
 		/**** 카드 뒷면 이미지 로드된 후 스탬프 영역, 찍힌 스탬프 가져오기 ****/
 		$('#card-back').load(function(event) {
-			event.stopImmediatePropagation()
-			var width = $('#card-back').width();
-			var height = $('#card-back').height();
-			/** stmpside 넓이 조정 **/
-			$('.stmpside').css('width', width);
-			$('.stmpside').css('height', height);
-	
-			/** imgbox 높이 조정 **/
-			$('#imgbox').css('height', height);
-			
-			
-			// positionOrder대로 재정렬
-			cardDetail.stampPositionList.sort(function (a, b) { 
-				return a.positionOrder > b.positionOrder;
+			event.stopImmediatePropagation();
+			loadStampArea(cardDetail, currentStampCount);
+			$(window).resize(function(){
+				loadStampArea(cardDetail, currentStampCount);
 			});
 			
-			
-			/** 스탬프 영역 가져오기 **/
-			
-			//가져오기 전에 이전에 만들어진 영역 삭제
-			$('.stmpare').remove();
-			//사용할 개수 적는 인풋 박스도 초기화하고
-			$('.usecp').val('');
-			
-			
-			for (var i = 0; i < cardDetail.stampPositionList.length; i++) {
-				var positionOrder = cardDetail.stampPositionList[i].positionOrder;
-				var positionX = parseFloat(cardDetail.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
-				var positionY = parseFloat(cardDetail.stampPositionList[i].positionY) * $('.stmpside').css('height').split("px")[0];
-				
-				$('<div>')
-				.addClass('stmpare')
-				.addClass('stampNo' + (positionOrder - 1))
-				.appendTo("#stmpside")
-				.text(positionOrder)
-				.css({top: positionY, left: positionX})
-				.addTouch();
-			}
-			
-			
-			/** 찍힌 스탬프 가져오기 **/
-			/*for (var i = 0; i < currentStampCount; i++) {
-				$('<img>')
-				.addClass('stamp-img')
-				.appendTo('.stampNo' + i)
-				.attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
-				.css('width', 40)
-			}*/
-			for (var i = 0; i < currentStampCount; i++) {
-				$('<div>')
-				.addClass('stamp-img')
-				.appendTo('.stampNo' + i)
-				.css('background-image', 'url(' + serverRoot + '/../upload/' + cardDetail.stampImgPath + ')')
-				.css('width',54).css('height',54);
-			}
-			
-			
-			
-			
-			/** 스탬프 영역 클릭 이벤트 **/
-			$(document).on('click', '.stmpare', function(event) {
-				event.stopImmediatePropagation();
-				var stampNo = this.getAttribute('class').split(" ")[1].split("stampNo")[1];
-				//console.log('this stampNo... : ', stampNo);
-				//console.log('this.getAttribute("class").search("add-check"):', this.getAttribute('class').search('add-check'))
-				//console.log(currentStampCount)
-				if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') == -1) {
-					
-					$('<div>')
-					.addClass('stamp-img')
-					.appendTo('.stampNo' + stampNo)
-					.css('background-image', 'url(' + serverRoot + '/../upload/' + cardDetail.stampImgPath + ')')
-					.css('width',54).css('height',54);
-					
-					/*$('<img>')
-					.addClass('stamp-img')
-					.appendTo('.stampNo' + stampNo)
-					.attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
-					.css('width', 40);*/
-					
-					$(this).addClass('add-check');
-					
-				} else if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') != -1) {
-					
-					$('.stampNo' + stampNo).children('div').remove();
-					$(this).removeClass('add-check');
-				}
-			});
 		});
 		
 		
@@ -273,5 +191,92 @@ function loadPage(){
     		
 		});
 		
+	});
+}
+
+function loadStampArea(cardDetail, currentStampCount) {
+	var width = $('#card-back').width();
+	var height = $('#card-back').height();
+	/** stmpside 넓이 조정 **/
+	$('.stmpside').css('width', width);
+	$('.stmpside').css('height', height);
+
+	/** imgbox 높이 조정 **/
+	$('#imgbox').css('height', height);
+	
+	
+	// positionOrder대로 재정렬
+	cardDetail.stampPositionList.sort(function (a, b) { 
+		return a.positionOrder > b.positionOrder;
+	});
+	
+	
+	/** 스탬프 영역 가져오기 **/
+	
+	//가져오기 전에 이전에 만들어진 영역 삭제
+	$('.stmpare').remove();
+	//사용할 개수 적는 인풋 박스도 초기화하고
+	$('.usecp').val('');
+	
+	
+	for (var i = 0; i < cardDetail.stampPositionList.length; i++) {
+		var positionOrder = cardDetail.stampPositionList[i].positionOrder;
+		var positionX = parseFloat(cardDetail.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
+		var positionY = parseFloat(cardDetail.stampPositionList[i].positionY) * $('.stmpside').css('height').split("px")[0];
+		
+		$('<div>')
+		.addClass('stmpare')
+		.addClass('stampNo' + (positionOrder - 1))
+		.appendTo("#stmpside")
+		.text(positionOrder)
+		.css({top: positionY, left: positionX})
+		.addTouch();
+	}
+	
+	$('.stmpare').height($('.stmpare').width());
+	
+	/** 찍힌 스탬프 가져오기 **/
+	/*for (var i = 0; i < currentStampCount; i++) {
+		$('<img>')
+		.addClass('stamp-img')
+		.appendTo('.stampNo' + i)
+		.attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
+		.css('width', 40)
+	}*/
+	for (var i = 0; i < currentStampCount; i++) {
+		$('<div>')
+		.addClass('stamp-img')
+		.appendTo('.stampNo' + i)
+		.css('background-image', 'url(' + serverRoot + '/../upload/' + cardDetail.stampImgPath + ')')
+	}
+	
+	
+	/** 스탬프 영역 클릭 이벤트 **/
+	$(document).on('click', '.stmpare', function(event) {
+		event.stopImmediatePropagation();
+		var stampNo = this.getAttribute('class').split(" ")[1].split("stampNo")[1];
+		//console.log('this stampNo... : ', stampNo);
+		//console.log('this.getAttribute("class").search("add-check"):', this.getAttribute('class').search('add-check'))
+		//console.log(currentStampCount)
+		if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') == -1) {
+			
+			$('<div>')
+			.addClass('stamp-img')
+			.appendTo('.stampNo' + stampNo)
+			.css('background-image', 'url(' + serverRoot + '/../upload/' + cardDetail.stampImgPath + ')')
+			
+			/*$('<img>')
+			.addClass('stamp-img')
+			.appendTo('.stampNo' + stampNo)
+			.attr('src', serverRoot + '/../upload/' + cardDetail.stampImgPath)
+			.css('width', 40);*/
+			
+			$(this).addClass('add-check');
+			
+		} else if (stampNo > currentStampCount - 1 && this.getAttribute('class').search('add-check') != -1) {
+			
+			$('.stampNo' + stampNo).children('div').remove();
+			$(this).removeClass('add-check');
+		}
 	});
 }

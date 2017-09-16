@@ -1,4 +1,7 @@
 @CHARSET "UTF-8";
+* {
+    min-width: unset !important;
+}
 
 .con {
 	background-image: url('../image/bg_mainCon.png');
