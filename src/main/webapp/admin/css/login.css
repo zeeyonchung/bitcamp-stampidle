@@ -1,6 +1,9 @@
 @CHARSET "UTF-8";
 
 
+* {
+	min-width: unset !important;
+}
 
 .login body {
   background-color:#140a08;
