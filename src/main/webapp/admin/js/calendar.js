@@ -54,7 +54,8 @@ $(function()
 	$('#date-custom').dateRangePicker(
 			{
 				separator : ' ~ ',
-				autoClose: true
+				autoClose: true,
+				singleMonth: true
 
 			}).bind('datepicker-first-date-selected', function(event, obj)
 					{
@@ -105,7 +106,7 @@ $(function()
 
 
 
-	$('.single-month .month-wrapper').css('margin-left', '43px');
+	$('.single-month.date-picker-wrapper').css('width', '215px');
 
 
 

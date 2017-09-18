@@ -2,161 +2,171 @@
 <html>
 <head>
 <meta charset='UTF-8'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <title>Stampidle</title>
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/cafeinfo.css">
 <link rel="shortcut icon" href="../../image/pabi.png" type="image/x-icon" />
 <link rel="icon" href="../../image/pabi.png" type="image/x-icon" />
- <script src="../js/context.js"></script>
-  <script src="../../node_modules/jquery/dist/jquery.js"></script>
-  <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="../js/bit.js"></script>
-  <script src="../js/common.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg"></script>
-  <script src="cafeinfo.js"></script>
+<script src="../js/context.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvKW1N-3l0zQzXfPjDh2MlauKigyMH9Eg"></script>
+<script src="cafeinfo.js"></script>
 </head>
 
 
 <body data-pageName="CAFEINFO">
-  <div class='container'>
-    <div id='header'></div>
-    <div id='sidebar'></div>
-    <div id='content'>
-    
-        <!-- con -->
-      <div class='con'>
-          
-          <h2 class="pageTitle">카페정보</h2>
-          <!-- introArea -->
-          <div class='introArea'>
-              <div class='cafeLogo'><img alt='cafe logo'></div>
-              <div class='cafeTxt'>
-              <div class='cafeName'></div>
-              <div class='tag'></div>
-              <a class='btn-edit btnStyle2' href=''>카페정보수정</a>
-                    <p class='txt'> 
-                        
-                    </p>
-                  </div>
-                  <div class='like select'></div>
-                </div>
-                
-                
-                <!-- imgInfoArea -->
-                <div class='imgInfoArea'>
-                    <div class='card'>
-                        <div class='cardArea'><img alt='stamp card'></div>
-                        
-                        <div class='cardInfo'>
-                            <div class='stampNum'>
-                                <p class='txt1'><span>8</span></p>
-                                <p class='txt2'>모든 스탬프를 채우면 <span>아메리카노(Regular사이즈)</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class='imgInfo'>
-                        <div class='cafeImg'>
-                            
-                            <div class='cafeImgWrap'>
-                            <!-- cafe interior images slide -->
-                            <section class="cafeImgSlide slider">
-                            <!-- <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>-->
-                        </section>
-                            <!-- //cafe interior images slide -->
-                            </div>
-                        </div>
-                        <div class='infoDetail'>
-                            <p class='time'></p>
-                            <p class='seat'></p>
-                            <p class='tel'></p>
-                            <p class='addr'></p>
-                            <button type='button' class='btn-showMap'>Map보기</button>
-                        </div>
+	<div class='container'>
+		<div id='header'></div>
+		<div id='sidebar'></div>
+		<div id='content'>
 
-            <div class='map' id='map'>
-                        </div>
-                            <button type='button' class='btn-hideMap' style="display:none">Map그만보기</button>
-          </div>
-                </div>
-                
-                
-                <!-- menuArea -->
-        <div class='menuArea'>
-          <h3>대표메뉴</h3>
-          <section class="menuSlide slider">
-              
-          </section>
+			<!-- con -->
+			<div class='con'>
 
-        </div>
+				<h2 class="pageTitle">카페정보</h2>
+				<!-- introArea -->
+				<div class='introArea'>
+					<div class='cafeLogo'>
+						<img alt='cafe logo'>
+					</div>
+					<div class='cafeTxt'>
+						<div class='cafeName'></div>
+						<div class='tag'></div>
+						<a class='btn-edit btnStyle2' href=''>카페정보수정</a>
+						<p class='txt'></p>
+					</div>
+					<div class='like select'></div>
+				</div>
 
 
-        <!-- commentArea -->
-        <div class='commentArea'>
-          <h3>평점 및 리뷰</h3>
-                    
-                    <div class='starScore'>
-                        <div class='star'>
-                        </div>
-                        <p class='result'>(<span>3.2</span>/5.0)</p>
-                    </div>
-          <div class="comment_list">
-            <p class="total">
-              댓글 <span>100건</span>
-            </p>
-            <ul>
-            </ul>
-          </div>
+				<!-- imgInfoArea -->
+				<div class='imgInfoArea row'>
+					<div class="col-xs-12 col-sm-6">
+						<div class='card'>
+							<div class='cardArea'>
+								<img alt='stamp card'>
+							</div>
 
-          <!-- <button class="brn_more">더보기</button> -->
+							<div class='cardInfo'>
+								<div class='stampNum'>
+									<p class='txt1'>
+										<span>8</span>
+									</p>
+									<p class='txt2'>
+										모든 스탬프를 채우면 <span>아메리카노(Regular사이즈)</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
 
-        </div>
+					<div class='imgInfo col-xs-12 col-sm-6'>
+						<div class="info-wrapper">
+							<div class='cafeImg'>
+	
+								<div class='cafeImgWrap'>
+									<!-- cafe interior images slide -->
+									<section class="cafeImgSlide slider">
+										<!-- <div><img src='../image/cafeImg_sample.png' alt='cafe image'></div>-->
+									</section>
+									<!-- //cafe interior images slide -->
+								</div>
+							</div>
+							<div class='infoDetail'>
+								<p class='time'></p>
+								<p class='seat'></p>
+								<p class='tel'></p>
+								<p class='addr'></p>
+								<button type='button' class='btn-showMap'>Map보기</button>
+							</div>
+	
+							<div class='map' id='map'></div>
+							<button type='button' class='btn-hideMap' style="display: none">Map그만보기</button>
+						</div>
+					</div>
+				</div>
 
-      </div>
-      <!-- //con -->
-    </div>
-  </div>
-  
- 
-    
-<!-- slide images -->
-  <script src="../js/slick.js" defer="defer" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript" async="async">
-  $(window).load(function() {
-        
-     /* menu images slide */
-     $(".menuSlide").slick({
-       dots: true,
-       infinite: true,
-       slidesToShow: 5,
-       slidesToScroll: 5
-     });
-    
-    /* cafe interior images slide */
-    $(".cafeImgSlide").slick({
-      dots: true,
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1
-   });
-    
-  });
-  </script>
 
-    <script>
-    /* cafeinfo map */
-    
-</script>
+				<!-- menuArea -->
+				<div class='menuArea'>
+					<h3>대표메뉴</h3>
+					<section class="menuSlide slider"></section>
 
-  
+				</div>
+
+
+				<!-- commentArea -->
+				<div class='commentArea'>
+					<h3>평점 및 리뷰</h3>
+
+					<div class='starScore'>
+						<div class='star'></div>
+						<p class='result'>
+							(<span>3.2</span>/5.0)
+						</p>
+					</div>
+					<div class="comment_list">
+						<p class="total">
+							댓글 <span>100건</span>
+						</p>
+						<ul>
+						</ul>
+					</div>
+
+					<!-- <button class="brn_more">더보기</button> -->
+
+				</div>
+
+			</div>
+			<!-- //con -->
+		</div>
+	</div>
 
 
 
-<!-- auto complete 고객검색 자동완성 -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- slide images -->
+	<script src="../js/slick.js" defer="defer" type="text/javascript"
+		charset="utf-8"></script>
+	<script type="text/javascript" async="async">
+		$(window).load(function() {
 
-<script src="../js/srchCstmr.js"></script>
-<!-- //auto complete 고객검색 자동완성 -->
+			/* menu images slide */
+			$(".menuSlide").slick({
+				dots : true,
+				infinite : true,
+				slidesToShow : 5,
+				slidesToScroll : 5
+			});
+
+			/* cafe interior images slide */
+			$(".cafeImgSlide").slick({
+				dots : true,
+				infinite : true,
+				slidesToShow : 1,
+				slidesToScroll : 1
+			});
+
+		});
+	</script>
+
+	<script>
+		/* cafeinfo map */
+	</script>
+
+
+
+
+
+	<!-- auto complete 고객검색 자동완성 -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script src="../js/srchCstmr.js"></script>
+	<!-- //auto complete 고객검색 자동완성 -->
 </body>
 </html>

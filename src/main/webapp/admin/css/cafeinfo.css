@@ -9,8 +9,9 @@
 
 .introArea .cafeLogo {
 	float: left;
-	width: 120px;
-	height: 120px;
+	max-width: 120px;
+	/*height: 120px;*/
+	width: 25%;
 	border: 1px solid #ececec;
 	text-align: center;
 	border-radius: 60px;
@@ -19,13 +20,13 @@
 
 .introArea .cafeLogo img {
 	line-height: 120px;
-	height: 100%;
-	width: auto;
+	width: 100%;
+	max-width: 120px;
 }
 
 .introArea .cafeTxt {
 	float: left;
-	width: 70%;
+	width: 65%;
 	margin-left: 20px;
 }
 
@@ -39,7 +40,7 @@
 
 .introArea .cafeTxt .tag {
 	float: left;
-	margin: 7px 0 0 20px;
+	margin: 0 0 6px 20px;
 	font-size: 1.1em;
 	color: #999;
 }
@@ -75,7 +76,6 @@
 	padding-top: 5px;
 	color: #808080;
 	font-size: 0.9em;
-	height: 40px;
 }
 
 .introArea .like {
@@ -113,7 +113,7 @@
 
 .imgInfoArea .card {
 	float: left;
-	width: 54%;
+	width: 100%;
 	height: 380px;
 	border: 1px solid #d6d6d6;
 }
@@ -126,7 +126,7 @@
 }
 
 .imgInfoArea .card .cardArea img {
-	width: auto;
+	width: 100%;
 	max-width: 400px;
 	height: 230px;
 }
@@ -164,10 +164,12 @@
 .imgInfoArea .imgInfo {
 	position: relative;
 	float: left;
-	width: 46%;
 	height: 380px;
+}
+
+.imgInfoArea .imgInfo .info-wrapper {
 	border: 1px solid #d6d6d6;
-	border-left: 0;
+	height: 100%;
 }
 
 .imgInfoArea .imgInfo .cafeImg {
@@ -195,7 +197,11 @@
 	overflow: hidden;
 }
 
+
 /* cafe interior images slide */
+.cafeImgSlide.slider .slick-track {
+	height: 100%;
+}
 .cafeImgSlide.slider .slick-slide {
 	box-sizing: border-box;
 	margin: 0px;
@@ -203,6 +209,7 @@
 
 .cafeImgSlide.slider .slick-slide img {
 	width: 100%;
+	height: 100%;
 }
 
 .cafeImgSlide .slick-prev {
@@ -295,7 +302,7 @@
 .imgInfoArea .imgInfo .infoDetail .btn-showMap {
 	position: absolute;
 	bottom: 10px;
-	right: 10px;
+	right: 25px;
 	width: 40px;
 	height: 40px;
 	background: #666;
@@ -315,16 +322,16 @@
 	display: none;
 	position: absolute;
 	top: 0;
-	left: 0;
-	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	left: 15px;
+	width: calc(100% - 30px);
 }
 
 .imgInfoArea .imgInfo .btn-hideMap {
 	position: absolute;
 	top: 10px;
-	right: 10px;
+	right: 25px;
 	width: 40px;
 	height: 40px;
 	background: #666;
@@ -368,16 +375,22 @@
 
 .menuArea .menuSlide.slider .menu .mnImg {
 	margin: 0 auto 10px auto;
-	width: 150px;
-	height: 150px;
+	max-width: 150px;
+	height: 110px;
 	border: 1px solid #f0f0f0;
 	border-radius: 100px;
 	overflow: hidden;
 	background: #f8f8f8;
+	margin: 0 5px;
+	position: relative;
 }
 
 .menuArea .menuSlide.slider .menu .mnImg img {
 	width: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 
 .menuArea .menuSlide.slider .menu .mnName {
@@ -400,6 +413,12 @@
 	font-family: "FontAwesome";
 	content: "\f054";
 	color: #333;
+}
+.slick-prev {
+	left: -20px;
+}
+.slick-next {
+	right: -20px;
 }
 
 .menuArea .slick-dots {
@@ -445,10 +464,7 @@
 
 /* 별점 starScore */
 .commentArea .starScore {
-	position: absolute;
-	top: 95px;
-	right: 0;
-	margin-bottom: -10px;
+	margin-bottom: 5px;
 }
 
 .commentArea .starScore .result {
@@ -543,15 +559,21 @@
 	float: left;
 	width: 100%;
 	border-bottom: 1px solid #e7e8e9;
+	margin-top: 10px;
+}
+
+.commentArea .comment_list li .row {
+	width: calc(100% - 70px);
+	display: inline-block;
+	margin: 0;
 }
 
 .commentArea .comment_list li .profileImg {
-	float: left;
+	display: inline-block;
 	width: 60px;
 	height: 60px;
 	overflow: hidden;
 	border-radius: 60px;
-	margin-top: 10px;
   margin-right: 10px;
   text-align: center;
   background: #bfbfbf;
@@ -563,9 +585,6 @@
 }
 
 .commentArea .comment_list li .comment_txt {
-	float: left;
-	width: 68%;
-	padding: 20px 0 30px;
 }
 
 .commentArea .comment_list li .comment_txt strong {
@@ -583,11 +602,9 @@
 }
 
 .commentArea .comment_list li .etcInfo {
-	width: 20%;
-	float: right;
-	padding: 15px 20px 15px 0;
 	text-align: right;
 	font-size: 1.1em;
+	margin-bottom: 10px;
 }
 
 .commentArea .comment_list li .date {
@@ -596,7 +613,6 @@
 
 .comment_list .star {
 	display: inline-block;
-	float: right;
 	width: 100px;
 	height: 17px;
 	background: url(../image/rate_starS.png) no-repeat -100px 0;
@@ -643,4 +659,7 @@
 	font-size: 1.2em;
 	border: 0;
 	padding: 15px 0 17px 0;
+}
+@media screen and (max-width:705px) {
+	.like.select {display:none;}
 }

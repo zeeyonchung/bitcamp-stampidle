@@ -133,24 +133,27 @@
 
 .one-event {
   border: 1px;
-  margin-top: 15px;
-  height: 150px;
-  width: 960px;
+  margin-top: 5px;
+  /*height: 150px;*/
+  max-width: 960px;
+  border-bottom: 1px solid #eaeaea;
+  padding: 10px 0;
 }
 
 .one-event img {
-  margin-left: 5px;
-  width: 550px;
+  /*max-width: 550px;*/
   height: 130px;
+  /*width: 62%;*/
 }
 
 
 .event-text {
   /*border: 1px solid black;*/
   display: inline;
-  float: right;
-  width: 380px;
-  height: 130px;
+  /*float: right;*/
+  max-width: 380px;
+  /*width: 35%;*/
+  width: 100%;
 }
 
 .event-title {
@@ -178,10 +181,7 @@
   margin-top: 2px;
   font-size: 0.9em;
   vertical-align: text-top;
-}
-
-.event-content p {
-  width: 330px;
+  width: 80%;
 }
 
 .event-box {
@@ -234,3 +234,9 @@
   border: 1px solid rgb(224, 224, 224);
 }
 
+@media screen and (max-width:425px) {
+	.event-btns #add-event {width:40px; height:30px; text-align:center;}
+	.event-btns #add-event:before{content:"+";}
+	.event-btns #add-event span {display:none;}
+	.event-btns .keyword-event {width:100px;}
+}

@@ -1,5 +1,5 @@
 
-
+* {min-width: unset !important}
 /*************************************************
                                     input style                     
 *************************************************/
@@ -178,6 +178,7 @@
     border-radius: 20px;
     color: #fff;
     font-size: 15px;
+    text-align: center;
 }
 
 /***  auto complete 고객검색 자동완성 ***/
@@ -282,7 +283,7 @@
 /************ logon-div ************/
 #header .top #logon-div {
     float: right;
-    min-width: 280px;
+    /*min-width: 280px;*/
     margin-right: 20px;
     text-align: right;
 }
@@ -426,7 +427,7 @@
     position: relative;
     border: 4px solid rgb(255, 89, 72);
     width: 300px;
-    height: 310px;
+    height: 330px;
     margin: 0 auto;
     top: 250%;
     background-color: white;
@@ -500,10 +501,10 @@
   display: none;
   position: fixed;
   border: 4px solid rgb(255, 89, 72);
-  width: 330px;
+  width: 310px;
   height: 540px;
   left: 50%;
-  margin-left:-165px;
+  margin-left:-155px;
   top: 50%;
   margin-top:-270px;
   background-color: white;
@@ -638,7 +639,6 @@
     top: 70px;
     left: -20px;
     height: 100%;
-    min-height: 915px;
     width: 150px;
     background: #373737;
 }
@@ -899,4 +899,12 @@
 
 @media screen and (max-width:720px) {
 	#header .top .logo {display:none;}
+}
+
+
+@media screen and (max-width:540px) {
+    .mnList .mn.active {border-radius:20px;}
+	.mnList .mn .icon {display:none;}
+	.mnList .mn {height:unset;}
+	.mnList .mn:hover {border-radius:20px;}
 }

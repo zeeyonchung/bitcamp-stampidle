@@ -103,11 +103,11 @@ function loadStarsAndComments(comments) {
 		totalStar += comments[i].star;
 		
 		$("<li><div class='profileImg'><img src='../../upload/" + membImg(i)
-				+ "'></div><div class='comment_txt'><strong>" + check_nickNull(i)
+				+ "'></div><div class='row'><div class='comment_txt col-sm-12 col-md-9'><strong>" + check_nickNull(i)
 				+ "</strong><p>" + comments[i].contents
-				+ "</p></div><div class='etcInfo'><div class='date'>" + comments[i].uploadDate
+				+ "</p></div><div class='etcInfo col-sm-12 col-md-3'><div class='date'>" + comments[i].uploadDate
 				+ "</div><div class='star'><span class='" + starScoreCss(comments[i].star)
-				+ "'></span></div></div></li>").appendTo(".comment_list ul");
+				+ "'></span></div></div></div></li>").appendTo(".comment_list ul");
 	});
 	
 	totalStarAverage = totalStar / comments.length;

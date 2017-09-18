@@ -1,9 +1,10 @@
 @CHARSET "UTF-8";
 
+
 .con {
 	margin-top: 100px;
 	margin-left: 150px;
-	width: 800px;
+	/*width: 800px;*/
 	height: 500px;
 }
 

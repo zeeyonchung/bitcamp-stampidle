@@ -3,6 +3,7 @@
 @import url("default.css");
 @import url("frame.css");
 
+* {min-width: unset !important}
 
 table th {
 	text-align:center;
