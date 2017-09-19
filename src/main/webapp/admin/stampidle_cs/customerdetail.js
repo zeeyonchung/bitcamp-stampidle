@@ -1,5 +1,6 @@
 var customMemberNo = 0;
 var cafeMemberNo = 0;
+var currentStampCount = 0;
 
 
 try {
@@ -22,8 +23,6 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 });
 
 
-
-var currentStampCount = 0;
 
 
 function loadPage(){

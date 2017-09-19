@@ -10,87 +10,85 @@ $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 	}
 	cafeMemberNo = ajaxResult.data.cafeMemberNo;
 	
-	getPreDate();
+	getPreData();
 	updateStmpsideSize();
 });
 	
 	
 
 /*******************이전에 저장된 데이터 가져오기********************/
-function getPreDate() {
-	$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json',
-		{cafeMemberNo: cafeMemberNo},
-		function(ajaxResult) {
-			if (ajaxResult.data.length > 0) {
-				var stampCardInfo = ajaxResult.data[0];
-				console.log(stampCardInfo);
+function getPreData() {
+	$.getJSON(serverRoot + '/cardadd/getCafeCardDetail.json', {cafeMemberNo: cafeMemberNo}, function(ajaxResult) {
+		if (ajaxResult.data.length > 0) {
+			var stampCardInfo = ajaxResult.data[0];
+			console.log(stampCardInfo);
+			
+			$('#front-photo-img').attr('src', '../../upload/' + stampCardInfo.frontImgPath);
+			$('#front-photo-path').val(stampCardInfo.frontImgPath);
+			
+			$('#back-photo-img').attr('src', '../../upload/' + stampCardInfo.backImgPath);
+			$('#back-photo-path').val(stampCardInfo.backImgPath);
+			
+			$('#photo-img').attr('src', '../../upload/' + stampCardInfo.stampImgPath);
+			$('#photo-path').val(stampCardInfo.stampImgPath);
+			
+			$('img.backcard').load(function() {
+				updateStmpsideSize();
+				updateMidtopSize();
+				updateBtmlineSize();
+				updateFrontimgdivSize();
+			});
+			
+			/**** 이전에 저장된 스탬프 영역 가져오기 ****/
+			// positionOrder대로 재정렬
+			stampCardInfo.stampPositionList.sort(function (a, b) { 
+				return a.positionOrder > b.positionOrder;
+			});
+			
+			
+			/** 스탬프 영역 가져오기 **/
+			for (var i = 0; i < stampCardInfo.stampPositionList.length; i++) {
+				var positionOrder = stampCardInfo.stampPositionList[i].positionOrder;
+				var positionX = parseFloat(stampCardInfo.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
+				var positionY = parseFloat(stampCardInfo.stampPositionList[i].positionY) * $('.stmpside').css('height').split("px")[0];
 				
-				$('#front-photo-img').attr('src', '../../upload/' + stampCardInfo.frontImgPath);
-				$('#front-photo-path').val(stampCardInfo.frontImgPath);
-				
-				$('#back-photo-img').attr('src', '../../upload/' + stampCardInfo.backImgPath);
-				$('#back-photo-path').val(stampCardInfo.backImgPath);
-				
-				$('#photo-img').attr('src', '../../upload/' + stampCardInfo.stampImgPath);
-				$('#photo-path').val(stampCardInfo.stampImgPath);
-				
-				$('img.backcard').load(function() {
-					updateStmpsideSize();
-					updateMidtopSize();
-					updateBtmlineSize();
-					updateFrontimgdivSize();
-				});
-				
-				/**** 이전에 저장된 스탬프 영역 가져오기 ****/
-				// positionOrder대로 재정렬
-				stampCardInfo.stampPositionList.sort(function (a, b) { 
-					return a.positionOrder > b.positionOrder;
-				});
-				
-				
-				/** 스탬프 영역 가져오기 **/
-				for (var i = 0; i < stampCardInfo.stampPositionList.length; i++) {
-					var positionOrder = stampCardInfo.stampPositionList[i].positionOrder;
-					var positionX = parseFloat(stampCardInfo.stampPositionList[i].positionX) * $('.stmpside').css('width').split("px")[0];
-					var positionY = parseFloat(stampCardInfo.stampPositionList[i].positionY) * $('.stmpside').css('height').split("px")[0];
-					
-					$('<div>')
-					.addClass('stmpare')
-					.addClass('stampNo' + (positionOrder - 1))
-					.appendTo("#stmpside")
-					.text(positionOrder)
-					.draggable({containment : 'parent'})
-					.css({top: positionY, left: positionX})
-					.addTouch();
-				}
-				
-				stampNo = stampCardInfo.stampPositionList.length;
-				$('.midNum').text(stampNo);
-
-				clickStampPosition();
-				save();
-				
-			} else {
-				console.log("카드 등록은 처음입니다..")
-				$('#front-photo-img').attr('src', '../image/xbox.png');
-				$('#front-photo-path').val('../image/xbox.png');
-				
-				$('#back-photo-img').attr('src', '../image/template1.jpg');
-				$('#back-photo-path').val('../image/template1.jpg');
-				
-				$('#photo-img').attr('src', '../image/stmp4.png');
-				$('#photo-path').val('../image/stmp4.png');
-				
-				$('img.backcard').load(function() {
-					updateStmpsideSize();
-					updateMidtopSize();
-					updateBtmlineSize();
-					updateFrontimgdivSize();
-				});
-				
-				clickStampPosition();
-				save();
+				$('<div>')
+				.addClass('stmpare')
+				.addClass('stampNo' + (positionOrder - 1))
+				.appendTo("#stmpside")
+				.text(positionOrder)
+				.draggable({containment : 'parent'})
+				.css({top: positionY, left: positionX})
+				.addTouch();
 			}
+			
+			stampNo = stampCardInfo.stampPositionList.length;
+			$('.midNum').text(stampNo);
+
+			addStampPosition();
+			save();
+			
+		} else {
+			console.log("카드 등록은 처음입니다..")
+			$('#front-photo-img').attr('src', '../image/xbox.png');
+			$('#front-photo-path').val('../image/xbox.png');
+			
+			$('#back-photo-img').attr('src', '../image/template1.jpg');
+			$('#back-photo-path').val('../image/template1.jpg');
+			
+			$('#photo-img').attr('src', '../image/stmp4.png');
+			$('#photo-path').val('../image/stmp4.png');
+			
+			$('img.backcard').load(function() {
+				updateStmpsideSize();
+				updateMidtopSize();
+				updateBtmlineSize();
+				updateFrontimgdivSize();
+			});
+			
+			addStampPosition();
+			save();
+		}
 			
 	});
 }
@@ -128,7 +126,7 @@ function updateFrontimgdivSize() {
 
 
 /*******************스탬프 영역 추가하기*********************/
-function clickStampPosition() {
+function addStampPosition() {
 	$(document.body).on('click', '.pbtn', function(event) {
 	  if (stampNo + 1 > 20) {$('.cd_alert2').css('display', 'inline-block'); return;}
 	  $('<div>')
