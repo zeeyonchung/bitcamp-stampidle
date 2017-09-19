@@ -9,7 +9,6 @@ import bitcamp.java89.ems2.dao.CafeTimeDao;
 import bitcamp.java89.ems2.dao.MenuDao;
 import bitcamp.java89.ems2.dao.TagDao;
 import bitcamp.java89.ems2.domain.Cafe;
-import bitcamp.java89.ems2.domain.CafeAdd;
 import bitcamp.java89.ems2.domain.CafeMember;
 import bitcamp.java89.ems2.domain.CafePhoto;
 import bitcamp.java89.ems2.domain.CafeTime;
@@ -33,10 +32,10 @@ public class CafeImpl implements CafeService {
   }
 
   @Override
-  public void add(CafeAdd cafe) throws Exception {
+  public void add(Cafe cafe) throws Exception {
     
-	if (cafe.getCafe() != null) {
-		cafeDao.insert(cafe.getCafe());
+	if (cafe.getCafeMemberNo() > 0) {
+		cafeDao.insert(cafe);
 	}
     
     for (CafeTime cafeTime : cafe.getCafeTimeList()) {

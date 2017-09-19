@@ -316,9 +316,8 @@
     height: 62px;
     overflow: hidden;
     vertical-align: middle;
-    background:#fff;
     border-radius:40px;
-    background:#f8f8f8;
+    background:#dedede;
     text-align:center;
     cursor:pointer;
 }

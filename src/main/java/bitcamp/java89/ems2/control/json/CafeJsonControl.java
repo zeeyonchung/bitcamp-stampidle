@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java89.ems2.domain.Cafe;
-import bitcamp.java89.ems2.domain.CafeAdd;
 import bitcamp.java89.ems2.domain.CafePhoto;
 import bitcamp.java89.ems2.domain.CafeTime;
 import bitcamp.java89.ems2.domain.Comment;
@@ -50,7 +49,7 @@ public class CafeJsonControl {
   
   
   @RequestMapping("/admin/cafe/add")
-  public AjaxResult add(@RequestBody CafeAdd cafe) throws Exception {
+  public AjaxResult add(@RequestBody Cafe cafe) throws Exception {
     cafeService.add(cafe);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }

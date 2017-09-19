@@ -30,19 +30,6 @@ function prepareNewForm() {
 		
 	$('.btn-add').click(function(event) {
 		
-		/* 카페정보 정보 */
-		var cafeinfo = {
-				cafeMemberNo: cafeMemberNo,
-				cafeName: $('#cafeName').val(),
-				intro: $('#introcafe').val(),
-				cafeTel: $('#cafeTel1').val() + "-" + $('.cafeTel2').val() + "-" + $('.cafeTel3').val(),
-				postCode: $('.postNo').val(),
-				address: $('.addr').val(),
-				detailAddress: $('.daddr').val(),
-				chairNo: parseInt($('#chairNo').val()),
-				logPath: $('#photo-path').val()
-		};
-		
 		
 		/* 영업시간 */
 		var workTimeList = [];
@@ -107,7 +94,15 @@ function prepareNewForm() {
 		}
 		
 		
-		var param = {cafe: cafeinfo,
+		var param = {cafeMemberNo: cafeMemberNo,
+					cafeName: $('#cafeName').val(),
+					intro: $('#introcafe').val(),
+					cafeTel: $('#cafeTel1').val() + "-" + $('.cafeTel2').val() + "-" + $('.cafeTel3').val(),
+					postCode: $('.postNo').val(),
+					address: $('.addr').val(),
+					detailAddress: $('.daddr').val(),
+					chairNo: parseInt($('#chairNo').val()),
+					logPath: $('#photo-path').val(),
 					cafeTimeList: workTimeList,
 					tag: cafeTag,
 					cafePhotoList: cafePhotoList,
