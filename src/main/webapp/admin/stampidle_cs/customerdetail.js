@@ -42,7 +42,7 @@ function loadPage(){
 		currentStampCount = ajaxResult.data.currentStampCount;
 		console.log(cardDetail);
 		
-		$('#card-back').attr('src', serverRoot + '/../upload/' + cardDetail.backImgPath); /* 하... 경로가.....ㅠㅠ */
+		$('#card-back').attr('src', serverRoot + '/../upload/' + cardDetail.backImgPath);
 		$('.current-stamp-count').text(currentStampCount);
 	
 		
