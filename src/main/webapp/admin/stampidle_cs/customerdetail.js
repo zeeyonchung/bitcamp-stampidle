@@ -38,7 +38,7 @@ function loadPage(){
 			return;
 		}
 		
-		cardDetail = ajaxResult.data.cardDetail;
+		cardDetail = ajaxResult.data;
 		currentStampCount = ajaxResult.data.currentStampCount;
 		console.log(cardDetail);
 		

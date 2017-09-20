@@ -86,8 +86,10 @@ public class CustomCardJsonControl {
   
   @RequestMapping(value = {"/admin/customCard/customCardDetail", "/cstmr_m/customCard/customCardDetail"})
   public AjaxResult customCardDetail(int customMemberNo, int cafeMemberNo) throws Exception {
-    Map<String, Object> resultMap = customCardService.getCustomCardDetail(customMemberNo, cafeMemberNo);
-    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+	int currentStampCount = customCardService.getCurrentStampCount(customMemberNo, cafeMemberNo);
+	CustomCard customCard = customCardService.getCardDetail(customMemberNo, cafeMemberNo);
+	customCard.setCurrentStampCount(currentStampCount);
+    return new AjaxResult(AjaxResult.SUCCESS, customCard);
   }
   
   

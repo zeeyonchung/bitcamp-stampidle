@@ -83,7 +83,7 @@ public class CafeJsonControl {
   public AjaxResult detail(int cafeMemberNo, int customMemberNo) throws Exception {
     Map<String, Object> resultMap = new HashMap<>();
     
-    CustomCard customCard = (CustomCard)customCardService.getCustomCardDetail(customMemberNo, cafeMemberNo).get("cardDetail");
+    CustomCard customCard = customCardService.getCardDetail(customMemberNo, cafeMemberNo);
     if (customCard != null) {
       int customCardNo = customCard.getCustomCardNo();
       resultMap.put("customCardNo", customCardNo);

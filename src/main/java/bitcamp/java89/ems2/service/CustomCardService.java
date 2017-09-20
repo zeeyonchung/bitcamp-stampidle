@@ -12,7 +12,8 @@ public interface CustomCardService {
   Map<String, Object> getCustomDetail(int customMemberNo, int cafeMemberNo) throws Exception;
   List<CustomCard> getList(int cafeMemberNo, int pageNo, int pageSize) throws Exception;
   List<CustomCard> getListSelect(int cafeMemberNo, String selectCafeList, int pageNo, int pageSize) throws Exception;
-  Map<String, Object> getCustomCardDetail(int customMemberNo, int cafeMemberNo) throws Exception;
+  int getCurrentStampCount(int customMemberNo, int cafeMemberNo) throws Exception;
+  CustomCard getCardDetail(int customMemberNo, int cafeMemberNo) throws Exception;
   void addStamp(int cafeMemberNo, int customMemberNo, int stampIssueCount) throws Exception;
   void addGiftNewCustomCard(int cafeMemberNo, String name, String tel, int usedFreeNum, int giveCustomMemberNo) throws Exception;
   void addNewCustomCard(int cafeMemberNo, int customMemberNo) throws Exception;

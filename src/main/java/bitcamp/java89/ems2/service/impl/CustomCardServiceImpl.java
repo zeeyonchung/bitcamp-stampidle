@@ -216,23 +216,11 @@ public class CustomCardServiceImpl implements CustomCardService {
 
 
   @Override
-  public Map<String, Object> getCustomCardDetail(int customMemberNo, int cafeMemberNo) throws Exception {
-    HashMap<String, Object> resultMap = new HashMap<>();
+  public int getCurrentStampCount(int customMemberNo, int cafeMemberNo) throws Exception {
     
     HashMap<String, Object> paramMap = new HashMap<>();
     paramMap.put("customMemberNo", customMemberNo);
     paramMap.put("cafeMemberNo", cafeMemberNo);
-    
-    List<CustomCard> cardDetails = customCardDao.getCardDetail(paramMap);
-    
-    if (cardDetails.size() == 0) {
-      return resultMap;
-    }
-    
-    CustomCard cardDetail = cardDetails.get(0);
-    
-    resultMap.put("cardDetail", cardDetail);
-    
     List<CustomCard> customCardDetailList = customCardDao.getCustomCardDetail(paramMap);
     
     // 현재 모인 스탬프 수
@@ -246,9 +234,24 @@ public class CustomCardServiceImpl implements CustomCardService {
       currentStampCount = 0;
     }
     
-    resultMap.put("currentStampCount", currentStampCount);
+    return currentStampCount;
+  }
+  
+  
+  @Override
+  public CustomCard getCardDetail(int customMemberNo, int cafeMemberNo) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("customMemberNo", customMemberNo);
+    paramMap.put("cafeMemberNo", cafeMemberNo);
     
-    return resultMap;
+    List<CustomCard> cardDetails = customCardDao.getCardDetail(paramMap);
+    
+    if (cardDetails.size() == 0) {
+      return null;
+    }
+    
+    CustomCard cardDetail = cardDetails.get(0);
+    return cardDetail;
   }
 
 
