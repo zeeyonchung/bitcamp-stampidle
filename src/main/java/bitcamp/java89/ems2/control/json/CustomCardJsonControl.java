@@ -83,7 +83,7 @@ public class CustomCardJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
-  
+  ///************************************************************************************************************///
   @RequestMapping(value = {"/admin/customCard/customCardDetail", "/cstmr_m/customCard/customCardDetail"})
   public AjaxResult customCardDetail(int customMemberNo, int cafeMemberNo) throws Exception {
 	int currentStampCount = customCardService.getCurrentStampCount(customMemberNo, cafeMemberNo);
@@ -91,7 +91,7 @@ public class CustomCardJsonControl {
 	customCard.setCurrentStampCount(currentStampCount);
     return new AjaxResult(AjaxResult.SUCCESS, customCard);
   }
-  
+  ///************************************************************************************************************///
   
   @RequestMapping(value = "/admin/customCard/addStamp")
   public AjaxResult addStamp(int cafeMemberNo, int customMemberNo, int stampIssueCount) throws Exception {

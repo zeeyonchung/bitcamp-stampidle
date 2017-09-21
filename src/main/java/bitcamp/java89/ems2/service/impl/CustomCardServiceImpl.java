@@ -214,7 +214,7 @@ public class CustomCardServiceImpl implements CustomCardService {
     return customCardDao.getListSelect(paramMap); 
   }
 
-
+  ///************************************************************************************************************///
   @Override
   public int getCurrentStampCount(int customMemberNo, int cafeMemberNo) throws Exception {
     
@@ -253,7 +253,7 @@ public class CustomCardServiceImpl implements CustomCardService {
     CustomCard cardDetail = cardDetails.get(0);
     return cardDetail;
   }
-
+  ///************************************************************************************************************///
 
   @Override
   public void addStamp(int customMemberNo, int cafeMemberNo, int stampIssueCount) throws Exception {

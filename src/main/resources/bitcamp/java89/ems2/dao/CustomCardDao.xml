@@ -271,7 +271,7 @@ where
   order by mcard.mcno desc
   </select>
   
-  
+  <!--*****************************************************************************************************************-->
    <select id="getCustomCardDetail" parameterType="java.util.Map" resultMap="customCard-map">
 	  select
 		  mcard.mcuse,
@@ -306,7 +306,7 @@ where
 	  and mcard.mcuse=0
 	order by mcard.mcno desc
   </select>
-  
+  <!--*****************************************************************************************************************-->
   
   
   <select id="getList" parameterType="java.util.Map" resultMap="customCard-map">
